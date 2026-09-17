@@ -1,0 +1,32 @@
+# BTCUSDT linear perps on Binance USD-M and Bybit v5.
+# Knobs are unused until the ingest/exec commits land. Names are stable.
+
+symbol: BTCUSDT
+venues:
+  - binance
+  - bybit
+
+# Injected decision+order delay. 0ms is a fantasy; 50–200ms is the honest laptop case.
+delay_ms: 50
+
+# Take / initiate if the leader (Binance) moved at least this many ticks
+# and the follower has not.
+signal_ticks: 2
+
+# Multi-leg execution
+max_imbalance_btc: 0.01
+hedge_timeout_ms: 200
+size_btc: 0.001
+
+# Fees in basis points of notional (1 bp = 0.01%). VIP-0-ish defaults, not MM rebates.
+fees_bps:
+  binance_taker: 5.0
+  binance_maker: 2.0
+  bybit_taker: 5.5
+  bybit_maker: 2.0
+
+# Kill switches
+risk:
+  max_position_btc: 0.05
+  max_daily_loss_usdt: 25.0
+  stale_feed_ms: 2000

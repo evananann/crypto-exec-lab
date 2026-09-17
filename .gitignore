@@ -1,0 +1,25 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.pem
+secrets.yaml
+
+# Local recordings and PDFs that are not this project
+data/raw/
+data/*.jsonl
+_pdf_pages/
+*.pdf
+
+# OS / editor
+.idea/
+.vscode/
