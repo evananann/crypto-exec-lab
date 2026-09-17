@@ -19,14 +19,12 @@ That is this repo.
 
 ## Status
 
-Scaffold only. Next: record public websockets, replay with sequence checks, then plots.
-
 | Piece | State |
 | --- | --- |
 | Layout, config names, glossary | done |
-| Recorder / replay | next |
-| Lead-lag and delayed markouts | not started |
-| Multi-leg robot + risk | not started |
+| Recorder / replay / sample fixture | done |
+| Lead-lag and delayed markouts | next |
+| Multi-leg robot + risk | not started | |
 
 ## Layout
 
@@ -51,10 +49,20 @@ Python 3.11+. No exchange API keys for public data.
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
+pip install -e .
 ```
 
 Recorded JSONL stays in `data/raw/` on your machine. Do not commit it.
+
+```bash
+python -m cel.ingest fixture
+python -m cel.ingest replay data/fixtures/sample.jsonl
+# live public sockets, ~30s, no API keys
+python -m cel.ingest record --seconds 30 --out data/raw/btc.jsonl
+python -m cel.ingest replay data/raw/btc.jsonl
+```
+
+`replay` reports hard gaps (out-of-order ids) vs forward skips (normal for Binance bookTicker update ids). `--drop-after-hard-gap` stops keeping that venue after a backward jump.
 
 ## Resume line (after v1)
 
