@@ -23,8 +23,8 @@ That is this repo.
 | --- | --- |
 | Layout, config names, glossary | done |
 | Recorder / replay / sample fixture | done |
-| Lead-lag and delayed markouts | next |
-| Multi-leg robot + risk | not started | |
+| Lead-lag and delayed markouts | done (fixture; live tape next) |
+| Multi-leg robot + risk | next | |
 
 ## Layout
 
@@ -60,7 +60,10 @@ python -m cel.ingest replay data/fixtures/sample.jsonl
 # live public sockets, ~30s, no API keys
 python -m cel.ingest record --seconds 30 --out data/raw/btc.jsonl
 python -m cel.ingest replay data/raw/btc.jsonl
+python -m cel.research
 ```
+
+Plots land in `reports/`. `RESEARCH.md` is the log of what survived fees and delay.
 
 `replay` reports hard gaps (out-of-order ids) vs forward skips (normal for Binance bookTicker update ids). `--drop-after-hard-gap` stops keeping that venue after a backward jump.
 
