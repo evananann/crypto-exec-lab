@@ -14,9 +14,11 @@ Thumbs.db
 *.pem
 secrets.yaml
 
-# Local recordings and PDFs that are not this project
+# Local recordings; fixtures in git are the exception
 data/raw/
 data/*.jsonl
+!data/fixtures/
+!data/fixtures/*.jsonl
 _pdf_pages/
 *.pdf
 
