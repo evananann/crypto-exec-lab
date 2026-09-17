@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import threading
 import time
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +13,7 @@ from websocket import WebSocketApp
 
 from cel.ingest.jsonl import write_event
 from cel.ingest.schema import Event
+from cel.ingest.top_book import TopBook
 
 BINANCE_WS = "wss://fstream.binance.com/stream?streams=btcusdt@bookTicker/btcusdt@aggTrade"
 BYBIT_WS = "wss://stream.bybit.com/v5/public/linear"
@@ -27,15 +29,24 @@ class Recorder:
         self._lock = threading.Lock()
         self._stop = threading.Event()
         self._written = 0
-        self._errors: list[str] = []
+        self.written_by_venue: Counter[str] = Counter()
+        self.errors: list[str] = []
+        self._sockets: list[WebSocketApp] = []
+        self._bybit_book = TopBook()
 
     def stop(self) -> None:
         self._stop.set()
+        for ws in list(self._sockets):
+            try:
+                ws.close()
+            except Exception:  # noqa: BLE001
+                pass
 
     def write(self, event: Event) -> None:
         with self._lock:
             write_event(self.out, event)
             self._written += 1
+            self.written_by_venue[event.venue] += 1
 
     def run(self, seconds: float) -> int:
         self.out.parent.mkdir(parents=True, exist_ok=True)
@@ -69,37 +80,48 @@ class Recorder:
                 if event is not None:
                     self.write(event)
             except Exception as exc:  # noqa: BLE001 — keep the socket alive
-                self._errors.append(f"binance: {exc}")
+                self._note(f"binance: {exc}")
 
-        def on_open(_ws: WebSocketApp) -> None:
-            pass
-
-        ws = WebSocketApp(BINANCE_WS, on_message=on_message, on_open=on_open)
+        ws = WebSocketApp(BINANCE_WS, on_message=on_message)
         self._run_ws(ws)
 
     def _bybit(self) -> None:
         def on_open(ws: WebSocketApp) -> None:
             ws.send(json.dumps(BYBIT_SUBSCRIBE))
+            threading.Thread(target=self._bybit_ping, args=(ws,), daemon=True).start()
 
         def on_message(_ws: WebSocketApp, message: str) -> None:
             if self._stop.is_set():
                 return
             try:
                 payload = json.loads(message)
-                for event in _parse_bybit(payload, self._now_ms()):
+                for event in _parse_bybit(payload, self._now_ms(), self._bybit_book):
                     self.write(event)
             except Exception as exc:  # noqa: BLE001
-                self._errors.append(f"bybit: {exc}")
+                self._note(f"bybit: {exc}")
 
         ws = WebSocketApp(BYBIT_WS, on_message=on_message, on_open=on_open)
         self._run_ws(ws)
 
+    def _bybit_ping(self, ws: WebSocketApp) -> None:
+        while not self._stop.wait(15):
+            try:
+                ws.send(json.dumps({"op": "ping"}))
+            except Exception:  # noqa: BLE001
+                return
+
+    def _note(self, msg: str) -> None:
+        with self._lock:
+            if len(self.errors) < 20:
+                self.errors.append(msg)
+
     def _run_ws(self, ws: WebSocketApp) -> None:
+        self._sockets.append(ws)
         while not self._stop.is_set():
             try:
-                ws.run_forever(ping_interval=15, ping_timeout=10)
+                ws.run_forever(ping_interval=20, ping_timeout=10)
             except Exception as exc:  # noqa: BLE001
-                self._errors.append(str(exc))
+                self._note(str(exc))
             if self._stop.is_set():
                 break
             time.sleep(1)
@@ -119,7 +141,6 @@ def _parse_binance(stream: str, data: dict[str, Any], local_ts: int) -> Event | 
             ask_sz=float(data["A"]),
         )
     if "aggTrade" in stream:
-        # m=True means the buyer was the maker → seller was the aggressor.
         aggressor = "sell" if data.get("m") else "buy"
         return Event(
             venue="binance",
@@ -134,14 +155,14 @@ def _parse_binance(stream: str, data: dict[str, Any], local_ts: int) -> Event | 
     return None
 
 
-def _parse_bybit(payload: dict[str, Any], local_ts: int) -> list[Event]:
+def _parse_bybit(payload: dict[str, Any], local_ts: int, book: TopBook) -> list[Event]:
     topic = str(payload.get("topic") or "")
     events: list[Event] = []
     if topic.startswith("orderbook.1"):
         data = payload.get("data") or {}
         bids = data.get("b") or []
         asks = data.get("a") or []
-        if not bids or not asks:
+        if not book.apply(bids, asks):
             return events
         events.append(
             Event(
@@ -150,10 +171,10 @@ def _parse_bybit(payload: dict[str, Any], local_ts: int) -> list[Event]:
                 exchange_ts=int(payload.get("ts") or local_ts),
                 local_ts=local_ts,
                 seq=int(data.get("u") or data.get("seq") or 0),
-                bid=float(bids[0][0]),
-                ask=float(asks[0][0]),
-                bid_sz=float(bids[0][1]),
-                ask_sz=float(asks[0][1]),
+                bid=book.bid,
+                ask=book.ask,
+                bid_sz=book.bid_sz,
+                ask_sz=book.ask_sz,
             )
         )
         return events

@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections import Counter
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from cel.ingest.gaps import GapTracker
@@ -19,6 +20,7 @@ class ReplayReport:
     n_hard_gaps: int
     n_forward_skips: int
     dropped_after_hard_gap: int
+    n_by_venue: dict[str, int] = field(default_factory=dict)
 
 
 def replay_list(path: Path, *, drop_after_hard_gap: bool = False) -> tuple[list[Event], ReplayReport]:
@@ -28,6 +30,7 @@ def replay_list(path: Path, *, drop_after_hard_gap: bool = False) -> tuple[list[
     dropped = 0
     n_bbo = 0
     n_trade = 0
+    by_venue: Counter[str] = Counter()
 
     for event in iter_events(path):
         if event.venue in dead_venues:
@@ -39,6 +42,7 @@ def replay_list(path: Path, *, drop_after_hard_gap: bool = False) -> tuple[list[
             dropped += 1
             continue
         kept.append(event)
+        by_venue[event.venue] += 1
         if event.kind == "bbo":
             n_bbo += 1
         else:
@@ -52,5 +56,6 @@ def replay_list(path: Path, *, drop_after_hard_gap: bool = False) -> tuple[list[
         n_hard_gaps=len(tracker.hard_gaps),
         n_forward_skips=sum(1 for gap in tracker.gaps if not gap.hard),
         dropped_after_hard_gap=dropped,
+        n_by_venue=dict(by_venue),
     )
     return kept, report

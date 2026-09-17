@@ -27,13 +27,17 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.cmd == "record":
-        n = Recorder(args.out).run(args.seconds)
-        print(f"wrote {n} events to {args.out}")
+        rec = Recorder(args.out)
+        n = rec.run(args.seconds)
+        print(f"wrote {n} events to {args.out} by_venue={dict(rec.written_by_venue)}")
+        if rec.errors:
+            print("errors:", "; ".join(rec.errors[:5]))
         return 0 if n else 1
     if args.cmd == "replay":
         events, report = replay_list(args.path, drop_after_hard_gap=args.drop_after_hard_gap)
         print(
             f"events={report.n_events} bbo={report.n_bbo} trades={report.n_trade} "
+            f"venues={report.n_by_venue} "
             f"hard_gaps={report.n_hard_gaps} forward_skips={report.n_forward_skips} "
             f"dropped={report.dropped_after_hard_gap}"
         )
