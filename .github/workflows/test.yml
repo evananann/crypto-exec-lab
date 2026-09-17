@@ -20,5 +20,5 @@ jobs:
       - name: Fixture CLIs
         run: |
           python -m cel.ingest replay data/fixtures/sample.jsonl
-          python -m cel.research
-          python -m cel.execution
+          python -m cel.research --path data/fixtures/sample.jsonl
+          python -m cel.execution --path data/fixtures/sample.jsonl

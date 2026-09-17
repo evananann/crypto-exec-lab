@@ -62,6 +62,9 @@ python -m cel.ingest record --seconds 30 --out data/raw/btc.jsonl
 python -m cel.ingest replay data/raw/btc.jsonl
 python -m cel.research
 python -m cel.execution
+# same on a live tape
+python -m cel.research --path data/raw/btc.jsonl
+python -m cel.execution --path data/raw/btc.jsonl
 ```
 
 Plots land in `reports/`. `RESEARCH.md` is the log of what survived fees and delay.

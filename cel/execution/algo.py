@@ -41,6 +41,7 @@ class AlgoConfig:
     max_imbalance: float = 0.01
     hedge_timeout_ms: int = 200
     taker_fee_bps: float = 5.0
+    hedge_fee_bps: float = 5.0
 
 
 @dataclass
@@ -72,7 +73,7 @@ def run_algo(events: list[Event], cfg: AlgoConfig) -> AlgoState:
     for tick in lead[1:]:
         move = tick.mid - prev.mid
         prev = tick
-        _maybe_timeout(state, follow, tick.exchange_ts, cfg)
+        _maybe_timeout(state, lead, follow, tick.exchange_ts, cfg)
         if state.killed:
             break
         if abs(move) < cfg.signal_move or state.pending is not None:
@@ -85,11 +86,12 @@ def run_algo(events: list[Event], cfg: AlgoConfig) -> AlgoState:
         side = Side.BUY if buy_follower else Side.SELL
         px = book.ask if buy_follower else book.bid
         _fill(state, book.exchange_ts, "bybit", side, px, cfg.size, "initiate")
-        state.pending = Leg("binance", Side.SELL if buy_follower else Side.BUY, tick.mid, cfg.size, tick.exchange_ts)
+        hedge_side = Side.SELL if buy_follower else Side.BUY
+        state.pending = Leg("binance", hedge_side, _aggressive_px(tick, hedge_side), cfg.size, tick.exchange_ts)
         state.pending_since = book.exchange_ts
         while f_i < len(follow) and follow[f_i].exchange_ts < decision_ts:
             f_i += 1
-    _maybe_timeout(state, follow, lead[-1].exchange_ts + cfg.hedge_timeout_ms + 1, cfg)
+    _maybe_timeout(state, lead, follow, lead[-1].exchange_ts + cfg.hedge_timeout_ms + 1, cfg)
     return state
 
 
@@ -97,6 +99,10 @@ def _fill(state: AlgoState, ts: int, venue: str, side: Side, px: float, sz: floa
     signed = sz if side is Side.BUY else -sz
     state.inventory[venue] = state.inventory.get(venue, 0.0) + signed
     state.fills.append(Fill(ts, venue, side, px, sz, reason))
+
+
+def _aggressive_px(book: MidTick, side: Side) -> float:
+    return book.ask if side is Side.BUY else book.bid
 
 
 def _book_at(series: list[MidTick], ts: int) -> MidTick | None:
@@ -108,31 +114,53 @@ def _book_at(series: list[MidTick], ts: int) -> MidTick | None:
     return last
 
 
-def _maybe_timeout(state: AlgoState, follow: list[MidTick], now: int, cfg: AlgoConfig) -> None:
+def _maybe_timeout(
+    state: AlgoState,
+    lead: list[MidTick],
+    follow: list[MidTick],
+    now: int,
+    cfg: AlgoConfig,
+) -> None:
     if state.pending is None or state.pending_since is None:
         return
     if now - state.pending_since < cfg.hedge_timeout_ms:
-        # Hedge on Binance using last known leader mid as a fill proxy (tape has no
-        # Binance trades required). This is a research fill, not a queue model.
-        if now >= state.pending_since:
-            _fill(
-                state,
-                now,
-                state.pending.venue,
-                state.pending.side,
-                state.pending.px,
-                state.pending.sz,
-                "hedge",
-            )
-            state.pending = None
-            state.pending_since = None
+        hedge_book = _book_at(lead, now)
+        px = _aggressive_px(hedge_book, state.pending.side) if hedge_book is not None else state.pending.px
+        _fill(
+            state,
+            now,
+            state.pending.venue,
+            state.pending.side,
+            px,
+            state.pending.sz,
+            "hedge",
+        )
+        state.pending = None
+        state.pending_since = None
         return
     book = _book_at(follow, now)
     if book is not None and abs(state.inventory.get("bybit", 0.0)) > 1e-12:
-        # flatten leftover on follower
         leftover = state.inventory["bybit"]
         side = Side.SELL if leftover > 0 else Side.BUY
         px = book.bid if leftover > 0 else book.ask
         _fill(state, book.exchange_ts, "bybit", side, px, abs(leftover), "timeout_flatten")
     state.pending = None
     state.pending_since = None
+
+
+def mark_to_market_usdt(state: AlgoState, mids_by_venue: dict[str, float], cfg: AlgoConfig) -> float:
+    """Cash from fills (after fees) plus leftover inventory at last mids."""
+    cash = 0.0
+    for fill in state.fills:
+        notional = fill.px * fill.sz
+        bps = cfg.taker_fee_bps if fill.venue == "bybit" else cfg.hedge_fee_bps
+        fee = notional * bps / 10_000.0
+        if fill.side is Side.BUY:
+            cash -= notional + fee
+        else:
+            cash += notional - fee
+    for venue, qty in state.inventory.items():
+        mid = mids_by_venue.get(venue)
+        if mid is not None:
+            cash += qty * mid
+    return cash

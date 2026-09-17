@@ -1,10 +1,12 @@
 # BTCUSDT linear perps on Binance USD-M and Bybit v5.
-# Knobs are unused until the ingest/exec commits land. Names are stable.
+# python -m cel.research and python -m cel.execution read this file.
 
 symbol: BTCUSDT
 venues:
   - binance
   - bybit
+
+tick_size: 0.1
 
 # Injected decision+order delay. 0ms is a fantasy; 50–200ms is the honest laptop case.
 delay_ms: 50
