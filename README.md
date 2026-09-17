@@ -24,7 +24,7 @@ That is this repo.
 | Layout, config names, glossary | done |
 | Recorder / replay / sample fixture | done |
 | Lead-lag and delayed markouts | done (fixture; live tape next) |
-| Multi-leg robot + risk | next | |
+| Multi-leg robot + risk | done on fixture | |
 
 ## Layout
 
@@ -61,13 +61,14 @@ python -m cel.ingest replay data/fixtures/sample.jsonl
 python -m cel.ingest record --seconds 30 --out data/raw/btc.jsonl
 python -m cel.ingest replay data/raw/btc.jsonl
 python -m cel.research
+python -m cel.execution
 ```
 
 Plots land in `reports/`. `RESEARCH.md` is the log of what survived fees and delay.
 
 `replay` reports hard gaps (out-of-order ids) vs forward skips (normal for Binance bookTicker update ids). `--drop-after-hard-gap` stops keeping that venue after a backward jump.
 
-## Resume line (after v1)
+## Resume line
 
 Built a Binance/Bybit BTC perp execution sim: leader-lag fair value, multi-leg hedge limits, delay/fee markouts, and a stale-feed kill switch.
 
