@@ -61,9 +61,9 @@ class AlgoState:
 
 def run_algo(events: list[Event], cfg: AlgoConfig) -> AlgoState:
     """
-    Leader jump on Binance → take Bybit after delay_ms, then take Binance the other way
-    to flatten coin risk. If the hedge does not land before hedge_timeout_ms, flatten
-    whatever is open at the last book.
+    Leader jump on the leader venue → take the follower after delay_ms, then take
+    the leader the other way to flatten coin risk. If the hedge does not land
+    before hedge_timeout_ms, flatten whatever is open at the last follower book.
     """
     state = AlgoState()
     lead = mids(events, cfg.leader)

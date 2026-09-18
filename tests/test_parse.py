@@ -4,6 +4,7 @@ from tempfile import TemporaryDirectory
 
 from cel.ingest.jsonl import JsonlWriter, iter_events, write_event
 from cel.ingest.parse import parse_binance_message, parse_bybit, parse_okx
+from cel.ingest.record import is_fatal_socket_error
 from cel.ingest.schema import Event
 from cel.ingest.top_book import TopBook
 from cel.research.mids import resolve_follower
@@ -110,3 +111,13 @@ class FollowerFallbackTests(unittest.TestCase):
             Event("okx", "bbo", 2, 2, 2, bid=1.0, ask=1.1, bid_sz=1, ask_sz=1),
         ]
         self.assertEqual(resolve_follower(events, "binance", "bybit"), "okx")
+
+
+class SocketErrorTests(unittest.TestCase):
+    def test_bybit_self_signed_is_fatal(self) -> None:
+        self.assertTrue(
+            is_fatal_socket_error(
+                "bybit: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate"
+            )
+        )
+        self.assertFalse(is_fatal_socket_error("binance: connection reset"))

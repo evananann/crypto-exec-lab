@@ -35,6 +35,16 @@ OKX_SUBSCRIBE = {
     ],
 }
 CONNECT_TIMEOUT_S = 8.0
+_FATAL_SOCKET_MARKERS = (
+    "certificate verify failed",
+    "certificate_verify_failed",
+    "handshake status",
+)
+
+
+def is_fatal_socket_error(msg: str) -> bool:
+    lower = msg.lower()
+    return any(marker in lower for marker in _FATAL_SOCKET_MARKERS)
 
 
 class Recorder:
@@ -61,14 +71,16 @@ class Recorder:
                 pass
 
     def write(self, event: Event) -> None:
-        assert self._writer is not None
         with self._lock:
+            if self._writer is None:
+                return
             self._writer.write(event)
             self._written += 1
             self.written_by_venue[event.venue] += 1
             self.written_by_kind[event.kind] += 1
 
     def run(self, seconds: float) -> int:
+        prev_timeout = socket.getdefaulttimeout()
         socket.setdefaulttimeout(CONNECT_TIMEOUT_S)
         self._writer = JsonlWriter(self.out, append=self.append)
         threads = [
@@ -84,10 +96,13 @@ class Recorder:
             while time.time() < deadline and not self._stop.is_set():
                 time.sleep(0.2)
         finally:
+            socket.setdefaulttimeout(prev_timeout)
             self.stop()
             time.sleep(0.4)
             with self._lock:
-                self._writer.close()
+                if self._writer is not None:
+                    self._writer.close()
+                    self._writer = None
         return self._written
 
     def _now_ms(self) -> int:
@@ -103,7 +118,7 @@ class Recorder:
         name = "binance"
 
         def on_open(_ws: WebSocketApp) -> None:
-            self.opened[name] += 1
+            self._mark_open(name)
 
         def on_message(_ws: WebSocketApp, message: str) -> None:
             if self._stop.is_set():
@@ -122,7 +137,7 @@ class Recorder:
 
     def _bybit(self) -> None:
         def on_open(ws: WebSocketApp) -> None:
-            self.opened["bybit"] += 1
+            self._mark_open("bybit")
             ws.send(json.dumps(BYBIT_SUBSCRIBE))
             threading.Thread(target=self._json_ping, args=(ws,), daemon=True).start()
 
@@ -145,7 +160,7 @@ class Recorder:
 
     def _okx(self) -> None:
         def on_open(ws: WebSocketApp) -> None:
-            self.opened["okx"] += 1
+            self._mark_open("okx")
             ws.send(json.dumps(OKX_SUBSCRIBE))
 
         def on_message(ws: WebSocketApp, message: str) -> None:
@@ -180,18 +195,31 @@ class Recorder:
             except Exception:  # noqa: BLE001
                 return
 
+    def _mark_open(self, name: str) -> None:
+        with self._lock:
+            self.opened[name] += 1
+
     def _note(self, msg: str) -> None:
         with self._lock:
-            if len(self.errors) < 20:
-                self.errors.append(msg)
+            if msg in self.errors or len(self.errors) >= 20:
+                return
+            self.errors.append(msg)
 
     def _run_ws(self, name: str, ws: WebSocketApp) -> None:
-        self._sockets.append(ws)
+        with self._lock:
+            self._sockets.append(ws)
         while not self._stop.is_set():
             try:
                 ws.run_forever(ping_interval=20, ping_timeout=10)
             except Exception as exc:  # noqa: BLE001
                 self._note(f"{name}: {exc}")
-            if self._stop.is_set():
+            if self._stop.is_set() or self._fatal_for(name):
                 break
             time.sleep(1)
+
+    def _fatal_for(self, name: str) -> bool:
+        venue = name.split("_", 1)[0]
+        with self._lock:
+            return any(
+                is_fatal_socket_error(msg) and venue in msg.lower() for msg in self.errors
+            )
