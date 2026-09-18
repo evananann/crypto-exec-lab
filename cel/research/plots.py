@@ -13,7 +13,7 @@ from cel.research.lead_lag import LagSample
 from cel.research.markout import Markout
 
 
-def plot_lead_lag(samples: list[LagSample], dest: Path) -> None:
+def plot_lead_lag(samples: list[LagSample], dest: Path, *, pair: str = "bybit after binance") -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     fig, ax = plt.subplots(figsize=(7, 4))
     values = [s.lag_ms for s in samples]
@@ -21,7 +21,7 @@ def plot_lead_lag(samples: list[LagSample], dest: Path) -> None:
         ax.hist(values, bins=min(20, max(5, len(values))), color="#333333")
     else:
         ax.text(0.5, 0.5, "no leader jumps in this tape", ha="center", va="center", transform=ax.transAxes)
-    ax.set_title("Bybit lag after Binance mid jump (ms)")
+    ax.set_title(f"{pair} lag after leader mid jump (ms)")
     ax.set_xlabel("lag (ms)")
     ax.set_ylabel("count")
     fig.tight_layout()
@@ -29,7 +29,7 @@ def plot_lead_lag(samples: list[LagSample], dest: Path) -> None:
     plt.close(fig)
 
 
-def plot_markouts(rows: list[Markout], dest: Path) -> None:
+def plot_markouts(rows: list[Markout], dest: Path, *, pair: str = "bybit taker") -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     fig, ax = plt.subplots(figsize=(7, 4))
     delays = sorted({r.delay_ms for r in rows})
@@ -43,7 +43,7 @@ def plot_markouts(rows: list[Markout], dest: Path) -> None:
     else:
         ax.text(0.5, 0.5, "no markouts in this tape", ha="center", va="center", transform=ax.transAxes)
     ax.axhline(0.0, color="#999999", linewidth=1)
-    ax.set_title("Delayed Bybit taker mean PnL vs delay (1s markout, bps)")
+    ax.set_title(f"Delayed {pair} mean PnL vs delay (1s markout, bps)")
     ax.set_xlabel("delay (ms)")
     ax.set_ylabel("mean PnL (bps)")
     fig.tight_layout()

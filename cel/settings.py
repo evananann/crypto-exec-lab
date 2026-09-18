@@ -7,14 +7,17 @@ from pathlib import Path
 
 import yaml
 
+from cel import REPO_ROOT
 from cel.execution.algo import AlgoConfig
 from cel.risk.limits import RiskLimits
 
-DEFAULT_CONFIG = Path("configs/btc_binance_bybit.yaml")
+DEFAULT_CONFIG = REPO_ROOT / "configs" / "btc_binance_bybit.yaml"
 
 
 @dataclass(frozen=True)
 class LabConfig:
+    leader: str
+    follower: str
     delay_ms: int
     signal_ticks: int
     tick_size: float
@@ -23,6 +26,7 @@ class LabConfig:
     hedge_timeout_ms: int
     binance_taker_bps: float
     bybit_taker_bps: float
+    okx_taker_bps: float
     max_position_btc: float
     stale_feed_ms: int
 
@@ -30,15 +34,26 @@ class LabConfig:
     def signal_move(self) -> float:
         return self.signal_ticks * self.tick_size
 
-    def algo(self) -> AlgoConfig:
+    def taker_bps(self, venue: str) -> float:
+        return {
+            "binance": self.binance_taker_bps,
+            "bybit": self.bybit_taker_bps,
+            "okx": self.okx_taker_bps,
+        }.get(venue, 5.0)
+
+    def algo(self, *, leader: str | None = None, follower: str | None = None) -> AlgoConfig:
+        lead = leader or self.leader
+        follow = follower or self.follower
         return AlgoConfig(
             delay_ms=self.delay_ms,
             signal_move=self.signal_move,
             size=self.size_btc,
             max_imbalance=self.max_imbalance_btc,
             hedge_timeout_ms=self.hedge_timeout_ms,
-            taker_fee_bps=self.bybit_taker_bps,
-            hedge_fee_bps=self.binance_taker_bps,
+            taker_fee_bps=self.taker_bps(follow),
+            hedge_fee_bps=self.taker_bps(lead),
+            leader=lead,
+            follower=follow,
         )
 
     def risk(self) -> RiskLimits:
@@ -54,6 +69,8 @@ def load_config(path: Path = DEFAULT_CONFIG) -> LabConfig:
     fees = raw.get("fees_bps") or {}
     risk = raw.get("risk") or {}
     return LabConfig(
+        leader=str(raw.get("leader", "binance")),
+        follower=str(raw.get("follower", "bybit")),
         delay_ms=int(raw.get("delay_ms", 50)),
         signal_ticks=int(raw.get("signal_ticks", 2)),
         tick_size=float(raw.get("tick_size", 0.1)),
@@ -62,6 +79,7 @@ def load_config(path: Path = DEFAULT_CONFIG) -> LabConfig:
         hedge_timeout_ms=int(raw.get("hedge_timeout_ms", 200)),
         binance_taker_bps=float(fees.get("binance_taker", 5.0)),
         bybit_taker_bps=float(fees.get("bybit_taker", 5.5)),
+        okx_taker_bps=float(fees.get("okx_taker", 5.0)),
         max_position_btc=float(risk.get("max_position_btc", 0.05)),
         stale_feed_ms=int(risk.get("stale_feed_ms", 2000)),
     )

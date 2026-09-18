@@ -5,18 +5,22 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from cel import REPO_ROOT
 from cel.ingest.fixture import DEFAULT_PATH, write_sample
 from cel.ingest.record import Recorder
 from cel.ingest.replay import replay_list
+
+DEFAULT_OUT = REPO_ROOT / "data" / "raw" / "btc.jsonl"
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m cel.ingest")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
-    rec = sub.add_parser("record", help="record public Binance+Bybit BTCUSDT perps")
+    rec = sub.add_parser("record", help="record public Binance + Bybit + OKX BTC perps")
     rec.add_argument("--seconds", type=float, default=30.0)
-    rec.add_argument("--out", type=Path, default=Path("data/raw/btc_binance_bybit.jsonl"))
+    rec.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    rec.add_argument("--append", action="store_true", help="do not truncate the out file")
 
     rep = sub.add_parser("replay", help="read JSONL and print a gap report")
     rep.add_argument("path", type=Path)
@@ -27,11 +31,17 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.cmd == "record":
-        rec = Recorder(args.out)
+        rec = Recorder(args.out, append=args.append)
         n = rec.run(args.seconds)
-        print(f"wrote {n} events to {args.out} by_venue={dict(rec.written_by_venue)}")
+        print(
+            f"wrote {n} events to {args.out} "
+            f"by_venue={dict(rec.written_by_venue)} by_kind={dict(rec.written_by_kind)} "
+            f"opened={dict(rec.opened)}"
+        )
         if rec.errors:
             print("errors:", "; ".join(rec.errors[:5]))
+        if n and "bybit" not in rec.written_by_venue:
+            print("note: Bybit sent 0 events (often blocked). OKX is the backup second venue.")
         return 0 if n else 1
     if args.cmd == "replay":
         events, report = replay_list(args.path, drop_after_hard_gap=args.drop_after_hard_gap)

@@ -2,7 +2,7 @@
 
 Terms this repo actually uses. Skip the rest of finance until you need it.
 
-**Venue / exchange.** A marketplace with its own matching engine. Binance and Bybit are two venues. Bitcoin is not one market; it is many books at once.
+**Venue / exchange.** A marketplace with its own matching engine. Binance, Bybit, and OKX are venues. Bitcoin is not one market; it is many books at once.
 
 **Spot.** Buy or sell the coin now, usually versus a stablecoin such as USDT (a token meant to stay near 1 US dollar).
 

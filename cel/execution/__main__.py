@@ -5,13 +5,14 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from cel import REPO_ROOT
 from cel.execution.algo import mark_to_market_usdt, run_algo
 from cel.ingest.replay import replay_list
-from cel.research.mids import mids
+from cel.research.mids import mids, resolve_follower
 from cel.risk.limits import check
 from cel.settings import DEFAULT_CONFIG, load_config
 
-FIXTURE = Path("data/fixtures/sample.jsonl")
+FIXTURE = REPO_ROOT / "data" / "fixtures" / "sample.jsonl"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -22,19 +23,24 @@ def main(argv: list[str] | None = None) -> int:
 
     cfg = load_config(args.config)
     events, report = replay_list(args.path)
-    state = run_algo(events, cfg.algo())
+    follower = resolve_follower(events, cfg.leader, cfg.follower)
+    if follower != cfg.follower:
+        print(f"no {cfg.follower} BBO on this tape; using {follower}")
+    algo_cfg = cfg.algo(leader=cfg.leader, follower=follower)
+    state = run_algo(events, algo_cfg)
     last = events[-1].exchange_ts if events else 0
     check(state, last_event_ts=last, now_ts=last, limits=cfg.risk())
     last_mids = {}
-    for venue in ("binance", "bybit"):
+    for venue in (cfg.leader, follower):
         series = mids(events, venue)
         if series:
             last_mids[venue] = series[-1].mid
-    pnl = mark_to_market_usdt(state, last_mids, cfg.algo())
-    print(f"path={args.path} venues={report.n_by_venue}")
+    pnl = mark_to_market_usdt(state, last_mids, algo_cfg)
+    print(f"path={args.path} venues={report.n_by_venue} pair={cfg.leader}->{follower}")
     print(
         f"fills={len(state.fills)} imbalance={state.imbalance:.6f} "
-        f"inv={state.inventory} killed={state.killed} pnl_usdt={pnl:.4f}"
+        f"inv={{{', '.join(f'{k}: {v:.6f}' for k, v in state.inventory.items())}}} "
+        f"killed={state.killed} pnl_usdt={pnl:.4f}"
     )
     return 0
 

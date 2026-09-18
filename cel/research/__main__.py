@@ -5,13 +5,15 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from cel import REPO_ROOT
 from cel.ingest.replay import replay_list
 from cel.research.lead_lag import lead_lag
 from cel.research.markout import delayed_taker_markouts
+from cel.research.mids import resolve_follower
 from cel.research.plots import plot_lead_lag, plot_markouts
 from cel.settings import DEFAULT_CONFIG, load_config
 
-FIXTURE = Path("data/fixtures/sample.jsonl")
+FIXTURE = REPO_ROOT / "data" / "fixtures" / "sample.jsonl"
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -24,7 +26,10 @@ def main(argv: list[str] | None = None) -> int:
     cfg = load_config(args.config)
     delays = tuple(int(x) for x in args.delays.split(",") if x.strip())
     events, report = replay_list(args.path)
-    lags = lead_lag(events, min_move=cfg.signal_move)
+    follower = resolve_follower(events, cfg.leader, cfg.follower)
+    if follower != cfg.follower:
+        print(f"no {cfg.follower} BBO on this tape; using {follower}")
+    lags = lead_lag(events, leader=cfg.leader, follower=follower, min_move=cfg.signal_move)
     markouts = []
     for delay in delays:
         markouts.extend(
@@ -32,14 +37,16 @@ def main(argv: list[str] | None = None) -> int:
                 events,
                 delay_ms=delay,
                 min_move=cfg.signal_move,
-                taker_fee_bps=cfg.bybit_taker_bps,
+                taker_fee_bps=cfg.taker_bps(follower),
+                leader=cfg.leader,
+                follower=follower,
             )
         )
-    plot_lead_lag(lags, Path("reports/lead_lag.png"))
-    plot_markouts(markouts, Path("reports/markout_vs_delay.png"))
+    plot_lead_lag(lags, REPO_ROOT / "reports" / "lead_lag.png", pair=f"{follower} after {cfg.leader}")
+    plot_markouts(markouts, REPO_ROOT / "reports" / "markout_vs_delay.png", pair=f"{follower} taker")
     mean_0 = _mean(markouts, 0, 1_000)
     mean_50 = _mean(markouts, 50, 1_000)
-    print(f"path={args.path} venues={report.n_by_venue}")
+    print(f"path={args.path} venues={report.n_by_venue} pair={cfg.leader}->{follower}")
     print(f"replay events={report.n_events} hard_gaps={report.n_hard_gaps}")
     print(f"lead_lag n={len(lags)} median_ms={_median([s.lag_ms for s in lags])}")
     print(f"taker_pnl_bps delay0={mean_0:.2f} delay50={mean_50:.2f} (1s horizon, fees on)")

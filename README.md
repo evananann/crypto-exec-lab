@@ -2,7 +2,7 @@
 
 Two-venue crypto **execution lab**, not a price-prediction bot.
 
-Public market data from **Binance** and **Bybit** BTCUSDT perpetuals. Measure who moves first, then simulate a **two-leg** trade (start on one venue, hedge the other) with **delay, fees, and kill switches**. The honest result we are after: the gap on the screen was not free, and it often dies once you wait 50–200ms.
+Public market data from **Binance**, **Bybit**, and **OKX** BTC perpetuals. Measure who moves first, then simulate a **two-leg** trade (start on one venue, hedge the other) with **delay, fees, and kill switches**. The honest result we are after: the gap on the screen was not free, and it often dies once you wait 50–200ms.
 
 Simulator only. No live orders, no claimed alpha, no colocation.
 
@@ -22,9 +22,9 @@ That is this repo.
 | Piece | State |
 | --- | --- |
 | Layout, config names, glossary | done |
-| Recorder / replay / sample fixture | done |
-| Lead-lag and delayed markouts | done (fixture; live tape next) |
-| Multi-leg robot + risk | done on fixture | |
+| Recorder / replay / sample fixture | done (live: Binance `/public`+`/market`; OKX backup if Bybit is blocked) |
+| Lead-lag and delayed markouts | done (fixture + live tape) |
+| Multi-leg robot + risk | done (fixture + live tape) | |
 
 ## Layout
 
@@ -54,11 +54,13 @@ pip install -e .
 
 Recorded JSONL stays in `data/raw/` on your machine. Do not commit it.
 
+Binance USD-M split its sockets in 2026: **bookTicker** on `/public`, **aggTrade** on `/market`. The recorder opens both. Bybit’s global socket is often unreachable from some networks; the recorder also writes **OKX** `BTC-USDT-SWAP` and the research/execution CLIs fall back to it when the tape has no Bybit BBO.
+
 ```bash
 python -m cel.ingest fixture
 python -m cel.ingest replay data/fixtures/sample.jsonl
 # live public sockets, ~30s, no API keys
-python -m cel.ingest record --seconds 30 --out data/raw/btc.jsonl
+python -m cel.ingest record --seconds 30
 python -m cel.ingest replay data/raw/btc.jsonl
 python -m cel.research
 python -m cel.execution
@@ -73,7 +75,7 @@ Plots land in `reports/`. `RESEARCH.md` is the log of what survived fees and del
 
 ## Resume line
 
-Built a Binance/Bybit BTC perp execution sim: leader-lag fair value, multi-leg hedge limits, delay/fee markouts, and a stale-feed kill switch.
+Built a Binance/Bybit/OKX BTC perp execution sim: leader-lag fair value, multi-leg hedge limits, delay/fee markouts, and a stale-feed kill switch.
 
 ## Not in v1
 

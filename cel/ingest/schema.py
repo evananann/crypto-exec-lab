@@ -6,7 +6,7 @@ from dataclasses import asdict, dataclass
 from typing import Any
 
 
-VENUES = ("binance", "bybit")
+VENUES = ("binance", "bybit", "okx")
 KINDS = ("bbo", "trade")
 SIDES = ("buy", "sell")
 

@@ -4,10 +4,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from cel import REPO_ROOT
 from cel.ingest.jsonl import write_event
 from cel.ingest.schema import Event
 
-DEFAULT_PATH = Path("data/fixtures/sample.jsonl")
+DEFAULT_PATH = REPO_ROOT / "data" / "fixtures" / "sample.jsonl"
 
 
 def build_sample_events() -> list[Event]:

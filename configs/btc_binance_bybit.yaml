@@ -1,17 +1,21 @@
-# BTCUSDT linear perps on Binance USD-M and Bybit v5.
+# BTCUSDT linear perps. Recorder tries Binance + Bybit + OKX.
 # python -m cel.research and python -m cel.execution read this file.
+# If the preferred follower has no BBO on the tape, the CLIs fall back (Bybit → OKX).
 
 symbol: BTCUSDT
+leader: binance
+follower: bybit
 venues:
   - binance
   - bybit
+  - okx
 
 tick_size: 0.1
 
 # Injected decision+order delay. 0ms is a fantasy; 50–200ms is the honest laptop case.
 delay_ms: 50
 
-# Take / initiate if the leader (Binance) moved at least this many ticks
+# Take / initiate if the leader moved at least this many ticks
 # and the follower has not.
 signal_ticks: 2
 
@@ -26,6 +30,8 @@ fees_bps:
   binance_maker: 2.0
   bybit_taker: 5.5
   bybit_maker: 2.0
+  okx_taker: 5.0
+  okx_maker: 2.0
 
 # Kill switches
 risk:
