@@ -50,23 +50,19 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
 pip install -e .
+python -m cel
 ```
 
-Recorded JSONL stays in `data/raw/` on your machine. Do not commit it.
-
-Binance USD-M split its sockets in 2026: **bookTicker** on `/public`, **aggTrade** on `/market`. The recorder opens both. Bybit’s global socket is often unreachable from some networks; the recorder also writes **OKX** `BTC-USDT-SWAP` and the research/execution CLIs fall back to it when the tape has no Bybit BBO.
+`python -m cel` is offline. It does not need Binance, Bybit, or a VPN. That is the clone demo.
 
 ```bash
 python -m cel.ingest fixture
 python -m cel.ingest replay data/fixtures/sample.jsonl
-# live public sockets, ~30s, no API keys
-python -m cel.ingest record --seconds 30
-python -m cel.ingest replay data/raw/btc.jsonl
 python -m cel.research
 python -m cel.execution
-# same on a live tape
+# live sockets only if they open from your network
+python -m cel.ingest record --seconds 30
 python -m cel.research --path data/raw/btc.jsonl
-python -m cel.execution --path data/raw/btc.jsonl
 ```
 
 Plots land in `reports/`. `RESEARCH.md` is the log of what survived fees and delay.
@@ -74,6 +70,17 @@ Plots land in `reports/`. `RESEARCH.md` is the log of what survived fees and del
 Research uses **local receive time** for decisions (you cannot trade the exchange’s clock). It also prints exchange-clock lag so you can see skew. Jumps are accumulated `$2` moves, not 1-tick noise. Markouts are vs the follower mid and vs the leader mid. The tape is split in half (walk-forward).
 
 `replay` reports hard gaps (out-of-order ids) vs forward skips (normal for Binance bookTicker update ids). `--drop-after-hard-gap` stops keeping that venue after a backward jump.
+
+## Screen notes
+
+Say this, then stop:
+
+- I can only act on **local** receive time. On a 3-min live tape, exchange-clock lag was 9ms; laptop lag was **35ms**.
+- A jump is a **$2** accumulated mid move, not a 1-tick flicker. **73%** of those jumps had a real print (≥0.05 BTC).
+- Delayed taker after the print: about **−4 bps** at 0ms and 50ms. First half and second half of the tape both lose.
+- I killed the trade. Fees and the spread ate the screen gap. Leftover risk is a basis book (net coin flat, ±venue).
+
+If they ask “why not live trade?”: this is a simulator. The point is the kill, not a PnL screenshot.
 
 ## Resume line
 
