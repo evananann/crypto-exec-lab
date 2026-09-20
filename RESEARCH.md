@@ -48,4 +48,31 @@ What I killed / kept:
 - Killed: “if I could only be faster than 50ms I would print” on this live tape too.
 - Kept: two-venue pipeline with an honest fallback venue, not a fake Bybit fill.
 
-Next: a 2–5 min tape when Bybit is reachable (VPN / another network), and compare Binance→Bybit vs Binance→OKX lags. Do not lower fees to manufacture a green plot.
+Next: a 2–5 min tape, local vs exchange clocks, $2 jumps (not 20-cent ticks), walk-forward. Do not lower fees to manufacture a green plot.
+
+## 2026-09-20
+
+Hypothesis: On a laptop you cannot act on the exchange clock. After requiring a $2 accumulated jump (not a 1-tick flicker), delayed OKX taker PnL is still negative, and the first half of the tape agrees with the second.
+
+Setup: 180s public sockets (`data/raw/btc.jsonl`, not committed). Binance `/public`+`/market`, OKX `BTC-USDT-SWAP`. Bybit still 0 (timeout). `clock: local`, `signal_usd: 2.0`, VIP-0 taker fees. Commands: `python -m cel.research --path data/raw/btc.jsonl` and `python -m cel.execution --path data/raw/btc.jsonl`. Fixture re-run with the same knobs: one sticky $8 jump, Bybit lags ~80ms by construction.
+
+Fixture (sanity, not a market fact):
+- Lead-lag exchange **80ms** / local **83ms** (n=1). Hit-rate delay50 **0/1**.
+- vs follower 1s: delay0 **−3.85 bps**, delay50 **−3.93 bps**. Robot: 2 fills, net 0, leftover +0.001 Bybit / −0.001 Binance, MTM **−0.055 USDT**. Walk-second has no jump (the move is in the first half).
+
+Live 180s tape:
+- **91,377 events**. Binance 82,847, OKX 8,530. BBO 85,681, trades 5,696. Hard gaps 0.
+- Lead-lag **exchange n=91 median 9ms** vs **local n=74 median 35ms**. The 15s “7ms lead” was exchange-clock skew. On receive time OKX is still not a 40ms-stale fixture, but it is not 9ms either.
+- Hit-rate at 50ms: **already moved 40/119 (34%)**. A third of the $2 jumps were gone before a 50ms taker.
+- vs follower mid, 1s, fees on: delay0 **−4.51 bps**, delay50 **−4.90 bps**. vs leader mid: delay0 **−4.55**, delay50 **−4.93**. Same story both ways: you paid spread+fee and did not harvest a jump.
+- Walk-forward: first half delay0 **−4.46** / delay50 **−4.75**; second **−4.51** / **−4.99**. Both red. Not one lucky minute.
+- Robot (accumulated $2 jumps, limits after every fill): **238 fills**, net 0, leftover +0.009 OKX / −0.009 Binance, MTM **−9.63 USDT**. Kill switch did not fire. The leftover is a basis book, not net coin.
+
+What I killed / kept:
+- Killed: treating exchange-clock lag as something a laptop can trade.
+- Killed: calling a $0.20 BTC tick a jump. Fees still dominate on $2 moves.
+- Killed: “the second half will save it.” It did not.
+- Kept: local clock, $2 threshold, hit-rate, dual markout, walk-forward, in-loop risk.
+
+Next: Bybit on a network that can reach `stream.bybit.com`, then compare Binance→Bybit vs Binance→OKX on the same clocks. Trades-as-signal is the next measurement, not a UI.
+

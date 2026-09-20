@@ -7,11 +7,13 @@ from pathlib import Path
 
 from cel import REPO_ROOT
 from cel.ingest.replay import replay_list
-from cel.research.lead_lag import lead_lag
+from cel.ingest.schema import Event
+from cel.research.jumps import split_by_time
+from cel.research.lead_lag import already_moved_rate, lead_lag
 from cel.research.markout import delayed_taker_markouts
 from cel.research.mids import resolve_follower
 from cel.research.plots import plot_lead_lag, plot_markouts
-from cel.settings import DEFAULT_CONFIG, load_config
+from cel.settings import DEFAULT_CONFIG, LabConfig, load_config
 
 FIXTURE = REPO_ROOT / "data" / "fixtures" / "sample.jsonl"
 
@@ -29,10 +31,55 @@ def main(argv: list[str] | None = None) -> int:
     follower = resolve_follower(events, cfg.leader, cfg.follower)
     if follower != cfg.follower:
         print(f"no {cfg.follower} BBO on this tape; using {follower}")
-    lags = lead_lag(events, leader=cfg.leader, follower=follower, min_move=cfg.signal_move)
-    markouts = []
+
+    lags_local = lead_lag(
+        events, leader=cfg.leader, follower=follower, min_move=cfg.signal_move, clock="local"
+    )
+    lags_exch = lead_lag(
+        events, leader=cfg.leader, follower=follower, min_move=cfg.signal_move, clock="exchange"
+    )
+    markouts = _markouts(events, cfg, follower, delays)
+    plot_lead_lag(
+        lags_local,
+        REPO_ROOT / "reports" / "lead_lag.png",
+        pair=f"{follower} after {cfg.leader} (local ts)",
+    )
+    plot_markouts(
+        markouts,
+        REPO_ROOT / "reports" / "markout_vs_delay.png",
+        pair=f"{follower} taker vs follower mid",
+    )
+
+    print(
+        f"path={args.path} venues={report.n_by_venue} pair={cfg.leader}->{follower} "
+        f"clock={cfg.clock} min_move={cfg.signal_move}"
+    )
+    print(f"replay events={report.n_events} hard_gaps={report.n_hard_gaps}")
+    print(
+        f"lead_lag exchange n={len(lags_exch)} median_ms={_median([s.lag_ms for s in lags_exch])} "
+        f"| local n={len(lags_local)} median_ms={_median([s.lag_ms for s in lags_local])}"
+    )
+    already50, n50 = already_moved_rate(
+        events,
+        delay_ms=50,
+        leader=cfg.leader,
+        follower=follower,
+        min_move=cfg.signal_move,
+        clock="local",
+    )
+    pct = (100.0 * already50 / n50) if n50 else 0.0
+    print(f"hit_rate delay50 already_moved={already50}/{n50} ({pct:.0f}%)")
+    _print_markouts("full", markouts)
+    first, second = split_by_time(events, clock="local")
+    _print_markouts("walk_first", _markouts(first, cfg, follower, delays))
+    _print_markouts("walk_second", _markouts(second, cfg, follower, delays))
+    return 0
+
+
+def _markouts(events: list[Event], cfg: LabConfig, follower: str, delays: tuple[int, ...]):
+    rows = []
     for delay in delays:
-        markouts.extend(
+        rows.extend(
             delayed_taker_markouts(
                 events,
                 delay_ms=delay,
@@ -40,21 +87,30 @@ def main(argv: list[str] | None = None) -> int:
                 taker_fee_bps=cfg.taker_bps(follower),
                 leader=cfg.leader,
                 follower=follower,
+                clock="local",
             )
         )
-    plot_lead_lag(lags, REPO_ROOT / "reports" / "lead_lag.png", pair=f"{follower} after {cfg.leader}")
-    plot_markouts(markouts, REPO_ROOT / "reports" / "markout_vs_delay.png", pair=f"{follower} taker")
-    mean_0 = _mean(markouts, 0, 1_000)
-    mean_50 = _mean(markouts, 50, 1_000)
-    print(f"path={args.path} venues={report.n_by_venue} pair={cfg.leader}->{follower}")
-    print(f"replay events={report.n_events} hard_gaps={report.n_hard_gaps}")
-    print(f"lead_lag n={len(lags)} median_ms={_median([s.lag_ms for s in lags])}")
-    print(f"taker_pnl_bps delay0={mean_0:.2f} delay50={mean_50:.2f} (1s horizon, fees on)")
-    return 0
+    return rows
 
 
-def _mean(rows, delay: int, horizon: int) -> float:
-    chunk = [r.pnl_bps for r in rows if r.delay_ms == delay and r.horizon_ms == horizon]
+def _print_markouts(label: str, rows) -> None:
+    f0 = _mean(rows, 0, 1_000, "follower")
+    f50 = _mean(rows, 50, 1_000, "follower")
+    l0 = _mean(rows, 0, 1_000, "leader")
+    l50 = _mean(rows, 50, 1_000, "leader")
+    n = sum(1 for r in rows if r.delay_ms == 0 and r.horizon_ms == 1_000 and r.vs == "follower")
+    print(
+        f"{label} n={n} vs_follower delay0={f0:.2f} delay50={f50:.2f} | "
+        f"vs_leader delay0={l0:.2f} delay50={l50:.2f} (1s, fees on, bps)"
+    )
+
+
+def _mean(rows, delay: int, horizon: int, vs: str) -> float:
+    chunk = [
+        r.pnl_bps
+        for r in rows
+        if r.delay_ms == delay and r.horizon_ms == horizon and r.vs == vs
+    ]
     return sum(chunk) / len(chunk) if chunk else 0.0
 
 

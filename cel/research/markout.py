@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-
-import yaml
 from pathlib import Path
 
+import yaml
+
 from cel.ingest.schema import Event
-from cel.research.mids import mids
+from cel.research.jumps import book_at, leader_jumps
+from cel.research.mids import mids, tick_ts
 
 
 @dataclass(frozen=True)
@@ -19,6 +20,7 @@ class Markout:
     later_mid: float
     side: str
     pnl_bps: float
+    vs: str = "follower"
 
 
 def load_fees_bps(config_path: Path) -> dict[str, float]:
@@ -31,48 +33,39 @@ def delayed_taker_markouts(
     *,
     delay_ms: int,
     horizons_ms: tuple[int, ...] = (50, 1_000, 10_000),
-    min_move: float = 0.2,
+    min_move: float = 2.0,
     taker_fee_bps: float = 5.0,
     leader: str = "binance",
     follower: str = "bybit",
+    clock: str = "local",
 ) -> list[Markout]:
     lead = mids(events, leader)
     follow = mids(events, follower)
-    if len(lead) < 2 or not follow:
+    if not follow:
         return []
     out: list[Markout] = []
-    prev = lead[0]
-    f_i = 0
-    for tick in lead[1:]:
-        move = tick.mid - prev.mid
-        prev = tick
-        if abs(move) < min_move:
+    for jump in leader_jumps(lead, min_move=min_move):
+        jump_ts = tick_ts(jump.tick, clock)
+        decision_ts = jump_ts + delay_ms
+        book = book_at(follow, decision_ts, clock)
+        if book is None:
             continue
-        buy = move > 0
-        decision_ts = tick.exchange_ts + delay_ms
-        while f_i < len(follow) and follow[f_i].exchange_ts <= decision_ts:
-            f_i += 1
-        if f_i == 0:
-            continue
-        book = follow[f_i - 1]
+        buy = jump.move > 0
         fill = book.ask if buy else book.bid
         side = "buy" if buy else "sell"
+        fee = taker_fee_bps / 10_000.0 * fill
         for horizon in horizons_ms:
-            later_ts = tick.exchange_ts + horizon
-            later_mid = _mid_at(follow, later_ts)
-            if later_mid is None:
-                continue
-            raw = (later_mid - fill) if buy else (fill - later_mid)
-            fee = taker_fee_bps / 10_000.0 * fill
-            pnl_bps = (raw - fee) / fill * 10_000.0
-            out.append(Markout(delay_ms, horizon, fill, later_mid, side, pnl_bps))
+            later_ts = jump_ts + horizon
+            for vs, series in (("follower", follow), ("leader", lead)):
+                later_mid = _mid_at(series, later_ts, clock)
+                if later_mid is None:
+                    continue
+                raw = (later_mid - fill) if buy else (fill - later_mid)
+                pnl_bps = (raw - fee) / fill * 10_000.0
+                out.append(Markout(delay_ms, horizon, fill, later_mid, side, pnl_bps, vs))
     return out
 
 
-def _mid_at(series, ts: int) -> float | None:
-    last = None
-    for tick in series:
-        if tick.exchange_ts > ts:
-            break
-        last = tick.mid
-    return last
+def _mid_at(series, ts: int, clock: str) -> float | None:
+    book = book_at(series, ts, clock)
+    return None if book is None else book.mid

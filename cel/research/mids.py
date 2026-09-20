@@ -19,6 +19,12 @@ class MidTick:
     ask_sz: float
 
 
+def tick_ts(tick: MidTick, clock: str) -> int:
+    if clock == "local":
+        return tick.local_ts
+    return tick.exchange_ts
+
+
 def bbo_venues(events: list[Event]) -> set[str]:
     return {event.venue for event in events if event.kind == "bbo"}
 

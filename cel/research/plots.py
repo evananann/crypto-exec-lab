@@ -36,7 +36,11 @@ def plot_markouts(rows: list[Markout], dest: Path, *, pair: str = "bybit taker")
     horizon = 1_000
     means = []
     for delay in delays:
-        chunk = [r.pnl_bps for r in rows if r.delay_ms == delay and r.horizon_ms == horizon]
+        chunk = [
+            r.pnl_bps
+            for r in rows
+            if r.delay_ms == delay and r.horizon_ms == horizon and r.vs == "follower"
+        ]
         means.append(sum(chunk) / len(chunk) if chunk else 0.0)
     if delays:
         ax.plot(delays, means, marker="o", color="#333333")

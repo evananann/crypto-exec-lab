@@ -21,8 +21,8 @@ def build_sample_events() -> list[Event]:
 
     for i in range(80):
         px = 60_000.0 + (i // 10) * 0.5
-        if i == 40:
-            px += 8.0  # leader jump
+        if i >= 40:
+            px += 8.0  # leader jump that sticks
         events.append(
             Event(
                 venue="binance",

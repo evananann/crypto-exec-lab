@@ -12,3 +12,6 @@ class ConfigTests(unittest.TestCase):
         self.assertEqual(cfg.follower, "bybit")
         self.assertEqual(cfg.algo().follower, "bybit")
         self.assertEqual(cfg.taker_bps("okx"), cfg.okx_taker_bps)
+        self.assertEqual(cfg.signal_move, 2.0)
+        self.assertEqual(cfg.clock, "local")
+        self.assertEqual(cfg.risk().max_loss_usdt, cfg.max_daily_loss_usdt)

@@ -12,12 +12,16 @@ venues:
 
 tick_size: 0.1
 
+# You can only act when the message arrives. exchange = venue clock (can be skew).
+clock: local
+
 # Injected decision+order delay. 0ms is a fantasy; 50–200ms is the honest laptop case.
 delay_ms: 50
 
-# Take / initiate if the leader moved at least this many ticks
-# and the follower has not.
-signal_ticks: 2
+# Jump size in USD. 2.0 on BTC is a real move, not a 1-tick flicker inside the spread.
+# signal_ticks is the fallback if signal_usd is omitted (20 * 0.1 = 2.0).
+signal_usd: 2.0
+signal_ticks: 20
 
 # Multi-leg execution
 max_imbalance_btc: 0.01
@@ -33,7 +37,7 @@ fees_bps:
   okx_taker: 5.0
   okx_maker: 2.0
 
-# Kill switches
+# Kill switches (checked after every fill, not at the end)
 risk:
   max_position_btc: 0.05
   max_daily_loss_usdt: 25.0

@@ -23,8 +23,8 @@ That is this repo.
 | --- | --- |
 | Layout, config names, glossary | done |
 | Recorder / replay / sample fixture | done (live: Binance `/public`+`/market`; OKX backup if Bybit is blocked) |
-| Lead-lag and delayed markouts | done (fixture + live tape) |
-| Multi-leg robot + risk | done (fixture + live tape) | |
+| Lead-lag and delayed markouts | done (local vs exchange clock; $2 jumps; hit-rate; walk-forward) |
+| Multi-leg robot + risk | done (limits after every fill: per-venue, net coin, MTM loss, stale feed) | |
 
 ## Layout
 
@@ -71,11 +71,13 @@ python -m cel.execution --path data/raw/btc.jsonl
 
 Plots land in `reports/`. `RESEARCH.md` is the log of what survived fees and delay.
 
+Research uses **local receive time** for decisions (you cannot trade the exchange’s clock). It also prints exchange-clock lag so you can see skew. Jumps are accumulated `$2` moves, not 1-tick noise. Markouts are vs the follower mid and vs the leader mid. The tape is split in half (walk-forward).
+
 `replay` reports hard gaps (out-of-order ids) vs forward skips (normal for Binance bookTicker update ids). `--drop-after-hard-gap` stops keeping that venue after a backward jump.
 
 ## Resume line
 
-Built a Binance/Bybit/OKX BTC perp execution sim: leader-lag fair value, multi-leg hedge limits, delay/fee markouts, and a stale-feed kill switch.
+Built a Binance/Bybit/OKX BTC perp execution sim: local-clock leader-lag, fee markouts vs both books, multi-leg hedge, and kill switches that actually fire mid-tape.
 
 ## Not in v1
 
