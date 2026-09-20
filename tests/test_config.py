@@ -15,3 +15,4 @@ class ConfigTests(unittest.TestCase):
         self.assertEqual(cfg.signal_move, 2.0)
         self.assertEqual(cfg.clock, "local")
         self.assertEqual(cfg.risk().max_loss_usdt, cfg.max_daily_loss_usdt)
+        self.assertEqual(cfg.signal_btc, 0.05)

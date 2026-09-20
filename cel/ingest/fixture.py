@@ -55,7 +55,20 @@ def build_sample_events() -> list[Event]:
             )
         )
         bybit_seq += 1
-        if i % 11 == 0:
+        if i == 40:
+            events.append(
+                Event(
+                    venue="binance",
+                    kind="trade",
+                    exchange_ts=t0 + i * 10 + 1,
+                    local_ts=t0 + i * 10 + 3,
+                    seq=10_000 + i,
+                    px=px + 0.1,
+                    sz=0.2,
+                    side="buy",
+                )
+            )
+        elif i % 11 == 0:
             events.append(
                 Event(
                     venue="binance",

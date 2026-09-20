@@ -84,6 +84,7 @@
 {"venue":"bybit","kind":"bbo","exchange_ts":1700000000430,"local_ts":1700000000435,"seq":5039,"bid":60001.4,"ask":60001.6,"bid_sz":0.7,"ask_sz":0.9,"px":null,"sz":null,"side":null}
 {"venue":"binance","kind":"bbo","exchange_ts":1700000000400,"local_ts":1700000000402,"seq":1040,"bid":60009.9,"ask":60010.1,"bid_sz":1.2,"ask_sz":0.8,"px":null,"sz":null,"side":null}
 {"venue":"bybit","kind":"bbo","exchange_ts":1700000000440,"local_ts":1700000000445,"seq":5040,"bid":60001.9,"ask":60002.1,"bid_sz":0.7,"ask_sz":0.9,"px":null,"sz":null,"side":null}
+{"venue":"binance","kind":"trade","exchange_ts":1700000000401,"local_ts":1700000000403,"seq":10040,"bid":null,"ask":null,"bid_sz":null,"ask_sz":null,"px":60010.1,"sz":0.2,"side":"buy"}
 {"venue":"binance","kind":"bbo","exchange_ts":1700000000410,"local_ts":1700000000412,"seq":1041,"bid":60009.9,"ask":60010.1,"bid_sz":1.2,"ask_sz":0.8,"px":null,"sz":null,"side":null}
 {"venue":"bybit","kind":"bbo","exchange_ts":1700000000450,"local_ts":1700000000455,"seq":5041,"bid":60001.9,"ask":60002.1,"bid_sz":0.7,"ask_sz":0.9,"px":null,"sz":null,"side":null}
 {"venue":"binance","kind":"bbo","exchange_ts":1700000000420,"local_ts":1700000000422,"seq":1042,"bid":60009.9,"ask":60010.1,"bid_sz":1.2,"ask_sz":0.8,"px":null,"sz":null,"side":null}

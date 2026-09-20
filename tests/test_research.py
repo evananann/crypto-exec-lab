@@ -1,9 +1,10 @@
 import unittest
 
 from cel.ingest.fixture import build_sample_events
+from cel.research.flow import confirm_jumps, leader_trades
 from cel.research.jumps import book_at, leader_jumps, split_by_time
-from cel.research.lead_lag import already_moved_rate, lead_lag
-from cel.research.markout import delayed_taker_markouts
+from cel.research.lead_lag import already_moved_rate, lead_lag, lead_lag_after_trades
+from cel.research.markout import delayed_taker_after_trades, delayed_taker_markouts
 from cel.research.mids import mids
 
 
@@ -59,6 +60,24 @@ class ResearchTests(unittest.TestCase):
         self.assertLessEqual(book.local_ts, mid_ts)
         later = book_at(series, mid_ts - 1, "local")
         self.assertNotEqual(later and later.local_ts, series[10].local_ts)
+
+    def test_large_leader_print_is_a_signal(self) -> None:
+        events = build_sample_events()
+        trades = leader_trades(events, venue="binance", min_sz=0.05, clock="local")
+        self.assertEqual(len(trades), 1)
+        self.assertEqual(trades[0].side, "buy")
+        confirmed, n = confirm_jumps(
+            leader_jumps(mids(events, "binance"), min_move=2.0),
+            trades,
+            clock="local",
+            window_ms=50,
+        )
+        self.assertEqual(n, 1)
+        self.assertEqual(confirmed, 1)
+        lags = lead_lag_after_trades(events, min_sz=0.05, min_move=2.0, clock="local")
+        self.assertTrue(lags)
+        marks = delayed_taker_after_trades(events, delay_ms=0, min_sz=0.05)
+        self.assertTrue(marks)
 
 
 def _median(xs: list[int]) -> int:

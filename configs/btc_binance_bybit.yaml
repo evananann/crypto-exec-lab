@@ -23,6 +23,11 @@ delay_ms: 50
 signal_usd: 2.0
 signal_ticks: 20
 
+# Leader print must be at least this many BTC to count as flow (not a 1-lot flicker).
+signal_btc: 0.05
+# A mid jump is "confirmed" if a same-direction leader trade lands within this window.
+trade_confirm_ms: 50
+
 # Multi-leg execution
 max_imbalance_btc: 0.01
 hedge_timeout_ms: 200

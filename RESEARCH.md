@@ -67,12 +67,15 @@ Live 180s tape:
 - vs follower mid, 1s, fees on: delay0 **−4.51 bps**, delay50 **−4.90 bps**. vs leader mid: delay0 **−4.55**, delay50 **−4.93**. Same story both ways: you paid spread+fee and did not harvest a jump.
 - Walk-forward: first half delay0 **−4.46** / delay50 **−4.75**; second **−4.51** / **−4.99**. Both red. Not one lucky minute.
 - Robot (accumulated $2 jumps, limits after every fill): **238 fills**, net 0, leftover +0.009 OKX / −0.009 Binance, MTM **−9.63 USDT**. Kill switch did not fire. The leftover is a basis book, not net coin.
+- Trade signal (`signal_btc=0.05`): **606** leader prints. **87/119 (73%)** of $2 mid jumps had a same-direction print within 50ms — most jumps were real flow, not quote flicker.
+- After those prints: local lag n=399, median **33ms**. Delayed taker vs follower: delay0 **−3.94 bps**, delay50 **−4.90 bps**. Same kill as the mid-jump path. A print is not a free lunch either.
 
 What I killed / kept:
 - Killed: treating exchange-clock lag as something a laptop can trade.
 - Killed: calling a $0.20 BTC tick a jump. Fees still dominate on $2 moves.
 - Killed: “the second half will save it.” It did not.
-- Kept: local clock, $2 threshold, hit-rate, dual markout, walk-forward, in-loop risk.
+- Killed: “if I wait for a real print instead of a quote jump I would print.”
+- Kept: local clock, $2 threshold, hit-rate, dual markout, walk-forward, in-loop risk, trade confirmation.
 
-Next: Bybit on a network that can reach `stream.bybit.com`, then compare Binance→Bybit vs Binance→OKX on the same clocks. Trades-as-signal is the next measurement, not a UI.
+Next: Bybit on a network that can reach `stream.bybit.com`, then compare Binance→Bybit vs Binance→OKX on the same clocks. Do not add a UI.
 

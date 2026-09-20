@@ -34,6 +34,8 @@ Terms this repo actually uses. Skip the rest of finance until you need it.
 
 **Jump.** An accumulated mid move of `signal_usd` (default $2), not a one-tick flicker inside the spread.
 
+**Trade / print / flow.** A public trade on the leader. A mid jump with no same-direction print can be quote flicker. This lab also takes delayed follower fills after a leader print of at least `signal_btc`.
+
 **Hit rate / already moved.** After waiting `delay_ms`, has the follower book already repriced with the leader. If yes, there was nothing left to take.
 
 **Basis.** Gap between two related prices (Binance vs Bybit, or perp vs spot).

@@ -23,7 +23,7 @@ That is this repo.
 | --- | --- |
 | Layout, config names, glossary | done |
 | Recorder / replay / sample fixture | done (live: Binance `/public`+`/market`; OKX backup if Bybit is blocked) |
-| Lead-lag and delayed markouts | done (local vs exchange clock; $2 jumps; hit-rate; walk-forward) |
+| Lead-lag and delayed markouts | done (local vs exchange clock; $2 jumps; hit-rate; walk-forward; leader prints) |
 | Multi-leg robot + risk | done (limits after every fill: per-venue, net coin, MTM loss, stale feed) | |
 
 ## Layout

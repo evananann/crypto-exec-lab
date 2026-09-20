@@ -32,6 +32,8 @@ class LabConfig:
     max_daily_loss_usdt: float
     stale_feed_ms: int
     clock: str
+    signal_btc: float
+    trade_confirm_ms: int
 
     @property
     def signal_move(self) -> float:
@@ -96,4 +98,6 @@ def load_config(path: Path = DEFAULT_CONFIG) -> LabConfig:
         max_daily_loss_usdt=float(risk.get("max_daily_loss_usdt", 25.0)),
         stale_feed_ms=int(risk.get("stale_feed_ms", 2000)),
         clock=str(raw.get("clock", "local")),
+        signal_btc=float(raw.get("signal_btc", 0.05)),
+        trade_confirm_ms=int(raw.get("trade_confirm_ms", 50)),
     )

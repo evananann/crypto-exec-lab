@@ -8,10 +8,11 @@ from pathlib import Path
 from cel import REPO_ROOT
 from cel.ingest.replay import replay_list
 from cel.ingest.schema import Event
-from cel.research.jumps import split_by_time
-from cel.research.lead_lag import already_moved_rate, lead_lag
-from cel.research.markout import delayed_taker_markouts
-from cel.research.mids import resolve_follower
+from cel.research.flow import confirm_jumps, leader_trades
+from cel.research.jumps import leader_jumps, split_by_time
+from cel.research.lead_lag import already_moved_rate, lead_lag, lead_lag_after_trades
+from cel.research.markout import delayed_taker_after_trades, delayed_taker_markouts
+from cel.research.mids import mids, resolve_follower
 from cel.research.plots import plot_lead_lag, plot_markouts
 from cel.settings import DEFAULT_CONFIG, LabConfig, load_config
 
@@ -69,11 +70,51 @@ def main(argv: list[str] | None = None) -> int:
     )
     pct = (100.0 * already50 / n50) if n50 else 0.0
     print(f"hit_rate delay50 already_moved={already50}/{n50} ({pct:.0f}%)")
+    trades = leader_trades(events, venue=cfg.leader, min_sz=cfg.signal_btc, clock="local")
+    confirmed, n_jumps = confirm_jumps(
+        leader_jumps(mids(events, cfg.leader), min_move=cfg.signal_move),
+        trades,
+        clock="local",
+        window_ms=cfg.trade_confirm_ms,
+    )
+    conf_pct = (100.0 * confirmed / n_jumps) if n_jumps else 0.0
+    trade_lags = lead_lag_after_trades(
+        events,
+        leader=cfg.leader,
+        follower=follower,
+        min_sz=cfg.signal_btc,
+        min_move=cfg.signal_move,
+        clock="local",
+    )
+    print(
+        f"trade_flow n={len(trades)} min_sz={cfg.signal_btc} "
+        f"mid_jumps_confirmed={confirmed}/{n_jumps} ({conf_pct:.0f}%) "
+        f"lead_lag_trade n={len(trade_lags)} median_ms={_median([s.lag_ms for s in trade_lags])}"
+    )
     _print_markouts("full", markouts)
+    trade_markouts = _trade_markouts(events, cfg, follower, delays)
+    _print_markouts("trade", trade_markouts)
     first, second = split_by_time(events, clock="local")
     _print_markouts("walk_first", _markouts(first, cfg, follower, delays))
     _print_markouts("walk_second", _markouts(second, cfg, follower, delays))
     return 0
+
+
+def _trade_markouts(events: list[Event], cfg: LabConfig, follower: str, delays: tuple[int, ...]):
+    rows = []
+    for delay in delays:
+        rows.extend(
+            delayed_taker_after_trades(
+                events,
+                delay_ms=delay,
+                min_sz=cfg.signal_btc,
+                taker_fee_bps=cfg.taker_bps(follower),
+                leader=cfg.leader,
+                follower=follower,
+                clock="local",
+            )
+        )
+    return rows
 
 
 def _markouts(events: list[Event], cfg: LabConfig, follower: str, delays: tuple[int, ...]):
