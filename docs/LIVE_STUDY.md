@@ -106,6 +106,15 @@ labels, missing checksums, and expired data. Each accepted archive gets a
 `.provenance.json` receipt; the final report artifact includes those receipts.
 A checksum alone is integrity evidence, not proof of the collection source.
 
+Reports require restored directories to match their manifests exactly: extra
+files, missing files, symbolic links, and non-file entries are rejected before
+evaluation. Keep report outputs outside the session root. The report and its
+status/evaluation sidecars must have distinct paths and cannot overwrite the
+frozen plan, configuration, analysis sources, or session evidence. If a report
+has no released eligible tapes but evaluation sidecars already exist at its
+output path, generation stops; use a fresh output name to avoid bundling stale
+outcomes with a new coverage report.
+
 The `frozen study report` Actions workflow performs those steps after October 24
 03:47 UTC (11:47 Shanghai), or on manual dispatch after release. It uses the
 repository's injected Actions read token, never an exchange credential. It

@@ -200,6 +200,52 @@ class StudyTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             report(self.plan_path, self.root, self.plan_path)
 
+    def test_unlisted_tape_cannot_be_used_as_verified_evidence(self):
+        directory = self.collect(datetime(2026, 10, 17, 3, 20, tzinfo=timezone.utc))
+        path = directory / 'manifest.json'
+        manifest = json.loads(path.read_text())
+        del manifest['files']['tape.jsonl']
+        path.write_text(json.dumps(manifest))
+        with patch('cel.study.evaluate') as evaluate, self.assertRaisesRegex(ValueError, 'membership'):
+            report(self.plan_path, self.root, self.directory / 'report.md')
+        evaluate.assert_not_called()
+
+    def test_symlinked_session_evidence_is_rejected(self):
+        directory = self.collect(datetime(2026, 10, 17, 3, 20, tzinfo=timezone.utc))
+        tape = directory / 'tape.jsonl'
+        external = self.directory / 'external.jsonl'
+        tape.rename(external)
+        tape.symlink_to(external)
+        with self.assertRaisesRegex(ValueError, 'symlink'):
+            report(self.plan_path, self.root, self.directory / 'report.md')
+
+    def test_report_and_sidecars_cannot_overwrite_session_evidence(self):
+        directory = self.collect(datetime(2026, 10, 17, 3, 20, tzinfo=timezone.utc))
+        before = {p.name: p.read_bytes() for p in directory.iterdir()}
+        for output in (directory / 'tape.jsonl', directory / 'new-report.md'):
+            with self.subTest(output=output), self.assertRaisesRegex(ValueError, 'session evidence'):
+                report(self.plan_path, self.root, output)
+        self.assertEqual(before, {p.name: p.read_bytes() for p in directory.iterdir()})
+
+    def test_report_rejects_output_aliases_and_frozen_source_targets(self):
+        output = self.directory / 'report.md'
+        output.with_suffix('.status.json').symlink_to(output)
+        for output in (output,
+                       Path(__file__).resolve().parents[1] / 'cel' / 'research' / 'evaluate.py'):
+            with self.subTest(output=output), self.assertRaises(ValueError):
+                report(self.plan_path, self.root, output)
+        load_plan(self.plan_path)
+
+    def test_unreleased_report_cannot_reuse_released_evaluation_artifacts(self):
+        self.collect(datetime(2026, 10, 23, 3, 20, tzinfo=timezone.utc))
+        output = self.directory / 'report.md'
+        report(self.plan_path, self.root, output, now=datetime(2026, 10, 24, tzinfo=timezone.utc))
+        before = output.read_bytes()
+        with patch('cel.study.evaluate') as evaluate, self.assertRaisesRegex(ValueError, 'stale evaluation'):
+            report(self.plan_path, self.root, output, now=datetime(2026, 10, 23, tzinfo=timezone.utc))
+        evaluate.assert_not_called()
+        self.assertEqual(output.read_bytes(), before)
+
 
 class InstrumentTests(unittest.TestCase):
     def test_verified_contract_value_and_invalid_instrument_cases(self):

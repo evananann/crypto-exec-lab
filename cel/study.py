@@ -208,7 +208,14 @@ def restore_archive(archive: Path, root: Path) -> Path:
 
 
 def verify_directory(directory: Path, plan_path: Path) -> dict:
+    entries = list(directory.iterdir())
+    if any(p.is_symlink() or not p.is_file() for p in entries):
+        raise ValueError('session contains a symlink or non-file entry')
     manifest = json.loads((directory / 'manifest.json').read_text())
+    if {p.name for p in entries} != {*manifest['files'], 'manifest.json'}:
+        raise ValueError('session membership mismatch')
+    if 'plan.json' not in manifest['files']:
+        raise ValueError('session must checksum its archived plan')
     if manifest['plan_sha256'] != file_sha256(plan_path):
         raise ValueError('session uses a different frozen plan')
     for name, digest in manifest['files'].items():
@@ -243,8 +250,16 @@ def condition_metrics(path: Path, leader: str, max_age_ms: int) -> dict:
 
 def report(plan_path: Path, root: Path, out: Path, *, now=None) -> dict:
     plan, config = load_plan(plan_path)
-    if out.resolve() in (plan_path.resolve(), config.resolve()):
-        raise ValueError('report must not overwrite frozen inputs')
+    outputs = [out, *(out.with_suffix(suffix) for suffix in
+                     ('.status.json', '.evaluation.json', '.evaluation.md'))]
+    resolved = [p.resolve() for p in outputs]
+    if len(set(resolved)) != len(resolved):
+        raise ValueError('report output paths must be distinct')
+    repository = Path(__file__).resolve().parents[1]
+    protected = {plan_path.resolve(), config.resolve(),
+                 *((repository / name).resolve() for name in plan['analysis_files_sha256'])}
+    if any(p.is_relative_to(root.resolve()) or p in protected for p in resolved):
+        raise ValueError('report must not overwrite frozen inputs or session evidence')
     now = now or utc_now()
     sessions = []
     seen = set()
@@ -277,6 +292,8 @@ def report(plan_path: Path, root: Path, out: Path, *, now=None) -> dict:
     release = now.astimezone(timezone.utc).date() > date.fromisoformat(plan['end_date_utc'])
     # Never even pass holdout tapes to evaluate until the release date.
     analyzable = [(p, m) for p, m in eligible if m['phase'] != 'holdout' or release]
+    if not analyzable and any(p.exists() or p.is_symlink() for p in outputs[2:]):
+        raise ValueError('stale evaluation artifacts exist; choose a fresh report output path')
     state = {'study_id': plan['study_id'], 'as_of_utc': now.isoformat(),
              'plan_sha256': file_sha256(plan_path), 'expected_sessions': len(expected),
              'received_sessions': len(sessions), 'eligible_sessions': len(eligible),
