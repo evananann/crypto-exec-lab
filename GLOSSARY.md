@@ -47,3 +47,13 @@ Terms this repo actually uses. Skip the rest of finance until you need it.
 **Markout.** After a fill, does the mid move for you or against you over 50ms / 1s / 10s? This lab marks vs the **follower** mid (you paid the spread) and vs the **leader** mid (did you capture the jump).
 
 **Kill switch.** Automatic stop checked after every fill: too big on one venue, too much net coin, too much MTM loss, or a **stale feed** (no messages for too long).
+
+## Simulation measurement conventions
+
+- **Signal-relative horizon:** a markout at 1000ms is measured 1000ms after the signal, not after the delayed fill.
+- **Quote time vs fill time:** the quote must already have arrived; simulated execution occurs when the order latency elapses.
+- **Displayed-size budget:** simulated fills consume remaining L1 size; they cannot walk into unseen depth or replenish an identical snapshot.
+- **Pending hedge:** filled first-leg quantity still awaiting its offsetting fill. The tape ending does not resolve it.
+- **Risk-stopped with inventory:** new entries are disabled, but unavailable fresh size prevented complete liquidation.
+- **Quantity unit:** BTC, native contracts, or unknown legacy units. A contract count is not a BTC amount without instrument metadata.
+- **Entry-to-mid markout:** a hypothetical entry marked to a later mid, with one entry fee. It excludes exit costs and is not round-trip PnL.

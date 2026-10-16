@@ -5,21 +5,44 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    env:
+      MPLBACKEND: Agg
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-      - name: Install
-        run: pip install -e .
-      - name: Unit tests
-        run: python -m unittest discover -s tests -v
-      - name: Fixture CLIs
+          python-version: ${{ matrix.python }}
+      - name: Install locked dependencies
         run: |
-          python -m cel
-          python -m cel.ingest replay data/fixtures/sample.jsonl
-          python -m cel.research --path data/fixtures/sample.jsonl
-          python -m cel.execution --path data/fixtures/sample.jsonl
+          python -m pip install uv==0.12.23
+          uv sync --frozen --extra dev --python ${{ matrix.python }}
+      - name: Lint
+        run: uv run --frozen --extra dev ruff check .
+      - name: Unit and adversarial tests
+        run: uv run --frozen --extra dev python -m unittest discover -s tests -v
+      - name: Fixture CLIs and audit artifacts
+        run: |
+          uv run --frozen python -m cel
+          uv run --frozen python -m cel.ingest replay data/fixtures/sample.jsonl
+          uv run --frozen python -m cel.research --path data/fixtures/sample.jsonl --out-dir data/raw/ci-plots
+          uv run --frozen python -m cel.execution --path data/fixtures/sample.jsonl --out data/raw/ci-execution.json
+          uv run --frozen python -m cel.research.evaluate data/fixtures/sample.jsonl --out data/raw/ci-evaluation.json --markdown data/raw/ci-evaluation.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: research-checks-python-${{ matrix.python }}
+          path: |
+            data/raw/ci-*.json
+            data/raw/ci-*.md
+            data/raw/ci-plots/*.png
+          if-no-files-found: error
+          retention-days: 7

@@ -20,7 +20,7 @@ def plot_lead_lag(samples: list[LagSample], dest: Path, *, pair: str = "bybit af
     if values:
         ax.hist(values, bins=min(20, max(5, len(values))), color="#333333")
     else:
-        ax.text(0.5, 0.5, "no leader jumps in this tape", ha="center", va="center", transform=ax.transAxes)
+        ax.text(0.5, 0.5, "no matched follower response", ha="center", va="center", transform=ax.transAxes)
     ax.set_title(f"{pair} lag after leader mid jump (ms)")
     ax.set_xlabel("lag (ms)")
     ax.set_ylabel("count")
@@ -32,8 +32,9 @@ def plot_lead_lag(samples: list[LagSample], dest: Path, *, pair: str = "bybit af
 def plot_markouts(rows: list[Markout], dest: Path, *, pair: str = "bybit taker") -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     fig, ax = plt.subplots(figsize=(7, 4))
-    delays = sorted({r.delay_ms for r in rows})
     horizon = 1_000
+    rows = [r for r in rows if r.horizon_ms == horizon and r.vs == "follower"]
+    delays = sorted({r.delay_ms for r in rows})
     means = []
     for delay in delays:
         chunk = [

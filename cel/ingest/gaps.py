@@ -28,6 +28,8 @@ class GapTracker:
     gaps: list[Gap] = field(default_factory=list)
 
     def observe(self, event: Event) -> Gap | None:
+        if event.sequence_kind != "sequence":
+            return None  # opaque IDs and timestamps do not define sequence gaps
         key = (event.venue, event.kind)
         prev = self.last.get(key)
         self.last[key] = event.seq

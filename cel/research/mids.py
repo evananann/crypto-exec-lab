@@ -22,7 +22,9 @@ class MidTick:
 def tick_ts(tick: MidTick, clock: str) -> int:
     if clock == "local":
         return tick.local_ts
-    return tick.exchange_ts
+    if clock == "exchange":
+        return tick.exchange_ts
+    raise ValueError("clock must be local or exchange")
 
 
 def bbo_venues(events: list[Event]) -> set[str]:
@@ -59,4 +61,5 @@ def mids(events: list[Event], venue: str) -> list[MidTick]:
                 ask_sz=event.ask_sz or 0.0,
             )
         )
+    out.sort(key=lambda tick: tick.local_ts)
     return out

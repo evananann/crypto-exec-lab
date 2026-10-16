@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import bisect
+import math
 from dataclasses import dataclass
 
 from cel.ingest.schema import Event
@@ -18,6 +19,8 @@ class LeaderJump:
 
 def leader_jumps(series: list[MidTick], *, min_move: float = 2.0) -> list[LeaderJump]:
     """A jump is an accumulated mid move of min_move from the last accepted baseline."""
+    if not math.isfinite(min_move) or min_move <= 0:
+        raise ValueError("min_move must be finite and positive")
     if len(series) < 2:
         return []
     out: list[LeaderJump] = []

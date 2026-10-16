@@ -3,15 +3,18 @@
 from __future__ import annotations
 
 import json
+import math
 import socket
 import threading
 import time
 from collections import Counter
 from pathlib import Path
 from typing import Any
+from uuid import uuid4
 
 from websocket import WebSocketApp
 
+from cel.artifacts import write_json_atomic
 from cel.ingest.jsonl import JsonlWriter
 from cel.ingest.parse import parse_binance_message, parse_bybit, parse_okx
 from cel.ingest.schema import Event
@@ -48,7 +51,15 @@ def is_fatal_socket_error(msg: str) -> bool:
 
 
 class Recorder:
-    def __init__(self, out: Path, *, append: bool = False) -> None:
+    def __init__(self, out: Path, *, append: bool = False, okx_contract_value_btc: float | None = None) -> None:
+        if okx_contract_value_btc is not None and (not math.isfinite(okx_contract_value_btc) or okx_contract_value_btc <= 0):
+            raise ValueError("OKX contract value must be finite and positive")
+        self.okx_contract_value_btc = okx_contract_value_btc
+        self._used = False
+        self._utc_anchor_ns = time.time_ns()
+        self._mono_anchor_ns = time.monotonic_ns()
+        self.metadata_path: Path | None = None
+        self._threads: list[threading.Thread] = []
         self.out = out
         self.append = append
         self._lock = threading.Lock()
@@ -72,7 +83,7 @@ class Recorder:
 
     def write(self, event: Event) -> None:
         with self._lock:
-            if self._writer is None:
+            if self._writer is None or self._stop.is_set():
                 return
             self._writer.write(event)
             self._written += 1
@@ -80,33 +91,59 @@ class Recorder:
             self.written_by_kind[event.kind] += 1
 
     def run(self, seconds: float) -> int:
+        if not math.isfinite(seconds) or seconds <= 0:
+            raise ValueError("recording duration must be finite and positive")
+        if self._used:
+            raise RuntimeError("Recorder instances are single-use; create a new session")
+        # Exclusive creation prevents an accidental second run from truncating a tape.
+        self._writer = JsonlWriter(self.out, append=self.append, exclusive=not self.append)
+        self._used = True
         prev_timeout = socket.getdefaulttimeout()
         socket.setdefaulttimeout(CONNECT_TIMEOUT_S)
-        self._writer = JsonlWriter(self.out, append=self.append)
-        threads = [
+        self._threads = [
             threading.Thread(target=self._binance_bbo, name="binance_bbo", daemon=True),
             threading.Thread(target=self._binance_trade, name="binance_trade", daemon=True),
             threading.Thread(target=self._bybit, name="bybit", daemon=True),
             threading.Thread(target=self._okx, name="okx", daemon=True),
         ]
-        for thread in threads:
-            thread.start()
-        deadline = time.time() + seconds
+        started = time.monotonic()
         try:
-            while time.time() < deadline and not self._stop.is_set():
-                time.sleep(0.2)
+            for thread in self._threads:
+                thread.start()
+            deadline = started + seconds
+            while not self._stop.is_set():
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    break
+                self._stop.wait(min(0.2, remaining))
         finally:
-            socket.setdefaulttimeout(prev_timeout)
             self.stop()
-            time.sleep(0.4)
+            join_deadline = time.monotonic() + CONNECT_TIMEOUT_S + 1
+            for thread in self._threads:
+                if thread.ident is not None:
+                    thread.join(timeout=max(0, join_deadline - time.monotonic()))
+            socket.setdefaulttimeout(prev_timeout)
             with self._lock:
                 if self._writer is not None:
                     self._writer.close()
                     self._writer = None
+            self.metadata_path = self.out.with_name(self.out.name + "." + uuid4().hex + ".meta.json")
+            metadata = {
+                "schema_version": 1, "tape": str(self.out.resolve()),
+                "appended": self.append, "duration_seconds": time.monotonic() - started,
+                "clock": "UTC anchor plus monotonic elapsed milliseconds; not exchange latency",
+                "utc_anchor_ns": self._utc_anchor_ns,
+                "okx_contract_value_btc": self.okx_contract_value_btc,
+                "events": self._written, "by_venue": dict(self.written_by_venue),
+                "by_kind": dict(self.written_by_kind), "opened": dict(self.opened),
+                "errors": list(self.errors),
+                "workers_still_running": [t.name for t in self._threads if t.is_alive()],
+            }
+            write_json_atomic(self.metadata_path, metadata)
         return self._written
 
     def _now_ms(self) -> int:
-        return time.time_ns() // 1_000_000
+        return (self._utc_anchor_ns + time.monotonic_ns() - self._mono_anchor_ns) // 1_000_000
 
     def _binance_bbo(self) -> None:
         self._run_ws("binance_bbo", WebSocketApp(BINANCE_BBO_WS, **self._binance_handlers()))
@@ -121,10 +158,11 @@ class Recorder:
             self._mark_open(name)
 
         def on_message(_ws: WebSocketApp, message: str) -> None:
+            local_ts = self._now_ms()
             if self._stop.is_set():
                 return
             try:
-                event = parse_binance_message(json.loads(message), self._now_ms())
+                event = parse_binance_message(json.loads(message), local_ts)
                 if event is not None:
                     self.write(event)
             except Exception as exc:  # noqa: BLE001 — keep the socket alive
@@ -137,15 +175,17 @@ class Recorder:
 
     def _bybit(self) -> None:
         def on_open(ws: WebSocketApp) -> None:
+            self._bybit_book.reset()
             self._mark_open("bybit")
             ws.send(json.dumps(BYBIT_SUBSCRIBE))
             threading.Thread(target=self._json_ping, args=(ws,), daemon=True).start()
 
         def on_message(_ws: WebSocketApp, message: str) -> None:
+            local_ts = self._now_ms()
             if self._stop.is_set():
                 return
             try:
-                for event in parse_bybit(json.loads(message), self._now_ms(), self._bybit_book):
+                for event in parse_bybit(json.loads(message), local_ts, self._bybit_book):
                     self.write(event)
             except Exception as exc:  # noqa: BLE001
                 self._note(f"bybit: {exc}")
@@ -164,6 +204,7 @@ class Recorder:
             ws.send(json.dumps(OKX_SUBSCRIBE))
 
         def on_message(ws: WebSocketApp, message: str) -> None:
+            local_ts = self._now_ms()
             if self._stop.is_set():
                 return
             if message == "ping":
@@ -175,7 +216,7 @@ class Recorder:
             if message == "pong":
                 return
             try:
-                for event in parse_okx(json.loads(message), self._now_ms()):
+                for event in parse_okx(json.loads(message), local_ts, contract_value_btc=self.okx_contract_value_btc):
                     self.write(event)
             except Exception as exc:  # noqa: BLE001
                 self._note(f"okx: {exc}")
@@ -215,7 +256,7 @@ class Recorder:
                 self._note(f"{name}: {exc}")
             if self._stop.is_set() or self._fatal_for(name):
                 break
-            time.sleep(1)
+            self._stop.wait(1)
 
     def _fatal_for(self, name: str) -> bool:
         venue = name.split("_", 1)[0]

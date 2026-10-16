@@ -30,10 +30,10 @@ class DemoNumbers:
     jumps: int
     trade_lag_n: int
     trade_lag_ms: int
-    delay0: float
-    delay50: float
-    trade_delay0: float
-    trade_delay50: float
+    delay0: float | None
+    delay50: float | None
+    trade_delay0: float | None
+    trade_delay50: float | None
     fills: int
     net: float
     max_venue: float
@@ -47,11 +47,11 @@ def _median(xs: list[int]) -> int:
     return sorted(xs)[len(xs) // 2]
 
 
-def _mean_bps(rows, delay: int, vs: str = "follower") -> float:
+def _mean_bps(rows, delay: int, vs: str = "follower") -> float | None:
     chunk = [
         r.pnl_bps for r in rows if r.delay_ms == delay and r.horizon_ms == 1_000 and r.vs == vs
     ]
-    return sum(chunk) / len(chunk) if chunk else 0.0
+    return sum(chunk) / len(chunk) if chunk else None
 
 
 def measure(path: Path, cfg: LabConfig | None = None) -> DemoNumbers:
@@ -123,11 +123,7 @@ def measure(path: Path, cfg: LabConfig | None = None) -> DemoNumbers:
     )
     algo_cfg = cfg.algo(leader=cfg.leader, follower=follower)
     state = run_algo(events, algo_cfg)
-    last_mids = {}
-    for venue in (cfg.leader, follower):
-        series = mids(events, venue)
-        if series:
-            last_mids[venue] = series[-1].mid
+    last_mids = state.last_mids
     pnl = mark_to_market_usdt(state, last_mids, algo_cfg)
     return DemoNumbers(
         pair=f"{cfg.leader}->{follower}",
@@ -168,12 +164,16 @@ def format_demo(nums: DemoNumbers) -> str:
             f"prints >=0.05 BTC: {nums.trade_n}  jumps confirmed "
             f"{nums.confirmed}/{nums.jumps} ({conf_pct:.0f}%)  "
             f"trade-lag {nums.trade_lag_ms}ms",
-            f"taker vs follower  delay0={nums.delay0:.2f}bps  delay50={nums.delay50:.2f}bps  (fees on)",
+            f"taker vs follower  delay0={_bps(nums.delay0)}  delay50={_bps(nums.delay50)}  (fees on)",
             f"robot  fills={nums.fills}  net={nums.net:.4f}  max_venue={nums.max_venue:.4f}  "
             f"pnl={nums.pnl_usdt:.4f} USDT  killed={nums.killed}",
             "",
             "Why PnL is negative: you take the ask (or bid), then pay taker fee. The mid is not a fill.",
-            "Live 3-min tape (RESEARCH.md): local lag 35ms, 73% of $2 jumps had a print,",
-            "delay0/50 both about -4 to -5 bps, walk-forward both halves red.",
+            "One-second fixture markouts need more tape coverage; n/a is not zero PnL.",
+            "Historical live notes in RESEARCH.md need re-evaluation on archived raw tapes.",
         ]
     )
+
+
+def _bps(value: float | None) -> str:
+    return "n/a (insufficient coverage)" if value is None else f"{value:.2f}bps"

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 
 
 @dataclass
@@ -12,10 +13,21 @@ class TopBook:
     bid_sz: float | None = None
     ask_sz: float | None = None
 
+    snapshot_required: bool = True
+    last_update_id: int | None = None
+
+    def reset(self) -> None:
+        self.bid = self.ask = self.bid_sz = self.ask_sz = None
+        self.snapshot_required = True
+        self.last_update_id = None
+
     def apply(self, bids: list, asks: list) -> bool:
         if bids:
             px, sz = float(bids[0][0]), float(bids[0][1])
-            if sz <= 0:
+            if not math.isfinite(px) or px <= 0 or not math.isfinite(sz) or sz < 0:
+                self.reset()
+                raise ValueError("invalid book level")
+            if sz == 0:
                 self.bid = None
                 self.bid_sz = None
             else:
@@ -23,7 +35,10 @@ class TopBook:
                 self.bid_sz = sz
         if asks:
             px, sz = float(asks[0][0]), float(asks[0][1])
-            if sz <= 0:
+            if not math.isfinite(px) or px <= 0 or not math.isfinite(sz) or sz < 0:
+                self.reset()
+                raise ValueError("invalid book level")
+            if sz == 0:
                 self.ask = None
                 self.ask_sz = None
             else:

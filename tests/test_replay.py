@@ -2,7 +2,7 @@ import unittest
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from cel.ingest.fixture import build_sample_events, write_sample
+from cel.ingest.fixture import write_sample
 from cel.ingest.jsonl import write_event
 from cel.ingest.replay import replay_list
 from cel.ingest.schema import Event

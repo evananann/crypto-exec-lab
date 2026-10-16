@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 
 from cel.ingest.schema import Event
 from cel.research.jumps import LeaderJump
@@ -18,6 +19,8 @@ class TradeSignal:
 
 
 def event_ts(event: Event, clock: str) -> int:
+    if clock not in ("local", "exchange"):
+        raise ValueError("clock must be local or exchange")
     return event.local_ts if clock == "local" else event.exchange_ts
 
 
@@ -28,13 +31,17 @@ def leader_trades(
     min_sz: float = 0.05,
     clock: str = "local",
 ) -> list[TradeSignal]:
+    if clock not in ("local", "exchange") or isinstance(min_sz, bool) or not math.isfinite(min_sz) or min_sz <= 0:
+        raise ValueError("invalid clock or minimum BTC trade size")
     out: list[TradeSignal] = []
     for event in events:
         if event.venue != venue or event.kind != "trade":
             continue
+        if event.quantity_unit != "BTC" or event.side is None:
+            continue  # do not invent aggressor direction or BTC units
         if event.sz is None or event.px is None or event.sz < min_sz:
             continue
-        side = event.side or "buy"
+        side = event.side
         out.append(TradeSignal(event_ts(event, clock), side, event.px, event.sz))
     out.sort(key=lambda row: row.ts)
     return out
@@ -47,7 +54,7 @@ def confirm_jumps(
     clock: str = "local",
     window_ms: int = 50,
 ) -> tuple[int, int]:
-    """How many mid jumps have a same-direction leader print within window_ms."""
+    """Symmetric offline confirmation, including future prints; never an entry signal."""
     if not jumps:
         return 0, 0
     t_i = 0

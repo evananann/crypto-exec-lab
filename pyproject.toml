@@ -16,5 +16,15 @@ dependencies = [
   "websocket-client>=1.8",
 ]
 
+[project.optional-dependencies]
+dev = ["ruff>=0.12,<1"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
 [tool.setuptools.packages.find]
 include = ["cel*"]

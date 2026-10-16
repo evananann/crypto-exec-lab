@@ -1,6 +1,6 @@
 import unittest
 
-from cel.execution.algo import AlgoConfig, mark_to_market_usdt, run_algo
+from cel.execution.algo import AlgoConfig, AlgoState, mark_to_market_usdt, run_algo
 from cel.ingest.fixture import build_sample_events
 from cel.risk.limits import RiskLimits, check
 
@@ -17,7 +17,7 @@ class AlgoTests(unittest.TestCase):
         self.assertIsInstance(pnl, float)
 
     def test_stale_feed_kills(self) -> None:
-        state = run_algo(build_sample_events(), AlgoConfig())
+        state = AlgoState()
         reason = check(state, last_event_ts=1, now_ts=10_000, limits=RiskLimits(stale_feed_ms=2000))
         self.assertEqual(reason, "stale_feed")
 

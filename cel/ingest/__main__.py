@@ -20,6 +20,8 @@ def main(argv: list[str] | None = None) -> int:
     rec = sub.add_parser("record", help="record public Binance + Bybit + OKX BTC perps")
     rec.add_argument("--seconds", type=float, default=30.0)
     rec.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    rec.add_argument("--okx-contract-value-btc", type=float, default=None,
+                     help="verified ctVal * ctMult in BTC; otherwise OKX sizes stay in contracts")
     rec.add_argument("--append", action="store_true", help="do not truncate the out file")
 
     rep = sub.add_parser("replay", help="read JSONL and print a gap report")
@@ -31,13 +33,19 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.cmd == "record":
-        rec = Recorder(args.out, append=args.append)
-        n = rec.run(args.seconds)
+        try:
+            rec = Recorder(args.out, append=args.append, okx_contract_value_btc=args.okx_contract_value_btc)
+            n = rec.run(args.seconds)
+        except (ValueError, OSError) as exc:
+            parser.error(str(exc))
         print(
             f"wrote {n} events to {args.out} "
             f"by_venue={dict(rec.written_by_venue)} by_kind={dict(rec.written_by_kind)} "
             f"opened={dict(rec.opened)}"
         )
+        print(f"session metadata: {rec.metadata_path}")
+        if rec.okx_contract_value_btc is None:
+            print("note: OKX quantities remain in contracts; size-based execution requires verified BTC conversion.")
         if rec.errors:
             print("errors:", "; ".join(rec.errors[:5]))
         if n and "bybit" not in rec.written_by_venue:

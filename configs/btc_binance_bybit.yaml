@@ -30,6 +30,8 @@ trade_confirm_ms: 50
 
 # Multi-leg execution
 max_imbalance_btc: 0.01
+# Separate hedge order latency, measured from the actual first fill.
+hedge_delay_ms: 50
 hedge_timeout_ms: 200
 size_btc: 0.001
 

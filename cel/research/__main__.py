@@ -24,6 +24,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--path", type=Path, default=FIXTURE)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--delays", default="0,20,50,200")
+    parser.add_argument("--out-dir", type=Path, default=REPO_ROOT / "reports")
     args = parser.parse_args(argv)
 
     cfg = load_config(args.config)
@@ -42,12 +43,12 @@ def main(argv: list[str] | None = None) -> int:
     markouts = _markouts(events, cfg, follower, delays)
     plot_lead_lag(
         lags_local,
-        REPO_ROOT / "reports" / "lead_lag.png",
+        args.out_dir / "lead_lag.png",
         pair=f"{follower} after {cfg.leader} (local ts)",
     )
     plot_markouts(
         markouts,
-        REPO_ROOT / "reports" / "markout_vs_delay.png",
+        args.out_dir / "markout_vs_delay.png",
         pair=f"{follower} taker vs follower mid",
     )
 
@@ -141,18 +142,22 @@ def _print_markouts(label: str, rows) -> None:
     l50 = _mean(rows, 50, 1_000, "leader")
     n = sum(1 for r in rows if r.delay_ms == 0 and r.horizon_ms == 1_000 and r.vs == "follower")
     print(
-        f"{label} n={n} vs_follower delay0={f0:.2f} delay50={f50:.2f} | "
-        f"vs_leader delay0={l0:.2f} delay50={l50:.2f} (1s, fees on, bps)"
+        f"{label} n={n} vs_follower delay0={_fmt(f0)} delay50={_fmt(f50)} | "
+        f"vs_leader delay0={_fmt(l0)} delay50={_fmt(l50)} (1s, fees on, bps)"
     )
 
 
-def _mean(rows, delay: int, horizon: int, vs: str) -> float:
+def _mean(rows, delay: int, horizon: int, vs: str) -> float | None:
     chunk = [
         r.pnl_bps
         for r in rows
         if r.delay_ms == delay and r.horizon_ms == horizon and r.vs == vs
     ]
-    return sum(chunk) / len(chunk) if chunk else 0.0
+    return sum(chunk) / len(chunk) if chunk else None
+
+
+def _fmt(value: float | None) -> str:
+    return "n/a" if value is None else f"{value:.2f}"
 
 
 def _median(xs: list[int]) -> int:

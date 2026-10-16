@@ -1,4 +1,4 @@
-"""Hard stops. If a limit trips, the algo must flatten, not 'hope'."""
+"""Latch hard-stop reasons; the engine attempts liquidation against fresh size."""
 
 from __future__ import annotations
 

@@ -13,14 +13,16 @@ from cel.ingest.schema import Event
 class JsonlWriter:
     """Keep one handle open. Opening per line is too slow for a live tape."""
 
-    def __init__(self, path: Path, *, append: bool = False) -> None:
+    def __init__(self, path: Path, *, append: bool = False, exclusive: bool = False) -> None:
+        if append and exclusive:
+            raise ValueError("append and exclusive are mutually exclusive")
         path.parent.mkdir(parents=True, exist_ok=True)
         self.path = path
-        self._handle: TextIO = path.open("a" if append else "w", encoding="utf-8")
+        self._handle: TextIO = path.open("x" if exclusive else "a" if append else "w", encoding="utf-8")
         self._n = 0
 
     def write(self, event: Event) -> None:
-        self._handle.write(json.dumps(event.to_dict(), separators=(",", ":")) + "\n")
+        self._handle.write(json.dumps(event.to_dict(), separators=(",", ":"), allow_nan=False) + "\n")
         self._n += 1
         if self._n % 64 == 0:
             self._handle.flush()
@@ -41,7 +43,7 @@ class JsonlWriter:
 def write_event(path: Path, event: Event) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as handle:
-        handle.write(json.dumps(event.to_dict(), separators=(",", ":")) + "\n")
+        handle.write(json.dumps(event.to_dict(), separators=(",", ":"), allow_nan=False) + "\n")
 
 
 def iter_events(path: Path) -> Iterator[Event]:

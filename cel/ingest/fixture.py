@@ -12,7 +12,7 @@ DEFAULT_PATH = REPO_ROOT / "data" / "fixtures" / "sample.jsonl"
 
 
 def build_sample_events() -> list[Event]:
-    """Binance mid jumps first; Bybit follows ~40ms later. One Bybit BBO goes backward (hard gap)."""
+    """Binance mid jumps first; Bybit follows ~80ms later on exchange timestamps. One Bybit BBO goes backward (hard gap)."""
     t0 = 1_700_000_000_000
     events: list[Event] = []
     binance_seq = 1000

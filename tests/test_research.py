@@ -1,14 +1,28 @@
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 from cel.ingest.fixture import build_sample_events
 from cel.research.flow import confirm_jumps, leader_trades
 from cel.research.jumps import book_at, leader_jumps, split_by_time
 from cel.research.lead_lag import already_moved_rate, lead_lag, lead_lag_after_trades
-from cel.research.markout import delayed_taker_after_trades, delayed_taker_markouts
+from cel.research.markout import Markout, delayed_taker_after_trades, delayed_taker_markouts
 from cel.research.mids import mids
 
 
 class ResearchTests(unittest.TestCase):
+    def test_plot_does_not_turn_missing_one_second_marks_into_zero(self):
+        from cel.research.plots import plot_markouts
+        marks = delayed_taker_markouts(build_sample_events(), delay_ms=0)
+        self.assertTrue(marks)  # short-horizon rows exist, but no 1s rows
+        self.assertFalse(any(r.horizon_ms == 1000 for r in marks))
+        marks.append(Markout(0, 1000, 100, 101, 'buy', 100, vs='leader'))
+        with TemporaryDirectory() as directory:
+            with patch('matplotlib.axes.Axes.plot') as line:
+                plot_markouts(marks, Path(directory) / 'markouts.png')
+                line.assert_not_called()
+
     def test_fixture_has_positive_lags(self) -> None:
         lags = lead_lag(build_sample_events(), min_move=2.0, clock="local")
         self.assertTrue(lags)
@@ -27,7 +41,7 @@ class ResearchTests(unittest.TestCase):
     def test_delay_is_not_magic(self) -> None:
         events = build_sample_events()
         fast = delayed_taker_markouts(events, delay_ms=0, min_move=2.0)
-        slow = delayed_taker_markouts(events, delay_ms=200, min_move=2.0)
+        slow = delayed_taker_markouts(events, delay_ms=200, min_move=2.0, horizons_ms=(200,))
         self.assertTrue(fast)
         self.assertTrue(slow)
         self.assertTrue(any(r.vs == "leader" for r in fast))

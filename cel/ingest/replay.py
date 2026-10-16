@@ -21,6 +21,7 @@ class ReplayReport:
     n_forward_skips: int
     dropped_after_hard_gap: int
     n_by_venue: dict[str, int] = field(default_factory=dict)
+    duplicate_trades_dropped: int = 0
 
 
 def replay_list(path: Path, *, drop_after_hard_gap: bool = False) -> tuple[list[Event], ReplayReport]:
@@ -31,11 +32,26 @@ def replay_list(path: Path, *, drop_after_hard_gap: bool = False) -> tuple[list[
     n_bbo = 0
     n_trade = 0
     by_venue: Counter[str] = Counter()
+    seen_trades = {}
+    duplicates = 0
 
     for event in iter_events(path):
         if event.venue in dead_venues:
             dropped += 1
             continue
+        if event.kind == "trade":
+            identifier = event.trade_id
+            if identifier is None and (event.sequence_kind == "sequence" or event.seq > 0):
+                identifier = str(event.seq)
+            if identifier is not None:
+                key = (event.venue, identifier)
+                signature = (event.exchange_ts, event.px, event.sz, event.side, event.quantity_unit)
+                if key in seen_trades:
+                    if seen_trades[key] != signature:
+                        raise ValueError(f"{path}: conflicting trade ID for {event.venue}: {identifier}")
+                    duplicates += 1
+                    continue
+                seen_trades[key] = signature
         gap = tracker.observe(event)
         if gap is not None and gap.hard and drop_after_hard_gap:
             dead_venues.add(event.venue)
@@ -57,5 +73,6 @@ def replay_list(path: Path, *, drop_after_hard_gap: bool = False) -> tuple[list[
         n_forward_skips=sum(1 for gap in tracker.gaps if not gap.hard),
         dropped_after_hard_gap=dropped,
         n_by_venue=dict(by_venue),
+        duplicate_trades_dropped=duplicates,
     )
     return kept, report

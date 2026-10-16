@@ -13,6 +13,48 @@ What I killed / kept:
 Next:
 ```
 
+## 2026-10-16 — execution and ingestion audit
+
+Further review found future-quote access in the execution loop, fills stamped
+at quote time rather than order time, forced post-tape unwinds, unlimited size,
+and liquidation of accumulated follower inventory rather than only the
+unhedged remainder. The replacement engine processes quote updates and order
+timers chronologically, models separate hedge latency, consumes displayed size,
+and leaves unresolved end-of-tape exposure visible. Risk limits gate fills and
+stops attempt fresh-size liquidation; they cannot guarantee a flat book.
+
+The intentional fixture sequence regression now triggers a data-quality stop.
+Historical simulator PnL and fill counts below need re-evaluation too.
+
+Data fixes: Bybit UUID trade IDs are preserved, snapshots clear old book sides,
+reconnects wait for snapshots, repeated trade IDs are deduplicated, invalid
+numbers are rejected, and recordings cannot silently truncate prior tapes.
+OKX contract quantities are never silently treated as BTC; normalization needs
+verified instrument metadata. Legacy OKX size units are reported as unknown.
+
+Validation uses causal prefix tests, time-boundary tests, partial hedges,
+liquidation with unavailable quotes, mocked recorder shutdown, and randomized
+cash/inventory/liquidity invariants. No new live market result is claimed.
+
+## 2026-10-16 — measurement correction
+
+Code review found that the original markout implementation carried the last
+quote beyond a tape's end and allowed horizons earlier than delayed entry.
+The committed fixture lasts 833ms on local receive time: its previous one-second
+markouts were unsupported. Historical entries below are preserved as recorded,
+but their markout estimates need re-evaluation with the corrected code and
+original raw tapes; those live tapes are not included in this checkout.
+
+Kept: offline replay, lag analysis, and execution-risk demonstrations.
+Changed: markouts now require observed horizon coverage, bounded quote age,
+and a horizon at or after entry. Missing results print `n/a`/JSON `null`.
+Added: fixed-grid, per-session evaluation with chronological partitions,
+input hashes, health diagnostics, and time-block uncertainty estimates.
+
+Next: collect and archive multiple dated sessions, freeze assumptions, and run
+`python -m cel.research.evaluate` as described in
+[the research protocol](docs/RESEARCH_PROTOCOL.md). No new live result is claimed.
+
 ## 2026-09-17
 
 Hypothesis: After a Binance BTCUSDT perp mid jump, taking Bybit's stale BBO is profitable at 0ms delay and dies once we wait 50–200ms.
