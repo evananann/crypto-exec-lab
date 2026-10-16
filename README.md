@@ -112,6 +112,16 @@ Research uses **local receive time** for decisions (you cannot trade the exchang
 
 `replay` reports hard gaps (out-of-order ids) vs forward skips (normal for Binance bookTicker update ids). `--drop-after-hard-gap` stops keeping that venue after a backward jump.
 
+## Frozen live study
+
+The [seven-day plan](docs/LIVE_STUDY.md) fixes a Binance→OKX experiment before
+collecting outcomes, with checksummed session archives and a later-day holdout.
+The [current report](reports/STUDY_V1.md) includes the failed cloud preflight;
+it does not claim live profitability. Scheduled Actions collect October 17–23,
+2026 UTC and produce a report after holdout release, subject to actual runner
+and feed availability. Use the [five-minute walkthrough](docs/INTERVIEW_WALKTHROUGH.md)
+to explain the hypothesis, implementation, evidence, and limitations.
+
 ## Execution and recording integrity
 
 Read [the execution model](docs/EXECUTION_MODEL.md) for the timing, partial-fill,

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "study_id": "btc-execution-v1",
+  "baseline_commit": "03d49e3f86c4eef7b13a61819b65ee4b9898e048",
+  "hypothesis": "A delayed Binance BTC perpetual jump signal has positive OKX entry-to-mid markout after entry costs.",
+  "lab_config": "study_v1_lab.yaml",
+  "lab_config_sha256": "7089b6acf113f84db3f051b4c663c85db27e7ca00691261c6dc0aa19315fbbb6",
+  "leader": "binance",
+  "follower": "okx",
+  "start_date_utc": "2026-10-17",
+  "development_end_date_utc": "2026-10-21",
+  "end_date_utc": "2026-10-23",
+  "slots_utc": {
+    "am": "03:17",
+    "pm": "15:17"
+  },
+  "slot_tolerance_minutes": 45,
+  "seconds": 900,
+  "delays_ms": [
+    0,
+    20,
+    50,
+    200
+  ],
+  "fees_bps": [
+    0,
+    3,
+    5,
+    5.5
+  ],
+  "primary_delay_ms": 50,
+  "primary_fee_bps": 5,
+  "horizon_ms": 1000,
+  "block_ms": 60000,
+  "max_quote_age_ms": 2000,
+  "seed": 0,
+  "quality": {
+    "min_span_fraction": 0.95,
+    "max_bbo_silence_ms": 2000,
+    "max_primary_sequence_regressions": 0
+  },
+  "primary_outcome": "Per-session follower-mid mean markout at 50ms delay and 5bps entry fee; report every session, including unavailable results.",
+  "decision_rule": "No parameter selection on holdout. A positive sample or CI is descriptive only. Any missing planned slot, failed quality gate, unavailable interval, or inadequate regime coverage prevents a conclusive full-study claim.",
+  "holdout_rule": "No markout or PnL evaluation of holdout sessions before 2026-10-24 UTC; archive raw data and quality diagnostics only.",
+  "analysis_files_sha256": {
+    "uv.lock": "0e4d843c3c53685af45dafca003f7d0944ba4fe324b6c44509b74e4024810cf7",
+    "cel/settings.py": "0ef2b7734d35136d6d79f2ebc5fa34df5126748ee4c9f2e349a3766260c07d79",
+    "cel/execution/algo.py": "0a1685c4aa7594fa358be083ffeb42cabe322b57e44eb403d5b1999d33200f2e",
+    "cel/ingest/schema.py": "29b151cf8d20c6891f32c00bcc5d71d10cfbb8c8cbaf2e7f4cf16b3a662662a2",
+    "cel/ingest/parse.py": "66bd03de6396be6bf879ea6af3eaee8c76f179c177377bddd3efdbd663698b2c",
+    "cel/ingest/replay.py": "4ddb66d8ac10d61e500d4a722b658c01400bd20b9215597c8c900b3a942305d6",
+    "cel/ingest/gaps.py": "8b4afef116610facc0094057fb64b19aebb6b6ef521f44fa58a77288c29ab0ff",
+    "cel/research/__init__.py": "2c0db74f1d7bdb60c1f2cc167bb3794b1acda09bc6ec824f51431fcbb445ee6b",
+    "cel/research/__main__.py": "aa45f264cbd3b2443cf0ca8998598dff9fbf10065a81319951ca91718fe4d637",
+    "cel/research/evaluate.py": "f5106ae1ff6504c95f7080064810777d49a1a194909bb355d3f02b27fc9dc255",
+    "cel/research/flow.py": "a9adc61ff4cda3ac28582d2709667c914c15d36355cfb19a8b016b71f6f54607",
+    "cel/research/jumps.py": "11ca46bab53c8f0957b78cafbbca79d89c3cc68480bdbaf30e98676b5e7d9f8a",
+    "cel/research/lead_lag.py": "344e5c4d2dcb897a977c7329a5360cc2ce8a07c479c10f0965000da97135a799",
+    "cel/research/markout.py": "5b11e08242f4dcd77ad18096d59185e960af97ef6175bb9ece8a77ad6d9fc2e6",
+    "cel/research/mids.py": "124692ff6cd860f2397d12f7c0e75bb9d0b9518eb0003cd2989bf0014bc76ddf",
+    "cel/research/plots.py": "f654b2a1c544c43b48c68850c3c9af1db82554cda2cceb0cb74c1b87a05eab38"
+  }
+}

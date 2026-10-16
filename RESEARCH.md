@@ -13,6 +13,23 @@ What I killed / kept:
 Next:
 ```
 
+## 2026-10-16 — frozen live study and failed preflight
+
+Baseline: `03d49e3f86c4eef7b13a61819b65ee4b9898e048`.
+Plan: `configs/study_v1.json`, 14 fixed Binance→OKX sessions over October 17–23
+UTC, with October 22–23 held out until October 24. Parameters, quality gates,
+configuration, and analysis sources are hash-bound before outcome collection.
+
+Actual cloud preflight: OKX instrument verification and every exchange socket
+were denied by the proxy (CONNECT 403); zero events were recorded. The failed
+attempt is checksummed under `reports/evidence/` and represented in
+`reports/STUDY_V1.md`. Missing live data are not zero PnL or a negative strategy
+result. Required domain additions are saved in the cloud environment draft.
+
+Next: verify the public feeds on an allowed network, confirm scheduled session
+artifacts exist, preserve every failed/missing slot, and release holdout outcomes
+only after the frozen window closes. No empirical profitability conclusion yet.
+
 ## 2026-10-16 — execution and ingestion audit
 
 Further review found future-quote access in the execution loop, fills stamped

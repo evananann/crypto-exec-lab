@@ -1,0 +1,112 @@
+# Frozen seven-day live study
+
+The research baseline is commit `03d49e3f86c4eef7b13a61819b65ee4b9898e048`.
+The preregistered plan is `configs/study_v1.json`; its dedicated lab config,
+analysis source files, and dependency lock are hash-bound. A change requires a
+new study ID and a new precollection plan, rather than silently changing v1.
+
+## Schedule and holdout
+
+- Dates: October 17–23, 2026 **UTC**, 14 planned sessions.
+- Sampling starts: 03:17 and 15:17 UTC, for 15 minutes each (11:17 and 23:17 in Shanghai).
+- A session may start up to 45 minutes late; later jobs fail the frozen slot check.
+- Development dates: October 17–21 UTC. Holdout dates: October 22–23 UTC.
+- Automatic holdout outcome evaluation is blocked until October 24 UTC.
+- Pair: Binance → OKX, with local receive timestamps and an accumulated $2 jump.
+- Primary outcome: follower-mid markout at 1 second from signal, 50ms entry
+  latency, and 5bps entry fee. The full preselected latency/fee grid is reported.
+- Quote freshness: 2 seconds. Bootstrap block: 60 seconds; fixed seed 0.
+
+Two sampling windows do not guarantee quiet and volatile regimes. Compare all
+sessions' price variation after collection and explicitly report inadequate
+condition coverage. There is no post-hoc session or parameter selection.
+The holdout is procedural: raw artifacts remain downloadable for preservation;
+researchers must not inspect its outcomes early. It is not encrypted or hidden
+from a repository owner. Collection runs only schema, metadata, and health checks.
+
+## Live verification and collection
+
+```bash
+uv run --frozen python -m cel.study preflight --root data/raw/study-v1
+# During a planned UTC slot only:
+uv run --frozen python -m cel.study collect --slot am --root data/raw/study-v1
+```
+
+Preflight fetches the public OKX instrument specification and tests the actual
+public WebSocket parsers. Standard live linear BTC-settled contract value must
+be verified in BTC; unsupported multipliers/currencies fail rather than being
+guessed. No credentials or live order API are used. TLS verification stays on.
+
+A full session requires verified instrument metadata before recording. Both
+primary venues must cover at least 95% of the planned duration, have no BBO
+silence over 2 seconds, no primary sequence regressions, no backward BBO receive
+timestamps, and verified BTC quantity units. Recorder workers must stop cleanly.
+Bybit is auxiliary; it never silently replaces a missing primary OKX venue.
+A failed quality gate remains in the archive and report. A slot cannot be
+recorded again in the same root to choose a more attractive outcome.
+
+`frozen live study` in GitHub Actions can run a manual preflight or collect a
+scheduled slot. Its cron is limited to October 17–23 and a date guard enforces
+2026. Sessions are capped at 15 minutes; jobs time out at 25 minutes. Disable the
+workflow after the study. GitHub schedules can be delayed or disabled by the
+platform; a YAML schedule is not proof that a session actually ran. Review the
+Actions results and artifact coverage. Do not fill a missed slot with another
+market period while retaining its original label.
+
+## Archiving and verification
+
+Each session directory contains the frozen plan and configuration, raw tape,
+verified instrument response, recorder sidecar, and a manifest with SHA-256
+checksums. The sibling `.tar.gz` and `.sha256` preserve this material together.
+
+```bash
+uv run --frozen python -m cel.study verify data/raw/study-v1/2026-10-17-am.tar.gz
+uv run --frozen python -m cel.study restore data/raw/study-v1/2026-10-17-am.tar.gz \
+  --root data/raw/study-restored
+```
+
+Restore validates checksums and flat archive membership before writing files,
+and refuses to overwrite a session. Downloaded duplicate session IDs are errors,
+not a license to choose a favorable rerun. Archives contain public market data,
+not credentials. Original collection time, collector revision, working-tree
+status, and contract conversion accompany each attempt.
+
+Actions uploads the archive and checksum even when a completed attempt is
+ineligible. Retention is 90 days, not permanent storage. Download the artifacts
+and preserve an independent long-term copy before expiry. Large raw tapes belong
+in these archives, rather than ordinary Git history.
+
+## Final report
+
+After the holdout release:
+
+```bash
+uv run --frozen python scripts/download_study_artifacts.py \
+  --repository evananann/crypto-exec-lab --out data/raw/study-downloads
+# Restore each archive with the command above, then:
+uv run --frozen python -m cel.study report --root data/raw/study-restored \
+  --out reports/STUDY_V1_FINAL.md
+```
+
+The `frozen study report` Actions workflow performs those steps after October 24
+03:47 UTC (11:47 Shanghai), or on manual dispatch after release. It uses the
+repository's injected Actions read token, never an exchange credential. It
+produces report artifacts; it does not silently commit or merge future results.
+A later results PR must include the original archive hashes and all failed or
+missing slots. GitHub may require Actions to be enabled for this repository.
+
+A complete-coverage label only means all planned slots passed collection gates.
+It does not establish executable profitability, adequate statistical power, or
+regime diversity. Entry-to-mid markouts omit exit costs and cannot establish
+round-trip returns. Include uncertainty, unavailable intervals, and the execution
+model limitations in the final interpretation.
+
+## Current evidence
+
+The cloud preflight on October 16 UTC received proxy CONNECT 403 errors from
+all exchange sockets and the metadata endpoint. It recorded zero events. The
+checksummed failed-attempt archive is in `reports/evidence/`; `reports/STUDY_V1.md`
+reports the incomplete study without fabricated returns. Live venue operation,
+future Actions runs, and multi-day conclusions remain unverified until actual
+collection succeeds. The required cloud domain additions are saved for review
+in environment settings; GitHub-hosted runners have a separate network path.

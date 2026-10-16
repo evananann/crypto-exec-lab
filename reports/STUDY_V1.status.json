@@ -1,0 +1,37 @@
+{
+  "study_id": "btc-execution-v1",
+  "as_of_utc": "2026-10-16T03:50:10.401907+00:00",
+  "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+  "expected_sessions": 14,
+  "received_sessions": 0,
+  "eligible_sessions": 0,
+  "preflight_attempts": 1,
+  "preflight_errors": [
+    [
+      "instrument verification: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "binance: failed CONNECT via proxy status: 403",
+      "bybit: failed CONNECT via proxy status: 403",
+      "okx: failed CONNECT via proxy status: 403"
+    ]
+  ],
+  "missing_sessions": [],
+  "pending_sessions": [
+    "2026-10-17-am",
+    "2026-10-17-pm",
+    "2026-10-18-am",
+    "2026-10-18-pm",
+    "2026-10-19-am",
+    "2026-10-19-pm",
+    "2026-10-20-am",
+    "2026-10-20-pm",
+    "2026-10-21-am",
+    "2026-10-21-pm",
+    "2026-10-22-am",
+    "2026-10-22-pm",
+    "2026-10-23-am",
+    "2026-10-23-pm"
+  ],
+  "holdout_released": false,
+  "status": "incomplete",
+  "conclusion": "No executable profitability conclusion; inspect coverage, uncertainty, regime variation, and model limitations."
+}

@@ -1,0 +1,63 @@
+name: frozen study report
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '47 3 24 10 *'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  report:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check holdout release date
+        id: gate
+        run: |
+          python - <<'PY'
+          from datetime import datetime, timezone
+          import json, os
+          from pathlib import Path
+          plan = json.loads(Path('configs/study_v1.json').read_text())
+          day = str(datetime.now(timezone.utc).date())
+          allowed = day > plan['end_date_utc']
+          if day[:4] != plan['end_date_utc'][:4]:
+              allowed = False
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write(f'run={str(allowed).lower()}\n')
+          PY
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.run == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install locked dependencies
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --python 3.12
+      - name: Download original session archives
+        if: steps.gate.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: python scripts/download_study_artifacts.py --repository "$REPOSITORY" --out data/raw/study-downloads
+      - name: Verify, restore, and evaluate the fixed study
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          shopt -s nullglob
+          for archive in data/raw/study-downloads/*.tar.gz; do
+            uv run --frozen python -m cel.study restore "$archive" --root data/raw/study-restored
+          done
+          uv run --frozen python -m cel.study report --root data/raw/study-restored --out data/raw/study-final/report.md
+      - uses: actions/upload-artifact@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          name: btc-study-final-report
+          path: data/raw/study-final/
+          retention-days: 90
+          if-no-files-found: error
