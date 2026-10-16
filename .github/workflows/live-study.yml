@@ -1,6 +1,14 @@
 name: frozen live study
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'cel/study.py'
+      - 'cel/ingest/instruments.py'
+      - 'scripts/study_gate.py'
+      - '.github/workflows/live-study.yml'
+      - 'configs/study_v1*'
   workflow_dispatch:
     inputs:
       mode:
@@ -16,13 +24,14 @@ on:
         type: choice
         options: [am, pm]
   schedule:
-    - cron: '17 3,15 17-23 10 *'
+    - cron: '17 3 17-23 10 *'
+    - cron: '17 15 17-23 10 *'
 
 permissions:
   contents: read
 
 concurrency:
-  group: frozen-live-study
+  group: frozen-live-study-${{ (github.event_name == 'push' || inputs.mode == 'preflight') && 'preflight' || 'collection' }}
   cancel-in-progress: false
 
 jobs:
@@ -39,22 +48,7 @@ jobs:
           SLOT: ${{ inputs.slot }}
           SCHEDULE: ${{ github.event.schedule }}
         run: |
-          python - <<'PY'
-          from datetime import datetime, timezone
-          import json, os
-          from pathlib import Path
-          plan = json.loads(Path('configs/study_v1.json').read_text())
-          now = datetime.now(timezone.utc)
-          mode = os.environ['MODE'] or 'collect'
-          slot = os.environ['SLOT'] or ('am' if now.hour < 12 else 'pm')
-          allowed = mode == 'preflight' or (plan['start_date_utc'] <= str(now.date()) <= plan['end_date_utc'])
-          session = f'{now.date()}-{slot}' if mode == 'collect' else f'preflight-{now:%Y%m%dT%H%M%SZ}'
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
-              output.write(f'run={str(allowed).lower()}\n')
-              output.write(f'mode={mode}\n')
-              output.write(f'slot={slot}\n')
-              output.write(f'session={session}\n')
-          PY
+          python scripts/study_gate.py --event "$GITHUB_EVENT_NAME" --mode "$MODE" --slot "$SLOT" --schedule "$SCHEDULE" --output "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5
         if: steps.gate.outputs.run == 'true'
         with:
@@ -66,12 +60,12 @@ jobs:
           uv sync --frozen --python 3.12
       - name: Preflight public feeds
         if: steps.gate.outputs.run == 'true' && steps.gate.outputs.mode == 'preflight'
-        run: uv run --frozen python -m cel.study preflight --root data/raw/study-v1
+        run: uv run --frozen python -m cel.study preflight --root data/raw/study-v1 --summary "$GITHUB_STEP_SUMMARY"
       - name: Collect one session without inspecting holdout outcomes
         if: steps.gate.outputs.run == 'true' && steps.gate.outputs.mode == 'collect'
         env:
           SLOT: ${{ steps.gate.outputs.slot }}
-        run: uv run --frozen python -m cel.study collect --slot "$SLOT" --root data/raw/study-v1
+        run: uv run --frozen python -m cel.study collect --slot "$SLOT" --root data/raw/study-v1 --summary "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         if: always() && steps.gate.outputs.run == 'true'
         with:

@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from contextlib import redirect_stdout
 import io
 import json
 import tarfile
@@ -7,10 +8,11 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
+from cel.artifacts import file_sha256
 from cel.ingest.instruments import contract_value_btc
 from cel.ingest.jsonl import JsonlWriter
 from cel.ingest.schema import Event
-from cel.study import DEFAULT_PLAN, health, load_plan, record_session, report, restore_archive, session_slot, verify_archive
+from cel.study import DEFAULT_PLAN, health, load_plan, record_session, report, restore_archive, session_slot, verify_archive, main
 
 
 def instrument():
@@ -122,6 +124,7 @@ class StudyTests(unittest.TestCase):
             member = tarfile.TarInfo('../escape')
             member.size = 1
             tar.addfile(member, io.BytesIO(b'x'))
+        archive.with_suffix(archive.suffix + '.sha256').write_text(file_sha256(archive) + '\n')
         with self.assertRaisesRegex(ValueError, 'unsafe'):
             restore_archive(archive, self.directory / 'restored')
         self.assertFalse((self.directory / 'escape').exists())
@@ -146,6 +149,45 @@ class StudyTests(unittest.TestCase):
         self.assertEqual(item['status'], 'blocked')
         self.assertNotIn('tape.jsonl', item['files'])
         self.assertIn('403', item['errors'][0])
+
+    def test_preflight_with_unverified_metadata_is_blocked_even_with_quotes(self):
+        with patch('cel.study.fetch_instrument', side_effect=OSError('proxy 403')), \
+             patch('cel.study.Recorder', FakeRecorder):
+            directory = record_session(self.plan_path, self.root, preflight=True)
+        item = verify_archive(directory.with_suffix('.tar.gz'))
+        self.assertGreater(item['health']['events'], 0)
+        self.assertEqual(item['status'], 'blocked')
+
+    def test_preflight_with_zero_events_is_blocked_not_a_bad_sample(self):
+        class Empty(FakeRecorder):
+            def run(self, seconds):
+                self.path.touch()
+                self.metadata_path.write_text('{"workers_still_running": []}')
+                return 0
+        with patch('cel.study.fetch_instrument', return_value=(instrument(), .01)), \
+             patch('cel.study.Recorder', Empty):
+            directory = record_session(self.plan_path, self.root, preflight=True)
+        item = verify_archive(directory.with_suffix('.tar.gz'))
+        self.assertEqual(item['health']['events'], 0)
+        self.assertEqual(item['status'], 'blocked')
+
+    def test_preflight_with_short_observed_span_is_ineligible(self):
+        with patch('cel.study.fetch_instrument', return_value=(instrument(), .01)), \
+             patch('cel.study.Recorder', FakeRecorder):
+            directory = record_session(self.plan_path, self.root, preflight=True)
+        item = verify_archive(directory.with_suffix('.tar.gz'))
+        self.assertGreater(item['health']['events'], 0)
+        self.assertEqual(item['status'], 'ineligible')
+
+    def test_cli_failure_writes_actionable_job_summary(self):
+        summary = self.directory / 'summary.md'
+        with patch('cel.study.fetch_instrument', side_effect=OSError('proxy 403')), \
+             patch('cel.study.Recorder', FakeRecorder), redirect_stdout(io.StringIO()):
+            code = main(['--plan', str(self.plan_path), 'preflight', '--root', str(self.root),
+                         '--summary', str(summary)])
+        self.assertEqual(code, 1)
+        self.assertIn('blocked', summary.read_text())
+        self.assertIn('proxy 403', summary.read_text())
 
     def test_empty_tape_is_ineligible(self):
         path = self.directory / 'empty.jsonl'

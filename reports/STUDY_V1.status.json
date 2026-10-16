@@ -1,12 +1,18 @@
 {
   "study_id": "btc-execution-v1",
-  "as_of_utc": "2026-10-16T03:50:10.401907+00:00",
+  "as_of_utc": "2026-10-16T06:40:59.588886+00:00",
   "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
   "expected_sessions": 14,
   "received_sessions": 0,
   "eligible_sessions": 0,
-  "preflight_attempts": 1,
+  "preflight_attempts": 2,
   "preflight_errors": [
+    [
+      "instrument verification: <urlopen error Tunnel connection failed: 403 Forbidden>",
+      "binance: failed CONNECT via proxy status: 403",
+      "bybit: failed CONNECT via proxy status: 403",
+      "okx: failed CONNECT via proxy status: 403"
+    ],
     [
       "instrument verification: <urlopen error Tunnel connection failed: 403 Forbidden>",
       "binance: failed CONNECT via proxy status: 403",

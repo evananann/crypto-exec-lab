@@ -47,11 +47,21 @@ recorded again in the same root to choose a more attractive outcome.
 
 `frozen live study` in GitHub Actions can run a manual preflight or collect a
 scheduled slot. Its cron is limited to October 17–23 and a date guard enforces
-2026. Sessions are capped at 15 minutes; jobs time out at 25 minutes. Disable the
+2026. AM and PM use separate cron entries, so delayed jobs retain their intended
+slot and are skipped if late. Setup failures and expired slots are checked before
+installing dependencies. Sessions are capped at 15 minutes; jobs time out at 25 minutes. Disable the
 workflow after the study. GitHub schedules can be delayed or disabled by the
 platform; a YAML schedule is not proof that a session actually ran. Review the
 Actions results and artifact coverage. Do not fill a missed slot with another
 market period while retaining its original label.
+
+Changes to the collector, metadata verifier, schedule gate, or frozen study
+configuration on `main` also trigger a bounded 10-second preflight. This does
+not collect a study observation or inspect holdout outcomes. Preflights have a
+separate concurrency group from scheduled collection. Actions job summaries
+show `blocked` for unavailable metadata/feeds, `ineligible` for a received tape
+that fails quality gates, and the exact observed errors. Historical archives
+keep the status labels assigned by their original collector version.
 
 ## Archiving and verification
 
@@ -65,7 +75,7 @@ uv run --frozen python -m cel.study restore data/raw/study-v1/2026-10-17-am.tar.
   --root data/raw/study-restored
 ```
 
-Restore validates checksums and flat archive membership before writing files,
+The external `.sha256` sidecar is mandatory. Restore validates checksums and flat archive membership before writing files,
 and refuses to overwrite a session. Downloaded duplicate session IDs are errors,
 not a license to choose a favorable rerun. Archives contain public market data,
 not credentials. Original collection time, collector revision, working-tree
@@ -87,6 +97,14 @@ uv run --frozen python scripts/download_study_artifacts.py \
 uv run --frozen python -m cel.study report --root data/raw/study-restored \
   --out reports/STUDY_V1_FINAL.md
 ```
+
+Artifact download verifies the source repository, the intended collection
+workflow, a completed `main` run, the exact collector commit, a clean collector
+working tree, and the frozen plan. It accepts failed runs' diagnostic archives
+and rejects fork/PR or other-workflow artifacts, duplicate attempts, mismatched
+labels, missing checksums, and expired data. Each accepted archive gets a
+`.provenance.json` receipt; the final report artifact includes those receipts.
+A checksum alone is integrity evidence, not proof of the collection source.
 
 The `frozen study report` Actions workflow performs those steps after October 24
 03:47 UTC (11:47 Shanghai), or on manual dispatch after release. It uses the
@@ -110,3 +128,10 @@ reports the incomplete study without fabricated returns. Live venue operation,
 future Actions runs, and multi-day conclusions remain unverified until actual
 collection succeeds. The required cloud domain additions are saved for review
 in environment settings; GitHub-hosted runners have a separate network path.
+
+A subsequent October 16 cloud retry after the domain configuration was published
+also returned CONNECT 403 and zero events. Its original failed-attempt archive
+is preserved alongside the first. Published configuration is therefore not
+proof of working connectivity in the current instance; the runtime proxy still
+needs to permit the destinations. Do not add duplicate secret requirements or
+relax TLS verification to work around that denial.

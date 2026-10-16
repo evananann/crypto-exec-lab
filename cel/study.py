@@ -121,7 +121,9 @@ def pack_session(directory: Path) -> Path:
 
 def verify_archive(archive: Path) -> dict:
     checksum = archive.with_suffix(archive.suffix + '.sha256')
-    if checksum.exists() and checksum.read_text().strip() != file_sha256(archive):
+    if not checksum.is_file():
+        raise ValueError('archive checksum sidecar is required')
+    if checksum.read_text().strip() != file_sha256(archive):
         raise ValueError('archive checksum mismatch')
     with tarfile.open(archive, 'r:gz') as tar:
         members = tar.getmembers()
@@ -177,7 +179,9 @@ def record_session(plan_path: Path, root: Path, *, slot: str | None = None, pref
             metadata = json.loads(recorder.metadata_path.read_text())
             result['errors'].extend(recorder.errors)
             result['health'] = health(directory / 'tape.jsonl', plan, metadata, seconds)
-            if factor is not None and result['health']['eligible']:
+            if factor is None or any(v['bbo'] == 0 for v in result['health']['venues'].values()):
+                result['status'] = 'blocked'
+            elif result['health']['eligible']:
                 result['status'] = 'preflight_passed' if preflight else 'eligible'
             else:
                 result['status'] = 'ineligible'
@@ -341,6 +345,7 @@ def main(argv=None):
     for name in ('collect', 'preflight'):
         cmd = sub.add_parser(name)
         cmd.add_argument('--root', type=Path, required=True)
+        cmd.add_argument('--summary', type=Path, help='append an Actions job summary')
         if name == 'collect':
             cmd.add_argument('--slot', choices=['am', 'pm'], required=True)
     cmd = sub.add_parser('report')
@@ -365,6 +370,12 @@ def main(argv=None):
         directory = record_session(args.plan, args.root, slot=getattr(args, 'slot', None), preflight=args.command == 'preflight')
         result = json.loads((directory / 'manifest.json').read_text())
         print(f"{result['session_id']}: {result['status']} ({directory})")
+        if args.summary is not None:
+            reasons = result['errors'] + (result.get('health') or {}).get('problems', [])
+            text = f"## Live study: {result['session_id']}\n\nStatus: **{result['status']}**.\n\n"
+            text += '\n'.join('- ' + reason.replace('\n', ' ').replace('<', '&lt;').replace('>', '&gt;') for reason in reasons) + '\n'
+            with args.summary.open('a', encoding='utf-8') as summary:
+                summary.write(text)
         return 0 if result['status'] in ('eligible', 'preflight_passed') else 1
     except (OSError, ValueError, KeyError, tarfile.TarError) as exc:
         parser.error(str(exc))

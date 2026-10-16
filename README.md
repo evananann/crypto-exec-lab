@@ -120,7 +120,9 @@ The [current report](reports/STUDY_V1.md) includes the failed cloud preflight;
 it does not claim live profitability. Scheduled Actions collect October 17–23,
 2026 UTC and produce a report after holdout release, subject to actual runner
 and feed availability. Use the [five-minute walkthrough](docs/INTERVIEW_WALKTHROUGH.md)
-to explain the hypothesis, implementation, evidence, and limitations.
+to explain the hypothesis, implementation, evidence, and limitations. Collector
+changes on `main` trigger a bounded preflight with an Actions job summary. Final
+artifact downloads verify their source workflow, commit, and checksums.
 
 ## Execution and recording integrity
 

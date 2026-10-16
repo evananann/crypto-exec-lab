@@ -18,19 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check holdout release date
         id: gate
-        run: |
-          python - <<'PY'
-          from datetime import datetime, timezone
-          import json, os
-          from pathlib import Path
-          plan = json.loads(Path('configs/study_v1.json').read_text())
-          day = str(datetime.now(timezone.utc).date())
-          allowed = day > plan['end_date_utc']
-          if day[:4] != plan['end_date_utc'][:4]:
-              allowed = False
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
-              output.write(f'run={str(allowed).lower()}\n')
-          PY
+        run: python scripts/study_gate.py --event "$GITHUB_EVENT_NAME" --report --output "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5
         if: steps.gate.outputs.run == 'true'
         with:
@@ -45,13 +33,17 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
-        run: python scripts/download_study_artifacts.py --repository "$REPOSITORY" --out data/raw/study-downloads
+        run: uv run --frozen python scripts/download_study_artifacts.py --repository "$REPOSITORY" --out data/raw/study-downloads
       - name: Verify, restore, and evaluate the fixed study
         if: steps.gate.outputs.run == 'true'
         run: |
           shopt -s nullglob
           for archive in data/raw/study-downloads/*.tar.gz; do
             uv run --frozen python -m cel.study restore "$archive" --root data/raw/study-restored
+          done
+          mkdir -p data/raw/study-final/provenance
+          for receipt in data/raw/study-downloads/*.provenance.json; do
+            cp -- "$receipt" data/raw/study-final/provenance/
           done
           uv run --frozen python -m cel.study report --root data/raw/study-restored --out data/raw/study-final/report.md
       - uses: actions/upload-artifact@v4
