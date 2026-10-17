@@ -2,6 +2,8 @@
   "benchmark.json": "0d94bc3f565ac133a6aa79de197e4fb57b33a2c2b7fc37d16124354d260e0e2c",
   "bundle-verification.json": "89595df67ad427f521929d66621b0d9d44aac47221265773e80bb5eab4fb8572",
   "final-reproduction.json": "0d315d237d290d878dd5d4b30f6a47d8ba4d01f11b7c89e9824233d6ed6635f4",
+  "release-preservation-observation.json": "15d7e7cc2f8aef64588b0b2c9fb2916029555afb4c3ec62130efd43dce037148",
+  "release-restore.json": "40a3f1f36b5883d609788c0ba952b6f4f2bfc40b7a3de801ec8a2c1f545fbd81",
   "reproduction.json": "0c284d251ccf7d212b80e479ae53215c8515b1431afe7911d2d327bb72d38d84",
   "restore-check.json": "98b66e89699a1fece94efe1e45467081ad36e1a5eb32b98b804a2fad0209e98a"
 }

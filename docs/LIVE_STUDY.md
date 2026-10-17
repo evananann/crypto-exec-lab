@@ -175,3 +175,12 @@ The [30-second hosted retry](https://github.com/evananann/crypto-exec-lab/action
 passed the preflight: metadata verified, Binance span 29,317ms, OKX span
 29,099ms, and clean worker shutdown. This verifies bounded runner readiness;
 actual planned 15-minute sessions still require their own eligible archives.
+
+The [preservation run](https://github.com/evananann/crypto-exec-lab/actions/runs/39013333007)
+uploaded, downloaded and restored eight original attempts to
+[GitHub Releases](DURABLE_ARCHIVES.md), with zero reported problems. The passing
+30-second preflight was also downloaded through its public Release URL and
+independently restored and replayed for health in this cloud instance. Counts,
+spans and maximum silences matched the hosted annotation
+([evidence](../reports/operations/release-restore.json)). No outcomes were
+evaluated; no eligible scheduled 15-minute observation is established by this.

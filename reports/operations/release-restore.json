@@ -1,0 +1,35 @@
+{
+  "as_of_utc": "2026-10-17T07:23:47.443463+00:00",
+  "archives_verified": 1,
+  "records": [
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T042200123739Z",
+      "archive_sha256": "7d46b794b9fb62348833a7a230162b92ca170ed957f41d58013d9c0946ecefd3",
+      "restored_files": 6,
+      "original_status": "preflight_passed"
+    }
+  ],
+  "scope": "Temporary restore and file integrity; not durable storage or collection eligibility.",
+  "recomputed_preflight_health": {
+    "eligible": true,
+    "problems": [],
+    "venues": {
+      "binance": {
+        "bbo": 1207,
+        "span_ms": 29317,
+        "max_silence_ms": 376
+      },
+      "okx": {
+        "bbo": 320,
+        "span_ms": 29099,
+        "max_silence_ms": 579
+      }
+    },
+    "events": 1835,
+    "duplicate_trades_dropped": 0
+  },
+  "original_collector_commit": "63ae516609934a639aaca758c49d9d1203d8986f",
+  "source": "Public GitHub Release download, independent of the expiring Actions artifact route",
+  "limitation": "A preflight is not a scheduled 15-minute study observation. Source-run provenance was checked by the hosted archiver, not re-fetched through the denied local Actions API."
+}

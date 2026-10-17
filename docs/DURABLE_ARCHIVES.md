@@ -70,9 +70,25 @@ a favorable result. Receipts identify the original run, artifact, collector,
 plan and archive digest. Checksums establish integrity, not independent
 authorship or profitable execution.
 
-The current cloud instance cannot access authenticated GitHub APIs. Hosted
-preservation runs have their own token/network path. Check the actual workflow
-result and its `study-preservation-receipts` artifact before claiming a remote
-copy or restore succeeded. The workflow reports the failing stage when it
-cannot finish. Future scheduled observations still require their own eligible
-collection archives; no backup can recover a market period never recorded.
+## Verified deployment
+
+The [first hosted preservation run](https://github.com/evananann/crypto-exec-lab/actions/runs/39013333007)
+reported **eight original archives downloaded and restored from Releases, with
+zero problems** on October 17, 2026. It preserved preflights, including failed
+attempts, across all three study releases. This is an observed successful run,
+not a promise that future scheduled preservation will succeed.
+
+One passing v1 preflight was then downloaded via its public Release URL in this
+cloud instance, checksum-verified and restored. Health recomputation matched
+1,207 Binance quotes and 320 OKX quotes. The committed
+[restore record](../reports/operations/release-restore.json) includes its digest,
+collector revision and health measurements; the
+[hosted observation](../reports/operations/release-preservation-observation.json)
+records the run and scope of verification. No return outcomes were inspected.
+
+Authenticated GitHub APIs remain denied in this cloud instance; public Release
+downloads work. Hosted preservation uses its own token/network path to check
+source-run provenance. Future runs must be checked individually, including
+their `study-preservation-receipts` artifacts and any failure annotations.
+Future scheduled observations still require their own eligible collection
+archives; no backup can recover a market period never recorded.

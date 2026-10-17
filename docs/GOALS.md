@@ -10,7 +10,7 @@ completed early, replaced with synthetic data, or repaired retrospectively.
 | 2 | Stop recorder workers | Abort blocked receive before bounded close, reject late opens, track auxiliary heartbeat; hosted shutdown clean. |
 | 3 | Passing hosted preflight | [Run 39002281728](https://github.com/evananann/crypto-exec-lab/actions/runs/39002281728) passed. |
 | 4 | Account for every session | Coverage/provenance workflow implemented; first AM slot unavailable locally, other slots future. Full inventory pending archives. |
-| 5 | Independent long-term preservation | Verified repeatable preservation command; three local independent copies checked. Durable off-machine destination still required. |
+| 5 | Independent long-term preservation | GitHub Releases selected; eight originals uploaded, downloaded and restored by the hosted job. One public Release copy independently restored and health-checked here. [Evidence](DURABLE_ARCHIVES.md). |
 | 6 | Complete frozen v1 | Scheduled through October 23 UTC; missing observations stay missing. Not complete. |
 | 7 | Release holdout | Gated report scheduled October 24, 03:47 UTC. Not released early. |
 | 8 | Primary outcomes and uncertainty | Frozen report implemented; no verified eligible live session available here. |
@@ -45,12 +45,12 @@ start window has closed. Do not backfill it under the original label. The
 decision rule prevents a conclusive complete-study claim if coverage remains
 missing. V2 is prospective replication, not a way to erase v1 failures.
 
-A durable archival destination has been requested. A local workspace copy
-does not satisfy off-machine long-term retention. Never send credentials in
-chat; configure them through the storage provider's supported mechanism.
+The selected [GitHub Releases archive](DURABLE_ARCHIVES.md) now preserves
+original attempts beyond Actions retention, with verified download and restore.
+It remains on the same provider; an additional external backup is optional.
 
-Validation: 143 tests passed locally on Python 3.12, Ruff passed, and
-[hosted CI](https://github.com/evananann/crypto-exec-lab/actions/runs/39002936349)
+Validation: 183 tests passed locally on Python 3.12, Ruff passed, and
+[hosted CI](https://github.com/evananann/crypto-exec-lab/actions/runs/39013333064)
 passed the Python 3.11/3.12/3.13 matrix, including complete bundle generation.
 All twelve synthetic fee/latency grid runs passed independent fill audits.
 Both replication pair preflights passed in

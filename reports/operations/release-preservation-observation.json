@@ -1,0 +1,21 @@
+{
+  "observed_on_utc": "2026-10-17",
+  "implementation_commit": "5ffa68e61fcc944f6943459c3542535af78217dc",
+  "workflow_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39013333007",
+  "observed_public_annotation": "8 original archives downloaded and restored from Releases; 0 problems.",
+  "archives_download_and_restore_verified": 8,
+  "reported_problems": 0,
+  "release_pages": [
+    "https://github.com/evananann/crypto-exec-lab/releases/tag/study-archive-btc-execution-v1",
+    "https://github.com/evananann/crypto-exec-lab/releases/tag/study-archive-btc-replication-v2-okx",
+    "https://github.com/evananann/crypto-exec-lab/releases/tag/study-archive-btc-replication-v2-bybit"
+  ],
+  "independent_cloud_restore_record": "release-restore.json",
+  "scope": "Hosted annotation observed publicly; one public Release archive independently downloaded, restored and recomputed for preflight health in this cloud instance.",
+  "limitations": [
+    "All preserved observations are preflight attempts, not verified scheduled 15-minute study samples.",
+    "Source-run provenance verified by hosted job; authenticated Actions API remains denied locally.",
+    "Releases share the repository and provider; no separate-provider backup is claimed.",
+    "Future collections, preservation runs and empirical outcomes remain pending."
+  ]
+}

@@ -66,8 +66,11 @@ and request JSON, and made recorder shutdown bounded. The
 [30-second hosted preflight](https://github.com/evananann/crypto-exec-lab/actions/runs/39002281728)
 then **passed**: instrument metadata verified, all health gates passed, and
 workers stopped. Binance reported 1,207 BBOs over 29,317ms (maximum silence
-376ms); OKX reported 320 over 29,099ms (maximum silence 579ms). These are public
-health annotations, still not independently replayed artifact measurements.
+376ms); OKX reported 320 over 29,099ms (maximum silence 579ms). Its original
+archive was subsequently downloaded from GitHub Releases, checksum-verified,
+restored and independently replayed for health only. The recomputed counts,
+spans and maximum silences matched those annotations; see the
+[restore evidence](operations/release-restore.json). No returns were evaluated.
 Passing a preflight establishes collection readiness on that runner, not a
 15-minute eligible study session or a strategy result.
 

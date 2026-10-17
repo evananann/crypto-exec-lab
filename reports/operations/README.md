@@ -41,3 +41,15 @@ sessions and post-release empirical conclusions remain pending.
 passed the Python 3.11/3.12/3.13 matrix for the final code. The checksum file
 covers these JSON validation records; this directory is not itself an
 `experiments.json` research bundle.
+
+## Release preservation deployment
+
+The later preservation implementation passed 183 local tests and the
+[Python 3.11/3.12/3.13 hosted CI matrix](https://github.com/evananann/crypto-exec-lab/actions/runs/39013333064).
+Its [hosted observation](release-preservation-observation.json) records eight
+original archives uploaded, downloaded and restored from GitHub Releases,
+with zero reported problems. The [independent restore](release-restore.json)
+records one public Release download restored here and recomputed for health,
+matching the passing preflight's 1,207 Binance and 320 OKX quotes.
+This does not establish a scheduled study sample or an alpha result. Earlier
+benchmark and fresh-clone records retain their original source revisions.

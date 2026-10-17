@@ -127,6 +127,8 @@ provenance receipt, re-verifies the copy, rejects conflicts, and is repeatable.
 It never deletes older sessions. Preserve both v2 pairs under separate study
 directories. A tested local independent copy currently exists at
 `/workspace/independent-study-archive`; that is not proof of off-machine
-durability. A durable destination remains to be supplied. Do not put credentials
-in commands, reports or chat. GitHub's 90-day artifact retention is a deadline,
-not a long-term archive policy.
+durability. The default [GitHub Releases archive](DURABLE_ARCHIVES.md) now
+supplies off-machine storage and has passed upload/download/restore checks;
+the mounted destination above is an optional additional backup. Do not put
+credentials in commands, reports or chat. Releases do not share Actions'
+90-day artifact expiry, but remain on the same provider and repository.

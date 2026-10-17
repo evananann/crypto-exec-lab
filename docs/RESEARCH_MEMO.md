@@ -44,7 +44,10 @@ completed 15-minute study sample.
 
 No eligible live-study session has been independently verified here. The
 authenticated GitHub artifact route remains denied in the cloud instance;
-public health annotations are accessible. Primary means, confidence intervals,
+public health annotations and public Release downloads are accessible. The
+passing preflight was independently restored from its Release copy and its
+health recomputed, matching the quoted counts and spans
+([evidence](../reports/operations/release-restore.json)). Primary means, confidence intervals,
 execution returns and cross-day comparisons are therefore unavailable. The
 committed figures demonstrate the software on explicitly synthetic data;
 they make no claim about market alpha.

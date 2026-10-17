@@ -67,11 +67,12 @@ one plan/slot fail rather than selecting a retry. Separate studies can share
 the same date/slot under different plan hashes. Report paths must be new and
 outside the evidence source.
 
-All three existing independent local copies were restored successfully.
-This tests the software and those bytes, not off-machine durability. An actual
-durable mounted destination still needs to be supplied; a workspace copy is
-not a replacement. Preserve copies before artifact expiry, and repeat the drill
-using bytes read back from the durable destination.
+The three earlier local copies restored successfully. The default
+[GitHub Releases archive](DURABLE_ARCHIVES.md) now supplies off-machine storage:
+the hosted job downloaded and restored eight originals after upload, and one
+public Release copy was independently restored and health-checked here.
+Releases share the repository/provider; an external mounted backup remains an
+optional additional copy. Future attempts require their own preservation checks.
 
 ## Recovery cases
 
