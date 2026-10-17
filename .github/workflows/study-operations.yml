@@ -1,0 +1,67 @@
+name: study operations monitor
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/study_monitor.py'
+      - '.github/workflows/study-operations.yml'
+  workflow_run:
+    workflows: [frozen live study, preregistered replication collection]
+    types: [completed]
+    branches: [main]
+  schedule:
+    - cron: '41 4,16 * * *'
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: study-operations
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      # Always inspect trusted main; never checkout a triggering run's code.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Stop scheduled monitoring after the retention review period
+        id: window
+        run: |
+          python - <<'PY'
+          from datetime import datetime, date, timedelta, timezone
+          import json, os
+          from pathlib import Path
+          end = max(date.fromisoformat(json.loads(p.read_text())['end_date_utc']) for p in Path('configs').glob('study_v*.json'))
+          active = os.environ['GITHUB_EVENT_NAME'] != 'schedule' or datetime.now(timezone.utc).date() <= end + timedelta(days=100)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('run=' + str(active).lower() + '\n')
+          PY
+      - uses: actions/setup-python@v5
+        if: steps.window.outputs.run == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install frozen dependencies
+        if: steps.window.outputs.run == 'true'
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --python 3.12
+      - name: Check coverage, archive health and expiration
+        if: steps.window.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: uv run --frozen python -m scripts.study_monitor --repository "$REPOSITORY" --out data/raw/operations --summary "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.window.outputs.run == 'true'
+        with:
+          name: study-operations-dashboard
+          path: data/raw/operations/
+          if-no-files-found: error
+          retention-days: 30
