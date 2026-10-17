@@ -30,6 +30,9 @@ The initial development measurement was approximately 155,000 replay events/s,
 2.23s evaluation median, 1.12s execution-with-replay median and 115 MB maximum
 evaluation RSS. That run used uncommitted operational scripts and is preliminary.
 The committed evidence report records the later clean-clone measurements.
+See [the measured records](../reports/operations/README.md): the clean clone
+passed 168 tests, source verification and archive restoration; its evaluation
+median was 2.184 seconds on the declared synthetic input.
 
 ## Fresh-clone reproduction
 

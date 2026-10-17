@@ -1,0 +1,8 @@
+{
+  "files_verified": 6,
+  "accounting_rows_verified": 16,
+  "synthetic": true,
+  "recorded_commit": "b8b23d975f84955e942860c329a46d36b4456812",
+  "source_blobs_verified": 40,
+  "scope": "Integrity and accounting; external tape provenance and live execution remain unverified."
+}

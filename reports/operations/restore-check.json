@@ -1,0 +1,28 @@
+{
+  "as_of_utc": "2026-10-17T06:17:05.337490+00:00",
+  "archives_verified": 3,
+  "records": [
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261016T034246831497Z",
+      "archive_sha256": "185d48d5843343470c78eea25c7c3e06e11556d6a6e2c36d2a5b49a99b338acf",
+      "restored_files": 5,
+      "original_status": "ineligible"
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261016T063323034369Z",
+      "archive_sha256": "8faf93f58b2801a5549a6ab6ffa62f5d96281c6c9e1f34a6851741909713c232",
+      "restored_files": 5,
+      "original_status": "ineligible"
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T035259933486Z",
+      "archive_sha256": "50aa1fac58ad7107f3714ec6f32fc752e305784f673b4ba521a622c89741e4e4",
+      "restored_files": 5,
+      "original_status": "blocked"
+    }
+  ],
+  "scope": "Temporary restore and file integrity; not durable storage or collection eligibility."
+}

@@ -72,8 +72,11 @@ def compare(bundles, *, now=None, source_repo=DEFAULT_PLAN.parents[1]):
                      'expected_sessions': expected, 'missing_sessions': state['missing_sessions'],
                      'occupied_days': days, 'equal_day_mean_bps': mean, 'ci95_bps': interval,
                      'interval_half_width_bps': half, 'numerical_targets_met': targets,
-                     'plan_sha256': digest, 'report_commit': data['git_commit']})
+                     'plan_sha256': digest, 'report_commit': data['git_commit'],
+                     'report_analysis_sha256': file_sha256(root / 'experiments.json'),
+                     'report_status_sha256': file_sha256(root / 'study.status.json')})
     return {'as_of_utc': now.isoformat(), 'pairs': rows,
+            'comparison_sha256': file_sha256(Path(__file__)),
             'interpretation': 'Both pairs reported separately. Shared Binance data creates dependence; no pooled estimate or winning pair.',
             'limitation': 'Numerical targets are not proof of replication or profitability. Review condition diversity, missing data, dependence and exit costs.'}
 

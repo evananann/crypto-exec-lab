@@ -43,3 +43,14 @@ profitable execution or adequate market-condition coverage.
 
 See [performance and reproduction](PERFORMANCE_AND_REPRODUCTION.md) for what
 each benchmark measures and what an independent clone does—and does not—prove.
+The [committed validation records](../reports/operations/README.md) contain the
+successful fresh-clone run, restore drill and measured synthetic-volume benchmark.
+
+After a successful `preregistered replication report` run, the separate
+`released replication comparison` workflow automatically retrieves both pair
+report artifacts from that exact source run. It checks source repository,
+workflow, branch, event, completion, artifact uniqueness and source commit,
+then publishes the two-pair comparison and provenance as another artifact.
+It checks the release date before downloading outcomes and never changes
+either frozen collection/report workflow. Manual dispatch requires an explicit
+report run ID; it does not select a favorable report or market session.

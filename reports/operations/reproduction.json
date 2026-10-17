@@ -1,0 +1,56 @@
+{
+  "source_commit": "b8b23d975f84955e942860c329a46d36b4456812",
+  "clone_method": "git clone --no-local; no copied working tree or environment",
+  "status": "passed",
+  "steps": [
+    {
+      "step": "clone",
+      "returncode": 0,
+      "seconds": 0.07925023999996483,
+      "log": "logs/clone.log"
+    },
+    {
+      "step": "checkout",
+      "returncode": 0,
+      "seconds": 0.0071103760001278715,
+      "log": "logs/checkout.log"
+    },
+    {
+      "step": "install",
+      "returncode": 0,
+      "seconds": 0.8015073429996846,
+      "log": "logs/install.log"
+    },
+    {
+      "step": "tests",
+      "returncode": 0,
+      "seconds": 7.40859064200049,
+      "log": "logs/tests.log",
+      "tests_executed": 168
+    },
+    {
+      "step": "bundle",
+      "returncode": 0,
+      "seconds": 1.956309680999766,
+      "log": "logs/bundle.log"
+    },
+    {
+      "step": "verify",
+      "returncode": 0,
+      "seconds": 0.11465161400155921,
+      "log": "logs/verify.log"
+    },
+    {
+      "step": "restore",
+      "returncode": 0,
+      "seconds": 0.1706928040002822,
+      "log": "logs/restore.log"
+    },
+    {
+      "step": "benchmark",
+      "returncode": 0,
+      "seconds": 14.741210374999355,
+      "log": "logs/benchmark.log"
+    }
+  ]
+}
