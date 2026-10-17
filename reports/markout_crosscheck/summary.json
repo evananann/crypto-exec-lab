@@ -1,0 +1,8 @@
+{
+  "synthetic": true,
+  "passed": true,
+  "cases": 24,
+  "cells": 576,
+  "compared_rows": 9762,
+  "maximum_absolute_pnl_error_bps": 1.1102230246251565e-12
+}

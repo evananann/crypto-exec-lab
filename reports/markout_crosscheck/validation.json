@@ -1,0 +1,20 @@
+{
+  "as_of_utc": "2026-10-17T13:50:23.713047+00:00",
+  "source_commit": "71a772764ad112b58f8e704e4669771e431a4358",
+  "source_tree_clean_before_generation": true,
+  "python": "3.12.14",
+  "synthetic": true,
+  "local_tests_passed": 216,
+  "ruff": "passed",
+  "frozen_source_maps_verified": 3,
+  "standalone_reference_without_site_packages": "passed",
+  "command": "python -m scripts.crosscheck_markouts --demo --out <new-output>",
+  "scope": "Independent implementation agreement on synthetic normalized BBO tapes; no empirical study outcomes evaluated.",
+  "hosted_ci_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39038181213",
+  "hosted_ci_conclusion": "success",
+  "hosted_python_matrix": [
+    "3.11",
+    "3.12",
+    "3.13"
+  ]
+}

@@ -49,8 +49,8 @@ The selected [GitHub Releases archive](DURABLE_ARCHIVES.md) now preserves
 original attempts beyond Actions retention, with verified download and restore.
 It remains on the same provider; an additional external backup is optional.
 
-Validation: 204 tests passed locally on Python 3.12, Ruff passed, and
-[hosted CI](https://github.com/evananann/crypto-exec-lab/actions/runs/39035791687)
+Validation: 216 tests passed locally on Python 3.12, Ruff passed, and
+[hosted CI](https://github.com/evananann/crypto-exec-lab/actions/runs/39038181213)
 passed the Python 3.11/3.12/3.13 matrix, including complete bundle generation.
 All twelve synthetic fee/latency grid runs passed independent fill audits.
 Both replication pair preflights passed in
