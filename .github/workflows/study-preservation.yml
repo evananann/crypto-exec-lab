@@ -1,0 +1,70 @@
+name: durable study preservation
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/archive_study_releases.py'
+      - '.github/workflows/study-preservation.yml'
+  workflow_run:
+    workflows: [frozen live study, preregistered replication collection]
+    branches: [main]
+    types: [completed]
+  schedule:
+    - cron: '11 5,17 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: durable-study-preservation
+  cancel-in-progress: false
+
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # Release assets need write access; this job executes only trusted main,
+    # validates collection-run identity, and never executes artifact contents.
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Bound automatic preservation to the collection and grace period
+        id: window
+        run: |
+          python - <<'PY'
+          from datetime import date, datetime, timedelta, timezone
+          import json, os
+          from pathlib import Path
+          end = max(date.fromisoformat(json.loads(p.read_text())['end_date_utc']) for p in Path('configs').glob('study_v*.json'))
+          active = os.environ['GITHUB_EVENT_NAME'] != 'schedule' or datetime.now(timezone.utc).date() <= end + timedelta(days=7)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              output.write('run=' + str(active).lower() + '\n')
+          PY
+      - uses: actions/setup-python@v5
+        if: steps.window.outputs.run == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install frozen dependencies
+        if: steps.window.outputs.run == 'true'
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --python 3.12
+      - name: Preserve original archives and verify remote restores
+        if: steps.window.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: uv run --frozen python -m scripts.archive_study_releases --repository "$REPOSITORY" --out data/raw/preservation
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.window.outputs.run == 'true'
+        with:
+          name: study-preservation-receipts
+          path: data/raw/preservation/
+          if-no-files-found: error
+          retention-days: 90
