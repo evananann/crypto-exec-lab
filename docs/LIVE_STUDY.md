@@ -63,6 +63,14 @@ show `blocked` for unavailable metadata/feeds, `ineligible` for a received tape
 that fails quality gates, and the exact observed errors. Historical archives
 keep the status labels assigned by their original collector version.
 
+Each new collection run also publishes a `Public feed health` annotation with
+instrument-verification status, primary-venue quote counts/span/silence, and
+allowlisted error categories or HTTP codes. These annotations can be reviewed
+without access to artifact downloads. They contain no raw exception text,
+credentials, prices, markouts, or PnL. They diagnose collection health only;
+the checksummed archive remains the source for full verification. A missing
+manifest is reported explicitly rather than treated as a successful preflight.
+
 ## Archiving and verification
 
 Each session directory contains the frozen plan and configuration, raw tape,

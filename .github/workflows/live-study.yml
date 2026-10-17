@@ -7,6 +7,7 @@ on:
       - 'cel/study.py'
       - 'cel/ingest/instruments.py'
       - 'scripts/study_gate.py'
+      - 'scripts/study_diagnostics.py'
       - '.github/workflows/live-study.yml'
       - 'configs/study_v1*'
   workflow_dispatch:
@@ -66,6 +67,9 @@ jobs:
         env:
           SLOT: ${{ steps.gate.outputs.slot }}
         run: uv run --frozen python -m cel.study collect --slot "$SLOT" --root data/raw/study-v1 --summary "$GITHUB_STEP_SUMMARY"
+      - name: Publish sanitized feed health for diagnosis
+        if: always() && steps.gate.outputs.run == 'true'
+        run: python scripts/study_diagnostics.py --root data/raw/study-v1
       - uses: actions/upload-artifact@v4
         if: always() && steps.gate.outputs.run == 'true'
         with:

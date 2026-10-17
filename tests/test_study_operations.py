@@ -13,10 +13,51 @@ from cel.artifacts import file_sha256
 from cel.study import DEFAULT_PLAN, pack_session, verify_archive
 from scripts import download_study_artifacts as downloader
 from scripts.study_gate import gate
+from scripts.study_diagnostics import diagnostic
 
 REPOSITORY = 'evananann/crypto-exec-lab'
 SHA = 'a' * 40
 SESSION = '2026-10-17-am'
+
+
+class PublicDiagnosticTests(unittest.TestCase):
+    def test_diagnostic_exposes_health_without_raw_errors_or_outcomes(self):
+        message = diagnostic({'status': 'blocked', 'errors': [
+            'proxy CONNECT 403 https://user:secret@example.com\n::error::injected'],
+            'pnl': 12345, 'verified_contract_value_btc': .01,
+            'health': {'venues': {'binance': {'bbo': 12, 'span_ms': 9000}},
+                       'problems': ['okx: insufficient observed span']}})
+        self.assertIn('instrument_verified=True', message)
+        self.assertIn('http_codes=403', message)
+        self.assertIn('proxy_error', message)
+        self.assertIn('binance.bbo=12', message)
+        self.assertIn('insufficient observed span', message)
+        for private in ('secret', 'example.com', '12345', '\n', '::', 'injected'):
+            self.assertNotIn(private, message)
+
+    def test_untrusted_status_and_metric_values_are_never_echoed(self):
+        message = diagnostic({'status': '\n::error::payload', 'verified_contract_value_btc': True,
+                              'health': {'venues': {'okx': {'bbo': '\n::error::payload',
+                                                           'span_ms': -1}}}})
+        self.assertIn('status=unknown', message)
+        self.assertIn('instrument_verified=False', message)
+        self.assertIn('okx.bbo=unavailable', message)
+        self.assertNotIn('payload', message)
+
+    def test_dependency_free_cli_handles_missing_and_duplicate_manifests(self):
+        script = Path(__file__).resolve().parents[1] / 'scripts' / 'study_diagnostics.py'
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            for count in (0, 1, 2):
+                if count:
+                    session = root / str(count)
+                    session.mkdir()
+                    (session / 'manifest.json').write_text('{"status":"blocked"}')
+                result = subprocess.run([sys.executable, '-S', str(script), '--root', str(root)],
+                                        check=True, capture_output=True, text=True)
+                self.assertEqual(result.stdout.count('\n'), 1)
+                self.assertTrue(result.stdout.startswith('::warning title=Public feed health::'))
+                self.assertIn('status=blocked' if count == 1 else 'No unique session', result.stdout)
 
 
 def source_run():
