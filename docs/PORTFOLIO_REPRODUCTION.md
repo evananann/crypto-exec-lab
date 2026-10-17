@@ -44,6 +44,41 @@ not zero strategy returns. `checksums.json` is written last; its absence means
 the bundle is incomplete. Source hashes, runtime packages, input digests,
 revision and working-tree status are recorded in `experiments.json`.
 
+## Verify a downloaded bundle
+
+The verifier requires only Python 3.11+; it runs without installing this
+project or its scientific packages:
+
+```bash
+python -S scripts/verify_bundle.py data/raw/demo-bundle
+```
+
+It requires the final completion inventory, checks exact file membership and
+SHA-256 digests, rejects symbolic links and unsafe paths, and reconciles
+round-trip/control fills with reported cash, fees, inventory and closed-trade
+statistics. The bundled synthetic tape must match the report's input digest.
+Missing live tape files are not fetched through report-supplied paths.
+
+To compare the declared source bytes with a known commit in a local clone:
+
+```bash
+python -S scripts/verify_bundle.py data/raw/demo-bundle \
+  --expected-commit YOUR_TRUSTED_40_CHARACTER_COMMIT --source-repo .
+```
+
+Use the commit from the trusted run or publication. This comparison reads Git
+blobs at that revision, so uncommitted working-tree edits cannot substitute
+source files. Source verification requires the report to record a clean tree.
+The commit must already exist in the local clone. CI generates a fresh bundle
+and verifies its declared sources against the actual CI commit on every
+supported Python version.
+
+Checksums alone establish integrity, not authorship. Source comparison verifies
+declared source bytes; it does not prove the program was run as claimed or
+authenticate external market tapes. Original archive provenance checks and
+quote-based fill audits remain separate requirements. The verifier exits
+nonzero on a failed check and does not modify the bundle.
+
 ## Execution extensions and controls
 
 The round-trip extension permits one follower position at a time. A jump

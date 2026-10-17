@@ -39,6 +39,7 @@ Generate the complete offline package in one command after setup:
 
 ```bash
 uv run --frozen python -m cel.experiments --demo --out data/raw/demo-bundle
+python -S scripts/verify_bundle.py data/raw/demo-bundle
 ```
 
 This produces an explicitly synthetic demonstration with round-trip entry/exit
