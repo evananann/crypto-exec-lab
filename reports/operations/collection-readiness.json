@@ -1,0 +1,66 @@
+{
+  "as_of_utc": "2026-10-17T08:17:13.587012+00:00",
+  "checked_source_commit": "b761a385c1b5f7249cd1712ec95fe623d1abbf88",
+  "next_v1_collection_shanghai": "2026-10-17T23:17:00+08:00",
+  "v1_report_scheduled_shanghai": "2026-10-24T11:47:00+08:00",
+  "workflow_review": {
+    "collection": ".github/workflows/live-study.yml",
+    "monitor": ".github/workflows/study-operations.yml",
+    "preservation": ".github/workflows/study-preservation.yml",
+    "v1_report": ".github/workflows/live-study-report.yml",
+    "replication_collection": ".github/workflows/replication-study.yml",
+    "replication_report": ".github/workflows/replication-report.yml",
+    "replication_comparison": ".github/workflows/replication-comparison.yml"
+  },
+  "monitor_observation": {
+    "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39014994502",
+    "conclusion": "failure",
+    "public_annotation": "btc-execution-v1 2026-10-17-am: missing"
+  },
+  "preservation_observation": {
+    "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39014994504",
+    "conclusion": "success",
+    "public_annotation": "8 original archives downloaded and restored from Releases; 0 problems."
+  },
+  "independent_public_release_restore": "all-release-restores.json",
+  "frozen_plan_gate_checks": [
+    {
+      "plan": "configs/study_v1.json",
+      "sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "current_pm_collection_gate": {
+        "run": "false",
+        "mode": "collect",
+        "slot": "pm",
+        "session": "2026-10-17-pm",
+        "reason": "outside frozen dates or slot"
+      },
+      "report_blocked_on_final_collection_day": true
+    },
+    {
+      "plan": "configs/study_v2_okx.json",
+      "sha256": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9",
+      "current_pm_collection_gate": {
+        "run": "false",
+        "mode": "collect",
+        "slot": "pm",
+        "session": "2026-10-17-pm",
+        "reason": "outside frozen dates or slot"
+      },
+      "report_blocked_on_final_collection_day": true
+    },
+    {
+      "plan": "configs/study_v2_bybit.json",
+      "sha256": "cd4605e0c51843058e96a3f3c8448021d0a90a7b3c89b836a89989c77ad44a56",
+      "current_pm_collection_gate": {
+        "run": "false",
+        "mode": "collect",
+        "slot": "pm",
+        "session": "2026-10-17-pm",
+        "reason": "outside frozen dates or slot"
+      },
+      "report_blocked_on_final_collection_day": true
+    }
+  ],
+  "scheduled_eligible_samples_verified": 0,
+  "remaining": "Future collection runs, scheduled sample health, complete slot reconciliation, released outcomes and replication evaluation require future observations. Workflow configuration is not evidence of their success."
+}

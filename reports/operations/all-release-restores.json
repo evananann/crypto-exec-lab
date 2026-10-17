@@ -1,0 +1,67 @@
+{
+  "as_of_utc": "2026-10-17T08:16:43.190671+00:00",
+  "archives_verified": 8,
+  "records": [
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261016T064326977084Z",
+      "archive_sha256": "f108e5882f05c1db5b72db010b9cf8185dd415d98bb56e9a5eef322c0028a05c",
+      "restored_files": 5,
+      "original_status": "blocked"
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261016T162529538422Z",
+      "archive_sha256": "94e303dbb92debb01dec357b7525d94a3caa0cb7795d0ba1f313d249187e32ee",
+      "restored_files": 5,
+      "original_status": "blocked"
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T035309186709Z",
+      "archive_sha256": "0941d3faba9ceee4814d7a9cd64ed88fa0d1854ea17a8cde300eb0db4cd80061",
+      "restored_files": 5,
+      "original_status": "blocked"
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T041815741143Z",
+      "archive_sha256": "f9f4d43ebf87042e3d87659b5b35d06c036fb17f5c0372a6aca2e121c2f81077",
+      "restored_files": 6,
+      "original_status": "ineligible"
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T042200123739Z",
+      "archive_sha256": "7d46b794b9fb62348833a7a230162b92ca170ed957f41d58013d9c0946ecefd3",
+      "restored_files": 6,
+      "original_status": "preflight_passed"
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T043223326876Z",
+      "archive_sha256": "c609cc9bd14b4901bbc7d2aeb5b21f81a474e8b3d886c7f61074535a77ac7a6c",
+      "restored_files": 6,
+      "original_status": "preflight_passed"
+    },
+    {
+      "study_id": "btc-replication-v2-bybit",
+      "session_id": "preflight-20261017T043224786854Z",
+      "archive_sha256": "9d0df68b1c980548509f939f7b2124b762120c4c1476fd58d4bbfd6621ef5154",
+      "restored_files": 6,
+      "original_status": "preflight_passed"
+    },
+    {
+      "study_id": "btc-replication-v2-okx",
+      "session_id": "preflight-20261017T043225026475Z",
+      "archive_sha256": "969443bee7a71d25050305184bb8a5c6f252e3e73dccdbdee8b73f4813ff3691",
+      "restored_files": 6,
+      "original_status": "preflight_passed"
+    }
+  ],
+  "scope": "Temporary restore and file integrity; not durable storage or collection eligibility.",
+  "source": "Normal public GitHub Release downloads with TLS verification; all 24 assets downloaded directly in this cloud instance.",
+  "provenance_scope": "Receipts checked against archive digests, collector revision and plan. Source-run API identity was checked by the hosted archiver, not independently fetched through the denied local Actions API.",
+  "outcomes_evaluated": false,
+  "scheduled_eligible_samples_verified": 0
+}

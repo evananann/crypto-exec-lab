@@ -92,3 +92,9 @@ source-run provenance. Future runs must be checked individually, including
 their `study-preservation-receipts` artifacts and any failure annotations.
 Future scheduled observations still require their own eligible collection
 archives; no backup can recover a market period never recorded.
+
+A later [independent cloud restore](../reports/operations/all-release-restores.json)
+downloaded all 24 public assets and verified all eight archives across the
+three studies, including blocked and ineligible attempts. Receipt digests,
+collector revisions and plan hashes matched. These remain preflights, not
+scheduled study observations.

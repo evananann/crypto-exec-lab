@@ -10,7 +10,7 @@ completed early, replaced with synthetic data, or repaired retrospectively.
 | 2 | Stop recorder workers | Abort blocked receive before bounded close, reject late opens, track auxiliary heartbeat; hosted shutdown clean. |
 | 3 | Passing hosted preflight | [Run 39002281728](https://github.com/evananann/crypto-exec-lab/actions/runs/39002281728) passed. |
 | 4 | Account for every session | Coverage/provenance workflow implemented; first AM slot unavailable locally, other slots future. Full inventory pending archives. |
-| 5 | Independent long-term preservation | GitHub Releases selected; eight originals uploaded, downloaded and restored by the hosted job. One public Release copy independently restored and health-checked here. [Evidence](DURABLE_ARCHIVES.md). |
+| 5 | Independent long-term preservation | GitHub Releases selected; eight originals uploaded, downloaded and restored by the hosted job. All eight public copies independently restored here; one passing preflight also replayed for health. [Evidence](DURABLE_ARCHIVES.md). |
 | 6 | Complete frozen v1 | Scheduled through October 23 UTC; missing observations stay missing. Not complete. |
 | 7 | Release holdout | Gated report scheduled October 24, 03:47 UTC. Not released early. |
 | 8 | Primary outcomes and uncertainty | Frozen report implemented; no verified eligible live session available here. |

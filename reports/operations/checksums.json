@@ -1,6 +1,8 @@
 {
+  "all-release-restores.json": "ff66c0ed1ac371ceb9d24ef9ce97d70e5e5249c9ac28bb192cbcacf9c8017dae",
   "benchmark.json": "0d94bc3f565ac133a6aa79de197e4fb57b33a2c2b7fc37d16124354d260e0e2c",
   "bundle-verification.json": "89595df67ad427f521929d66621b0d9d44aac47221265773e80bb5eab4fb8572",
+  "collection-readiness.json": "c0acf7fca2861b86ac2a2e7b39d60b13a6945a7a9660343ffee5175ba27f5e3d",
   "final-reproduction.json": "0d315d237d290d878dd5d4b30f6a47d8ba4d01f11b7c89e9824233d6ed6635f4",
   "release-preservation-observation.json": "15d7e7cc2f8aef64588b0b2c9fb2916029555afb4c3ec62130efd43dce037148",
   "release-restore.json": "40a3f1f36b5883d609788c0ba952b6f4f2bfc40b7a3de801ec8a2c1f545fbd81",

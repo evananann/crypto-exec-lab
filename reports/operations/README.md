@@ -53,3 +53,14 @@ records one public Release download restored here and recomputed for health,
 matching the passing preflight's 1,207 Binance and 320 OKX quotes.
 This does not establish a scheduled study sample or an alpha result. Earlier
 benchmark and fresh-clone records retain their original source revisions.
+
+## Collection readiness checkpoint
+
+The [October 17 checkpoint](collection-readiness.json) records the latest
+monitor alert, a repeated successful preservation run, frozen-plan verification
+and current collection/release gates. The
+[all-archive public restore](all-release-restores.json) independently downloaded
+24 Release assets and restored all eight original archives in this environment.
+The next v1 slot is October 17 at 23:17 Shanghai time; its completion and health
+remain unverified until an actual archive exists. Post-collection monitoring
+and preservation are already configured, as are the date-gated final reports.
