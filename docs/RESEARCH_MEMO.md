@@ -85,3 +85,9 @@ synthetic cash flows and explicit residual exposure; its results are not live
 return estimates. Use the [write-up template](RESULTS_WRITEUP_TEMPLATE.md) only
 after the applicable outcome release, retaining unavailable fields and coverage
 failures. Interview answers still require actual candidate participation.
+
+The [missingness and dependence supplement](MISSING_DATA_AND_DEPENDENCE.md)
+prepares hypothetical lost-session sensitivity and release-gated calendar-day
+uncertainty diagnostics. Its committed examples are entirely synthetic. A
+separate [execution-calibration plan](EXECUTION_CALIBRATION_PLAN.md) specifies
+what a future order-lifecycle study would need to measure; no orders are sent.

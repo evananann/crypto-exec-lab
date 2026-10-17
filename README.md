@@ -1,202 +1,88 @@
 # crypto-exec-lab
 
-Two-venue crypto **execution lab**, not a price-prediction bot.
+A BTC perpetual microstructure and execution research project using public
+Binance, OKX and Bybit data. It combines causal replay, preregistered markouts,
+execution simulation and verifiable research artifacts.
 
-Public market data from **Binance**, **Bybit**, and **OKX** BTC perpetuals. Measure who moves first, then simulate a **two-leg** trade (start on one venue, hedge the other) with **delay, fees, and kill switches**. The research question: does a displayed gap survive spread, fees, 50–200ms of latency, and the risk of an incomplete hedge?
+**Hypothesis:** an accumulated $2 Binance jump predicts a positive OKX
+entry-to-mid markout after a 50ms decision delay and 5bps entry fee, measured
+one second from the signal using local receive time. A separate prospective
+study repeats the fixed test across dates and on Binance→Bybit.
 
-Simulator only. No live orders, no claimed alpha, no colocation.
+**Current conclusion:** empirical outcomes remain unavailable in the committed
+verified evidence. Passing preflights demonstrate bounded collection readiness;
+they do not establish a valid 15-minute sample or profitable execution. The
+project sends no live orders.
 
-## Why this exists
+## Evidence a reviewer can inspect
 
-Student quant repos usually fit hourly candles and ignore costs. Desks that hire for crypto delta-one / market making care about:
-
-- many exchanges, not “the Bitcoin price”
-- whether you can trade the number you plotted
-- leftover inventory when the second fill is late
-- what the robot does when the feed gaps
-
-That is this repo.
-
-## Status
-
-| Piece | State |
+| Evidence | What it establishes |
 | --- | --- |
-| Layout, config names, glossary | done |
-| Recorder / replay / sample fixture | done (live: Binance `/public`+`/market`; OKX backup if Bybit is blocked) |
-| Lead-lag and delayed markouts | done (local vs exchange clock; $2 jumps; hit-rate; walk-forward; leader prints) |
-| Multi-leg robot + risk | causal timers, partial fills, pre/post-trade limits, bounded-liquidity liquidation |
-| Evaluation and audit | fixed cost/latency grid, holdouts, block intervals, hashed inputs and fill audit |
-| Frozen live study | hosted preflight passed; planned-session coverage and live outcomes remain incomplete |
+| [Working paper](reports/STUDY_V1_RESEARCH.md) and [research memo](docs/RESEARCH_MEMO.md) | Exact hypothesis, frozen rules, observed failures and current research limitations |
+| [Archive restore records](reports/operations/all-release-restores.json) | Eight original preflight attempts independently downloaded and restored, including failures |
+| [Power and execution audits](reports/research_audit/README.md) | Reproducible assumption calculations and adversarial synthetic examples, with source hashes |
+| [Missing-data and dependence examples](reports/robustness_examples/README.md) | Hypothetical missing-slot tipping points and calendar-day dependence diagnostics; no market evidence |
+| [Test workflow](.github/workflows/test.yml) | Python 3.11–3.13 tests, adversarial checks, fixture CLIs and complete bundle verification |
 
-Read the [live-study working paper](reports/STUDY_V1_RESEARCH.md) for the
-preregistered question, current evidence, and limits. The
-[coverage report](reports/STUDY_V1.md) distinguishes unavailable observations
-from strategy returns. No eligible live-study results have been verified yet.
+The power audit finds that **28 independent days give about 56% power to detect
+2bps**, under an assumed 5bps daily standard deviation and known-variance normal
+model. Seven days give about 19%; correlation weakens both. These are planning
+assumptions, not measured market parameters or bootstrap guarantees.
 
-## Research package
+The execution audit shows how a synthetic gross-winning trade loses after both
+fees, and why zero net BTC can still leave opposing venue positions open.
+Entry-to-mid markouts, follower round trips and two-venue hedges are reported
+as different quantities. None guarantees order acceptance or an executable exit.
 
-Generate the complete offline package in one command after setup:
+## Reproduce the offline package
 
-```bash
-uv run --frozen python -m cel.experiments --demo --out data/raw/demo-bundle
-python -S scripts/verify_bundle.py data/raw/demo-bundle
-```
-
-This produces an explicitly synthetic demonstration with round-trip entry/exit
-costs, fixed controls, five execution stresses, independent fill audits, three
-figures and a checksum inventory. It makes no live performance claim.
-See the [generated synthetic figures](reports/portfolio_demo/README.md).
-Use [verified-evidence reproduction](docs/PORTFOLIO_REPRODUCTION.md) for actual
-archives, the [research memo](docs/RESEARCH_MEMO.md) for the current conclusion,
-and the [recruiting walkthrough](docs/RECRUITING.md) for a five- or ten-minute demo.
-The [28-day replication](docs/REPLICATION_V2.md) has separate prospective venue
-plans. The [goal tracker](docs/GOALS.md) distinguishes delivered engineering
-from work that still needs future observations. Original attempts are preserved
-in [GitHub Releases](docs/DURABLE_ARCHIVES.md), with download and restore checks.
-The [operations roadmap](docs/OPERATIONS_GOALS.md) adds health dashboards,
-failure/expiry notices, archive restore drills, performance measurements and
-fresh-clone reproduction without changing either frozen study.
-
-The [statistical power review](docs/STATISTICAL_POWER_AUDIT.md) quantifies
-assumed day dependence and distinguishes full-period from holdout evidence.
-The [execution assumption review](docs/EXECUTION_ASSUMPTION_AUDIT.md) challenges
-costs, latency, incomplete exits and remaining hedge exposure on synthetic tapes.
-See the [results template](docs/RESULTS_WRITEUP_TEMPLATE.md) for reporting
-released outcomes and the [CI review](docs/CI_REVIEW.md) for reproducibility limits.
-
-## Layout
-
-```
-cel/ingest/        record + replay
-cel/research/      lead-lag, markouts, plots
-cel/execution/     initiate / hedge / timeout
-cel/risk/          position, loss, stale-feed
-configs/           YAML knobs (delay, fees, limits)
-data/fixtures/     tiny files so a clone can run without recording
-data/raw/          local recordings, gitignored
-reports/           committed figures
-RESEARCH.md        dated kill/keep log (the interview)
-GLOSSARY.md        terms used in this repo
-```
-
-## Setup
-
-Python 3.11+. No exchange API keys for public data.
-
-Install the pinned development environment with `uv`:
+Python 3.11–3.13. No exchange account or credentials are needed for this demo.
+Use new output directories:
 
 ```bash
 python -m pip install uv==0.12.23
 uv sync --frozen --extra dev
-source .venv/bin/activate
-python -m cel
+uv run --frozen python -m cel.experiments --demo --out data/raw/demo-bundle
+python -S scripts/verify_bundle.py data/raw/demo-bundle
+uv run --frozen --extra dev python -m unittest discover -s tests -v
+uv run --frozen --extra dev ruff check .
 ```
 
-`uv.lock` pins dependency artifacts with hashes and Python-version markers.
-The supported CI matrix is Python 3.11, 3.12, and 3.13. To install without `uv`,
-`python -m venv .venv` and `pip install -e '.[dev]'` remain available, but resolve
-the declared version ranges rather than the tested lock.
+The demo produces a labeled synthetic tape, fixed fee/latency grid, four
+controls, five execution stresses, fill audits, three figures and SHA-256
+checksums. See [generated figures](reports/portfolio_demo/README.md) and
+[full reproduction instructions](docs/PORTFOLIO_REPRODUCTION.md). Released-data
+mode requires verified original archives and enforces the frozen holdout dates.
 
-`python -m cel` is offline. It does not need Binance, Bybit, or a VPN. That is the clone demo.
+## Design and remaining limits
 
-```bash
-python -m cel.ingest fixture
-python -m cel.ingest replay data/fixtures/sample.jsonl
-python -m cel.research
-python -m cel.execution --out data/raw/execution.json
-# live sockets only if they open from your network
-python -m cel.ingest record --seconds 300 --out data/raw/session_01.jsonl
-python -m cel.research --path data/raw/session_01.jsonl --out-dir data/raw/plots
-```
+- Causal order timers use only received quotes. Entry and hedge delays are
+  separate; no fills are created beyond the observed tape.
+- Displayed-size budgets constrain partial fills. Stale/sequence stops and
+  position/loss controls expose incomplete liquidation and residual inventory.
+- Frozen plans preserve failed and missing slots. Source hashes, provenance,
+  independent restore checks and [Release backups](docs/DURABLE_ARCHIVES.md)
+  make recorded evidence reviewable beyond Actions artifact retention.
+- L1 replay omits queue priority, market impact, funding and actual order
+  acceptance. Fixed latency and replenishment remain assumptions. The
+  [execution-calibration plan](docs/EXECUTION_CALIBRATION_PLAN.md) defines the
+  measurements needed before a future production-execution study.
 
-## Reproducible evaluation
+V1 runs October 17–23, 2026 UTC with outcome release October 24 UTC. Its first
+AM slot is missing, which prevents a conclusive full-study claim under the
+frozen rule. The separate 28-day replication runs October 26–November 22 UTC,
+with release November 23 UTC. Future collections and reports must be verified
+from actual artifacts; missing observations are not zero returns.
 
-Run a fixed latency/fee grid on one or more **completed** recordings:
+## Read further
 
-```bash
-python -m cel.research.evaluate data/raw/session_01.jsonl data/raw/session_02.jsonl \
-  --delays 0,20,50,200 --fees-bps 0,3,5,5.5 \
-  --horizon-ms 1000 --block-ms 60000 \
-  --out data/raw/evaluation.json --markdown data/raw/evaluation.md
-```
-
-The JSON records input SHA-256 hashes, code revision and working-tree status,
-configuration, runtime versions, tape health, and per-session results. Each
-session is evaluated in full and in separate chronological halves. Means,
-medians, positive-markout fractions, sample counts, and time-block bootstrap
-intervals are reported for each parameter combination and benchmark venue.
-No grid winner is selected on the second half.
-
-The included fixture deliberately triggers a sequence-regression risk stop and lasts less than a second: the default one-second
-markouts are **unavailable**, not zero. Use it to verify the pipeline:
-
-```bash
-python -m cel.research.evaluate data/fixtures/sample.jsonl \
-  --out data/raw/fixture_evaluation.json
-python -m unittest discover -s tests -v
-ruff check .
-python -m cel.research --out-dir data/raw/plots
-```
-
-Read [the research protocol](docs/RESEARCH_PROTOCOL.md) before interpreting
-results. This is an entry-to-mid study with one entry fee, not a round-trip
-profit estimate. A short tape and a negative sample mean do not settle whether
-a market opportunity exists.
-
-Plots default to `reports/`; use `--out-dir data/raw/plots` to preserve committed figures. `RESEARCH.md` is the log of what survived fees and delay.
-
-Research uses **local receive time** for decisions (you cannot trade the exchange’s clock). It also prints exchange-clock lag so you can see skew. Jumps are accumulated `$2` moves, not 1-tick noise. Markouts are vs the follower mid and vs the leader mid. The tape is split into independently evaluated chronological halves.
-
-`replay` reports hard gaps (out-of-order ids) vs forward skips (normal for Binance bookTicker update ids). `--drop-after-hard-gap` stops keeping that venue after a backward jump.
-
-## Frozen live study
-
-The [seven-day plan](docs/LIVE_STUDY.md) fixes a Binance→OKX experiment before
-collecting outcomes, with checksummed session archives and a later-day holdout.
-The [current report](reports/STUDY_V1.md) includes the failed cloud preflight;
-it does not claim live profitability. Scheduled Actions collect October 17–23,
-2026 UTC and produce a report after holdout release, subject to actual runner
-and feed availability. Use the [five-minute walkthrough](docs/INTERVIEW_WALKTHROUGH.md)
-to explain the hypothesis, implementation, evidence, and limitations. Collector
-changes on `main` trigger a bounded preflight with an Actions job summary. Final
-artifact downloads verify their source workflow, commit, and checksums.
-
-## Execution and recording integrity
-
-Read [the execution model](docs/EXECUTION_MODEL.md) for the timing, partial-fill,
-hedge, timeout, liquidation, and quantity-unit assumptions. JSON execution audits
-expose rejected size, pending hedges, residual inventory, fees, and valuation age.
-A stop attempts liquidation against fresh displayed size; it cannot guarantee a
-flat position when a feed or liquidity disappears.
-
-Recordings use exclusive creation by default to protect previous tapes. Each
-session writes a metadata sidecar with duration, clock description, venue counts,
-errors, and shutdown status. Use distinct session filenames. Receive timestamps
-use a UTC anchor plus monotonic elapsed time to avoid wall-clock jumps mid-session.
-
-OKX sizes remain **contracts** unless `--okx-contract-value-btc` supplies a verified
-BTC multiplier. Legacy OKX tapes without unit metadata are **unknown**. Price-only
-markouts remain available, but size-based execution rejects unnormalized books.
-No exchange credentials are required; live endpoint access depends on the network.
-
-## Explaining this project in an interview
-
-- Explain why decisions use receive time and why entry uses bid/ask rather than mid.
-- Show the fixed cost/latency grid, data-quality warnings, eligible counts, and chronological holdout.
-- Explain why overlapping signals need time-block uncertainty estimates and why a short tape is inconclusive.
-- Demonstrate the risk tests: stale feeds, position limits, loss limits, and incomplete hedges.
-- Explain the measurement bug fixed in `RESEARCH.md`: a subsecond fixture cannot support a one-second markout.
-
-Historical live notes are exploratory and lack archived raw data in this checkout.
-Re-evaluate them before quoting their markouts as results. No live trading or
-profitability claim is made.
-
-## Resume line
-
-Built a multi-venue BTC perpetual execution simulator with public-data replay,
-latency/fee sensitivity analysis, chronological holdouts, time-block uncertainty
-estimates, and tested position, loss, and stale-feed controls.
-
-## Not in v1
-
-Live trading, full order-book queue models, options, 20 coins, neural nets, a web UI.
+- Research: [protocol](docs/RESEARCH_PROTOCOL.md), [v1 plan](docs/LIVE_STUDY.md),
+  [v2 replication](docs/REPLICATION_V2.md), [results template](docs/RESULTS_WRITEUP_TEMPLATE.md).
+- Assumptions: [power](docs/STATISTICAL_POWER_AUDIT.md),
+  [execution](docs/EXECUTION_ASSUMPTION_AUDIT.md),
+  [missingness and dependence](docs/MISSING_DATA_AND_DEPENDENCE.md).
+- Engineering: [execution contract](docs/EXECUTION_MODEL.md),
+  [commands and layout](docs/CLI_GUIDE.md), [operations](docs/OPERATIONS.md),
+  [CI review](docs/CI_REVIEW.md), [benchmark evidence](reports/operations/README.md).
+- Interview: [timed walkthrough](docs/RECRUITING.md),
+  [defense questions](docs/INTERVIEW_PRACTICE.md), [glossary](GLOSSARY.md).

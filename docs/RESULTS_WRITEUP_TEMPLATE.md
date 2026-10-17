@@ -68,6 +68,17 @@ observed estimates are favorable. V1 already has a missing first AM slot;
 its final narrative must retain that limitation. Do not declare arbitrary
 new statistical rejection thresholds in this template.
 
+## Supplemental sensitivity, kept separate from the frozen decision
+
+After release, run the [missingness and calendar-dependence diagnostics](MISSING_DATA_AND_DEPENDENCE.md)
+on the verified report bundle. Report every missing-mean assumption and its
+zero crossing alongside original coverage. Distinguish unavailable primary
+means from missing recordings. Show development, holdout and full-period
+results separately, including equal-slot/equal-day weighting and actual lag
+pair counts. Compare fixed HAC and independent-day intervals without declaring
+that one has demonstrated valid coverage or selecting a favorable lag. None
+of these diagnostics repairs missing data or overrides the frozen rule.
+
 ## Prospective follow-up
 
 Separate observed findings, model assumptions, and new hypotheses. Describe any
