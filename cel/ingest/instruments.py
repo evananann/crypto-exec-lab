@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from decimal import Decimal, InvalidOperation
 import json
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 OKX_INSTRUMENT_URL = 'https://www.okx.com/api/v5/public/instruments?instType=SWAP&instId=BTC-USDT-SWAP'
 
@@ -35,6 +35,10 @@ def contract_value_btc(payload: dict) -> float:
 
 def fetch_instrument() -> tuple[dict, float]:
     # urllib uses the configured HTTPS proxy and default TLS verification.
-    with urlopen(OKX_INSTRUMENT_URL, timeout=15) as response:
+    request = Request(OKX_INSTRUMENT_URL, headers={
+        'Accept': 'application/json',
+        'User-Agent': 'crypto-exec-lab/0.1 (public instrument research)',
+    })
+    with urlopen(request, timeout=15) as response:
         payload = json.loads(response.read(1_000_001))
     return payload, contract_value_btc(payload)

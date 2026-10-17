@@ -110,6 +110,28 @@ class DataIntegrityTests(unittest.TestCase):
 
 
 class RecorderLifecycleTests(unittest.TestCase):
+    def test_shutdown_wakes_blocked_receive_before_close(self):
+        from unittest.mock import Mock
+        ws = Mock()
+        order = []
+        ws.sock.abort.side_effect = lambda: order.append('abort')
+        ws.close.side_effect = lambda **kwargs: order.append('close')
+        Recorder._shutdown_socket(ws)
+        self.assertFalse(ws.keep_running)
+        self.assertEqual(order, ['abort', 'close'])
+        ws.close.assert_called_once_with(timeout=.2)
+
+    def test_connection_opened_after_stop_is_closed_without_subscription(self):
+        from unittest.mock import Mock
+        with TemporaryDirectory() as directory:
+            recorder = Recorder(Path(directory) / 'tape.jsonl')
+            recorder.stop()
+            ws = Mock()
+            self.assertFalse(recorder._accept_open(ws))
+            ws.close.assert_called_once_with(timeout=.2)
+            recorder._binance_handlers()['on_open'](ws)
+            self.assertEqual(dict(recorder.opened), {})
+
     def test_mocked_session_joins_workers_preserves_data_and_saves_metadata(self):
         with TemporaryDirectory() as directory:
             path = Path(directory) / 'tape.jsonl'
@@ -155,7 +177,7 @@ class RecorderLifecycleTests(unittest.TestCase):
                 self.url, self.handlers, self.closed = url, handlers, threading.Event()
             def send(self, payload):
                 pass
-            def close(self):
+            def close(self, **kwargs):
                 self.closed.set()
             def run_forever(self, **kwargs):
                 self.handlers['on_open'](self)

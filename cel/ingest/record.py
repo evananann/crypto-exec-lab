@@ -75,11 +75,29 @@ class Recorder:
 
     def stop(self) -> None:
         self._stop.set()
-        for ws in list(self._sockets):
-            try:
-                ws.close()
-            except Exception:  # noqa: BLE001
-                pass
+        with self._lock:
+            sockets = list(self._sockets)
+        for ws in sockets:
+            self._shutdown_socket(ws)
+
+    @staticmethod
+    def _shutdown_socket(ws: WebSocketApp) -> None:
+        # Wake a blocked recv before close attempts its handshake. The library
+        # explicitly supports abort from another thread; keep TLS verification.
+        ws.keep_running = False
+        try:
+            core = getattr(ws, 'sock', None)
+            if core is not None:
+                core.abort()
+            ws.close(timeout=0.2)
+        except Exception:  # noqa: BLE001 — shutdown remains best effort
+            pass
+
+    def _accept_open(self, ws: WebSocketApp) -> bool:
+        if self._stop.is_set():
+            self._shutdown_socket(ws)
+            return False
+        return True
 
     def write(self, event: Event) -> None:
         with self._lock:
@@ -108,7 +126,7 @@ class Recorder:
         ]
         started = time.monotonic()
         try:
-            for thread in self._threads:
+            for thread in list(self._threads):
                 thread.start()
             deadline = started + seconds
             while not self._stop.is_set():
@@ -155,6 +173,8 @@ class Recorder:
         name = "binance"
 
         def on_open(_ws: WebSocketApp) -> None:
+            if not self._accept_open(_ws):
+                return
             self._mark_open(name)
 
         def on_message(_ws: WebSocketApp, message: str) -> None:
@@ -175,10 +195,17 @@ class Recorder:
 
     def _bybit(self) -> None:
         def on_open(ws: WebSocketApp) -> None:
+            if not self._accept_open(ws):
+                return
             self._bybit_book.reset()
             self._mark_open("bybit")
             ws.send(json.dumps(BYBIT_SUBSCRIBE))
-            threading.Thread(target=self._json_ping, args=(ws,), daemon=True).start()
+            with self._lock:
+                if not self._stop.is_set():
+                    worker = threading.Thread(target=self._json_ping, args=(ws,),
+                                              name='bybit_ping', daemon=True)
+                    self._threads.append(worker)
+                    worker.start()
 
         def on_message(_ws: WebSocketApp, message: str) -> None:
             local_ts = self._now_ms()
@@ -200,6 +227,8 @@ class Recorder:
 
     def _okx(self) -> None:
         def on_open(ws: WebSocketApp) -> None:
+            if not self._accept_open(ws):
+                return
             self._mark_open("okx")
             ws.send(json.dumps(OKX_SUBSCRIBE))
 
