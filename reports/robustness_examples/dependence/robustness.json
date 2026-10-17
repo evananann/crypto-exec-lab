@@ -1,0 +1,544 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "example": "Artificial persistent day means with calendar gaps; no market outcomes.",
+  "script_sha256": "95b520303ff55ca1f49254f345c34a633e2b5853eff2e2c85ef3ba17fa67c10a",
+  "phases": {
+    "development": {
+      "unavailable_slots": [
+        "2026-10-31-am",
+        "2026-10-31-pm",
+        "2026-11-01-am",
+        "2026-11-01-pm",
+        "2026-11-15-pm"
+      ],
+      "available_slots": [
+        "2026-10-26-am",
+        "2026-10-26-pm",
+        "2026-10-27-am",
+        "2026-10-27-pm",
+        "2026-10-28-am",
+        "2026-10-28-pm",
+        "2026-10-29-am",
+        "2026-10-29-pm",
+        "2026-10-30-am",
+        "2026-10-30-pm",
+        "2026-11-02-am",
+        "2026-11-02-pm",
+        "2026-11-03-am",
+        "2026-11-03-pm",
+        "2026-11-04-am",
+        "2026-11-04-pm",
+        "2026-11-05-am",
+        "2026-11-05-pm",
+        "2026-11-06-am",
+        "2026-11-06-pm",
+        "2026-11-07-am",
+        "2026-11-07-pm",
+        "2026-11-08-am",
+        "2026-11-08-pm",
+        "2026-11-09-am",
+        "2026-11-09-pm",
+        "2026-11-10-am",
+        "2026-11-10-pm",
+        "2026-11-11-am",
+        "2026-11-11-pm",
+        "2026-11-12-am",
+        "2026-11-12-pm",
+        "2026-11-13-am",
+        "2026-11-13-pm",
+        "2026-11-14-am",
+        "2026-11-14-pm",
+        "2026-11-15-am"
+      ],
+      "occupied_day_slot_counts": {
+        "2026-10-26": 2,
+        "2026-10-27": 2,
+        "2026-10-28": 2,
+        "2026-10-29": 2,
+        "2026-10-30": 2,
+        "2026-11-02": 2,
+        "2026-11-03": 2,
+        "2026-11-04": 2,
+        "2026-11-05": 2,
+        "2026-11-06": 2,
+        "2026-11-07": 2,
+        "2026-11-08": 2,
+        "2026-11-09": 2,
+        "2026-11-10": 2,
+        "2026-11-11": 2,
+        "2026-11-12": 2,
+        "2026-11-13": 2,
+        "2026-11-14": 2,
+        "2026-11-15": 1
+      },
+      "observed_day_means_bps": {
+        "2026-10-26": 1.0,
+        "2026-10-27": 1.0,
+        "2026-10-28": 1.0,
+        "2026-10-29": 1.0,
+        "2026-10-30": 1.0,
+        "2026-11-02": 1.0,
+        "2026-11-03": 1.0,
+        "2026-11-04": 1.0,
+        "2026-11-05": 1.0,
+        "2026-11-06": 1.0,
+        "2026-11-07": 1.0,
+        "2026-11-08": 1.0,
+        "2026-11-09": -1.0,
+        "2026-11-10": -1.0,
+        "2026-11-11": -1.0,
+        "2026-11-12": -1.0,
+        "2026-11-13": -1.0,
+        "2026-11-14": -1.0,
+        "2026-11-15": -0.8
+      },
+      "missing_data": {
+        "planned_slots": 42,
+        "available_primary_means": 37,
+        "unavailable_primary_means": 5,
+        "observed_equal_slot_mean_bps": 0.30270270270270266,
+        "missing_mean_needed_for_zero_bps": -2.2399999999999998,
+        "zero_crossing_interpretation": "Assumption for the average unavailable slot, not an estimated value.",
+        "scenarios": [
+          {
+            "assumed_missing_mean_bps": -10.0,
+            "hypothetical_full_schedule_mean_bps": -0.9238095238095237
+          },
+          {
+            "assumed_missing_mean_bps": -5.0,
+            "hypothetical_full_schedule_mean_bps": -0.32857142857142857
+          },
+          {
+            "assumed_missing_mean_bps": 0.0,
+            "hypothetical_full_schedule_mean_bps": 0.26666666666666666
+          },
+          {
+            "assumed_missing_mean_bps": 5.0,
+            "hypothetical_full_schedule_mean_bps": 0.861904761904762
+          },
+          {
+            "assumed_missing_mean_bps": 10.0,
+            "hypothetical_full_schedule_mean_bps": 1.4571428571428573
+          }
+        ],
+        "scope": "Equal-weight session-mean arithmetic only; no confidence interval, data repair or frozen-rule change.",
+        "limitation": "Without externally justified outcome bounds, the missing contribution is unbounded. The scenario range is not an identified bound or a confidence interval."
+      },
+      "dependence": {
+        "occupied_days": 19,
+        "status": "descriptive; small samples and unknown dependence remain",
+        "equal_day_mean_bps": 0.2736842105263158,
+        "lag_pairs": [
+          {
+            "calendar_lag_days": 1,
+            "observed_pairs": 17,
+            "lag_product_sum_bps2": 13.829141274238227,
+            "paired_lag_covariance_bps2": 0.8134788984846015
+          },
+          {
+            "calendar_lag_days": 2,
+            "observed_pairs": 15,
+            "lag_product_sum_bps2": 10.226703601108033,
+            "paired_lag_covariance_bps2": 0.6817802400738688
+          },
+          {
+            "calendar_lag_days": 3,
+            "observed_pairs": 14,
+            "lag_product_sum_bps2": 7.151800554016621,
+            "paired_lag_covariance_bps2": 0.5108428967154729
+          }
+        ],
+        "hac": [
+          {
+            "calendar_lag_days": 0,
+            "se_bps": 0.21838517210213879,
+            "normal_ci95_bps": [
+              -0.1543428615514576,
+              0.7017112826040892
+            ]
+          },
+          {
+            "calendar_lag_days": 1,
+            "se_bps": 0.2932574874744678,
+            "normal_ci95_bps": [
+              -0.30108990312034706,
+              0.8484583241729786
+            ]
+          },
+          {
+            "calendar_lag_days": 2,
+            "se_bps": 0.3430089260862554,
+            "normal_ci95_bps": [
+              -0.3986009309785062,
+              0.9459693520311379
+            ]
+          },
+          {
+            "calendar_lag_days": 3,
+            "se_bps": 0.3786664086183134,
+            "normal_ci95_bps": [
+              -0.46848831252070605,
+              1.0158567335733377
+            ]
+          }
+        ],
+        "iid_day_bootstrap_ci95_bps": [
+          -0.14736842105263157,
+          0.6842105263157895
+        ],
+        "constant_day_values": false,
+        "limitation": "Fixed Bartlett HC0 calendar-lag normal intervals are sensitivity diagnostics, not valid-coverage guarantees. Wider or narrower intervals do not establish bootstrap coverage. Constant observed days may yield zero width despite unknown missing outcomes."
+      }
+    },
+    "holdout": {
+      "unavailable_slots": [],
+      "available_slots": [
+        "2026-11-16-am",
+        "2026-11-16-pm",
+        "2026-11-17-am",
+        "2026-11-17-pm",
+        "2026-11-18-am",
+        "2026-11-18-pm",
+        "2026-11-19-am",
+        "2026-11-19-pm",
+        "2026-11-20-am",
+        "2026-11-20-pm",
+        "2026-11-21-am",
+        "2026-11-21-pm",
+        "2026-11-22-am",
+        "2026-11-22-pm"
+      ],
+      "occupied_day_slot_counts": {
+        "2026-11-16": 2,
+        "2026-11-17": 2,
+        "2026-11-18": 2,
+        "2026-11-19": 2,
+        "2026-11-20": 2,
+        "2026-11-21": 2,
+        "2026-11-22": 2
+      },
+      "observed_day_means_bps": {
+        "2026-11-16": -1.0,
+        "2026-11-17": -1.0,
+        "2026-11-18": -1.0,
+        "2026-11-19": -1.0,
+        "2026-11-20": -1.0,
+        "2026-11-21": -1.0,
+        "2026-11-22": -1.0
+      },
+      "missing_data": {
+        "planned_slots": 14,
+        "available_primary_means": 14,
+        "unavailable_primary_means": 0,
+        "observed_equal_slot_mean_bps": -1.0,
+        "missing_mean_needed_for_zero_bps": null,
+        "zero_crossing_interpretation": "No unavailable slots; no tipping mean.",
+        "scenarios": [
+          {
+            "assumed_missing_mean_bps": -10.0,
+            "hypothetical_full_schedule_mean_bps": -1.0
+          },
+          {
+            "assumed_missing_mean_bps": -5.0,
+            "hypothetical_full_schedule_mean_bps": -1.0
+          },
+          {
+            "assumed_missing_mean_bps": 0.0,
+            "hypothetical_full_schedule_mean_bps": -1.0
+          },
+          {
+            "assumed_missing_mean_bps": 5.0,
+            "hypothetical_full_schedule_mean_bps": -1.0
+          },
+          {
+            "assumed_missing_mean_bps": 10.0,
+            "hypothetical_full_schedule_mean_bps": -1.0
+          }
+        ],
+        "scope": "Equal-weight session-mean arithmetic only; no confidence interval, data repair or frozen-rule change.",
+        "limitation": "Without externally justified outcome bounds, the missing contribution is unbounded. The scenario range is not an identified bound or a confidence interval."
+      },
+      "dependence": {
+        "occupied_days": 7,
+        "status": "descriptive; small samples and unknown dependence remain",
+        "equal_day_mean_bps": -1.0,
+        "lag_pairs": [
+          {
+            "calendar_lag_days": 1,
+            "observed_pairs": 6,
+            "lag_product_sum_bps2": 0.0,
+            "paired_lag_covariance_bps2": 0.0
+          },
+          {
+            "calendar_lag_days": 2,
+            "observed_pairs": 5,
+            "lag_product_sum_bps2": 0.0,
+            "paired_lag_covariance_bps2": 0.0
+          },
+          {
+            "calendar_lag_days": 3,
+            "observed_pairs": 4,
+            "lag_product_sum_bps2": 0.0,
+            "paired_lag_covariance_bps2": 0.0
+          }
+        ],
+        "hac": [
+          {
+            "calendar_lag_days": 0,
+            "se_bps": 0.0,
+            "normal_ci95_bps": [
+              -1.0,
+              -1.0
+            ]
+          },
+          {
+            "calendar_lag_days": 1,
+            "se_bps": 0.0,
+            "normal_ci95_bps": [
+              -1.0,
+              -1.0
+            ]
+          },
+          {
+            "calendar_lag_days": 2,
+            "se_bps": 0.0,
+            "normal_ci95_bps": [
+              -1.0,
+              -1.0
+            ]
+          },
+          {
+            "calendar_lag_days": 3,
+            "se_bps": 0.0,
+            "normal_ci95_bps": [
+              -1.0,
+              -1.0
+            ]
+          }
+        ],
+        "iid_day_bootstrap_ci95_bps": [
+          -1.0,
+          -1.0
+        ],
+        "constant_day_values": true,
+        "limitation": "Fixed Bartlett HC0 calendar-lag normal intervals are sensitivity diagnostics, not valid-coverage guarantees. Wider or narrower intervals do not establish bootstrap coverage. Constant observed days may yield zero width despite unknown missing outcomes."
+      }
+    },
+    "full": {
+      "unavailable_slots": [
+        "2026-10-31-am",
+        "2026-10-31-pm",
+        "2026-11-01-am",
+        "2026-11-01-pm",
+        "2026-11-15-pm"
+      ],
+      "available_slots": [
+        "2026-10-26-am",
+        "2026-10-26-pm",
+        "2026-10-27-am",
+        "2026-10-27-pm",
+        "2026-10-28-am",
+        "2026-10-28-pm",
+        "2026-10-29-am",
+        "2026-10-29-pm",
+        "2026-10-30-am",
+        "2026-10-30-pm",
+        "2026-11-02-am",
+        "2026-11-02-pm",
+        "2026-11-03-am",
+        "2026-11-03-pm",
+        "2026-11-04-am",
+        "2026-11-04-pm",
+        "2026-11-05-am",
+        "2026-11-05-pm",
+        "2026-11-06-am",
+        "2026-11-06-pm",
+        "2026-11-07-am",
+        "2026-11-07-pm",
+        "2026-11-08-am",
+        "2026-11-08-pm",
+        "2026-11-09-am",
+        "2026-11-09-pm",
+        "2026-11-10-am",
+        "2026-11-10-pm",
+        "2026-11-11-am",
+        "2026-11-11-pm",
+        "2026-11-12-am",
+        "2026-11-12-pm",
+        "2026-11-13-am",
+        "2026-11-13-pm",
+        "2026-11-14-am",
+        "2026-11-14-pm",
+        "2026-11-15-am",
+        "2026-11-16-am",
+        "2026-11-16-pm",
+        "2026-11-17-am",
+        "2026-11-17-pm",
+        "2026-11-18-am",
+        "2026-11-18-pm",
+        "2026-11-19-am",
+        "2026-11-19-pm",
+        "2026-11-20-am",
+        "2026-11-20-pm",
+        "2026-11-21-am",
+        "2026-11-21-pm",
+        "2026-11-22-am",
+        "2026-11-22-pm"
+      ],
+      "occupied_day_slot_counts": {
+        "2026-10-26": 2,
+        "2026-10-27": 2,
+        "2026-10-28": 2,
+        "2026-10-29": 2,
+        "2026-10-30": 2,
+        "2026-11-02": 2,
+        "2026-11-03": 2,
+        "2026-11-04": 2,
+        "2026-11-05": 2,
+        "2026-11-06": 2,
+        "2026-11-07": 2,
+        "2026-11-08": 2,
+        "2026-11-09": 2,
+        "2026-11-10": 2,
+        "2026-11-11": 2,
+        "2026-11-12": 2,
+        "2026-11-13": 2,
+        "2026-11-14": 2,
+        "2026-11-15": 1,
+        "2026-11-16": 2,
+        "2026-11-17": 2,
+        "2026-11-18": 2,
+        "2026-11-19": 2,
+        "2026-11-20": 2,
+        "2026-11-21": 2,
+        "2026-11-22": 2
+      },
+      "observed_day_means_bps": {
+        "2026-10-26": 1.0,
+        "2026-10-27": 1.0,
+        "2026-10-28": 1.0,
+        "2026-10-29": 1.0,
+        "2026-10-30": 1.0,
+        "2026-11-02": 1.0,
+        "2026-11-03": 1.0,
+        "2026-11-04": 1.0,
+        "2026-11-05": 1.0,
+        "2026-11-06": 1.0,
+        "2026-11-07": 1.0,
+        "2026-11-08": 1.0,
+        "2026-11-09": -1.0,
+        "2026-11-10": -1.0,
+        "2026-11-11": -1.0,
+        "2026-11-12": -1.0,
+        "2026-11-13": -1.0,
+        "2026-11-14": -1.0,
+        "2026-11-15": -0.8,
+        "2026-11-16": -1.0,
+        "2026-11-17": -1.0,
+        "2026-11-18": -1.0,
+        "2026-11-19": -1.0,
+        "2026-11-20": -1.0,
+        "2026-11-21": -1.0,
+        "2026-11-22": -1.0
+      },
+      "missing_data": {
+        "planned_slots": 56,
+        "available_primary_means": 51,
+        "unavailable_primary_means": 5,
+        "observed_equal_slot_mean_bps": -0.054901960784313725,
+        "missing_mean_needed_for_zero_bps": 0.5599999999999999,
+        "zero_crossing_interpretation": "Assumption for the average unavailable slot, not an estimated value.",
+        "scenarios": [
+          {
+            "assumed_missing_mean_bps": -10.0,
+            "hypothetical_full_schedule_mean_bps": -0.9428571428571428
+          },
+          {
+            "assumed_missing_mean_bps": -5.0,
+            "hypothetical_full_schedule_mean_bps": -0.49642857142857144
+          },
+          {
+            "assumed_missing_mean_bps": 0.0,
+            "hypothetical_full_schedule_mean_bps": -0.049999999999999996
+          },
+          {
+            "assumed_missing_mean_bps": 5.0,
+            "hypothetical_full_schedule_mean_bps": 0.3964285714285714
+          },
+          {
+            "assumed_missing_mean_bps": 10.0,
+            "hypothetical_full_schedule_mean_bps": 0.8428571428571429
+          }
+        ],
+        "scope": "Equal-weight session-mean arithmetic only; no confidence interval, data repair or frozen-rule change.",
+        "limitation": "Without externally justified outcome bounds, the missing contribution is unbounded. The scenario range is not an identified bound or a confidence interval."
+      },
+      "dependence": {
+        "occupied_days": 26,
+        "status": "descriptive; small samples and unknown dependence remain",
+        "equal_day_mean_bps": -0.06923076923076923,
+        "lag_pairs": [
+          {
+            "calendar_lag_days": 1,
+            "observed_pairs": 24,
+            "lag_product_sum_bps2": 21.32733727810651,
+            "paired_lag_covariance_bps2": 0.8886390532544378
+          },
+          {
+            "calendar_lag_days": 2,
+            "observed_pairs": 22,
+            "lag_product_sum_bps2": 17.1792899408284,
+            "paired_lag_covariance_bps2": 0.7808768154922
+          },
+          {
+            "calendar_lag_days": 3,
+            "observed_pairs": 21,
+            "lag_product_sum_bps2": 14.174497041420118,
+            "paired_lag_covariance_bps2": 0.6749760495914342
+          }
+        ],
+        "hac": [
+          {
+            "calendar_lag_days": 0,
+            "se_bps": 0.1942798285924358,
+            "normal_ci95_bps": [
+              -0.45001223619455843,
+              0.31155069773302
+            ]
+          },
+          {
+            "calendar_lag_days": 1,
+            "se_bps": 0.2632374732025511,
+            "normal_ci95_bps": [
+              -0.585166736089097,
+              0.44670519762755856
+            ]
+          },
+          {
+            "calendar_lag_days": 2,
+            "se_bps": 0.31105064914170755,
+            "normal_ci95_bps": [
+              -0.6788788389163207,
+              0.5404173004547823
+            ]
+          },
+          {
+            "calendar_lag_days": 3,
+            "se_bps": 0.3478014825917537,
+            "normal_ci95_bps": [
+              -0.7509091488802411,
+              0.6124476104187027
+            ]
+          }
+        ],
+        "iid_day_bootstrap_ci95_bps": [
+          -0.4538461538461539,
+          0.3153846153846154
+        ],
+        "constant_day_values": false,
+        "limitation": "Fixed Bartlett HC0 calendar-lag normal intervals are sensitivity diagnostics, not valid-coverage guarantees. Wider or narrower intervals do not establish bootstrap coverage. Constant observed days may yield zero width despite unknown missing outcomes."
+      }
+    }
+  }
+}

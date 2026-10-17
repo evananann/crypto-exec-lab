@@ -1,0 +1,36 @@
+{
+  "synthetic": true,
+  "example": "Twelve synthetic available slot means of +1bps; two unavailable slots.",
+  "sensitivity": {
+    "planned_slots": 14,
+    "available_primary_means": 12,
+    "unavailable_primary_means": 2,
+    "observed_equal_slot_mean_bps": 1.0,
+    "missing_mean_needed_for_zero_bps": -6.0,
+    "zero_crossing_interpretation": "Assumption for the average unavailable slot, not an estimated value.",
+    "scenarios": [
+      {
+        "assumed_missing_mean_bps": -10.0,
+        "hypothetical_full_schedule_mean_bps": -0.5714285714285714
+      },
+      {
+        "assumed_missing_mean_bps": -5.0,
+        "hypothetical_full_schedule_mean_bps": 0.14285714285714285
+      },
+      {
+        "assumed_missing_mean_bps": 0.0,
+        "hypothetical_full_schedule_mean_bps": 0.8571428571428571
+      },
+      {
+        "assumed_missing_mean_bps": 5.0,
+        "hypothetical_full_schedule_mean_bps": 1.5714285714285714
+      },
+      {
+        "assumed_missing_mean_bps": 10.0,
+        "hypothetical_full_schedule_mean_bps": 2.2857142857142856
+      }
+    ],
+    "scope": "Equal-weight session-mean arithmetic only; no confidence interval, data repair or frozen-rule change.",
+    "limitation": "Without externally justified outcome bounds, the missing contribution is unbounded. The scenario range is not an identified bound or a confidence interval."
+  }
+}

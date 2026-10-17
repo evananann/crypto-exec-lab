@@ -1,0 +1,27 @@
+{
+  "as_of_utc": "2026-10-17T13:15:43.917856+00:00",
+  "source_commit": "344881e4b57b6ee6039bbc890cc712a34f76806d",
+  "source_tree_clean_before_generation": true,
+  "synthetic": true,
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "local_tests_passed": 204,
+  "ruff": "passed",
+  "frozen_source_maps_verified": 3,
+  "generators_sha256": {
+    "scripts/missing_data_sensitivity.py": "4de1f96d2bb37e239b416c64d5db4c575a618f8f6636199e664532afb1652fa8",
+    "scripts/released_robustness.py": "95b520303ff55ca1f49254f345c34a633e2b5853eff2e2c85ef3ba17fa67c10a"
+  },
+  "commands": [
+    "python -m scripts.missing_data_sensitivity --demo --out <new-output>",
+    "python -m scripts.released_robustness --demo --out <new-output>"
+  ],
+  "limitation": "Manufactured session means only. Released mode has not been applied to actual study outcomes; future observations and release dates remain prerequisites.",
+  "hosted_ci_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39035791687",
+  "hosted_ci_conclusion": "success",
+  "hosted_python_matrix": [
+    "3.11",
+    "3.12",
+    "3.13"
+  ]
+}
