@@ -52,6 +52,9 @@ and the [recruiting walkthrough](docs/RECRUITING.md) for a five- or ten-minute d
 The [28-day replication](docs/REPLICATION_V2.md) has separate prospective venue
 plans. The [goal tracker](docs/GOALS.md) distinguishes delivered engineering
 from work that still needs future observations or external storage.
+The [operations roadmap](docs/OPERATIONS_GOALS.md) adds health dashboards,
+failure/expiry notices, archive restore drills, performance measurements and
+fresh-clone reproduction without changing either frozen study.
 
 ## Layout
 

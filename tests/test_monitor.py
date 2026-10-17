@@ -13,6 +13,11 @@ from tests.test_study_operations import artifact, source_run, REPOSITORY, SHA
 
 
 class MonitorTests(unittest.TestCase):
+    def test_api_pagination_supports_older_cli_without_slurp(self):
+        with patch.object(monitor.subprocess, 'check_output', return_value=' {"artifacts":[]}\n {"artifacts":[]} ' ) as call:
+            self.assertEqual(monitor.api_json('endpoint', paginate=True), [{'artifacts': []}, {'artifacts': []}])
+        self.assertNotIn('--slurp', call.call_args.args[0])
+
     def setUp(self):
         self.fixture = fixtures.StudyTests()
         self.fixture.setUp()

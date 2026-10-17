@@ -16,9 +16,26 @@ import zipfile
 from cel.artifacts import file_sha256, write_json_atomic, write_text_atomic
 from cel.ingest.instruments import contract_value_btc
 from cel.study import DEFAULT_PLAN, health, load_plan, restore_archive, session_slot
-from scripts.download_study_artifacts import api_json, download_zip, expected_names, unpack_zip, verify_run
+from scripts.download_study_artifacts import download_zip, expected_names, unpack_zip, verify_run
 
 PLANS = (DEFAULT_PLAN, DEFAULT_PLAN.with_name('study_v2_okx.json'), DEFAULT_PLAN.with_name('study_v2_bybit.json'))
+
+
+def api_json(endpoint, *, paginate=False):
+    # Older supported gh installations lack --slurp. Decode its ordinary
+    # concatenated paginated JSON instead of changing the frozen downloader.
+    args = ['gh', 'api', *(['--paginate'] if paginate else []), endpoint]
+    raw = subprocess.check_output(args, text=True)
+    if not paginate:
+        return json.loads(raw)
+    pages = []
+    decoder = json.JSONDecoder()
+    remaining = raw.lstrip()
+    while remaining:
+        page, end = decoder.raw_decode(remaining)
+        pages.append(page)
+        remaining = remaining[end:].lstrip()
+    return pages
 
 
 def instant(value):

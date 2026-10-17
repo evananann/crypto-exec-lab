@@ -39,6 +39,7 @@ jobs:
           uv run --frozen python -m cel.research.evaluate data/fixtures/sample.jsonl --out data/raw/ci-evaluation.json --markdown data/raw/ci-evaluation.md
           uv run --frozen python -m cel.experiments --demo --out data/raw/portfolio-ci
           python -S scripts/verify_bundle.py data/raw/portfolio-ci --expected-commit "$GITHUB_SHA" --source-repo .
+          uv run --frozen python -m scripts.check_archive_restore --source reports/evidence --out data/raw/ci-restore-check.json
       - uses: actions/upload-artifact@v4
         with:
           name: research-checks-python-${{ matrix.python }}
