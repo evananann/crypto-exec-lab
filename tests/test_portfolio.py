@@ -10,11 +10,31 @@ from cel.experiments.__main__ import build
 from cel.experiments.precision import required_days, summarize_days
 from scripts.preserve_study import preserve
 from scripts.download_study_artifacts import expected_names, verify_run
+from cel.study import DEFAULT_PLAN, load_plan, session_slot
 from tests import test_study as study_fixture
 from tests.test_study_operations import source_run, artifact, REPOSITORY
 
 
 class PortfolioTests(unittest.TestCase):
+    def test_frozen_replication_plans_bind_sources_pairs_and_holdouts(self):
+        from scripts.study_gate import gate
+        paths = sorted(DEFAULT_PLAN.parent.glob('study_v2_*.json'))
+        self.assertEqual(len(paths), 2)
+        for path in paths:
+            plan, _ = load_plan(path)
+            self.assertEqual(plan['precision_plan']['minimum_occupied_days'], 25)
+            self.assertEqual(len(expected_names(plan)), 56)
+            self.assertEqual(plan['follower'], 'okx' if 'okx' in path.name else 'bybit')
+            when = datetime(2026, 10, 26, 3, 20, tzinfo=timezone.utc)
+            self.assertEqual(session_slot(plan, when, 'am'), ('2026-10-26-am', 'development'))
+            held = datetime(2026, 11, 22, 3, 20, tzinfo=timezone.utc)
+            self.assertEqual(session_slot(plan, held, 'am')[1], 'holdout')
+            self.assertEqual(gate(plan, held, event='workflow_dispatch', report=True)['run'], 'false')
+            released = datetime(2026, 11, 23, 3, 47, tzinfo=timezone.utc)
+            self.assertEqual(gate(plan, released, event='schedule', report=True)['run'], 'true')
+            early = datetime(2026, 10, 17, 3, 20, tzinfo=timezone.utc)
+            self.assertEqual(gate(plan, early, event='schedule', schedule='17 3 * * *')['run'], 'false')
+
     def test_precision_counts_days_not_signals_and_is_repeatable(self):
         self.assertEqual(required_days(), 25)
         clustered = [('2026-10-01', 1)] * 1000

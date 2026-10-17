@@ -1,0 +1,51 @@
+# BTCUSDT linear perps. Recorder tries Binance + Bybit + OKX.
+# python -m cel.research and python -m cel.execution read this file.
+# If the preferred follower has no BBO on the tape, the CLIs fall back (Bybit → OKX).
+
+symbol: BTCUSDT
+leader: binance
+follower: bybit
+venues:
+  - binance
+  - bybit
+  - okx
+
+tick_size: 0.1
+
+# You can only act when the message arrives. exchange = venue clock (can be skew).
+clock: local
+
+# Injected decision+order delay. 0ms is a fantasy; 50–200ms is the honest laptop case.
+delay_ms: 50
+
+# Jump size in USD. 2.0 on BTC is a real move, not a 1-tick flicker inside the spread.
+# signal_ticks is the fallback if signal_usd is omitted (20 * 0.1 = 2.0).
+signal_usd: 2.0
+signal_ticks: 20
+
+# Leader print must be at least this many BTC to count as flow (not a 1-lot flicker).
+signal_btc: 0.05
+# A mid jump is "confirmed" if a same-direction leader trade lands within this window.
+trade_confirm_ms: 50
+
+# Multi-leg execution
+max_imbalance_btc: 0.01
+# Separate hedge order latency, measured from the actual first fill.
+hedge_delay_ms: 50
+hedge_timeout_ms: 200
+size_btc: 0.001
+
+# Fees in basis points of notional (1 bp = 0.01%). VIP-0-ish defaults, not MM rebates.
+fees_bps:
+  binance_taker: 5.0
+  binance_maker: 2.0
+  bybit_taker: 5.5
+  bybit_maker: 2.0
+  okx_taker: 5.0
+  okx_maker: 2.0
+
+# Kill switches (checked after every fill, not at the end)
+risk:
+  max_position_btc: 0.05
+  max_daily_loss_usdt: 25.0
+  stale_feed_ms: 2000

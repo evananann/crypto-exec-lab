@@ -1,6 +1,11 @@
 name: preregistered replication collection
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'configs/study_v2*'
+      - '.github/workflows/replication-study.yml'
   workflow_dispatch:
     inputs:
       mode:
@@ -19,7 +24,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: replication-v2-${{ github.event_name == 'workflow_dispatch' && inputs.mode == 'preflight' && 'preflight' || 'collection' }}
+  group: replication-v2-${{ (github.event_name == 'push' || inputs.mode == 'preflight') && 'preflight' || 'collection' }}
   cancel-in-progress: false
 
 jobs:

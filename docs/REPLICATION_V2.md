@@ -5,6 +5,11 @@ The two committed `configs/study_v2_*.json` plans and their SHA-256 source maps
 are the preregistration. Do not regenerate or edit them after collection starts.
 The generator refuses to overwrite them. A changed method needs another ID.
 
+| Plan | SHA-256 |
+| --- | --- |
+| `study_v2_okx.json` | `793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9` |
+| `study_v2_bybit.json` | `cd4605e0c51843058e96a3f3c8448021d0a90a7b3c89b836a89989c77ad44a56` |
+
 ## Fixed design
 
 - Collection dates: October 26–November 22, 2026 UTC, 28 days.
@@ -28,6 +33,8 @@ metadata is preserved as a diagnostic, but does not invalidate that pair.
 OKX primary samples still require verified OKX contract metadata. No feed or
 venue is substituted. The hosted OKX preflight has passed; a passing Bybit
 preflight and actual scheduled samples still need to be observed.
+Publishing these plans triggers bounded pair preflights; it never advances
+the prospective collection dates or evaluates outcomes.
 
 ## Precision before data
 
