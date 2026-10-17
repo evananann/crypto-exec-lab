@@ -14,6 +14,8 @@ Preflight 2026-10-16T03:42:46.831497+00:00: ineligible. instrument verification:
 
 Preflight 2026-10-16T06:33:23.034369+00:00: ineligible. instrument verification: <urlopen error Tunnel connection failed: 403 Forbidden>; binance: failed CONNECT via proxy status: 403; bybit: failed CONNECT via proxy status: 403; okx: failed CONNECT via proxy status: 403
 
+Preflight 2026-10-17T03:52:59.933486+00:00: blocked. instrument verification: <urlopen error Tunnel connection failed: 403 Forbidden>; binance: failed CONNECT via proxy status: 403; bybit: failed CONNECT via proxy status: 403; okx: failed CONNECT via proxy status: 403
+
 | Session | Phase | Status | Reasons |
 | --- | --- | --- | --- |
 

@@ -26,6 +26,12 @@ That is this repo.
 | Lead-lag and delayed markouts | done (local vs exchange clock; $2 jumps; hit-rate; walk-forward; leader prints) |
 | Multi-leg robot + risk | causal timers, partial fills, pre/post-trade limits, bounded-liquidity liquidation |
 | Evaluation and audit | fixed cost/latency grid, holdouts, block intervals, hashed inputs and fill audit |
+| Frozen live study | collection incomplete; hosted quotes received, instrument metadata HTTP 403 blocks verified collection |
+
+Read the [live-study working paper](reports/STUDY_V1_RESEARCH.md) for the
+preregistered question, current evidence, and limits. The
+[coverage report](reports/STUDY_V1.md) distinguishes unavailable observations
+from strategy returns. No eligible live-study results have been verified yet.
 
 ## Layout
 

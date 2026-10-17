@@ -152,3 +152,14 @@ is preserved alongside the first. Published configuration is therefore not
 proof of working connectivity in the current instance; the runtime proxy still
 needs to permit the destinations. Do not add duplicate secret requirements or
 relax TLS verification to work around that denial.
+
+An October 17 cloud preflight in a fresh instance again recorded zero events
+and proxy HTTP 403 errors; its checksummed archive is also preserved. A separate
+[hosted diagnostic preflight](https://github.com/evananann/crypto-exec-lab/actions/runs/39000473357)
+received Binance and OKX quotes but reported unverified instrument metadata
+with HTTP 403, insufficient observed spans, unverified BTC quantity units, and
+workers that did not stop. The hosted attempt was blocked. Its public health
+annotation is accessible, while authenticated artifact retrieval remains denied
+from this cloud instance. See the [working paper](../reports/STUDY_V1_RESEARCH.md)
+for the measured health figures and the distinction between public diagnostics
+and independently verified raw evidence.
