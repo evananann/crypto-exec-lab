@@ -23,6 +23,7 @@ from cel.research.mids import mids
 from cel.settings import load_config
 
 DEFAULT_PLAN = Path(__file__).resolve().parents[1] / 'configs' / 'study_v1.json'
+PREFLIGHT_SECONDS = 30
 
 
 def utc_now():
@@ -173,7 +174,7 @@ def record_session(plan_path: Path, root: Path, *, slot: str | None = None, pref
     # verified normalization before spending its 15-minute collection budget.
     if preflight or factor is not None:
         recorder = Recorder(directory / 'tape.jsonl', okx_contract_value_btc=factor)
-        seconds = 10 if preflight else plan['seconds']
+        seconds = PREFLIGHT_SECONDS if preflight else plan['seconds']
         try:
             recorder.run(seconds)
             metadata = json.loads(recorder.metadata_path.read_text())

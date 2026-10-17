@@ -56,7 +56,7 @@ Actions results and artifact coverage. Do not fill a missed slot with another
 market period while retaining its original label.
 
 Changes to the collector, metadata verifier, schedule gate, or frozen study
-configuration on `main` also trigger a bounded 10-second preflight. This does
+configuration on `main` also trigger a bounded 30-second preflight. This does
 not collect a study observation or inspect holdout outcomes. Preflights have a
 separate concurrency group from scheduled collection. Actions job summaries
 show `blocked` for unavailable metadata/feeds, `ineligible` for a received tape
@@ -163,3 +163,10 @@ annotation is accessible, while authenticated artifact retrieval remains denied
 from this cloud instance. See the [working paper](../reports/STUDY_V1_RESEARCH.md)
 for the measured health figures and the distinction between public diagnostics
 and independently verified raw evidence.
+
+The subsequent [recorder/request fix](https://github.com/evananann/crypto-exec-lab/actions/runs/39002047472)
+verified instrument metadata and stopped workers cleanly on the hosted runner.
+Its original 10-second diagnostic still failed the 95% observed-span gate.
+Preflights now run for 30 seconds to accommodate connection setup; frozen
+session duration and quality thresholds are unchanged. This is not permission
+to relabel the earlier attempt as passing.

@@ -172,12 +172,21 @@ class StudyTests(unittest.TestCase):
         self.assertEqual(item['status'], 'blocked')
 
     def test_preflight_with_short_observed_span_is_ineligible(self):
+        class ShortRecorder(FakeRecorder):
+            def run(self, seconds):
+                return super().run(seconds / 2)
         with patch('cel.study.fetch_instrument', return_value=(instrument(), .01)), \
-             patch('cel.study.Recorder', FakeRecorder):
+             patch('cel.study.Recorder', ShortRecorder):
             directory = record_session(self.plan_path, self.root, preflight=True)
         item = verify_archive(directory.with_suffix('.tar.gz'))
         self.assertGreater(item['health']['events'], 0)
         self.assertEqual(item['status'], 'ineligible')
+
+    def test_preflight_can_pass_with_healthy_verified_feeds(self):
+        with patch('cel.study.fetch_instrument', return_value=(instrument(), .01)), \
+             patch('cel.study.Recorder', FakeRecorder):
+            directory = record_session(self.plan_path, self.root, preflight=True)
+        self.assertEqual(verify_archive(directory.with_suffix('.tar.gz'))['status'], 'preflight_passed')
 
     def test_cli_failure_writes_actionable_job_summary(self):
         summary = self.directory / 'summary.md'
