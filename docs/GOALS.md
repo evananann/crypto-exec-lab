@@ -24,7 +24,7 @@ completed early, replaced with synthetic data, or repaired retrospectively.
 | 16 | Fill constraints | Independent price/time/freshness/fee/size audit implemented and adversarially tested; exchange acceptance unverified. |
 | 17 | Longer preregistered study | Separate 28-day prospective v2 plans and date-gated workflows; collection has not happened. |
 | 18 | Coverage/precision targets | 51/56 sessions per pair, 25 occupied days, 2bps interval half-width; planning assumptions explicit. |
-| 19 | Another venue pair | Separate Binance/Bybit plan alongside Binance/OKX; no favorable-venue selection. Future observations pending. |
+| 19 | Another venue pair | Separate Binance/Bybit plan alongside Binance/OKX; both pair preflights passed. Future observations pending. |
 | 20 | Replication across dates/conditions | Source-bound plans and separate reports prepared; empirical replication remains pending. |
 | 21 | One-command reproduction | `python -m cel.experiments --demo` builds the complete offline bundle; verified-evidence mode preserves holdout gates. |
 | 22 | Three clear figures | Cost, latency and coverage PNGs generated; synthetic labels explicit. Real-data plots await released samples. |
@@ -48,3 +48,12 @@ missing. V2 is prospective replication, not a way to erase v1 failures.
 A durable archival destination has been requested. A local workspace copy
 does not satisfy off-machine long-term retention. Never send credentials in
 chat; configure them through the storage provider's supported mechanism.
+
+Validation: 143 tests passed locally on Python 3.12, Ruff passed, and
+[hosted CI](https://github.com/evananann/crypto-exec-lab/actions/runs/39002936349)
+passed the Python 3.11/3.12/3.13 matrix, including complete bundle generation.
+All twelve synthetic fee/latency grid runs passed independent fill audits.
+Both replication pair preflights passed in
+[run 39002936193](https://github.com/evananann/crypto-exec-lab/actions/runs/39002936193).
+The [committed demonstration figures](../reports/portfolio_demo/README.md)
+come from a clean revision with source and input hashes recorded.

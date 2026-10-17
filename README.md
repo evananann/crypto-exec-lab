@@ -44,6 +44,7 @@ uv run --frozen python -m cel.experiments --demo --out data/raw/demo-bundle
 This produces an explicitly synthetic demonstration with round-trip entry/exit
 costs, fixed controls, five execution stresses, independent fill audits, three
 figures and a checksum inventory. It makes no live performance claim.
+See the [generated synthetic figures](reports/portfolio_demo/README.md).
 Use [verified-evidence reproduction](docs/PORTFOLIO_REPRODUCTION.md) for actual
 archives, the [research memo](docs/RESEARCH_MEMO.md) for the current conclusion,
 and the [recruiting walkthrough](docs/RECRUITING.md) for a five- or ten-minute demo.

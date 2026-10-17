@@ -48,7 +48,7 @@ performance you have not measured.
 
 - Built a Python BTC-perpetual execution research lab with causal order timers,
   displayed-liquidity partial fills, hedge timeouts and inventory risk controls;
-  validated it through unit/adversarial tests and Python 3.11–3.13 CI.
+  validated it with 143 unit/adversarial tests and Python 3.11–3.13 CI.
 - Implemented source- and input-hashed study plans, holdout release gates,
   fixed fee/latency grids, block-bootstrap uncertainty and independently audited
   round-trip fill constraints.

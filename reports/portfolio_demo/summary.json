@@ -1,0 +1,448 @@
+{
+  "synthetic": true,
+  "as_of_utc": "2026-10-17T04:32:13.876269+00:00",
+  "git_commit": "46aa9ed815ea4e2bdbe62fb14cacd7da0215dafd",
+  "git_dirty": false,
+  "sources_sha256": {
+    "cel/__init__.py": "ad093d446d6438e9019e9b5ecf5070d1a854f4c2c72f73a863a85f2b7a2bbf7b",
+    "cel/__main__.py": "71172936578053d57da44f8eaad7f6671f658a6af034c988c96445875f1be131",
+    "cel/artifacts.py": "f0595e3c402b5e17e0c0e9eaae797648dd2fae1ada1ccfacfe69d5a8fda41726",
+    "cel/execution/__init__.py": "2fd2666d4d8f5f86568838391bb87d9cdcffcdc4d7c83b7f7da4102964fe4dd5",
+    "cel/execution/__main__.py": "860263eea5e7a41dc870e947f0e3a044f1a8a35db2bd7695938a3204801f76dc",
+    "cel/execution/algo.py": "0a1685c4aa7594fa358be083ffeb42cabe322b57e44eb403d5b1999d33200f2e",
+    "cel/experiments/__init__.py": "c5b85c9f4f26fac668165f8ede240a9855be49b495469357fab2fac7b5c04c77",
+    "cel/experiments/__main__.py": "f0f618b5d52b059384ef869d5ad680121f9f90bd6d9196bbbcf354fadc9da4e9",
+    "cel/experiments/audit.py": "4d37a9ba5dec8cfe61f510e651febdb4421195001fdd47b76b46de2c1731de10",
+    "cel/experiments/precision.py": "b7d6cd40ebc1f100f9c4bb149614191bc5514d2e19bfefdb3c20a00df37a1e45",
+    "cel/experiments/roundtrip.py": "44f270d3e6a901642d62a10264aa2b1a5f6a8b2461572e940e50a627a4075ba3",
+    "cel/experiments/scenarios.py": "dbba7b1d1985e45fb07b30ba007e3f7f83cef631a979a528990d8aef60c89fa2",
+    "cel/ingest/__init__.py": "d01f320a6b7eabfab5a78b051dd238fb4e605296fbf47f738015da12e3f61212",
+    "cel/ingest/__main__.py": "7646af19f697ebcaa9784b26ffbb7b7ab1101eab0aa050c8625742179db6c8c0",
+    "cel/ingest/fixture.py": "fc3d4607153147275c4d9afb60dbb3309c5413ebbf10367a790511e1eac870e0",
+    "cel/ingest/gaps.py": "8b4afef116610facc0094057fb64b19aebb6b6ef521f44fa58a77288c29ab0ff",
+    "cel/ingest/instruments.py": "252549d4d9f500bf5048bc5735f05d90543315622bd418352266e5f0a62b7ce9",
+    "cel/ingest/jsonl.py": "108c9aa742252a20eccdb80963ef20eb55b4661b182d38f7439420dc703746d1",
+    "cel/ingest/parse.py": "66bd03de6396be6bf879ea6af3eaee8c76f179c177377bddd3efdbd663698b2c",
+    "cel/ingest/record.py": "bc613b064fdef7935dd1028cc96c2743bdefbe6a1068d4f18b698b89fecae3ef",
+    "cel/ingest/replay.py": "4ddb66d8ac10d61e500d4a722b658c01400bd20b9215597c8c900b3a942305d6",
+    "cel/ingest/schema.py": "29b151cf8d20c6891f32c00bcc5d71d10cfbb8c8cbaf2e7f4cf16b3a662662a2",
+    "cel/ingest/top_book.py": "ef3982dc9bcc0be1667cbc261d62b15da6a1d0fff007815e56ea78a200687dbd",
+    "cel/research/__init__.py": "2c0db74f1d7bdb60c1f2cc167bb3794b1acda09bc6ec824f51431fcbb445ee6b",
+    "cel/research/__main__.py": "aa45f264cbd3b2443cf0ca8998598dff9fbf10065a81319951ca91718fe4d637",
+    "cel/research/evaluate.py": "f5106ae1ff6504c95f7080064810777d49a1a194909bb355d3f02b27fc9dc255",
+    "cel/research/flow.py": "a9adc61ff4cda3ac28582d2709667c914c15d36355cfb19a8b016b71f6f54607",
+    "cel/research/jumps.py": "11ca46bab53c8f0957b78cafbbca79d89c3cc68480bdbaf30e98676b5e7d9f8a",
+    "cel/research/lead_lag.py": "344e5c4d2dcb897a977c7329a5360cc2ce8a07c479c10f0965000da97135a799",
+    "cel/research/markout.py": "5b11e08242f4dcd77ad18096d59185e960af97ef6175bb9ece8a77ad6d9fc2e6",
+    "cel/research/mids.py": "124692ff6cd860f2397d12f7c0e75bb9d0b9518eb0003cd2989bf0014bc76ddf",
+    "cel/research/plots.py": "f654b2a1c544c43b48c68850c3c9af1db82554cda2cceb0cb74c1b87a05eab38",
+    "cel/risk/__init__.py": "2aee6d966c5b5986de617e1a352c30ef2a7fd2c2bd6210972499dad5ef59851c",
+    "cel/risk/limits.py": "070e18879c3c69077a52e3e305bc400eafac761bdadf9472458d630f6dc81568",
+    "cel/settings.py": "0ef2b7734d35136d6d79f2ebc5fa34df5126748ee4c9f2e349a3766260c07d79",
+    "cel/study.py": "348a8aeec40162efc879111f45997f2efd398d4db20492bde3e31d33443000e0",
+    "cel/summary.py": "905deeb4fc1fee08178c93539f741087573ba388d1e256b1edd521e2d80c2af4",
+    "configs/study_v1.json": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+    "configs/study_v1_lab.yaml": "7089b6acf113f84db3f051b4c663c85db27e7ca00691261c6dc0aa19315fbbb6",
+    "uv.lock": "0e4d843c3c53685af45dafca003f7d0944ba4fe324b6c44509b74e4024810cf7"
+  },
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2",
+    "websocket-client": "1.9.2"
+  },
+  "inputs": [
+    {
+      "session": "SYNTHETIC-ONLY",
+      "path": "/workspace/crypto-exec-lab/data/raw/portfolio-published-demo/synthetic.jsonl",
+      "sha256": "9ae8e22a821c4bed22daf6dd791b9b55ac83d1e0936720d34dc5f082ccd4ea1d"
+    }
+  ],
+  "limitations": [
+    "Exploratory extension, not the frozen v1 estimator.",
+    "Completed-trade means exclude unfinished positions; always inspect inventory and total MTM.",
+    "No queue, funding, liquidation engine, hidden liquidity or price-impact model.",
+    "Counterfactual stresses are not measured failure probabilities.",
+    "Charts are descriptive equal-session means, without a new inference claim."
+  ],
+  "roundtrips": [
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 0,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 0,
+        "exit_fee_bps": 0,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": 0.7678487913365856,
+      "inventory_btc": -0.001,
+      "mtm_usdt": 0.10549999999994242,
+      "fees_usdt": 0.0,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 47,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 0,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 3,
+        "exit_fee_bps": 3,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -5.232233794650609,
+      "inventory_btc": -0.001,
+      "mtm_usdt": -0.7407482500000526,
+      "fees_usdt": 0.8462482499999999,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 47,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 0,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 5,
+        "exit_fee_bps": 5,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -9.232288851975355,
+      "inventory_btc": -0.001,
+      "mtm_usdt": -1.304913750000047,
+      "fees_usdt": 1.41041375,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 47,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 0,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 5.5,
+        "exit_fee_bps": 5.5,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -10.23230261630663,
+      "inventory_btc": -0.001,
+      "mtm_usdt": -1.4459551250000615,
+      "fees_usdt": 1.5514551250000004,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 47,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 50,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 0,
+        "exit_fee_bps": 0,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": 0.7678487913365856,
+      "inventory_btc": 0.0,
+      "mtm_usdt": 0.1059999999999448,
+      "fees_usdt": 0.0,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 50,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 3,
+        "exit_fee_bps": 3,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -5.232233794650609,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -0.7222343000000535,
+      "fees_usdt": 0.8282342999999999,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 50,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 5,
+        "exit_fee_bps": 5,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -9.232288851975355,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -1.2743905000000453,
+      "fees_usdt": 1.3803905,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 50,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 5.5,
+        "exit_fee_bps": 5.5,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -10.23230261630663,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -1.4124295500000557,
+      "fees_usdt": 1.5184295500000005,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 200,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 0,
+        "exit_fee_bps": 0,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -0.16661614598967492,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -0.023000000000052978,
+      "fees_usdt": 0.0,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 200,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 3,
+        "exit_fee_bps": 3,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -6.166596589372632,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -0.8512484000000455,
+      "fees_usdt": 0.8282483999999999,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 200,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 5,
+        "exit_fee_bps": 5,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -10.166583551627937,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -1.4034140000000406,
+      "fees_usdt": 1.380414,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "config": {
+        "leader": "binance",
+        "follower": "okx",
+        "signal_move": 2.0,
+        "size_btc": 0.001,
+        "entry_delay_ms": 200,
+        "exit_delay_ms": 50,
+        "horizon_ms": 1000,
+        "entry_fee_bps": 5.5,
+        "exit_fee_bps": 5.5,
+        "max_quote_age_ms": 2000
+      },
+      "session": "SYNTHETIC-ONLY",
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -11.166580292191814,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -1.5414554000000464,
+      "fees_usdt": 1.5184554,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    }
+  ],
+  "baselines": [
+    {
+      "baseline": "signal",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -9.232288851975355,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -1.2743905000000453,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "baseline": "opposite",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -11.101302043539896,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -1.5323905000000408,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "baseline": "periodic",
+      "closed_trade_count": 23,
+      "mean_closed_bps": -10.188512186626491,
+      "inventory_btc": 0.0,
+      "mtm_usdt": -1.4063904999999934,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 46,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    },
+    {
+      "baseline": "no_trade",
+      "closed_trade_count": 0,
+      "mean_closed_bps": null,
+      "inventory_btc": 0.0,
+      "mtm_usdt": 0.0,
+      "fill_audit": {
+        "passed": true,
+        "fills_checked": 0,
+        "violations": [],
+        "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+      }
+    }
+  ]
+}

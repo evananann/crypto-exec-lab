@@ -31,8 +31,9 @@ The pair jobs run independently from v1 and from each other. A Bybit primary
 sample needs BTC-normalized Binance/Bybit sizes; failure to fetch auxiliary OKX
 metadata is preserved as a diagnostic, but does not invalidate that pair.
 OKX primary samples still require verified OKX contract metadata. No feed or
-venue is substituted. The hosted OKX preflight has passed; a passing Bybit
-preflight and actual scheduled samples still need to be observed.
+venue is substituted. Both pair preflights
+[passed on the hosted runner](https://github.com/evananann/crypto-exec-lab/actions/runs/39002936193).
+Actual scheduled samples still need to be observed and independently verified.
 Publishing these plans triggers bounded pair preflights; it never advances
 the prospective collection dates or evaluates outcomes.
 
