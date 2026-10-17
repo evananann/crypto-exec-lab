@@ -4,6 +4,13 @@ These are actual measurements from a fresh local clone of clean commit
 `b8b23d975f84955e942860c329a46d36b4456812` on October 17, 2026.
 No live profitability result is claimed.
 
+The final code was also reproduced from clean commit
+`ac39946c438dd647e8ba246bb66128f31869fb6e`: see
+[final-reproduction.json](final-reproduction.json). All 173 tests, synthetic
+bundle generation/verification and archive restoration passed. Benchmark
+measurements below remain from the earlier clean run; they were not relabelled
+as measurements of another revision.
+
 - [Reproduction](reproduction.json): independent Git objects, separate Python
   environment, 168 tests, complete synthetic bundle generation and source
   verification, archive restoration and a volume benchmark all passed.
@@ -29,3 +36,8 @@ The [hosted monitor](https://github.com/evananann/crypto-exec-lab/actions/runs/3
 correctly flagged the missing first AM collection slot. Its failure status is
 an operational alert; the test suite passed separately. Other full scheduled
 sessions and post-release empirical conclusions remain pending.
+
+[Hosted CI](https://github.com/evananann/crypto-exec-lab/actions/runs/39009640937)
+passed the Python 3.11/3.12/3.13 matrix for the final code. The checksum file
+covers these JSON validation records; this directory is not itself an
+`experiments.json` research bundle.
