@@ -1,0 +1,21 @@
+{
+  "as_of_utc": "2026-10-17T09:48:21.300755+00:00",
+  "source_commit": "577b545bc9f8183fee1a1a4955fe35e00773b1ab",
+  "source_tree_clean_before_generation": true,
+  "python": "3.12.14",
+  "local_tests_passed": 191,
+  "ruff": "passed",
+  "frozen_source_maps_verified": 3,
+  "commands": [
+    "python -m scripts.power_audit --out <new-output-path>",
+    "python -m scripts.execution_assumption_audit --out <new-output-path>"
+  ],
+  "scope": "Power assumption calculations and synthetic execution tapes only; no live or holdout outcomes evaluated.",
+  "hosted_ci_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39022493045",
+  "hosted_ci_conclusion": "success",
+  "hosted_python_matrix": [
+    "3.11",
+    "3.12",
+    "3.13"
+  ]
+}

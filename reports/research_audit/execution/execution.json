@@ -1,0 +1,927 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "outcomes_source": "Deterministic generated tapes only",
+  "script_sha256": "18ba63ddb7c361a9d22b46b7f5cbd9aaccae7490d07b431c034dbf1edf5fe3e7",
+  "model_sources_sha256": {
+    "cel/execution/algo.py": "0a1685c4aa7594fa358be083ffeb42cabe322b57e44eb403d5b1999d33200f2e",
+    "cel/experiments/roundtrip.py": "44f270d3e6a901642d62a10264aa2b1a5f6a8b2461572e940e50a627a4075ba3",
+    "cel/experiments/audit.py": "4d37a9ba5dec8cfe61f510e651febdb4421195001fdd47b76b46de2c1731de10",
+    "cel/experiments/scenarios.py": "dbba7b1d1985e45fb07b30ba007e3f7f83cef631a979a528990d8aef60c89fa2",
+    "cel/research/jumps.py": "11ca46bab53c8f0957b78cafbbca79d89c3cc68480bdbaf30e98676b5e7d9f8a",
+    "cel/research/mids.py": "124692ff6cd860f2397d12f7c0e75bb9d0b9518eb0003cd2989bf0014bc76ddf",
+    "cel/ingest/schema.py": "29b151cf8d20c6891f32c00bcc5d71d10cfbb8c8cbaf2e7f4cf16b3a662662a2"
+  },
+  "roundtrips": [
+    {
+      "case": "baseline",
+      "input_sha256": "ff447f41dde5655673287c76b6750178c0653aaf781c3d09bdb1c3fd7deb20cc",
+      "result": {
+        "config": {
+          "leader": "binance",
+          "follower": "okx",
+          "signal_move": 2.0,
+          "size_btc": 0.001,
+          "entry_delay_ms": 50,
+          "exit_delay_ms": 50,
+          "horizon_ms": 1000,
+          "entry_fee_bps": 5.0,
+          "exit_fee_bps": 5.0,
+          "max_quote_age_ms": 2000
+        },
+        "baseline": "signal",
+        "signals": 1,
+        "closed_trades": [
+          {
+            "signal_ts": 100,
+            "entry_ts": 150,
+            "exit_ts": 1150,
+            "size_btc": 0.001,
+            "pnl_usdt": -0.049006000000005656,
+            "pnl_bps": -8.167598603345915
+          }
+        ],
+        "fills": [
+          {
+            "ts": 150,
+            "quote_ts": 150,
+            "side": "buy",
+            "size_btc": 0.001,
+            "price": 60000.5,
+            "fee_usdt": 0.03000025,
+            "reason": "entry"
+          },
+          {
+            "ts": 1150,
+            "quote_ts": 1150,
+            "side": "sell",
+            "size_btc": 0.001,
+            "price": 60011.5,
+            "fee_usdt": 0.03000575,
+            "reason": "exit"
+          }
+        ],
+        "rejections": {
+          "entry_beyond_tape": 0
+        },
+        "closed_trade_count": 1,
+        "mean_closed_bps": -8.167598603345915,
+        "cash_usdt": -0.049006000000005656,
+        "fees_usdt": 0.060006000000000004,
+        "inventory_btc": 0.0,
+        "peak_inventory_btc": 0.001,
+        "mtm_usdt": -0.049006000000005656,
+        "end_ts": 3000,
+        "mark_age_ms": 0,
+        "stopped": null,
+        "status": "closed",
+        "fill_audit": {
+          "passed": true,
+          "fills_checked": 2,
+          "violations": [],
+          "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+        }
+      }
+    },
+    {
+      "case": "zero_fees",
+      "input_sha256": "ff447f41dde5655673287c76b6750178c0653aaf781c3d09bdb1c3fd7deb20cc",
+      "result": {
+        "config": {
+          "leader": "binance",
+          "follower": "okx",
+          "signal_move": 2.0,
+          "size_btc": 0.001,
+          "entry_delay_ms": 50,
+          "exit_delay_ms": 50,
+          "horizon_ms": 1000,
+          "entry_fee_bps": 0,
+          "exit_fee_bps": 0,
+          "max_quote_age_ms": 2000
+        },
+        "baseline": "signal",
+        "signals": 1,
+        "closed_trades": [
+          {
+            "signal_ts": 100,
+            "entry_ts": 150,
+            "exit_ts": 1150,
+            "size_btc": 0.001,
+            "pnl_usdt": 0.01099999999999568,
+            "pnl_bps": 1.8333180556821493
+          }
+        ],
+        "fills": [
+          {
+            "ts": 150,
+            "quote_ts": 150,
+            "side": "buy",
+            "size_btc": 0.001,
+            "price": 60000.5,
+            "fee_usdt": 0.0,
+            "reason": "entry"
+          },
+          {
+            "ts": 1150,
+            "quote_ts": 1150,
+            "side": "sell",
+            "size_btc": 0.001,
+            "price": 60011.5,
+            "fee_usdt": 0.0,
+            "reason": "exit"
+          }
+        ],
+        "rejections": {
+          "entry_beyond_tape": 0
+        },
+        "closed_trade_count": 1,
+        "mean_closed_bps": 1.8333180556821493,
+        "cash_usdt": 0.01099999999999568,
+        "fees_usdt": 0.0,
+        "inventory_btc": 0.0,
+        "peak_inventory_btc": 0.001,
+        "mtm_usdt": 0.01099999999999568,
+        "end_ts": 3000,
+        "mark_age_ms": 0,
+        "stopped": null,
+        "status": "closed",
+        "fill_audit": {
+          "passed": true,
+          "fills_checked": 2,
+          "violations": [],
+          "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+        }
+      }
+    },
+    {
+      "case": "entry_after_move",
+      "input_sha256": "ff447f41dde5655673287c76b6750178c0653aaf781c3d09bdb1c3fd7deb20cc",
+      "result": {
+        "config": {
+          "leader": "binance",
+          "follower": "okx",
+          "signal_move": 2.0,
+          "size_btc": 0.001,
+          "entry_delay_ms": 500,
+          "exit_delay_ms": 50,
+          "horizon_ms": 1000,
+          "entry_fee_bps": 5.0,
+          "exit_fee_bps": 5.0,
+          "max_quote_age_ms": 2000
+        },
+        "baseline": "signal",
+        "signals": 1,
+        "closed_trades": [
+          {
+            "signal_ts": 100,
+            "entry_ts": 600,
+            "exit_ts": 1150,
+            "size_btc": 0.001,
+            "pnl_usdt": -0.06101200000000517,
+            "pnl_bps": -10.166548635701757
+          }
+        ],
+        "fills": [
+          {
+            "ts": 600,
+            "quote_ts": 600,
+            "side": "buy",
+            "size_btc": 0.001,
+            "price": 60012.5,
+            "fee_usdt": 0.03000625,
+            "reason": "entry"
+          },
+          {
+            "ts": 1150,
+            "quote_ts": 1150,
+            "side": "sell",
+            "size_btc": 0.001,
+            "price": 60011.5,
+            "fee_usdt": 0.03000575,
+            "reason": "exit"
+          }
+        ],
+        "rejections": {
+          "entry_beyond_tape": 0
+        },
+        "closed_trade_count": 1,
+        "mean_closed_bps": -10.166548635701757,
+        "cash_usdt": -0.06101200000000517,
+        "fees_usdt": 0.060012,
+        "inventory_btc": 0.0,
+        "peak_inventory_btc": 0.001,
+        "mtm_usdt": -0.06101200000000517,
+        "end_ts": 3000,
+        "mark_age_ms": 0,
+        "stopped": null,
+        "status": "closed",
+        "fill_audit": {
+          "passed": true,
+          "fills_checked": 2,
+          "violations": [],
+          "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+        }
+      }
+    },
+    {
+      "case": "wide_spread",
+      "input_sha256": "b5efb9cf4d2a45c27254f7c58aba38034b3b34929884d1a47ca94d2bccf96ce7",
+      "result": {
+        "config": {
+          "leader": "binance",
+          "follower": "okx",
+          "signal_move": 2.0,
+          "size_btc": 0.001,
+          "entry_delay_ms": 50,
+          "exit_delay_ms": 50,
+          "horizon_ms": 1000,
+          "entry_fee_bps": 5.0,
+          "exit_fee_bps": 5.0,
+          "max_quote_age_ms": 2000
+        },
+        "baseline": "signal",
+        "signals": 1,
+        "closed_trades": [
+          {
+            "signal_ts": 100,
+            "entry_ts": 150,
+            "exit_ts": 1150,
+            "size_btc": 0.001,
+            "pnl_usdt": -0.058006000000006,
+            "pnl_bps": -9.666861094909757
+          }
+        ],
+        "fills": [
+          {
+            "ts": 150,
+            "quote_ts": 150,
+            "side": "buy",
+            "size_btc": 0.001,
+            "price": 60005.0,
+            "fee_usdt": 0.030002500000000005,
+            "reason": "entry"
+          },
+          {
+            "ts": 1150,
+            "quote_ts": 1150,
+            "side": "sell",
+            "size_btc": 0.001,
+            "price": 60007.0,
+            "fee_usdt": 0.030003499999999995,
+            "reason": "exit"
+          }
+        ],
+        "rejections": {
+          "entry_beyond_tape": 0
+        },
+        "closed_trade_count": 1,
+        "mean_closed_bps": -9.666861094909757,
+        "cash_usdt": -0.058006000000006,
+        "fees_usdt": 0.060006000000000004,
+        "inventory_btc": 0.0,
+        "peak_inventory_btc": 0.001,
+        "mtm_usdt": -0.058006000000006,
+        "end_ts": 3000,
+        "mark_age_ms": 0,
+        "stopped": null,
+        "status": "closed",
+        "fill_audit": {
+          "passed": true,
+          "fills_checked": 2,
+          "violations": [],
+          "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+        }
+      }
+    },
+    {
+      "case": "adverse_move",
+      "input_sha256": "cfd72cdb1c676fba5c1c9c5de20a45b75b7bb852531588c4e9737b2d37470567",
+      "result": {
+        "config": {
+          "leader": "binance",
+          "follower": "okx",
+          "signal_move": 2.0,
+          "size_btc": 0.001,
+          "entry_delay_ms": 50,
+          "exit_delay_ms": 50,
+          "horizon_ms": 1000,
+          "entry_fee_bps": 5.0,
+          "exit_fee_bps": 5.0,
+          "max_quote_age_ms": 2000
+        },
+        "baseline": "signal",
+        "signals": 1,
+        "closed_trades": [
+          {
+            "signal_ts": 100,
+            "entry_ts": 150,
+            "exit_ts": 1150,
+            "size_btc": 0.001,
+            "pnl_usdt": -0.07299400000000134,
+            "pnl_bps": -12.165565286956165
+          }
+        ],
+        "fills": [
+          {
+            "ts": 150,
+            "quote_ts": 150,
+            "side": "buy",
+            "size_btc": 0.001,
+            "price": 60000.5,
+            "fee_usdt": 0.03000025,
+            "reason": "entry"
+          },
+          {
+            "ts": 1150,
+            "quote_ts": 1150,
+            "side": "sell",
+            "size_btc": 0.001,
+            "price": 59987.5,
+            "fee_usdt": 0.02999375,
+            "reason": "exit"
+          }
+        ],
+        "rejections": {
+          "entry_beyond_tape": 0
+        },
+        "closed_trade_count": 1,
+        "mean_closed_bps": -12.165565286956165,
+        "cash_usdt": -0.07299400000000134,
+        "fees_usdt": 0.059994,
+        "inventory_btc": 0.0,
+        "peak_inventory_btc": 0.001,
+        "mtm_usdt": -0.07299400000000134,
+        "end_ts": 3000,
+        "mark_age_ms": 0,
+        "stopped": null,
+        "status": "closed",
+        "fill_audit": {
+          "passed": true,
+          "fills_checked": 2,
+          "violations": [],
+          "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+        }
+      }
+    },
+    {
+      "case": "thin_size",
+      "input_sha256": "529256d26fcbc6b7bc54bc7d4693bf1d6f9d04b66d695592d5547610da0283ac",
+      "result": {
+        "config": {
+          "leader": "binance",
+          "follower": "okx",
+          "signal_move": 2.0,
+          "size_btc": 0.001,
+          "entry_delay_ms": 50,
+          "exit_delay_ms": 50,
+          "horizon_ms": 1000,
+          "entry_fee_bps": 5.0,
+          "exit_fee_bps": 5.0,
+          "max_quote_age_ms": 2000
+        },
+        "baseline": "signal",
+        "signals": 1,
+        "closed_trades": [
+          {
+            "signal_ts": 100,
+            "entry_ts": 150,
+            "exit_ts": 1150,
+            "size_btc": 0.0001,
+            "pnl_usdt": -0.004900600000000033,
+            "pnl_bps": -8.167598603345027
+          }
+        ],
+        "fills": [
+          {
+            "ts": 150,
+            "quote_ts": 150,
+            "side": "buy",
+            "size_btc": 0.0001,
+            "price": 60000.5,
+            "fee_usdt": 0.003000025,
+            "reason": "entry"
+          },
+          {
+            "ts": 1150,
+            "quote_ts": 1150,
+            "side": "sell",
+            "size_btc": 0.0001,
+            "price": 60011.5,
+            "fee_usdt": 0.003000575,
+            "reason": "exit"
+          }
+        ],
+        "rejections": {
+          "entry_beyond_tape": 0
+        },
+        "closed_trade_count": 1,
+        "mean_closed_bps": -8.167598603345027,
+        "cash_usdt": -0.004900600000000033,
+        "fees_usdt": 0.0060006,
+        "inventory_btc": 0.0,
+        "peak_inventory_btc": 0.0001,
+        "mtm_usdt": -0.004900600000000033,
+        "end_ts": 3000,
+        "mark_age_ms": 0,
+        "stopped": null,
+        "status": "closed",
+        "fill_audit": {
+          "passed": true,
+          "fills_checked": 2,
+          "violations": [],
+          "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+        }
+      }
+    },
+    {
+      "case": "no_follower_exit_quotes",
+      "input_sha256": "903686d60210588f737570a90c27229711d52674417339e1a5b569d10c51779c",
+      "result": {
+        "config": {
+          "leader": "binance",
+          "follower": "okx",
+          "signal_move": 2.0,
+          "size_btc": 0.001,
+          "entry_delay_ms": 50,
+          "exit_delay_ms": 50,
+          "horizon_ms": 1000,
+          "entry_fee_bps": 5.0,
+          "exit_fee_bps": 5.0,
+          "max_quote_age_ms": 100
+        },
+        "baseline": "signal",
+        "signals": 1,
+        "closed_trades": [],
+        "fills": [
+          {
+            "ts": 150,
+            "quote_ts": 150,
+            "side": "buy",
+            "size_btc": 0.001,
+            "price": 60000.5,
+            "fee_usdt": 0.03000025,
+            "reason": "entry"
+          }
+        ],
+        "rejections": {
+          "entry_beyond_tape": 0
+        },
+        "closed_trade_count": 0,
+        "mean_closed_bps": null,
+        "cash_usdt": -60.03050025,
+        "fees_usdt": 0.03000025,
+        "inventory_btc": 0.001,
+        "peak_inventory_btc": 0.001,
+        "mtm_usdt": null,
+        "end_ts": 3000,
+        "mark_age_ms": 2800,
+        "stopped": null,
+        "status": "residual_inventory",
+        "fill_audit": {
+          "passed": true,
+          "fills_checked": 1,
+          "violations": [],
+          "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+        }
+      }
+    },
+    {
+      "case": "tape_ends_before_exit",
+      "input_sha256": "c58617d81e8a0543de05f6c98e70a9ff9bee6be84b66fd96b7a288560227b20d",
+      "result": {
+        "config": {
+          "leader": "binance",
+          "follower": "okx",
+          "signal_move": 2.0,
+          "size_btc": 0.001,
+          "entry_delay_ms": 50,
+          "exit_delay_ms": 50,
+          "horizon_ms": 1000,
+          "entry_fee_bps": 5.0,
+          "exit_fee_bps": 5.0,
+          "max_quote_age_ms": 2000
+        },
+        "baseline": "signal",
+        "signals": 1,
+        "closed_trades": [],
+        "fills": [
+          {
+            "ts": 150,
+            "quote_ts": 150,
+            "side": "buy",
+            "size_btc": 0.001,
+            "price": 60000.5,
+            "fee_usdt": 0.03000025,
+            "reason": "entry"
+          }
+        ],
+        "rejections": {
+          "entry_beyond_tape": 0
+        },
+        "closed_trade_count": 0,
+        "mean_closed_bps": null,
+        "cash_usdt": -60.03050025,
+        "fees_usdt": 0.03000025,
+        "inventory_btc": 0.001,
+        "peak_inventory_btc": 0.001,
+        "mtm_usdt": -0.01850025000000244,
+        "end_ts": 500,
+        "mark_age_ms": 0,
+        "stopped": null,
+        "status": "residual_inventory",
+        "fill_audit": {
+          "passed": true,
+          "fills_checked": 1,
+          "violations": [],
+          "scope": "Recorded top-of-book constraints only; not proof of executable exchange fills."
+        }
+      }
+    }
+  ],
+  "two_leg_stresses": [
+    {
+      "scenario": "observed",
+      "config": {
+        "delay_ms": 50,
+        "signal_move": 2.0,
+        "size": 0.001,
+        "max_imbalance": 0.01,
+        "hedge_timeout_ms": 200,
+        "taker_fee_bps": 5.0,
+        "hedge_fee_bps": 5.0,
+        "leader": "binance",
+        "follower": "okx",
+        "clock": "local",
+        "max_position": 0.05,
+        "max_loss_usdt": 25.0,
+        "stale_feed_ms": 2000,
+        "hedge_delay_ms": 50
+      },
+      "fills": [
+        {
+          "ts": 150,
+          "venue": "okx",
+          "side": "buy",
+          "px": 60000.5,
+          "sz": 0.001,
+          "reason": "initiate",
+          "quote_ts": 150,
+          "fee_usdt": 0.03000025
+        },
+        {
+          "ts": 200,
+          "venue": "binance",
+          "side": "sell",
+          "px": 60011.5,
+          "sz": 0.001,
+          "reason": "hedge",
+          "quote_ts": 200,
+          "fee_usdt": 0.03000575
+        }
+      ],
+      "inventory_btc": {
+        "okx": 0.001,
+        "binance": -0.001
+      },
+      "net_inventory_btc": 0.0,
+      "gross_inventory_btc": 0.002,
+      "peak_net_inventory_btc": 0.001,
+      "fees_usdt": 0.060006000000000004,
+      "hedge_fills": 1,
+      "timeout_unwind_fills": 0,
+      "pending_hedge_btc": 0,
+      "rejections": [],
+      "killed": null,
+      "end_reason": "tape_end",
+      "mark_age_ms": {
+        "binance": 0,
+        "okx": 0
+      },
+      "mtm_usdt": -0.049006000000005656,
+      "stale_mark_value_usdt": null,
+      "interpretation": "Counterfactual stress on supplied quotes; not observed execution or a probability estimate."
+    },
+    {
+      "scenario": "thin_liquidity",
+      "config": {
+        "delay_ms": 50,
+        "signal_move": 2.0,
+        "size": 0.001,
+        "max_imbalance": 0.01,
+        "hedge_timeout_ms": 200,
+        "taker_fee_bps": 5.0,
+        "hedge_fee_bps": 5.0,
+        "leader": "binance",
+        "follower": "okx",
+        "clock": "local",
+        "max_position": 0.05,
+        "max_loss_usdt": 25.0,
+        "stale_feed_ms": 2000,
+        "hedge_delay_ms": 50
+      },
+      "fills": [
+        {
+          "ts": 150,
+          "venue": "okx",
+          "side": "buy",
+          "px": 60000.5,
+          "sz": 0.0002,
+          "reason": "initiate",
+          "quote_ts": 150,
+          "fee_usdt": 0.00600005
+        },
+        {
+          "ts": 200,
+          "venue": "binance",
+          "side": "sell",
+          "px": 60011.5,
+          "sz": 0.0002,
+          "reason": "hedge",
+          "quote_ts": 200,
+          "fee_usdt": 0.00600115
+        }
+      ],
+      "inventory_btc": {
+        "okx": 0.0002,
+        "binance": -0.0002
+      },
+      "net_inventory_btc": 0.0,
+      "gross_inventory_btc": 0.0004,
+      "peak_net_inventory_btc": 0.0002,
+      "fees_usdt": 0.0120012,
+      "hedge_fills": 1,
+      "timeout_unwind_fills": 0,
+      "pending_hedge_btc": 0,
+      "rejections": [
+        {
+          "ts": 150,
+          "venue": "okx",
+          "sz": 0.0008,
+          "reason": "insufficient_displayed_liquidity"
+        }
+      ],
+      "killed": null,
+      "end_reason": "tape_end",
+      "mark_age_ms": {
+        "binance": 0,
+        "okx": 0
+      },
+      "mtm_usdt": -0.009801200000000065,
+      "stale_mark_value_usdt": null,
+      "interpretation": "Counterfactual stress on supplied quotes; not observed execution or a probability estimate."
+    },
+    {
+      "scenario": "slow_hedge",
+      "config": {
+        "delay_ms": 50,
+        "signal_move": 2.0,
+        "size": 0.001,
+        "max_imbalance": 0.01,
+        "hedge_timeout_ms": 200,
+        "taker_fee_bps": 5.0,
+        "hedge_fee_bps": 5.0,
+        "leader": "binance",
+        "follower": "okx",
+        "clock": "local",
+        "max_position": 0.05,
+        "max_loss_usdt": 25.0,
+        "stale_feed_ms": 2000,
+        "hedge_delay_ms": 201
+      },
+      "fills": [
+        {
+          "ts": 150,
+          "venue": "okx",
+          "side": "buy",
+          "px": 60000.5,
+          "sz": 0.001,
+          "reason": "initiate",
+          "quote_ts": 150,
+          "fee_usdt": 0.03000025
+        },
+        {
+          "ts": 350,
+          "venue": "okx",
+          "side": "sell",
+          "px": 60011.5,
+          "sz": 0.001,
+          "reason": "timeout_flatten",
+          "quote_ts": 350,
+          "fee_usdt": 0.03000575
+        }
+      ],
+      "inventory_btc": {
+        "okx": 0.0
+      },
+      "net_inventory_btc": 0.0,
+      "gross_inventory_btc": 0.0,
+      "peak_net_inventory_btc": 0.001,
+      "fees_usdt": 0.060006000000000004,
+      "hedge_fills": 0,
+      "timeout_unwind_fills": 1,
+      "pending_hedge_btc": 0,
+      "rejections": [],
+      "killed": null,
+      "end_reason": "tape_end",
+      "mark_age_ms": {
+        "binance": 0,
+        "okx": 0
+      },
+      "mtm_usdt": -0.049006000000005656,
+      "stale_mark_value_usdt": null,
+      "interpretation": "Counterfactual stress on supplied quotes; not observed execution or a probability estimate."
+    },
+    {
+      "scenario": "delayed_follower",
+      "config": {
+        "delay_ms": 50,
+        "signal_move": 2.0,
+        "size": 0.001,
+        "max_imbalance": 0.01,
+        "hedge_timeout_ms": 200,
+        "taker_fee_bps": 5.0,
+        "hedge_fee_bps": 5.0,
+        "leader": "binance",
+        "follower": "okx",
+        "clock": "local",
+        "max_position": 0.05,
+        "max_loss_usdt": 25.0,
+        "stale_feed_ms": 2000,
+        "hedge_delay_ms": 50
+      },
+      "fills": [],
+      "inventory_btc": {},
+      "net_inventory_btc": 0,
+      "gross_inventory_btc": 0,
+      "peak_net_inventory_btc": 0.0,
+      "fees_usdt": 0,
+      "hedge_fills": 0,
+      "timeout_unwind_fills": 0,
+      "pending_hedge_btc": 0,
+      "rejections": [],
+      "killed": null,
+      "end_reason": "tape_end",
+      "mark_age_ms": {
+        "binance": 500,
+        "okx": 0
+      },
+      "mtm_usdt": 0.0,
+      "stale_mark_value_usdt": null,
+      "interpretation": "Counterfactual stress on supplied quotes; not observed execution or a probability estimate."
+    },
+    {
+      "scenario": "follower_disconnect",
+      "config": {
+        "delay_ms": 50,
+        "signal_move": 2.0,
+        "size": 0.001,
+        "max_imbalance": 0.01,
+        "hedge_timeout_ms": 200,
+        "taker_fee_bps": 5.0,
+        "hedge_fee_bps": 5.0,
+        "leader": "binance",
+        "follower": "okx",
+        "clock": "local",
+        "max_position": 0.05,
+        "max_loss_usdt": 25.0,
+        "stale_feed_ms": 2000,
+        "hedge_delay_ms": 50
+      },
+      "fills": [
+        {
+          "ts": 150,
+          "venue": "okx",
+          "side": "buy",
+          "px": 60000.5,
+          "sz": 0.001,
+          "reason": "initiate",
+          "quote_ts": 150,
+          "fee_usdt": 0.03000025
+        },
+        {
+          "ts": 200,
+          "venue": "binance",
+          "side": "sell",
+          "px": 60011.5,
+          "sz": 0.001,
+          "reason": "hedge",
+          "quote_ts": 200,
+          "fee_usdt": 0.03000575
+        }
+      ],
+      "inventory_btc": {
+        "okx": 0.001,
+        "binance": -0.001
+      },
+      "net_inventory_btc": 0.0,
+      "gross_inventory_btc": 0.002,
+      "peak_net_inventory_btc": 0.001,
+      "fees_usdt": 0.060006000000000004,
+      "hedge_fills": 1,
+      "timeout_unwind_fills": 0,
+      "pending_hedge_btc": 0,
+      "rejections": [],
+      "killed": null,
+      "end_reason": "tape_end",
+      "mark_age_ms": {
+        "binance": 0,
+        "okx": 0
+      },
+      "mtm_usdt": -0.049006000000005656,
+      "stale_mark_value_usdt": null,
+      "interpretation": "Counterfactual stress on supplied quotes; not observed execution or a probability estimate."
+    },
+    {
+      "scenario": "long_follower_outage",
+      "config": {
+        "delay_ms": 50,
+        "signal_move": 2.0,
+        "size": 0.001,
+        "max_imbalance": 0.01,
+        "hedge_timeout_ms": 200,
+        "taker_fee_bps": 5.0,
+        "hedge_fee_bps": 5.0,
+        "leader": "binance",
+        "follower": "okx",
+        "clock": "local",
+        "max_position": 0.05,
+        "max_loss_usdt": 25.0,
+        "stale_feed_ms": 2000,
+        "hedge_delay_ms": 50
+      },
+      "fills": [
+        {
+          "ts": 150,
+          "venue": "okx",
+          "side": "buy",
+          "px": 60000.5,
+          "sz": 0.001,
+          "reason": "initiate",
+          "quote_ts": 150,
+          "fee_usdt": 0.03000025
+        },
+        {
+          "ts": 200,
+          "venue": "binance",
+          "side": "sell",
+          "px": 60011.5,
+          "sz": 0.001,
+          "reason": "hedge",
+          "quote_ts": 200,
+          "fee_usdt": 0.03000575
+        },
+        {
+          "ts": 2201,
+          "venue": "binance",
+          "side": "buy",
+          "px": 60012.5,
+          "sz": 0.001,
+          "reason": "risk_flatten",
+          "quote_ts": 2200,
+          "fee_usdt": 0.03000625
+        }
+      ],
+      "inventory_btc": {
+        "okx": 0.001,
+        "binance": 0.0
+      },
+      "net_inventory_btc": 0.001,
+      "gross_inventory_btc": 0.001,
+      "peak_net_inventory_btc": 0.001,
+      "fees_usdt": 0.09001225,
+      "hedge_fills": 1,
+      "timeout_unwind_fills": 0,
+      "pending_hedge_btc": 0,
+      "rejections": [
+        {
+          "ts": 2201,
+          "venue": "okx",
+          "sz": 0.001,
+          "reason": "missing_or_stale_quote"
+        },
+        {
+          "ts": 2201,
+          "venue": "okx",
+          "sz": 0.001,
+          "reason": "missing_or_stale_quote"
+        }
+      ],
+      "killed": "stale_feed",
+      "end_reason": "risk_stopped_with_inventory",
+      "mark_age_ms": {
+        "binance": 0,
+        "okx": 2800
+      },
+      "mtm_usdt": null,
+      "stale_mark_value_usdt": -0.09151225000000807,
+      "interpretation": "Counterfactual stress on supplied quotes; not observed execution or a probability estimate."
+    }
+  ],
+  "limitations": [
+    "No live outcomes, fill probabilities or measured latencies.",
+    "Follower round trips and two-venue positions are different strategies.",
+    "Two-leg MTM retains opposing positions; flat net BTC does not mean closed exposure.",
+    "Named disconnect stress is duration-relative and may not exceed the stale threshold.",
+    "No frozen source or preregistered rule is modified."
+  ]
+}

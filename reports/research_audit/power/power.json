@@ -1,0 +1,581 @@
+{
+  "schema_version": 1,
+  "kind": "prospective assumption sensitivity; no market outcomes",
+  "script_sha256": "8b2d53108043dfecbc1f619bcfcdb03f712bb109e40b02081924b6d8ca713ab2",
+  "plans": [
+    {
+      "study_id": "btc-execution-v1",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "planned_days": 7,
+      "development_days": 5,
+      "holdout_days": 2,
+      "planned_slots": 14
+    },
+    {
+      "study_id": "btc-replication-v2-okx",
+      "plan_sha256": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9",
+      "planned_days": 28,
+      "development_days": 21,
+      "holdout_days": 7,
+      "planned_slots": 56
+    },
+    {
+      "study_id": "btc-replication-v2-bybit",
+      "plan_sha256": "cd4605e0c51843058e96a3f3c8448021d0a90a7b3c89b836a89989c77ad44a56",
+      "planned_days": 28,
+      "development_days": 21,
+      "holdout_days": 7,
+      "planned_slots": 56
+    }
+  ],
+  "rows": [
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 1.4142135623730951,
+      "variance_equivalent_independent_days": 1.9999999999999996,
+      "normal_ci95_half_width_bps": 2.771807648699355,
+      "two_sided_power_at_2bps": 0.29298893644798735,
+      "mde_80pct_bps": 3.9620349592920547
+    },
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 1.61245154965971,
+      "variance_equivalent_independent_days": 1.538461538461538,
+      "normal_ci95_half_width_bps": 3.1603469641488293,
+      "two_sided_power_at_2bps": 0.23656692840933474,
+      "mde_80pct_bps": 4.517414893968464
+    },
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 1.7888543819998317,
+      "variance_equivalent_independent_days": 1.2500000000000002,
+      "normal_ci95_half_width_bps": 3.506090162306325,
+      "two_sided_power_at_2bps": 0.2009555512304163,
+      "mde_80pct_bps": 5.011621856230159
+    },
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 3.5355339059327378,
+      "variance_equivalent_independent_days": 1.9999999999999996,
+      "normal_ci95_half_width_bps": 6.929519121748387,
+      "two_sided_power_at_2bps": 0.08739098458616434,
+      "mde_80pct_bps": 9.905087398230137
+    },
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 4.0311288741492755,
+      "variance_equivalent_independent_days": 1.538461538461538,
+      "normal_ci95_half_width_bps": 7.900867410372074,
+      "two_sided_power_at_2bps": 0.07864352483572457,
+      "mde_80pct_bps": 11.293537234921162
+    },
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 4.47213595499958,
+      "variance_equivalent_independent_days": 1.2500000000000002,
+      "normal_ci95_half_width_bps": 8.765225405765815,
+      "two_sided_power_at_2bps": 0.073209712732486,
+      "mde_80pct_bps": 12.529054640575398
+    },
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 7.0710678118654755,
+      "variance_equivalent_independent_days": 1.9999999999999996,
+      "normal_ci95_half_width_bps": 13.859038243496775,
+      "two_sided_power_at_2bps": 0.059214026167811074,
+      "mde_80pct_bps": 19.810174796460274
+    },
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 8.062257748298551,
+      "variance_equivalent_independent_days": 1.538461538461538,
+      "normal_ci95_half_width_bps": 15.801734820744148,
+      "two_sided_power_at_2bps": 0.05707902541821136,
+      "mde_80pct_bps": 22.587074469842324
+    },
+    {
+      "occupied_days": 2,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 8.94427190999916,
+      "variance_equivalent_independent_days": 1.2500000000000002,
+      "normal_ci95_half_width_bps": 17.53045081153163,
+      "two_sided_power_at_2bps": 0.05574724994196972,
+      "mde_80pct_bps": 25.058109281150795
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 0.8944271909999159,
+      "variance_equivalent_independent_days": 5.000000000000001,
+      "normal_ci95_half_width_bps": 1.7530450811531626,
+      "two_sided_power_at_2bps": 0.6087794846454568,
+      "mde_80pct_bps": 2.5058109281150793
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 1.1359014041720346,
+      "variance_equivalent_independent_days": 3.1001215247637712,
+      "normal_ci95_half_width_bps": 2.2263258421656626,
+      "two_sided_power_at_2bps": 0.4211338031308308,
+      "mde_80pct_bps": 3.1823206857715216
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 1.4468282551844225,
+      "variance_equivalent_independent_days": 1.9108474990827928,
+      "normal_ci95_half_width_bps": 2.8357312719763943,
+      "two_sided_power_at_2bps": 0.2821724440937715,
+      "mde_80pct_bps": 4.053407688661312
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 2.23606797749979,
+      "variance_equivalent_independent_days": 5.000000000000001,
+      "normal_ci95_half_width_bps": 4.382612702882907,
+      "two_sided_power_at_2bps": 0.14547251240985143,
+      "mde_80pct_bps": 6.264527320287699
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 2.8397535104300866,
+      "variance_equivalent_independent_days": 3.100121524763771,
+      "normal_ci95_half_width_bps": 5.5658146054141575,
+      "two_sided_power_at_2bps": 0.10847446341715394,
+      "mde_80pct_bps": 7.955801714428804
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 3.6170706379610564,
+      "variance_equivalent_independent_days": 1.9108474990827928,
+      "normal_ci95_half_width_bps": 7.089328179940986,
+      "two_sided_power_at_2bps": 0.08569639816518138,
+      "mde_80pct_bps": 10.13351922165328
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 4.47213595499958,
+      "variance_equivalent_independent_days": 5.000000000000001,
+      "normal_ci95_half_width_bps": 8.765225405765815,
+      "two_sided_power_at_2bps": 0.073209712732486,
+      "mde_80pct_bps": 12.529054640575398
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 5.679507020860173,
+      "variance_equivalent_independent_days": 3.100121524763771,
+      "normal_ci95_half_width_bps": 11.131629210828315,
+      "two_sided_power_at_2bps": 0.06432310938343466,
+      "mde_80pct_bps": 15.911603428857608
+    },
+    {
+      "occupied_days": 5,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 7.234141275922113,
+      "variance_equivalent_independent_days": 1.9108474990827928,
+      "normal_ci95_half_width_bps": 14.178656359881971,
+      "two_sided_power_at_2bps": 0.058801226206061374,
+      "mde_80pct_bps": 20.26703844330656
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 0.7559289460184544,
+      "variance_equivalent_independent_days": 7.000000000000001,
+      "normal_ci95_half_width_bps": 1.481593509067493,
+      "two_sided_power_at_2bps": 0.7535784406023495,
+      "mde_80pct_bps": 2.1177967674416722
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 0.9804529565461058,
+      "variance_equivalent_independent_days": 4.161083879128835,
+      "normal_ci95_half_width_bps": 1.9216524833661814,
+      "two_sided_power_at_2bps": 0.5318770804585871,
+      "mde_80pct_bps": 2.7468191460831854
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 1.3002339506914178,
+      "variance_equivalent_independent_days": 2.36601224377536,
+      "normal_ci95_half_width_bps": 2.5484117148314067,
+      "two_sided_power_at_2bps": 0.336827322252321,
+      "mde_80pct_bps": 3.6427117551137873
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 1.889822365046136,
+      "variance_equivalent_independent_days": 7.000000000000001,
+      "normal_ci95_half_width_bps": 3.7039837726687326,
+      "two_sided_power_at_2bps": 0.18488896901931412,
+      "mde_80pct_bps": 5.294491918604181
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 2.4511323913652645,
+      "variance_equivalent_independent_days": 4.161083879128835,
+      "normal_ci95_half_width_bps": 4.804131208415454,
+      "two_sided_power_at_2bps": 0.12906113752500087,
+      "mde_80pct_bps": 6.867047865207963
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 3.2505848767285443,
+      "variance_equivalent_independent_days": 2.36601224377536,
+      "normal_ci95_half_width_bps": 6.371029287078517,
+      "two_sided_power_at_2bps": 0.09437122573510875,
+      "mde_80pct_bps": 9.106779387784467
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 3.779644730092272,
+      "variance_equivalent_independent_days": 7.000000000000001,
+      "normal_ci95_half_width_bps": 7.407967545337465,
+      "two_sided_power_at_2bps": 0.08264489492514071,
+      "mde_80pct_bps": 10.588983837208362
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 4.902264782730529,
+      "variance_equivalent_independent_days": 4.161083879128835,
+      "normal_ci95_half_width_bps": 9.608262416830907,
+      "two_sided_power_at_2bps": 0.06927614374615831,
+      "mde_80pct_bps": 13.734095730415927
+    },
+    {
+      "occupied_days": 7,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 6.501169753457089,
+      "variance_equivalent_independent_days": 2.36601224377536,
+      "normal_ci95_half_width_bps": 12.742058574157033,
+      "two_sided_power_at_2bps": 0.060910720477364566,
+      "mde_80pct_bps": 18.213558775568934
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 0.4364357804719847,
+      "variance_equivalent_independent_days": 21.000000000000007,
+      "normal_ci95_half_width_bps": 0.8553984112897193,
+      "two_sided_power_at_2bps": 0.9956370672081315,
+      "mde_80pct_bps": 1.2227105337713688
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 0.5853503337225197,
+      "variance_equivalent_independent_days": 11.674230145863143,
+      "normal_ci95_half_width_bps": 1.1472655724346397,
+      "two_sided_power_at_2bps": 0.9274133110172417,
+      "mde_80pct_bps": 1.639906833979331
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 0.8329940235859892,
+      "variance_equivalent_independent_days": 5.764693484333684,
+      "normal_ci95_half_width_bps": 1.6326382855656467,
+      "two_sided_power_at_2bps": 0.6704049088128323,
+      "mde_80pct_bps": 2.3337008851696663
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 1.0910894511799618,
+      "variance_equivalent_independent_days": 21.000000000000007,
+      "normal_ci95_half_width_bps": 2.1384960282242984,
+      "two_sided_power_at_2bps": 0.4495708550145373,
+      "mde_80pct_bps": 3.056776334428422
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 1.4633758343062993,
+      "variance_equivalent_independent_days": 11.67423014586314,
+      "normal_ci95_half_width_bps": 2.8681639310865994,
+      "two_sided_power_at_2bps": 0.27694267672614786,
+      "mde_80pct_bps": 4.099767084948328
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 2.082485058964973,
+      "variance_equivalent_independent_days": 5.764693484333684,
+      "normal_ci95_half_width_bps": 4.081595713914117,
+      "two_sided_power_at_2bps": 0.1605067760231298,
+      "mde_80pct_bps": 5.8342522129241665
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 2.1821789023599236,
+      "variance_equivalent_independent_days": 21.000000000000007,
+      "normal_ci95_half_width_bps": 4.276992056448597,
+      "two_sided_power_at_2bps": 0.15038092447811563,
+      "mde_80pct_bps": 6.113552668856844
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 2.9267516686125985,
+      "variance_equivalent_independent_days": 11.67423014586314,
+      "normal_ci95_half_width_bps": 5.736327862173199,
+      "two_sided_power_at_2bps": 0.10497446295337826,
+      "mde_80pct_bps": 8.199534169896657
+    },
+    {
+      "occupied_days": 21,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 4.164970117929946,
+      "variance_equivalent_independent_days": 5.764693484333684,
+      "normal_ci95_half_width_bps": 8.163191427828234,
+      "two_sided_power_at_2bps": 0.07680791298199241,
+      "mde_80pct_bps": 11.668504425848333
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 0.4,
+      "variance_equivalent_independent_days": 25.0,
+      "normal_ci95_half_width_bps": 0.7839855938160215,
+      "two_sided_power_at_2bps": 0.9988172507035045,
+      "mde_80pct_bps": 1.1206327148054314
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 0.5378718457485763,
+      "variance_equivalent_independent_days": 13.826185101580105,
+      "normal_ci95_half_width_bps": 1.0542094459652926,
+      "two_sided_power_at_2bps": 0.9606597487078317,
+      "mde_80pct_bps": 1.506891966796588
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 0.7694154511480664,
+      "variance_equivalent_independent_days": 6.756755199217595,
+      "normal_ci95_half_width_bps": 1.5080265733988472,
+      "two_sided_power_at_2bps": 0.7387250740936941,
+      "mde_80pct_bps": 2.1555803145832586
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 1.0,
+      "variance_equivalent_independent_days": 25.0,
+      "normal_ci95_half_width_bps": 1.9599639845400536,
+      "two_sided_power_at_2bps": 0.516005273976175,
+      "mde_80pct_bps": 2.8015817870135784
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 1.3446796143714406,
+      "variance_equivalent_independent_days": 13.826185101580108,
+      "normal_ci95_half_width_bps": 2.6355236149132315,
+      "two_sided_power_at_2bps": 0.318524956478824,
+      "mde_80pct_bps": 3.76722991699147
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 1.923538627870166,
+      "variance_equivalent_independent_days": 6.756755199217595,
+      "normal_ci95_half_width_bps": 3.770066433497118,
+      "two_sided_power_at_2bps": 0.18008173505244163,
+      "mde_80pct_bps": 5.388950786458146
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 2.0,
+      "variance_equivalent_independent_days": 25.0,
+      "normal_ci95_half_width_bps": 3.919927969080107,
+      "two_sided_power_at_2bps": 0.17007504575308763,
+      "mde_80pct_bps": 5.603163574027157
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 2.689359228742881,
+      "variance_equivalent_independent_days": 13.826185101580108,
+      "normal_ci95_half_width_bps": 5.271047229826463,
+      "two_sided_power_at_2bps": 0.11536604839149467,
+      "mde_80pct_bps": 7.53445983398294
+    },
+    {
+      "occupied_days": 25,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 3.847077255740332,
+      "variance_equivalent_independent_days": 6.756755199217595,
+      "normal_ci95_half_width_bps": 7.540132866994236,
+      "two_sided_power_at_2bps": 0.0814932215124557,
+      "mde_80pct_bps": 10.777901572916292
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 0.3779644730092272,
+      "variance_equivalent_independent_days": 28.000000000000004,
+      "normal_ci95_half_width_bps": 0.7407967545337465,
+      "two_sided_power_at_2bps": 0.9995681634511213,
+      "mde_80pct_bps": 1.0588983837208361
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 0.5089781189118336,
+      "variance_equivalent_independent_days": 15.44051446945338,
+      "normal_ci95_half_width_bps": 0.9975787819861387,
+      "two_sided_power_at_2bps": 0.9755508898606715,
+      "mde_80pct_bps": 1.4259438279318246
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 2.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 0.7301803125287794,
+      "variance_equivalent_independent_days": 7.502392013839072,
+      "normal_ci95_half_width_bps": 1.431127114776608,
+      "two_sided_power_at_2bps": 0.7820366281043107,
+      "mde_80pct_bps": 2.045659864816511
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 0.944911182523068,
+      "variance_equivalent_independent_days": 28.000000000000004,
+      "normal_ci95_half_width_bps": 1.8519918863343663,
+      "two_sided_power_at_2bps": 0.5622574079425737,
+      "mde_80pct_bps": 2.6472459593020905
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 1.272445297279584,
+      "variance_equivalent_independent_days": 15.44051446945338,
+      "normal_ci95_half_width_bps": 2.4939469549653466,
+      "two_sided_power_at_2bps": 0.34914517577316007,
+      "mde_80pct_bps": 3.564859569829561
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 5.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 1.8254507813219485,
+      "variance_equivalent_independent_days": 7.502392013839072,
+      "normal_ci95_half_width_bps": 3.5778177869415204,
+      "two_sided_power_at_2bps": 0.19482253353130996,
+      "mde_80pct_bps": 5.114149662041277
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.0,
+      "se_bps": 1.889822365046136,
+      "variance_equivalent_independent_days": 28.000000000000004,
+      "normal_ci95_half_width_bps": 3.7039837726687326,
+      "two_sided_power_at_2bps": 0.18488896901931412,
+      "mde_80pct_bps": 5.294491918604181
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.3,
+      "se_bps": 2.544890594559168,
+      "variance_equivalent_independent_days": 15.44051446945338,
+      "normal_ci95_half_width_bps": 4.987893909930693,
+      "two_sided_power_at_2bps": 0.12320007181115411,
+      "mde_80pct_bps": 7.129719139659122
+    },
+    {
+      "occupied_days": 28,
+      "assumed_day_sd_bps": 10.0,
+      "assumed_day_ar1_rho": 0.6,
+      "se_bps": 3.650901562643897,
+      "variance_equivalent_independent_days": 7.502392013839072,
+      "normal_ci95_half_width_bps": 7.155635573883041,
+      "two_sided_power_at_2bps": 0.08502701691803638,
+      "mde_80pct_bps": 10.228299324082554
+    }
+  ],
+  "limitations": [
+    "Known marginal day variance and stationary Gaussian AR(1) dependence are assumptions.",
+    "Normal-model power is not the power or coverage of the frozen percentile bootstrap.",
+    "Variance-equivalent independent days is model-specific, not an observed effective sample size.",
+    "Fewer occupied days assumes consecutive days, not arbitrary gaps or outcome-dependent missingness.",
+    "Full-period and untouched holdout evidence differ; neither pooled venue pairs nor signals add independent days.",
+    "No preregistered thresholds, estimators, dates or stopping rules are changed."
+  ]
+}
