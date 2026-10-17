@@ -61,6 +61,16 @@ denied in this cloud environment, so the hosted archive has not been downloaded
 or checksum-verified here. Earlier hosted preflights also failed, but their
 specific causes cannot be inferred from the October 17 attempt.
 
+Later operational fixes changed the request headers to identify the project
+and request JSON, and made recorder shutdown bounded. The
+[30-second hosted preflight](https://github.com/evananann/crypto-exec-lab/actions/runs/39002281728)
+then **passed**: instrument metadata verified, all health gates passed, and
+workers stopped. Binance reported 1,207 BBOs over 29,317ms (maximum silence
+376ms); OKX reported 320 over 29,099ms (maximum silence 579ms). These are public
+health annotations, still not independently replayed artifact measurements.
+Passing a preflight establishes collection readiness on that runner, not a
+15-minute eligible study session or a strategy result.
+
 The workflow listing checked on October 17 around 03:53 UTC showed no scheduled
 study run. That observation does not establish a missed slot: scheduling can
 be delayed and the frozen start window had not closed. The final inventory
@@ -108,6 +118,8 @@ bootstrap interval is not a guarantee of future performance. Any missing
 planned slot, failed gate, unavailable interval, or inadequate condition
 coverage prevents a conclusive full-study claim under the frozen decision rule.
 
-The current defensible conclusion is operational: this runner can receive
-primary quotes, but metadata access and collection health have not passed.
-There is no empirical profitability conclusion.
+The current defensible conclusion is operational: the hosted runner has passed
+a bounded preflight with verified instrument metadata and primary feeds.
+The current cloud instance remains separately blocked by its egress proxy.
+No eligible 15-minute study observation has been independently verified here,
+so there is no empirical profitability conclusion.

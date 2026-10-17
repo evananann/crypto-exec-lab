@@ -37,6 +37,7 @@ jobs:
           uv run --frozen python -m cel.research --path data/fixtures/sample.jsonl --out-dir data/raw/ci-plots
           uv run --frozen python -m cel.execution --path data/fixtures/sample.jsonl --out data/raw/ci-execution.json
           uv run --frozen python -m cel.research.evaluate data/fixtures/sample.jsonl --out data/raw/ci-evaluation.json --markdown data/raw/ci-evaluation.md
+          uv run --frozen python -m cel.experiments --demo --out data/raw/portfolio-ci
       - uses: actions/upload-artifact@v4
         with:
           name: research-checks-python-${{ matrix.python }}
@@ -44,5 +45,6 @@ jobs:
             data/raw/ci-*.json
             data/raw/ci-*.md
             data/raw/ci-plots/*.png
+            data/raw/portfolio-ci/
           if-no-files-found: error
           retention-days: 7

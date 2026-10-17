@@ -15,7 +15,7 @@ def diagnostic(manifest):
     verified = type(factor) in (int, float) and 0 < factor < float('inf')
     parts = [f'status={status}', f'instrument_verified={verified}']
     health = manifest.get('health') or {}
-    for venue in ('binance', 'okx'):
+    for venue in ('binance', 'okx', 'bybit'):
         metrics = (health.get('venues') or {}).get(venue, {})
         for field in ('bbo', 'span_ms', 'max_silence_ms'):
             value = metrics.get(field)

@@ -46,6 +46,7 @@ jobs:
             cp -- "$receipt" data/raw/study-final/provenance/
           done
           uv run --frozen python -m cel.study report --root data/raw/study-restored --out data/raw/study-final/report.md
+          uv run --frozen python -m cel.experiments --root data/raw/study-restored --out data/raw/study-final/extensions
       - uses: actions/upload-artifact@v4
         if: steps.gate.outputs.run == 'true'
         with:

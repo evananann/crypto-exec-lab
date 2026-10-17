@@ -164,6 +164,7 @@ def record_session(plan_path: Path, root: Path, *, slot: str | None = None, pref
     except (OSError, subprocess.CalledProcessError):
         result['collector_commit'], result['collector_dirty'] = None, None
     factor = None
+    requires_contract_value = 'okx' in (plan['leader'], plan['follower'])
     try:
         instrument, factor = fetch_instrument()
         write_json_atomic(directory / 'instrument.json', instrument)
@@ -172,7 +173,7 @@ def record_session(plan_path: Path, root: Path, *, slot: str | None = None, pref
         result['errors'].append(f'instrument verification: {exc}')
     # Preflight diagnoses sockets independently. A real study session requires
     # verified normalization before spending its 15-minute collection budget.
-    if preflight or factor is not None:
+    if preflight or not requires_contract_value or factor is not None:
         recorder = Recorder(directory / 'tape.jsonl', okx_contract_value_btc=factor)
         seconds = PREFLIGHT_SECONDS if preflight else plan['seconds']
         try:
@@ -180,7 +181,7 @@ def record_session(plan_path: Path, root: Path, *, slot: str | None = None, pref
             metadata = json.loads(recorder.metadata_path.read_text())
             result['errors'].extend(recorder.errors)
             result['health'] = health(directory / 'tape.jsonl', plan, metadata, seconds)
-            if factor is None or any(v['bbo'] == 0 for v in result['health']['venues'].values()):
+            if (requires_contract_value and factor is None) or any(v['bbo'] == 0 for v in result['health']['venues'].values()):
                 result['status'] = 'blocked'
             elif result['health']['eligible']:
                 result['status'] = 'preflight_passed' if preflight else 'eligible'

@@ -188,6 +188,23 @@ class StudyTests(unittest.TestCase):
             directory = record_session(self.plan_path, self.root, preflight=True)
         self.assertEqual(verify_archive(directory.with_suffix('.tar.gz'))['status'], 'preflight_passed')
 
+    def test_bybit_primary_does_not_depend_on_auxiliary_okx_metadata(self):
+        class BybitRecorder(FakeRecorder):
+            def run(self, seconds):
+                count = super().run(seconds)
+                self.path.write_text(self.path.read_text().replace('"okx"', '"bybit"'))
+                return count
+        self.config.write_text(self.config.read_text().replace('follower: okx', 'follower: bybit'))
+        self.plan['follower'] = 'bybit'
+        self.plan['lab_config_sha256'] = file_sha256(self.config)
+        self.plan_path.write_text(json.dumps(self.plan))
+        with patch('cel.study.fetch_instrument', side_effect=OSError('auxiliary metadata denied')), \
+             patch('cel.study.Recorder', BybitRecorder):
+            directory = record_session(self.plan_path, self.root, preflight=True)
+        item = verify_archive(directory.with_suffix('.tar.gz'))
+        self.assertEqual(item['status'], 'preflight_passed')
+        self.assertIn('auxiliary metadata', item['errors'][0])
+
     def test_cli_failure_writes_actionable_job_summary(self):
         summary = self.directory / 'summary.md'
         with patch('cel.study.fetch_instrument', side_effect=OSError('proxy 403')), \

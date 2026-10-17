@@ -6,7 +6,7 @@ Plan SHA-256: `4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed`
 
 Expected 14 sessions; received 0; eligible 0.
 
-Holdout outcomes released: False. Missing slots: 0; not yet due: 14.
+Holdout outcomes released: False. Missing slots: 1; not yet due: 13.
 
 No parameter selection is performed on holdout. Incomplete collection is not a negative or zero-return strategy result.
 

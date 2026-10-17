@@ -1,0 +1,60 @@
+name: preregistered replication report
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '47 3 23 11 *'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  report:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        pair: [okx, bybit]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enforce holdout release
+        id: gate
+        env:
+          PAIR: ${{ matrix.pair }}
+        run: python scripts/study_gate.py --plan "configs/study_v2_${PAIR}.json" --event "$GITHUB_EVENT_NAME" --report --output "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.run == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install frozen dependencies
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --python 3.12
+      - name: Verify source archives and build report
+        if: steps.gate.outputs.run == 'true'
+        env:
+          PAIR: ${{ matrix.pair }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          plan="configs/study_v2_${PAIR}.json"
+          uv run --frozen python scripts/download_study_artifacts.py --repository "$REPOSITORY" --plan "$plan" --out data/raw/downloads
+          shopt -s nullglob
+          for archive in data/raw/downloads/*.tar.gz; do
+            uv run --frozen python -m cel.study --plan "$plan" restore "$archive" --root data/raw/restored
+          done
+          uv run --frozen python -m cel.experiments --plan "$plan" --root data/raw/restored --out data/raw/report/bundle
+          mkdir -p data/raw/report/provenance
+          for receipt in data/raw/downloads/*.provenance.json; do cp -- "$receipt" data/raw/report/provenance/; done
+      - uses: actions/upload-artifact@v4
+        if: steps.gate.outputs.run == 'true'
+        with:
+          name: btc-replication-v2-${{ matrix.pair }}-report
+          path: data/raw/report/
+          retention-days: 90
+          if-no-files-found: error

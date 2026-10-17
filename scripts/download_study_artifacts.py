@@ -39,14 +39,14 @@ def expected_names(plan):
     while day <= date.fromisoformat(plan['end_date_utc']):
         for slot in plan['slots_utc']:
             session = f'{day}-{slot}'
-            names['btc-study-session-' + session] = session
+            names[plan.get('artifact_prefix', 'btc-study-session-') + session] = session
         day += timedelta(days=1)
     return names
 
 
-def verify_run(repository, artifact, run):
+def verify_run(repository, artifact, run, *, workflow=WORKFLOW):
     source = artifact['workflow_run']
-    if (run.get('id') != source['id'] or run.get('path') != WORKFLOW
+    if (run.get('id') != source['id'] or run.get('path') != workflow
             or run.get('head_branch') != 'main' or source.get('head_branch') != 'main'
             or (run.get('head_repository') or {}).get('full_name', '').lower() != repository.lower()
             or run.get('event') not in ('schedule', 'workflow_dispatch')
@@ -97,7 +97,7 @@ def download(repository, out, plan_path=DEFAULT_PLAN):
             raise ValueError('invalid workflow run ID')
         if run_id not in runs:
             runs[run_id] = api_json(f'repos/{repository}/actions/runs/{run_id}')
-        verify_run(repository, artifact, runs[run_id])
+        verify_run(repository, artifact, runs[run_id], workflow=plan.get('collection_workflow', WORKFLOW))
     out.mkdir(parents=True, exist_ok=True)
     for artifact in artifacts:
         session = names[artifact['name']]

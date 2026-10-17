@@ -170,3 +170,8 @@ Its original 10-second diagnostic still failed the 95% observed-span gate.
 Preflights now run for 30 seconds to accommodate connection setup; frozen
 session duration and quality thresholds are unchanged. This is not permission
 to relabel the earlier attempt as passing.
+
+The [30-second hosted retry](https://github.com/evananann/crypto-exec-lab/actions/runs/39002281728)
+passed the preflight: metadata verified, Binance span 29,317ms, OKX span
+29,099ms, and clean worker shutdown. This verifies bounded runner readiness;
+actual planned 15-minute sessions still require their own eligible archives.

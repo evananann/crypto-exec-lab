@@ -26,12 +26,30 @@ That is this repo.
 | Lead-lag and delayed markouts | done (local vs exchange clock; $2 jumps; hit-rate; walk-forward; leader prints) |
 | Multi-leg robot + risk | causal timers, partial fills, pre/post-trade limits, bounded-liquidity liquidation |
 | Evaluation and audit | fixed cost/latency grid, holdouts, block intervals, hashed inputs and fill audit |
-| Frozen live study | collection incomplete; hosted quotes received, instrument metadata HTTP 403 blocks verified collection |
+| Frozen live study | hosted preflight passed; planned-session coverage and live outcomes remain incomplete |
 
 Read the [live-study working paper](reports/STUDY_V1_RESEARCH.md) for the
 preregistered question, current evidence, and limits. The
 [coverage report](reports/STUDY_V1.md) distinguishes unavailable observations
 from strategy returns. No eligible live-study results have been verified yet.
+
+## Research package
+
+Generate the complete offline package in one command after setup:
+
+```bash
+uv run --frozen python -m cel.experiments --demo --out data/raw/demo-bundle
+```
+
+This produces an explicitly synthetic demonstration with round-trip entry/exit
+costs, fixed controls, five execution stresses, independent fill audits, three
+figures and a checksum inventory. It makes no live performance claim.
+Use [verified-evidence reproduction](docs/PORTFOLIO_REPRODUCTION.md) for actual
+archives, the [research memo](docs/RESEARCH_MEMO.md) for the current conclusion,
+and the [recruiting walkthrough](docs/RECRUITING.md) for a five- or ten-minute demo.
+The [28-day replication](docs/REPLICATION_V2.md) has separate prospective venue
+plans. The [goal tracker](docs/GOALS.md) distinguishes delivered engineering
+from work that still needs future observations or external storage.
 
 ## Layout
 

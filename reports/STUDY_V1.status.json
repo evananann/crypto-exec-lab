@@ -1,6 +1,6 @@
 {
   "study_id": "btc-execution-v1",
-  "as_of_utc": "2026-10-17T03:53:37.591369+00:00",
+  "as_of_utc": "2026-10-17T04:29:44.663461+00:00",
   "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
   "expected_sessions": 14,
   "received_sessions": 0,
@@ -26,9 +26,10 @@
       "okx: failed CONNECT via proxy status: 403"
     ]
   ],
-  "missing_sessions": [],
+  "missing_sessions": [
+    "2026-10-17-am"
+  ],
   "pending_sessions": [
-    "2026-10-17-am",
     "2026-10-17-pm",
     "2026-10-18-am",
     "2026-10-18-pm",
