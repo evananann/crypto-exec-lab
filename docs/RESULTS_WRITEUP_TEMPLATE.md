@@ -42,6 +42,14 @@ Intervals are descriptive, may understate day dependence and have no multiple
 comparison adjustment. Neither a positive point estimate nor an interval
 excluding zero establishes executable or generalizable profitability.
 
+## Implementation agreement
+
+Use the [independent cross-check](INDEPENDENT_MARKOUT_CHECK.md) on released,
+verified recordings. Report checked sessions, exact row counts, maximum
+numeric differences and every disagreement. No eligible sessions means
+unavailable, not agreement. This is a software diagnostic, not an additional
+statistical acceptance rule or proof of external market validity.
+
 ## Execution and robustness
 
 Present every fixed fee/latency cell, all four controls and all five named
