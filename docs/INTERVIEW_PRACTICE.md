@@ -48,3 +48,51 @@ quotes remain trustworthy, whether liquidation is feasible within size and
 net limits, and what remains at tape end. Then open the corresponding stress
 audit and explain any difference between your reasoning and the modeled fills.
 Do not claim a stress result estimates the probability of a live outage.
+
+## Research-review defense round
+
+Answer these before opening the linked audit tables. The answers below are
+planning calculations and synthetic examples, not new market evidence.
+
+1. **Does a 2bps interval half-width mean 80% power to detect 2bps?**
+   No. Under independent Gaussian days with known 5bps day SD, 25 days give
+   about 51.6% two-sided power; the 80% detectable effect is about 2.80bps.
+   Estimated variance and dependence add uncertainty. Explain why a half-width
+   target and detection probability answer different questions.
+2. **How much untouched replication evidence is planned?**
+   Seven holdout days per pair, versus 28 days over the full period. At the
+   same independent-day SD assumption, seven days give an 80% detectable
+   effect near 5.29bps. Full-period precision is not holdout precision.
+3. **Two venues agree. Is that twice the sample?**
+   No. They share Binance signals and dates. Report both pairs and dependence;
+   do not pool them into a headline estimate or choose the profitable pair.
+4. **A gross-winning synthetic trade loses after fees. Show the arithmetic.**
+   Buy 0.001 BTC at 60,000.5 and sell at 60,011.5: gross +0.011 USDT. Two
+   5bps fees total 0.060006 USDT, so net is −0.049006 USDT. The generated
+   audit independently checks the fills and cash. This does not estimate alpha.
+5. **The hedge leaves net BTC zero. Is the position closed?**
+   No. +0.001 BTC at one venue and −0.001 at another means gross exposure
+   0.002 BTC. Basis, funding, venue risk and closing costs remain. Marked
+   PnL is not fully realized cash.
+6. **Why did the disconnect scenario fail to trigger a stale stop?**
+   Its gap may be shorter than the stale threshold. Inspect timestamps and
+   the actual stop path. The separate longer outage triggers the stop but
+   leaves residual inventory when no fresh follower exit is available.
+
+For each answer, score 0 for an unsupported claim, 1 for the main idea and 2
+for the numerical reasoning plus a limitation. Target 10/12, then repeat the
+weakest answers aloud. This is a self-assessment target, not a recorded score.
+Spoken delivery and feedback remain pending the candidate's answers.
+
+A defensible opening today: “I built a causal replay and execution lab to test
+whether delayed Binance jumps predict follower entry-to-mid markouts after
+entry costs. Hosted preflights and archive restores work, but no eligible
+scheduled 15-minute sample has yet been verified. The study is frozen and
+missing slots stay missing. A positive markout would still need executable
+exit costs, dependence-aware interpretation and prospective replication.”
+Update the evidence sentence only after checking newer archives.
+
+See the [power review](STATISTICAL_POWER_AUDIT.md),
+[execution review](EXECUTION_ASSUMPTION_AUDIT.md) and
+[results template](RESULTS_WRITEUP_TEMPLATE.md) for reproducible supporting
+material. Practice is complete only after you supply and defend your answers.

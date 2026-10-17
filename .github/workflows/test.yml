@@ -8,9 +8,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: test-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
     strategy:
       fail-fast: false
       matrix:
@@ -18,8 +23,10 @@ jobs:
     env:
       MPLBACKEND: Agg
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: ${{ matrix.python }}
       - name: Install locked dependencies
@@ -40,7 +47,11 @@ jobs:
           uv run --frozen python -m cel.experiments --demo --out data/raw/portfolio-ci
           python -S scripts/verify_bundle.py data/raw/portfolio-ci --expected-commit "$GITHUB_SHA" --source-repo .
           uv run --frozen python -m scripts.check_archive_restore --source reports/evidence --out data/raw/ci-restore-check.json
-      - uses: actions/upload-artifact@v4
+      - name: Prospective power and synthetic execution audits
+        run: |
+          uv run --frozen python -m scripts.power_audit --out data/raw/ci-power-audit
+          uv run --frozen python -m scripts.execution_assumption_audit --out data/raw/ci-execution-audit
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: research-checks-python-${{ matrix.python }}
           path: |
@@ -48,5 +59,7 @@ jobs:
             data/raw/ci-*.md
             data/raw/ci-plots/*.png
             data/raw/portfolio-ci/
+            data/raw/ci-power-audit/
+            data/raw/ci-execution-audit/
           if-no-files-found: error
           retention-days: 7

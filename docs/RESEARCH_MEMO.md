@@ -73,3 +73,15 @@ reproducible test of execution assumptions and has passed a hosted preflight.
 Whether the signal survives costs remains an empirical question. A final
 report must retain negative results, uncertainty, missing slots and failures
 without choosing a favorable rerun or changing the frozen hypothesis.
+
+## Pre-results review
+
+The [power audit](STATISTICAL_POWER_AUDIT.md) distinguishes interval precision
+from detection power, quantifies assumed day correlation, and separates the
+seven-day replication holdout from its 28-day full period. It uses no market
+outcomes and changes no frozen rule. The
+[execution audit](EXECUTION_ASSUMPTION_AUDIT.md) demonstrates fee-sensitive
+synthetic cash flows and explicit residual exposure; its results are not live
+return estimates. Use the [write-up template](RESULTS_WRITEUP_TEMPLATE.md) only
+after the applicable outcome release, retaining unavailable fields and coverage
+failures. Interview answers still require actual candidate participation.

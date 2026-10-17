@@ -57,6 +57,13 @@ The [operations roadmap](docs/OPERATIONS_GOALS.md) adds health dashboards,
 failure/expiry notices, archive restore drills, performance measurements and
 fresh-clone reproduction without changing either frozen study.
 
+The [statistical power review](docs/STATISTICAL_POWER_AUDIT.md) quantifies
+assumed day dependence and distinguishes full-period from holdout evidence.
+The [execution assumption review](docs/EXECUTION_ASSUMPTION_AUDIT.md) challenges
+costs, latency, incomplete exits and remaining hedge exposure on synthetic tapes.
+See the [results template](docs/RESULTS_WRITEUP_TEMPLATE.md) for reporting
+released outcomes and the [CI review](docs/CI_REVIEW.md) for reproducibility limits.
+
 ## Layout
 
 ```

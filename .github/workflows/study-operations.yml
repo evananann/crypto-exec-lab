@@ -24,13 +24,14 @@ concurrency:
 
 jobs:
   monitor:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       # Always inspect trusted main; never checkout a triggering run's code.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: main
+          persist-credentials: false
       - name: Stop scheduled monitoring after the retention review period
         id: window
         run: |
@@ -43,7 +44,7 @@ jobs:
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write('run=' + str(active).lower() + '\n')
           PY
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         if: steps.window.outputs.run == 'true'
         with:
           python-version: '3.12'
@@ -58,7 +59,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
         run: uv run --frozen python -m scripts.study_monitor --repository "$REPOSITORY" --out data/raw/operations --summary "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always() && steps.window.outputs.run == 'true'
         with:
           name: study-operations-dashboard
