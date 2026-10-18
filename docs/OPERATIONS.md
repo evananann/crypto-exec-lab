@@ -124,3 +124,12 @@ Fix token permissions or connectivity through supported configuration; do not
 request duplicate credentials without checking the existing binding. Configure
 GitHub's own notification settings for the desired delivery. Missing-data
 alerts cannot be resolved by marking missing observations successful.
+
+## Collector trigger and job evidence
+
+The same read-only monitor now publishes `collection-timeline.json` alongside
+its dashboard, with latest run trigger, creation/start timestamps and gate/
+recording-step conclusions. Fixed notices summarize skipped steps. This does
+not infer missing cron payloads, dispatch inputs, pre-creation scheduling delay
+or a completed sample from a green job. See the
+[internal validation contract](INTERNAL_VALIDATION.md) for provenance and scope.

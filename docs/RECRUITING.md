@@ -61,3 +61,14 @@ uncertainty and the actual conclusion. Do not add Sharpe, profit, live trading,
 colocation or production claims unless independently supported. Keep the
 two-venue replication dates and precision targets separate from achieved
 results.
+
+## Additional supported engineering material
+
+The offline lifecycle harness demonstrates idempotent execution accounting,
+partial fills, cancellation races and hash-chain restart recovery requiring
+reconciliation before new simulated orders. The recording audit reconciles
+normalized file, recorder and replay counters. CI additionally compares fixed
+numerical outputs across supported Python versions. Show the actual validation
+record and source revision alongside these claims; none measures broker latency
+or establishes profitable execution. Reserve an empirical résumé result until
+released data and the frozen decision rule support it.

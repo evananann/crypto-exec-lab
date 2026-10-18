@@ -88,3 +88,12 @@ Preserve sanitized event schemas and hashes so a reviewer can reproduce joins,
 cash/fee conservation and uncertainty estimates. Source/run identity, reliable
 timestamps and complete order accounting matter more than a single attractive
 median latency number.
+
+## Internal preparation implemented
+
+The [offline lifecycle and recovery harness](INTERNAL_VALIDATION.md) now tests
+idempotent order/execution IDs, partial fills, cancel/fill races, durable replay
+and reconciliation before new simulated orders. The local processing benchmark
+measures decode, normalization, small-tape markouts and serialization only.
+These support protocol development, not actual broker acknowledgments, slippage,
+perpetual-wallet reconciliation or production fill calibration.

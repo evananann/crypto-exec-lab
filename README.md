@@ -80,6 +80,12 @@ frozen rule. The separate 28-day replication runs October 26–November 22 UTC,
 with release November 23 UTC. Future collections and reports must be verified
 from actual artifacts; missing observations are not zero returns.
 
+The [internal improvement tracker](docs/INTERNAL_ROADMAP.md) distinguishes
+implemented checks from future empirical milestones. The
+[validation contract](docs/INTERNAL_VALIDATION.md) covers offline order lifecycle,
+restart reconciliation, recording integrity, cross-version numerical checks and
+the separate release-gated supplement.
+
 ## Read further
 
 - Research: [protocol](docs/RESEARCH_PROTOCOL.md), [v1 plan](docs/LIVE_STUDY.md),

@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/study_monitor.py'
+      - 'scripts/collection_timeline.py'
       - '.github/workflows/study-operations.yml'
   workflow_run:
     workflows: [frozen live study, preregistered replication collection]
@@ -59,6 +60,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
         run: uv run --frozen python -m scripts.study_monitor --repository "$REPOSITORY" --out data/raw/operations --summary "$GITHUB_STEP_SUMMARY" --coverage-warnings
+      - name: Record trigger, job and gate-step timelines
+        if: always() && steps.window.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: uv run --frozen python -m scripts.collection_timeline --repository "$REPOSITORY" --out data/raw/operations/collection-timeline.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always() && steps.window.outputs.run == 'true'
         with:

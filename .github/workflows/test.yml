@@ -56,6 +56,12 @@ jobs:
           uv run --frozen python -m scripts.crosscheck_markouts --demo --out data/raw/ci-crosscheck
           python -S scripts/reference_markouts.py --input data/fixtures/sample.jsonl --out data/raw/ci-reference.json
           uv run --frozen python -m scripts.failure_attribution --source reports/evidence --out data/raw/ci-failure-attribution
+          uv run --frozen python -m scripts.order_lifecycle --demo --out data/raw/ci-lifecycle
+          uv run --frozen python -m scripts.collection_timeline --demo --out data/raw/ci-timeline.json
+          uv run --frozen python -m scripts.audit_recordings --source reports/evidence --out data/raw/ci-recording-integrity.json
+          uv run --frozen python -m scripts.numeric_reproducibility --out data/raw/numeric/numeric.json
+          uv run --frozen python -m scripts.released_validation --demo --out data/raw/ci-internal-validation
+          python -S scripts/released_validation.py --verify data/raw/ci-internal-validation
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: research-checks-python-${{ matrix.python }}
@@ -70,5 +76,41 @@ jobs:
             data/raw/ci-robustness/
             data/raw/ci-crosscheck/
             data/raw/ci-failure-attribution/
+            data/raw/ci-lifecycle/
+            data/raw/ci-internal-validation/
           if-no-files-found: error
           retention-days: 7
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: numeric-python-${{ matrix.python }}
+          path: data/raw/numeric/numeric.json
+          if-no-files-found: error
+          retention-days: 7
+
+  numerical-agreement:
+    needs: test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: numeric-python-*
+          path: data/raw/numeric-inputs
+      - name: Compare numerical outputs from every supported Python version
+        run: python -S scripts/numeric_reproducibility.py --compare-root data/raw/numeric-inputs --expected-commit "$GITHUB_SHA" --out data/raw/numerical-agreement.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: numerical-agreement
+          path: data/raw/numerical-agreement.json
+          retention-days: 7
+          if-no-files-found: error
