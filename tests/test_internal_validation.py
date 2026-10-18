@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 
 from scripts.order_lifecycle import Journal, Ledger, scenario_events
-from scripts.collection_timeline import demo as timeline_demo, run_evidence
+from scripts.collection_timeline import demo as timeline_demo, run_evidence, inspect as inspect_timeline
 from scripts.numeric_reproducibility import compare
 from scripts.audit_recordings import inspect as audit_recordings
 from scripts.audit_artifact_storage import inspect as audit_storage
@@ -147,6 +147,20 @@ class OperationalAuditTests(unittest.TestCase):
         self.assertIn('unknown',result['intended_cron_or_dispatch_slot'])
         with self.assertRaisesRegex(ValueError,'untrusted'):
             run_evidence({'head_branch':'feature'},[],'owner/repo')
+
+    def test_workflow_activation_and_default_branch_are_evidence_not_assumed(self):
+        def api(endpoint,**kwargs):
+            if endpoint=='repos/owner/repo':
+                return {'default_branch':'other'}
+            if endpoint.endswith('.yml'):
+                return {'state':'disabled_manually'}
+            return {'workflow_runs':[],'total_count':0}
+        with patch('scripts.collection_timeline.api_json',side_effect=api):
+            result=inspect_timeline('owner/repo')
+        self.assertEqual(len(result['workflows']),2)
+        self.assertTrue(all(w['state']=='disabled_manually' for w in result['workflows']))
+        self.assertFalse(result['workflows'][0]['default_branch_is_main'])
+        self.assertEqual(result['runs'],[])
 
     def test_reconnect_deltas_cannot_reuse_old_sides_without_snapshot(self):
         book=TopBook()

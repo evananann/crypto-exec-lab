@@ -55,17 +55,24 @@ def inspect(repository):
         raise ValueError('invalid repository')
     for path in PLANS:
         load_plan(path)
-    records = []
+    records, workflows = [], []
+    repository_data = api_json(f'repos/{repository}')
     for workflow in WORKFLOWS:
+        metadata = api_json(f'repos/{repository}/actions/workflows/{workflow}')
         # The studies have bounded dates and a short run history. Bound API
         # cost explicitly; do not describe this as a complete historical crawl.
         data = api_json(f'repos/{repository}/actions/workflows/{workflow}/runs?branch=main&per_page=100')
+        workflows.append({'workflow':workflow,'state':metadata.get('state','unknown'),
+                          'default_branch_is_main':repository_data.get('default_branch')=='main',
+                          'scheduled_runs_in_returned_history':sum(r.get('event')=='schedule' for r in data['workflow_runs']),
+                          'total_workflow_runs':data.get('total_count'),
+                          'returned_runs':len(data['workflow_runs'])})
         for run in data['workflow_runs']:
             pages = api_json(f'repos/{repository}/actions/runs/{run["id"]}/jobs?filter=latest&per_page=100',paginate=True)
             jobs = [job for page in pages for job in page['jobs']]
             records.append(run_evidence(run,jobs,repository))
     return {'schema_version':1,'as_of_utc':datetime.now(timezone.utc).isoformat(),
-            'repository':repository,'runs':records,'coverage':'Latest 100 main runs per collector workflow; latest-attempt jobs only.',
+            'repository':repository,'runs':records,'workflows':workflows,'coverage':'Latest 100 main runs per collector workflow; latest-attempt jobs only.',
             'scope':'Trigger, timing and job-step metadata only. No logs, raw errors, prices or outcomes.'}
 
 
@@ -90,6 +97,9 @@ def main():
         parser.error('choose a new output file')
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(result,indent=2)+'\n')
+    for workflow in result.get('workflows',[]):
+        status = workflow['state'] if workflow['state'] in ('active','disabled_manually','disabled_inactivity','disabled_fork') else 'unknown'
+        print(f'::notice title=Scheduler readiness::workflow={workflow["workflow"]} state={status} default_branch_main={workflow["default_branch_is_main"]} scheduled_runs_in_recent_history={workflow["scheduled_runs_in_returned_history"]}')
     for record in sorted(result['runs'],key=lambda r:r['run_id'],reverse=True)[:10]:
         skipped = sum(job['collection_observation'].startswith('not executed:') for job in record['jobs'])
         print(f'::notice title=Collection timeline::run={record["run_id"]} event={record["event"]} collection_steps_skipped={skipped} creation_to_start_seconds={record["creation_to_run_start_seconds"]}')
