@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-10-18T06:23:49.765711+00:00",
+  "script_sha256": "24fb8ab5f3050c07d5d53d5e42cc516d82e5ceed4af8044bbdb22fd620b9c59e",
+  "archives_verified": 3,
+  "archives_by_observed_layer": {
+    "collection_quality": 3,
+    "network_proxy": 3
+  },
+  "records": [
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261016T034246831497Z",
+      "archive_sha256": "185d48d5843343470c78eea25c7c3e06e11556d6a6e2c36d2a5b49a99b338acf",
+      "original_status": "ineligible",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "03d49e3f86c4eef7b13a61819b65ee4b9898e048",
+      "collector_dirty": true,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 0,
+      "attribution": {
+        "observations": [
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/0"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/1"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/2"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/3"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.e2dd7c8ac7314b3bbffbb345660eaf4e.meta.json#/errors/0"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.e2dd7c8ac7314b3bbffbb345660eaf4e.meta.json#/errors/1"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.e2dd7c8ac7314b3bbffbb345660eaf4e.meta.json#/errors/2"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/0"
+          },
+          {
+            "code": "quote_silence",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/1"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/2"
+          },
+          {
+            "code": "quote_silence",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/3"
+          }
+        ],
+        "observed_layers": [
+          "collection_quality",
+          "network_proxy"
+        ],
+        "root_cause": "unknown",
+        "failure_evidence": "recorded",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261016T063323034369Z",
+      "archive_sha256": "8faf93f58b2801a5549a6ab6ffa62f5d96281c6c9e1f34a6851741909713c232",
+      "original_status": "ineligible",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "4ce5d1750d9e7df9bbcb4de093d2d7a3af814fa2",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 0,
+      "attribution": {
+        "observations": [
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/0"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/1"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/2"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/3"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.5b057c29854a48a18faa7ba1204c3b84.meta.json#/errors/0"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.5b057c29854a48a18faa7ba1204c3b84.meta.json#/errors/1"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.5b057c29854a48a18faa7ba1204c3b84.meta.json#/errors/2"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/0"
+          },
+          {
+            "code": "quote_silence",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/1"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/2"
+          },
+          {
+            "code": "quote_silence",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/3"
+          }
+        ],
+        "observed_layers": [
+          "collection_quality",
+          "network_proxy"
+        ],
+        "root_cause": "unknown",
+        "failure_evidence": "recorded",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T035259933486Z",
+      "archive_sha256": "50aa1fac58ad7107f3714ec6f32fc752e305784f673b4ba521a622c89741e4e4",
+      "original_status": "blocked",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "76b2e93d86c07205194d66eef34d400c1bdbc9ee",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 0,
+      "attribution": {
+        "observations": [
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/0"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/1"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/2"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "manifest.json#/errors/3"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.3ac799838b674f0a91a4925f3e6f8926.meta.json#/errors/0"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.3ac799838b674f0a91a4925f3e6f8926.meta.json#/errors/1"
+          },
+          {
+            "code": "proxy_connect_rejected",
+            "observed_layer": "network_proxy",
+            "evidence_ref": "tape.jsonl.3ac799838b674f0a91a4925f3e6f8926.meta.json#/errors/2"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/0"
+          },
+          {
+            "code": "quote_silence",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/1"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/2"
+          },
+          {
+            "code": "quote_silence",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/3"
+          }
+        ],
+        "observed_layers": [
+          "collection_quality",
+          "network_proxy"
+        ],
+        "root_cause": "unknown",
+        "failure_evidence": "recorded",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    }
+  ],
+  "scope": "Archive digests and diagnostic metadata only. Raw error strings, prices, markouts and PnL are not emitted. Multiple symptoms and unknown root causes are retained.",
+  "coverage_limitation": "This is an archive inventory, not the planned-slot inventory. Missing runs/artifacts have no archive to attribute; use the operations monitor and preserve unknown cause."
+}

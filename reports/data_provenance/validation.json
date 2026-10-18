@@ -1,0 +1,21 @@
+{
+  "as_of_utc": "2026-10-18T06:23:50.240380+00:00",
+  "source_commit": "3691e0ff901468fd517377f223b09bcf6208db99",
+  "source_tree_clean_before_generation": true,
+  "python": "3.12.14",
+  "local_tests_passed": 224,
+  "ruff": "passed",
+  "frozen_source_maps_verified": 3,
+  "commands": [
+    "python -m scripts.failure_attribution --source reports/evidence --out <new-output>",
+    "python -m scripts.failure_attribution --source <public-release-downloads> --out <new-output>"
+  ],
+  "scope": "Health/coverage/provenance only. No markout, PnL or holdout outcome evaluation.",
+  "hosted_ci_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39103838465",
+  "hosted_ci_conclusion": "success",
+  "hosted_python_matrix": [
+    "3.11",
+    "3.12",
+    "3.13"
+  ]
+}

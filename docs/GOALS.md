@@ -1,6 +1,6 @@
 # Quant portfolio goals and evidence
 
-Updated October 17, 2026. "Implemented" describes software, not achieved live
+Updated October 18, 2026. "Implemented" describes software, not achieved live
 results. Frozen study v1 remains unchanged. Future observations cannot be
 completed early, replaced with synthetic data, or repaired retrospectively.
 
@@ -34,10 +34,11 @@ completed early, replaced with synthetic data, or repaired retrospectively.
 
 ## External and time-dependent prerequisites
 
-The GitHub-hosted runner has passed the primary preflight. The current cloud
-instance still cannot reach exchange services or authenticated Actions APIs
-through its proxy. The hosted report workflow has a separate token and network
-path, but its future success is not yet verified. Scheduled jobs may be late or
+The GitHub-hosted runner has passed the primary preflight. Earlier cloud
+attempts could not reach exchange services or authenticated Actions APIs
+through their proxy. The current dated public snapshot does not retest those
+routes. The hosted report workflow has a separate token and network path,
+but its future success is not yet verified. Scheduled jobs may be late or
 missing; review actual archives, rather than assuming YAML means collection.
 
 The latest inspected monitor flags both October 17 v1 slots missing, and their
@@ -49,8 +50,8 @@ The selected [GitHub Releases archive](DURABLE_ARCHIVES.md) now preserves
 original attempts beyond Actions retention, with verified download and restore.
 It remains on the same provider; an additional external backup is optional.
 
-Validation: 216 tests passed locally on Python 3.12, Ruff passed, and
-[hosted CI](https://github.com/evananann/crypto-exec-lab/actions/runs/39038181213)
+Validation: 224 tests passed locally on Python 3.12, Ruff passed, and
+[hosted CI](https://github.com/evananann/crypto-exec-lab/actions/runs/39103838465)
 passed the Python 3.11/3.12/3.13 matrix, including complete bundle generation.
 All twelve synthetic fee/latency grid runs passed independent fill audits.
 Both replication pair preflights passed in

@@ -49,7 +49,8 @@ October 17 run, not a verified inventory of subsequent slots. See the
 [failure-attribution guide](FAILURE_ATTRIBUTION.md).
 No full 15-minute eligible study sample has been independently verified here
 yet. The hosted preflight passes; scheduled sample verification is a separate
-milestone. The cloud instance's authenticated Actions API remains denied.
+milestone. Earlier cloud checks could not access the authenticated Actions API;
+this dated snapshot uses public observations and does not revalidate that route.
 If inventory retrieval fails, local monitoring labels overdue slots unverified,
 not missing. The hosted runner uses its own repository-scoped token.
 

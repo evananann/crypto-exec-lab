@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-10-18T06:23:49.976334+00:00",
+  "script_sha256": "24fb8ab5f3050c07d5d53d5e42cc516d82e5ceed4af8044bbdb22fd620b9c59e",
+  "archives_verified": 8,
+  "archives_by_observed_layer": {
+    "access_path_unknown": 3,
+    "collection_quality": 4,
+    "recorder_shutdown": 2
+  },
+  "records": [
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261016T064326977084Z",
+      "archive_sha256": "f108e5882f05c1db5b72db010b9cf8185dd415d98bb56e9a5eef322c0028a05c",
+      "original_status": "blocked",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "eb8c9a650a13f1c243987c1e5cb73f1477bd6240",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 3311,
+      "attribution": {
+        "observations": [
+          {
+            "code": "http_403_origin_unknown",
+            "observed_layer": "access_path_unknown",
+            "evidence_ref": "manifest.json#/errors/0"
+          },
+          {
+            "code": "recorder_workers_not_stopped",
+            "observed_layer": "recorder_shutdown",
+            "evidence_ref": "tape.jsonl.5132579e723b4f47a37589a9d5187abf.meta.json#/workers_still_running"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/0"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/1"
+          },
+          {
+            "code": "quantity_units_unverified",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/2"
+          },
+          {
+            "code": "other_health_gate_failure",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/3"
+          }
+        ],
+        "observed_layers": [
+          "access_path_unknown",
+          "collection_quality",
+          "recorder_shutdown"
+        ],
+        "root_cause": "unknown",
+        "failure_evidence": "recorded",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261016T162529538422Z",
+      "archive_sha256": "94e303dbb92debb01dec357b7525d94a3caa0cb7795d0ba1f313d249187e32ee",
+      "original_status": "blocked",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "6cdd0166ad20d1113c5a5a49c28ebc8d050fb860",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 6008,
+      "attribution": {
+        "observations": [
+          {
+            "code": "http_403_origin_unknown",
+            "observed_layer": "access_path_unknown",
+            "evidence_ref": "manifest.json#/errors/0"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/0"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/1"
+          },
+          {
+            "code": "quantity_units_unverified",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/2"
+          }
+        ],
+        "observed_layers": [
+          "access_path_unknown",
+          "collection_quality"
+        ],
+        "root_cause": "unknown",
+        "failure_evidence": "recorded",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T035309186709Z",
+      "archive_sha256": "0941d3faba9ceee4814d7a9cd64ed88fa0d1854ea17a8cde300eb0db4cd80061",
+      "original_status": "blocked",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "76b2e93d86c07205194d66eef34d400c1bdbc9ee",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 740,
+      "attribution": {
+        "observations": [
+          {
+            "code": "http_403_origin_unknown",
+            "observed_layer": "access_path_unknown",
+            "evidence_ref": "manifest.json#/errors/0"
+          },
+          {
+            "code": "recorder_workers_not_stopped",
+            "observed_layer": "recorder_shutdown",
+            "evidence_ref": "tape.jsonl.796cdf029cf34c699b43bacc0f77a6ec.meta.json#/workers_still_running"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/0"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/1"
+          },
+          {
+            "code": "quantity_units_unverified",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/2"
+          },
+          {
+            "code": "other_health_gate_failure",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/3"
+          }
+        ],
+        "observed_layers": [
+          "access_path_unknown",
+          "collection_quality",
+          "recorder_shutdown"
+        ],
+        "root_cause": "unknown",
+        "failure_evidence": "recorded",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T041815741143Z",
+      "archive_sha256": "f9f4d43ebf87042e3d87659b5b35d06c036fb17f5c0372a6aca2e121c2f81077",
+      "original_status": "ineligible",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "3665729895a0068b762dbbb23e44b4b4617f9c07",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 721,
+      "attribution": {
+        "observations": [
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/0"
+          },
+          {
+            "code": "insufficient_observed_span",
+            "observed_layer": "collection_quality",
+            "evidence_ref": "manifest.json#/health/problems/1"
+          }
+        ],
+        "observed_layers": [
+          "collection_quality"
+        ],
+        "root_cause": "unknown",
+        "failure_evidence": "recorded",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T042200123739Z",
+      "archive_sha256": "7d46b794b9fb62348833a7a230162b92ca170ed957f41d58013d9c0946ecefd3",
+      "original_status": "preflight_passed",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "63ae516609934a639aaca758c49d9d1203d8986f",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 1835,
+      "attribution": {
+        "observations": [],
+        "observed_layers": [],
+        "root_cause": "unknown",
+        "failure_evidence": "none in supplied diagnostics",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-execution-v1",
+      "session_id": "preflight-20261017T043223326876Z",
+      "archive_sha256": "c609cc9bd14b4901bbc7d2aeb5b21f81a474e8b3d886c7f61074535a77ac7a6c",
+      "original_status": "preflight_passed",
+      "plan_sha256": "4491514e20149d138669f6979a785ec1e7eaa56ec28749282eec0a683997e6ed",
+      "collector_commit": "46aa9ed815ea4e2bdbe62fb14cacd7da0215dafd",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 1822,
+      "attribution": {
+        "observations": [],
+        "observed_layers": [],
+        "root_cause": "unknown",
+        "failure_evidence": "none in supplied diagnostics",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-replication-v2-bybit",
+      "session_id": "preflight-20261017T043224786854Z",
+      "archive_sha256": "9d0df68b1c980548509f939f7b2124b762120c4c1476fd58d4bbfd6621ef5154",
+      "original_status": "preflight_passed",
+      "plan_sha256": "cd4605e0c51843058e96a3f3c8448021d0a90a7b3c89b836a89989c77ad44a56",
+      "collector_commit": "46aa9ed815ea4e2bdbe62fb14cacd7da0215dafd",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 1798,
+      "attribution": {
+        "observations": [],
+        "observed_layers": [],
+        "root_cause": "unknown",
+        "failure_evidence": "none in supplied diagnostics",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    },
+    {
+      "study_id": "btc-replication-v2-okx",
+      "session_id": "preflight-20261017T043225026475Z",
+      "archive_sha256": "969443bee7a71d25050305184bb8a5c6f252e3e73dccdbdee8b73f4813ff3691",
+      "original_status": "preflight_passed",
+      "plan_sha256": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9",
+      "collector_commit": "46aa9ed815ea4e2bdbe62fb14cacd7da0215dafd",
+      "collector_dirty": false,
+      "phase": "preflight",
+      "metadata_available": true,
+      "recorded_event_count": 1795,
+      "attribution": {
+        "observations": [],
+        "observed_layers": [],
+        "root_cause": "unknown",
+        "failure_evidence": "none in supplied diagnostics",
+        "interpretation": "Observed failure layer or symptom only. Underlying policy, provider, exchange, scheduler and code causes remain unproven; no outage or successful-sample inference."
+      }
+    }
+  ],
+  "scope": "Archive digests and diagnostic metadata only. Raw error strings, prices, markouts and PnL are not emitted. Multiple symptoms and unknown root causes are retained.",
+  "coverage_limitation": "This is an archive inventory, not the planned-slot inventory. Missing runs/artifacts have no archive to attribute; use the operations monitor and preserve unknown cause."
+}

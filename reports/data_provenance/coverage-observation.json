@@ -1,0 +1,46 @@
+{
+  "as_of_utc": "2026-10-18T06:23:50.240281+00:00",
+  "checked_source_commit": "3691e0ff901468fd517377f223b09bcf6208db99",
+  "monitor": {
+    "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39059864112",
+    "created_at_utc": "2026-10-17T18:50:26Z",
+    "observed_conclusion": "failure",
+    "observed_public_annotations": [
+      "btc-execution-v1 2026-10-17-pm: missing",
+      "btc-execution-v1 2026-10-17-am: missing"
+    ],
+    "underlying_cause": "unknown",
+    "later_slots": "Not established by this observed monitor run; October 18 AM and subsequent inventory remain unverified in this snapshot."
+  },
+  "preservation": {
+    "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39061766546",
+    "created_at_utc": "2026-10-17T19:16:46Z",
+    "observed_conclusion": "success",
+    "observed_public_annotation": "8 original archives downloaded and restored from Releases; 0 problems."
+  },
+  "latest_visible_collection_workflow": {
+    "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39055572368",
+    "created_at_utc": "2026-10-17T17:51:25Z",
+    "observed_conclusion": "success",
+    "limitation": "Public completion does not establish trigger, gate output, intended slot, completed recording or reason for missing artifacts."
+  },
+  "independent_readback": {
+    "source": "Normal public GitHub Release URLs with TLS verification",
+    "downloaded_assets": 24,
+    "archives_verified_and_restored": 8,
+    "archive_digests_match_previous_eight_archive_record": true,
+    "receipt_checks": [
+      "archive digest",
+      "collector revision",
+      "frozen plan digest"
+    ],
+    "limitation": "Original source-run API provenance was checked by hosted preservation; no fresh authenticated Actions API verification is claimed locally."
+  },
+  "evidence_sets": {
+    "committed_cloud_preflights": 3,
+    "public_release_preflights": 8,
+    "scheduled_eligible_samples_verified": 0,
+    "outcomes_evaluated": false
+  },
+  "external_review": "Packet prepared; no reviewer contacted or completed review claimed."
+}
