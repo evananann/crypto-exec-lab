@@ -14,6 +14,10 @@ verified evidence. Passing preflights demonstrate bounded collection readiness;
 they do not establish a valid 15-minute sample or profitable execution. The
 project sends no live orders.
 
+Start with the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
+coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
+reading order and reproducible audit questions.
+
 ## Evidence a reviewer can inspect
 
 | Evidence | What it establishes |
@@ -69,8 +73,9 @@ mode requires verified original archives and enforces the frozen holdout dates.
   [execution-calibration plan](docs/EXECUTION_CALIBRATION_PLAN.md) defines the
   measurements needed before a future production-execution study.
 
-V1 runs October 17–23, 2026 UTC with outcome release October 24 UTC. Its first
-AM slot is missing, which prevents a conclusive full-study claim under the
+V1 runs October 17–23, 2026 UTC with outcome release October 24 UTC. The latest
+inspected monitor flags both October 17 slots missing, preventing a conclusive
+full-study claim under the
 frozen rule. The separate 28-day replication runs October 26–November 22 UTC,
 with release November 23 UTC. Future collections and reports must be verified
 from actual artifacts; missing observations are not zero returns.

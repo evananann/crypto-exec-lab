@@ -79,6 +79,14 @@ study run. That observation does not establish a missed slot: scheduling can
 be delayed and the frozen start window had not closed. The final inventory
 must reconcile every scheduled slot against actual runs and verified archives.
 
+An October 18 documentation check inspected the public
+[monitor run 39059864112](https://github.com/evananann/crypto-exec-lab/actions/runs/39059864112).
+It explicitly flagged **both October 17 AM and PM slots missing**. This is
+an observed coverage failure, with unknown underlying cause; it is not a
+negative return. The monitor run predates October 18 AM and does not establish
+a complete inventory for later slots. See the
+[dated provenance snapshot](data_provenance/README.md) for evidence and scope.
+
 ## Results and uncertainty
 
 Primary mean markout, sample counts, confidence intervals, execution PnL,

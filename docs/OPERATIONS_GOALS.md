@@ -6,7 +6,7 @@ empirical result.
 
 | Goal | Delivered or pending |
 | --- | --- |
-| 1. Verify a scheduled 15-minute session | Monitor now downloads and recomputes eligible archive health. First AM slot was detected missing; a valid scheduled sample remains pending. |
+| 1. Verify a scheduled 15-minute session | Monitor now downloads and recomputes eligible archive health. Both October 17 slots were detected missing by the latest inspected monitor; a valid scheduled sample remains pending. |
 | 2. Daily health dashboard | Hosted read-only monitor publishes JSON, Markdown and filterable offline HTML after collection runs and twice daily. |
 | 3. Failure and expiry notices | Error annotations, failed monitor status, 14-day expiry warnings, duplicate/missing/unverified distinctions. Delivery follows GitHub notification settings. |
 | 4. Durable storage and restore | Completed with GitHub Releases: eight original attempts round-trip verified by the hosted job; all eight public copies independently restored here. [Evidence](DURABLE_ARCHIVES.md). |

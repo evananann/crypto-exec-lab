@@ -9,7 +9,7 @@ completed early, replaced with synthetic data, or repaired retrospectively.
 | 1 | Resolve metadata HTTP 403 | Hosted metadata verified after explicit request headers; cloud proxy remains separately blocked. |
 | 2 | Stop recorder workers | Abort blocked receive before bounded close, reject late opens, track auxiliary heartbeat; hosted shutdown clean. |
 | 3 | Passing hosted preflight | [Run 39002281728](https://github.com/evananann/crypto-exec-lab/actions/runs/39002281728) passed. |
-| 4 | Account for every session | Coverage/provenance workflow implemented; first AM slot unavailable locally, other slots future. Full inventory pending archives. |
+| 4 | Account for every session | Coverage/provenance workflow implemented; latest inspected monitor flags both October 17 slots missing; later slot verification remains pending. |
 | 5 | Independent long-term preservation | GitHub Releases selected; eight originals uploaded, downloaded and restored by the hosted job. All eight public copies independently restored here; one passing preflight also replayed for health. [Evidence](DURABLE_ARCHIVES.md). |
 | 6 | Complete frozen v1 | Scheduled through October 23 UTC; missing observations stay missing. Not complete. |
 | 7 | Release holdout | Gated report scheduled October 24, 03:47 UTC. Not released early. |
@@ -40,8 +40,8 @@ through its proxy. The hosted report workflow has a separate token and network
 path, but its future success is not yet verified. Scheduled jobs may be late or
 missing; review actual archives, rather than assuming YAML means collection.
 
-The first v1 AM slot is unavailable in the local verified inventory and its
-start window has closed. Do not backfill it under the original label. The
+The latest inspected monitor flags both October 17 v1 slots missing, and their
+start windows have closed. Do not backfill them under their original labels. The
 decision rule prevents a conclusive complete-study claim if coverage remains
 missing. V2 is prospective replication, not a way to erase v1 failures.
 

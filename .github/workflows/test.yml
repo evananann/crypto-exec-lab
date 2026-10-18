@@ -55,6 +55,7 @@ jobs:
           uv run --frozen python -m scripts.released_robustness --demo --out data/raw/ci-robustness
           uv run --frozen python -m scripts.crosscheck_markouts --demo --out data/raw/ci-crosscheck
           python -S scripts/reference_markouts.py --input data/fixtures/sample.jsonl --out data/raw/ci-reference.json
+          uv run --frozen python -m scripts.failure_attribution --source reports/evidence --out data/raw/ci-failure-attribution
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: research-checks-python-${{ matrix.python }}
@@ -68,5 +69,6 @@ jobs:
             data/raw/ci-missing-data/
             data/raw/ci-robustness/
             data/raw/ci-crosscheck/
+            data/raw/ci-failure-attribution/
           if-no-files-found: error
           retention-days: 7

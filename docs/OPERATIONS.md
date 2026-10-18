@@ -42,8 +42,11 @@ external delivery. A failed monitor run can correctly indicate missing data;
 it is distinct from a failing test suite. Repeated unresolved conditions remain
 visible rather than being acknowledged as fixed automatically.
 
-The first hosted monitor
-[flagged October 17 AM as missing](https://github.com/evananann/crypto-exec-lab/actions/runs/39008807275).
+The [latest inspected monitor](https://github.com/evananann/crypto-exec-lab/actions/runs/39059864112)
+flagged both October 17 AM and PM missing. This is an observation from its
+October 17 run, not a verified inventory of subsequent slots. See the
+[dated snapshot](../reports/data_provenance/README.md) and
+[failure-attribution guide](FAILURE_ATTRIBUTION.md).
 No full 15-minute eligible study sample has been independently verified here
 yet. The hosted preflight passes; scheduled sample verification is a separate
 milestone. The cloud instance's authenticated Actions API remains denied.
