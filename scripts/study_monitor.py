@@ -171,6 +171,7 @@ def render(state, out):
     write_json_atomic(out / 'status.json', state)
     lines = ['# Study operations', '', f"As of {state['as_of_utc']}", '', state['scope'], '',
              f"Artifact inventory available: {state['inventory_available']}", '',
+             '**Collection health: ' + ('healthy' if state['healthy'] else 'ALERT — see unresolved conditions below') + '**', '',
              '| Study | Slot | State | Run |', '| --- | --- | --- | --- |']
     table = []
     for row in state['sessions']:
@@ -186,7 +187,8 @@ def render(state, out):
             '<title>Study operations</title><style>body{font:16px system-ui;max-width:1000px;margin:2rem auto;padding:1rem}'
             'table{border-collapse:collapse;width:100%}td,th{padding:.5rem;text-align:left;border-bottom:1px solid #ddd}'
             'select{font:inherit;padding:.4rem}</style><h1>Study operations</h1><p>' + escape(state['as_of_utc']) +
-            '</p><p>' + escape(state['scope']) + '</p><p>Inventory available: ' + str(state['inventory_available']) +
+            '</p><p>' + escape(state['scope']) + '</p><p><strong>Collection health: ' + ('healthy' if state['healthy'] else 'ALERT — unresolved conditions') +
+            '</strong></p><p>Inventory available: ' + str(state['inventory_available']) +
             '</p><p>' + escape(json.dumps(state['counts'])) + '</p><label>Study <select id="filter"><option value="">All</option>' +
             options + '</select></label><h2>Alerts</h2><ul>' + ''.join('<li>' + escape(a) + '</li>' for a in state['alerts']) +
             '</ul><table><thead><tr><th>Study</th><th>Slot</th><th>State</th></tr></thead><tbody>' + ''.join(table) +
@@ -196,22 +198,39 @@ def render(state, out):
     write_text_atomic(out / 'dashboard.html', page)
 
 
+def exit_status(state, *, coverage_warnings=False):
+    """Coverage is a scientific result; monitor verification failures are errors.
+
+    Strict CLI behavior remains the default. Hosted warning mode avoids a
+    failed workflow email for every re-observation of historical missing data.
+    """
+    if not coverage_warnings:
+        return 0 if state['healthy'] else 1
+    reportable_states = {'pending', 'running', 'eligible', 'missing', 'blocked', 'ineligible', 'expired'}
+    return int(not state['inventory_available'] or any(
+        row['state'] not in reportable_states for row in state['sessions']))
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repository', required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--summary', type=Path)
+    parser.add_argument('--coverage-warnings', action='store_true',
+                        help='Report collection gaps/quality/expiry as warnings; still fail inventory and verification errors')
     args = parser.parse_args(argv)
     state = inspect(args.repository)
     render(state, args.out)
     if args.summary:
         with args.summary.open('a') as stream:
             stream.write((args.out / 'summary.md').read_text())
+    status = exit_status(state, coverage_warnings=args.coverage_warnings)
+    level = 'error' if status else 'warning'
     for message in state['alerts'][:10]:
-        print('::error title=Study operations::' + message)
+        print('::' + level + ' title=Study operations::' + message)
     print(json.dumps({'counts': state['counts'], 'retention_alerts': len(state['retention']),
                       'inventory_available': state['inventory_available']}))
-    return 0 if state['healthy'] else 1
+    return status
 
 
 if __name__ == '__main__':

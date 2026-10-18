@@ -34,13 +34,25 @@ It never calls an outcome estimator. A failed attempt remains in the inventory.
 | expired | Original artifact is expired; locate an independently preserved copy. |
 | overdue_running | Source run has exceeded the expected publication deadline. Inspect the run. |
 
-The monitor raises GitHub error annotations and exits nonzero for failures,
-missing slots, ambiguous/unverified evidence or artifacts expiring within
-14 days. GitHub can notify repository watchers about failed workflows according
-to their notification settings. This does not configure email, Slack or other
-external delivery. A failed monitor run can correctly indicate missing data;
-it is distinct from a failing test suite. Repeated unresolved conditions remain
-visible rather than being acknowledged as fixed automatically.
+The automated monitor uses `--coverage-warnings`: missing, blocked, ineligible
+or expired collection observations and approaching-expiry notices produce
+warning annotations and remain in the dashboard and JSON with `healthy: false`.
+They do not fail every scheduled run and generate another failed-run email for
+the same historical gap. The summary and HTML explicitly show **Collection
+health: ALERT**. A successful monitor job means inspection completed, not that
+the study is healthy or complete.
+
+Unavailable inventory, unverified/ambiguous artifacts and overdue running jobs
+still fail the monitor with error annotations. Installation, script crashes
+and artifact-publication errors also remain real workflow failures. Backup,
+collection and test jobs retain their own failure behavior. GitHub may notify
+repository watchers of those failures according to their existing settings.
+No global email preference was changed.
+
+The CLI remains strict by default: without `--coverage-warnings`, any alert
+returns nonzero. Use strict mode when an explicit all-coverage check is desired.
+Repeated gaps remain visible and retain their original state; they are not
+acknowledged as repaired or reclassified as successful observations.
 
 The [latest inspected monitor](https://github.com/evananann/crypto-exec-lab/actions/runs/39059864112)
 flagged both October 17 AM and PM missing. This is an observation from its

@@ -8,7 +8,7 @@ empirical result.
 | --- | --- |
 | 1. Verify a scheduled 15-minute session | Monitor now downloads and recomputes eligible archive health. Both October 17 slots were detected missing by the latest inspected monitor; a valid scheduled sample remains pending. |
 | 2. Daily health dashboard | Hosted read-only monitor publishes JSON, Markdown and filterable offline HTML after collection runs and twice daily. |
-| 3. Failure and expiry notices | Error annotations, failed monitor status, 14-day expiry warnings, duplicate/missing/unverified distinctions. Delivery follows GitHub notification settings. |
+| 3. Failure and expiry notices | Coverage/expiry warnings stay in reports without repeated failure emails; inventory/provenance/verification errors still fail. Strict CLI mode remains available. |
 | 4. Durable storage and restore | Completed with GitHub Releases: eight original attempts round-trip verified by the hosted job; all eight public copies independently restored here. [Evidence](DURABLE_ARCHIVES.md). |
 | 5. Fresh-clone reproduction | Dedicated `--no-local` clone, separate environment, full tests, bundle verification and restore drill; logs and completion status recorded. |
 | 6. Profile performance | Fresh-process replay/evaluation/execution benchmark, input hashes, CPU time, peak RSS and throughput. Synthetic volume tested; released live-tape measurements pending. |
