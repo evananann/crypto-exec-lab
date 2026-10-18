@@ -1,0 +1,15 @@
+{
+  "as_of_utc": "2026-10-18T07:02:24.334146+00:00",
+  "source_commit": "040f2ae750c479d4262e5d34921f70cac56826b0",
+  "source_tree_clean_before_generation": true,
+  "python": "3.12.14",
+  "tests_passed": 250,
+  "ruff": "passed",
+  "frozen_source_maps_verified": 3,
+  "hosted_ci_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39106024848",
+  "hosted_ci_conclusion": "success",
+  "cross_version_numerical_job": "passed with Python 3.11/3.12/3.13, including seeded day precision, execution, reference markouts and lifecycle outputs",
+  "clean_clone": "--no-local, separate environment, 250 tests, bundle/source verification and restore passed",
+  "scope": "Internal engineering checks. No actual study or holdout outcomes evaluated; future empirical validation remains pending.",
+  "benchmark_source_note": "volume-benchmark.json retains its original clean 69e2f23 source revision; it is not relabeled as a measurement of the later metadata-only update."
+}

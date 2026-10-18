@@ -1,0 +1,50 @@
+{
+  "synthetic": true,
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "perf_counter_resolution_seconds": 1e-09,
+  "source_sha256": "20e5bbaadbadaf1b9bf5eb51187c0f1197b4bb70deeff39332f6f8f78cd891c8",
+  "measurements": [
+    {
+      "stage": "json_decode",
+      "samples": 500,
+      "p50_ns": 1462.0,
+      "p90_ns": 1513,
+      "p95_ns": 1532,
+      "min_ns": 1372,
+      "max_ns": 2324
+    },
+    {
+      "stage": "normalize_one_message",
+      "samples": 500,
+      "p50_ns": 991.0,
+      "p90_ns": 1032,
+      "p95_ns": 1532,
+      "min_ns": 951,
+      "max_ns": 188740
+    },
+    {
+      "stage": "signal_and_markouts_small_tape",
+      "samples": 500,
+      "p50_ns": 25493.0,
+      "p90_ns": 26299,
+      "p95_ns": 37285,
+      "min_ns": 24847,
+      "max_ns": 220897
+    },
+    {
+      "stage": "serialize_one_event",
+      "samples": 500,
+      "p50_ns": 5949.0,
+      "p90_ns": 6379,
+      "p95_ns": 7521,
+      "min_ns": 5739,
+      "max_ns": 1710665
+    }
+  ],
+  "limitations": [
+    "Warm process and tiny fixed synthetic inputs; imports excluded.",
+    "Timing includes timer/scheduler overhead and is machine-specific.",
+    "No exchange, network, order acknowledgement, fill or p99 SLA measured."
+  ]
+}

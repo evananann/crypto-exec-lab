@@ -1,0 +1,22 @@
+{
+  "synthetic_test_only": true,
+  "simulated_postrelease_time": "2026-10-24T00:00:00+00:00",
+  "cases": [
+    {
+      "case": "empty restored root",
+      "package_verified": true,
+      "eligible_sessions": 0,
+      "scientific_status": "incomplete"
+    },
+    {
+      "case": "one generated synthetic 900-second recording",
+      "package_verified": true,
+      "eligible_sessions": 1,
+      "scientific_status": "incomplete",
+      "receipt_archive_bindings_verified": true,
+      "remote_run_authentication": "not claimed for test fixture"
+    }
+  ],
+  "scope": "Exercises released orchestration on manufactured fixtures only. No actual study/holdout data or market outcomes read.",
+  "source_commit": "69e2f2359c02449a361c60e485637d34bf57263c"
+}

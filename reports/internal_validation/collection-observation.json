@@ -1,0 +1,48 @@
+{
+  "as_of_utc": "2026-10-18T07:04:41.390216+00:00",
+  "hosted_monitor_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39106147845",
+  "observed_conclusion": "success",
+  "workflow_readiness": [
+    {
+      "workflow": "live-study.yml",
+      "state": "active",
+      "default_branch_main": true,
+      "scheduled_runs_in_recent_history": 2
+    },
+    {
+      "workflow": "replication-study.yml",
+      "state": "active",
+      "default_branch_main": true,
+      "scheduled_runs_in_recent_history": 1
+    }
+  ],
+  "scheduled_v1_runs": [
+    {
+      "run_id": 39014986029,
+      "event": "schedule",
+      "created_at_utc": "2026-10-17T07:48:05Z",
+      "creation_to_start_seconds": 0.0,
+      "collection_steps_skipped": 1
+    },
+    {
+      "run_id": 39055572368,
+      "event": "schedule",
+      "created_at_utc": "2026-10-17T17:51:25Z",
+      "creation_to_start_seconds": 0.0,
+      "collection_steps_skipped": 1
+    }
+  ],
+  "reported_missing_slots": [
+    "2026-10-17-am",
+    "2026-10-17-pm",
+    "2026-10-18-am"
+  ],
+  "observation": "Schedule-triggered runs were created outside either frozen daily start window and skipped collection.",
+  "unknowns": [
+    "Exact original cron payloads",
+    "Why creation was late",
+    "Any pre-creation scheduling delay"
+  ],
+  "provenance_scope": "Public annotations from hosted read-only API/job inspection; full timeline artifact not downloaded via a local authenticated API.",
+  "outcomes_evaluated": false
+}

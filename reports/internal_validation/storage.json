@@ -1,0 +1,91 @@
+{
+  "files": 57,
+  "total_bytes": 788730,
+  "bytes_by_suffix": {
+    "(no extension)": 43,
+    ".gz": 10875,
+    ".json": 432660,
+    ".md": 27896,
+    ".png": 317061,
+    ".sha256": 195
+  },
+  "largest_files": [
+    {
+      "path": "markout_crosscheck/crosscheck.json",
+      "bytes": 301644,
+      "sha256": "5fe4fb681188781d5052bae5a85bb5b9d2eaed3f1ee651a517b04a30cc35881c"
+    },
+    {
+      "path": "research_audit/power/power.png",
+      "bytes": 100778,
+      "sha256": "db39b56a798c34823ee12ea39a3456a5ec27d0f06d5cf5a2bd2609e67a4b4c79"
+    },
+    {
+      "path": "portfolio_demo/cost-sensitivity.png",
+      "bytes": 71076,
+      "sha256": "2f9f1bc3a245b0c7fce3e1b33fac1d1bcf5eb9b12673548b3d52963556d7d166"
+    },
+    {
+      "path": "portfolio_demo/latency-sensitivity.png",
+      "bytes": 61250,
+      "sha256": "dc68f6d79821fb07c2cd16e174f78a0ef87866411e674d272486ba7db809e022"
+    },
+    {
+      "path": "portfolio_demo/session-coverage.png",
+      "bytes": 33493,
+      "sha256": "95d169c22a702a362a63890717e58aa68bbd62a54f7eb5f8f538a3571f264e95"
+    },
+    {
+      "path": "markout_vs_delay.png",
+      "bytes": 30232,
+      "sha256": "4d85e63f82b83c0988ff9111e30f634bb421daf478e92f578a16864a51640a85"
+    },
+    {
+      "path": "research_audit/execution/execution.json",
+      "bytes": 26071,
+      "sha256": "a8ce98a3f563f6d273ba1980635b3c18ba94a8872226fdd3ff90dbd70c270c52"
+    },
+    {
+      "path": "research_audit/power/power.json",
+      "bytes": 20844,
+      "sha256": "52a62b6e71841ac588d49640e68b6a12de8836b3bee3eddbe375482dd3d4672b"
+    },
+    {
+      "path": "lead_lag.png",
+      "bytes": 20232,
+      "sha256": "b59a6e9751766df8b4380a89bc466c3d32d936c6a4547aa78b0de04f00598b66"
+    },
+    {
+      "path": "robustness_examples/dependence/robustness.json",
+      "bytes": 16672,
+      "sha256": "20ce25541cb6fdc4bebb3a725b5bf85d59ce893290d4df2137496bfafdacf7f3"
+    },
+    {
+      "path": "portfolio_demo/summary.json",
+      "bytes": 15734,
+      "sha256": "a2ce2f6d0e32c5bac6d23311e05634474d446926c0f518bd245b3ebba8141d4e"
+    },
+    {
+      "path": "data_provenance/hosted/attribution.json",
+      "bytes": 11697,
+      "sha256": "f71141288480733980369ace7247975feb090b47e7dd1cbf4d76ffae3346d71e"
+    },
+    {
+      "path": "data_provenance/cloud/attribution.json",
+      "bytes": 9707,
+      "sha256": "1c5f20196d66affff132c94d619c0936d3791ab4d635ed011a1512ea44baaeea"
+    },
+    {
+      "path": "STUDY_V1_RESEARCH.md",
+      "bytes": 7836,
+      "sha256": "9ec4f76d41970204ae0d62c7a470fcdc43fb327a1376ce8d763f7973cc04e7cd"
+    },
+    {
+      "path": "operations/benchmark.json",
+      "bytes": 4441,
+      "sha256": "0d94bc3f565ac133a6aa79de197e4fb57b33a2c2b7fc37d16124354d260e0e2c"
+    }
+  ],
+  "identical_byte_groups": [],
+  "policy": "Inventory only. Keep original archives, receipts, completion inventories and frozen-source evidence. Identical bytes do not imply redundant provenance. No automatic deletion."
+}

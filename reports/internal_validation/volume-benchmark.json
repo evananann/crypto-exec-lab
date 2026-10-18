@@ -1,0 +1,125 @@
+{
+  "as_of_utc": "2026-10-18T06:57:17.358163+00:00",
+  "git_commit": "69e2f2359c02449a361c60e485637d34bf57263c",
+  "git_dirty": false,
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89",
+  "input_bytes": 21106026,
+  "config_sha256": "7089b6acf113f84db3f051b4c663c85db27e7ca00691261c6dc0aa19315fbbb6",
+  "benchmark_sha256": "325542843b82db9b97d6a2528859eeae30eb9250ace48dabeec825e5303a96da",
+  "measurements": [
+    {
+      "stage": "replay",
+      "samples": [
+        {
+          "stage": "replay",
+          "seconds": 0.6285805400002573,
+          "cpu_seconds": 0.707950184,
+          "peak_rss_bytes": 87203840,
+          "events": 90002,
+          "result_items": 90002,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        },
+        {
+          "stage": "replay",
+          "seconds": 0.6098114250016806,
+          "cpu_seconds": 0.755193504,
+          "peak_rss_bytes": 87273472,
+          "events": 90002,
+          "result_items": 90002,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        },
+        {
+          "stage": "replay",
+          "seconds": 0.6319966039991414,
+          "cpu_seconds": 0.772043918,
+          "peak_rss_bytes": 87216128,
+          "events": 90002,
+          "result_items": 90002,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        }
+      ],
+      "median_seconds": 0.6285805400002573,
+      "max_peak_rss_bytes": 87273472,
+      "events_per_second": 143182.92449836765
+    },
+    {
+      "stage": "evaluation",
+      "samples": [
+        {
+          "stage": "evaluation",
+          "seconds": 2.1631575190003787,
+          "cpu_seconds": 2.3158981240000003,
+          "peak_rss_bytes": 111468544,
+          "events": null,
+          "result_items": 36,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        },
+        {
+          "stage": "evaluation",
+          "seconds": 2.296648308998556,
+          "cpu_seconds": 2.437378002,
+          "peak_rss_bytes": 111009792,
+          "events": null,
+          "result_items": 36,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        },
+        {
+          "stage": "evaluation",
+          "seconds": 2.2539074209998944,
+          "cpu_seconds": 2.381172884,
+          "peak_rss_bytes": 110891008,
+          "events": null,
+          "result_items": 36,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        }
+      ],
+      "median_seconds": 2.2539074209998944,
+      "max_peak_rss_bytes": 111468544,
+      "events_per_second": null
+    },
+    {
+      "stage": "execution_with_replay",
+      "samples": [
+        {
+          "stage": "execution_with_replay",
+          "seconds": 1.1069933460021275,
+          "cpu_seconds": 1.275684135,
+          "peak_rss_bytes": 88514560,
+          "events": 90002,
+          "result_items": 58,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        },
+        {
+          "stage": "execution_with_replay",
+          "seconds": 1.1446664799987047,
+          "cpu_seconds": 1.259355391,
+          "peak_rss_bytes": 88727552,
+          "events": 90002,
+          "result_items": 58,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        },
+        {
+          "stage": "execution_with_replay",
+          "seconds": 1.1356620890001068,
+          "cpu_seconds": 1.2999129850000002,
+          "peak_rss_bytes": 88588288,
+          "events": 90002,
+          "result_items": 58,
+          "input_sha256": "dd072397a2ea2c4056f01b1414f9bacf09a706a00dcba5ef21475eb882c7fb89"
+        }
+      ],
+      "median_seconds": 1.1356620890001068,
+      "max_peak_rss_bytes": 88727552,
+      "events_per_second": null
+    }
+  ],
+  "limitations": [
+    "Warm filesystem cache may affect repeats; imports excluded from elapsed timing.",
+    "Peak RSS includes imports and the full fresh worker lifetime, not only incremental allocations.",
+    "Execution timing includes replay; evaluation uses fixed 0/50/200ms and 0/5bps grids.",
+    "Throughput is for this tape and machine; no exchange latency or live capacity claim."
+  ],
+  "synthetic": true
+}

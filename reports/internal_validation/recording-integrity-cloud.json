@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-10-18T07:00:24.057403+00:00",
+  "recordings": [
+    {
+      "archive_sha256": "185d48d5843343470c78eea25c7c3e06e11556d6a6e2c36d2a5b49a99b338acf",
+      "session": "preflight-20261016T034246831497Z",
+      "phase": "preflight",
+      "status": "ineligible",
+      "tape_available": true,
+      "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_normalized_events": 0,
+      "replayed_events": 0,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {},
+      "bbo_clock_metrics": {},
+      "exchange_equals_local_count": {},
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {},
+      "reconnect_observation": {
+        "opened_counts": {},
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": null,
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "8faf93f58b2801a5549a6ab6ffa62f5d96281c6c9e1f34a6851741909713c232",
+      "session": "preflight-20261016T063323034369Z",
+      "phase": "preflight",
+      "status": "ineligible",
+      "tape_available": true,
+      "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_normalized_events": 0,
+      "replayed_events": 0,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {},
+      "bbo_clock_metrics": {},
+      "exchange_equals_local_count": {},
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {},
+      "reconnect_observation": {
+        "opened_counts": {},
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": null,
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "50aa1fac58ad7107f3714ec6f32fc752e305784f673b4ba521a622c89741e4e4",
+      "session": "preflight-20261017T035259933486Z",
+      "phase": "preflight",
+      "status": "blocked",
+      "tape_available": true,
+      "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_normalized_events": 0,
+      "replayed_events": 0,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {},
+      "bbo_clock_metrics": {},
+      "exchange_equals_local_count": {},
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {},
+      "reconnect_observation": {
+        "opened_counts": {},
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": null,
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    }
+  ],
+  "outcomes_evaluated": false,
+  "limitations": [
+    "Original websocket payloads are not preserved.",
+    "Connection segmentation, timestamp fallback identity and intraday metadata stability cannot be reconstructed from absent fields.",
+    "Original statuses are retained; this diagnostic does not upgrade preflights or repair missing data."
+  ]
+}

@@ -1,0 +1,651 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-10-18T07:00:23.872731+00:00",
+  "recordings": [
+    {
+      "archive_sha256": "f108e5882f05c1db5b72db010b9cf8185dd415d98bb56e9a5eef322c0028a05c",
+      "session": "preflight-20261016T064326977084Z",
+      "phase": "preflight",
+      "status": "blocked",
+      "tape_available": true,
+      "input_sha256": "3c65ac9706276cad4364936f73fb4b73d2059f57a37c127b2d5ed26446b3d4f9",
+      "raw_normalized_events": 3311,
+      "replayed_events": 3311,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {
+        "binance": {
+          "events": 2794,
+          "equal_timestamp_neighbors": 2205,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 499
+        },
+        "okx": {
+          "events": 251,
+          "equal_timestamp_neighbors": 30,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 578
+        },
+        "bybit": {
+          "events": 266,
+          "equal_timestamp_neighbors": 85,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 920
+        }
+      },
+      "bbo_clock_metrics": {
+        "binance": {
+          "events": 2695,
+          "equal_timestamp_neighbors": 2120,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 499
+        },
+        "okx": {
+          "events": 200,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 579
+        },
+        "bybit": {
+          "events": 162,
+          "equal_timestamp_neighbors": 4,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 920
+        }
+      },
+      "exchange_equals_local_count": {
+        "binance": 0,
+        "okx": 0,
+        "bybit": 0
+      },
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {
+        "BTC": 3060,
+        "contracts": 251
+      },
+      "reconnect_observation": {
+        "opened_counts": {
+          "binance": 2,
+          "okx": 1,
+          "bybit": 1
+        },
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": null,
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "94e303dbb92debb01dec357b7525d94a3caa0cb7795d0ba1f313d249187e32ee",
+      "session": "preflight-20261016T162529538422Z",
+      "phase": "preflight",
+      "status": "blocked",
+      "tape_available": true,
+      "input_sha256": "3fd3cc4a1afdb0375c0e0dfcd91233ff9b9028bcab23f115b80503b681fae841",
+      "raw_normalized_events": 6008,
+      "replayed_events": 6008,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {
+        "binance": {
+          "events": 4972,
+          "equal_timestamp_neighbors": 3201,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 102
+        },
+        "okx": {
+          "events": 587,
+          "equal_timestamp_neighbors": 203,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 323
+        },
+        "bybit": {
+          "events": 449,
+          "equal_timestamp_neighbors": 167,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 330
+        }
+      },
+      "bbo_clock_metrics": {
+        "binance": {
+          "events": 4815,
+          "equal_timestamp_neighbors": 3070,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 102
+        },
+        "okx": {
+          "events": 301,
+          "equal_timestamp_neighbors": 7,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 330
+        },
+        "bybit": {
+          "events": 233,
+          "equal_timestamp_neighbors": 8,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 330
+        }
+      },
+      "exchange_equals_local_count": {
+        "binance": 0,
+        "okx": 0,
+        "bybit": 0
+      },
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {
+        "BTC": 5421,
+        "contracts": 587
+      },
+      "reconnect_observation": {
+        "opened_counts": {
+          "okx": 1,
+          "binance": 2,
+          "bybit": 1
+        },
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": null,
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "0941d3faba9ceee4814d7a9cd64ed88fa0d1854ea17a8cde300eb0db4cd80061",
+      "session": "preflight-20261017T035309186709Z",
+      "phase": "preflight",
+      "status": "blocked",
+      "tape_available": true,
+      "input_sha256": "4b7c949f28de660ecf53d29ac670faa987d835cdd906a955205d7795e67ab920",
+      "raw_normalized_events": 740,
+      "replayed_events": 740,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {
+        "binance": {
+          "events": 435,
+          "equal_timestamp_neighbors": 74,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 449
+        },
+        "bybit": {
+          "events": 33,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1690
+        },
+        "okx": {
+          "events": 272,
+          "equal_timestamp_neighbors": 2,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 360
+        }
+      },
+      "bbo_clock_metrics": {
+        "binance": {
+          "events": 393,
+          "equal_timestamp_neighbors": 71,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 449
+        },
+        "bybit": {
+          "events": 32,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1690
+        },
+        "okx": {
+          "events": 262,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 360
+        }
+      },
+      "exchange_equals_local_count": {
+        "binance": 0,
+        "bybit": 0,
+        "okx": 0
+      },
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {
+        "BTC": 468,
+        "contracts": 272
+      },
+      "reconnect_observation": {
+        "opened_counts": {
+          "binance": 2,
+          "okx": 1,
+          "bybit": 1
+        },
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": null,
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "f9f4d43ebf87042e3d87659b5b35d06c036fb17f5c0372a6aca2e121c2f81077",
+      "session": "preflight-20261017T041815741143Z",
+      "phase": "preflight",
+      "status": "ineligible",
+      "tape_available": true,
+      "input_sha256": "e94008a719a40a353e175c9976310f7b5e6932de2e32d07bad5f4cdddb7e8f89",
+      "raw_normalized_events": 721,
+      "replayed_events": 721,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {
+        "binance": {
+          "events": 568,
+          "equal_timestamp_neighbors": 150,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 263
+        },
+        "okx": {
+          "events": 109,
+          "equal_timestamp_neighbors": 1,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 571
+        },
+        "bybit": {
+          "events": 44,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1540
+        }
+      },
+      "bbo_clock_metrics": {
+        "binance": {
+          "events": 523,
+          "equal_timestamp_neighbors": 144,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 263
+        },
+        "okx": {
+          "events": 103,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 571
+        },
+        "bybit": {
+          "events": 44,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1540
+        }
+      },
+      "exchange_equals_local_count": {
+        "binance": 0,
+        "okx": 0,
+        "bybit": 0
+      },
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {
+        "BTC": 721
+      },
+      "reconnect_observation": {
+        "opened_counts": {
+          "binance": 2,
+          "okx": 1,
+          "bybit": 1
+        },
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": {
+        "verified_btc_per_contract": 0.01,
+        "manifest_conversion_matches": true,
+        "temporal_stability": "unverified: one archived metadata snapshot cannot establish whole-session stability"
+      },
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "7d46b794b9fb62348833a7a230162b92ca170ed957f41d58013d9c0946ecefd3",
+      "session": "preflight-20261017T042200123739Z",
+      "phase": "preflight",
+      "status": "preflight_passed",
+      "tape_available": true,
+      "input_sha256": "6a75583b504901fc069c1f1a46746addf530317cd8aa12ae520eec30483a81de",
+      "raw_normalized_events": 1835,
+      "replayed_events": 1835,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {
+        "binance": {
+          "events": 1340,
+          "equal_timestamp_neighbors": 379,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 349
+        },
+        "okx": {
+          "events": 345,
+          "equal_timestamp_neighbors": 11,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 579
+        },
+        "bybit": {
+          "events": 150,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 2021
+        }
+      },
+      "bbo_clock_metrics": {
+        "binance": {
+          "events": 1207,
+          "equal_timestamp_neighbors": 357,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 376
+        },
+        "okx": {
+          "events": 320,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 579
+        },
+        "bybit": {
+          "events": 144,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 2021
+        }
+      },
+      "exchange_equals_local_count": {
+        "binance": 0,
+        "okx": 0,
+        "bybit": 0
+      },
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {
+        "BTC": 1835
+      },
+      "reconnect_observation": {
+        "opened_counts": {
+          "binance": 2,
+          "okx": 1,
+          "bybit": 1
+        },
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": {
+        "verified_btc_per_contract": 0.01,
+        "manifest_conversion_matches": true,
+        "temporal_stability": "unverified: one archived metadata snapshot cannot establish whole-session stability"
+      },
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "c609cc9bd14b4901bbc7d2aeb5b21f81a474e8b3d886c7f61074535a77ac7a6c",
+      "session": "preflight-20261017T043223326876Z",
+      "phase": "preflight",
+      "status": "preflight_passed",
+      "tape_available": true,
+      "input_sha256": "18f3f482e24c7f6a99cbfad1cc9245e3fa1f7f47a70fd97a929fad0691a3812d",
+      "raw_normalized_events": 1822,
+      "replayed_events": 1822,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {
+        "binance": {
+          "events": 1440,
+          "equal_timestamp_neighbors": 280,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 252
+        },
+        "bybit": {
+          "events": 168,
+          "equal_timestamp_neighbors": 1,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1050
+        },
+        "okx": {
+          "events": 214,
+          "equal_timestamp_neighbors": 2,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1230
+        }
+      },
+      "bbo_clock_metrics": {
+        "binance": {
+          "events": 1290,
+          "equal_timestamp_neighbors": 262,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 380
+        },
+        "bybit": {
+          "events": 163,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1050
+        },
+        "okx": {
+          "events": 190,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1230
+        }
+      },
+      "exchange_equals_local_count": {
+        "binance": 0,
+        "bybit": 0,
+        "okx": 0
+      },
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {
+        "BTC": 1822
+      },
+      "reconnect_observation": {
+        "opened_counts": {
+          "binance": 2,
+          "okx": 1,
+          "bybit": 1
+        },
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": {
+        "verified_btc_per_contract": 0.01,
+        "manifest_conversion_matches": true,
+        "temporal_stability": "unverified: one archived metadata snapshot cannot establish whole-session stability"
+      },
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "9d0df68b1c980548509f939f7b2124b762120c4c1476fd58d4bbfd6621ef5154",
+      "session": "preflight-20261017T043224786854Z",
+      "phase": "preflight",
+      "status": "preflight_passed",
+      "tape_available": true,
+      "input_sha256": "a3e9a0387a895e44bc3322b90304fabf32b0d99a0bcb9302ba0e864898be4eab",
+      "raw_normalized_events": 1798,
+      "replayed_events": 1798,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {
+        "binance": {
+          "events": 1424,
+          "equal_timestamp_neighbors": 277,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 251
+        },
+        "okx": {
+          "events": 211,
+          "equal_timestamp_neighbors": 1,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1229
+        },
+        "bybit": {
+          "events": 163,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1049
+        }
+      },
+      "bbo_clock_metrics": {
+        "binance": {
+          "events": 1272,
+          "equal_timestamp_neighbors": 246,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 380
+        },
+        "okx": {
+          "events": 188,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1229
+        },
+        "bybit": {
+          "events": 158,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1049
+        }
+      },
+      "exchange_equals_local_count": {
+        "binance": 0,
+        "okx": 0,
+        "bybit": 0
+      },
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {
+        "BTC": 1798
+      },
+      "reconnect_observation": {
+        "opened_counts": {
+          "binance": 2,
+          "okx": 1,
+          "bybit": 1
+        },
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": {
+        "verified_btc_per_contract": 0.01,
+        "manifest_conversion_matches": true,
+        "temporal_stability": "unverified: one archived metadata snapshot cannot establish whole-session stability"
+      },
+      "pair": "binance->bybit",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    },
+    {
+      "archive_sha256": "969443bee7a71d25050305184bb8a5c6f252e3e73dccdbdee8b73f4813ff3691",
+      "session": "preflight-20261017T043225026475Z",
+      "phase": "preflight",
+      "status": "preflight_passed",
+      "tape_available": true,
+      "input_sha256": "9fd96f51705c154792da6fb0af32ee989be06f12baaa9cd091e5bdb448fe25e9",
+      "raw_normalized_events": 1795,
+      "replayed_events": 1795,
+      "duplicate_trades_removed": 0,
+      "replay_count_matches": true,
+      "recorder_count_reconciliation": {
+        "total_matches": true,
+        "venue_counts_match": true,
+        "kind_counts_match": true
+      },
+      "clock_metrics": {
+        "binance": {
+          "events": 1431,
+          "equal_timestamp_neighbors": 280,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 251
+        },
+        "okx": {
+          "events": 210,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1229
+        },
+        "bybit": {
+          "events": 154,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1049
+        }
+      },
+      "bbo_clock_metrics": {
+        "binance": {
+          "events": 1280,
+          "equal_timestamp_neighbors": 244,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 380
+        },
+        "okx": {
+          "events": 185,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1229
+        },
+        "bybit": {
+          "events": 149,
+          "equal_timestamp_neighbors": 0,
+          "timestamp_regressions": 0,
+          "maximum_forward_gap_ms": 1049
+        }
+      },
+      "exchange_equals_local_count": {
+        "binance": 0,
+        "okx": 0,
+        "bybit": 0
+      },
+      "fallback_provenance": "unknown: equal clock values can be true equality or fallback; no per-row fallback flag exists",
+      "quantity_units": {
+        "BTC": 1795
+      },
+      "reconnect_observation": {
+        "opened_counts": {
+          "binance": 2,
+          "okx": 1,
+          "bybit": 1
+        },
+        "segment_assignment": "unavailable: normalized rows do not carry connection/session IDs"
+      },
+      "instrument": {
+        "verified_btc_per_contract": 0.01,
+        "manifest_conversion_matches": true,
+        "temporal_stability": "unverified: one archived metadata snapshot cannot establish whole-session stability"
+      },
+      "pair": "binance->okx",
+      "scope": "Recorded counters and clock symptoms; no latency, outage, complete coverage or profitable execution inference."
+    }
+  ],
+  "outcomes_evaluated": false,
+  "limitations": [
+    "Original websocket payloads are not preserved.",
+    "Connection segmentation, timestamp fallback identity and intraday metadata stability cannot be reconstructed from absent fields.",
+    "Original statuses are retained; this diagnostic does not upgrade preflights or repair missing data."
+  ]
+}

@@ -61,9 +61,9 @@ The hosted monitor now also saves `collection-timeline.json`. It reads the lates
 100 main runs per collector workflow and latest-attempt job steps. Event type,
 creation/start timestamps, gate conclusions and skipped/completed recording steps
 help distinguish operational symptoms. Creation-to-start time does not measure
-delay before run creation, and a successful gate step is not its output. Exact
-cron/dispatch inputs and the cause of missing schedules remain unknown without
-those original records. A successful recording step still requires verified
+delay before run creation, and a successful gate step is not its output. The observed schedule runs were created outside valid start windows and skipped
+collection; why run creation was late and the exact original cron payloads
+remain unknown. See [scheduling evidence](SCHEDULING_RECOVERY.md). A successful recording step still requires verified
 archive health. Notices contain fixed metadata summaries, not logs or outcomes.
 
 These API calls require Actions read access; they work on the hosted runner's
