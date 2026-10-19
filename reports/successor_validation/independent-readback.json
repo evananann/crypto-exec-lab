@@ -1,0 +1,50 @@
+{
+  "as_of_utc": "2026-10-19T06:43:49.313382+00:00",
+  "verification_commit": "1930d346cba71dbf071d8014f5c2a8b6053b8954",
+  "verification_script_sha256": {
+    "scripts/successor_rehearsal.py": "67f38edb47fd592d9c107d3d69a0239d18bbc9ec8e324fc97a4094c848b6625b",
+    "scripts/successor_readiness.py": "01f9207c0e11a5f234eb64c21111cccc4b686e37d9ed26612f818afcc7ece423"
+  },
+  "original_run_id": 39208111735,
+  "original_run_conclusion": "failure",
+  "original_collector_commit": "678d6ed77565f16798661ee5f47d1f6be32b472c",
+  "archive_sha256": "9f829b6505c43bdbb0e7f167a54e813c04f67ce24ba06d986335376e4c8fa251",
+  "archive_bytes": 9754179,
+  "release_tag": "study-archive-btc-execution-v1",
+  "public_assets_downloaded": 3,
+  "source_git_blobs_verified": true,
+  "owner_authenticated_through_native_git": true,
+  "readback_receipt_matches": true,
+  "assessment": {
+    "collection_healthy": true,
+    "issues": [],
+    "events": 388049,
+    "timestamp_fallback_events": 0,
+    "instrument_snapshots": 16,
+    "venues": {
+      "binance": {
+        "bbo": 366088,
+        "span_ms": 899567,
+        "maximum_gap_ms": 562
+      },
+      "okx": {
+        "bbo": 21961,
+        "span_ms": 899407,
+        "maximum_gap_ms": 839
+      }
+    },
+    "timing": {
+      "accepted": true,
+      "mode": "transport_only",
+      "intended_start_utc": "2026-10-19T06:07:32+00:00",
+      "checked_at_utc": "2026-10-19T06:07:45.682214+00:00",
+      "lateness_seconds": 13.682214,
+      "timing_qualified": false
+    },
+    "study_observation": false,
+    "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+  },
+  "qualifying_prospective_success": false,
+  "new_recording_performed_for_recovery": false,
+  "outcomes_evaluated": false
+}

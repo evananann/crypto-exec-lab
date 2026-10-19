@@ -60,7 +60,7 @@ def from_observation(path):
     observation = json.loads(path.read_text())
     return {'schema_version':1, 'as_of_utc':observation['as_of_utc'],
             'repository':'evananann/crypto-exec-lab', 'software':{'state':'see live CI'},
-            'collection':{'state':'ALERT', 'counts':{'missing':len(observation['reported_missing_slots'])},
+            'collection':{'state':'ALERT', 'as_of_utc':observation['as_of_utc'], 'counts':{'missing':len(observation['reported_missing_slots'])},
                           'sessions':[{'study_id':'btc-execution-v1','session':s,'state':'missing'} for s in observation['reported_missing_slots']],
                           'scope':'Dated hosted-monitor observation; later slots are not assessed in this snapshot'},
             'successor':{'state':'not_activated', 'study_activated':False},
@@ -75,16 +75,22 @@ def render(state, out):
         return escape(str(value),quote=True)
     sections = []
     software = state['software']
-    sections.append('<section><h2>Software health</h2><p><strong>'+esc(software['state'])+'</strong></p><p>Passing tests do not establish successful collection.</p></section>')
+    sections.append('<section><h2>Software health</h2><p><strong>'+esc(software['state'])+'</strong></p><p>Last completed CI: '+esc(software.get('last_completed_created_at_utc','see live workflow'))+'. Passing tests do not establish successful collection.</p><p>'+esc(software.get('scope',''))+'</p></section>')
     collection = state['collection']
     counts = ', '.join(f'{k}: {v}' for k,v in sorted(collection.get('counts',{}).items())) or 'Unavailable'
     rows = ''.join('<tr><td>'+esc(r['study_id'])+'</td><td>'+esc(r['session'])+'</td><td>'+esc(r['state'])+'</td></tr>' for r in collection.get('sessions',[]))
-    sections.append('<section><h2>Collection coverage</h2><p><strong>'+esc(collection['state'])+'</strong> — '+esc(counts)+'</p><p>'+esc(collection.get('scope','Verification unavailable'))+'</p><table><thead><tr><th>Study</th><th>UTC slot</th><th>State</th></tr></thead><tbody>'+rows+'</tbody></table></section>')
+    sections.append('<section><h2>Collection coverage</h2><p><strong>'+esc(collection['state'])+'</strong> — '+esc(counts)+'</p><p>'+esc(collection.get('scope','Verification unavailable'))+'</p><p>Coverage inspected at '+esc(collection.get('as_of_utc',state['as_of_utc']))+' UTC.</p><table><thead><tr><th>Study</th><th>UTC slot</th><th>State</th></tr></thead><tbody>'+rows+'</tbody></table></section>')
     research = ''.join('<li>'+esc(r['study_id'])+': '+esc(r['result_state'])+'</li>' for r in state['research'])
     sections.append('<section><h2>Research results</h2><ul>'+research+'</ul><p>Missing data are not zero returns. A green workflow does not establish alpha.</p></section>')
     successor = state['successor']
     readiness = successor.get('readiness',{})
-    sections.append('<section><h2>Successor readiness</h2><p>'+esc(successor['state'])+'; study activated: '+esc(successor['study_activated'])+'</p><p>Qualifying prospective trials: '+esc(readiness.get('qualifying_prospective_rehearsals','unverified'))+'. Transport-only rehearsals do not qualify.</p></section>')
+    trials = readiness.get('records', [])
+    latest = max(trials,key=lambda row:row.get('run_created_at_utc') or row.get('intended_start_utc') or '') if trials else None
+    detail = ''
+    if latest:
+        assessment = latest.get('assessment',{})
+        detail = '<p>Latest preserved attempt: collection healthy='+esc(assessment.get('collection_healthy','unverified'))+', events='+esc(assessment.get('events','unverified'))+', timing qualified='+esc(assessment.get('timing',{}).get('timing_qualified',False))+', original run conclusion='+esc(latest.get('source_run_conclusion','unverified'))+'.</p>'
+    sections.append('<section><h2>Successor readiness</h2><p>'+esc(successor['state'])+'; study activated: '+esc(successor['study_activated'])+'</p><p>Qualifying prospective trials: '+esc(readiness.get('qualifying_prospective_rehearsals','unverified'))+'. Transport-only rehearsals do not qualify.</p>'+detail+'</section>')
     warnings = ''.join('<li>'+esc(w)+'</li>' for w in state.get('warnings',[]))
     page = '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Crypto execution lab status</title><style>body{font:16px system-ui;max-width:1000px;margin:2rem auto;padding:0 1rem;background:#f5f7fa;color:#172335}section{background:white;padding:1rem;margin:1rem 0;border:1px solid #ccd5df;border-radius:8px}table{border-collapse:collapse;width:100%}td,th{padding:.4rem;text-align:left;border-bottom:1px solid #ddd}p{line-height:1.5}</style><h1>Crypto execution lab status</h1><p>Inspected at '+esc(state['as_of_utc'])+' (UTC). Each panel describes a separate kind of evidence.</p><ul>'+warnings+'</ul>'+''.join(sections)+'</html>'
     (out/'index.html').write_text(page)

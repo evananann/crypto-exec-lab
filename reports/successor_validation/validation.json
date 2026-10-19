@@ -1,0 +1,22 @@
+{
+  "as_of_utc": "2026-10-19T06:46:50.103098+00:00",
+  "verified_source_commit": "1930d346cba71dbf071d8014f5c2a8b6053b8954",
+  "local_tests_passed": 278,
+  "ruff_passed": true,
+  "frozen_source_maps_verified": 3,
+  "github_matrix_and_numerical_agreement_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39211541734",
+  "github_conclusion": "success",
+  "original_rehearsal_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39208111735",
+  "original_rehearsal_conclusion": "failure",
+  "healthy_collection_recovered_without_recollection": true,
+  "recovery_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39211253971",
+  "recovery_conclusion": "success",
+  "independent_public_download_restore": true,
+  "qualifying_prospective_timing_trials": 0,
+  "scientific_study_activated": false,
+  "remaining": [
+    "Latest three prospective attempts must qualify across at least two UTC dates",
+    "Commit prospective scientific registration and study-specific collection/report integration before study collection"
+  ],
+  "scope": "Engineering and infrastructure evidence; not a completed preregistered empirical study"
+}
