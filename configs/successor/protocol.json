@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "protocol_id": "btc-collection-successor-candidate-v1",
+  "state": "candidate_not_activated",
+  "pair": ["binance", "okx"],
+  "recording_seconds": 900,
+  "maximum_start_lateness_seconds": 300,
+  "metadata_interval_seconds": 60,
+  "minimum_rehearsals": 3,
+  "minimum_distinct_utc_dates": 2,
+  "minimum_span_fraction": 0.95,
+  "maximum_bbo_silence_ms": 2000,
+  "trigger": "Explicit UTC intended_start supplied by an authenticated operator; no scheduler SLA established",
+  "claim": "Atomic create-only Git reference to a unique owner commit; no automatic lease expiry or takeover",
+  "recovery": "Retain every claim and failed attempt; a claimed slot is never retried under another owner",
+  "study_dates": null,
+  "outcomes": "No outcome estimation in rehearsals or before a separately frozen study release",
+  "activation": "Requires verified remote readback, complete provenance and prospective on-time trials on at least two UTC dates; transport-only push rehearsals do not qualify"
+}
