@@ -7,7 +7,7 @@ Frozen v1/v2 source maps, collection windows and primary methods are unchanged.
 
 | # | Improvement | State / evidence |
 | ---: | --- | --- |
-| 1 | Explain missed slots | Hosted evidence confirms active/main collectors and two schedule-triggered runs created outside valid start windows, with recording steps skipped. Why creation was late remains unknown. [Evidence](SCHEDULING_RECOVERY.md). |
+| 1 | Explain missed slots | October 19 follow-up confirms active/main collectors and four schedule-triggered runs created outside valid start windows, with recording steps skipped. All four October 17–18 slots remain missing. Why creation was late remains unknown. [Evidence](SCHEDULING_RECOVERY.md). |
 | 2 | Verify a complete scheduled recording | Pending a real eligible 900-second sample. No preflight or synthetic tape substitutes for it. |
 | 3 | Reconcile every due slot | Existing source/health monitor continues automatically; coverage warnings remain visible. New timeline complements artifact inventory. |
 | 4 | Establish scheduler reliability before v2 | Readiness checks prepared; reliability remains unestablished while scheduled samples are missing. No same-slot automatic retry that risks duplicate artifacts. |

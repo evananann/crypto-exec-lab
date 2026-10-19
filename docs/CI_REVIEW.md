@@ -1,13 +1,17 @@
 # CI security and reproducibility review
 
-October 17, 2026. Four workflows outside the frozen source maps were hardened:
-test, study operations, durable preservation and replication comparison.
+Updated October 19, 2026. Five workflows outside the frozen source maps are
+hardened: test, study operations, durable preservation, replication comparison
+and released internal validation.
 
 - Their runner now explicitly uses Ubuntu 24.04, avoiding the announced
   `ubuntu-latest` distribution migration. This fixes the distribution label,
   not the exact image, installed OS packages or hosted hardware.
-- Checkout, Python setup and artifact upload use full commit SHAs resolved
-  from their upstream v4/v5/v4 tags. This prevents silent tag retargeting;
+- Checkout, Python setup, artifact upload and artifact download use full commit
+  SHAs resolved from upstream v5/v6/v6/v7 tags respectively. Their upstream
+  `action.yml` manifests explicitly declare `node24`; upload v5 and download
+  v6 still declared Node 20 when inspected, so version names alone were not
+  used to establish runtime compatibility. This prevents silent tag retargeting;
   SHA pins still need periodic upstream security review.
 - Checkout no longer persists Git credentials. Tokens used by subsequent
   hosted API operations are supplied explicitly in their existing steps.
@@ -29,6 +33,12 @@ Dependency resolution is locked; Python patch versions, runner images, system
 packages and the pip installation transport are not bit-for-bit pinned.
 GitHub's Node runtime override can also change action execution independently
 of the action commit. Do not describe these workflows as hermetic builds.
+The native Node 24 support actions require Actions Runner 2.327.1 or later;
+these jobs use GitHub-hosted Ubuntu 24.04 runners. Existing artifact names,
+retention, download directory layout, permissions and warning policy remain.
+The numerical-agreement job exercises the upgraded upload/download pair with
+real matrix artifacts. This maintenance addresses observed deprecation
+warnings, not the separate collector scheduling failure.
 
 The preregistered replication collection/report workflows are themselves
 source-bound. They retain their existing action tags and runner labels, and

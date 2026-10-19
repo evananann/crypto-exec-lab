@@ -54,10 +54,11 @@ returns nonzero. Use strict mode when an explicit all-coverage check is desired.
 Repeated gaps remain visible and retain their original state; they are not
 acknowledged as repaired or reclassified as successful observations.
 
-The [latest inspected monitor](https://github.com/evananann/crypto-exec-lab/actions/runs/39059864112)
-flagged both October 17 AM and PM missing. This is an observation from its
-October 17 run, not a verified inventory of subsequent slots. See the
-[dated snapshot](../reports/data_provenance/README.md) and
+The [latest inspected monitor](https://github.com/evananann/crypto-exec-lab/actions/runs/39156515389)
+flagged all four October 17–18 AM/PM slots missing. This is the inventory
+reported by that October 18 UTC run, inspected October 19; later slots require
+their own checks. See the [scheduling follow-up](SCHEDULING_RECOVERY.md),
+[dated snapshot](../reports/collection_followup_20261019/observation.json) and
 [failure-attribution guide](FAILURE_ATTRIBUTION.md).
 No full 15-minute eligible study sample has been independently verified here
 yet. The hosted preflight passes; scheduled sample verification is a separate

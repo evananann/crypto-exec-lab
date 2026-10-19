@@ -74,7 +74,7 @@ mode requires verified original archives and enforces the frozen holdout dates.
   measurements needed before a future production-execution study.
 
 V1 runs October 17–23, 2026 UTC with outcome release October 24 UTC. The latest
-inspected monitor flags both October 17 slots missing, preventing a conclusive
+inspected monitor flags all four October 17–18 slots missing, preventing a conclusive
 full-study claim under the
 frozen rule. The separate 28-day replication runs October 26–November 22 UTC,
 with release November 23 UTC. Future collections and reports must be verified

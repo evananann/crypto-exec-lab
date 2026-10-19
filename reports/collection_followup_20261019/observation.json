@@ -1,0 +1,66 @@
+{
+  "as_of_utc": "2026-10-19T02:29:34.363657+00:00",
+  "source_commit": "bc43a53be0f7d7e681627e37ca25e8fcd74f53f2",
+  "provenance_scope": "Public workflow listing timestamps and hosted monitor/preservation annotations; no local authenticated Actions API or private job logs.",
+  "monitor_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39156515389",
+  "monitor_conclusion": "success",
+  "reported_missing_slots": [
+    "2026-10-17-am",
+    "2026-10-17-pm",
+    "2026-10-18-am",
+    "2026-10-18-pm"
+  ],
+  "workflow_readiness": [
+    {
+      "workflow": "live-study.yml",
+      "state": "active",
+      "default_branch_main": true,
+      "scheduled_runs_in_recent_history": 4
+    },
+    {
+      "workflow": "replication-study.yml",
+      "state": "active",
+      "default_branch_main": true,
+      "scheduled_runs_in_recent_history": 3
+    }
+  ],
+  "new_scheduled_v1_runs": [
+    {
+      "run_id": 39109889677,
+      "event": "schedule",
+      "created_at_utc": "2026-10-18T08:02:02Z",
+      "creation_to_start_seconds": 0.0,
+      "collection_steps_skipped": 1
+    },
+    {
+      "run_id": 39152485326,
+      "event": "schedule",
+      "created_at_utc": "2026-10-18T18:04:32Z",
+      "creation_to_start_seconds": 0.0,
+      "collection_steps_skipped": 1
+    }
+  ],
+  "preservation": {
+    "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39158562217",
+    "conclusion": "success",
+    "original_archives_downloaded_and_restored": 8,
+    "reported_problems": 0,
+    "new_independent_local_readback": false
+  },
+  "v1_public_release_inventory": {
+    "archive_count": 6,
+    "asset_count": 18,
+    "all_archive_names_are_preflights": true
+  },
+  "collection_reliability_established": false,
+  "outcomes_evaluated": false,
+  "unknowns": [
+    "Original cron payload and intended date per run",
+    "Reason for late run creation",
+    "Any delay before run creation"
+  ],
+  "runtime_observations": [
+    "Support actions forced from Node 20 onto Node 24",
+    "Frozen collector warns ubuntu-latest migration starts October 19, 2026"
+  ]
+}
