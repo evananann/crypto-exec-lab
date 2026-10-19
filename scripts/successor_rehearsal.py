@@ -253,6 +253,7 @@ def preserve(args):
     archive = archives[0]
     tag = 'successor-rehearsal-' + archive.name.removeprefix('rehearsal-').removesuffix('.tar.gz')
     # Resume preservation of this original; never recollect or overwrite a remote asset.
+    print('::notice title=Successor preservation stage::release_inventory')
     releases = api(f'repos/{args.repository}/releases?per_page=100')
     if len(releases) >= 100:
         raise ValueError('release inventory may be truncated')
@@ -260,12 +261,14 @@ def preserve(args):
     if len(matching) > 1:
         raise ValueError('ambiguous rehearsal release')
     if not matching:
+        print('::notice title=Successor preservation stage::release_creation')
         api(f'repos/{args.repository}/releases', {
             'tag_name': tag, 'target_commitish': args.source_commit, 'draft': False,
             'prerelease': True, 'make_latest': 'false', 'name': 'Successor infrastructure rehearsal',
             'body': 'Public BBO infrastructure rehearsal, including failed quality checks. Not study results.'})
         existing_names = set()
     else:
+        print('::notice title=Successor preservation stage::existing_release_verification')
         release = matching[0]
         if release.get('draft') or not release.get('prerelease'):
             raise ValueError('unexpected existing release state')

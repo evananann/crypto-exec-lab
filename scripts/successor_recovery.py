@@ -117,7 +117,9 @@ def main():
         print('::error title=Successor recovery::' + message)
         raise
     except Exception as exc:
-        print('::error title=Successor recovery::operation_failed type=' + type(exc).__name__)
+        code = re.fullmatch(r'GitHub API operation failed; HTTP status=([0-9]{3}|unknown)', str(exc))
+        category = 'api_http_' + code.group(1) if code else type(exc).__name__
+        print('::error title=Successor recovery::operation_failed category=' + category)
         raise
 
 

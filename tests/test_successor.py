@@ -51,7 +51,8 @@ class SuccessorTests(unittest.TestCase):
         self.assertEqual(len(winners),1)
         self.assertTrue(verify_claim(winners[0],request=api))
         self.assertIsNone(compete('102-1'))
-        self.assertEqual(len(api.refs),1)
+        self.assertEqual(sum(name.startswith('refs/tags/successor-claims/') for name in api.refs),1)
+        self.assertEqual(len(api.refs),2)
 
     def test_claim_binding_rejects_changed_owner(self):
         api = FakeGitHub()

@@ -62,7 +62,14 @@ def claim(repository, protocol, intended_start, source_commit, owner, *, request
     result = request(f'repos/{repository}/git/refs', {'ref': ref, 'sha': unique_commit['sha']})
     if result.get('ref') != ref or result.get('object', {}).get('sha') != unique_commit['sha']:
         raise ValueError('claim receipt does not establish this owner')
-    return record | {'claim_ref': ref, 'claim_commit': unique_commit['sha'],
+    # Reserve the archive tag before the long recording, while the source is the
+    # run's current commit. Release publication can then use an existing tag even
+    # after main advances; no additional workflow-write permission is requested.
+    archive_tag = 'refs/tags/successor-rehearsal-' + owner
+    reserved = request(f'repos/{repository}/git/refs', {'ref': archive_tag, 'sha': source_commit})
+    if reserved.get('ref') != archive_tag or reserved.get('object', {}).get('sha') != source_commit:
+        raise ValueError('archive tag reservation differs from original source')
+    return record | {'claim_ref': ref, 'claim_commit': unique_commit['sha'], 'archive_tag': archive_tag,
                      'claimed_at_utc': datetime.now(timezone.utc).isoformat()}
 
 
@@ -81,6 +88,12 @@ def verify_claim(receipt, *, request=api):
                 'intended_start_utc', 'source_commit', 'owner_run_attempt', 'protocol_sha256')}
     if commit['message'] != 'Successor slot ownership\n' + canonical(expected).decode():
         raise ValueError('claim owner metadata mismatch')
+    if 'archive_tag' in receipt:
+        if receipt['archive_tag'] != 'refs/tags/successor-rehearsal-' + receipt['owner_run_attempt']:
+            raise ValueError('unexpected archive tag')
+        reserved = request(f'repos/{repository}/git/ref/{receipt["archive_tag"].removeprefix("refs/")}')
+        if reserved.get('object', {}).get('sha') != receipt['source_commit']:
+            raise ValueError('archive tag source changed')
     return True
 
 
