@@ -354,3 +354,22 @@ class StatusFailureTests(unittest.TestCase):
         self.assertEqual(state['collection']['counts'],{'unverified':5})
         self.assertEqual(state['successor']['state'],'unverified')
         self.assertFalse(state['successor']['study_activated'])
+
+
+class ProtocolEvolutionTests(unittest.TestCase):
+    def test_serialization_changes_do_not_change_protocol_identity(self):
+        from scripts.successor_claim import canonical
+        compact = json.dumps(PROTOCOL,separators=(',',':'))
+        pretty = json.dumps(PROTOCOL,indent=2)
+        self.assertNotEqual(compact,pretty)
+        self.assertEqual(canonical(json.loads(compact)),canonical(json.loads(pretty)))
+
+    def test_old_source_trials_remain_visible_but_new_matching_trials_can_qualify(self):
+        from scripts.successor_readiness import summarize
+        helper = ReadinessAndStatusTests()
+        records = [helper.trial(i,day=20+i) | {'qualification_compatible':False} for i in range(3)]
+        self.assertFalse(summarize(records,PROTOCOL)['activation_ready'])
+        records += [helper.trial(i,day=20+i) | {'qualification_compatible':True} for i in range(3,6)]
+        result = summarize(records,PROTOCOL)
+        self.assertTrue(result['activation_ready'])
+        self.assertEqual(result['attempts_examined'],6)

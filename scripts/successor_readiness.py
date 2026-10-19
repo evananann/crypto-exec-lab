@@ -21,7 +21,7 @@ def summarize(records, protocol):
     qualified = [row for row in records if row['authenticated_remote_restore'] is True and
                  row['assessment']['collection_healthy'] is True and
                  row['assessment']['timing']['timing_qualified'] is True and
-                 row['event'] == 'workflow_dispatch']
+                 row['event'] == 'workflow_dispatch' and row.get('qualification_compatible', True)]
     dates = sorted({instant(row['intended_start_utc']).date().isoformat() for row in qualified})
     prospective = sorted([row for row in records if row['event'] == 'workflow_dispatch'],
                          key=lambda row: (row.get('run_created_at_utc', row.get('intended_start_utc') or ''), row.get('run_attempt', 1)))
@@ -110,10 +110,10 @@ def inspect(repository):
                     receipt.get('claim') != claim or receipt.get('assessment') != assessment or
                     receipt.get('repository') != repository or receipt.get('release_tag') != tag):
                 raise ValueError('receipt does not bind the downloaded original and recomputed assessment')
-            if claim['repository'] != repository or claim['protocol_sha256'] != hashlib.sha256(canonical(protocol)).hexdigest():
-                raise ValueError('claim repository or protocol differs')
-            if (restored / 'protocol.json').read_bytes() != PROTOCOL.read_bytes():
-                raise ValueError('archived protocol differs')
+            archived_protocol = json.loads((restored / 'protocol.json').read_text())
+            if claim['repository'] != repository or claim['protocol_sha256'] != hashlib.sha256(canonical(archived_protocol)).hexdigest():
+                raise ValueError('claim repository or archived protocol differs')
+            compatible = canonical(archived_protocol) == canonical(protocol)
             verify_claim(claim)
             owner = claim['owner_run_attempt']
             if owner not in trusted_runs or owner in seen:
@@ -126,7 +126,15 @@ def inspect(repository):
                     (run.get('head_repository') or {}).get('full_name','').lower() != repository.lower() or
                     run.get('event') not in ('push', 'workflow_dispatch') or run.get('conclusion') != 'success'):
                 raise ValueError('untrusted or incomplete rehearsal run')
-            verify_source(restored, run['head_sha'], require_current=run['event'] == 'workflow_dispatch')
+            verify_source(restored, run['head_sha'], require_current=False)
+            committed_protocol = json.loads(subprocess.check_output(['git', 'show', run['head_sha'] + ':' + str(PROTOCOL)]))
+            if canonical(committed_protocol) != canonical(archived_protocol):
+                raise ValueError('archived protocol differs from its authenticated source')
+            if compatible and run['event'] == 'workflow_dispatch':
+                try:
+                    verify_source(restored, run['head_sha'], require_current=True)
+                except ValueError:
+                    compatible = False  # Preserve earlier source-bound trials; require new matching qualification.
             if (instant(trigger['intended_start_utc']) != instant(claim['intended_start_utc']) or
                     instant(manifest['intended_start_utc']) != instant(claim['intended_start_utc']) or
                     trigger['run_id'] != int(run_id) or trigger['event'] != run['event'] or
@@ -135,6 +143,7 @@ def inspect(repository):
             records.append({'slot_id': claim['slot_id'], 'intended_start_utc': claim['intended_start_utc'],
                             'source_commit': run['head_sha'], 'event': run['event'], 'release_tag': tag,
                             'run_created_at_utc': run['created_at'], 'run_attempt': int(attempt),
+                            'qualification_compatible': compatible,
                             'authenticated_remote_restore': True, 'assessment': assessment})
     for owner, run in trusted_runs.items():
         if owner in seen:

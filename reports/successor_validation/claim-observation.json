@@ -1,0 +1,19 @@
+{
+  "as_of_utc": "2026-10-19T06:19:42.838130+00:00",
+  "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39208111735",
+  "claim_ref": "refs/tags/successor-claims/btc-collection-successor-candidate-v1/20261019T060732Z",
+  "claim_commit": "c6965676e4cd7be7e96cef5c3eba49304a584d0e",
+  "authenticated_git_readback": true,
+  "owner_commit_tree_equals_source": true,
+  "owner": {
+    "intended_start_utc": "2026-10-19T06:07:32+00:00",
+    "owner_run_attempt": "39208111735-1",
+    "protocol_sha256": "aab63ec34c5a91883b042999b6d41c8245deaf945f9564abcf48dc892ea9d9bb",
+    "repository": "evananann/crypto-exec-lab",
+    "schema_version": 1,
+    "slot_id": "btc-collection-successor-candidate-v1/20261019T060732Z",
+    "source_commit": "678d6ed77565f16798661ee5f47d1f6be32b472c"
+  },
+  "scope": "Native Git ref/commit readback; not collection eligibility, remote archive verification or a real concurrent API race",
+  "outcomes_evaluated": false
+}

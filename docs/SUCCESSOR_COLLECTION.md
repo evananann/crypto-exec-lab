@@ -91,6 +91,17 @@ No markout, price summary, trading signal result or PnL is published by these
 operational tools. Archives necessarily retain public quote payloads for later
 verification; no outcome estimator is called.
 
+Reproduce an offline restore and health check without GitHub credentials:
+
+```bash
+uv run --frozen python -m scripts.successor_rehearsal verify \
+  --archive data/raw/original/rehearsal-RUN-ATTEMPT.tar.gz \
+  --out data/raw/new-successor-restore
+```
+
+Keep the original `.sha256` alongside the archive. Verification completion and
+the assessment's `collection_healthy` flag are separate results.
+
 ## Archives and recovery
 
 Every completed or blocked recording produces a source-bound archive, exact

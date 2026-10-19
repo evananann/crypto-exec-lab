@@ -345,7 +345,16 @@ def main():
     backup.add_argument('--out', type=Path, required=True)
     backup.add_argument('--repository', required=True)
     backup.add_argument('--source-commit', required=True)
+    verify = sub.add_parser('verify')
+    verify.add_argument('--archive', type=Path, required=True)
+    verify.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
+    if args.command == 'verify':
+        args.out.mkdir(parents=True, exist_ok=False)
+        result = restore(args.archive, args.out / 'restored')
+        write(args.out / 'restore-assessment.json', result)
+        print('Archive restored and collection health recomputed; collection_healthy=' + str(result['collection_healthy']))
+        return 0
     if args.command == 'collect':
         return collect(args)
     preserve(args)
