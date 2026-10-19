@@ -109,6 +109,20 @@ def main():
             stream.write(summary)
     if state['warnings']:
         print('::warning title=Project status::Some evidence is unavailable or dated; see status.json')
+    software = state['software']['state']
+    if software not in ('success', 'failure', 'cancelled', 'timed_out', 'action_required', 'neutral', 'skipped', 'unverified'):
+        software = 'unknown'
+    collection = state['collection']['state']
+    if collection not in ('healthy', 'ALERT', 'unverified'):
+        collection = 'unknown'
+    counts = state['collection'].get('counts', {})
+    def count(key):
+        value = counts.get(key, 0)
+        return value if type(value) is int and value >= 0 else 0
+    successor = state['successor']['state']
+    if successor not in ('not_ready', 'readiness_passed', 'unverified', 'not_activated'):
+        successor = 'unknown'
+    print(f'::notice title=Project status::software={software} collection={collection} missing={count("missing")} eligible={count("eligible")} unverified={count("unverified")} successor={successor} study_activated=False')
     return 0
 
 
