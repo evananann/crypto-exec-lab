@@ -37,11 +37,27 @@ example future trial, not evidence that an operator has scheduled or run it.
 Do not dispatch again for the same intended slot, even if recording failed.
 The other candidate daily start is 15:17 UTC / 23:17 Shanghai.
 
+An operator with working Actions API authentication can instead use the one-shot
+dispatcher during that same window:
+
+```bash
+uv run --frozen python -m scripts.successor_dispatch \
+  --repository evananann/crypto-exec-lab \
+  --intended-start 2026-10-20T03:17:00Z --out data/raw/new-dispatch.jsonl
+```
+
+It fsyncs a client send receipt before submission, records acknowledgment or
+uncertain delivery afterward, and includes its receipt ID and caller send time
+in the archived trigger. It never waits for a future window or automatically
+retries. An API acknowledgment is not confirmation that recording started.
+
 The archive contains intended start, run creation/start, first gate time and
 decision, final gate decision, collector start/end and claim receipt. Original
-API dispatch sent/received times remain explicitly unavailable: GitHub run
-creation is not the original dispatch receipt. No pre-creation delay or root
-cause is inferred from a zero creation-to-start interval.
+server dispatch receipt remains explicitly unavailable: GitHub run creation is
+not the original dispatch receipt. Client send/ack observations are caller-clock
+evidence, not server attestations. Browser dispatch without the helper leaves
+the caller fields unavailable. No pre-creation delay or root cause is inferred
+from a zero creation-to-start interval.
 
 ## Durable claim before collection
 

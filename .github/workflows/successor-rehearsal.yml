@@ -11,6 +11,14 @@ on:
         description: 'Explicit intended start, ISO 8601 with UTC offset; dispatch during its five-minute window'
         type: string
         required: true
+      dispatch_sent_at_utc:
+        description: 'Optional caller send timestamp from successor_dispatch; diagnostic only'
+        type: string
+        required: false
+      dispatch_id:
+        description: 'Optional caller receipt ID from successor_dispatch'
+        type: string
+        required: false
 
 permissions:
   contents: read
@@ -36,10 +44,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           INTENDED_START: ${{ inputs.intended_start_utc }}
+          CLIENT_SENT: ${{ inputs.dispatch_sent_at_utc }}
+          DISPATCH_ID: ${{ inputs.dispatch_id }}
         run: |
           python - <<'PY'
           from datetime import datetime, timezone
-          import json, os, subprocess
+          import json, os, re, subprocess
           from pathlib import Path
           from scripts.successor_claim import instant
           protocol = json.loads(Path('configs/successor/protocol.json').read_text())
@@ -47,6 +57,10 @@ jobs:
           mode = 'prospective' if os.environ['GITHUB_EVENT_NAME'] == 'workflow_dispatch' else 'transport_only'
           intended = os.environ.get('INTENDED_START') or run['created_at']
           now = datetime.now(timezone.utc)
+          client_sent = instant(os.environ['CLIENT_SENT']).isoformat() if os.environ.get('CLIENT_SENT') else None
+          dispatch_id = os.environ.get('DISPATCH_ID') or None
+          if dispatch_id is not None and not re.fullmatch('[0-9a-f]{32}',dispatch_id):
+              raise ValueError('invalid caller receipt ID')
           lag = (now - instant(intended)).total_seconds()
           accepted = mode == 'transport_only' or 0 <= lag <= protocol['maximum_start_lateness_seconds']
           Path('data/raw/successor-control').mkdir(parents=True, exist_ok=False)
@@ -54,7 +68,8 @@ jobs:
             'source_commit':os.environ['GITHUB_SHA'], 'intended_start_utc':intended,
             'run_created_at_utc':run['created_at'],'run_started_at_utc':run.get('run_started_at'),
             'gate_checked_at_utc':now.isoformat(),'gate_accepted':accepted,'mode':mode,
-            'dispatch_sent_at_utc':None,'dispatch_receipt_at_utc':None,
+            'dispatch_sent_at_utc':client_sent,'dispatch_id':dispatch_id,'dispatch_receipt_at_utc':None,
+            'dispatch_sent_source':'authenticated operator input, not server attestation' if client_sent else 'unavailable',
             'limitation':'GitHub run creation is not the original dispatch receipt; no pre-creation delay inferred'}
           Path('data/raw/successor-control/trigger.json').write_text(json.dumps(trigger,indent=2)+'\n')
           with open(os.environ['GITHUB_OUTPUT'],'a') as stream:

@@ -430,3 +430,37 @@ class RecoveryInventoryTests(unittest.TestCase):
             self.assertFalse(result['new_recording_performed'])
             self.assertFalse(result['qualifying_prospective_success'])
             self.assertEqual(result['original_conclusion'],'failure')
+
+
+class DispatchEvidenceTests(unittest.TestCase):
+    def test_single_dispatch_records_send_ack_and_receipt_id_without_retry(self):
+        from datetime import datetime,timezone,timedelta
+        from types import SimpleNamespace
+        from unittest.mock import Mock
+        from scripts.successor_dispatch import dispatch
+        start=datetime(2026,10,20,3,17,tzinfo=timezone.utc)
+        ticks=iter([start,start+timedelta(seconds=1)])
+        runner=Mock(return_value=SimpleNamespace(returncode=0))
+        with TemporaryDirectory() as tmp:
+            out=Path(tmp)/'dispatch.jsonl'
+            self.assertTrue(dispatch('owner/repo',start.isoformat(),out,clock=lambda:next(ticks),run=runner))
+            rows=[json.loads(s) for s in out.read_text().splitlines()]
+            self.assertEqual([r['phase'] for r in rows],['request_prepared','request_acknowledged'])
+            payload=json.loads(runner.call_args.kwargs['input'])
+            self.assertEqual(payload['inputs']['dispatch_id'],rows[0]['dispatch_id'])
+            self.assertFalse(rows[1]['workflow_run_verified'])
+            runner.assert_called_once()
+
+    def test_uncertain_delivery_is_preserved_and_never_retried(self):
+        from datetime import datetime,timezone
+        from unittest.mock import Mock
+        from scripts.successor_dispatch import dispatch
+        start=datetime(2026,10,20,3,17,tzinfo=timezone.utc)
+        runner=Mock(side_effect=OSError('connection lost'))
+        with TemporaryDirectory() as tmp:
+            out=Path(tmp)/'dispatch.jsonl'
+            self.assertFalse(dispatch('owner/repo',start.isoformat(),out,clock=lambda:start,run=runner))
+            rows=[json.loads(s) for s in out.read_text().splitlines()]
+            self.assertEqual(rows[-1]['phase'],'delivery_unconfirmed')
+            self.assertFalse(rows[-1]['automatic_retry'])
+            runner.assert_called_once()
