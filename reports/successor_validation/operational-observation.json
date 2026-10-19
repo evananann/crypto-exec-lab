@@ -1,0 +1,14 @@
+{
+  "as_of_utc": "2026-10-19T06:29:38.463970+00:00",
+  "status_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39209286396",
+  "published_notice": "software=success collection=ALERT missing=5 eligible=0 unverified=0 successor=not_ready study_activated=False",
+  "reported_missing_slots": [
+    "2026-10-17-am",
+    "2026-10-17-pm",
+    "2026-10-18-am",
+    "2026-10-18-pm",
+    "2026-10-19-am"
+  ],
+  "slot_identity_basis": "All five frozen slots overdue at status run creation; the public authenticated hosted notice reports five missing. Full status artifact was not downloaded locally.",
+  "outcomes_evaluated": false
+}

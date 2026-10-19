@@ -106,10 +106,15 @@ the assessment's `collection_healthy` flag are separate results.
 
 Every completed or blocked recording produces a source-bound archive, exact
 member hashes and an external archive SHA-256. A fresh temporary restore
-recomputes the assessment. A unique non-latest prerelease
-`successor-rehearsal-<run>-<attempt>` preserves the original archive/checksum on
-GitHub Releases. The hosted job downloads it again, checks the original digest,
-restores it, authenticates the claim and publishes a readback receipt.
+recomputes the assessment. Unique `rehearsal-<run>-<attempt>.tar.gz` assets and
+`successor-readback-<run>-<attempt>.json` receipts use the existing
+`study-archive-btc-execution-v1` non-latest prerelease. New Release creation
+returned HTTP 403 in the hosted job, so the implementation uses this already
+approved storage destination instead of requesting broader permissions. Shared
+storage does not make a successor rehearsal part of v1: frozen downloaders select
+their own artifact names and plan hashes, and cannot accept this archive schema.
+The hosted job downloads the original again, restores it, authenticates the claim
+and publishes a unique readback receipt. Existing study assets are never changed.
 
 A failed quality check is preserved and shown as unhealthy, even when backup
 succeeds. A successful workflow or readback does not establish study eligibility.
@@ -126,10 +131,20 @@ uv run --frozen python -m scripts.successor_rehearsal preserve \
 ```
 
 Existing remote assets must match byte-for-byte; conflicting assets are never
-clobbered. The existing release tag must point at the original source revision.
+clobbered. The per-attempt `successor-rehearsal-<run>-<attempt>` Git tag is
+reserved before recording and must point at the original source revision. That
+source tag is distinct from the shared storage Release tag.
 Missing assets are uploaded, and the original is downloaded/restored again.
 This resumes preservation, not recording or claim ownership. The original run's
 failure remains in inventory and does not become a qualifying timing success.
+
+The separate `successor preservation recovery` workflow can download a trusted
+original Actions artifact and perform this recovery on current main. It runs
+after a failed rehearsal, supports an explicit original run ID, and never
+executes code from the downloaded archive. If only a partial recording or no
+original archive exists, it fails rather than creating replacement market data.
+Recovery performs no Release creation; uploads and downloads use the
+established CLI path on the existing archive Release.
 
 ## Readiness and future preregistration
 

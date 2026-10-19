@@ -5,6 +5,12 @@ external review, a second-provider backup and production-order experiments out
 of scope. “Tooling ready” is different from completing future observations.
 Frozen v1/v2 source maps, collection windows and primary methods are unchanged.
 
+The [successor collection implementation](SUCCESSOR_COLLECTION.md) now adds
+explicit slot claims, detailed provenance, full-duration infrastructure
+rehearsals, preservation recovery and a unified status page. Its candidate
+scientific study remains unactivated until the latest three prospective trials
+qualify across at least two UTC dates. This does not repair existing missing slots.
+
 | # | Improvement | State / evidence |
 | ---: | --- | --- |
 | 1 | Explain missed slots | October 19 follow-up confirms active/main collectors and four schedule-triggered runs created outside valid start windows, with recording steps skipped. All four October 17–18 slots remain missing. Why creation was late remains unknown. [Evidence](SCHEDULING_RECOVERY.md). |

@@ -11,7 +11,7 @@ import subprocess
 import tempfile
 
 from scripts.successor_claim import api, canonical, instant, verify_claim
-from scripts.successor_rehearsal import PROTOCOL, digest, restore, write
+from scripts.successor_rehearsal import PROTOCOL, STORAGE_TAG, digest, restore, write, storage_assets
 
 
 def summarize(records, protocol):
@@ -56,11 +56,18 @@ def inspect(repository):
     if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repository):
         raise ValueError('invalid repository')
     protocol = json.loads(PROTOCOL.read_text())
-    # Cost bound is explicit. More than 100 Releases must be reconciled before activation.
-    releases = api(f'repos/{repository}/releases?per_page=100')
-    if len(releases) >= 100:
-        raise ValueError('release inventory may be truncated; reconcile before activation')
-    attempts = [r for r in releases if r.get('tag_name', '').startswith('successor-rehearsal-')]
+    storage = api(f'repos/{repository}/releases/tags/{STORAGE_TAG}')
+    if storage.get('draft') or not storage.get('prerelease'):
+        raise ValueError('unexpected archive release state')
+    assets = storage_assets(repository, storage)
+    attempts = []
+    for asset in assets:
+        match = re.fullmatch(r'rehearsal-([0-9]+-[0-9]+)\.tar\.gz', asset['name'])
+        if match:
+            owner = match.group(1)
+            own_names = {asset['name'],asset['name']+'.sha256','successor-readback-'+owner+'.json'}
+            attempts.append({'tag_name':STORAGE_TAG,'owner':owner,'prerelease':True,'draft':False,
+                             'assets':[a for a in assets if a['name'] in own_names]})
     runs = api(f'repos/{repository}/actions/workflows/successor-rehearsal.yml/runs?branch=main&per_page=100')['workflow_runs']
     if len(runs) >= 100:
         raise ValueError('run inventory may be truncated; reconcile before activation')
@@ -81,18 +88,19 @@ def inspect(repository):
         if release.get('draft') or not release.get('prerelease'):
             raise ValueError('unexpected rehearsal release state')
         tag = release['tag_name']
-        if not re.fullmatch(r'successor-rehearsal-[0-9]+-[0-9]+', tag):
-            raise ValueError('unsafe rehearsal tag')
-        archive_name = tag.removeprefix('successor-') + '.tar.gz'
+        owner = release['owner']
+        archive_name = 'rehearsal-' + owner + '.tar.gz'
+        receipt_name = 'successor-readback-' + owner + '.json'
         assets = release.get('assets', [])
         names = [item['name'] for item in assets]
-        if (len(names) != 3 or set(names) != {archive_name, archive_name + '.sha256', 'remote-readback.json'} or
+        if (len(names) != 3 or set(names) != {archive_name, archive_name + '.sha256', receipt_name} or
                 sum(item.get('size', 0) for item in assets) > 2_010_000_000):
             raise ValueError('incomplete, unexpected or oversized rehearsal assets')
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            subprocess.run(['gh', 'release', 'download', tag, '--repo', repository, '--dir', str(root)],
-                           check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            for name in sorted(names):
+                subprocess.run(['gh', 'release', 'download', tag, '--repo', repository, '--pattern', name, '--dir', str(root)],
+                               check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             archives = list(root.glob('*.tar.gz'))
             if len(archives) != 1:
                 raise ValueError('one original rehearsal archive required')
@@ -103,13 +111,14 @@ def inspect(repository):
             trigger = json.loads((restored / 'trigger.json').read_text())
             manifest = json.loads((restored / 'manifest.json').read_text())
             # A release interrupted before its remote-restore receipt is not qualified.
-            receipt_path = root / 'remote-readback.json'
+            receipt_path = root / receipt_name
             if not receipt_path.is_file():
                 raise ValueError('remote restore receipt missing; interrupted preservation requires diagnosis')
             receipt = json.loads(receipt_path.read_text())
             if (receipt.get('archive_sha256') != digest(archive) or receipt.get('remote_restored') is not True or
                     receipt.get('claim') != claim or receipt.get('assessment') != assessment or
-                    receipt.get('repository') != repository or receipt.get('release_tag') != tag):
+                    receipt.get('repository') != repository or receipt.get('release_tag') != tag or
+                    receipt.get('archive_name') != archive_name or receipt.get('receipt_asset_name') != receipt_name):
                 raise ValueError('receipt does not bind the downloaded original and recomputed assessment')
             archived_protocol = json.loads((restored / 'protocol.json').read_text())
             if claim['repository'] != repository or claim['protocol_sha256'] != hashlib.sha256(canonical(archived_protocol)).hexdigest():
@@ -117,6 +126,8 @@ def inspect(repository):
             compatible = canonical(archived_protocol) == canonical(protocol)
             verify_claim(claim)
             owner = claim['owner_run_attempt']
+            if owner != release['owner']:
+                raise ValueError('asset namespace differs from original owner')
             if owner not in trusted_runs or owner in seen:
                 raise ValueError('orphan or repeated rehearsal release')
             seen.add(owner)

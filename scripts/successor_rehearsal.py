@@ -243,94 +243,97 @@ def collect(args):
     return 0  # Failed quality remains visible; backup still must preserve the failed attempt.
 
 
+STORAGE_TAG = 'study-archive-btc-execution-v1'
+
+
+def storage_assets(repository, release):
+    identifier = release.get('id')
+    if type(identifier) is not int or identifier <= 0:
+        raise ValueError('invalid existing archive release')
+    result = []
+    for page in range(1, 11):
+        items = api(f'repos/{repository}/releases/{identifier}/assets?per_page=100&page={page}')
+        result.extend(items)
+        if len(items) < 100:
+            names = [item['name'] for item in result]
+            if len(names) != len(set(names)):
+                raise ValueError('duplicate remote asset names')
+            return result
+    raise ValueError('archive inventory exceeds bound; reconcile before publication')
+
+
 def preserve(args):
-    """Publish unique assets, download them again, restore and authenticate the original claim."""
+    """Use the approved existing Release. No new Release creation or asset replacement."""
     if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', args.repository):
         raise ValueError('invalid repository')
     archives = list(args.out.glob('rehearsal-*.tar.gz'))
     if len(archives) != 1:
         raise ValueError('one original archive required')
     archive = archives[0]
-    tag = 'successor-rehearsal-' + archive.name.removeprefix('rehearsal-').removesuffix('.tar.gz')
-    # Resume preservation of this original; never recollect or overwrite a remote asset.
-    print('::notice title=Successor preservation stage::release_inventory')
-    releases = api(f'repos/{args.repository}/releases?per_page=100')
-    if len(releases) >= 100:
-        raise ValueError('release inventory may be truncated')
-    matching = [item for item in releases if item.get('tag_name') == tag]
-    if len(matching) > 1:
-        raise ValueError('ambiguous rehearsal release')
-    if not matching:
-        print('::notice title=Successor preservation stage::release_creation')
-        api(f'repos/{args.repository}/releases', {
-            'tag_name': tag, 'target_commitish': args.source_commit, 'draft': False,
-            'prerelease': True, 'make_latest': 'false', 'name': 'Successor infrastructure rehearsal',
-            'body': 'Public BBO infrastructure rehearsal, including failed quality checks. Not study results.'})
-        existing_names = set()
-    else:
-        print('::notice title=Successor preservation stage::existing_release_verification')
-        release = matching[0]
-        if release.get('draft') or not release.get('prerelease'):
-            raise ValueError('unexpected existing release state')
-        ref = api(f'repos/{args.repository}/git/ref/tags/{tag}')
-        if ref.get('object', {}).get('sha') != args.source_commit:
-            raise ValueError('existing release tag points to another source')
-        existing_names = {item['name'] for item in release.get('assets', [])}
-    allowed = {archive.name, archive.name + '.sha256', 'remote-readback.json'}
-    if not existing_names <= allowed:
-        raise ValueError('unexpected asset on rehearsal release')
-    with tempfile.TemporaryDirectory() as previous:
-        if existing_names:
-            subprocess.run(['gh', 'release', 'download', tag, '--repo', args.repository,
-                            '--dir', previous], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        for local in (archive, archive.with_name(archive.name + '.sha256')):
-            if local.name in existing_names:
-                if digest(Path(previous) / local.name) != digest(local):
-                    raise ValueError('existing remote asset conflicts; never overwrite')
-            else:
-                subprocess.run(['gh', 'release', 'upload', tag, str(local), '--repo', args.repository],
-                               check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    owner = archive.name.removeprefix('rehearsal-').removesuffix('.tar.gz')
+    if not re.fullmatch(r'[0-9]+-[0-9]+', owner):
+        raise ValueError('unsafe original archive name')
+    receipt_name = 'successor-readback-' + owner + '.json'
+    print('::notice title=Successor preservation stage::existing_release_inventory')
+    release = api(f'repos/{args.repository}/releases/tags/{STORAGE_TAG}')
+    if release.get('draft') or not release.get('prerelease') or release.get('tag_name') != STORAGE_TAG:
+        raise ValueError('unexpected existing archive release state')
+    assets = storage_assets(args.repository, release)
+    names = {item['name'] for item in assets}
+    # Each archive's source ref is separate from the shared storage Release tag.
+    ref = api(f'repos/{args.repository}/git/ref/tags/successor-rehearsal-{owner}')
+    if ref.get('object', {}).get('sha') != args.source_commit:
+        raise ValueError('archive source tag differs from original collector')
     with tempfile.TemporaryDirectory() as temporary:
-        target = Path(temporary)
-        subprocess.run(['gh', 'release', 'download', tag, '--repo', args.repository,
-                        '--dir', str(target)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        remote = target / archive.name
-        if digest(remote) != digest(archive):
-            raise ValueError('remote archive differs from original')
-        result = restore(remote, target / 'restored')
-        claim = json.loads((target / 'restored' / 'claim.json').read_text())
+        root = Path(temporary)
+        for local in (archive, archive.with_name(archive.name + '.sha256')):
+            if local.name not in names:
+                print('::notice title=Successor preservation stage::original_asset_upload')
+                subprocess.run(['gh','release','upload',STORAGE_TAG,str(local),'--repo',args.repository],
+                               check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            subprocess.run(['gh','release','download',STORAGE_TAG,'--repo',args.repository,
+                            '--pattern',local.name,'--dir',str(root)],
+                           check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            if digest(root/local.name) != digest(local):
+                raise ValueError('existing remote asset conflicts; never overwrite')
+        remote = root/archive.name
+        result = restore(remote,root/'restored')
+        claim = json.loads((root/'restored'/'claim.json').read_text())
         if claim['repository'] != args.repository or claim['source_commit'] != args.source_commit:
             raise ValueError('remote source/claim mismatch')
         verify_claim(claim)
-        source = json.loads((target / 'restored' / 'source.json').read_text())
+        source = json.loads((root/'restored'/'source.json').read_text())
         if source['commit'] != args.source_commit or source['dirty'] is not False:
             raise ValueError('remote source revision mismatch')
-        record = {'schema_version': 1, 'repository': args.repository, 'release_tag': tag,
-                  'archive_sha256': digest(remote), 'source_commit': source['commit'],
-                  'slot_id': claim['slot_id'], 'claim': claim,
-                  'verified_at_utc': datetime.now(timezone.utc).isoformat(),
-                  'remote_restored': True, 'assessment': result}
-    receipt_path = args.out / 'remote-readback.json'
-    if 'remote-readback.json' in existing_names:
-        with tempfile.TemporaryDirectory() as previous:
-            subprocess.run(['gh', 'release', 'download', tag, '--repo', args.repository,
-                            '--pattern', 'remote-readback.json', '--dir', previous],
-                           check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            existing = json.loads((Path(previous) / 'remote-readback.json').read_text())
-        if {k:v for k,v in existing.items() if k != 'verified_at_utc'} != {k:v for k,v in record.items() if k != 'verified_at_utc'}:
-            raise ValueError('existing remote receipt conflicts')
-        record = existing
-    if receipt_path.exists():
-        local_receipt = json.loads(receipt_path.read_text())
-        if {k:v for k,v in local_receipt.items() if k != 'verified_at_utc'} != {k:v for k,v in record.items() if k != 'verified_at_utc'}:
-            raise ValueError('local receipt conflicts; use a fresh evidence directory')
-        if 'remote-readback.json' not in existing_names:
-            record = local_receipt
-    else:
-        write(receipt_path, record)
-    if 'remote-readback.json' not in existing_names:
-        subprocess.run(['gh', 'release', 'upload', tag, str(receipt_path), '--repo', args.repository],
-                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        record = {'schema_version':1,'repository':args.repository,'release_tag':STORAGE_TAG,
+                  'archive_name':archive.name,'receipt_asset_name':receipt_name,
+                  'archive_sha256':digest(remote),'source_commit':source['commit'],
+                  'slot_id':claim['slot_id'],'claim':claim,
+                  'verified_at_utc':datetime.now(timezone.utc).isoformat(),
+                  'remote_restored':True,'assessment':result,
+                  'scope':'Shared infrastructure storage only; not a v1 study observation'}
+        if receipt_name in names:
+            subprocess.run(['gh','release','download',STORAGE_TAG,'--repo',args.repository,
+                            '--pattern',receipt_name,'--dir',str(root)],
+                           check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+            existing = json.loads((root/receipt_name).read_text())
+            if {k:v for k,v in existing.items() if k != 'verified_at_utc'} != {k:v for k,v in record.items() if k != 'verified_at_utc'}:
+                raise ValueError('existing remote receipt conflicts')
+            record = existing
+        receipt_path = args.out/'remote-readback.json'
+        if receipt_path.exists():
+            local_receipt = json.loads(receipt_path.read_text())
+            if {k:v for k,v in local_receipt.items() if k != 'verified_at_utc'} != {k:v for k,v in record.items() if k != 'verified_at_utc'}:
+                raise ValueError('local receipt conflicts')
+            if receipt_name not in names:
+                record = local_receipt
+        else:
+            write(receipt_path,record)
+        if receipt_name not in names:
+            upload = root/receipt_name
+            write(upload,record)
+            subprocess.run(['gh','release','upload',STORAGE_TAG,str(upload),'--repo',args.repository],
+                           check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     print('::notice title=Successor remote restore::verified=True collection_healthy=' + str(result['collection_healthy']))
 
 

@@ -269,13 +269,12 @@ class PreservationRecoveryTests(unittest.TestCase):
             pack(recording,archive)
             state = {'created':False,'assets':{},'interrupt':True}
             def api(endpoint,payload=None):
-                if payload is not None:
-                    state['created'] = True
-                    return {'id':1,'tag_name':payload['tag_name']}
+                self.assertIsNone(payload,'Preservation must not create a new Release')
                 if '/git/ref/' in endpoint:
                     return {'object':{'sha':'a'*40}}
-                return [{'tag_name':'successor-rehearsal-1-1','prerelease':True,'draft':False,
-                         'assets':[{'name':n} for n in state['assets']]}] if state['created'] else []
+                if '/assets?' in endpoint:
+                    return [{'name':n} for n in state['assets']]
+                return {'id':1,'tag_name':'study-archive-btc-execution-v1','prerelease':True,'draft':False}
             def run(command,**kwargs):
                 operation = command[2]
                 if operation == 'create':
@@ -303,7 +302,7 @@ class PreservationRecoveryTests(unittest.TestCase):
                 original = state['assets'][archive.name]
                 preserve(args)
                 self.assertEqual(state['assets'][archive.name],original)
-                self.assertIn('remote-readback.json',state['assets'])
+                self.assertIn('successor-readback-1-1.json',state['assets'])
                 preserve(args)  # Same original/receipt is idempotent; no --clobber.
                 state['assets'][archive.name] += b'corrupt'
                 with self.assertRaisesRegex(ValueError,'conflicts'):
