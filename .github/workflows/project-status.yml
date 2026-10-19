@@ -9,7 +9,7 @@ on:
       - 'scripts/successor_readiness.py'
       - '.github/workflows/project-status.yml'
   workflow_run:
-    workflows: [test, study operations monitor, durable study preservation, successor collection rehearsal, successor preservation recovery]
+    workflows: [test, study operations monitor, durable study preservation, successor collection rehearsal, successor preservation recovery, successor planned trials]
     types: [completed]
     branches: [main]
 

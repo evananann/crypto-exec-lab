@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "plan_id": "successor-qualification-20261020",
+  "protocol_sha256": "aab63ec34c5a91883b042999b6d41c8245deaf945f9564abcf48dc892ea9d9bb",
+  "purpose": "Three user-approved prospective infrastructure trials; not research observations",
+  "trigger_dependency": "GitHub cron dispatches the existing rehearsal workflow. Timing remains unproven; late requests are skipped without retry.",
+  "trials": [
+    {
+      "trial_id": "oct20-am",
+      "intended_start_utc": "2026-10-20T03:17:00Z",
+      "cron": "17 3 20 10 *"
+    },
+    {
+      "trial_id": "oct20-pm",
+      "intended_start_utc": "2026-10-20T15:17:00Z",
+      "cron": "17 15 20 10 *"
+    },
+    {
+      "trial_id": "oct21-am",
+      "intended_start_utc": "2026-10-21T03:17:00Z",
+      "cron": "17 3 21 10 *"
+    }
+  ],
+  "retry_policy": "No automatic retry, takeover, relabeling or retrospective replacement. Retain failed and overdue trials.",
+  "activation": "Every named trial must qualify in addition to the existing latest-three/two-date gate; scientific study remains unactivated."
+}

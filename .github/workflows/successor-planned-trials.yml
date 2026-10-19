@@ -1,0 +1,75 @@
+name: successor planned trials
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/successor-planned-trials.yml'
+      - 'scripts/successor_trials.py'
+      - 'configs/successor/trials_20261020.json'
+  schedule:
+    - cron: '17 3 20 10 *'
+    - cron: '17 15 20 10 *'
+    - cron: '17 3 21 10 *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: successor-planned-trials
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5, Node 24
+        with:
+          persist-credentials: false
+      - name: Validate approved dates without dispatching on push
+        run: python -m scripts.successor_trials --validate --out data/raw/approved-trial-plan
+      - name: Verify workflow activation without submitting a trial
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os
+          from scripts.successor_claim import api
+          repo = os.environ['GITHUB_REPOSITORY']
+          if api(f'repos/{repo}').get('default_branch') != 'main':
+              raise ValueError('approved dispatcher requires default main')
+          for name in ('successor-planned-trials.yml','successor-rehearsal.yml'):
+              state = api(f'repos/{repo}/actions/workflows/{name}').get('state')
+              if state != 'active':
+                  raise ValueError('required trial workflow is not active')
+              print(f'::notice title=Trial workflow readiness::{name} state=active default_branch_main=True')
+          PY
+
+  request:
+    if: github.event_name == 'schedule' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5, Node 24
+        with:
+          persist-credentials: false
+      - name: Submit at most one request for the explicit approved UTC intent
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORIGINAL_CRON: ${{ github.event.schedule }}
+        run: python -m scripts.successor_trials --cron "$ORIGINAL_CRON" --repository "$GITHUB_REPOSITORY" --owner "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" --out data/raw/trial-delivery
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
+        if: always()
+        with:
+          name: successor-trial-delivery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/raw/trial-delivery/
+          if-no-files-found: error
+          retention-days: 90

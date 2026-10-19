@@ -23,6 +23,8 @@ collection and research evidence. Use the [live status workflow](https://github.
 for refreshed checks. The [successor collection path](docs/SUCCESSOR_COLLECTION.md)
 adds durable slot claims and richer provenance; its scientific study remains
 blocked until prospective rehearsal qualification and a separate source freeze.
+The [approved October 20–21 trial schedule](docs/APPROVED_TRIALS.md) configures
+three automatic requests; timely delivery is still unproven.
 
 ## Evidence a reviewer can inspect
 

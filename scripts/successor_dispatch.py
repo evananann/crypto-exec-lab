@@ -19,14 +19,16 @@ def append(stream, row):
     os.fsync(stream.fileno())
 
 
-def dispatch(repository, intended_start, out, *, clock=lambda: datetime.now(timezone.utc), run=subprocess.run):
+def dispatch(repository, intended_start, out, *, clock=lambda: datetime.now(timezone.utc), run=subprocess.run, dispatch_id=None):
     if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', repository):
         raise ValueError('invalid repository')
     intended, sent = instant(intended_start), clock().astimezone(timezone.utc)
     protocol = json.loads(Path('configs/successor/protocol.json').read_text())
     if intended.microsecond or not 0 <= (sent-intended).total_seconds() <= protocol['maximum_start_lateness_seconds']:
         raise ValueError('dispatch only during the explicit prospective start window')
-    identifier = uuid4().hex
+    identifier = dispatch_id or uuid4().hex
+    if not re.fullmatch(r'[0-9a-f]{32}',identifier):
+        raise ValueError('invalid dispatch receipt ID')
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open('x') as stream:
         append(stream, {'phase':'request_prepared','repository':repository,'dispatch_id':identifier,

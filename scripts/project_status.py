@@ -91,6 +91,10 @@ def render(state, out):
         assessment = latest.get('assessment',{})
         detail = '<p>Latest preserved attempt: collection healthy='+esc(assessment.get('collection_healthy','unverified'))+', events='+esc(assessment.get('events','unverified'))+', timing qualified='+esc(assessment.get('timing',{}).get('timing_qualified',False))+', original run conclusion='+esc(latest.get('source_run_conclusion','unverified'))+'.</p>'
     sections.append('<section><h2>Successor readiness</h2><p>'+esc(successor['state'])+'; study activated: '+esc(successor['study_activated'])+'</p><p>Qualifying prospective trials: '+esc(readiness.get('qualifying_prospective_rehearsals','unverified'))+'. Transport-only rehearsals do not qualify.</p>'+detail+'</section>')
+    approved = readiness.get('approved_trials')
+    if approved:
+        trial_rows = ''.join('<tr><td>'+esc(row['trial_id'])+'</td><td>'+esc(row['intended_start_utc'])+'</td><td>'+esc(row['state'])+'</td></tr>' for row in approved['trials'])
+        sections.append('<section><h2>Approved prospective trials</h2><p>GitHub timing is unproven. Every named trial must qualify; later recordings cannot replace these dates.</p><table><thead><tr><th>Trial</th><th>Intended start (UTC)</th><th>Verified state</th></tr></thead><tbody>'+trial_rows+'</tbody></table></section>')
     warnings = ''.join('<li>'+esc(w)+'</li>' for w in state.get('warnings',[]))
     page = '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Crypto execution lab status</title><style>body{font:16px system-ui;max-width:1000px;margin:2rem auto;padding:0 1rem;background:#f5f7fa;color:#172335}section{background:white;padding:1rem;margin:1rem 0;border:1px solid #ccd5df;border-radius:8px}table{border-collapse:collapse;width:100%}td,th{padding:.4rem;text-align:left;border-bottom:1px solid #ddd}p{line-height:1.5}</style><h1>Crypto execution lab status</h1><p>Inspected at '+esc(state['as_of_utc'])+' (UTC). Each panel describes a separate kind of evidence.</p><ul>'+warnings+'</ul>'+''.join(sections)+'</html>'
     (out/'index.html').write_text(page)

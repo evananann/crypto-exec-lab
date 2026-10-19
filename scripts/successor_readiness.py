@@ -11,6 +11,7 @@ import subprocess
 import tempfile
 
 from scripts.successor_claim import api, canonical, instant, verify_claim
+from scripts.successor_trials import planned_status, load_trials, authenticate_request
 from scripts.successor_rehearsal import PROTOCOL, STORAGE_TAG, digest, restore, write, storage_assets
 
 
@@ -153,10 +154,19 @@ def inspect(repository):
                     trigger['run_id'] != int(run_id) or trigger['event'] != run['event'] or
                     str(trigger['run_attempt']) != attempt or trigger['source_commit'] != run['head_sha']):
                 raise ValueError('trigger/claim/manifest disagreement')
+            approved_plan, _ = load_trials()
+            planned = next((t for t in approved_plan['trials'] if instant(t['intended_start_utc']) == instant(claim['intended_start_utc'])),None)
+            planned_verified = False
+            if planned and run['event'] == 'workflow_dispatch':
+                try:
+                    planned_verified = authenticate_request(repository,planned,trigger.get('dispatch_id'))
+                except (ValueError, KeyError, RuntimeError, TypeError):
+                    planned_verified = False  # Unavailable provenance never becomes an approved scheduled success.
             records.append({'slot_id': claim['slot_id'], 'intended_start_utc': claim['intended_start_utc'],
                             'source_commit': run['head_sha'], 'event': run['event'], 'release_tag': tag,
                             'run_created_at_utc': run['created_at'], 'run_attempt': int(attempt),
                             'qualification_compatible': compatible, 'source_run_conclusion': run['conclusion'],
+                            'dispatch_id':trigger.get('dispatch_id'),'planned_request_verified':planned_verified,
                             'authenticated_remote_restore': True, 'assessment': assessment})
     for owner, run in trusted_runs.items():
         if owner in seen:
@@ -166,7 +176,12 @@ def inspect(repository):
                         'event': run['event'], 'authenticated_remote_restore': False,
                         'assessment': {'collection_healthy': False, 'timing': {'timing_qualified': False}},
                         'reason': 'No authenticated remote archive/receipt; may be running, skipped or interrupted'})
-    return summarize(records, protocol)
+    result = summarize(records, protocol)
+    result['approved_trials'] = planned_status(records, now=result['as_of_utc'])
+    if not result['approved_trials']['all_named_trials_qualified']:
+        result['activation_ready'] = False
+        result['remaining'].append('All three named user-approved trials must qualify; do not replace missed dates')
+    return result
 
 
 def registration(readiness, start_date, now, protocol):

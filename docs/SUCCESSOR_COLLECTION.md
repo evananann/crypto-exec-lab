@@ -203,3 +203,19 @@ rehearsals. Download its `project-status` artifact and open `index.html`; its
 summary also separates software, collection, successor readiness and research.
 The committed snapshot is visibly dated and never presented as a live inventory.
 No GitHub Pages deployment or new hosting provider is configured.
+
+## Approved October 20–21 dispatches
+
+The user approved three concrete qualification times on October 19. The
+[approved trial plan](APPROVED_TRIALS.md) delegates those exact UTC intents to a
+repository cron dispatcher, which calls the existing authenticated rehearsal
+endpoint once per intent. This is prospective observation of the same scheduler
+that delivered earlier runs late; it is not a scheduler repair or a timing SLA.
+No new external service is configured.
+
+For these timestamps, do not also use the browser or one-shot helper manually.
+The request claim, client receipt ID and successful scheduled parent are checked
+before a child can satisfy the named-trial gate. Late, failed and overdue intents
+remain visible; manual samples cannot be substituted as proof of cron delivery.
+All named trials and the original latest-three/two-date rule must pass before a
+scientific freeze can be prepared. The scientific successor remains inactive.
