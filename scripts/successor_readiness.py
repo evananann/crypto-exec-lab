@@ -21,7 +21,8 @@ def summarize(records, protocol):
     qualified = [row for row in records if row['authenticated_remote_restore'] is True and
                  row['assessment']['collection_healthy'] is True and
                  row['assessment']['timing']['timing_qualified'] is True and
-                 row['event'] == 'workflow_dispatch' and row.get('qualification_compatible', True)]
+                 row['event'] == 'workflow_dispatch' and row.get('qualification_compatible', True) and
+                 row.get('source_run_conclusion', 'success') == 'success']
     dates = sorted({instant(row['intended_start_utc']).date().isoformat() for row in qualified})
     prospective = sorted([row for row in records if row['event'] == 'workflow_dispatch'],
                          key=lambda row: (row.get('run_created_at_utc', row.get('intended_start_utc') or ''), row.get('run_attempt', 1)))
@@ -124,7 +125,8 @@ def inspect(repository):
             if (run.get('path') != '.github/workflows/successor-rehearsal.yml' or run.get('head_branch') != 'main' or
                     run.get('head_sha') != claim['source_commit'] or run.get('status') != 'completed' or
                     (run.get('head_repository') or {}).get('full_name','').lower() != repository.lower() or
-                    run.get('event') not in ('push', 'workflow_dispatch') or run.get('conclusion') != 'success'):
+                    run.get('event') not in ('push', 'workflow_dispatch') or
+                    run.get('conclusion') not in ('success', 'failure', 'cancelled', 'timed_out', 'action_required', 'neutral', 'skipped', 'stale')):
                 raise ValueError('untrusted or incomplete rehearsal run')
             verify_source(restored, run['head_sha'], require_current=False)
             committed_protocol = json.loads(subprocess.check_output(['git', 'show', run['head_sha'] + ':' + str(PROTOCOL)]))
@@ -143,7 +145,7 @@ def inspect(repository):
             records.append({'slot_id': claim['slot_id'], 'intended_start_utc': claim['intended_start_utc'],
                             'source_commit': run['head_sha'], 'event': run['event'], 'release_tag': tag,
                             'run_created_at_utc': run['created_at'], 'run_attempt': int(attempt),
-                            'qualification_compatible': compatible,
+                            'qualification_compatible': compatible, 'source_run_conclusion': run['conclusion'],
                             'authenticated_remote_restore': True, 'assessment': assessment})
     for owner, run in trusted_runs.items():
         if owner in seen:

@@ -267,7 +267,10 @@ class PreservationRecoveryTests(unittest.TestCase):
             archive = root/'rehearsal-1-1.tar.gz'
             pack(recording,archive)
             state = {'created':False,'assets':{},'interrupt':True}
-            def api(endpoint):
+            def api(endpoint,payload=None):
+                if payload is not None:
+                    state['created'] = True
+                    return {'id':1,'tag_name':payload['tag_name']}
                 if '/git/ref/' in endpoint:
                     return {'object':{'sha':'a'*40}}
                 return [{'tag_name':'successor-rehearsal-1-1','prerelease':True,'draft':False,
@@ -373,3 +376,57 @@ class ProtocolEvolutionTests(unittest.TestCase):
         result = summarize(records,PROTOCOL)
         self.assertTrue(result['activation_ready'])
         self.assertEqual(result['attempts_examined'],6)
+
+
+class RecoveryInventoryTests(unittest.TestCase):
+    def test_recovered_failed_original_does_not_qualify_prospective_success(self):
+        from scripts.successor_readiness import summarize
+        helper = ReadinessAndStatusTests()
+        records = [helper.trial(i,day=20+i) for i in range(3)]
+        records[-1]['source_run_conclusion'] = 'failure'
+        self.assertFalse(summarize(records,PROTOCOL)['activation_ready'])
+
+    def test_recovery_zip_rejects_traversal_and_unexpected_members(self):
+        import zipfile
+        from scripts.successor_recovery import unpack
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            zipped = root/'artifact.zip'
+            with zipfile.ZipFile(zipped,'w') as archive:
+                archive.writestr('../outside.json','{}')
+            with self.assertRaisesRegex(ValueError,'unsafe'):
+                unpack(zipped,root/'out','rehearsal-1-1.tar.gz')
+            self.assertFalse((root/'outside.json').exists())
+
+    def test_original_recovery_restores_without_recording_or_promoting_failed_attempt(self):
+        import zipfile
+        from unittest.mock import patch
+        from scripts.successor_recovery import recover
+        from scripts.successor_rehearsal import write
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            recording = root/'recording'
+            recording.mkdir()
+            RestoredProvenanceTests().recording(recording)
+            write(recording/'claim.json',{'owner_run_attempt':'1-1','repository':'owner/repo','source_commit':'a'*40,'slot_id':'study/slot'})
+            write(recording/'source.json',{'commit':'a'*40,'dirty':False})
+            archive = root/'rehearsal-1-1.tar.gz'
+            pack(recording,archive)
+            def api(endpoint):
+                if endpoint.endswith('/artifacts?per_page=100'):
+                    return {'artifacts':[{'id':2,'name':'successor-rehearsal-1-1','expired':False,
+                        'workflow_run':{'id':1,'head_sha':'a'*40,'head_branch':'main'}}]}
+                return {'id':1,'run_attempt':1,'path':'.github/workflows/successor-rehearsal.yml',
+                        'head_branch':'main','status':'completed','event':'push','head_sha':'a'*40,
+                        'head_repository':{'full_name':'owner/repo'},'conclusion':'failure'}
+            def download(repository,identifier,out):
+                with zipfile.ZipFile(out,'w') as zipped:
+                    zipped.write(archive,'successor-attempt/'+archive.name)
+                    zipped.write(archive.with_name(archive.name+'.sha256'),'successor-attempt/'+archive.name+'.sha256')
+            with patch('scripts.successor_recovery.api',side_effect=api), patch('scripts.successor_recovery.download_zip',side_effect=download), patch('scripts.successor_recovery.verify_source'), patch('scripts.successor_recovery.verify_claim'), patch('scripts.successor_recovery.preserve') as preservation:
+                recover('owner/repo',1,root/'recovery')
+                preservation.assert_called_once()
+            result = json.loads((root/'recovery'/'recovery.json').read_text())
+            self.assertFalse(result['new_recording_performed'])
+            self.assertFalse(result['qualifying_prospective_success'])
+            self.assertEqual(result['original_conclusion'],'failure')

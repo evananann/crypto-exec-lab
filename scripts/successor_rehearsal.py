@@ -260,11 +260,10 @@ def preserve(args):
     if len(matching) > 1:
         raise ValueError('ambiguous rehearsal release')
     if not matching:
-        subprocess.run(['gh', 'release', 'create', tag, '--repo', args.repository,
-                        '--target', args.source_commit, '--prerelease', '--latest=false',
-                        '--title', 'Successor infrastructure rehearsal', '--notes',
-                        'Public BBO infrastructure rehearsal, including failed quality checks. Not study results.'],
-                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        api(f'repos/{args.repository}/releases', {
+            'tag_name': tag, 'target_commitish': args.source_commit, 'draft': False,
+            'prerelease': True, 'make_latest': 'false', 'name': 'Successor infrastructure rehearsal',
+            'body': 'Public BBO infrastructure rehearsal, including failed quality checks. Not study results.'})
         existing_names = set()
     else:
         release = matching[0]
