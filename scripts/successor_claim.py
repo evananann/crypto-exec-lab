@@ -24,7 +24,10 @@ def instant(value):
 def slot_identity(protocol_id, intended_start):
     if not re.fullmatch(r'[a-z0-9-]{1,80}', protocol_id):
         raise ValueError('invalid protocol ID')
-    return protocol_id + '/' + instant(intended_start).strftime('%Y%m%dT%H%M%SZ')
+    intended = instant(intended_start)
+    if intended.microsecond:
+        raise ValueError('intended start must be a whole UTC second')
+    return protocol_id + '/' + intended.strftime('%Y%m%dT%H%M%SZ')
 
 
 def api(endpoint, payload=None):

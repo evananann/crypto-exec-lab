@@ -90,6 +90,9 @@ before its outcomes. Preserve v1/v2 and all failures. A successor design should:
   timing guarantee. Any operator or alternate scheduler dependency must be
   stated in that new protocol.
 
-This is an internal design document, not an activated successor, a timing SLA,
-or a claim that future frozen collections are repaired. Adding a different
-scheduler/provider or changing the scientific window was not performed.
+The [successor rehearsal implementation](SUCCESSOR_COLLECTION.md) now exercises
+explicit slots, create-only Git reference claims, connection/timestamp metadata
+and remote archive restores. Its candidate study remains unactivated pending
+prospective qualification. It declares authenticated operator dispatch as its
+trigger dependency; it does not establish a scheduler SLA or repair the frozen
+collections. No different scheduler/provider or old scientific window was added.

@@ -18,7 +18,7 @@ import tempfile
 
 from cel.ingest.instruments import contract_value_btc
 from cel.ingest.schema import Event
-from scripts.successor_claim import canonical, instant, verify_claim
+from scripts.successor_claim import api, canonical, instant, verify_claim
 from scripts.successor_recorder import InstrumentSampler, ProvenanceRecorder, normalize, specification
 
 PROTOCOL = Path('configs/successor/protocol.json')
@@ -54,6 +54,14 @@ def gate(protocol, intended_start, now, mode):
             'timing_qualified': mode == 'prospective' and allowed}
 
 
+def json_rows(path):
+    if not path.exists():
+        return
+    with path.open() as stream:
+        for line in stream:
+            yield json.loads(line)
+
+
 def assess(directory):
     """Recompute provenance and health from restored bytes, not producer success flags."""
     protocol = json.loads((directory / 'protocol.json').read_text())
@@ -70,8 +78,8 @@ def assess(directory):
     if record.get('workers_still_running'):
         issues.append('recorder workers still running')
     event_path, provenance_path = directory / 'events.jsonl', directory / 'provenance.jsonl'
-    events = [Event.from_dict(json.loads(line)) for line in event_path.open()] if event_path.exists() else []
-    provenance = [json.loads(line) for line in provenance_path.open()] if provenance_path.exists() else []
+    events = [Event.from_dict(row) for row in json_rows(event_path)]
+    provenance = list(json_rows(provenance_path))
     connections = json.loads((directory / 'connections.json').read_text()) if (directory / 'connections.json').exists() else {}
     if any(connections.get('parse_errors', {}).values()):
         issues.append('message parse or persistence errors')
@@ -91,7 +99,7 @@ def assess(directory):
             fallback += 1
     if fallback:
         issues.append('exchange timestamp fallback observed')
-    snapshots = [json.loads(line) for line in (directory / 'instruments.jsonl').open()]
+    snapshots = list(json_rows(directory / 'instruments.jsonl'))
     specs, factors, stamps = [], [], []
     for item in snapshots:
         if 'payload' not in item:
@@ -111,8 +119,7 @@ def assess(directory):
     # Reparse actual wire payloads independently and compare exact event/provenance sequence.
     wire_events, wire_provenance = [], []
     if factors and (directory / 'wire.jsonl').exists():
-        for line in (directory / 'wire.jsonl').open():
-            row = json.loads(line)
+        for row in json_rows(directory / 'wire.jsonl'):
             if connection_ids.get(row['connection_id']) != row['venue']:
                 issues.append('unknown wire connection')
                 break
@@ -245,12 +252,42 @@ def preserve(args):
         raise ValueError('one original archive required')
     archive = archives[0]
     tag = 'successor-rehearsal-' + archive.name.removeprefix('rehearsal-').removesuffix('.tar.gz')
-    # One immutable per-attempt release; an existing tag is not clobbered on rerun.
-    command = ['gh', 'release', 'create', tag, str(archive), str(archive) + '.sha256',
-               '--repo', args.repository, '--target', args.source_commit, '--prerelease',
-               '--latest=false', '--title', 'Successor infrastructure rehearsal',
-               '--notes', 'Public BBO infrastructure rehearsal, including failed quality checks. Not study results.']
-    subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # Resume preservation of this original; never recollect or overwrite a remote asset.
+    releases = api(f'repos/{args.repository}/releases?per_page=100')
+    if len(releases) >= 100:
+        raise ValueError('release inventory may be truncated')
+    matching = [item for item in releases if item.get('tag_name') == tag]
+    if len(matching) > 1:
+        raise ValueError('ambiguous rehearsal release')
+    if not matching:
+        subprocess.run(['gh', 'release', 'create', tag, '--repo', args.repository,
+                        '--target', args.source_commit, '--prerelease', '--latest=false',
+                        '--title', 'Successor infrastructure rehearsal', '--notes',
+                        'Public BBO infrastructure rehearsal, including failed quality checks. Not study results.'],
+                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        existing_names = set()
+    else:
+        release = matching[0]
+        if release.get('draft') or not release.get('prerelease'):
+            raise ValueError('unexpected existing release state')
+        ref = api(f'repos/{args.repository}/git/ref/tags/{tag}')
+        if ref.get('object', {}).get('sha') != args.source_commit:
+            raise ValueError('existing release tag points to another source')
+        existing_names = {item['name'] for item in release.get('assets', [])}
+    allowed = {archive.name, archive.name + '.sha256', 'remote-readback.json'}
+    if not existing_names <= allowed:
+        raise ValueError('unexpected asset on rehearsal release')
+    with tempfile.TemporaryDirectory() as previous:
+        if existing_names:
+            subprocess.run(['gh', 'release', 'download', tag, '--repo', args.repository,
+                            '--dir', previous], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        for local in (archive, archive.with_name(archive.name + '.sha256')):
+            if local.name in existing_names:
+                if digest(Path(previous) / local.name) != digest(local):
+                    raise ValueError('existing remote asset conflicts; never overwrite')
+            else:
+                subprocess.run(['gh', 'release', 'upload', tag, str(local), '--repo', args.repository],
+                               check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     with tempfile.TemporaryDirectory() as temporary:
         target = Path(temporary)
         subprocess.run(['gh', 'release', 'download', tag, '--repo', args.repository,
@@ -271,10 +308,27 @@ def preserve(args):
                   'slot_id': claim['slot_id'], 'claim': claim,
                   'verified_at_utc': datetime.now(timezone.utc).isoformat(),
                   'remote_restored': True, 'assessment': result}
-    write(args.out / 'remote-readback.json', record)
-    # Receipt is also durable. Original archive already contains the claim and source binding.
-    subprocess.run(['gh', 'release', 'upload', tag, str(args.out / 'remote-readback.json'),
-                    '--repo', args.repository], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    receipt_path = args.out / 'remote-readback.json'
+    if 'remote-readback.json' in existing_names:
+        with tempfile.TemporaryDirectory() as previous:
+            subprocess.run(['gh', 'release', 'download', tag, '--repo', args.repository,
+                            '--pattern', 'remote-readback.json', '--dir', previous],
+                           check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            existing = json.loads((Path(previous) / 'remote-readback.json').read_text())
+        if {k:v for k,v in existing.items() if k != 'verified_at_utc'} != {k:v for k,v in record.items() if k != 'verified_at_utc'}:
+            raise ValueError('existing remote receipt conflicts')
+        record = existing
+    if receipt_path.exists():
+        local_receipt = json.loads(receipt_path.read_text())
+        if {k:v for k,v in local_receipt.items() if k != 'verified_at_utc'} != {k:v for k,v in record.items() if k != 'verified_at_utc'}:
+            raise ValueError('local receipt conflicts; use a fresh evidence directory')
+        if 'remote-readback.json' not in existing_names:
+            record = local_receipt
+    else:
+        write(receipt_path, record)
+    if 'remote-readback.json' not in existing_names:
+        subprocess.run(['gh', 'release', 'upload', tag, str(receipt_path), '--repo', args.repository],
+                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print('::notice title=Successor remote restore::verified=True collection_healthy=' + str(result['collection_healthy']))
 
 

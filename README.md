@@ -18,6 +18,12 @@ Start with the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
 coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
 reading order and reproducible audit questions.
 
+The [project status page](reports/project_status/index.html) separates software,
+collection and research evidence. Use the [live status workflow](https://github.com/evananann/crypto-exec-lab/actions/workflows/project-status.yml)
+for refreshed checks. The [successor collection path](docs/SUCCESSOR_COLLECTION.md)
+adds durable slot claims and richer provenance; its scientific study remains
+blocked until prospective rehearsal qualification and a separate source freeze.
+
 ## Evidence a reviewer can inspect
 
 | Evidence | What it establishes |

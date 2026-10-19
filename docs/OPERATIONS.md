@@ -1,5 +1,11 @@
 # Operate, preserve and recover the studies
 
+The [unified status page](../reports/project_status/index.html) distinguishes
+software checks, collection coverage and research results. Its
+[live workflow](https://github.com/evananann/crypto-exec-lab/actions/workflows/project-status.yml)
+also reports [successor rehearsal readiness](SUCCESSOR_COLLECTION.md). The
+committed page is a dated snapshot; refreshes are retained as workflow artifacts.
+
 The `study operations monitor` workflow checks the live Actions inventory after
 collection runs and twice daily at 04:41 and 16:41 UTC (12:41 Shanghai and
 00:41 Shanghai the next day). It has read-only repository and Actions access.

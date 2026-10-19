@@ -114,3 +114,243 @@ class SuccessorTests(unittest.TestCase):
             archive.write_bytes(archive.read_bytes()+b'tampered')
             with self.assertRaisesRegex(ValueError,'digest'):
                 restore(archive,root/'restore')
+
+
+class ReadinessAndStatusTests(unittest.TestCase):
+    def trial(self, index, *, healthy=True, mode='workflow_dispatch', day=20):
+        return {'slot_id':f'study/{index}', 'intended_start_utc':f'2026-10-{day:02}T03:17:00Z',
+                'run_created_at_utc':f'2026-10-{day:02}T03:17:{index:02}Z', 'event':mode,
+                'authenticated_remote_restore':True,
+                'assessment':{'collection_healthy':healthy,'timing':{'timing_qualified':mode=='workflow_dispatch'}}}
+
+    def test_transport_success_cannot_unlock_study(self):
+        from scripts.successor_readiness import summarize
+        records = [self.trial(i,mode='push',day=20+i) for i in range(3)]
+        self.assertFalse(summarize(records,PROTOCOL)['activation_ready'])
+
+    def test_three_trials_on_one_date_do_not_unlock_study(self):
+        from scripts.successor_readiness import summarize
+        self.assertFalse(summarize([self.trial(i) for i in range(3)],PROTOCOL)['activation_ready'])
+
+    def test_only_latest_consecutive_attempts_qualify_and_failures_remain_visible(self):
+        from scripts.successor_readiness import summarize
+        records = [self.trial(i,day=20+i) for i in range(3)]
+        self.assertTrue(summarize(records,PROTOCOL)['activation_ready'])
+        records.append(self.trial(3,healthy=False,day=23))
+        result = summarize(records,PROTOCOL)
+        self.assertFalse(result['activation_ready'])
+        self.assertEqual(result['attempts_examined'],4)
+        self.assertEqual(result['qualifying_prospective_rehearsals'],3)
+
+    def test_skipped_unarchived_trial_blocks_activation(self):
+        from scripts.successor_readiness import summarize
+        records = [self.trial(i,day=20+i) for i in range(3)]
+        missing = self.trial(3,day=23)
+        missing['authenticated_remote_restore'] = False
+        missing['intended_start_utc'] = None
+        records.append(missing)
+        self.assertFalse(summarize(records,PROTOCOL)['activation_ready'])
+
+    def test_duplicates_and_unready_registration_are_rejected(self):
+        from scripts.successor_readiness import summarize, registration
+        with self.assertRaisesRegex(ValueError,'duplicate'):
+            summarize([self.trial(1),self.trial(1)],PROTOCOL)
+        with self.assertRaisesRegex(ValueError,'blocked'):
+            registration({'activation_ready':False},'2026-10-26','2026-10-19T00:00:00Z',PROTOCOL)
+
+    def test_status_snapshot_is_dated_and_html_escapes_input(self):
+        from scripts.project_status import from_observation, render
+        state = from_observation(Path('reports/collection_followup_20261019/observation.json'))
+        self.assertEqual(state['collection']['counts']['missing'],4)
+        self.assertTrue(any('Static snapshot' in w for w in state['warnings']))
+        state['software']['state'] = '<script>alert(1)</script>'
+        with TemporaryDirectory() as tmp:
+            out = Path(tmp)/'page'
+            render(state,out)
+            self.assertNotIn('<script>',(out/'index.html').read_text())
+            self.assertIn('&lt;script&gt;',(out/'index.html').read_text())
+            self.assertFalse(json.loads((out/'status.json').read_text())['successor']['study_activated'])
+
+
+class RestoredProvenanceTests(unittest.TestCase):
+    def recording(self, root):
+        from scripts.successor_rehearsal import write
+        from datetime import datetime, timedelta, timezone
+        start = datetime(2026,10,20,3,17,tzinfo=timezone.utc)
+        write(root/'protocol.json',PROTOCOL)
+        write(root/'manifest.json',{'requested_seconds':900,'mode':'prospective',
+              'intended_start_utc':start.isoformat(),'collector_started_at_utc':start.isoformat(),
+              'collection_error_category':None})
+        write(root/'connections.json',{'connections':[{'venue':v,'connection_id':v+'-one'} for v in ['binance','okx']],
+                                      'parse_errors':{}})
+        instrument = {'code':'0','data':[{'instId':'BTC-USDT-SWAP','instType':'SWAP','ctType':'linear',
+            'ctValCcy':'BTC','settleCcy':'USDT','state':'live','ctVal':'.01','ctMult':'1'}]}
+        with (root/'instruments.jsonl').open('w') as stream:
+            for second in range(0,901,60):
+                stream.write(json.dumps({'observed_at_utc':(start+timedelta(seconds=second)).isoformat(),
+                                         'payload':instrument,'factor_btc':.01})+'\n')
+        index = 0
+        with (root/'wire.jsonl').open('w') as wire, (root/'events.jsonl').open('w') as events, (root/'provenance.jsonl').open('w') as provenance:
+            for second in range(901):
+                stamp = int(start.timestamp()*1000)+second*1000
+                payloads = {'binance':{'e':'bookTicker','s':'BTCUSDT','u':second,'E':stamp,
+                                     'b':'60000','a':'60001','B':'2','A':'2'},
+                            'okx':{'arg':{'channel':'bbo-tbt','instId':'BTC-USDT-SWAP'},
+                                   'data':[{'ts':str(stamp),'seqId':second,'bids':[['60000','200']],
+                                            'asks':[['60001','200']]}]}}
+                for venue,payload in payloads.items():
+                    connection = venue+'-one'
+                    wire.write(json.dumps({'venue':venue,'connection_id':connection,'local_ts':stamp,'payload':payload})+'\n')
+                    for event,source in normalize(payload,stamp,venue,.01):
+                        events.write(json.dumps(event.to_dict())+'\n')
+                        provenance.write(json.dumps({'event_index':index,'venue':venue,'connection_id':connection,
+                            'exchange_timestamp_source':source,'timestamp_fallback':False})+'\n')
+                        index += 1
+        write(root/'recorder.json',{'events':index,'duration_seconds':900,'workers_still_running':[]})
+
+    def test_full_synthetic_rehearsal_restore_recomputes_health_and_provenance(self):
+        from scripts.successor_rehearsal import assess
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)/'recording'
+            root.mkdir()
+            self.recording(root)
+            assessment = assess(root)
+            self.assertTrue(assessment['collection_healthy'],assessment['issues'])
+            self.assertEqual(assessment['events'],1802)
+            archive = Path(tmp)/'attempt.tar.gz'
+            pack(root,archive)
+            self.assertEqual(restore(archive,Path(tmp)/'restored'),assessment)
+
+    def test_changed_event_or_timestamp_flag_is_detected_against_wire(self):
+        from scripts.successor_rehearsal import assess
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.recording(root)
+            path = root/'provenance.jsonl'
+            lines = path.read_text().splitlines()
+            row = json.loads(lines[0])
+            row['timestamp_fallback'] = True
+            lines[0] = json.dumps(row)
+            path.write_text('\n'.join(lines)+'\n')
+            assessment = assess(root)
+            self.assertFalse(assessment['collection_healthy'])
+            self.assertIn('wire/event/provenance reparse mismatch',assessment['issues'])
+
+    def test_path_traversal_member_is_rejected_before_extraction(self):
+        import hashlib
+        import io
+        import tarfile
+        with TemporaryDirectory() as tmp:
+            archive = Path(tmp)/'evil.tar.gz'
+            with tarfile.open(archive,'w:gz') as tar:
+                member = tarfile.TarInfo('../escape')
+                member.size = 2
+                tar.addfile(member,io.BytesIO(b'{}'))
+            archive.with_name(archive.name+'.sha256').write_text(hashlib.sha256(archive.read_bytes()).hexdigest())
+            with self.assertRaisesRegex(ValueError,'unsafe'):
+                restore(archive,Path(tmp)/'restored')
+            self.assertFalse((Path(tmp)/'escape').exists())
+
+
+class PreservationRecoveryTests(unittest.TestCase):
+    def test_partial_remote_publication_resumes_without_overwriting_originals(self):
+        from types import SimpleNamespace
+        from unittest.mock import patch
+        from scripts.successor_rehearsal import preserve, write
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            recording = root/'recording'
+            recording.mkdir()
+            RestoredProvenanceTests().recording(recording)
+            write(recording/'claim.json',{'repository':'owner/repo','source_commit':'a'*40,'slot_id':'study/slot'})
+            write(recording/'source.json',{'commit':'a'*40,'dirty':False})
+            archive = root/'rehearsal-1-1.tar.gz'
+            pack(recording,archive)
+            state = {'created':False,'assets':{},'interrupt':True}
+            def api(endpoint):
+                if '/git/ref/' in endpoint:
+                    return {'object':{'sha':'a'*40}}
+                return [{'tag_name':'successor-rehearsal-1-1','prerelease':True,'draft':False,
+                         'assets':[{'name':n} for n in state['assets']]}] if state['created'] else []
+            def run(command,**kwargs):
+                operation = command[2]
+                if operation == 'create':
+                    state['created'] = True
+                elif operation == 'upload':
+                    path = Path(command[4])
+                    if path.name.endswith('.sha256') and state['interrupt']:
+                        state['interrupt'] = False
+                        raise RuntimeError('simulated interrupted checksum upload')
+                    self.assertNotIn(path.name,state['assets'])
+                    state['assets'][path.name] = path.read_bytes()
+                elif operation == 'download':
+                    destination = Path(command[command.index('--dir')+1])
+                    pattern = command[command.index('--pattern')+1] if '--pattern' in command else None
+                    for name,data in state['assets'].items():
+                        if pattern is None or name == pattern:
+                            (destination/name).write_bytes(data)
+                else:
+                    self.fail('unexpected remote mutation')
+                return SimpleNamespace(returncode=0)
+            args = SimpleNamespace(out=root,repository='owner/repo',source_commit='a'*40)
+            with patch('scripts.successor_rehearsal.api',side_effect=api), patch('scripts.successor_rehearsal.subprocess.run',side_effect=run), patch('scripts.successor_rehearsal.verify_claim',return_value=True):
+                with self.assertRaisesRegex(RuntimeError,'interrupted'):
+                    preserve(args)
+                original = state['assets'][archive.name]
+                preserve(args)
+                self.assertEqual(state['assets'][archive.name],original)
+                self.assertIn('remote-readback.json',state['assets'])
+                preserve(args)  # Same original/receipt is idempotent; no --clobber.
+                state['assets'][archive.name] += b'corrupt'
+                with self.assertRaisesRegex(ValueError,'conflicts'):
+                    preserve(args)
+
+
+class ConnectionProvenanceTests(unittest.TestCase):
+    def test_reopen_same_socket_object_gets_new_connection_identity(self):
+        from unittest.mock import Mock
+        from scripts.successor_recorder import ProvenanceRecorder
+        with TemporaryDirectory() as tmp:
+            recorder = ProvenanceRecorder(Path(tmp),.01)
+            recorder._writer = Mock()
+            ws = Mock()
+            handlers = recorder.handlers('binance')
+            payload = json.dumps({'e':'bookTicker','s':'BTCUSDT','u':1,'E':100,
+                                  'b':'10','a':'11','B':'2','A':'2'})
+            try:
+                handlers['on_open'](ws)
+                handlers['on_message'](ws,payload)
+                first = recorder.connections[id(ws)]
+                handlers['on_close'](ws,None,None)
+                handlers['on_open'](ws)
+                handlers['on_message'](ws,payload)
+                second = recorder.connections[id(ws)]
+                self.assertNotEqual(first,second)
+                recorder.provenance.flush()
+                rows = [json.loads(s) for s in (Path(tmp)/'provenance.jsonl').read_text().splitlines()]
+                self.assertEqual([r['connection_id'] for r in rows],[first,second])
+                self.assertEqual([r['event_index'] for r in rows],[0,1])
+                self.assertIn('closed_at_utc',recorder.connection_history[0])
+            finally:
+                recorder.provenance.close()
+                recorder.wire.close()
+
+    def test_fractional_intended_seconds_cannot_share_a_claim_reference(self):
+        with self.assertRaisesRegex(ValueError,'whole'):
+            slot_identity('study','2026-10-20T03:17:00.100Z')
+
+
+class StatusFailureTests(unittest.TestCase):
+    def test_unavailable_inventory_cannot_turn_into_success(self):
+        from unittest.mock import patch
+        from scripts.project_status import build
+        inventory = {'healthy':False,'as_of_utc':'2026-10-19T00:00:00Z', 'inventory_available':False,
+                     'counts':{'unverified':5},'sessions':[],'alerts':['inventory unavailable'],
+                     'scope':'collection health only'}
+        with patch('scripts.project_status.api_json',side_effect=RuntimeError('unavailable')), patch('scripts.project_status.collection_inventory',return_value=inventory), patch('scripts.project_status.rehearsal_readiness',side_effect=ValueError('no evidence')):
+            state = build('owner/repo')
+        self.assertEqual(state['software']['state'],'unverified')
+        self.assertEqual(state['collection']['state'],'ALERT')
+        self.assertEqual(state['collection']['counts'],{'unverified':5})
+        self.assertEqual(state['successor']['state'],'unverified')
+        self.assertFalse(state['successor']['study_activated'])

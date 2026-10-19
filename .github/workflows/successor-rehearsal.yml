@@ -4,11 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/successor_recorder.py'
-      - 'scripts/successor_rehearsal.py'
-      - 'scripts/successor_claim.py'
       - 'configs/successor/protocol.json'
-      - '.github/workflows/successor-rehearsal.yml'
   workflow_dispatch:
     inputs:
       intended_start_utc:

@@ -5,6 +5,11 @@ provenance and intended interpretation. It does not announce a completed study.
 The [dated evidence snapshot](../reports/data_provenance/README.md) separates
 verified archives, public workflow observations and unavailable scheduled data.
 
+The separate [successor rehearsal](SUCCESSOR_COLLECTION.md) adds decoded wire
+payloads, per-event connection/timestamp-source provenance and repeated OKX
+metadata snapshots. Those fields are unavailable in old tapes and are never
+backfilled into them. Rehearsal archives are not frozen study observations.
+
 ## Scope and sources
 
 The recorder observes public BTC/USDT linear perpetual top-of-book quotes and

@@ -1,0 +1,51 @@
+name: project status
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/project_status.py'
+      - 'scripts/successor_readiness.py'
+      - '.github/workflows/project-status.yml'
+  workflow_run:
+    workflows: [test, study operations monitor, durable study preservation, successor collection rehearsal]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: project-status
+  cancel-in-progress: false
+
+jobs:
+  status:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5, Node 24
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6, Node 24
+        with:
+          python-version: '3.12'
+      - name: Install frozen dependencies
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --python 3.12
+      - name: Separate software, coverage, research and successor readiness
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uv run --frozen python -m scripts.project_status --repository "$GITHUB_REPOSITORY" --out data/raw/project-status --summary "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
+        if: always()
+        with:
+          name: project-status
+          path: data/raw/project-status/
+          if-no-files-found: error
+          retention-days: 30

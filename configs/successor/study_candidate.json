@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "study_id": "btc-successor-v3-candidate",
+  "state": "draft_not_preregistered_or_activated",
+  "start_date_utc": null,
+  "inherited_method_plan": "configs/study_v2_okx.json",
+  "inherited_method_plan_sha256": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9",
+  "leader": "binance",
+  "follower": "okx",
+  "clock": "local",
+  "duration_days": 28,
+  "development_days": 21,
+  "holdout_days": 7,
+  "slots_utc": {"am": "03:17", "pm": "15:17"},
+  "seconds": 900,
+  "maximum_start_lateness_seconds": 300,
+  "primary_delay_ms": 50,
+  "primary_fee_bps": 5,
+  "horizon_ms": 1000,
+  "primary_outcome": "Per-session OKX entry-to-mid markout after a Binance accumulated $2 jump, using 50ms delayed executable bid/ask entry, 5bps entry fee and the 1s signal-relative follower mid. Not round-trip profit.",
+  "missingness_rule": "Retain every planned slot and failed attempt. No backfill, favorable retry or pooling with v1/v2. Any missing planned slot prevents a conclusive full-study claim.",
+  "holdout_rule": "No outcome estimation until the UTC day after the final study date. Rehearsals never enter study estimates.",
+  "trigger_dependency": "Authenticated operator dispatch with an explicit intended UTC timestamp. Timing reliability remains unestablished until prospective qualification; no autonomous scheduler or external service configured.",
+  "freeze_prerequisites": [
+    "Latest three prospective attempts all healthy, on time and remotely restored across at least two UTC dates",
+    "Current source and protocol match the qualified recordings",
+    "Commit future UTC dates, source hashes, quality gates, estimator and report integration before study collection",
+    "Document operator availability; absence or lateness remains a failed/missing attempt"
+  ]
+}
