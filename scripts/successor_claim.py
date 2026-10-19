@@ -38,7 +38,9 @@ def api(endpoint, payload=None):
                             text=True, capture_output=True)
     if result.returncode:
         # Do not publish raw API errors, headers, credentials or proxy details.
-        raise RuntimeError('GitHub API operation failed; claim ownership is not established')
+        match = re.search(r'HTTP (\d{3})', result.stderr)
+        status = match.group(1) if match else 'unknown'
+        raise RuntimeError('GitHub API operation failed; HTTP status=' + status)
     return json.loads(result.stdout)
 
 

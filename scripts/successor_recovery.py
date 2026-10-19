@@ -47,6 +47,7 @@ def recover(repository, run_id, out):
         run_id = runs[0]['id']
     if type(run_id) is not int or run_id <= 0:
         raise ValueError('invalid original run ID')
+    print('::notice title=Successor recovery stage::original_run_verification')
     run = api(f'repos/{repository}/actions/runs/{run_id}')
     if (run.get('path') != '.github/workflows/successor-rehearsal.yml' or run.get('head_branch') != 'main' or
             run.get('status') != 'completed' or run.get('event') not in ('push','workflow_dispatch') or
@@ -55,28 +56,37 @@ def recover(repository, run_id, out):
     attempt = run['run_attempt']
     owner = f'{run_id}-{attempt}'
     expected_name = 'successor-rehearsal-' + owner
+    print('::notice title=Successor recovery stage::original_artifact_inventory')
     artifacts = api(f'repos/{repository}/actions/runs/{run_id}/artifacts?per_page=100')['artifacts']
     matching = [a for a in artifacts if a.get('name') == expected_name and not a.get('expired')]
     if len(matching) != 1:
         raise ValueError('one unexpired original artifact required')
     artifact = matching[0]
-    identity = artifact.get('workflow_run') or {}
-    if identity.get('id') != run_id or identity.get('head_sha') != run['head_sha'] or identity.get('head_branch') != 'main':
+    identity = artifact.get('workflow_run')
+    # This inventory is already scoped to the authenticated original run. Some
+    # GitHub responses omit workflow_run; if present it must agree. The archived
+    # owner/source claim is independently authenticated after download in all cases.
+    if identity is not None and (identity.get('id') != run_id or identity.get('head_sha') != run['head_sha'] or identity.get('head_branch') != 'main'):
         raise ValueError('artifact provenance differs from original run')
     out.mkdir(parents=True,exist_ok=False)
     zipped = out/'original.zip'
+    print('::notice title=Successor recovery stage::original_artifact_download')
     download_zip(repository,artifact['id'],zipped)
+    print('::notice title=Successor recovery stage::original_artifact_unpack')
     unpack(zipped,out/'download','rehearsal-'+owner+'.tar.gz')
     archives = list((out/'download').rglob('rehearsal-'+owner+'.tar.gz'))
     if len(archives) != 1:
         raise ValueError('original archive absent or ambiguous; no recollection allowed')
     archive = archives[0]
+    print('::notice title=Successor recovery stage::original_archive_restore')
     assessment = restore(archive,out/'restore')
     claim = json.loads((out/'restore'/'claim.json').read_text())
     if claim['owner_run_attempt'] != owner or claim['source_commit'] != run['head_sha'] or claim['repository'] != repository:
         raise ValueError('archive/claim/source mismatch')
+    print('::notice title=Successor recovery stage::original_source_and_claim_verification')
     verify_source(out/'restore',run['head_sha'],require_current=False)
     verify_claim(claim)
+    print('::notice title=Successor recovery stage::release_preservation')
     preserve(SimpleNamespace(repository=repository,out=archive.parent,source_commit=run['head_sha']))
     result = {'schema_version':1,'original_run_id':run_id,'original_attempt':attempt,
               'original_conclusion':run['conclusion'],'source_commit':run['head_sha'],
@@ -94,7 +104,21 @@ def main():
     parser.add_argument('--run-id',type=int)
     parser.add_argument('--out',type=Path,required=True)
     args = parser.parse_args()
-    recover(args.repository,args.run_id,args.out)
+    try:
+        recover(args.repository,args.run_id,args.out)
+    except ValueError as exc:
+        allowed = ('untrusted original rehearsal', 'one unexpired original artifact required',
+                   'artifact provenance differs from original run', 'unsafe recovery artifact member',
+                   'original archive absent or ambiguous; no recollection allowed',
+                   'archive/claim/source mismatch', 'member digest mismatch', 'archive digest mismatch',
+                   'source hash differs from committed blob', 'source identity differs from trusted run',
+                   'existing remote asset conflicts; never overwrite', 'existing release tag points to another source')
+        message = str(exc) if str(exc) in allowed else 'verification_failed'
+        print('::error title=Successor recovery::' + message)
+        raise
+    except Exception as exc:
+        print('::error title=Successor recovery::operation_failed type=' + type(exc).__name__)
+        raise
 
 
 if __name__=='__main__':
