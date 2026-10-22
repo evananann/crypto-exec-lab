@@ -1,0 +1,68 @@
+{
+  "protocol_id": "secondary-model-comparison-v1",
+  "created_at_utc": "2026-10-22T10:38:52.076393+00:00",
+  "role": "Precommitted secondary analysis of the first qualified successor study registered after this source commit; not a replacement primary or independent replication",
+  "leader": "binance",
+  "follower": "okx",
+  "signal_usd": 2.0,
+  "features": [
+    "jump_bps",
+    "normalized_jump",
+    "follower_repricing_bps",
+    "signed_basis_bps",
+    "follower_spread_bps",
+    "volatility_bps",
+    "quote_age_ms",
+    "signed_imbalance",
+    "follower_quote_changes_1s"
+  ],
+  "feature_lookback_ms": 1000,
+  "volatility_step_ms": 100,
+  "normalization_floor_bps": 0.01,
+  "maximum_quote_age_ms": 2000,
+  "entry_delays_ms": [
+    20,
+    50,
+    200
+  ],
+  "horizons_ms": [
+    250,
+    1000,
+    5000
+  ],
+  "primary_delay_ms": 50,
+  "primary_horizon_ms": 1000,
+  "exit_delay_ms": 50,
+  "entry_fee_bps": 5.0,
+  "exit_fee_bps": 5.0,
+  "quantity_btc": 0.001,
+  "training_days": 21,
+  "holdout_days": 7,
+  "development_folds": [
+    {
+      "train_days": 7,
+      "test_start": 7,
+      "test_end": 14
+    },
+    {
+      "train_days": 14,
+      "test_start": 14,
+      "test_end": 21
+    }
+  ],
+  "embargo_ms": 2000,
+  "minimum_training_days": 7,
+  "minimum_training_rows": 100,
+  "ridge_l2": 1.0,
+  "logistic_l2": 1.0,
+  "logistic_iterations": 200,
+  "logistic_learning_rate": 0.1,
+  "normalized_rule_threshold": 1.0,
+  "bootstrap_repetitions": 2000,
+  "seed": 0,
+  "selection_rule": "No tuning or winner selection. Report every fixed candidate, fold and diagnostic cell. Fit learned models only for the fixed primary delay/horizon.",
+  "information_rule": "Features use receive timestamps <= signal time, including all same-millisecond updates under the existing coarse-clock convention. No entry-flight or post-signal feature updates.",
+  "label_scope": "Independent hypothetical full-fill round trips, entry at signal+delay and exit at signal+horizon+exit_delay, both spreads and actual-notional fees. Funding, impact and queue/rejection probabilities unmodeled; overlapping labels are not a realizable portfolio.",
+  "missingness_rule": "Retain all planned dates/slots and every opportunity reason. Unavailable labels/models are not zero returns. Valid decisions to abstain are a distinct zero-exposure cash counterfactual.",
+  "trade_flow": "Excluded: the qualified recorder supplies BBO, not a verified trade tape. New collection requires a separate protocol."
+}

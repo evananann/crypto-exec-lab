@@ -26,6 +26,11 @@ Use the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
 coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
 reading order and reproducible audit questions.
 
+The [secondary model comparison](docs/MODEL_COMPARISON.md) adds causal BBO
+features, executable round-trip labels, fixed ridge/logistic models and purged
+chronological validation. Its [demo](reports/model_comparison/comparison.md) is
+synthetic; empirical fitting remains release-gated.
+
 The [empirical note](reports/empirical_research/README.md) records the current
 pending state. [Publication automation](docs/EMPIRICAL_HANDOFF.md) will produce
 a one-page interpretation only from an authenticated released scientific report.
