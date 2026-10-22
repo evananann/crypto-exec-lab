@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trading economics — assumption lab</title>
+<style>
+body{margin:0;background:#101827;color:#e8edf5;font:16px/1.6 system-ui,sans-serif}main{max-width:1080px;margin:auto;padding:32px 22px}h1{font-size:2.2rem;margin:8px 0}h2{font-size:1.1rem}p{max-width:85ch;color:#c5cfdf}.badge{color:#ffcf78;text-transform:uppercase;font-size:.8rem;letter-spacing:.08em}.layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}.panel,.metric{background:#192438;border:1px solid #34435d;border-radius:12px;padding:20px}fieldset{border:0;margin:0;padding:0}legend{font-weight:700;margin-bottom:14px}.controls{display:grid;grid-template-columns:1fr 1fr;gap:14px}label{font-size:.87rem;display:block}input,select{box-sizing:border-box;width:100%;margin-top:5px;padding:9px;background:#101827;border:1px solid #657794;border-radius:5px;color:#fff;font:inherit}input:focus,select:focus{outline:2px solid #80baff}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}.metric b{display:block;font-size:1.35rem}small{color:#bcc9da}.state{border-left:4px solid #ffcf78;padding-left:15px}svg{width:100%;height:auto}#error{color:#ffb8b8}.note{font-size:.9rem}a{color:#a8caff}@media(max-width:750px){.layout,.metrics{grid-template-columns:1fr}h1{font-size:1.7rem}}
+</style>
+<main>
+<div class="badge">Synthetic assumptions · no market data · no orders</div>
+<h1>Can the markout pay for an exit?</h1>
+<p>A positive entry-to-mid markout still needs an executable exit. Explore the additional cost hurdle with explicit assumptions. The input below has already paid the entry spread and entry fee.</p>
+<div class="layout">
+<section class="panel"><fieldset><legend>Assumed position and primary outcome</legend><div class="controls">
+<label>Side<select id="side"><option value="long">Long</option><option value="short">Short</option></select></label>
+<label>Entry-net markout (bps)<input id="markout_bps" type="number" value="2" step=".25"></label>
+<label>Entry price (USDT/BTC)<input id="entry_price" type="number" value="60000" min="1" step="100"></label>
+<label>Quantity (BTC)<input id="quantity_btc" type="number" value=".001" min=".000001" step=".001"></label>
+<label>Entry fee, already in markout (bps)<input id="entry_fee_bps" type="number" value="5" min="0" step=".25"></label>
+</div></fieldset></section>
+<section class="panel"><fieldset><legend>Additional exit assumptions</legend><div class="controls">
+<label>Exit fee (bps)<input id="exit_fee_bps" type="number" value="5" min="0" step=".25"></label>
+<label>Full exit spread (bps of horizon mid)<input id="exit_spread_bps" type="number" value=".2" min="0" step=".1"></label>
+<label>Extra exit slippage (bps)<input id="exit_slippage_bps" type="number" value="0" min="0" step=".1"></label>
+<label>Adverse move after horizon (bps)<input id="adverse_exit_move_bps" type="number" value="0" min="0" step=".25"></label>
+<label>Funding cost; credit is negative (bps of entry)<input id="funding_cost_bps" type="number" value="0" step=".1"></label>
+</div></fieldset></section>
+</div>
+<p id="error" role="alert"></p>
+<div class="metrics" aria-live="polite">
+<div class="metric"><small>Assumed net round-trip</small><b id="net_bps"></b></div>
+<div class="metric"><small>Assumed net cash, stated size</small><b id="net_cash"></b></div>
+<div class="metric"><small>Break-even entry-net markout</small><b id="threshold"></b></div>
+</div>
+<section class="panel"><h2>Exit-cost frontier</h2>
+<svg id="frontier" viewBox="0 0 680 320" role="img" aria-label="Hypothetical net round-trip basis points versus assumed entry-net markout"></svg>
+<p class="note">Horizontal axis: assumed entry-net markout, bps. Vertical axis: hypothetical net round-trip, bps. The dot is your selected assumption; the horizontal line marks zero. This is an accounting sensitivity curve, with no probability or confidence interval.</p></section>
+<p class="state" id="status" aria-live="polite"></p>
+<p><strong>Current project decision: remain in research.</strong> Clearing this assumed hurdle supplies no evidence of a trading edge. Released market results, adequate coverage, execution calibration and feasible liquidation are still required.</p>
+<p class="note">Full entry and exit fills are assumed. Half the stated full spread is charged on exit. Slippage excludes that spread and the separately stated adverse movement after the markout horizon. Fees use actual fill notionals. Funding is a signed scenario cost, without an inferred payment schedule. Queue priority, depth depletion, rejections, market impact and capacity are unmeasured. Displayed calculations use floating-point arithmetic; the companion Python JSON uses Decimal cash accounting.</p>
+</main>
+<script>
+(function () {
+  "use strict";
+  function calculate(a) {
+    const fields = ["markout_bps", "entry_price", "quantity_btc", "entry_fee_bps", "exit_fee_bps", "exit_spread_bps", "exit_slippage_bps", "adverse_exit_move_bps", "funding_cost_bps"];
+    if (!fields.every(k => Number.isFinite(a[k])) || !["long", "short"].includes(a.side)) throw Error("Enter finite numeric assumptions and a valid side.");
+    if (a.entry_price <= 0 || a.quantity_btc <= 0) throw Error("Entry price and quantity must be positive.");
+    if (![a.entry_fee_bps, a.exit_fee_bps, a.exit_spread_bps, a.exit_slippage_bps, a.adverse_exit_move_bps].every(x => x >= 0 && x < 10000)) throw Error("Fees and exit frictions must be between 0 and 10000 bps, excluding 10000.");
+    const d = a.side === "long" ? 1 : -1;
+    const friction = a.exit_spread_bps / 2 + a.exit_slippage_bps + a.adverse_exit_move_bps;
+    if (friction >= 10000 || Math.abs(a.funding_cost_bps) >= 10000 - a.entry_fee_bps) throw Error("Cost assumptions exceed the supported domain.");
+    const mid = a.entry_price * (1 + d * (a.markout_bps + a.entry_fee_bps) / 10000);
+    if (mid <= 0) throw Error("The markout implies a nonpositive horizon mid.");
+    const multiplier = 1 - d * friction / 10000;
+    const exit = mid * multiplier;
+    const net = d * a.quantity_btc * (exit - a.entry_price) - a.quantity_btc * a.entry_price * a.entry_fee_bps / 10000 - a.quantity_btc * exit * a.exit_fee_bps / 10000 - a.quantity_btc * a.entry_price * a.funding_cost_bps / 10000;
+    const net_bps = net / (a.quantity_btc * a.entry_price) * 10000;
+    const slope = (1 - d * a.exit_fee_bps / 10000) * multiplier;
+    const threshold = a.markout_bps - net_bps / slope;
+    if (![net_bps, net, threshold].every(Number.isFinite)) throw Error("Assumptions exceed the numeric display range.");
+    return {net_roundtrip_bps: net_bps, net_roundtrip_usdt: net, break_even_entry_net_markout_bps: threshold};
+  }
+  if (typeof module !== "undefined" && module.exports) { module.exports = calculate; return; }
+  const controls = [...document.querySelectorAll("input,select")];
+  function update() {
+    try {
+      const a = Object.fromEntries(controls.map(e => [e.id, e.id === "side" ? e.value : (e.value.trim() ? Number(e.value) : NaN)]));
+      const r = calculate(a);
+      document.getElementById("error").textContent = "";
+      document.getElementById("net_bps").textContent = r.net_roundtrip_bps.toFixed(3) + " bps";
+      document.getElementById("net_cash").textContent = r.net_roundtrip_usdt.toFixed(6) + " USDT";
+      document.getElementById("threshold").textContent = r.break_even_entry_net_markout_bps.toFixed(3) + " bps";
+      document.getElementById("status").textContent = r.net_roundtrip_bps > 0 ? "The chosen assumptions clear the exit-cost hurdle. This is an assumed cash surplus, not a live trade signal." : "The chosen assumptions do not clear the exit-cost hurdle. A positive primary markout alone can still leave a losing round trip.";
+      const d = a.side === "long" ? 1 : -1;
+      const points = Array.from({length: 101}, (_, i) => -5 + i * .25).filter(m => 1 + d * (m + a.entry_fee_bps) / 10000 > 0).map(m => [m, calculate({...a, markout_bps: m}).net_roundtrip_bps]);
+      const lo = Math.min(0, ...points.map(p => p[1]), r.net_roundtrip_bps) - 1;
+      const hi = Math.max(0, ...points.map(p => p[1]), r.net_roundtrip_bps) + 1;
+      const x = m => 65 + (m + 5) / 25 * 560, y = v => 265 - (v - lo) / (hi - lo) * 235;
+      const line = points.map((p, i) => (i ? "L" : "M") + x(p[0]) + "," + y(p[1])).join(" ");
+      document.getElementById("frontier").innerHTML = '<line x1="65" x2="625" y1="' + y(0) + '" y2="' + y(0) + '" stroke="#aab8cc"/><path d="' + line + '" fill="none" stroke="#80baff" stroke-width="3"/><text x="18" y="' + y(0) + '" fill="#dbe6f5">0</text><text x="65" y="295" fill="#dbe6f5">−5</text><text x="600" y="295" fill="#dbe6f5">20 bps</text><text x="8" y="30" fill="#dbe6f5">' + hi.toFixed(1) + '</text><text x="8" y="265" fill="#dbe6f5">' + lo.toFixed(1) + '</text>' + (a.markout_bps >= -5 && a.markout_bps <= 20 ? '<circle cx="' + x(a.markout_bps) + '" cy="' + y(r.net_roundtrip_bps) + '" r="6" fill="#ffcf78"/>' : '');
+    } catch (e) {
+      document.getElementById("error").textContent = e.message;
+      ["net_bps", "net_cash", "threshold", "status", "frontier"].forEach(id => { document.getElementById(id).textContent = ""; });
+    }
+  }
+  controls.forEach(e => e.addEventListener("input", update));
+  update();
+}());
+</script>
+</html>

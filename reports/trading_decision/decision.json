@@ -1,0 +1,526 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "evidence_type": "assumption_sensitivity",
+  "as_of_utc": "2026-10-22T09:12:36.918371+00:00",
+  "git_commit": "6eaef1a88f8b8072485f6ef707f4ce524fa1af72",
+  "git_dirty": false,
+  "tool_sha256": "8c9292e622deeada0a74ebfcfcedb688d933402e35eac6f1e1cee84d8e1954be",
+  "template_sha256": "ed452581463aa20f77b92cedafa28d028f655d9c0815e13d87379631e036cc3a",
+  "market_tapes_read": 0,
+  "orders_sent": 0,
+  "rows": [
+    {
+      "side": "long",
+      "scenario": "tight_exit",
+      "entry_net_markout_bps": "2",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": "0",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60042.0000",
+        "exit_price": "60041.399580000",
+        "gross_price_pnl_usdt": "0.041399580000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.030020699790",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "-0.018621119790",
+        "net_roundtrip_bps": "-3.1035199650000",
+        "additional_exit_cost_bps": "5.1035199650000",
+        "break_even_entry_net_markout_bps": "5.105103552286148174138069544777488795398"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "long",
+      "scenario": "tight_exit",
+      "entry_net_markout_bps": "6",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": "0",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60066.0000",
+        "exit_price": "60065.399340000",
+        "gross_price_pnl_usdt": "0.065399340000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.030032699670",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "0.005366640330",
+        "net_roundtrip_bps": "0.8944400550000",
+        "additional_exit_cost_bps": "5.1055599450000",
+        "break_even_entry_net_markout_bps": "5.105103552286148174138069544777488795398"
+      },
+      "hypothetical_cost_hurdle": "cleared"
+    },
+    {
+      "side": "long",
+      "scenario": "tight_exit",
+      "entry_net_markout_bps": "10",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": "0",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60090.0000",
+        "exit_price": "60089.399100000",
+        "gross_price_pnl_usdt": "0.089399100000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.030044699550",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "0.029354400450",
+        "net_roundtrip_bps": "4.8924000750000",
+        "additional_exit_cost_bps": "5.1075999250000",
+        "break_even_entry_net_markout_bps": "5.105103552286148174138069544777488795398"
+      },
+      "hypothetical_cost_hurdle": "cleared"
+    },
+    {
+      "side": "long",
+      "scenario": "wide_exit",
+      "entry_net_markout_bps": "2",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": "2",
+        "exit_slippage_bps": ".5",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60042.0000",
+        "exit_price": "60032.993700000",
+        "gross_price_pnl_usdt": "0.032993700000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.030016496850",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "-0.027022796850",
+        "net_roundtrip_bps": "-4.5037994750000",
+        "additional_exit_cost_bps": "6.5037994750000",
+        "break_even_entry_net_markout_bps": "6.506728510527204393315325462901476241947"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "long",
+      "scenario": "wide_exit",
+      "entry_net_markout_bps": "6",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": "2",
+        "exit_slippage_bps": ".5",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60066.0000",
+        "exit_price": "60056.990100000",
+        "gross_price_pnl_usdt": "0.056990100000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.030028495050",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "-0.003038395050",
+        "net_roundtrip_bps": "-0.5063991750000",
+        "additional_exit_cost_bps": "6.5063991750000",
+        "break_even_entry_net_markout_bps": "6.506728510527204393315325462901476241946"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "long",
+      "scenario": "wide_exit",
+      "entry_net_markout_bps": "10",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": "2",
+        "exit_slippage_bps": ".5",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60090.0000",
+        "exit_price": "60080.986500000",
+        "gross_price_pnl_usdt": "0.080986500000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.030040493250",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "0.020946006750",
+        "net_roundtrip_bps": "3.4910011250000",
+        "additional_exit_cost_bps": "6.5089988750000",
+        "break_even_entry_net_markout_bps": "6.506728510527204393315325462901476241947"
+      },
+      "hypothetical_cost_hurdle": "cleared"
+    },
+    {
+      "side": "long",
+      "scenario": "delayed_exit",
+      "entry_net_markout_bps": "2",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": ".25",
+        "adverse_exit_move_bps": "2",
+        "funding_cost_bps": ".1"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60042.0000",
+        "exit_price": "60027.8901300000",
+        "gross_price_pnl_usdt": "0.0278901300000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.0300139450650",
+        "funding_cost_usdt": "0.0006",
+        "net_roundtrip_usdt": "-0.0327238150650",
+        "net_roundtrip_bps": "-5.45396917750000",
+        "additional_exit_cost_bps": "7.45396917750000",
+        "break_even_entry_net_markout_bps": "7.457980151598757273742220867626753717839"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "long",
+      "scenario": "delayed_exit",
+      "entry_net_markout_bps": "6",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": ".25",
+        "adverse_exit_move_bps": "2",
+        "funding_cost_bps": ".1"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60066.0000",
+        "exit_price": "60051.8844900000",
+        "gross_price_pnl_usdt": "0.0518844900000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.0300259422450",
+        "funding_cost_usdt": "0.0006",
+        "net_roundtrip_usdt": "-0.0087414522450",
+        "net_roundtrip_bps": "-1.45690870750000",
+        "additional_exit_cost_bps": "7.45690870750000",
+        "break_even_entry_net_markout_bps": "7.457980151598757273742220867626753717839"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "long",
+      "scenario": "delayed_exit",
+      "entry_net_markout_bps": "10",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": ".25",
+        "adverse_exit_move_bps": "2",
+        "funding_cost_bps": ".1"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "60090.0000",
+        "exit_price": "60075.8788500000",
+        "gross_price_pnl_usdt": "0.0758788500000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.0300379394250",
+        "funding_cost_usdt": "0.0006",
+        "net_roundtrip_usdt": "0.0152409105750",
+        "net_roundtrip_bps": "2.54015176250000",
+        "additional_exit_cost_bps": "7.45984823750000",
+        "break_even_entry_net_markout_bps": "7.457980151598757273742220867626753717839"
+      },
+      "hypothetical_cost_hurdle": "cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "tight_exit",
+      "entry_net_markout_bps": "2",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": "0",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59958.0000",
+        "exit_price": "59958.599580000",
+        "gross_price_pnl_usdt": "0.041400420000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.029979299790",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "-0.018578879790",
+        "net_roundtrip_bps": "-3.0964799650000",
+        "additional_exit_cost_bps": "5.0964799650000",
+        "break_even_entry_net_markout_bps": "5.094901549735127336382808085962118889556"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "tight_exit",
+      "entry_net_markout_bps": "6",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": "0",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59934.0000",
+        "exit_price": "59934.599340000",
+        "gross_price_pnl_usdt": "0.065400660000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.029967299670",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "0.005433360330",
+        "net_roundtrip_bps": "0.9055600550000",
+        "additional_exit_cost_bps": "5.0944399450000",
+        "break_even_entry_net_markout_bps": "5.094901549735127336382808085962118889556"
+      },
+      "hypothetical_cost_hurdle": "cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "tight_exit",
+      "entry_net_markout_bps": "10",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": "0",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59910.0000",
+        "exit_price": "59910.599100000",
+        "gross_price_pnl_usdt": "0.089400900000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.029955299550",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "0.029445600450",
+        "net_roundtrip_bps": "4.9076000750000",
+        "additional_exit_cost_bps": "5.0923999250000",
+        "break_even_entry_net_markout_bps": "5.094901549735127336382808085962118889556"
+      },
+      "hypothetical_cost_hurdle": "cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "wide_exit",
+      "entry_net_markout_bps": "2",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": "2",
+        "exit_slippage_bps": ".5",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59958.0000",
+        "exit_price": "59966.993700000",
+        "gross_price_pnl_usdt": "0.033006300000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.029983496850",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "-0.026977196850",
+        "net_roundtrip_bps": "-4.4961994750000",
+        "additional_exit_cost_bps": "6.4961994750000",
+        "break_even_entry_net_markout_bps": "6.493278506974578500881039758079266620752"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "wide_exit",
+      "entry_net_markout_bps": "6",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": "2",
+        "exit_slippage_bps": ".5",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59934.0000",
+        "exit_price": "59942.990100000",
+        "gross_price_pnl_usdt": "0.057009900000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.029971495050",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "-0.002961595050",
+        "net_roundtrip_bps": "-0.4935991750000",
+        "additional_exit_cost_bps": "6.4935991750000",
+        "break_even_entry_net_markout_bps": "6.493278506974578500881039758079266620752"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "wide_exit",
+      "entry_net_markout_bps": "10",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": "2",
+        "exit_slippage_bps": ".5",
+        "adverse_exit_move_bps": "0",
+        "funding_cost_bps": "0"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59910.0000",
+        "exit_price": "59918.986500000",
+        "gross_price_pnl_usdt": "0.081013500000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.029959493250",
+        "funding_cost_usdt": "0.000",
+        "net_roundtrip_usdt": "0.021054006750",
+        "net_roundtrip_bps": "3.5090011250000",
+        "additional_exit_cost_bps": "6.4909988750000",
+        "break_even_entry_net_markout_bps": "6.493278506974578500881039758079266620752"
+      },
+      "hypothetical_cost_hurdle": "cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "delayed_exit",
+      "entry_net_markout_bps": "2",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": ".25",
+        "adverse_exit_move_bps": "2",
+        "funding_cost_bps": ".1"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59958.0000",
+        "exit_price": "59972.0901300000",
+        "gross_price_pnl_usdt": "0.0279098700000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.0299860450650",
+        "funding_cost_usdt": "0.0006",
+        "net_roundtrip_usdt": "-0.0326761750650",
+        "net_roundtrip_bps": "-5.44602917750000",
+        "additional_exit_cost_bps": "7.44602917750000",
+        "break_even_entry_net_markout_bps": "7.442028647006084504674135211408727244950"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "delayed_exit",
+      "entry_net_markout_bps": "6",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": ".25",
+        "adverse_exit_move_bps": "2",
+        "funding_cost_bps": ".1"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59934.0000",
+        "exit_price": "59948.0844900000",
+        "gross_price_pnl_usdt": "0.0519155100000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.0299740422450",
+        "funding_cost_usdt": "0.0006",
+        "net_roundtrip_usdt": "-0.0086585322450",
+        "net_roundtrip_bps": "-1.44308870750000",
+        "additional_exit_cost_bps": "7.44308870750000",
+        "break_even_entry_net_markout_bps": "7.442028647006084504674135211408727244950"
+      },
+      "hypothetical_cost_hurdle": "not_cleared"
+    },
+    {
+      "side": "short",
+      "scenario": "delayed_exit",
+      "entry_net_markout_bps": "10",
+      "assumptions": {
+        "entry_price": "60000",
+        "quantity_btc": ".001",
+        "entry_fee_bps": "5",
+        "exit_fee_bps": "5",
+        "exit_spread_bps": ".2",
+        "exit_slippage_bps": ".25",
+        "adverse_exit_move_bps": "2",
+        "funding_cost_bps": ".1"
+      },
+      "cash_bridge": {
+        "implied_horizon_mid": "59910.0000",
+        "exit_price": "59924.0788500000",
+        "gross_price_pnl_usdt": "0.0759211500000",
+        "entry_fee_usdt": "0.030",
+        "exit_fee_usdt": "0.0299620394250",
+        "funding_cost_usdt": "0.0006",
+        "net_roundtrip_usdt": "0.0153591105750",
+        "net_roundtrip_bps": "2.55985176250000",
+        "additional_exit_cost_bps": "7.44014823750000",
+        "break_even_entry_net_markout_bps": "7.442028647006084504674135211408727244950"
+      },
+      "hypothetical_cost_hurdle": "cleared"
+    }
+  ],
+  "current_research_decision": "Remain in research; released scientific evidence and execution calibration are unavailable.",
+  "limitations": [
+    "Assumed entry-net markouts and costs are not fitted or measured market quantities.",
+    "Full fills at stated prices and quantities are assumed; no queue, depth, rejection or capacity model.",
+    "Exit slippage excludes the separately stated spread and post-horizon adverse movement.",
+    "Funding is a signed scenario cost; no actual payment schedule is inferred.",
+    "No confidence interval, signal probability, Sharpe ratio or frozen-study acceptance rule is computed."
+  ]
+}

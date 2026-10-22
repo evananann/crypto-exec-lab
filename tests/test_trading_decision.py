@@ -97,3 +97,32 @@ class TradingDecisionTests(unittest.TestCase):
             expected = bridge(**inputs)
             for key, value in actual.items():
                 self.assertAlmostEqual(value, float(expected[key]), delta=1e-8)
+
+    def test_interactive_state_changes_show_hurdles_and_clear_invalid_outputs(self):
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("Node is needed for interactive state checks")
+        source = re.search(r"<script>(.*?)</script>", Path("research/decision_template.html").read_text(), re.S)[1]
+        runner = r"""
+const vm=require('vm');let source='';process.stdin.on('data',x=>source+=x);
+process.stdin.on('end',()=>{
+ const values={side:'long',markout_bps:'2',entry_price:'60000',quantity_btc:'.001',entry_fee_bps:'5',exit_fee_bps:'5',exit_spread_bps:'.2',exit_slippage_bps:'0',adverse_exit_move_bps:'0',funding_cost_bps:'0'};
+ const elements={},handlers={};
+ for(const [id,value] of Object.entries(values)) elements[id]={id,value,textContent:'',innerHTML:'',addEventListener:(event,fn)=>handlers[id]=fn};
+ for(const id of ['net_bps','net_cash','threshold','error','status','frontier']) elements[id]={textContent:'',innerHTML:''};
+ vm.runInNewContext(source,{document:{querySelectorAll:()=>Object.keys(values).map(id=>elements[id]),getElementById:id=>elements[id]}});
+ const initial={net:elements.net_bps.textContent,error:elements.error.textContent,chart:elements.frontier.innerHTML.includes('<path')};
+ elements.markout_bps.value='10';handlers.markout_bps();
+ const positive={net:elements.net_bps.textContent,status:elements.status.textContent};
+ elements.entry_price.value='0';handlers.entry_price();
+ console.log(JSON.stringify({initial,positive,invalid:{error:elements.error.textContent,net:elements.net_bps.textContent}}));
+});
+"""
+        state = json.loads(subprocess.check_output([node, "-e", runner], input=source, text=True))
+        self.assertTrue(state["initial"]["net"].startswith("-"))
+        self.assertEqual(state["initial"]["error"], "")
+        self.assertTrue(state["initial"]["chart"])
+        self.assertFalse(state["positive"]["net"].startswith("-"))
+        self.assertIn("assumed cash surplus", state["positive"]["status"])
+        self.assertTrue(state["invalid"]["error"])
+        self.assertEqual(state["invalid"]["net"], "")
