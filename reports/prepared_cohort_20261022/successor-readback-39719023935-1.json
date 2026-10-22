@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "repository": "evananann/crypto-exec-lab",
+  "release_tag": "study-archive-btc-execution-v1",
+  "archive_name": "rehearsal-39719023935-1.tar.gz",
+  "receipt_asset_name": "successor-readback-39719023935-1.json",
+  "archive_sha256": "08d88a64e55f09dbb5bf5a118a0f92d43ae8a34c695763e4b4dd0d25be74c51e",
+  "source_commit": "d8a5e9d74e4bb53ec3f8803295fa3092b10b2b59",
+  "slot_id": "btc-collection-successor-candidate-v1/20261022T041500Z",
+  "claim": {
+    "schema_version": 1,
+    "repository": "evananann/crypto-exec-lab",
+    "slot_id": "btc-collection-successor-candidate-v1/20261022T041500Z",
+    "intended_start_utc": "2026-10-22T04:15:00+00:00",
+    "source_commit": "d8a5e9d74e4bb53ec3f8803295fa3092b10b2b59",
+    "owner_run_attempt": "39719023935-1",
+    "protocol_sha256": "aab63ec34c5a91883b042999b6d41c8245deaf945f9564abcf48dc892ea9d9bb",
+    "claim_ref": "refs/tags/successor-claims/btc-collection-successor-candidate-v1/20261022T041500Z",
+    "claim_commit": "044699dd22d9150494d15ad54147283c2ce466aa",
+    "archive_tag": "refs/tags/successor-rehearsal-39719023935-1",
+    "claimed_at_utc": "2026-10-22T04:15:02.915450+00:00"
+  },
+  "verified_at_utc": "2026-10-22T04:30:54.522164+00:00",
+  "remote_restored": true,
+  "assessment": {
+    "collection_healthy": true,
+    "issues": [],
+    "events": 353964,
+    "timestamp_fallback_events": 0,
+    "instrument_snapshots": 16,
+    "venues": {
+      "binance": {
+        "bbo": 329923,
+        "span_ms": 899492,
+        "maximum_gap_ms": 517
+      },
+      "okx": {
+        "bbo": 24041,
+        "span_ms": 899259,
+        "maximum_gap_ms": 611
+      }
+    },
+    "timing": {
+      "accepted": true,
+      "mode": "prospective",
+      "intended_start_utc": "2026-10-22T04:15:00+00:00",
+      "checked_at_utc": "2026-10-22T04:15:04.434264+00:00",
+      "lateness_seconds": 4.434264,
+      "timing_qualified": true
+    },
+    "study_observation": false,
+    "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+  },
+  "scope": "Shared infrastructure storage only; not a v1 study observation"
+}

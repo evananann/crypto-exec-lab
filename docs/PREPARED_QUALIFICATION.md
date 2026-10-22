@@ -128,3 +128,13 @@ downloaded again to verify remote bytes.
 
 Frozen v1/v2 plans, collectors, report workflows, source maps and missing slots
 remain unchanged throughout this path.
+
+## Observed follow-up gap and bounded reconciliation
+
+The [first two trials passed independent archive verification](../reports/prepared_cohort_20261022/README.md).
+Inspection after completion found no new registration follow-up run after either
+child collector. A separate [bounded follow-up](../.github/workflows/qualification-followup.yml)
+now invokes the unchanged registration gate hourly on October 23–25, only within
+three days after the final intended start; later-year events skip. Its push-time
+check can verify the current pending state before the final trial. This trigger
+changes no qualified source or fixed intent and cannot bypass any readiness gate.
