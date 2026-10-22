@@ -52,9 +52,10 @@ registration remain pending. This does not repair existing missing slots.
 | 33 | Human external review | Excluded by request; packet remains prepared. No reviewer contacted. |
 | 34 | Resolve external-review findings | Excluded until an external review exists. No findings or endorsement invented. |
 | 35 | Spoken interview drills | Existing exercises and targeted question prepared; actual performance/feedback requires the candidate's answer. |
-| 36 | Update recruiting material | Supported engineering bullets updated. Empirical result bullet remains unavailable until released evidence exists. |
+| 36 | Update recruiting material | Researcher/trader walkthroughs now lead with mechanism, rival explanations, costs, uncertainty and abstention. Engineering proof supports that case; empirical result bullets remain unavailable until released evidence exists. |
 | 37 | Stress report cadence and signal density | [Measured bursty and dense fixtures](../reports/successor_report_stress/README.md) each processed 400,000 events through raw restore, fixed-primary evaluation and condition metrics. Small smoke checks run in CI. Each measured stress is one session, separate from the earlier full 56-session regular-profile pass. |
 | 38 | Verify published benchmark records | Offline checker validates exact member/checksum inventory, unique slots/tapes, event volume, timings, byte totals and completion invariants. CI rejects tampered, extra, duplicate, symlinked or inconsistent records. This is internal record consistency, not host attestation. |
+| 39 | Trading thesis and economic decision | [Thesis](TRADING_THESIS.md), [trader memo](TRADER_DECISION_MEMO.md) and [interactive cost frontier](../reports/trading_decision/decision.html) separate the fixed primary from closed-trade economics. Eighteen assumed long/short cases use exact cash accounting. No market tape, execution calibration, sizing recommendation or empirical alpha is supplied. |
 
 ## Commands
 

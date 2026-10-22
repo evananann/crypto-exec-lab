@@ -1,93 +1,84 @@
-# Crypto execution feasibility: research memo
+# Does cross-venue price discovery survive trading costs?
 
-October 17, 2026. **Engineering validation is available; empirical strategy
-results are not yet available.**
+Updated October 22, 2026. **Scientific outcomes remain unavailable.** Current
+evidence supports research mechanics and collection infrastructure. The trading
+decision is to remain in research until released observations and execution
+evidence justify revisiting it.
 
-## Question
+## Thesis and economic obstacle
 
-Does a BTC perpetual price move observed on Binance predict a follower-venue
-move large enough to survive executable entry prices, fees and latency?
-The project separates three claims: a predictive relationship, simulated
-execution feasibility, and live profitability. Evidence for the first two
-does not establish the third.
+Asynchronous BTC perpetual repricing could leave a short-lived executable
+opportunity on a follower venue. The fixed test asks whether an accumulated
+$2 Binance move predicts positive OKX entry-to-mid markout after a 50ms assumed
+entry delay and 5bps entry fee, measured one second from the signal using local
+receive time. Separate date and venue replications remain independently specified.
 
-## Design
+At an illustrative $60,000 price, $2 is 0.333bps, while two assumed 5bps fees
+alone cost approximately 10bps. The trigger does not bound the future response;
+this comparison motivates the economic test rather than disproving it. The
+[trading thesis](TRADING_THESIS.md) sets out competing explanations and falsifiable
+signatures: common information, collector delays, bid/ask bounce and adverse selection.
 
-The frozen v1 plan schedules 14 fifteen-minute Binance/OKX samples on
-October 17–23 UTC. Development ends October 21; October 22–23 form the holdout.
-The primary specification uses an accumulated $2 leader move, local receive
-time, 50ms entry delay, a 5bps entry fee and follower-mid marking one second
-after the signal. Analysis sources, configuration and dependencies are hashed.
-The evaluator publishes the full preselected grid, sample sizes, chronological
-partitions and 60-second block-bootstrap intervals. No holdout outcome is
-evaluated before October 24 UTC. Missing and failed sessions remain visible.
+## Identification and evidence contract
 
-An independent exploratory model adds follower exits at the one-second horizon
-plus 50ms exit latency, pays both spreads and fees, consumes displayed size,
-and retains partial or unfinished positions. Fixed controls are opposite
-signals, periodic alternating entries and staying in cash. A separate causal
-two-leg simulator exposes hedge latency, timeout unwind, risk stops and
-liquidity-constrained liquidation. Stress scenarios change displayed size,
-hedge delay, follower receive delay and feed availability. None selects the
-v1 result.
+Replay uses only received quotes. This prevents simulated lookahead; it does
+not identify a causal relationship between exchanges. Local timestamps include
+collector/network delays. Frozen specifications, dates and sources stay intact.
+Every failed or missing slot remains visible, with no favorable retry or zero-fill.
+All scientific estimates, including development outcomes, retain their release gates.
+
+Released results must distinguish development, holdout and full-period data;
+signals from independent dates; and software agreement from external validity.
+Report every prespecified grid cell, control, stress and venue pair. New timing
+or shifted-signal diagnostics are proposals for separately specified exploratory
+work, not completed findings or changes to the primary analysis.
 
 ## Evidence today
 
-Three cloud preflights recorded zero events with proxy HTTP 403 errors.
-Their raw diagnostic archives and checksums are preserved. The hosted runner
-received quotes but initially failed metadata verification and worker shutdown.
-Explicit project/JSON request headers and bounded socket shutdown corrected
-those observed failures. A 30-second hosted preflight then passed all health
-gates: 1,207 Binance quotes and 320 OKX quotes, spanning 29.317 and 29.099
-seconds respectively. This verifies bounded collection readiness, not a
-completed 15-minute study sample.
+Two independently restored 900-second prepared trials on October 22 contain
+**643,677 events**, with healthy quote coverage, zero timestamp fallback and
+source/provenance checks. The [readback record](../reports/prepared_cohort_20261022/README.md)
+retains original runs and hashes. These are infrastructure recordings on one UTC
+date. The final trial is October 23 at 12:15 Shanghai; full qualification and
+separate scientific registration remain pending.
 
-No eligible live-study session has been independently verified here. The
-authenticated GitHub artifact route remains denied in the cloud instance;
-public health annotations and public Release downloads are accessible. The
-passing preflight was independently restored from its Release copy and its
-health recomputed, matching the quoted counts and spans
-([evidence](../reports/operations/release-restore.json)). Primary means, confidence intervals,
-execution returns and cross-day comparisons are therefore unavailable. The
-committed figures demonstrate the software on explicitly synthetic data;
-they make no claim about market alpha.
+The [dated legacy status](https://github.com/evananann/crypto-exec-lab/actions/runs/39740284694)
+reports 11 missing slots and zero eligible slots. Original failures remain
+failures. Empirical primary means, confidence intervals, trading returns and
+capacity estimates are unavailable in the verified scientific evidence.
 
-## Limitations and next evidence
+Synthetic challenges demonstrate causal timers, both-side fees, partial fills,
+residual inventory and failed liquidation. Independent reference checks and
+hosted cross-version tests validate software behavior. Synthetic processing
+benchmarks supply engineering measurements, not market observations.
 
-Top-of-book consistency is weaker than executable exchange fills. The model
-does not establish queue priority, order acceptance, hidden liquidity, funding,
-real market impact or reliable liquidation under venue failure. Completed-trade
-means can conceal unfinished inventory; reports retain residual exposure and
-total marked value to make that selection visible. Local receive times avoid
-pretending venue clocks are synchronized, but include this collector's network
-and scheduling delays.
+## From markout to a trading decision
 
-Seven days and two daily windows offer limited condition coverage and few
-independent observations. The prospective v2 plans schedule 28 days and a
-separate Bybit replication, requiring at least 25 occupied days, 51 eligible
-sessions per pair and a 2bps day-cluster interval half-width target. Those
-targets are predeclared planning criteria, not achieved results.
+The primary already charges executable entry and entry fee. A closed trade also
+needs an executable exit, its actual-notional fee and applicable funding. Spread,
+post-horizon drift and slippage must be defined without overlap. The
+[interactive assumption lab](../reports/trading_decision/decision.html) and
+[18 fixed cases](../reports/trading_decision/decision.md) make this cash bridge
+explicit for long and short positions using Decimal accounting.
 
-The defensible conclusion today is that the repository provides an audited,
-reproducible test of execution assumptions and has passed a hosted preflight.
-Whether the signal survives costs remains an empirical question. A final
-report must retain negative results, uncertainty, missing slots and failures
-without choosing a favorable rerun or changing the frozen hypothesis.
+Positive primary markout can coexist with a losing round trip. Invented costs
+cannot establish calibration, fill probability or capacity. Unfinished positions
+require residual exposure and a fresh mark or unavailable valuation. Zero net
+BTC across venues does not close gross positions. The
+[trader memo](TRADER_DECISION_MEMO.md) makes the current abstention decision explicit.
 
-## Pre-results review
+## Inference and the next decision
 
-The [power audit](STATISTICAL_POWER_AUDIT.md) distinguishes interval precision
-from detection power, quantifies assumed day correlation, and separates the
-seven-day replication holdout from its 28-day full period. It uses no market
-outcomes and changes no frozen rule. The
-[execution audit](EXECUTION_ASSUMPTION_AUDIT.md) demonstrates fee-sensitive
-synthetic cash flows and explicit residual exposure; its results are not live
-return estimates. Use the [write-up template](RESULTS_WRITEUP_TEMPLATE.md) only
-after the applicable outcome release, retaining unavailable fields and coverage
-failures. Interview answers still require actual candidate participation.
+The [power audit](STATISTICAL_POWER_AUDIT.md) finds approximately 56% power for
+28 independent Gaussian days to detect 2bps under an assumed known 5bps daily SD;
+seven days give approximately 19%. These are planning assumptions, not measured
+variance, achieved bootstrap coverage or holdout evidence. Dependence, missingness
+and narrow sampled conditions remain limitations.
 
-The [missingness and dependence supplement](MISSING_DATA_AND_DEPENDENCE.md)
-prepares hypothetical lost-session sensitivity and release-gated calendar-day
-uncertainty diagnostics. Its committed examples are entirely synthetic. A
-separate [execution-calibration plan](EXECUTION_CALIBRATION_PLAN.md) specifies
-what a future order-lifecycle study would need to measure; no orders are sent.
+After release, lead with actual coverage, the fixed estimate, its uncertainty
+and the original decision rule. Interpret all execution challenges and economic
+hurdles afterward. A negative or inconclusive finding belongs in the result;
+it should not prompt an outcome-driven extension or parameter change. The
+[results template](RESULTS_WRITEUP_TEMPLATE.md) preserves these distinctions.
+A supported markout would still require prospective execution calibration and
+confirmation before any separately authorized order study.

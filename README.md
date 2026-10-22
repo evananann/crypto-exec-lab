@@ -1,8 +1,8 @@
 # crypto-exec-lab
 
-A BTC perpetual microstructure and execution research project using public
-Binance, OKX and Bybit data. It combines causal replay, preregistered markouts,
-execution simulation and verifiable research artifacts.
+A BTC perpetual research case study: **does cross-venue price discovery survive
+fees, latency and liquidation?** It uses public Binance, OKX and Bybit data,
+frozen hypotheses, received-quote replay and explicit execution assumptions.
 
 **Hypothesis:** an accumulated $2 Binance jump predicts a positive OKX
 entry-to-mid markout after a 50ms decision delay and 5bps entry fee, measured
@@ -15,7 +15,14 @@ passed on October 22; the final qualification trial remains pending. These
 recordings do not establish scientific-study outcomes or profitable execution.
 The project sends no live orders.
 
-Start with the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
+Start with the [research memo](docs/RESEARCH_MEMO.md),
+[trading thesis and falsification plan](docs/TRADING_THESIS.md), and
+[trader decision memo](docs/TRADER_DECISION_MEMO.md). The
+[interactive cost-hurdle lab](reports/trading_decision/decision.html) explores
+when an assumed positive primary markout could survive an executable exit.
+Its 18 fixed cases are synthetic arithmetic, with no market estimates or orders.
+
+Use the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
 coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
 reading order and reproducible audit questions.
 
@@ -36,6 +43,7 @@ collection remain gated; early wake-ups provide no scheduling guarantee.
 | Evidence | What it establishes |
 | --- | --- |
 | [Working paper](reports/STUDY_V1_RESEARCH.md) and [research memo](docs/RESEARCH_MEMO.md) | Exact hypothesis, frozen rules, observed failures and current research limitations |
+| [Trading decision and exit-cost frontier](reports/trading_decision/decision.md) | Exact long/short cash bridge, break-even markout hurdles and assumption sensitivity; no alpha, fill probability or capacity estimate |
 | [Archive restore records](reports/operations/all-release-restores.json) | Eight original preflight attempts independently downloaded and restored, including failures |
 | [Successor rehearsal](reports/successor_validation/README.md) | A real 900-second BBO rehearsal with 388,049 events, independently restored after preservation recovery; not a frozen-study observation |
 | [Prepared qualification readback](reports/prepared_cohort_20261022/README.md) | Two healthy 900-second trials, 643,677 total events, starts 4.434264 s and 3.744673 s late; original runs, archive hashes and source bindings checked; full cohort pending |
@@ -64,6 +72,7 @@ Use new output directories:
 ```bash
 python -m pip install uv==0.12.23
 uv sync --frozen --extra dev
+uv run --frozen python -m research.trading_decision --out data/raw/trading-decision
 uv run --frozen python -m cel.experiments --demo --out data/raw/demo-bundle
 python -S scripts/verify_bundle.py data/raw/demo-bundle
 uv run --frozen --extra dev python -m unittest discover -s tests -v
@@ -108,6 +117,8 @@ the separate release-gated supplement.
 
 - Research: [protocol](docs/RESEARCH_PROTOCOL.md), [v1 plan](docs/LIVE_STUDY.md),
   [v2 replication](docs/REPLICATION_V2.md), [results template](docs/RESULTS_WRITEUP_TEMPLATE.md).
+- Trading case: [thesis](docs/TRADING_THESIS.md),
+  [decision memo](docs/TRADER_DECISION_MEMO.md), [assumption lab](reports/trading_decision/decision.html).
 - Assumptions: [power](docs/STATISTICAL_POWER_AUDIT.md),
   [execution](docs/EXECUTION_ASSUMPTION_AUDIT.md),
   [missingness and dependence](docs/MISSING_DATA_AND_DEPENDENCE.md).

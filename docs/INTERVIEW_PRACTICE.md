@@ -1,5 +1,18 @@
 # Interview exercises
 
+For quant trader/researcher applications, begin with these economic questions,
+then use the implementation questions below as supporting proof:
+
+| Question | A defensible answer |
+| --- | --- |
+| Why would the opportunity persist after competition? | State the proposed asynchronous-price-discovery mechanism, then discuss common information, collector delays and competing explanations; persistence is unproven |
+| What would make you abandon the proposed trade? | Released evidence that does not support the fixed hypothesis, or liquidation economics that fail under defensible costs; preserve the original statistical rule and negative findings |
+| How much capital would you allocate today? | No live allocation is justified by the current evidence; full-fill arithmetic supplies no measured capacity, tail distribution or calibrated sizing |
+| Does a high hit rate imply a good strategy? | Costs, payoff magnitudes, tail losses, dependence and unfinished positions determine the economics; no empirical hit rate is claimed here |
+
+Use the [thesis](TRADING_THESIS.md), [trader memo](TRADER_DECISION_MEMO.md) and
+[interactive cost frontier](../reports/trading_decision/decision.html).
+
 Use these alongside the [timed walkthrough](RECRUITING.md). Answer each question
 aloud before reading its checkpoints. Score 0 for an unsupported claim, 1 for
 the main idea, and 2 for the idea plus a concrete failure case or code example.
@@ -84,12 +97,13 @@ for the numerical reasoning plus a limitation. Target 10/12, then repeat the
 weakest answers aloud. This is a self-assessment target, not a recorded score.
 Spoken delivery and feedback remain pending the candidate's answers.
 
-A defensible opening today: “I built a causal replay and execution lab to test
-whether delayed Binance jumps predict follower entry-to-mid markouts after
-entry costs. Hosted preflights and archive restores work, but no eligible
-scheduled 15-minute sample has yet been verified. The study is frozen and
-missing slots stay missing. A positive markout would still need executable
-exit costs, dependence-aware interpretation and prospective replication.”
+A defensible opening today: “I am testing whether cross-venue price discovery
+can survive actionable delay and both-side trading costs. I specified the
+primary hypothesis, competing explanations and the evidence that would leave
+it unsupported. Two infrastructure trials passed, but scientific outcomes and
+execution calibration remain unavailable, so the current decision is to remain
+in research. A positive entry markout would still need a feasible exit,
+dependence-aware interpretation and prospective confirmation.”
 Update the evidence sentence only after checking newer archives.
 
 See the [power review](STATISTICAL_POWER_AUDIT.md),

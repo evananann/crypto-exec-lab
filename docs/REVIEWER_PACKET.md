@@ -9,6 +9,8 @@ claims before interpreting any future result as an execution opportunity.
 ## Five-minute reading order
 
 1. [README](../README.md): exact hypothesis, strongest available evidence and limits.
+   Then [trading thesis](TRADING_THESIS.md) and [decision memo](TRADER_DECISION_MEMO.md):
+   proposed mechanism, competing explanations, exit economics and current abstention.
 2. [Data card](DATA_CARD.md) and [dated provenance snapshot](../reports/data_provenance/README.md):
    instrument/quantity/clock semantics, preflight versus scheduled sample,
    and historical collection failures. The provenance snapshot is dated evidence;
@@ -90,6 +92,7 @@ uv run --frozen python -m cel.experiments --demo --out data/raw/reviewer-demo
 python -S scripts/verify_bundle.py data/raw/reviewer-demo
 uv run --frozen python -m scripts.crosscheck_markouts --demo --out data/raw/reviewer-crosscheck
 uv run --frozen python -m scripts.failure_attribution --source reports/evidence --out data/raw/reviewer-failures
+uv run --frozen python -m research.trading_decision --out data/raw/reviewer-trading-decision
 uv run --frozen python -m benchmarks.successor_report_workload --out data/raw/reviewer-report-workload
 ```
 
