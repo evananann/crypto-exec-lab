@@ -1,6 +1,6 @@
 # External reviewer packet
 
-Prepared October 18, 2026. This is a review request package, not a record of
+Updated October 22, 2026. This is a review request package, not a record of
 completed external review. No reviewer has been contacted by this task.
 The repository is a simulator/research lab; empirical outcomes remain unavailable
 in the committed verified evidence. Please assess correctness and evidential
@@ -11,7 +11,8 @@ claims before interpreting any future result as an execution opportunity.
 1. [README](../README.md): exact hypothesis, strongest available evidence and limits.
 2. [Data card](DATA_CARD.md) and [dated provenance snapshot](../reports/data_provenance/README.md):
    instrument/quantity/clock semantics, preflight versus scheduled sample,
-   and both missing October 17 slots.
+   and historical collection failures. The provenance snapshot is dated evidence;
+   the README links a newer hosted status inspection.
 3. [Working paper](../reports/STUDY_V1_RESEARCH.md),
    [frozen v1 plan](../configs/study_v1.json) and
    [prospective v2 design](REPLICATION_V2.md): estimand, dates, holdout and decision rules.
@@ -27,6 +28,50 @@ preparation. It contains no estimates to fill in by inference. The
 [execution-calibration plan](EXECUTION_CALIBRATION_PLAN.md) is a future measurement
 design; no actual order latency, rejection or slippage sample is claimed.
 
+## Current evidence and unresolved gates
+
+The [prepared qualification evidence](../reports/prepared_cohort_20261022/README.md)
+preserves two independently downloaded and restored public Release archives.
+Both original hosted jobs succeeded on October 22 at the unchanged 900-second
+duration, with zero timestamp fallbacks and 16 instrument snapshots each.
+
+| Original run | Intended start (UTC) | Start lateness | Events | Archive bytes |
+| --- | --- | ---: | ---: | ---: |
+| [39719023935](https://github.com/evananann/crypto-exec-lab/actions/runs/39719023935) | Oct 22, 04:15 | 4.434264 s | 353,964 | 8,954,909 |
+| [39719029085](https://github.com/evananann/crypto-exec-lab/actions/runs/39719029085) | Oct 22, 04:45 | 3.744673 s | 289,713 | 7,231,949 |
+
+Exact SHA-256 digests, raw-wire reparse assessments, timing and source/request
+bindings are in [verification.json](../reports/prepared_cohort_20261022/verification.json).
+The qualified source is `d8a5e9d74e4bb53ec3f8803295fa3092b10b2b59`;
+documentation and the isolated benchmark do not change its bound source files.
+These are two infrastructure trials on **one UTC date**, not scientific-study
+observations. The final named trial is October 23 at 04:15 UTC (12:15 Shanghai).
+The full cohort must qualify on two dates before a separate future registration.
+No registration or scientific collection is claimed here.
+
+Earlier failures remain in the record: all three October 20–21 cron intents
+were late and skipped. A separate October 22 diagnostic push recording is
+excluded from qualification. The original transport rehearsal's preservation
+failure remains a failure even though its archive was later recovered.
+The [bounded reconciliation workflow](../.github/workflows/qualification-followup.yml)
+addresses an observed missing completion follow-up; its installation smoke
+[39733757153](https://github.com/evananann/crypto-exec-lab/actions/runs/39733757153)
+passed and reported `qualification_pending; no registration committed`.
+
+The [full report workload benchmark](../reports/successor_report_workload/README.md)
+uses 56 synthetic 900-second sessions at 400,000 events each. It exercises the
+unchanged local archive verification and report computation while substituting
+synthetic registration and download boundaries. Its runtime and resource
+measurements are engineering evidence; they do not validate hosted scheduling,
+network authentication, price distributions, statistical power or profitability.
+
+The [October 22, 06:25 UTC status run](https://github.com/evananann/crypto-exec-lab/actions/runs/39733880505)
+reported 11 missing legacy slots and zero eligible slots. Missing observations
+remain unavailable, not zero returns. All scientific outcomes, including future
+development outcomes, remain behind their original release gates. Coverage,
+precision, market-regime sufficiency and executable round-trip profits are
+separate questions; none is established by infrastructure success.
+
 ## Reproduce without exchange access
 
 Python 3.11–3.13. These commands use new output directories and the committed lock:
@@ -40,7 +85,15 @@ uv run --frozen python -m cel.experiments --demo --out data/raw/reviewer-demo
 python -S scripts/verify_bundle.py data/raw/reviewer-demo
 uv run --frozen python -m scripts.crosscheck_markouts --demo --out data/raw/reviewer-crosscheck
 uv run --frozen python -m scripts.failure_attribution --source reports/evidence --out data/raw/reviewer-failures
+uv run --frozen python -m benchmarks.successor_report_workload --out data/raw/reviewer-report-workload
 ```
+
+The last command performs the full 22.4-million-event offline benchmark and
+temporarily writes one synthetic archive at a time. For a quick harness check,
+add `--sessions 2 --events-per-session 10000`; that small run is not a capacity
+measurement. Use the benchmark report's revision and machine details when
+comparing timings. Its scratch report uses an isolated synthetic test clock and
+is not a released empirical report.
 
 Synthetic results are labeled. The committed short fixture deliberately has
 insufficient one-second horizon coverage and a sequence regression. Do not

@@ -10,9 +10,10 @@ one second from the signal using local receive time. A separate prospective
 study repeats the fixed test across dates and on Binance→Bybit.
 
 **Current conclusion:** empirical outcomes remain unavailable in the committed
-verified evidence. Passing preflights demonstrate bounded collection readiness;
-they do not establish a valid 15-minute sample or profitable execution. The
-project sends no live orders.
+verified evidence. Two independently restored 15-minute infrastructure trials
+passed on October 22; the final qualification trial remains pending. These
+recordings do not establish scientific-study outcomes or profitable execution.
+The project sends no live orders.
 
 Start with the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
 coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
@@ -23,8 +24,12 @@ collection and research evidence. Use the [live status workflow](https://github.
 for refreshed checks. The [successor collection path](docs/SUCCESSOR_COLLECTION.md)
 adds durable slot claims and richer provenance; its scientific study remains
 blocked until prospective rehearsal qualification and a separate source freeze.
-The [approved October 20–21 trial schedule](docs/APPROVED_TRIALS.md) configures
-three automatic requests; timely delivery is still unproven.
+The [October 20–21 schedule](docs/APPROVED_TRIALS.md) is historical: all three
+cron wake-ups were late and none qualified. The current
+[prepared-runner cohort](reports/prepared_cohort_20261022/README.md) has two
+verified on-time trials. Its final intended start is **October 23, 04:15 UTC
+(12:15 Shanghai)**. Qualification, separate registration and scientific
+collection remain gated; early wake-ups provide no scheduling guarantee.
 
 ## Evidence a reviewer can inspect
 
@@ -33,6 +38,8 @@ three automatic requests; timely delivery is still unproven.
 | [Working paper](reports/STUDY_V1_RESEARCH.md) and [research memo](docs/RESEARCH_MEMO.md) | Exact hypothesis, frozen rules, observed failures and current research limitations |
 | [Archive restore records](reports/operations/all-release-restores.json) | Eight original preflight attempts independently downloaded and restored, including failures |
 | [Successor rehearsal](reports/successor_validation/README.md) | A real 900-second BBO rehearsal with 388,049 events, independently restored after preservation recovery; not a frozen-study observation |
+| [Prepared qualification readback](reports/prepared_cohort_20261022/README.md) | Two healthy 900-second trials, 643,677 total events, starts 4.434264 s and 3.744673 s late; original runs, archive hashes and source bindings checked; full cohort pending |
+| [56-session report benchmark](reports/successor_report_workload/README.md) | Complete offline synthetic report workload, measured runtime, memory and bounded temporary disk; no empirical market evidence |
 | [Power and execution audits](reports/research_audit/README.md) | Reproducible assumption calculations and adversarial synthetic examples, with source hashes |
 | [Missing-data and dependence examples](reports/robustness_examples/README.md) | Hypothetical missing-slot tipping points and calendar-day dependence diagnostics; no market evidence |
 | [Independent markout cross-check](docs/INDEPENDENT_MARKOUT_CHECK.md) | Separate parser and linear-scan reference agree on 9,762 synthetic markout rows; empirical checks remain release-gated |
@@ -82,10 +89,11 @@ mode requires verified original archives and enforces the frozen holdout dates.
   [execution-calibration plan](docs/EXECUTION_CALIBRATION_PLAN.md) defines the
   measurements needed before a future production-execution study.
 
-V1 runs October 17–23, 2026 UTC with outcome release October 24 UTC. The latest
-inspected monitor flags all four October 17–18 slots missing, preventing a conclusive
-full-study claim under the
-frozen rule. The separate 28-day replication runs October 26–November 22 UTC,
+V1 runs October 17–23, 2026 UTC with outcome release October 24 UTC. The
+[status inspection at October 22, 06:25 UTC](https://github.com/evananann/crypto-exec-lab/actions/runs/39733880505)
+reported 11 missing slots and zero eligible slots, preventing a conclusive
+full-study claim under the frozen rule. This is a dated snapshot; consult the
+live workflow for later checks. The separate 28-day replication runs October 26–November 22 UTC,
 with release November 23 UTC. Future collections and reports must be verified
 from actual artifacts; missing observations are not zero returns.
 

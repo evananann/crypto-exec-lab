@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "full_workload_completed": true,
+  "unique_sessions": 56,
+  "events": 22400000,
+  "non_null_primary_session_means": 56,
+  "condition_summaries": 56,
+  "session_evaluation_files": 56,
+  "occupied_days_by_phase": {
+    "development": 21,
+    "holdout": 7,
+    "full": 28
+  },
+  "scratch_removed": true,
+  "scope": "Synthetic engineering invariants only; no empirical estimates published.",
+  "host_cpu_quota": "400000 100000",
+  "host_memory_limit_bytes": 34359738368,
+  "local_suite_tests": 321,
+  "local_suite_passed": true,
+  "harness_ci_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/39736382967"
+}
