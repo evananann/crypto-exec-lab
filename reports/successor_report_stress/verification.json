@@ -1,0 +1,21 @@
+{
+  "synthetic": true,
+  "as_of_utc": "2026-10-22T08:24:13.054761+00:00",
+  "sessions_per_profile": 1,
+  "events_per_profile": 400000,
+  "profiles": {
+    "bursty": {
+      "completed": true,
+      "raw_reparse_and_health_passed": true,
+      "scratch_removed": true,
+      "primary_markouts": 29
+    },
+    "dense": {
+      "completed": true,
+      "raw_reparse_and_health_passed": true,
+      "scratch_removed": true,
+      "primary_markouts": 8989
+    }
+  },
+  "scope": "One local engineering pass per deterministic profile; no market outcomes or full-cohort stress capacity claim."
+}

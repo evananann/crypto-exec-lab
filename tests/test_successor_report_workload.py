@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 from benchmarks import successor_report_workload as workload
 from benchmarks.successor_report_workload import run
-from benchmarks.verify_report_evidence import digest, verify
+from benchmarks.verify_report_evidence import digest, verify, verify_stress
 from scripts import successor_study as study
 
 
@@ -124,6 +124,17 @@ class CommittedWorkloadEvidenceTests(unittest.TestCase):
 
     def test_published_complete_workload_record_is_consistent(self):
         self.assertEqual(verify(self.root)["events"], 22400000)
+
+    def test_committed_stress_measurements_exercise_dense_markouts_and_reject_tampering(self):
+        source = Path("reports/successor_report_stress")
+        checked = verify_stress(source)
+        self.assertGreater(checked["primary_markouts"]["dense"], checked["primary_markouts"]["bursty"] * 100)
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp) / "evidence"
+            shutil.copytree(source, root)
+            (root / "dense-sessions.jsonl").write_text("{}\n")
+            with self.assertRaisesRegex(ValueError, "checksum"):
+                verify_stress(root)
 
     def test_tampered_added_duplicate_and_inconsistent_records_rejected(self):
         with TemporaryDirectory() as tmp:

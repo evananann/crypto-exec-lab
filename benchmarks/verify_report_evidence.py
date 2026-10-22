@@ -1,4 +1,4 @@
-"""Check committed full-workload evidence offline, without scientific estimation.
+"""Check committed workload evidence offline, without scientific estimation.
 
 Checks integrity and internal consistency, not the truth of self-reported host
 measurements, original workflow authentication or empirical research claims.
@@ -26,8 +26,7 @@ def number(value):
     return type(value) in (int, float) and math.isfinite(value) and value >= 0
 
 
-def verify(root):
-    required = {"README.md", "summary.json", "sessions.jsonl", "verification.json"}
+def verify_members(root, required):
     require(not root.is_symlink(), "evidence directory is a symlink")
     require(not (root / "checksums.json").is_symlink(), "checksum manifest is a symlink")
     manifest = json.loads((root / "checksums.json").read_text())
@@ -40,6 +39,10 @@ def verify(root):
         require(isinstance(expected, str) and re.fullmatch(r"[0-9a-f]{64}", expected),
                 "invalid checksum")
         require(digest(path) == expected, "checksum differs: " + name)
+
+
+def verify(root):
+    verify_members(root, {"README.md", "summary.json", "sessions.jsonl", "verification.json"})
     summary = json.loads((root / "summary.json").read_text())
     rows = [json.loads(line) for line in (root / "sessions.jsonl").read_text().splitlines()]
     checked = json.loads((root / "verification.json").read_text())
@@ -103,8 +106,39 @@ def verify(root):
             "scope": "Offline record consistency only; host execution and historical source authenticity require separate evidence."}
 
 
+def verify_stress(root):
+    profiles = ("bursty", "dense")
+    verify_members(root, {"README.md", "verification.json"} | {
+        p + "-" + name for p in profiles for name in ("summary.json", "sessions.jsonl")})
+    checked = json.loads((root / "verification.json").read_text())
+    require(checked["synthetic"] is True and checked["sessions_per_profile"] == 1
+            and checked["events_per_profile"] == 400000, "stress completion contract differs")
+    counts = {}
+    for profile in profiles:
+        summary = json.loads((root / (profile + "-summary.json")).read_text())
+        rows = [json.loads(s) for s in (root / (profile + "-sessions.jsonl")).read_text().splitlines()]
+        require(summary["synthetic"] is True and summary["completed"] is True
+                and summary["profile"] == profile and summary["sessions"] == 1
+                and summary["events_per_session"] == 400000 and summary["total_events"] == 400000,
+                "stress workload differs")
+        require(len(rows) == 1 and rows[0]["profile"] == profile and rows[0]["events"] == 400000,
+                "stress session differs")
+        require(summary["sessions_sha256"] == digest(root / (profile + "-sessions.jsonl")),
+                "stress session digest differs")
+        counts[profile] = rows[0]["primary_markouts"]
+        require(type(counts[profile]) is int and counts[profile] > 0, "stress did not exercise markouts")
+        require(checked["profiles"][profile] == {"completed": True,
+                "raw_reparse_and_health_passed": True, "scratch_removed": True,
+                "primary_markouts": counts[profile]}, "stress completion assertions differ")
+    require(counts["dense"] > counts["bursty"] * 100, "dense stress did not increase signal workload")
+    return {"artifact_integrity": "passed", "internal_consistency": "passed", "synthetic": True,
+            "profiles": list(profiles), "sessions_per_profile": 1, "primary_markouts": counts,
+            "scope": "Single-session record checks only; no host attestation or full-cohort stress capacity claim."}
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("directory", type=Path)
+    parser.add_argument("--kind", choices=("full", "stress"), default="full")
     args = parser.parse_args()
-    print(json.dumps(verify(args.directory), indent=2))
+    print(json.dumps((verify if args.kind == "full" else verify_stress)(args.directory), indent=2))

@@ -64,6 +64,11 @@ unchanged local archive verification and report computation while substituting
 synthetic registration and download boundaries. Its runtime and resource
 measurements are engineering evidence; they do not validate hosted scheduling,
 network authentication, price distributions, statistical power or profitability.
+Separate [stress measurements](../reports/successor_report_stress/README.md)
+exercise bursty timestamps and dense signals at 400,000 events per session.
+Each is a single-session engineering pass. Automated checks validate the earlier
+full-workload record's integrity and internal consistency; they do not attest
+historical host execution or complete a human review.
 
 The [October 22, 06:25 UTC status run](https://github.com/evananann/crypto-exec-lab/actions/runs/39733880505)
 reported 11 missing legacy slots and zero eligible slots. Missing observations

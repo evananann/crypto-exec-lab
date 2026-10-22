@@ -81,6 +81,7 @@ Check the committed full-workload evidence without dependencies or network:
 
 ```bash
 python -S -m benchmarks.verify_report_evidence reports/successor_report_workload
+python -S -m benchmarks.verify_report_evidence --kind stress reports/successor_report_stress
 ```
 
 This checks exact file membership, checksums, 56 unique slots/tapes, event totals,
@@ -89,7 +90,11 @@ suite, including adversarial tampering cases. It establishes record integrity
 and internal consistency; historical execution/source authenticity still needs
 separate trusted evidence. Source hashes in the older full-pass record refer to
 its recorded launch revision, not the current refined harness.
+Stress-record checks also verify both single-session inventories and the
+increased markout count; neither command certifies measured host execution.
 
 The committed [measurement report](../reports/successor_report_workload/README.md)
 contains one full measured pass. It is an engineering observation on one host,
 not a scheduling SLA or empirical research result.
+The separate [stress measurements](../reports/successor_report_stress/README.md)
+contain one full-size session each for bursty cadence and dense signals.

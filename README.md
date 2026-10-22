@@ -40,6 +40,7 @@ collection remain gated; early wake-ups provide no scheduling guarantee.
 | [Successor rehearsal](reports/successor_validation/README.md) | A real 900-second BBO rehearsal with 388,049 events, independently restored after preservation recovery; not a frozen-study observation |
 | [Prepared qualification readback](reports/prepared_cohort_20261022/README.md) | Two healthy 900-second trials, 643,677 total events, starts 4.434264 s and 3.744673 s late; original runs, archive hashes and source bindings checked; full cohort pending |
 | [56-session report benchmark](reports/successor_report_workload/README.md) | Complete offline synthetic report workload, measured runtime, memory and bounded temporary disk; no empirical market evidence |
+| [Report stress measurements](reports/successor_report_stress/README.md) | Separate 400,000-event bursty and dense-signal sessions, with failure-cleanup and published-evidence checks in CI; engineering evidence only |
 | [Power and execution audits](reports/research_audit/README.md) | Reproducible assumption calculations and adversarial synthetic examples, with source hashes |
 | [Missing-data and dependence examples](reports/robustness_examples/README.md) | Hypothetical missing-slot tipping points and calendar-day dependence diagnostics; no market evidence |
 | [Independent markout cross-check](docs/INDEPENDENT_MARKOUT_CHECK.md) | Separate parser and linear-scan reference agree on 9,762 synthetic markout rows; empirical checks remain release-gated |
