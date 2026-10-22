@@ -8,8 +8,12 @@ on:
       - 'configs/successor/warm_retry_20261022.json'
   workflow_dispatch:
     inputs:
+      qualification_trial_id:
+        description: 'Approved replacement-cohort trial ID; requires authenticated early sender ownership'
+        type: string
+        required: false
       intended_start_utc:
-        description: 'Explicit intended start, ISO 8601 with UTC offset; dispatch during its five-minute window'
+        description: 'Explicit UTC intent; manual dispatch within five minutes, approved cohort dispatches early to prepare'
         type: string
         required: true
       dispatch_sent_at_utc:
@@ -32,7 +36,11 @@ jobs:
   rehearsal:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
-    timeout-minutes: 85
+    timeout-minutes: 360
+    env:
+      QUALIFICATION_TRIAL: ${{ inputs.qualification_trial_id }}
+      QUALIFICATION_INTENDED: ${{ inputs.intended_start_utc }}
+      QUALIFICATION_DISPATCH_ID: ${{ inputs.dispatch_id }}
     permissions:
       contents: write
       actions: read
@@ -41,8 +49,10 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 2
-      - name: Prepare only the newly committed future retry intent
+      - name: Validate warm preparation, owner and fixed intended start
         id: warmup
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: python -m scripts.successor_warmup prepare
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6, Node 24
         if: steps.warmup.outputs.warm == 'true'
@@ -125,7 +135,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: uv run --frozen python -m scripts.successor_rehearsal preserve --out data/raw/successor-attempt --repository "$GITHUB_REPOSITORY" --source-commit "$GITHUB_SHA"
-      - name: Require healthy on-time data and remote restore for this retry
+      - name: Require healthy on-time data and verified remote restore
         if: steps.warmup.outputs.warm == 'true'
         run: python -m scripts.successor_warmup verify
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24

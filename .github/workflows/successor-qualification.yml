@@ -1,0 +1,40 @@
+name: successor qualification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'configs/successor/qualification_20261022.json'
+  schedule:
+    - cron: '15 22 22 10 *'
+
+permissions:
+  contents: read
+concurrency:
+  group: successor-qualification-sender
+  cancel-in-progress: false
+jobs:
+  send:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5, Node 24
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - name: Submit each explicit cohort intent once, ahead of recording
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ORIGINAL_CRON: ${{ github.event.schedule }}
+        run: python -m scripts.successor_qualification --out data/raw/qualification-delivery
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
+        if: always()
+        with:
+          name: qualification-delivery-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/raw/qualification-delivery/
+          if-no-files-found: warn
+          retention-days: 90

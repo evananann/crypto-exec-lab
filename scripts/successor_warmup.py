@@ -50,22 +50,50 @@ def wait_until(plan, *, clock=lambda: datetime.now(timezone.utc), sleep=time.sle
         sleep(min(delay,30))
 
 
-def verify_success(path):
+def verify_success(path, *, intended=None):
     receipt = json.loads(path.read_text())
     result = receipt['assessment']
     if receipt.get('remote_restored') is not True or result.get('collection_healthy') is not True or result.get('timing',{}).get('timing_qualified') is not True:
         raise ValueError('retry not successful: require healthy on-time data and remote restore')
-    if instant(result['timing']['intended_start_utc']) != instant(load_plan()['intended_start_utc']):
+    if instant(result['timing']['intended_start_utc']) != instant(intended or load_plan()['intended_start_utc']):
         raise ValueError('retry readback belongs to another intent')
-    print('::notice title=Warm retry verified::on_time=True collection_healthy=True remote_restored=True qualification=diagnostic_only')
+    print('::notice title=Warm collection verified::on_time=True collection_healthy=True remote_restored=True; authenticate cohort separately')
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command',choices=['prepare','wait','verify'])
     args=parser.parse_args()
+    qualification=os.environ.get('QUALIFICATION_TRIAL')
     if args.command=='verify':
-        verify_success(Path('data/raw/successor-attempt/remote-readback.json'))
+        intended=None
+        if qualification:
+            from scripts.successor_qualification import trial_for
+            intended=trial_for(qualification)[1]['intended_start_utc']
+        verify_success(Path('data/raw/successor-attempt/remote-readback.json'),intended=intended)
+        return
+    if qualification:
+        if os.environ.get('GITHUB_ACTOR')!='github-actions[bot]' or os.environ.get('GITHUB_EVENT_NAME')!='workflow_dispatch':
+            raise ValueError('qualification collector requires the automated dispatcher actor')
+        from scripts.successor_qualification import PLAN as QPLAN, PLAN_SHA256 as QSHA, prepare_trial, trial_for
+        campaign,trial=trial_for(qualification)
+        out=Path('data/raw/successor-warmup')
+        if args.command=='prepare':
+            receipt=prepare_trial(qualification,os.environ['GITHUB_REPOSITORY'],os.environ['GITHUB_SHA'],
+                os.environ['GITHUB_RUN_ATTEMPT'],os.environ['QUALIFICATION_INTENDED'],
+                os.environ['QUALIFICATION_DISPATCH_ID'],datetime.now(timezone.utc).isoformat())
+            out.mkdir(parents=True,exist_ok=False)
+            (out/'prepared.json').write_text(json.dumps(receipt,indent=2)+'\n')
+            (out/'plan.json').write_bytes(QPLAN.read_bytes())
+            with open(os.environ['GITHUB_OUTPUT'],'a') as stream:
+                stream.write('warm=true\nintended='+trial['intended_start_utc']+'\n')
+        else:
+            prepared=json.loads((out/'prepared.json').read_text())
+            if prepared['plan_sha256']!=QSHA or prepared['trial_id']!=qualification:
+                raise ValueError('qualification preparation differs')
+            ready=wait_until(trial | {'maximum_warmup_seconds':campaign['maximum_warmup_seconds']})
+            ready.update(plan_sha256=QSHA,trial_id=qualification,dispatch_id=prepared['dispatch_id'])
+            (out/'ready.json').write_text(json.dumps(ready,indent=2)+'\n')
         return
     if args.command=='prepare':
         warm=False

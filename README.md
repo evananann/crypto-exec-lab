@@ -107,3 +107,7 @@ the separate release-gated supplement.
   [CI review](docs/CI_REVIEW.md), [benchmark evidence](reports/operations/README.md).
 - Interview: [timed walkthrough](docs/RECRUITING.md),
   [defense questions](docs/INTERVIEW_PRACTICE.md), [glossary](GLOSSARY.md).
+
+The [prepared-runner qualification and successor lifecycle](docs/PREPARED_QUALIFICATION.md)
+registers a new fixed three-trial cohort and automates a future study freeze only
+after actual verified qualification. Scientific collection/reporting remain gated.

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "plan_id": "prepared-cohort-20261022",
+  "supersedes_gate_for": "successor-qualification-20261020",
+  "protocol_sha256": "aab63ec34c5a91883b042999b6d41c8245deaf945f9564abcf48dc892ea9d9bb",
+  "maximum_warmup_seconds": 18000,
+  "trials": [
+    {
+      "trial_id": "oct22-first",
+      "intended_start_utc": "2026-10-22T04:15:00Z",
+      "sender_event": "push"
+    },
+    {
+      "trial_id": "oct22-second",
+      "intended_start_utc": "2026-10-22T04:45:00Z",
+      "sender_event": "push"
+    },
+    {
+      "trial_id": "oct23-final",
+      "intended_start_utc": "2026-10-23T04:15:00Z",
+      "sender_event": "schedule",
+      "cron": "15 22 22 10 *"
+    }
+  ],
+  "purpose": "Three new prospective infrastructure trials; earlier cron failures and successful push diagnostic remain separate evidence",
+  "trigger": "Start and install before the fixed intent. Third early cron wakes six hours before its fixed next-day intent; sender waits at most one hour before dispatching a runner at most five hours early. Timing remains unproven.",
+  "failure_policy": "Keep every failure, uncertain request and missing intent. No automatic retry, owner takeover, favorable selection or retrospective date replacement.",
+  "activation": "Only this entire named cohort plus the latest-three/two-UTC-date gate can authorize a committed future scientific registration. Previous failures are retained, not relabeled."
+}

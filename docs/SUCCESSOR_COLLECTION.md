@@ -224,3 +224,11 @@ scientific freeze can be prepared. The scientific successor remains inactive.
 
 See [the prestarted runner retry](WARM_RETRY.md). This tests a new trigger path
 without changing the failed cron cohort or qualifying it as scientific evidence.
+
+## Replacement qualification and automatic successor registration
+
+The [prepared cohort and gated study lifecycle](PREPARED_QUALIFICATION.md)
+supersedes only the old named cohort’s activation gate. It preserves all previous
+failures and diagnostics, adds verified early preparation, and installs the
+future collector and released reporter before qualification. A registered study
+can be committed only after the entire new cohort actually passes.

@@ -1,0 +1,77 @@
+name: successor released study report
+
+on:
+  schedule:
+    - cron: '47 3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: successor-study-report
+  cancel-in-progress: false
+jobs:
+  report:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5, Node 24
+        with:
+          ref: main
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Gate before dependency installation, archive traversal and estimator import
+        id: gate
+        run: python -m scripts.successor_study gate
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6, Node 24
+        if: steps.gate.outputs.released == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install frozen dependencies
+        if: steps.gate.outputs.released == 'true'
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --python 3.12
+      - name: Authenticate all archived slots and report the fixed estimator
+        if: steps.gate.outputs.released == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uv run --frozen python -m scripts.successor_study report --out data/raw/successor-study-report
+      - name: Preserve released report on the existing archive Release
+        if: steps.gate.outputs.released == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PYREPORT'
+          import hashlib, os, subprocess, tarfile, tempfile
+          from pathlib import Path
+          root=Path('data/raw/successor-study-report')
+          archive=Path('data/raw/successor-report-'+os.environ['GITHUB_RUN_ID']+'-'+os.environ['GITHUB_RUN_ATTEMPT']+'.tar.gz')
+          with tarfile.open(archive,'w:gz') as tar:
+              for file in sorted(root.glob('*.json'))+sorted(root.glob('*.md')):
+                  tar.add(file,arcname=file.name,recursive=False)
+          checksum=archive.with_name(archive.name+'.sha256')
+          checksum.write_text(hashlib.sha256(archive.read_bytes()).hexdigest()+'\n')
+          for file in (archive,checksum):
+              subprocess.run(['gh','release','upload','study-archive-btc-execution-v1',str(file),'--repo',os.environ['GITHUB_REPOSITORY']],check=True)
+          with tempfile.TemporaryDirectory() as temporary:
+              for file in (archive,checksum):
+                  subprocess.run(['gh','release','download','study-archive-btc-execution-v1','--repo',os.environ['GITHUB_REPOSITORY'],'--pattern',file.name,'--dir',temporary],check=True)
+                  if hashlib.sha256((Path(temporary)/file.name).read_bytes()).hexdigest()!=hashlib.sha256(file.read_bytes()).hexdigest():
+                      raise ValueError('remote released report differs from original')
+          print('::notice title=Successor released report::remote_bytes_verified=True')
+          PYREPORT
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
+        if: always() && steps.gate.outputs.released == 'true'
+        with:
+          name: successor-released-report-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            data/raw/successor-study-report/*.json
+            data/raw/successor-study-report/*.md
+            data/raw/successor-report-*.tar.gz*
+          if-no-files-found: warn
+          retention-days: 90

@@ -46,6 +46,15 @@ def build(repository):
                               'study_activated':False, 'readiness':readiness}
     except Exception:
         state['warnings'].append('Successor readiness unavailable or interrupted; activation remains blocked')
+    registration=Path('configs/successor/registered_study.json')
+    if registration.exists():
+        try:
+            from scripts.successor_study import load_registration
+            plan=load_registration()
+            state['successor']['study_activated']=True
+            state['successor']['registered_study']={k:plan[k] for k in ('study_id','start_date_utc','end_date_utc','outcome_release_date_utc')}
+        except Exception:
+            state['warnings'].append('Registered successor source verification failed; collection must remain blocked')
     for path in PLANS:
         plan,_ = load_plan(path)
         released = now.date() > datetime.fromisoformat(plan['end_date_utc']).date()
@@ -95,11 +104,17 @@ def render(state, out):
     if approved:
         trial_rows = ''.join('<tr><td>'+esc(row['trial_id'])+'</td><td>'+esc(row['intended_start_utc'])+'</td><td>'+esc(row['state'])+'</td></tr>' for row in approved['trials'])
         sections.append('<section><h2>Approved prospective trials</h2><p>GitHub timing is unproven. Every named trial must qualify; later recordings cannot replace these dates.</p><table><thead><tr><th>Trial</th><th>Intended start (UTC)</th><th>Verified state</th></tr></thead><tbody>'+trial_rows+'</tbody></table></section>')
+    if successor.get('registered_study'):
+        registered=successor['registered_study']
+        sections.append('<section><h2>Registered successor study</h2><p>'+esc(registered['study_id'])+'; dates '+esc(registered['start_date_utc'])+' to '+esc(registered['end_date_utc'])+' UTC; outcomes release '+esc(registered['outcome_release_date_utc'])+' UTC.</p></section>')
+    historical=readiness.get('historical_approved_trials')
+    if historical:
+        sections.append('<section><h2>Historical cron cohort</h2><p>'+esc(historical['plan_id'])+' remains recorded separately; previous misses were not relabeled.</p></section>')
     warnings = ''.join('<li>'+esc(w)+'</li>' for w in state.get('warnings',[]))
     page = '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Crypto execution lab status</title><style>body{font:16px system-ui;max-width:1000px;margin:2rem auto;padding:0 1rem;background:#f5f7fa;color:#172335}section{background:white;padding:1rem;margin:1rem 0;border:1px solid #ccd5df;border-radius:8px}table{border-collapse:collapse;width:100%}td,th{padding:.4rem;text-align:left;border-bottom:1px solid #ddd}p{line-height:1.5}</style><h1>Crypto execution lab status</h1><p>Inspected at '+esc(state['as_of_utc'])+' (UTC). Each panel describes a separate kind of evidence.</p><ul>'+warnings+'</ul>'+''.join(sections)+'</html>'
     (out/'index.html').write_text(page)
     summary = '# Project status\n\nInspected at '+state['as_of_utc']+' UTC.\n\n'
-    summary += '- Software: '+str(software['state'])+'\n- Collection: '+str(collection['state'])+'; '+counts+'\n- Successor: '+str(successor['state'])+'; activated=False\n- Research: '+ '; '.join(r['result_state'] for r in state['research'])+'\n\nDownload the project-status artifact and open index.html.\n'
+    summary += '- Software: '+str(software['state'])+'\n- Collection: '+str(collection['state'])+'; '+counts+'\n- Successor: '+str(successor['state'])+'; activated='+str(successor['study_activated'])+'\n- Research: '+ '; '.join(r['result_state'] for r in state['research'])+'\n\nDownload the project-status artifact and open index.html.\n'
     (out/'summary.md').write_text(summary)
     return summary
 
@@ -132,7 +147,8 @@ def main():
     successor = state['successor']['state']
     if successor not in ('not_ready', 'readiness_passed', 'unverified', 'not_activated'):
         successor = 'unknown'
-    print(f'::notice title=Project status::software={software} collection={collection} missing={count("missing")} eligible={count("eligible")} unverified={count("unverified")} successor={successor} study_activated=False')
+    activated=state['successor']['study_activated'] is True
+    print(f'::notice title=Project status::software={software} collection={collection} missing={count("missing")} eligible={count("eligible")} unverified={count("unverified")} successor={successor} study_activated={activated}')
     return 0
 
 

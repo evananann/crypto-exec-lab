@@ -19,6 +19,7 @@ import tempfile
 from cel.ingest.instruments import contract_value_btc
 from cel.ingest.schema import Event
 from scripts.successor_claim import api, canonical, instant, verify_claim
+from scripts.successor_control import bound_sources
 from scripts.successor_recorder import InstrumentSampler, ProvenanceRecorder, normalize, specification
 
 PROTOCOL = Path('configs/successor/protocol.json')
@@ -38,10 +39,7 @@ def source_identity():
     revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
     if subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=normal'], text=True).strip():
         raise ValueError('clean committed source required for a live rehearsal')
-    files = sorted([*Path('cel').rglob('*.py'), *Path('scripts').glob('successor_*.py'),
-                    PROTOCOL, Path('configs/successor/trials_20261020.json'),
-                    Path('configs/successor/warm_retry_20261022.json'), Path('uv.lock'),
-                    Path('.github/workflows/successor-planned-trials.yml'), Path('.github/workflows/successor-rehearsal.yml')])
+    files = bound_sources()
     return {'commit': revision, 'dirty': False, 'files_sha256': {str(p): digest(p) for p in files}}
 
 
@@ -140,6 +138,11 @@ def assess(directory):
         times = [e.local_ts for e in bbo]
         span = times[-1]-times[0] if len(times) >= 2 else 0
         gaps = [b-a for a,b in zip(times, times[1:])]
+        expected_start=instant(manifest['collector_started_at_utc']).timestamp()*1000
+        expected_end=(instant(manifest['collector_finished_at_utc']).timestamp()*1000 if manifest.get('collector_finished_at_utc')
+                      else expected_start+protocol['recording_seconds']*1000)
+        if times and (times[0]<expected_start-1000 or times[-1]>expected_end+1000 or expected_end<expected_start):
+            issues.append(venue+': quote timestamps outside collector interval')
         venues[venue] = {'bbo': len(bbo), 'span_ms': span, 'maximum_gap_ms': max(gaps, default=None)}
         if span < protocol['recording_seconds'] * 1000 * protocol['minimum_span_fraction']:
             issues.append(venue + ': insufficient quote span')
@@ -150,8 +153,8 @@ def assess(directory):
     timing = gate(protocol, manifest['intended_start_utc'], manifest['collector_started_at_utc'], manifest['mode'])
     return {'collection_healthy': not issues, 'issues': sorted(set(issues)), 'events': len(events),
             'timestamp_fallback_events': fallback, 'instrument_snapshots': len(snapshots),
-            'venues': venues, 'timing': timing, 'study_observation': False,
-            'scope': 'Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots.'}
+            'venues': venues, 'timing': timing, 'study_observation': bool(manifest.get('study_id')),
+            'scope': ('Registered successor data; outcomes time-gated.' if manifest.get('study_id') else 'Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots.')}
 
 
 def pack(directory, archive):
@@ -187,8 +190,8 @@ def restore(archive, destination):
     return assess(destination)
 
 
-def collect(args):
-    protocol = json.loads(PROTOCOL.read_text())
+def collect(args, *, protocol_path=PROTOCOL, study_context=None, archive_prefix='rehearsal-'):
+    protocol = json.loads(protocol_path.read_text())
     source = source_identity()
     claim = json.loads(args.claim.read_text())
     if (claim['source_commit'] != source['commit'] or
@@ -210,6 +213,8 @@ def collect(args):
     manifest = {'schema_version': 1, 'mode': args.mode, 'intended_start_utc': args.intended_start,
                 'requested_seconds': protocol['recording_seconds'], 'gate': decision,
                 'collector_started_at_utc': now, 'collection_error_category': None}
+    if study_context:
+        manifest.update(study_context)
     sampler = InstrumentSampler(directory, protocol['metadata_interval_seconds'])
     recorder = None
     try:
@@ -234,14 +239,14 @@ def collect(args):
         write(directory / 'manifest.json', manifest)
     result = assess(directory)
     write(directory / 'assessment.json', result)
-    archive = args.out / ('rehearsal-' + claim['owner_run_attempt'] + '.tar.gz')
+    archive = args.out / (archive_prefix + claim['owner_run_attempt'] + '.tar.gz')
     pack(directory, archive)
     with tempfile.TemporaryDirectory() as temporary:
         restored = restore(archive, Path(temporary) / 'restored')
     if result != restored:
         raise ValueError('restore assessment changed')
     write(args.out / 'local-restore.json', {'archive_sha256': digest(archive), 'assessment': restored})
-    print('::notice title=Successor rehearsal::collection_healthy=' + str(result['collection_healthy']) + '; study_observation=False')
+    print('::notice title=Successor collection::collection_healthy=' + str(result['collection_healthy']) + '; study_observation='+str(result['study_observation']))
     return 0  # Failed quality remains visible; backup still must preserve the failed attempt.
 
 
@@ -264,18 +269,18 @@ def storage_assets(repository, release):
     raise ValueError('archive inventory exceeds bound; reconcile before publication')
 
 
-def preserve(args):
+def preserve(args, *, namespace="rehearsal", receipt_prefix="successor-readback"):
     """Use the approved existing Release. No new Release creation or asset replacement."""
     if not re.fullmatch(r'[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+', args.repository):
         raise ValueError('invalid repository')
-    archives = list(args.out.glob('rehearsal-*.tar.gz'))
+    archives = list(args.out.glob(namespace+'-*.tar.gz'))
     if len(archives) != 1:
         raise ValueError('one original archive required')
     archive = archives[0]
-    owner = archive.name.removeprefix('rehearsal-').removesuffix('.tar.gz')
+    owner = archive.name.removeprefix(namespace+'-').removesuffix('.tar.gz')
     if not re.fullmatch(r'[0-9]+-[0-9]+', owner):
         raise ValueError('unsafe original archive name')
-    receipt_name = 'successor-readback-' + owner + '.json'
+    receipt_name = receipt_prefix+'-' + owner + '.json'
     print('::notice title=Successor preservation stage::existing_release_inventory')
     release = api(f'repos/{args.repository}/releases/tags/{STORAGE_TAG}')
     if release.get('draft') or not release.get('prerelease') or release.get('tag_name') != STORAGE_TAG:

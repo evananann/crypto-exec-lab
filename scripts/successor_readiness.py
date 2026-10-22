@@ -12,6 +12,8 @@ import tempfile
 
 from scripts.successor_claim import api, canonical, instant, verify_claim
 from scripts.successor_trials import planned_status, load_trials, authenticate_request
+from scripts.successor_control import bound_sources
+from scripts.successor_qualification import cohort_status, authenticate_trial, PLAN_SHA256 as COHORT_SHA, trial_for
 from scripts.successor_rehearsal import PROTOCOL, STORAGE_TAG, digest, restore, write, storage_assets
 
 
@@ -22,7 +24,7 @@ def summarize(records, protocol):
     qualified = [row for row in records if row['authenticated_remote_restore'] is True and
                  row['assessment']['collection_healthy'] is True and
                  row['assessment']['timing']['timing_qualified'] is True and
-                 row['event'] == 'workflow_dispatch' and row.get('qualification_compatible', True) and
+                 row['event'] == 'workflow_dispatch' and row.get('qualification_cohort_verified', True) and row.get('qualification_compatible', True) and
                  row.get('source_run_conclusion', 'success') == 'success']
     dates = sorted({instant(row['intended_start_utc']).date().isoformat() for row in qualified})
     prospective = sorted([row for row in records if row['event'] == 'workflow_dispatch'],
@@ -44,6 +46,8 @@ def verify_source(directory, revision, *, require_current=True):
     source = json.loads((directory / 'source.json').read_text())
     if source.get('commit') != revision or source.get('dirty') is not False:
         raise ValueError('source identity differs from trusted run')
+    if require_current and set(source['files_sha256']) != {str(p) for p in bound_sources()}:
+        raise ValueError('source membership changed; repeat qualification')
     for name, expected in source['files_sha256'].items():
         path = Path(name)
         if path.is_absolute() or '..' in path.parts or (require_current and (not path.is_file() or digest(path) != expected)):
@@ -92,8 +96,13 @@ def inspect(repository):
         owner = release['owner']
         archive_name = 'rehearsal-' + owner + '.tar.gz'
         receipt_name = 'successor-readback-' + owner + '.json'
+        original=trusted_runs.get(owner)
+        if original and original.get('status')!='completed':
+            continue  # Ordinary in-progress publication remains pending, not a broken verification job.
         assets = release.get('assets', [])
         names = [item['name'] for item in assets]
+        if original and not {archive_name,archive_name+'.sha256',receipt_name} <= set(names):
+            continue  # Interrupted preservation remains an unverified failed/pending original below.
         if (len(names) != 3 or set(names) != {archive_name, archive_name + '.sha256', receipt_name} or
                 sum(item.get('size', 0) for item in assets) > 2_010_000_000):
             raise ValueError('incomplete, unexpected or oversized rehearsal assets')
@@ -162,11 +171,23 @@ def inspect(repository):
                     planned_verified = authenticate_request(repository,planned,trigger.get('dispatch_id'))
                 except (ValueError, KeyError, RuntimeError, TypeError):
                     planned_verified = False  # Unavailable provenance never becomes an approved scheduled success.
+            warm=trigger.get('warm_retry') or {}
+            cohort_verified=False
+            if warm.get('plan_sha256')==COHORT_SHA and warm.get('trial_id'):
+                try:
+                    cohort_verified=authenticate_trial(repository,warm['trial_id'],trigger.get('dispatch_id'),source=run['head_sha'])
+                    cohort_verified=(cohort_verified and (run.get('actor') or {}).get('login')=='github-actions[bot]' and
+                        instant(trial_for(warm['trial_id'])[1]['intended_start_utc'])==instant(claim['intended_start_utc']) and
+                        instant(warm['intended_start_utc'])==instant(claim['intended_start_utc']) and
+                        instant(warm['dependencies_ready_at_utc'])<instant(claim['intended_start_utc']))
+                except (ValueError, KeyError, RuntimeError, TypeError):
+                    cohort_verified=False
             records.append({'slot_id': claim['slot_id'], 'intended_start_utc': claim['intended_start_utc'],
                             'source_commit': run['head_sha'], 'event': run['event'], 'release_tag': tag,
                             'run_created_at_utc': run['created_at'], 'run_attempt': int(attempt),
                             'qualification_compatible': compatible, 'source_run_conclusion': run['conclusion'],
                             'dispatch_id':trigger.get('dispatch_id'),'planned_request_verified':planned_verified,
+                            'qualification_cohort_verified':cohort_verified,
                             'authenticated_remote_restore': True, 'assessment': assessment})
     for owner, run in trusted_runs.items():
         if owner in seen:
@@ -177,10 +198,11 @@ def inspect(repository):
                         'assessment': {'collection_healthy': False, 'timing': {'timing_qualified': False}},
                         'reason': 'No authenticated remote archive/receipt; may be running, skipped or interrupted'})
     result = summarize(records, protocol)
-    result['approved_trials'] = planned_status(records, now=result['as_of_utc'])
+    result['historical_approved_trials'] = planned_status(records, now=result['as_of_utc'])
+    result['approved_trials'] = cohort_status(records, now=result['as_of_utc'])
     if not result['approved_trials']['all_named_trials_qualified']:
         result['activation_ready'] = False
-        result['remaining'].append('All three named user-approved trials must qualify; do not replace missed dates')
+        result['remaining'].append('All three replacement-cohort trials must qualify; historical failures remain retained')
     return result
 
 
