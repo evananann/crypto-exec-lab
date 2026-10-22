@@ -29,11 +29,25 @@ removed between sessions. Numerical fixture outcomes are synthetic and have no
 market interpretation, including fields in the scratch report that describe
 release or eligibility under the injected test clock.
 
-The generated venue mix is 90% Binance and 10% OKX at regular timestamps. Prices
-increase by $3 every 30 seconds, with a 200ms follower lag, a $1 spread and fixed
-displayed sizes. This approximates event volume, not market distributions,
-burstiness, stressed signal density or worst-case compute. Synthetic instrument
-snapshots test the parser; they do not establish real instrument stability.
+All profiles use a 90% Binance / 10% OKX venue mix, a 200ms follower lag, a $1
+spread and fixed displayed sizes. Choose a fixture with `--profile`:
+
+| Profile | Timestamp cadence | Synthetic price path |
+| --- | --- | --- |
+| `regular` (default) | Uniform over 900 seconds | $3 increases every 30 seconds |
+| `bursty` | All events in the first 100ms of each second, including timestamp ties | $3 increases every 30 seconds |
+| `dense` | Uniform over 900 seconds | Alternates between $60,000 and $60,003 every 100ms |
+
+For a single full-size stress session:
+
+```bash
+uv run --frozen python -m benchmarks.successor_report_workload --profile bursty --sessions 1 --out data/raw/bursty-report
+uv run --frozen python -m benchmarks.successor_report_workload --profile dense --sessions 1 --out data/raw/dense-report
+```
+
+These fixtures stress event cadence or signal count. The periodic paths and lag
+have no market interpretation and establish no worst-case bound. Synthetic
+instrument snapshots test the parser; they do not establish real stability.
 
 `summary.json` records wall time including fixture generation/compression,
 local report time excluding that preparation, CPU time, whole-process Linux
@@ -50,7 +64,31 @@ checked again on completion. `sessions.jsonl` records each session's stage times
 archive/tape hashes and sizes. Tape bytes are deterministic for these inputs;
 gzip/tar metadata, output paths and timing fields can change archive/report hashes
 between invocations. These hashes identify this run, not a cross-run equality
-guarantee. Failed runs retain diagnostics and do not write a completed summary.
+guarantee. New session records include fixed-primary markout counts so a stress
+profile's actual estimator workload is visible without publishing return means.
+
+Python preparation/reporting exceptions, including `KeyboardInterrupt`, write
+`failure.json` with the stage, slot and exception type when disk access permits. Suspended input streams
+are explicitly closed so temporary raw data is removed even when the consumer
+raises. Completed session records remain available; the failed invocation must
+not be resumed in place. Use a new output directory for another synthetic run.
+The final summary is published atomically from `summary.pending.json`, so an
+interrupted write cannot publish partial JSON as `summary.json`.
+Forced process termination can leave temporary files and may prevent diagnostics;
+an absent or invalid completed summary must never count as a successful run.
+
+Check the committed full-workload evidence without dependencies or network:
+
+```bash
+python -S -m benchmarks.verify_report_evidence reports/successor_report_workload
+```
+
+This checks exact file membership, checksums, 56 unique slots/tapes, event totals,
+timing/size reconciliation and completion invariants. It runs in the normal unit
+suite, including adversarial tampering cases. It establishes record integrity
+and internal consistency; historical execution/source authenticity still needs
+separate trusted evidence. Source hashes in the older full-pass record refer to
+its recorded launch revision, not the current refined harness.
 
 The committed [measurement report](../reports/successor_report_workload/README.md)
 contains one full measured pass. It is an engineering observation on one host,
