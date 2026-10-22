@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "repository": "evananann/crypto-exec-lab",
+  "release_tag": "study-archive-btc-execution-v1",
+  "archive_name": "rehearsal-39714146003-1.tar.gz",
+  "receipt_asset_name": "successor-readback-39714146003-1.json",
+  "archive_sha256": "b357a02529814bde0d78f867b85c0baa74d2560eae5d2cb4fc87187ca502d554",
+  "source_commit": "bc9b18cce92f031d5ccdd312927632dedba63551",
+  "slot_id": "btc-collection-successor-candidate-v1/20261022T030500Z",
+  "claim": {
+    "schema_version": 1,
+    "repository": "evananann/crypto-exec-lab",
+    "slot_id": "btc-collection-successor-candidate-v1/20261022T030500Z",
+    "intended_start_utc": "2026-10-22T03:05:00+00:00",
+    "source_commit": "bc9b18cce92f031d5ccdd312927632dedba63551",
+    "owner_run_attempt": "39714146003-1",
+    "protocol_sha256": "aab63ec34c5a91883b042999b6d41c8245deaf945f9564abcf48dc892ea9d9bb",
+    "claim_ref": "refs/tags/successor-claims/btc-collection-successor-candidate-v1/20261022T030500Z",
+    "claim_commit": "cbca08ec122b82a8d2a6c3a6dda86f68c7a79cdf",
+    "archive_tag": "refs/tags/successor-rehearsal-39714146003-1",
+    "claimed_at_utc": "2026-10-22T03:05:03.089870+00:00"
+  },
+  "verified_at_utc": "2026-10-22T03:20:42.099129+00:00",
+  "remote_restored": true,
+  "assessment": {
+    "collection_healthy": true,
+    "issues": [],
+    "events": 383082,
+    "timestamp_fallback_events": 0,
+    "instrument_snapshots": 16,
+    "venues": {
+      "binance": {
+        "bbo": 357434,
+        "span_ms": 899406,
+        "maximum_gap_ms": 423
+      },
+      "okx": {
+        "bbo": 25648,
+        "span_ms": 899136,
+        "maximum_gap_ms": 620
+      }
+    },
+    "timing": {
+      "accepted": true,
+      "mode": "prospective",
+      "intended_start_utc": "2026-10-22T03:05:00+00:00",
+      "checked_at_utc": "2026-10-22T03:05:04.608660+00:00",
+      "lateness_seconds": 4.60866,
+      "timing_qualified": true
+    },
+    "study_observation": false,
+    "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+  },
+  "scope": "Shared infrastructure storage only; not a v1 study observation"
+}

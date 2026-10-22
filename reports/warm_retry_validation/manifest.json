@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "mode": "prospective",
+  "intended_start_utc": "2026-10-22T03:05:00+00:00",
+  "requested_seconds": 900,
+  "gate": {
+    "accepted": true,
+    "mode": "prospective",
+    "intended_start_utc": "2026-10-22T03:05:00+00:00",
+    "checked_at_utc": "2026-10-22T03:05:04.314135+00:00",
+    "lateness_seconds": 4.314135,
+    "timing_qualified": true
+  },
+  "collector_started_at_utc": "2026-10-22T03:05:04.608660+00:00",
+  "collection_error_category": null,
+  "collector_finished_at_utc": "2026-10-22T03:20:04.801864+00:00"
+}

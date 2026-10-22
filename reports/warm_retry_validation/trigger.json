@@ -1,0 +1,23 @@
+{
+  "event": "push",
+  "run_id": 39714146003,
+  "run_attempt": "1",
+  "source_commit": "bc9b18cce92f031d5ccdd312927632dedba63551",
+  "intended_start_utc": "2026-10-22T03:05:00Z",
+  "run_created_at_utc": "2026-10-22T02:56:52Z",
+  "run_started_at_utc": "2026-10-22T02:56:52Z",
+  "gate_checked_at_utc": "2026-10-22T03:05:00.484273+00:00",
+  "gate_accepted": true,
+  "mode": "prospective",
+  "dispatch_sent_at_utc": null,
+  "dispatch_id": null,
+  "dispatch_receipt_at_utc": null,
+  "dispatch_sent_source": "unavailable",
+  "warm_retry": {
+    "dependencies_ready_at_utc": "2026-10-22T02:56:59.818575+00:00",
+    "released_at_utc": "2026-10-22T03:05:00.000156+00:00",
+    "intended_start_utc": "2026-10-22T03:05:00Z",
+    "lateness_seconds": 0.000156
+  },
+  "limitation": "GitHub run creation is not the original dispatch receipt; no pre-creation delay inferred"
+}

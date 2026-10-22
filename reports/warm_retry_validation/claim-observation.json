@@ -1,0 +1,7 @@
+{
+  "observed_at_utc": "2026-10-22T03:05:35.727051+00:00",
+  "method": "Native authenticated Git fetch and ls-remote; observation time is an upper bound on claim creation, not collector start",
+  "claim_ref": "refs/tags/successor-claims/btc-collection-successor-candidate-v1/20261022T030500Z",
+  "claim_commit": "cbca08ec122b82a8d2a6c3a6dda86f68c7a79cdf",
+  "claim_message": "Successor slot ownership\n{\"intended_start_utc\":\"2026-10-22T03:05:00+00:00\",\"owner_run_attempt\":\"39714146003-1\",\"protocol_sha256\":\"aab63ec34c5a91883b042999b6d41c8245deaf945f9564abcf48dc892ea9d9bb\",\"repository\":\"evananann/crypto-exec-lab\",\"schema_version\":1,\"slot_id\":\"btc-collection-successor-candidate-v1/20261022T030500Z\",\"source_commit\":\"bc9b18cce92f031d5ccdd312927632dedba63551\"}"
+}

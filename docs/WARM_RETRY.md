@@ -27,3 +27,11 @@ from qualifying workflow-dispatch counts. It does not replace the failed named
 cohort, waive the three-trial/two-UTC-date gate, or activate a study. A new full
 prospective qualification plan is still required after this approach is tested.
 The original frozen v1/v2 plans and missing observations remain unchanged.
+
+## Verified result
+
+The [October 22 retry passed](../reports/warm_retry_validation/README.md):
+collection started 4.61 seconds after the intended time, recorded 383,082 events
+over the full 900 seconds, and passed an independent public archive download,
+restore, provenance and source/claim verification. This is one successful
+diagnostic; the full qualification gate and scientific activation remain pending.

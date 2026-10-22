@@ -1,0 +1,44 @@
+{
+  "verified_at_utc": "2026-10-22T03:21:04.770255+00:00",
+  "run_id": 39714146003,
+  "owner": "39714146003-1",
+  "source_commit": "bc9b18cce92f031d5ccdd312927632dedba63551",
+  "archive_sha256": "b357a02529814bde0d78f867b85c0baa74d2560eae5d2cb4fc87187ca502d554",
+  "archive_bytes": 9406123,
+  "plan_sha256": "3db9a3fe754997cdb46bd3760578a5aa843e1a454880599be54d5138f53d0849",
+  "independent_public_download": true,
+  "claim_verified_against_remote_git": true,
+  "source_verified_against_git": true,
+  "dependencies_ready_at_utc": "2026-10-22T02:56:59.818575+00:00",
+  "assessment": {
+    "collection_healthy": true,
+    "issues": [],
+    "events": 383082,
+    "timestamp_fallback_events": 0,
+    "instrument_snapshots": 16,
+    "venues": {
+      "binance": {
+        "bbo": 357434,
+        "span_ms": 899406,
+        "maximum_gap_ms": 423
+      },
+      "okx": {
+        "bbo": 25648,
+        "span_ms": 899136,
+        "maximum_gap_ms": 620
+      }
+    },
+    "timing": {
+      "accepted": true,
+      "mode": "prospective",
+      "intended_start_utc": "2026-10-22T03:05:00+00:00",
+      "checked_at_utc": "2026-10-22T03:05:04.608660+00:00",
+      "lateness_seconds": 4.60866,
+      "timing_qualified": true
+    },
+    "study_observation": false,
+    "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+  },
+  "full_qualification_passed": false,
+  "scientific_study_activated": false
+}
