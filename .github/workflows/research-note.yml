@@ -1,0 +1,54 @@
+name: released empirical research note
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/research-note.yml']
+  workflow_dispatch:
+  workflow_run:
+    workflows: [successor released study report]
+    types: [completed]
+    branches: [main]
+  schedule:
+    - cron: '17 5,11,17,23 * * *'
+
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: released-empirical-note
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Gate before report inventory, downloads or outcome reads
+        id: gate
+        run: python -S -m research.empirical_note gate
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        if: steps.gate.outputs.active == 'true'
+        with:
+          python-version: '3.12'
+      - name: Authenticate the original released report and preserve its one-page interpretation
+        if: steps.gate.outputs.active == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -S -m research.empirical_note publish --out data/raw/empirical-research-note
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: always() && steps.gate.outputs.active == 'true'
+        with:
+          name: empirical-research-note-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/raw/empirical-research-note/
+          if-no-files-found: warn
+          retention-days: 90

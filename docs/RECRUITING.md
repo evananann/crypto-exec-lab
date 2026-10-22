@@ -7,6 +7,11 @@ The current conclusion is to remain in research: verified scientific outcomes
 and execution calibration are unavailable. Collection and software evidence
 support the experiment but do not establish an edge.
 
+Use the [timed defense pack](RESEARCH_DEFENSE.md) for a first attempt and
+self-review, then supply your answer for feedback. The
+[empirical handoff](EMPIRICAL_HANDOFF.md) identifies which future observations
+and reporting gates still have to complete.
+
 ## Five-minute quant researcher walkthrough
 
 | Time | Question | Evidence and discussion |

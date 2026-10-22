@@ -26,6 +26,12 @@ Use the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
 coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
 reading order and reproducible audit questions.
 
+The [empirical note](reports/empirical_research/README.md) records the current
+pending state. [Publication automation](docs/EMPIRICAL_HANDOFF.md) will produce
+a one-page interpretation only from an authenticated released scientific report.
+Use the [defense pack](docs/RESEARCH_DEFENSE.md) to practice the research case;
+spoken performance and feedback require the candidate's answers.
+
 The [project status page](reports/project_status/index.html) separates software,
 collection and research evidence. Use the [live status workflow](https://github.com/evananann/crypto-exec-lab/actions/workflows/project-status.yml)
 for refreshed checks. The [successor collection path](docs/SUCCESSOR_COLLECTION.md)
