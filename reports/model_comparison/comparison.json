@@ -1,0 +1,3912 @@
+{
+  "protocol_id": "secondary-model-comparison-v1",
+  "inventory": [
+    {
+      "slot_id": "2030-01-01-am",
+      "intended_start_utc": "2030-01-01T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-01-pm",
+      "intended_start_utc": "2030-01-01T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-02-am",
+      "intended_start_utc": "2030-01-02T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-02-pm",
+      "intended_start_utc": "2030-01-02T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-03-am",
+      "intended_start_utc": "2030-01-03T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-03-pm",
+      "intended_start_utc": "2030-01-03T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-04-am",
+      "intended_start_utc": "2030-01-04T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-04-pm",
+      "intended_start_utc": "2030-01-04T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-05-am",
+      "intended_start_utc": "2030-01-05T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-05-pm",
+      "intended_start_utc": "2030-01-05T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-06-am",
+      "intended_start_utc": "2030-01-06T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-06-pm",
+      "intended_start_utc": "2030-01-06T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-07-am",
+      "intended_start_utc": "2030-01-07T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-07-pm",
+      "intended_start_utc": "2030-01-07T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-08-am",
+      "intended_start_utc": "2030-01-08T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-08-pm",
+      "intended_start_utc": "2030-01-08T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-09-am",
+      "intended_start_utc": "2030-01-09T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-09-pm",
+      "intended_start_utc": "2030-01-09T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-10-am",
+      "intended_start_utc": "2030-01-10T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-10-pm",
+      "intended_start_utc": "2030-01-10T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-11-am",
+      "intended_start_utc": "2030-01-11T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-11-pm",
+      "intended_start_utc": "2030-01-11T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-12-am",
+      "intended_start_utc": "2030-01-12T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-12-pm",
+      "intended_start_utc": "2030-01-12T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-13-am",
+      "intended_start_utc": "2030-01-13T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-13-pm",
+      "intended_start_utc": "2030-01-13T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-14-am",
+      "intended_start_utc": "2030-01-14T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-14-pm",
+      "intended_start_utc": "2030-01-14T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-15-am",
+      "intended_start_utc": "2030-01-15T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-15-pm",
+      "intended_start_utc": "2030-01-15T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-16-am",
+      "intended_start_utc": "2030-01-16T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-16-pm",
+      "intended_start_utc": "2030-01-16T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-17-am",
+      "intended_start_utc": "2030-01-17T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-17-pm",
+      "intended_start_utc": "2030-01-17T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-18-am",
+      "intended_start_utc": "2030-01-18T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-18-pm",
+      "intended_start_utc": "2030-01-18T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-19-am",
+      "intended_start_utc": "2030-01-19T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-19-pm",
+      "intended_start_utc": "2030-01-19T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-20-am",
+      "intended_start_utc": "2030-01-20T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-20-pm",
+      "intended_start_utc": "2030-01-20T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-21-am",
+      "intended_start_utc": "2030-01-21T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-21-pm",
+      "intended_start_utc": "2030-01-21T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-22-am",
+      "intended_start_utc": "2030-01-22T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-22-pm",
+      "intended_start_utc": "2030-01-22T15:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-23-am",
+      "intended_start_utc": "2030-01-23T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-23-pm",
+      "intended_start_utc": "2030-01-23T15:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-24-am",
+      "intended_start_utc": "2030-01-24T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-24-pm",
+      "intended_start_utc": "2030-01-24T15:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-25-am",
+      "intended_start_utc": "2030-01-25T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-25-pm",
+      "intended_start_utc": "2030-01-25T15:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-26-am",
+      "intended_start_utc": "2030-01-26T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-26-pm",
+      "intended_start_utc": "2030-01-26T15:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-27-am",
+      "intended_start_utc": "2030-01-27T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-27-pm",
+      "intended_start_utc": "2030-01-27T15:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-28-am",
+      "intended_start_utc": "2030-01-28T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    },
+    {
+      "slot_id": "2030-01-28-pm",
+      "intended_start_utc": "2030-01-28T15:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "synthetic": true,
+      "events": 3002,
+      "seconds": 30
+    }
+  ],
+  "opportunities": 840,
+  "common_primary_eligible_opportunities": 784,
+  "feature_unavailability": {},
+  "primary_label_unavailability": {
+    "uncovered_or_stale_entry_exit": 56
+  },
+  "opportunity_exclusions": [
+    {
+      "opportunity_id": "2030-01-01-am-12",
+      "slot_id": "2030-01-01-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-01-am-13",
+      "slot_id": "2030-01-01-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-01-am-14",
+      "slot_id": "2030-01-01-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-01-pm-12",
+      "slot_id": "2030-01-01-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-01-pm-13",
+      "slot_id": "2030-01-01-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-01-pm-14",
+      "slot_id": "2030-01-01-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-02-am-12",
+      "slot_id": "2030-01-02-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-02-am-13",
+      "slot_id": "2030-01-02-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-02-am-14",
+      "slot_id": "2030-01-02-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-02-pm-12",
+      "slot_id": "2030-01-02-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-02-pm-13",
+      "slot_id": "2030-01-02-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-02-pm-14",
+      "slot_id": "2030-01-02-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-03-am-12",
+      "slot_id": "2030-01-03-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-03-am-13",
+      "slot_id": "2030-01-03-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-03-am-14",
+      "slot_id": "2030-01-03-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-03-pm-12",
+      "slot_id": "2030-01-03-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-03-pm-13",
+      "slot_id": "2030-01-03-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-03-pm-14",
+      "slot_id": "2030-01-03-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-04-am-12",
+      "slot_id": "2030-01-04-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-04-am-13",
+      "slot_id": "2030-01-04-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-04-am-14",
+      "slot_id": "2030-01-04-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-04-pm-12",
+      "slot_id": "2030-01-04-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-04-pm-13",
+      "slot_id": "2030-01-04-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-04-pm-14",
+      "slot_id": "2030-01-04-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-05-am-12",
+      "slot_id": "2030-01-05-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-05-am-13",
+      "slot_id": "2030-01-05-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-05-am-14",
+      "slot_id": "2030-01-05-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-05-pm-12",
+      "slot_id": "2030-01-05-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-05-pm-13",
+      "slot_id": "2030-01-05-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-05-pm-14",
+      "slot_id": "2030-01-05-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-06-am-12",
+      "slot_id": "2030-01-06-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-06-am-13",
+      "slot_id": "2030-01-06-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-06-am-14",
+      "slot_id": "2030-01-06-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-06-pm-12",
+      "slot_id": "2030-01-06-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-06-pm-13",
+      "slot_id": "2030-01-06-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-06-pm-14",
+      "slot_id": "2030-01-06-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-07-am-12",
+      "slot_id": "2030-01-07-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-07-am-13",
+      "slot_id": "2030-01-07-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-07-am-14",
+      "slot_id": "2030-01-07-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-07-pm-12",
+      "slot_id": "2030-01-07-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-07-pm-13",
+      "slot_id": "2030-01-07-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-07-pm-14",
+      "slot_id": "2030-01-07-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-08-am-12",
+      "slot_id": "2030-01-08-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-08-am-13",
+      "slot_id": "2030-01-08-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-08-am-14",
+      "slot_id": "2030-01-08-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-08-pm-12",
+      "slot_id": "2030-01-08-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-08-pm-13",
+      "slot_id": "2030-01-08-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-08-pm-14",
+      "slot_id": "2030-01-08-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-09-am-12",
+      "slot_id": "2030-01-09-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-09-am-13",
+      "slot_id": "2030-01-09-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-09-am-14",
+      "slot_id": "2030-01-09-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-09-pm-12",
+      "slot_id": "2030-01-09-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-09-pm-13",
+      "slot_id": "2030-01-09-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-09-pm-14",
+      "slot_id": "2030-01-09-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-10-am-12",
+      "slot_id": "2030-01-10-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-10-am-13",
+      "slot_id": "2030-01-10-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-10-am-14",
+      "slot_id": "2030-01-10-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-10-pm-12",
+      "slot_id": "2030-01-10-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-10-pm-13",
+      "slot_id": "2030-01-10-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-10-pm-14",
+      "slot_id": "2030-01-10-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-11-am-12",
+      "slot_id": "2030-01-11-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-11-am-13",
+      "slot_id": "2030-01-11-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-11-am-14",
+      "slot_id": "2030-01-11-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-11-pm-12",
+      "slot_id": "2030-01-11-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-11-pm-13",
+      "slot_id": "2030-01-11-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-11-pm-14",
+      "slot_id": "2030-01-11-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-12-am-12",
+      "slot_id": "2030-01-12-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-12-am-13",
+      "slot_id": "2030-01-12-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-12-am-14",
+      "slot_id": "2030-01-12-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-12-pm-12",
+      "slot_id": "2030-01-12-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-12-pm-13",
+      "slot_id": "2030-01-12-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-12-pm-14",
+      "slot_id": "2030-01-12-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-13-am-12",
+      "slot_id": "2030-01-13-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-13-am-13",
+      "slot_id": "2030-01-13-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-13-am-14",
+      "slot_id": "2030-01-13-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-13-pm-12",
+      "slot_id": "2030-01-13-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-13-pm-13",
+      "slot_id": "2030-01-13-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-13-pm-14",
+      "slot_id": "2030-01-13-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-14-am-12",
+      "slot_id": "2030-01-14-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-14-am-13",
+      "slot_id": "2030-01-14-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-14-am-14",
+      "slot_id": "2030-01-14-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-14-pm-12",
+      "slot_id": "2030-01-14-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-14-pm-13",
+      "slot_id": "2030-01-14-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-14-pm-14",
+      "slot_id": "2030-01-14-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-15-am-12",
+      "slot_id": "2030-01-15-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-15-am-13",
+      "slot_id": "2030-01-15-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-15-am-14",
+      "slot_id": "2030-01-15-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-15-pm-12",
+      "slot_id": "2030-01-15-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-15-pm-13",
+      "slot_id": "2030-01-15-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-15-pm-14",
+      "slot_id": "2030-01-15-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-16-am-12",
+      "slot_id": "2030-01-16-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-16-am-13",
+      "slot_id": "2030-01-16-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-16-am-14",
+      "slot_id": "2030-01-16-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-16-pm-12",
+      "slot_id": "2030-01-16-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-16-pm-13",
+      "slot_id": "2030-01-16-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-16-pm-14",
+      "slot_id": "2030-01-16-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-17-am-12",
+      "slot_id": "2030-01-17-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-17-am-13",
+      "slot_id": "2030-01-17-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-17-am-14",
+      "slot_id": "2030-01-17-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-17-pm-12",
+      "slot_id": "2030-01-17-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-17-pm-13",
+      "slot_id": "2030-01-17-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-17-pm-14",
+      "slot_id": "2030-01-17-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-18-am-12",
+      "slot_id": "2030-01-18-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-18-am-13",
+      "slot_id": "2030-01-18-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-18-am-14",
+      "slot_id": "2030-01-18-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-18-pm-12",
+      "slot_id": "2030-01-18-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-18-pm-13",
+      "slot_id": "2030-01-18-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-18-pm-14",
+      "slot_id": "2030-01-18-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-19-am-12",
+      "slot_id": "2030-01-19-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-19-am-13",
+      "slot_id": "2030-01-19-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-19-am-14",
+      "slot_id": "2030-01-19-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-19-pm-12",
+      "slot_id": "2030-01-19-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-19-pm-13",
+      "slot_id": "2030-01-19-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-19-pm-14",
+      "slot_id": "2030-01-19-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-20-am-12",
+      "slot_id": "2030-01-20-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-20-am-13",
+      "slot_id": "2030-01-20-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-20-am-14",
+      "slot_id": "2030-01-20-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-20-pm-12",
+      "slot_id": "2030-01-20-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-20-pm-13",
+      "slot_id": "2030-01-20-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-20-pm-14",
+      "slot_id": "2030-01-20-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-21-am-12",
+      "slot_id": "2030-01-21-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-21-am-13",
+      "slot_id": "2030-01-21-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-21-am-14",
+      "slot_id": "2030-01-21-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-21-pm-12",
+      "slot_id": "2030-01-21-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-21-pm-13",
+      "slot_id": "2030-01-21-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-21-pm-14",
+      "slot_id": "2030-01-21-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-22-am-12",
+      "slot_id": "2030-01-22-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-22-am-13",
+      "slot_id": "2030-01-22-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-22-am-14",
+      "slot_id": "2030-01-22-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-22-pm-12",
+      "slot_id": "2030-01-22-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-22-pm-13",
+      "slot_id": "2030-01-22-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-22-pm-14",
+      "slot_id": "2030-01-22-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-23-am-12",
+      "slot_id": "2030-01-23-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-23-am-13",
+      "slot_id": "2030-01-23-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-23-am-14",
+      "slot_id": "2030-01-23-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-23-pm-12",
+      "slot_id": "2030-01-23-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-23-pm-13",
+      "slot_id": "2030-01-23-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-23-pm-14",
+      "slot_id": "2030-01-23-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-24-am-12",
+      "slot_id": "2030-01-24-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-24-am-13",
+      "slot_id": "2030-01-24-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-24-am-14",
+      "slot_id": "2030-01-24-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-24-pm-12",
+      "slot_id": "2030-01-24-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-24-pm-13",
+      "slot_id": "2030-01-24-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-24-pm-14",
+      "slot_id": "2030-01-24-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-25-am-12",
+      "slot_id": "2030-01-25-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-25-am-13",
+      "slot_id": "2030-01-25-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-25-am-14",
+      "slot_id": "2030-01-25-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-25-pm-12",
+      "slot_id": "2030-01-25-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-25-pm-13",
+      "slot_id": "2030-01-25-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-25-pm-14",
+      "slot_id": "2030-01-25-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-26-am-12",
+      "slot_id": "2030-01-26-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-26-am-13",
+      "slot_id": "2030-01-26-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-26-am-14",
+      "slot_id": "2030-01-26-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-26-pm-12",
+      "slot_id": "2030-01-26-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-26-pm-13",
+      "slot_id": "2030-01-26-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-26-pm-14",
+      "slot_id": "2030-01-26-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-27-am-12",
+      "slot_id": "2030-01-27-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-27-am-13",
+      "slot_id": "2030-01-27-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-27-am-14",
+      "slot_id": "2030-01-27-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-27-pm-12",
+      "slot_id": "2030-01-27-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-27-pm-13",
+      "slot_id": "2030-01-27-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-27-pm-14",
+      "slot_id": "2030-01-27-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-28-am-12",
+      "slot_id": "2030-01-28-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-28-am-13",
+      "slot_id": "2030-01-28-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-28-am-14",
+      "slot_id": "2030-01-28-am",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-28-pm-12",
+      "slot_id": "2030-01-28-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-28-pm-13",
+      "slot_id": "2030-01-28-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    },
+    {
+      "opportunity_id": "2030-01-28-pm-14",
+      "slot_id": "2030-01-28-pm",
+      "feature_reason": null,
+      "unavailable_targets": {
+        "20/250": "uncovered_or_stale_entry_exit",
+        "20/1000": "uncovered_or_stale_entry_exit",
+        "20/5000": "uncovered_or_stale_entry_exit",
+        "50/250": "uncovered_or_stale_entry_exit",
+        "50/1000": "uncovered_or_stale_entry_exit",
+        "50/5000": "uncovered_or_stale_entry_exit",
+        "200/250": "uncovered_or_stale_entry_exit",
+        "200/1000": "uncovered_or_stale_entry_exit",
+        "200/5000": "uncovered_or_stale_entry_exit"
+      }
+    }
+  ],
+  "folds": [
+    {
+      "fold": "development-1",
+      "training_days": [
+        "2030-01-01",
+        "2030-01-02",
+        "2030-01-03",
+        "2030-01-04",
+        "2030-01-05",
+        "2030-01-06",
+        "2030-01-07"
+      ],
+      "test_days": [
+        "2030-01-08",
+        "2030-01-09",
+        "2030-01-10",
+        "2030-01-11",
+        "2030-01-12",
+        "2030-01-13",
+        "2030-01-14"
+      ],
+      "training_opportunities": 196,
+      "purged_training_opportunities": 0,
+      "common_test_opportunities": 196,
+      "model": {
+        "mean": [
+          8.707864267176541,
+          3.1159126154773995,
+          -7.810829065411365,
+          8.565010695569418,
+          0.16659415464316624,
+          2.753668463987147,
+          0.0,
+          0.0,
+          0.2857142857142857
+        ],
+        "scale": [
+          7.252739407626214,
+          0.07330961636275231,
+          7.633278255914335,
+          7.416083588729322,
+          0.00011202544806545552,
+          2.2935175803759034,
+          1.0,
+          0.33333333333333287,
+          0.45175395145262615
+        ],
+        "ridge": [
+          -1.6015867031044215,
+          2.4192029752927273,
+          0.08264087755011965,
+          -0.07219018130798294,
+          2.3684838874890075,
+          -0.018038440338259885,
+          2.4192029752913755,
+          0.0,
+          -0.012766461578786152,
+          -0.08419070597361063
+        ],
+        "logistic": [
+          -0.5913739251554612,
+          1.1341840746256227,
+          0.09804966384255452,
+          -0.8516083030751678,
+          1.1121895572628457,
+          -0.41011022273510855,
+          1.1341840746256835,
+          0.0,
+          -0.18415964587623906,
+          -0.09806079454270428
+        ],
+        "prior_profit_probability": 0.4289340101522843,
+        "constant_forecast_bps": -1.6015867031044078,
+        "gain_bps": 6.4859893612407475,
+        "loss_bps": -7.667268751363271
+      },
+      "policies": {
+        "jump_only": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": 0.5386139318326081,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": -10.166662503066973,
+            "2030-01-10": 4.822219319411351,
+            "2030-01-11": -5.167874999659571,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": -10.166662503066973,
+            "2030-01-14": 4.822219319411351
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 0.5386139318326085,
+            "ci95_bps": [
+              -5.171080535860568,
+              6.247240202680183
+            ]
+          }
+        },
+        "normalized_jump_rule": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": 0.5386139318326081,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": -10.166662503066973,
+            "2030-01-10": 4.822219319411351,
+            "2030-01-11": -5.167874999659571,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": -10.166662503066973,
+            "2030-01-14": 4.822219319411351
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 0.5386139318326085,
+            "ci95_bps": [
+              -5.171080535860568,
+              6.247240202680183
+            ]
+          }
+        },
+        "ridge_net_value": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 112,
+          "selected_mean_bps": 7.317874382155444,
+          "valid_abstentions": 84,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": 0.0,
+            "2030-01-10": 4.822219319411351,
+            "2030-01-11": 0.0,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": 0.0,
+            "2030-01-14": 4.822219319411351
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 4.181642504088826,
+            "ci95_bps": [
+              1.3777769484032432,
+              7.009663889213956
+            ]
+          }
+        },
+        "logistic_payoff_value": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 112,
+          "selected_mean_bps": 7.317874382155444,
+          "valid_abstentions": 84,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": 0.0,
+            "2030-01-10": 4.822219319411351,
+            "2030-01-11": 0.0,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": 0.0,
+            "2030-01-14": 4.822219319411351
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 4.181642504088826,
+            "ci95_bps": [
+              1.3777769484032432,
+              7.009663889213956
+            ]
+          }
+        }
+      },
+      "prediction_diagnostics": {
+        "ridge_mse": 0.0014937108211647554,
+        "constant_train_mean_mse": 71.79714232307597,
+        "logistic_brier": 0.0016145105339262808,
+        "train_prior_brier": 0.2652026591769949,
+        "log_loss": 0.024124697361378945,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 84,
+            "mean_probability": 0.024394285294038427,
+            "observed_profitable_fraction": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "mean_probability": null,
+            "observed_profitable_fraction": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "mean_probability": null,
+            "observed_profitable_fraction": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 0,
+            "mean_probability": null,
+            "observed_profitable_fraction": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 112,
+            "mean_probability": 0.9776053987585858,
+            "observed_profitable_fraction": 1.0
+          }
+        ]
+      },
+      "jump_baseline_decay_all_available_labels": {
+        "20/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -0.17549321107484442,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": -10.166662503066973,
+            "2030-01-10": 4.822219319411351,
+            "2030-01-11": -10.166625000011738,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": -10.166662503066973,
+            "2030-01-14": 4.822219319411351
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.17549321107484367,
+            "ci95_bps": [
+              -5.8841194819224185,
+              6.246172005834581
+            ]
+          }
+        },
+        "20/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": 0.5386139318326081,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": -10.166662503066973,
+            "2030-01-10": 4.822219319411351,
+            "2030-01-11": -5.167874999659571,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": -10.166662503066973,
+            "2030-01-14": 4.822219319411351
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 0.5386139318326085,
+            "ci95_bps": [
+              -5.171080535860568,
+              6.247240202680183
+            ]
+          }
+        },
+        "20/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": 0.5386139318326081,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": -10.166662503066975,
+            "2030-01-10": 4.82221931941135,
+            "2030-01-11": -5.167874999659571,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": -10.166662503066975,
+            "2030-01-14": 4.82221931941135
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 0.538613931832608,
+            "ci95_bps": [
+              -5.171080535860569,
+              6.247240202680183
+            ]
+          }
+        },
+        "50/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -0.17549321107484442,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": -10.166662503066973,
+            "2030-01-10": 4.822219319411351,
+            "2030-01-11": -10.166625000011738,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": -10.166662503066973,
+            "2030-01-14": 4.822219319411351
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.17549321107484367,
+            "ci95_bps": [
+              -5.8841194819224185,
+              6.246172005834581
+            ]
+          }
+        },
+        "50/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": 0.5386139318326081,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": -10.166662503066973,
+            "2030-01-10": 4.822219319411351,
+            "2030-01-11": -5.167874999659571,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": -10.166662503066973,
+            "2030-01-14": 4.822219319411351
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 0.5386139318326085,
+            "ci95_bps": [
+              -5.171080535860568,
+              6.247240202680183
+            ]
+          }
+        },
+        "50/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": 0.5386139318326081,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": 9.813529444899538,
+            "2030-01-09": -10.166662503066975,
+            "2030-01-10": 4.82221931941135,
+            "2030-01-11": -5.167874999659571,
+            "2030-01-12": 9.813529444899538,
+            "2030-01-13": -10.166662503066975,
+            "2030-01-14": 4.82221931941135
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 0.538613931832608,
+            "ci95_bps": [
+              -5.171080535860569,
+              6.247240202680183
+            ]
+          }
+        },
+        "200/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -10.166576383273641,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": -10.166500419309063,
+            "2030-01-09": -10.166662503066973,
+            "2030-01-10": -10.166541919075838,
+            "2030-01-11": -10.166625000011738,
+            "2030-01-12": -10.166500419309063,
+            "2030-01-13": -10.166662503066973,
+            "2030-01-14": -10.166541919075838
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -10.16657638327364,
+            "ci95_bps": [
+              -10.166622692918759,
+              -10.166529502669732
+            ]
+          }
+        },
+        "200/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -9.452469240366188,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": -10.166500419309063,
+            "2030-01-09": -10.166662503066973,
+            "2030-01-10": -10.166541919075838,
+            "2030-01-11": -5.167874999659571,
+            "2030-01-12": -10.166500419309063,
+            "2030-01-13": -10.166662503066973,
+            "2030-01-14": -10.166541919075838
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -9.452469240366188,
+            "ci95_bps": [
+              -10.166604895675519,
+              -8.024261317463642
+            ]
+          }
+        },
+        "200/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": -9.452469240366188,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-08": -10.166500419309063,
+            "2030-01-09": -10.166662503066975,
+            "2030-01-10": -10.166541919075838,
+            "2030-01-11": -5.167874999659571,
+            "2030-01-12": -10.166500419309063,
+            "2030-01-13": -10.166662503066975,
+            "2030-01-14": -10.166541919075838
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -9.45246924036619,
+            "ci95_bps": [
+              -10.16660489567552,
+              -8.024261317463642
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fold": "development-2",
+      "training_days": [
+        "2030-01-01",
+        "2030-01-02",
+        "2030-01-03",
+        "2030-01-04",
+        "2030-01-05",
+        "2030-01-06",
+        "2030-01-07",
+        "2030-01-08",
+        "2030-01-09",
+        "2030-01-10",
+        "2030-01-11",
+        "2030-01-12",
+        "2030-01-13",
+        "2030-01-14"
+      ],
+      "test_days": [
+        "2030-01-15",
+        "2030-01-16",
+        "2030-01-17",
+        "2030-01-18",
+        "2030-01-19",
+        "2030-01-20",
+        "2030-01-21"
+      ],
+      "training_opportunities": 392,
+      "purged_training_opportunities": 0,
+      "common_test_opportunities": 196,
+      "model": {
+        "mean": [
+          9.777956359710236,
+          3.115912615477384,
+          -8.804581471256617,
+          9.635102788103165,
+          0.16658524834638522,
+          3.0920612958413862,
+          0.0,
+          0.0,
+          0.2857142857142857
+        ],
+        "scale": [
+          7.716886226140212,
+          0.07330961636274165,
+          8.159639293834683,
+          7.890002082510031,
+          0.00012199759051219863,
+          2.440293691898397,
+          1.0,
+          0.3333333333333342,
+          0.45175395145262603
+        ],
+        "ridge": [
+          -0.5314863856358331,
+          2.59065703578183,
+          0.08045800560823038,
+          -0.03707679995469852,
+          2.5361705648131276,
+          -0.013805992387221014,
+          2.590657035779422,
+          0.0,
+          -0.007199707098330645,
+          -0.08223524938247467
+        ],
+        "logistic": [
+          -0.12661360950107736,
+          1.1539209497873228,
+          0.23367471807670726,
+          -0.869459966130754,
+          1.135292409348659,
+          -0.4107648102592715,
+          1.15392094978738,
+          0.0,
+          -0.18626235934750734,
+          -0.2336849441960258
+        ],
+        "prior_profit_probability": 0.5,
+        "constant_forecast_bps": -0.5314863856358998,
+        "gain_bps": 6.961352230334859,
+        "loss_bps": -8.024325001606659
+      },
+      "policies": {
+        "jump_only": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -0.888542399463238,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -5.167874999659571,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": -10.166662503066973,
+            "2030-01-18": 4.822219319411351,
+            "2030-01-19": -5.167874999659571,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": -10.166662503066973
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.8885423994632374,
+            "ci95_bps": [
+              -6.597168670310813,
+              4.820083871384337
+            ]
+          }
+        },
+        "normalized_jump_rule": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -0.888542399463238,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -5.167874999659571,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": -10.166662503066973,
+            "2030-01-18": 4.822219319411351,
+            "2030-01-19": -5.167874999659571,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": -10.166662503066973
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.8885423994632374,
+            "ci95_bps": [
+              -6.597168670310813,
+              4.820083871384337
+            ]
+          }
+        },
+        "ridge_net_value": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 84,
+          "selected_mean_bps": 8.149759403070142,
+          "valid_abstentions": 112,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": 0.0,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": 0.0,
+            "2030-01-18": 4.822219319411351,
+            "2030-01-19": 0.0,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": 0.0
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 3.492754029887204,
+            "ci95_bps": [
+              0.6888884742016216,
+              6.985508059774408
+            ]
+          }
+        },
+        "logistic_payoff_value": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 84,
+          "selected_mean_bps": 8.149759403070142,
+          "valid_abstentions": 112,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": 0.0,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": 0.0,
+            "2030-01-18": 4.822219319411351,
+            "2030-01-19": 0.0,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": 0.0
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 3.492754029887204,
+            "ci95_bps": [
+              0.6888884742016216,
+              6.985508059774408
+            ]
+          }
+        }
+      },
+      "prediction_diagnostics": {
+        "ridge_mse": 0.00036412447524666354,
+        "constant_train_mean_mse": 67.3380730248707,
+        "logistic_brier": 0.002212919210658299,
+        "train_prior_brier": 0.25,
+        "log_loss": 0.031135124634866774,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 112,
+            "mean_probability": 0.03895036538711117,
+            "observed_profitable_fraction": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "mean_probability": null,
+            "observed_profitable_fraction": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "mean_probability": null,
+            "observed_profitable_fraction": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 0,
+            "mean_probability": null,
+            "observed_profitable_fraction": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 84,
+            "mean_probability": 0.982038871341455,
+            "observed_profitable_fraction": 1.0
+          }
+        ]
+      },
+      "jump_baseline_decay_all_available_labels": {
+        "20/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -2.316756685278143,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -10.166625000011738,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": -10.166662503066973,
+            "2030-01-18": 4.822219319411351,
+            "2030-01-19": -10.166625000011738,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": -10.166662503066973
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -2.3167566852781425,
+            "ci95_bps": [
+              -8.025382956125716,
+              4.104908531631283
+            ]
+          }
+        },
+        "20/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -0.888542399463238,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -5.167874999659571,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": -10.166662503066973,
+            "2030-01-18": 4.822219319411351,
+            "2030-01-19": -5.167874999659571,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": -10.166662503066973
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.8885423994632374,
+            "ci95_bps": [
+              -6.597168670310813,
+              4.820083871384337
+            ]
+          }
+        },
+        "20/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": -0.8885423994632379,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -5.167874999659571,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": -10.166662503066975,
+            "2030-01-18": 4.82221931941135,
+            "2030-01-19": -5.167874999659571,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": -10.166662503066975
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.888542399463238,
+            "ci95_bps": [
+              -6.597168670310814,
+              4.820083871384337
+            ]
+          }
+        },
+        "50/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -2.316756685278143,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -10.166625000011738,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": -10.166662503066973,
+            "2030-01-18": 4.822219319411351,
+            "2030-01-19": -10.166625000011738,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": -10.166662503066973
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -2.3167566852781425,
+            "ci95_bps": [
+              -8.025382956125716,
+              4.104908531631283
+            ]
+          }
+        },
+        "50/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -0.888542399463238,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -5.167874999659571,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": -10.166662503066973,
+            "2030-01-18": 4.822219319411351,
+            "2030-01-19": -5.167874999659571,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": -10.166662503066973
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.8885423994632374,
+            "ci95_bps": [
+              -6.597168670310813,
+              4.820083871384337
+            ]
+          }
+        },
+        "50/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": -0.8885423994632379,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -5.167874999659571,
+            "2030-01-16": 9.813529444899538,
+            "2030-01-17": -10.166662503066975,
+            "2030-01-18": 4.82221931941135,
+            "2030-01-19": -5.167874999659571,
+            "2030-01-20": 9.813529444899538,
+            "2030-01-21": -10.166662503066975
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.888542399463238,
+            "ci95_bps": [
+              -6.597168670310814,
+              4.820083871384337
+            ]
+          }
+        },
+        "200/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -10.16658825197877,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -10.166625000011738,
+            "2030-01-16": -10.166500419309063,
+            "2030-01-17": -10.166662503066973,
+            "2030-01-18": -10.166541919075838,
+            "2030-01-19": -10.166625000011738,
+            "2030-01-20": -10.166500419309063,
+            "2030-01-21": -10.166662503066973
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -10.16658825197877,
+            "ci95_bps": [
+              -10.166634561623885,
+              -10.16654137137486
+            ]
+          }
+        },
+        "200/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -8.738373966163865,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -5.167874999659571,
+            "2030-01-16": -10.166500419309063,
+            "2030-01-17": -10.166662503066973,
+            "2030-01-18": -10.166541919075838,
+            "2030-01-19": -5.167874999659571,
+            "2030-01-20": -10.166500419309063,
+            "2030-01-21": -10.166662503066973
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -8.738373966163865,
+            "ci95_bps": [
+              -10.166593038599297,
+              -6.596099569976004
+            ]
+          }
+        },
+        "200/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": -8.738373966163866,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-15": -5.167874999659571,
+            "2030-01-16": -10.166500419309063,
+            "2030-01-17": -10.166662503066975,
+            "2030-01-18": -10.166541919075838,
+            "2030-01-19": -5.167874999659571,
+            "2030-01-20": -10.166500419309063,
+            "2030-01-21": -10.166662503066975
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -8.738373966163865,
+            "ci95_bps": [
+              -10.166593038599299,
+              -6.596099569976004
+            ]
+          }
+        }
+      }
+    },
+    {
+      "fold": "untouched-holdout",
+      "training_days": [
+        "2030-01-01",
+        "2030-01-02",
+        "2030-01-03",
+        "2030-01-04",
+        "2030-01-05",
+        "2030-01-06",
+        "2030-01-07",
+        "2030-01-08",
+        "2030-01-09",
+        "2030-01-10",
+        "2030-01-11",
+        "2030-01-12",
+        "2030-01-13",
+        "2030-01-14",
+        "2030-01-15",
+        "2030-01-16",
+        "2030-01-17",
+        "2030-01-18",
+        "2030-01-19",
+        "2030-01-20",
+        "2030-01-21"
+      ],
+      "test_days": [
+        "2030-01-22",
+        "2030-01-23",
+        "2030-01-24",
+        "2030-01-25",
+        "2030-01-26",
+        "2030-01-27",
+        "2030-01-28"
+      ],
+      "training_opportunities": 588,
+      "purged_training_opportunities": 0,
+      "common_test_opportunities": 196,
+      "model": {
+        "mean": [
+          9.658938665553004,
+          3.115912615477392,
+          -8.694062903475583,
+          9.516085093945925,
+          0.1665862399111304,
+          3.054424596301562,
+          0.0,
+          0.0,
+          0.2857142857142857
+        ],
+        "scale": [
+          7.82720746341291,
+          0.07330961636274526,
+          8.243672083270408,
+          7.995809671617874,
+          0.00012231237255851886,
+          2.475180330305368,
+          1.0,
+          0.3333333333333355,
+          0.45175395145262454
+        ],
+        "ridge": [
+          -0.6505050569117522,
+          2.6320440104399894,
+          0.07843988932297163,
+          -0.025970379822109736,
+          2.578811545568956,
+          -0.011607799340407158,
+          2.6320440104446376,
+          0.0,
+          -0.004721989193212539,
+          -0.08022647633855659
+        ],
+        "logistic": [
+          -0.26421293738744395,
+          1.1632158687217953,
+          0.20329724224141538,
+          -0.8818462118982094,
+          1.1444311158225142,
+          -0.42127233937955266,
+          1.1632158687218488,
+          0.0,
+          -0.18649214119653842,
+          -0.20330775008439947
+        ],
+        "prior_profit_probability": 0.4762308998302207,
+        "constant_forecast_bps": -0.6505050569116793,
+        "gain_bps": 7.317874382155445,
+        "loss_bps": -7.894486365154517
+      },
+      "policies": {
+        "jump_only": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": 1.2527264323193799,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.822219319411351,
+            "2030-01-23": -5.167874999659571,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": -10.166662503066973,
+            "2030-01-26": 4.822219319411351,
+            "2030-01-27": -5.167874999659571,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 1.2527264323193807,
+            "ci95_bps": [
+              -3.742855534887025,
+              6.247266895780521
+            ]
+          }
+        },
+        "normalized_jump_rule": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": 1.2527264323193799,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.822219319411351,
+            "2030-01-23": -5.167874999659571,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": -10.166662503066973,
+            "2030-01-26": 4.822219319411351,
+            "2030-01-27": -5.167874999659571,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 1.2527264323193807,
+            "ci95_bps": [
+              -3.742855534887025,
+              6.247266895780521
+            ]
+          }
+        },
+        "ridge_net_value": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 112,
+          "selected_mean_bps": 7.317874382155444,
+          "valid_abstentions": 84,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.822219319411351,
+            "2030-01-23": 0.0,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": 0.0,
+            "2030-01-26": 4.822219319411351,
+            "2030-01-27": 0.0,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 4.181642504088826,
+            "ci95_bps": [
+              1.3777769484032432,
+              6.985508059774409
+            ]
+          }
+        },
+        "logistic_payoff_value": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 112,
+          "selected_mean_bps": 7.317874382155444,
+          "valid_abstentions": 84,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.822219319411351,
+            "2030-01-23": 0.0,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": 0.0,
+            "2030-01-26": 4.822219319411351,
+            "2030-01-27": 0.0,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 4.181642504088826,
+            "ci95_bps": [
+              1.3777769484032432,
+              6.985508059774409
+            ]
+          }
+        }
+      },
+      "prediction_diagnostics": {
+        "ridge_mse": 0.0001793295655845699,
+        "constant_train_mean_mse": 58.60917042192681,
+        "logistic_brier": 0.0027205942902787774,
+        "train_prior_brier": 0.25396055586142086,
+        "log_loss": 0.037570911070838174,
+        "calibration_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.2,
+            "n": 84,
+            "mean_probability": 0.04680390181621871,
+            "observed_profitable_fraction": 0.0
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "n": 0,
+            "mean_probability": null,
+            "observed_profitable_fraction": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "n": 0,
+            "mean_probability": null,
+            "observed_profitable_fraction": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "n": 4,
+            "mean_probability": 0.7932783832961968,
+            "observed_profitable_fraction": 1.0
+          },
+          {
+            "lower": 0.8,
+            "upper": 1.0,
+            "n": 108,
+            "mean_probability": 0.9785481564110178,
+            "observed_profitable_fraction": 1.0
+          }
+        ]
+      },
+      "jump_baseline_decay_all_available_labels": {
+        "20/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -0.17548785349552506,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.822219319411351,
+            "2030-01-23": -10.166625000011738,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": -10.166662503066973,
+            "2030-01-26": 4.822219319411351,
+            "2030-01-27": -10.166625000011738,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.1754878534955243,
+            "ci95_bps": [
+              -5.88410876676378,
+              6.246172139774064
+            ]
+          }
+        },
+        "20/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": 1.2527264323193799,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.822219319411351,
+            "2030-01-23": -5.167874999659571,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": -10.166662503066973,
+            "2030-01-26": 4.822219319411351,
+            "2030-01-27": -5.167874999659571,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 1.2527264323193807,
+            "ci95_bps": [
+              -3.742855534887025,
+              6.247266895780521
+            ]
+          }
+        },
+        "20/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": 1.25272643231938,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.82221931941135,
+            "2030-01-23": -5.167874999659571,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": -10.166662503066975,
+            "2030-01-26": 4.82221931941135,
+            "2030-01-27": -5.167874999659571,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 1.2527264323193799,
+            "ci95_bps": [
+              -3.7428555348870254,
+              6.247266895780521
+            ]
+          }
+        },
+        "50/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -0.17548785349552506,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.822219319411351,
+            "2030-01-23": -10.166625000011738,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": -10.166662503066973,
+            "2030-01-26": 4.822219319411351,
+            "2030-01-27": -10.166625000011738,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -0.1754878534955243,
+            "ci95_bps": [
+              -5.88410876676378,
+              6.246172139774064
+            ]
+          }
+        },
+        "50/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": 1.2527264323193799,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.822219319411351,
+            "2030-01-23": -5.167874999659571,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": -10.166662503066973,
+            "2030-01-26": 4.822219319411351,
+            "2030-01-27": -5.167874999659571,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 1.2527264323193807,
+            "ci95_bps": [
+              -3.742855534887025,
+              6.247266895780521
+            ]
+          }
+        },
+        "50/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": 1.25272643231938,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": 4.82221931941135,
+            "2030-01-23": -5.167874999659571,
+            "2030-01-24": 9.813529444899538,
+            "2030-01-25": -10.166662503066975,
+            "2030-01-26": 4.82221931941135,
+            "2030-01-27": -5.167874999659571,
+            "2030-01-28": 9.813529444899538
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": 1.2527264323193799,
+            "ci95_bps": [
+              -3.7428555348870254,
+              6.247266895780521
+            ]
+          }
+        },
+        "200/250": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -10.166571025694322,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": -10.166541919075838,
+            "2030-01-23": -10.166625000011738,
+            "2030-01-24": -10.166500419309063,
+            "2030-01-25": -10.166662503066973,
+            "2030-01-26": -10.166541919075838,
+            "2030-01-27": -10.166625000011738,
+            "2030-01-28": -10.166500419309063
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -10.16657102569432,
+            "ci95_bps": [
+              -10.166611977760121,
+              -10.166530061999618
+            ]
+          }
+        },
+        "200/1000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 196,
+          "selected_opportunities": 196,
+          "selected_mean_bps": -8.738356739879418,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": -10.166541919075838,
+            "2030-01-23": -5.167874999659571,
+            "2030-01-24": -10.166500419309063,
+            "2030-01-25": -10.166662503066973,
+            "2030-01-26": -10.166541919075838,
+            "2030-01-27": -5.167874999659571,
+            "2030-01-28": -10.166500419309063
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -8.738356739879418,
+            "ci95_bps": [
+              -10.166564662781967,
+              -7.310148816976867
+            ]
+          }
+        },
+        "200/5000": {
+          "state": "evaluated_hypothetical_opportunities",
+          "eligible_opportunities": 168,
+          "selected_opportunities": 168,
+          "selected_mean_bps": -8.738356739879416,
+          "valid_abstentions": 0,
+          "unobserved_days": [],
+          "day_opportunity_value_bps": {
+            "2030-01-22": -10.166541919075838,
+            "2030-01-23": -5.167874999659571,
+            "2030-01-24": -10.166500419309063,
+            "2030-01-25": -10.166662503066975,
+            "2030-01-26": -10.166541919075838,
+            "2030-01-27": -5.167874999659571,
+            "2030-01-28": -10.166500419309063
+          },
+          "day_summary": {
+            "occupied_days": 7,
+            "equal_day_mean_bps": -8.738356739879418,
+            "ci95_bps": [
+              -10.166564662781967,
+              -7.310148816976867
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "selected_winner": null,
+  "interpretation": "Precommitted secondary comparison. Day intervals are descriptive and unadjusted across fixed comparisons. Overlapping hypothetical opportunities are not a portfolio or executable PnL; valid abstention differs from missing outcomes. No trade authorization.",
+  "synthetic": true,
+  "fixture": "56 toy 30-second tapes across 28 artificial dates; periodic response/lag and fixed size/spread. Not realistic distributions or market evidence.",
+  "protocol_sha256": "9ebe2aa4755154a50ba9896cf408c03f249079fd3c030f0940ebf71056ffeb78",
+  "implementation_sha256": {
+    "research/model_engine.py": "6c84a028c6dbd408c115c7f399aef97cf7403992a81239a73674cf485fd41a88",
+    "research/model_comparison.py": "3459e56567b78795a26f16946379d6ad1a201043c4eeb28456ea3146c5ff0629"
+  }
+}

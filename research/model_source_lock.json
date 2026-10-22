@@ -1,0 +1,12 @@
+{
+  "source_commit": "52fb996d52f07191f6545a48884249302bff3c16",
+  "locked_at_utc": "2026-10-22T10:42:40.509575+00:00",
+  "scope": "Secondary comparison only; do not regenerate for an already registered scientific study. Original primary source maps are unchanged.",
+  "files": {
+    "research/model_engine.py": "6c84a028c6dbd408c115c7f399aef97cf7403992a81239a73674cf485fd41a88",
+    "research/model_comparison.py": "3459e56567b78795a26f16946379d6ad1a201043c4eeb28456ea3146c5ff0629",
+    "research/model_protocol.json": "9ebe2aa4755154a50ba9896cf408c03f249079fd3c030f0940ebf71056ffeb78",
+    ".github/workflows/model-comparison.yml": "dd8a614de42c9ed58f97289353dd07b37e9af387fb18d30f2489b257401c3a1f",
+    "uv.lock": "0e4d843c3c53685af45dafca003f7d0944ba4fe324b6c44509b74e4024810cf7"
+  }
+}
