@@ -219,3 +219,8 @@ before a child can satisfy the named-trial gate. Late, failed and overdue intent
 remain visible; manual samples cannot be substituted as proof of cron delivery.
 All named trials and the original latest-three/two-date rule must pass before a
 scientific freeze can be prepared. The scientific successor remains inactive.
+
+## October 22 diagnostic retry
+
+See [the prestarted runner retry](WARM_RETRY.md). This tests a new trigger path
+without changing the failed cron cohort or qualifying it as scientific evidence.

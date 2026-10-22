@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'configs/successor/protocol.json'
+      - 'configs/successor/warm_retry_20261022.json'
   workflow_dispatch:
     inputs:
       intended_start_utc:
@@ -31,7 +32,7 @@ jobs:
   rehearsal:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 85
     permissions:
       contents: write
       actions: read
@@ -39,6 +40,22 @@ jobs:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5, Node 24
         with:
           persist-credentials: false
+          fetch-depth: 2
+      - name: Prepare only the newly committed future retry intent
+        id: warmup
+        run: python -m scripts.successor_warmup prepare
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6, Node 24
+        if: steps.warmup.outputs.warm == 'true'
+        with:
+          python-version: '3.12'
+      - name: Install before the approved warm retry start
+        if: steps.warmup.outputs.warm == 'true'
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --python 3.12
+      - name: Wait on the original intended time with dependencies ready
+        if: steps.warmup.outputs.warm == 'true'
+        run: python -m scripts.successor_warmup wait
       - name: Record explicit timing and gate before installing
         id: timing
         env:
@@ -46,6 +63,8 @@ jobs:
           INTENDED_START: ${{ inputs.intended_start_utc }}
           CLIENT_SENT: ${{ inputs.dispatch_sent_at_utc }}
           DISPATCH_ID: ${{ inputs.dispatch_id }}
+          WARM_RETRY: ${{ steps.warmup.outputs.warm }}
+          WARM_INTENDED: ${{ steps.warmup.outputs.intended }}
         run: |
           python - <<'PY'
           from datetime import datetime, timezone
@@ -54,8 +73,9 @@ jobs:
           from scripts.successor_claim import instant
           protocol = json.loads(Path('configs/successor/protocol.json').read_text())
           run = json.loads(subprocess.check_output(['gh','api',f'repos/{os.environ["GITHUB_REPOSITORY"]}/actions/runs/{os.environ["GITHUB_RUN_ID"]}'], text=True))
-          mode = 'prospective' if os.environ['GITHUB_EVENT_NAME'] == 'workflow_dispatch' else 'transport_only'
-          intended = os.environ.get('INTENDED_START') or run['created_at']
+          warm = os.environ.get('WARM_RETRY') == 'true'
+          mode = 'prospective' if warm or os.environ['GITHUB_EVENT_NAME'] == 'workflow_dispatch' else 'transport_only'
+          intended = os.environ['WARM_INTENDED'] if warm else os.environ.get('INTENDED_START') or run['created_at']
           now = datetime.now(timezone.utc)
           client_sent = instant(os.environ['CLIENT_SENT']).isoformat() if os.environ.get('CLIENT_SENT') else None
           dispatch_id = os.environ.get('DISPATCH_ID') or None
@@ -70,6 +90,7 @@ jobs:
             'gate_checked_at_utc':now.isoformat(),'gate_accepted':accepted,'mode':mode,
             'dispatch_sent_at_utc':client_sent,'dispatch_id':dispatch_id,'dispatch_receipt_at_utc':None,
             'dispatch_sent_source':'authenticated operator input, not server attestation' if client_sent else 'unavailable',
+            'warm_retry': json.loads(Path('data/raw/successor-warmup/ready.json').read_text()) if warm else None,
             'limitation':'GitHub run creation is not the original dispatch receipt; no pre-creation delay inferred'}
           Path('data/raw/successor-control/trigger.json').write_text(json.dumps(trigger,indent=2)+'\n')
           with open(os.environ['GITHUB_OUTPUT'],'a') as stream:
@@ -84,11 +105,11 @@ jobs:
           INTENDED: ${{ steps.timing.outputs.intended }}
         run: python scripts/successor_claim.py --protocol configs/successor/protocol.json --repository "$GITHUB_REPOSITORY" --intended-start "$INTENDED" --source-commit "$GITHUB_SHA" --owner "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" --out data/raw/successor-control/claim.json
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6, Node 24
-        if: steps.timing.outputs.run == 'true'
+        if: steps.timing.outputs.run == 'true' && steps.warmup.outputs.warm != 'true'
         with:
           python-version: '3.12'
       - name: Install frozen dependencies
-        if: steps.timing.outputs.run == 'true'
+        if: steps.timing.outputs.run == 'true' && steps.warmup.outputs.warm != 'true'
         run: |
           python -m pip install uv==0.12.23
           uv sync --frozen --python 3.12
@@ -104,11 +125,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: uv run --frozen python -m scripts.successor_rehearsal preserve --out data/raw/successor-attempt --repository "$GITHUB_REPOSITORY" --source-commit "$GITHUB_SHA"
+      - name: Require healthy on-time data and remote restore for this retry
+        if: steps.warmup.outputs.warm == 'true'
+        run: python -m scripts.successor_warmup verify
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
         if: always()
         with:
           name: successor-rehearsal-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
+            data/raw/successor-warmup/
             data/raw/successor-control/
             data/raw/successor-attempt/*.json
             data/raw/successor-attempt/*.tar.gz*

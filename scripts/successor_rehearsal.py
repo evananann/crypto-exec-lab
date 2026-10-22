@@ -39,7 +39,8 @@ def source_identity():
     if subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=normal'], text=True).strip():
         raise ValueError('clean committed source required for a live rehearsal')
     files = sorted([*Path('cel').rglob('*.py'), *Path('scripts').glob('successor_*.py'),
-                    PROTOCOL, Path('configs/successor/trials_20261020.json'), Path('uv.lock'),
+                    PROTOCOL, Path('configs/successor/trials_20261020.json'),
+                    Path('configs/successor/warm_retry_20261022.json'), Path('uv.lock'),
                     Path('.github/workflows/successor-planned-trials.yml'), Path('.github/workflows/successor-rehearsal.yml')])
     return {'commit': revision, 'dirty': False, 'files_sha256': {str(p): digest(p) for p in files}}
 
