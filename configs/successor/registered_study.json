@@ -1,0 +1,720 @@
+{
+  "schema_version": 1,
+  "protocol_id": "btc-successor-v3-20261025",
+  "state": "registered_active",
+  "pair": [
+    "binance",
+    "okx"
+  ],
+  "recording_seconds": 900,
+  "maximum_start_lateness_seconds": 300,
+  "metadata_interval_seconds": 60,
+  "minimum_rehearsals": 3,
+  "minimum_distinct_utc_dates": 2,
+  "minimum_span_fraction": 0.95,
+  "maximum_bbo_silence_ms": 2000,
+  "trigger": "Bounded early GitHub wake-ups; a fixed frozen slot must be prepared before its start; no timing SLA",
+  "claim": "Atomic create-only Git reference to a unique owner commit; no automatic lease expiry or takeover",
+  "recovery": "Retain every claim and failed attempt; a claimed slot is never retried under another owner",
+  "study_dates": {
+    "start": "2026-10-25",
+    "end": "2026-11-21"
+  },
+  "outcomes": "No outcome estimation, including development outcomes, until the UTC day after the final collection date",
+  "activation": "Requires verified remote readback, complete provenance and prospective on-time trials on at least two UTC dates; transport-only push rehearsals do not qualify",
+  "study_id": "btc-successor-v3-20261025",
+  "registered_at_utc": "2026-10-23T05:18:17.237389+00:00",
+  "registration_source_commit": "7ef431a6713876b13281f9b07024e7834f0a769e",
+  "source_files_sha256": {
+    ".github/workflows/successor-activation.yml": "edce24ae930670bc3dbcad880931ad46cba3a78acf7fed27591a0b8d8b2d85d7",
+    ".github/workflows/successor-planned-trials.yml": "a31806a2f5fa77783d8a2b8a066a6edbc5c00a25e79ccdb66b128cf7d039d6c7",
+    ".github/workflows/successor-qualification.yml": "bcc38a9c0c38fa026932bf76eab89fadd61f495bc5f9a2769243066923765823",
+    ".github/workflows/successor-recovery.yml": "416940d2a3ce07dd83feea8618dbc0bae888bba9c37f82ec77f1742a200f1339",
+    ".github/workflows/successor-rehearsal.yml": "23f5b2cf760858b70b9d930e8530dcdc89fddc2bcb50df734c4c65755f00b3b5",
+    ".github/workflows/successor-study-report.yml": "0d309fd373d30ac188ad19a68536abbfeb7a8084d381680208aed1f49d60e69b",
+    ".github/workflows/successor-study.yml": "4f7e633cff6a354e0233a18ae2be0009eece94a8e4faa9624025c1c38be326c5",
+    "cel/__init__.py": "ad093d446d6438e9019e9b5ecf5070d1a854f4c2c72f73a863a85f2b7a2bbf7b",
+    "cel/__main__.py": "71172936578053d57da44f8eaad7f6671f658a6af034c988c96445875f1be131",
+    "cel/artifacts.py": "f0595e3c402b5e17e0c0e9eaae797648dd2fae1ada1ccfacfe69d5a8fda41726",
+    "cel/execution/__init__.py": "2fd2666d4d8f5f86568838391bb87d9cdcffcdc4d7c83b7f7da4102964fe4dd5",
+    "cel/execution/__main__.py": "860263eea5e7a41dc870e947f0e3a044f1a8a35db2bd7695938a3204801f76dc",
+    "cel/execution/algo.py": "0a1685c4aa7594fa358be083ffeb42cabe322b57e44eb403d5b1999d33200f2e",
+    "cel/experiments/__init__.py": "c5b85c9f4f26fac668165f8ede240a9855be49b495469357fab2fac7b5c04c77",
+    "cel/experiments/__main__.py": "f0f618b5d52b059384ef869d5ad680121f9f90bd6d9196bbbcf354fadc9da4e9",
+    "cel/experiments/audit.py": "4d37a9ba5dec8cfe61f510e651febdb4421195001fdd47b76b46de2c1731de10",
+    "cel/experiments/precision.py": "b7d6cd40ebc1f100f9c4bb149614191bc5514d2e19bfefdb3c20a00df37a1e45",
+    "cel/experiments/roundtrip.py": "44f270d3e6a901642d62a10264aa2b1a5f6a8b2461572e940e50a627a4075ba3",
+    "cel/experiments/scenarios.py": "dbba7b1d1985e45fb07b30ba007e3f7f83cef631a979a528990d8aef60c89fa2",
+    "cel/ingest/__init__.py": "d01f320a6b7eabfab5a78b051dd238fb4e605296fbf47f738015da12e3f61212",
+    "cel/ingest/__main__.py": "7646af19f697ebcaa9784b26ffbb7b7ab1101eab0aa050c8625742179db6c8c0",
+    "cel/ingest/fixture.py": "fc3d4607153147275c4d9afb60dbb3309c5413ebbf10367a790511e1eac870e0",
+    "cel/ingest/gaps.py": "8b4afef116610facc0094057fb64b19aebb6b6ef521f44fa58a77288c29ab0ff",
+    "cel/ingest/instruments.py": "252549d4d9f500bf5048bc5735f05d90543315622bd418352266e5f0a62b7ce9",
+    "cel/ingest/jsonl.py": "108c9aa742252a20eccdb80963ef20eb55b4661b182d38f7439420dc703746d1",
+    "cel/ingest/parse.py": "66bd03de6396be6bf879ea6af3eaee8c76f179c177377bddd3efdbd663698b2c",
+    "cel/ingest/record.py": "bc613b064fdef7935dd1028cc96c2743bdefbe6a1068d4f18b698b89fecae3ef",
+    "cel/ingest/replay.py": "4ddb66d8ac10d61e500d4a722b658c01400bd20b9215597c8c900b3a942305d6",
+    "cel/ingest/schema.py": "29b151cf8d20c6891f32c00bcc5d71d10cfbb8c8cbaf2e7f4cf16b3a662662a2",
+    "cel/ingest/top_book.py": "ef3982dc9bcc0be1667cbc261d62b15da6a1d0fff007815e56ea78a200687dbd",
+    "cel/research/__init__.py": "2c0db74f1d7bdb60c1f2cc167bb3794b1acda09bc6ec824f51431fcbb445ee6b",
+    "cel/research/__main__.py": "aa45f264cbd3b2443cf0ca8998598dff9fbf10065a81319951ca91718fe4d637",
+    "cel/research/evaluate.py": "f5106ae1ff6504c95f7080064810777d49a1a194909bb355d3f02b27fc9dc255",
+    "cel/research/flow.py": "a9adc61ff4cda3ac28582d2709667c914c15d36355cfb19a8b016b71f6f54607",
+    "cel/research/jumps.py": "11ca46bab53c8f0957b78cafbbca79d89c3cc68480bdbaf30e98676b5e7d9f8a",
+    "cel/research/lead_lag.py": "344e5c4d2dcb897a977c7329a5360cc2ce8a07c479c10f0965000da97135a799",
+    "cel/research/markout.py": "5b11e08242f4dcd77ad18096d59185e960af97ef6175bb9ece8a77ad6d9fc2e6",
+    "cel/research/mids.py": "124692ff6cd860f2397d12f7c0e75bb9d0b9518eb0003cd2989bf0014bc76ddf",
+    "cel/research/plots.py": "f654b2a1c544c43b48c68850c3c9af1db82554cda2cceb0cb74c1b87a05eab38",
+    "cel/risk/__init__.py": "2aee6d966c5b5986de617e1a352c30ef2a7fd2c2bd6210972499dad5ef59851c",
+    "cel/risk/limits.py": "070e18879c3c69077a52e3e305bc400eafac761bdadf9472458d630f6dc81568",
+    "cel/settings.py": "0ef2b7734d35136d6d79f2ebc5fa34df5126748ee4c9f2e349a3766260c07d79",
+    "cel/study.py": "348a8aeec40162efc879111f45997f2efd398d4db20492bde3e31d33443000e0",
+    "cel/summary.py": "905deeb4fc1fee08178c93539f741087573ba388d1e256b1edd521e2d80c2af4",
+    "configs/study_v2_okx.json": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9",
+    "configs/study_v2_okx_lab.yaml": "7089b6acf113f84db3f051b4c663c85db27e7ca00691261c6dc0aa19315fbbb6",
+    "configs/successor/protocol.json": "66b113dc1bb2cfa1ff76f81f14be10f87ca5f7b208fb955455a12e52d80118d3",
+    "configs/successor/qualification_20261022.json": "f33f8e38437103c85e988197114ab45bbe3bb485e3adb4859be644d7415c9977",
+    "configs/successor/study_candidate.json": "aa413634e2917c2265c3da00197910b9ba0d4eb791644f35c75a4d57277c165e",
+    "configs/successor/trials_20261020.json": "fc42e1cd343b22625f44b4c98f88ee0f041159898743597534ba50d96bd93103",
+    "configs/successor/warm_retry_20261022.json": "3db9a3fe754997cdb46bd3760578a5aa843e1a454880599be54d5138f53d0849",
+    "scripts/archive_study_releases.py": "4d236c4d5bc90ddc48608add553b6544bfeaf9832beeadba74eb926ec40ec8f5",
+    "scripts/audit_artifact_storage.py": "d21faaae0a0b374c262bf33996f325df2b803c78a3d362cdf9cd8604a38d3e6b",
+    "scripts/audit_recordings.py": "24d305e251aae0086c751a9dbf385cda8b8b43e28962f485844e5b085ff680e8",
+    "scripts/benchmark_pipeline.py": "325542843b82db9b97d6a2528859eeae30eb9250ace48dabeec825e5303a96da",
+    "scripts/benchmark_processing.py": "20e5bbaadbadaf1b9bf5eb51187c0f1197b4bb70deeff39332f6f8f78cd891c8",
+    "scripts/check_archive_restore.py": "d4e1d4a28ba13d12ee99f41ea78d6c993b09a5eb8adc5effbd97b23a63b3daf0",
+    "scripts/collection_timeline.py": "f1b2c901ae063453f2ddb6df08370ffe6a500938af1aa20a0ba731d7fecda893",
+    "scripts/compare_replication.py": "b81dd29655b65535224589b2ee23c003a24917910f7c9eaaa4682d6b09060469",
+    "scripts/crosscheck_markouts.py": "13cf69e905de383e2dc31f47f97d395f671ab8e954f920253af3a96f6148ae0d",
+    "scripts/download_replication_reports.py": "a7118ca81245e621256869c83be61232595b0ab9d8f6fc6e442d3a55703cde41",
+    "scripts/download_study_artifacts.py": "2eec32020374ae98047c2f017cff12147ef861df6a6b3eb12047da5221f87114",
+    "scripts/execution_assumption_audit.py": "18ba63ddb7c361a9d22b46b7f5cbd9aaccae7490d07b431c034dbf1edf5fe3e7",
+    "scripts/failure_attribution.py": "24fb8ab5f3050c07d5d53d5e42cc516d82e5ceed4af8044bbdb22fd620b9c59e",
+    "scripts/freeze_replication.py": "f1a48325fd8f3d41e60ad237a1ff0ccff58c6c9b0540980e7242df162943f8e6",
+    "scripts/missing_data_sensitivity.py": "4de1f96d2bb37e239b416c64d5db4c575a618f8f6636199e664532afb1652fa8",
+    "scripts/numeric_reproducibility.py": "719626d86f075def7a680fc7112d6e6e6f512067989cfe9dd04f405864515de8",
+    "scripts/order_lifecycle.py": "07d7d49e68600de3bde78efe219542edf2ade60f3ecc1a7dce72b5e105d7c3a4",
+    "scripts/power_audit.py": "8b2d53108043dfecbc1f619bcfcdb03f712bb109e40b02081924b6d8ca713ab2",
+    "scripts/preserve_study.py": "e8de5ba8c802d3a2d6ca7879d580aa386ecfff116b04fc0eced93bbd6f4707e4",
+    "scripts/project_status.py": "93ca1ee29026cb213a6f2a1b270b6e3b0a9632e709f1adb28ff240512acdbe31",
+    "scripts/reference_markouts.py": "cabd95bb9df0036cb185920b976bf74d3ef99ffae8f9703d9d1bf1a80bf77dd7",
+    "scripts/released_robustness.py": "95b520303ff55ca1f49254f345c34a633e2b5853eff2e2c85ef3ba17fa67c10a",
+    "scripts/released_validation.py": "f940e89888a6ec135d723df7c32fe14c5dfd8c8be05d2910a2b8b9353213391b",
+    "scripts/reproduce_clean.py": "610f687e366e8234c18b4d10dfceaa8c3e933f78d0f880aa69c3dcbf8ad97de5",
+    "scripts/study_diagnostics.py": "40632a9f070c27f319c0ba3f26167bc6f93a82e9548d8e1fc02e9c56d7a7a5aa",
+    "scripts/study_gate.py": "53693a4c31103b03643e8e61c3019941827f421adf6f08b48c7db0c346804b28",
+    "scripts/study_monitor.py": "5aaa54a60bd34db6aedd3b60d9a7ce94f1e9ae54689c7283f10c2a50ebfff28f",
+    "scripts/successor_claim.py": "48154ed7956b003164acc8d1a0ffafbc9a6894ca5a416479dc0240c047425c05",
+    "scripts/successor_control.py": "eab9431c564b1256d7f099492724a6bb2548c7c41525854110338da56c3be44e",
+    "scripts/successor_dispatch.py": "0a931016a6d9d6d6ca6ce91ca0653d9a7517a109a3a40574b632edc97219ffe8",
+    "scripts/successor_qualification.py": "a4bde70410332f9cb41e554004b31ed28421cd0d7cdd5709c54d6efe350fd485",
+    "scripts/successor_readiness.py": "20d8ab6b704dbaea412f6126b8014a33d42abb49ba6dd0ce112f4ad9fa870cb2",
+    "scripts/successor_recorder.py": "e543ab4052c8255496a924708c59091b2075fca78aa6ce176c63d8796abe34d5",
+    "scripts/successor_recovery.py": "542dbef7f9c3a459026c475973e5134de22d4839f2d0c7431ec848f69c73597e",
+    "scripts/successor_rehearsal.py": "864736e8f5f4a2dc9ac8984c33436790d4afff921105a498bbbddd9e70b573e8",
+    "scripts/successor_study.py": "06b6e07600fe487f3c580df72c3e4aa5da798fef9ed7b5f8dfb64f92a84b73a4",
+    "scripts/successor_trials.py": "07c82b41a53cac2ed6334198f1d2aa5432aaaa9185f49eb71473b22bc1c5dec9",
+    "scripts/successor_warmup.py": "8e91e8e78c4824c4581d937c34d0067a905aa038240a41bf65f6ad9b4f132dff",
+    "scripts/verify_bundle.py": "f3f51fbd54d56834f946e7280b1cf8f90c95b16962a8000bb36df21efc0b0a74",
+    "uv.lock": "0e4d843c3c53685af45dafca003f7d0944ba4fe324b6c44509b74e4024810cf7"
+  },
+  "qualification_plan_sha256": "f33f8e38437103c85e988197114ab45bbe3bb485e3adb4859be644d7415c9977",
+  "qualification_readiness": {
+    "schema_version": 1,
+    "as_of_utc": "2026-10-23T05:18:17.236235+00:00",
+    "protocol_sha256": "aab63ec34c5a91883b042999b6d41c8245deaf945f9564abcf48dc892ea9d9bb",
+    "activation_ready": true,
+    "study_activated": false,
+    "attempts_examined": 5,
+    "qualifying_prospective_rehearsals": 3,
+    "qualifying_utc_dates": [
+      "2026-10-22",
+      "2026-10-23"
+    ],
+    "records": [
+      {
+        "slot_id": "btc-collection-successor-candidate-v1/20261019T060732Z",
+        "intended_start_utc": "2026-10-19T06:07:32+00:00",
+        "source_commit": "678d6ed77565f16798661ee5f47d1f6be32b472c",
+        "event": "push",
+        "release_tag": "study-archive-btc-execution-v1",
+        "run_created_at_utc": "2026-10-19T06:07:32Z",
+        "run_attempt": 1,
+        "qualification_compatible": true,
+        "source_run_conclusion": "failure",
+        "dispatch_id": null,
+        "planned_request_verified": false,
+        "qualification_cohort_verified": false,
+        "authenticated_remote_restore": true,
+        "assessment": {
+          "collection_healthy": true,
+          "issues": [],
+          "events": 388049,
+          "timestamp_fallback_events": 0,
+          "instrument_snapshots": 16,
+          "venues": {
+            "binance": {
+              "bbo": 366088,
+              "span_ms": 899567,
+              "maximum_gap_ms": 562
+            },
+            "okx": {
+              "bbo": 21961,
+              "span_ms": 899407,
+              "maximum_gap_ms": 839
+            }
+          },
+          "timing": {
+            "accepted": true,
+            "mode": "transport_only",
+            "intended_start_utc": "2026-10-19T06:07:32+00:00",
+            "checked_at_utc": "2026-10-19T06:07:45.682214+00:00",
+            "lateness_seconds": 13.682214,
+            "timing_qualified": false
+          },
+          "study_observation": false,
+          "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+        }
+      },
+      {
+        "slot_id": "btc-collection-successor-candidate-v1/20261022T030500Z",
+        "intended_start_utc": "2026-10-22T03:05:00+00:00",
+        "source_commit": "bc9b18cce92f031d5ccdd312927632dedba63551",
+        "event": "push",
+        "release_tag": "study-archive-btc-execution-v1",
+        "run_created_at_utc": "2026-10-22T02:56:52Z",
+        "run_attempt": 1,
+        "qualification_compatible": true,
+        "source_run_conclusion": "success",
+        "dispatch_id": null,
+        "planned_request_verified": false,
+        "qualification_cohort_verified": false,
+        "authenticated_remote_restore": true,
+        "assessment": {
+          "collection_healthy": true,
+          "issues": [],
+          "events": 383082,
+          "timestamp_fallback_events": 0,
+          "instrument_snapshots": 16,
+          "venues": {
+            "binance": {
+              "bbo": 357434,
+              "span_ms": 899406,
+              "maximum_gap_ms": 423
+            },
+            "okx": {
+              "bbo": 25648,
+              "span_ms": 899136,
+              "maximum_gap_ms": 620
+            }
+          },
+          "timing": {
+            "accepted": true,
+            "mode": "prospective",
+            "intended_start_utc": "2026-10-22T03:05:00+00:00",
+            "checked_at_utc": "2026-10-22T03:05:04.608660+00:00",
+            "lateness_seconds": 4.60866,
+            "timing_qualified": true
+          },
+          "study_observation": false,
+          "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+        }
+      },
+      {
+        "slot_id": "btc-collection-successor-candidate-v1/20261022T041500Z",
+        "intended_start_utc": "2026-10-22T04:15:00+00:00",
+        "source_commit": "d8a5e9d74e4bb53ec3f8803295fa3092b10b2b59",
+        "event": "workflow_dispatch",
+        "release_tag": "study-archive-btc-execution-v1",
+        "run_created_at_utc": "2026-10-22T03:50:12Z",
+        "run_attempt": 1,
+        "qualification_compatible": true,
+        "source_run_conclusion": "success",
+        "dispatch_id": "c56dfd36f1b948b1804c282051f32b4c",
+        "planned_request_verified": false,
+        "qualification_cohort_verified": true,
+        "authenticated_remote_restore": true,
+        "assessment": {
+          "collection_healthy": true,
+          "issues": [],
+          "events": 353964,
+          "timestamp_fallback_events": 0,
+          "instrument_snapshots": 16,
+          "venues": {
+            "binance": {
+              "bbo": 329923,
+              "span_ms": 899492,
+              "maximum_gap_ms": 517
+            },
+            "okx": {
+              "bbo": 24041,
+              "span_ms": 899259,
+              "maximum_gap_ms": 611
+            }
+          },
+          "timing": {
+            "accepted": true,
+            "mode": "prospective",
+            "intended_start_utc": "2026-10-22T04:15:00+00:00",
+            "checked_at_utc": "2026-10-22T04:15:04.434264+00:00",
+            "lateness_seconds": 4.434264,
+            "timing_qualified": true
+          },
+          "study_observation": false,
+          "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+        }
+      },
+      {
+        "slot_id": "btc-collection-successor-candidate-v1/20261022T044500Z",
+        "intended_start_utc": "2026-10-22T04:45:00+00:00",
+        "source_commit": "d8a5e9d74e4bb53ec3f8803295fa3092b10b2b59",
+        "event": "workflow_dispatch",
+        "release_tag": "study-archive-btc-execution-v1",
+        "run_created_at_utc": "2026-10-22T03:50:15Z",
+        "run_attempt": 1,
+        "qualification_compatible": true,
+        "source_run_conclusion": "success",
+        "dispatch_id": "5de7c40a32eb4eef92c673a30ce35e66",
+        "planned_request_verified": false,
+        "qualification_cohort_verified": true,
+        "authenticated_remote_restore": true,
+        "assessment": {
+          "collection_healthy": true,
+          "issues": [],
+          "events": 289713,
+          "timestamp_fallback_events": 0,
+          "instrument_snapshots": 16,
+          "venues": {
+            "binance": {
+              "bbo": 260906,
+              "span_ms": 899432,
+              "maximum_gap_ms": 702
+            },
+            "okx": {
+              "bbo": 28807,
+              "span_ms": 899100,
+              "maximum_gap_ms": 671
+            }
+          },
+          "timing": {
+            "accepted": true,
+            "mode": "prospective",
+            "intended_start_utc": "2026-10-22T04:45:00+00:00",
+            "checked_at_utc": "2026-10-22T04:45:03.744673+00:00",
+            "lateness_seconds": 3.744673,
+            "timing_qualified": true
+          },
+          "study_observation": false,
+          "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+        }
+      },
+      {
+        "slot_id": "btc-collection-successor-candidate-v1/20261023T041500Z",
+        "intended_start_utc": "2026-10-23T04:15:00+00:00",
+        "source_commit": "7ef431a6713876b13281f9b07024e7834f0a769e",
+        "event": "workflow_dispatch",
+        "release_tag": "study-archive-btc-execution-v1",
+        "run_created_at_utc": "2026-10-23T00:39:30Z",
+        "run_attempt": 1,
+        "qualification_compatible": true,
+        "source_run_conclusion": "success",
+        "dispatch_id": "32009634a8394430b3db593cb7f79d42",
+        "planned_request_verified": false,
+        "qualification_cohort_verified": true,
+        "authenticated_remote_restore": true,
+        "assessment": {
+          "collection_healthy": true,
+          "issues": [],
+          "events": 253076,
+          "timestamp_fallback_events": 0,
+          "instrument_snapshots": 16,
+          "venues": {
+            "binance": {
+              "bbo": 230228,
+              "span_ms": 899392,
+              "maximum_gap_ms": 791
+            },
+            "okx": {
+              "bbo": 22848,
+              "span_ms": 899119,
+              "maximum_gap_ms": 800
+            }
+          },
+          "timing": {
+            "accepted": true,
+            "mode": "prospective",
+            "intended_start_utc": "2026-10-23T04:15:00+00:00",
+            "checked_at_utc": "2026-10-23T04:15:04.897492+00:00",
+            "lateness_seconds": 4.897492,
+            "timing_qualified": true
+          },
+          "study_observation": false,
+          "scope": "Infrastructure rehearsal only; sampled metadata cannot prove stability between snapshots."
+        }
+      }
+    ],
+    "remaining": [],
+    "limitation": "Observed prospective timing success is not a scheduler SLA. Transport-only rehearsals never qualify.",
+    "historical_approved_trials": {
+      "plan_id": "successor-qualification-20261020",
+      "plan_sha256": "fc42e1cd343b22625f44b4c98f88ee0f041159898743597534ba50d96bd93103",
+      "trials": [
+        {
+          "trial_id": "oct20-am",
+          "intended_start_utc": "2026-10-20T03:17:00Z",
+          "cron": "17 3 20 10 *",
+          "state": "overdue_without_verified_archive"
+        },
+        {
+          "trial_id": "oct20-pm",
+          "intended_start_utc": "2026-10-20T15:17:00Z",
+          "cron": "17 15 20 10 *",
+          "state": "overdue_without_verified_archive"
+        },
+        {
+          "trial_id": "oct21-am",
+          "intended_start_utc": "2026-10-21T03:17:00Z",
+          "cron": "17 3 21 10 *",
+          "state": "overdue_without_verified_archive"
+        }
+      ],
+      "all_named_trials_qualified": false
+    },
+    "approved_trials": {
+      "plan_id": "prepared-cohort-20261022",
+      "plan_sha256": "f33f8e38437103c85e988197114ab45bbe3bb485e3adb4859be644d7415c9977",
+      "supersedes_gate_for": "successor-qualification-20261020",
+      "trials": [
+        {
+          "trial_id": "oct22-first",
+          "intended_start_utc": "2026-10-22T04:15:00Z",
+          "sender_event": "push",
+          "state": "qualified"
+        },
+        {
+          "trial_id": "oct22-second",
+          "intended_start_utc": "2026-10-22T04:45:00Z",
+          "sender_event": "push",
+          "state": "qualified"
+        },
+        {
+          "trial_id": "oct23-final",
+          "intended_start_utc": "2026-10-23T04:15:00Z",
+          "sender_event": "schedule",
+          "cron": "15 22 22 10 *",
+          "state": "qualified"
+        }
+      ],
+      "all_named_trials_qualified": true
+    }
+  },
+  "start_date_utc": "2026-10-25",
+  "development_end_date_utc": "2026-11-14",
+  "end_date_utc": "2026-11-21",
+  "outcome_release_date_utc": "2026-11-22",
+  "leader": "binance",
+  "follower": "okx",
+  "clock": "local",
+  "slots_utc": {
+    "am": "03:17",
+    "pm": "15:17"
+  },
+  "seconds": 900,
+  "maximum_warmup_seconds": 18000,
+  "inherited_method_plan_sha256": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9",
+  "lab_config": "configs/study_v2_okx_lab.yaml",
+  "lab_config_sha256": "7089b6acf113f84db3f051b4c663c85db27e7ca00691261c6dc0aa19315fbbb6",
+  "hypothesis": "Replication: fixed delayed Binance signal predicts positive okx entry-to-mid markout after entry costs.",
+  "primary_outcome": "Per-session follower-mid mean markout at 50ms delay and 5bps entry fee; report every session, including unavailable results.",
+  "decision_rule": "No profit claim from mid markouts. Missing slots, inadequate eligible coverage, fewer than 25 occupied days, CI half width above 2bps, or insufficient regime diversity make the replication inconclusive. Report both venues without choosing a winner.",
+  "primary_delay_ms": 50,
+  "primary_fee_bps": 5,
+  "horizon_ms": 1000,
+  "block_ms": 60000,
+  "max_quote_age_ms": 2000,
+  "seed": 0,
+  "missingness_rule": "Retain all 56 slots and every failed attempt; no backfill, favorable retry, zero-fill or pooling with old studies",
+  "resource_bound": "56 slots; each collector at most 360 runner-minutes, each early sender at most 75; no new external service",
+  "planned_slots": [
+    {
+      "slot_id": "2026-10-25-am",
+      "intended_start_utc": "2026-10-25T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-25-pm",
+      "intended_start_utc": "2026-10-25T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-26-am",
+      "intended_start_utc": "2026-10-26T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-26-pm",
+      "intended_start_utc": "2026-10-26T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-27-am",
+      "intended_start_utc": "2026-10-27T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-27-pm",
+      "intended_start_utc": "2026-10-27T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-28-am",
+      "intended_start_utc": "2026-10-28T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-28-pm",
+      "intended_start_utc": "2026-10-28T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-29-am",
+      "intended_start_utc": "2026-10-29T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-29-pm",
+      "intended_start_utc": "2026-10-29T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-30-am",
+      "intended_start_utc": "2026-10-30T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-30-pm",
+      "intended_start_utc": "2026-10-30T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-31-am",
+      "intended_start_utc": "2026-10-31T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-10-31-pm",
+      "intended_start_utc": "2026-10-31T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-01-am",
+      "intended_start_utc": "2026-11-01T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-01-pm",
+      "intended_start_utc": "2026-11-01T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-02-am",
+      "intended_start_utc": "2026-11-02T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-02-pm",
+      "intended_start_utc": "2026-11-02T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-03-am",
+      "intended_start_utc": "2026-11-03T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-03-pm",
+      "intended_start_utc": "2026-11-03T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-04-am",
+      "intended_start_utc": "2026-11-04T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-04-pm",
+      "intended_start_utc": "2026-11-04T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-05-am",
+      "intended_start_utc": "2026-11-05T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-05-pm",
+      "intended_start_utc": "2026-11-05T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-06-am",
+      "intended_start_utc": "2026-11-06T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-06-pm",
+      "intended_start_utc": "2026-11-06T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-07-am",
+      "intended_start_utc": "2026-11-07T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-07-pm",
+      "intended_start_utc": "2026-11-07T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-08-am",
+      "intended_start_utc": "2026-11-08T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-08-pm",
+      "intended_start_utc": "2026-11-08T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-09-am",
+      "intended_start_utc": "2026-11-09T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-09-pm",
+      "intended_start_utc": "2026-11-09T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-10-am",
+      "intended_start_utc": "2026-11-10T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-10-pm",
+      "intended_start_utc": "2026-11-10T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-11-am",
+      "intended_start_utc": "2026-11-11T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-11-pm",
+      "intended_start_utc": "2026-11-11T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-12-am",
+      "intended_start_utc": "2026-11-12T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-12-pm",
+      "intended_start_utc": "2026-11-12T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-13-am",
+      "intended_start_utc": "2026-11-13T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-13-pm",
+      "intended_start_utc": "2026-11-13T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-14-am",
+      "intended_start_utc": "2026-11-14T03:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-14-pm",
+      "intended_start_utc": "2026-11-14T15:17:00Z",
+      "phase": "development"
+    },
+    {
+      "slot_id": "2026-11-15-am",
+      "intended_start_utc": "2026-11-15T03:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-15-pm",
+      "intended_start_utc": "2026-11-15T15:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-16-am",
+      "intended_start_utc": "2026-11-16T03:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-16-pm",
+      "intended_start_utc": "2026-11-16T15:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-17-am",
+      "intended_start_utc": "2026-11-17T03:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-17-pm",
+      "intended_start_utc": "2026-11-17T15:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-18-am",
+      "intended_start_utc": "2026-11-18T03:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-18-pm",
+      "intended_start_utc": "2026-11-18T15:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-19-am",
+      "intended_start_utc": "2026-11-19T03:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-19-pm",
+      "intended_start_utc": "2026-11-19T15:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-20-am",
+      "intended_start_utc": "2026-11-20T03:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-20-pm",
+      "intended_start_utc": "2026-11-20T15:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-21-am",
+      "intended_start_utc": "2026-11-21T03:17:00Z",
+      "phase": "holdout"
+    },
+    {
+      "slot_id": "2026-11-21-pm",
+      "intended_start_utc": "2026-11-21T15:17:00Z",
+      "phase": "holdout"
+    }
+  ]
+}
