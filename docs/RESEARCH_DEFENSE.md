@@ -1,6 +1,6 @@
 # Five-minute researcher and trader defense
 
-Prepared October 22, 2026. Practice and feedback are **pending the candidate's
+Updated October 28, 2026. Practice and feedback are **pending the candidate's
 answers**. This pack records no interview score, oral performance or human review.
 
 ## Timed first attempt
@@ -13,7 +13,7 @@ Record or say an answer without notes. Use current verified facts and say
 | 0:00–1:00 | What is the proposed mechanism and falsifiable primary hypothesis? | Asynchronous price discovery; exact leader/follower, receive clock, trigger, delay, fee and horizon; identify a rival explanation |
 | 1:00–2:00 | Why might apparent predictability fail economically? | Entry-net markout versus executable exit, actual-notional fees, spread, later movement and unfinished exposure |
 | 2:00–3:00 | What is an independent observation? | Days versus overlapping signals, phase separation, missingness, shared venue/date dependence and limits of bootstrap precision |
-| 3:00–4:00 | What have you measured, and what remains hypothetical? | Two infrastructure trials; synthetic cost and throughput examples; scientific outcomes/calibration still unavailable |
+| 3:00–4:00 | What have you measured, and what remains hypothetical? | Three qualified infrastructure trials in the registration; synthetic cost and throughput examples; scientific outcomes/calibration still unavailable |
 | 4:00–5:00 | What is the trading decision and what would change it? | Remain in research, original frozen interpretation, feasible liquidation, uncertainty and separately authorized execution calibration |
 
 ## Follow-up challenges
@@ -58,3 +58,16 @@ untouched-holdout precision. A defensible result can be negative or inconclusive
 
 To receive feedback, provide a 60-second answer covering the mechanism, its
 strongest rival explanation, the economic hurdle and today's research decision.
+
+## Constructive edge and execution follow-ups
+
+Use the truthful [screening pitch](MAKER_OPPORTUNITY.md#portfolio-evidence-and-pitch).
+No empirical finding is available to support a claim that the $2 jump predicts
+prices or that canceling maker quotes has proven savings. Explain the proposed
+mechanism, the verified software result and the next falsifiable evidence.
+
+- How do missed profitable fills change a cancellation policy's expected value?
+- Which fills can occur before cancel acknowledgement, including timestamp ties?
+- Why can aggregated depth changes not locate cancellations ahead in our queue?
+- Why is a positive-lag correlation peak not a physical transmission-time estimate?
+- Why does a 12 bps gross tail probability not establish cost-adjusted expected value?

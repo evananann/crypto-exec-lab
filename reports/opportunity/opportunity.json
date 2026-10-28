@@ -1,0 +1,2485 @@
+{
+  "synthetic": true,
+  "market_tapes_read": 0,
+  "orders_sent": 0,
+  "experiment_state": "future_draft_not_registered",
+  "maker_scenarios": [
+    {
+      "side": "bid",
+      "future_mid": 59900,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 59900,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 59900,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 59900,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 59900,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 59900,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60000,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60000,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60000,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60000,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60000,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60000,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.0
+        },
+        "cancel": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60100,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60100,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60100,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60100,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60100,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": 0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "bid",
+      "future_mid": 60100,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": 0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 59900,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 59900,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 59900,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 59900,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 59900,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": 0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": -0.1,
+        "cancellation_value_bps_per_requested_notional": -16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 59900,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "cancel": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": 0.1
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60000,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60000,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60000,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60000,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60000,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.0
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60000,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.0
+        },
+        "cancel": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60100,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60100,
+      "cancel_delay_ms": 0,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.002,
+          "fills": [],
+          "cancel_effective_ms": 0,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60100,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60100,
+      "cancel_delay_ms": 50,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 50,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60100,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": false,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.0,
+          "unfilled_btc": 0.001,
+          "remaining_ahead_btc": 0.0005,
+          "fills": [],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": false
+          },
+          "signed_inventory_btc": -0.0,
+          "mark_to_mid_usdt": -0.0
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.1,
+        "cancellation_value_bps_per_requested_notional": 16.666666666666668,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    },
+    {
+      "side": "ask",
+      "future_mid": 60100,
+      "cancel_delay_ms": 60,
+      "trade_before_cancel": true,
+      "comparison": {
+        "keep": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": null,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "cancel": {
+          "filled_btc": 0.001,
+          "unfilled_btc": 0.0,
+          "remaining_ahead_btc": 0.0,
+          "fills": [
+            {
+              "local_ts": 60,
+              "quantity_btc": 0.001,
+              "price": 60000
+            }
+          ],
+          "cancel_effective_ms": 60,
+          "assumptions": {
+            "cancellation_ahead_fraction": 0,
+            "trade_before_cancel": true
+          },
+          "signed_inventory_btc": -0.001,
+          "mark_to_mid_usdt": -0.1
+        },
+        "valuation_covered": true,
+        "cancellation_value_usdt": 0.0,
+        "cancellation_value_bps_per_requested_notional": 0.0,
+        "scope": "Hypothetical marked inventory, not closed-trade PnL. Same exogenous tape, no impact or replenishment. Foregone profitable fills count negatively."
+      }
+    }
+  ],
+  "conditional_tail": {
+    "threshold_bps": 12,
+    "comparisons": [
+      {
+        "sigma_multiple": 1,
+        "selected": 49,
+        "available": 46,
+        "unavailable": 3,
+        "occupied_days": 7,
+        "unavailable_only_days": [],
+        "probability_response_above_threshold": 0.2826086956521739,
+        "mean_gross_response_bps": 3.5869565217391304,
+        "day_cluster_ci95_probability": [
+          0.24444444444444444,
+          0.3111111111111111
+        ]
+      },
+      {
+        "sigma_multiple": 2,
+        "selected": 35,
+        "available": 32,
+        "unavailable": 3,
+        "occupied_days": 7,
+        "unavailable_only_days": [],
+        "probability_response_above_threshold": 0.28125,
+        "mean_gross_response_bps": 3.4375,
+        "day_cluster_ci95_probability": [
+          0.21875,
+          0.34397977941176344
+        ]
+      },
+      {
+        "sigma_multiple": 3,
+        "selected": 21,
+        "available": 18,
+        "unavailable": 3,
+        "occupied_days": 7,
+        "unavailable_only_days": [],
+        "probability_response_above_threshold": 0.3333333333333333,
+        "mean_gross_response_bps": 5.277777777777778,
+        "day_cluster_ci95_probability": [
+          0.23529411764705882,
+          0.4117647058823529
+        ]
+      }
+    ],
+    "selected_winner": null,
+    "scope": "Fixed descriptive gross-mid response tails, not cost-adjusted expected value; day dependence and multiplicity remain."
+  },
+  "leadlag": [
+    {
+      "curve": [
+        {
+          "lag_ms": -200,
+          "correlation": -0.008613301922791073,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -190,
+          "correlation": 0.011467322407793717,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -180,
+          "correlation": 0.00101002782199402,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -170,
+          "correlation": -0.028796792463499747,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -160,
+          "correlation": -0.0030316266552118188,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -150,
+          "correlation": -0.015042872263703308,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -140,
+          "correlation": 0.0009466892940337433,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -130,
+          "correlation": -0.004720615251075066,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -120,
+          "correlation": -0.0070244043770627705,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -110,
+          "correlation": 0.014550462679867088,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -100,
+          "correlation": 0.014868729448642379,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -90,
+          "correlation": -0.018037576178015737,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -80,
+          "correlation": -0.01818305561806855,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -70,
+          "correlation": -0.011710607673165875,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -60,
+          "correlation": 0.009849285104421015,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -50,
+          "correlation": 0.012997835185831709,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -40,
+          "correlation": -0.0015290343311966357,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -30,
+          "correlation": 0.02004602791774262,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -20,
+          "correlation": -0.002805868349974131,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": -10,
+          "correlation": 0.010918068833221706,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 0,
+          "correlation": 0.007173455874228061,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 10,
+          "correlation": 0.00923456689903946,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 20,
+          "correlation": 0.005077422216344017,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 30,
+          "correlation": 1.0,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 40,
+          "correlation": 0.005029841061282788,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 50,
+          "correlation": 0.008689265579237136,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 60,
+          "correlation": 0.006940084553093098,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 70,
+          "correlation": 0.010366311724531433,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 80,
+          "correlation": -0.0029372102660993257,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 90,
+          "correlation": 0.018728587104971387,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 100,
+          "correlation": -0.002343426954407959,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 110,
+          "correlation": 0.010804824634255377,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 120,
+          "correlation": 0.010090528739428522,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 130,
+          "correlation": -0.012989960056056663,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 140,
+          "correlation": -0.019560363295285512,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 150,
+          "correlation": -0.019369361196288164,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 160,
+          "correlation": 0.013537950308608486,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 170,
+          "correlation": 0.014709366366573242,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 180,
+          "correlation": -0.007116233408993307,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 190,
+          "correlation": -0.0037663640487381115,
+          "pairs": 3959,
+          "reason": null
+        },
+        {
+          "lag_ms": 200,
+          "correlation": 0.0003330629448500274,
+          "pairs": 3959,
+          "reason": null
+        }
+      ],
+      "dropped_common_anchors": 0,
+      "sampling_ms": 10,
+      "return_horizon_ms": 10,
+      "selected_peak_lag_ms": null,
+      "definition": "corr(leader return ending t, follower return ending t+lag). Positive lag denotes leader-first association.",
+      "scope": "Receive-clock previous-tick diagnostic, not physical propagation or causal proof. Asynchronous sampling, stale quotes, transport, overlapping returns and shared news can move the peak. No iid confidence bands or lag winner selection."
+    },
+    {
+      "curve": [
+        {
+          "lag_ms": -200,
+          "correlation": -0.01851868318141249,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -190,
+          "correlation": -0.00564510134480963,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -180,
+          "correlation": 0.010189213703582145,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -170,
+          "correlation": -0.01247939096046627,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -160,
+          "correlation": 0.004139577263375077,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -150,
+          "correlation": -0.016027799750174335,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -140,
+          "correlation": -0.03831081023027665,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -130,
+          "correlation": -0.044928101291381695,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -120,
+          "correlation": -0.020912319257568854,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -110,
+          "correlation": -0.004555496429397919,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -100,
+          "correlation": -0.006478264737772885,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -90,
+          "correlation": -0.020172273454620696,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -80,
+          "correlation": -0.013864194209485174,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -70,
+          "correlation": -0.021011807214568266,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -60,
+          "correlation": -0.018186020847629693,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -50,
+          "correlation": 0.01853164146597808,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -40,
+          "correlation": 0.02859130760772318,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -30,
+          "correlation": 0.06751996344999364,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -20,
+          "correlation": 0.07494798907178918,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": -10,
+          "correlation": 0.2692961884211828,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 0,
+          "correlation": 0.42857888669519806,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 10,
+          "correlation": 0.6096733331918742,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 20,
+          "correlation": 0.7941346410374427,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 30,
+          "correlation": 1.0,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 40,
+          "correlation": 0.7847432854877644,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 50,
+          "correlation": 0.5954179906314653,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 60,
+          "correlation": 0.44154868816275056,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 70,
+          "correlation": 0.27294199279862646,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 80,
+          "correlation": 0.07306663614336184,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 90,
+          "correlation": 0.05213387140066703,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 100,
+          "correlation": 0.04419729533287132,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 110,
+          "correlation": 0.01135647057130443,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 120,
+          "correlation": -0.01999810399103501,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 130,
+          "correlation": -0.028110786988256586,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 140,
+          "correlation": -0.018929965465978717,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 150,
+          "correlation": -0.029691784220441622,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 160,
+          "correlation": -0.01985820625624841,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 170,
+          "correlation": -0.047901557719795686,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 180,
+          "correlation": -0.02394024613077295,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 190,
+          "correlation": -0.024466601267512628,
+          "pairs": 791,
+          "reason": null
+        },
+        {
+          "lag_ms": 200,
+          "correlation": -0.04033460303247255,
+          "pairs": 791,
+          "reason": null
+        }
+      ],
+      "dropped_common_anchors": 0,
+      "sampling_ms": 50,
+      "return_horizon_ms": 50,
+      "selected_peak_lag_ms": null,
+      "definition": "corr(leader return ending t, follower return ending t+lag). Positive lag denotes leader-first association.",
+      "scope": "Receive-clock previous-tick diagnostic, not physical propagation or causal proof. Asynchronous sampling, stale quotes, transport, overlapping returns and shared news can move the peak. No iid confidence bands or lag winner selection."
+    },
+    {
+      "curve": [
+        {
+          "lag_ms": -200,
+          "correlation": -0.04873720579442902,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -190,
+          "correlation": -0.036939262611215065,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -180,
+          "correlation": -0.019765313669083847,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -170,
+          "correlation": -0.02737912541122557,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -160,
+          "correlation": -0.0011920712234933027,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -150,
+          "correlation": -0.011025842991817676,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -140,
+          "correlation": -0.015109410698601214,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -130,
+          "correlation": -0.016140527226748583,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -120,
+          "correlation": -0.004891923124215589,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -110,
+          "correlation": 0.02186510733348216,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -100,
+          "correlation": 0.03144650794563639,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -90,
+          "correlation": -0.00026400502230905596,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -80,
+          "correlation": 0.00202060107390926,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -70,
+          "correlation": 0.02496210104197261,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -60,
+          "correlation": 0.10888432325105121,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -50,
+          "correlation": 0.2041105411756046,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -40,
+          "correlation": 0.28930420279421026,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -30,
+          "correlation": 0.4164128624046368,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -20,
+          "correlation": 0.4995631616360341,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": -10,
+          "correlation": 0.6215260373352333,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 0,
+          "correlation": 0.7014248282853921,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 10,
+          "correlation": 0.8017051964896733,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 20,
+          "correlation": 0.9132995354779819,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 30,
+          "correlation": 1.0,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 40,
+          "correlation": 0.8959716250921401,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 50,
+          "correlation": 0.8241934846435666,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 60,
+          "correlation": 0.7195535914126263,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 70,
+          "correlation": 0.6446617605648881,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 80,
+          "correlation": 0.5479730711931449,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 90,
+          "correlation": 0.4511630716521712,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 100,
+          "correlation": 0.35188253437985767,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 110,
+          "correlation": 0.263400462278402,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 120,
+          "correlation": 0.11747694985382154,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 130,
+          "correlation": 0.01638643278940907,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 140,
+          "correlation": -0.0029416940667052003,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 150,
+          "correlation": -0.0541009429398358,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 160,
+          "correlation": -0.05396623422467063,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 170,
+          "correlation": -0.09041843785888685,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 180,
+          "correlation": -0.07671575096456333,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 190,
+          "correlation": -0.07448967908991858,
+          "pairs": 395,
+          "reason": null
+        },
+        {
+          "lag_ms": 200,
+          "correlation": -0.06970836459618812,
+          "pairs": 395,
+          "reason": null
+        }
+      ],
+      "dropped_common_anchors": 0,
+      "sampling_ms": 100,
+      "return_horizon_ms": 100,
+      "selected_peak_lag_ms": null,
+      "definition": "corr(leader return ending t, follower return ending t+lag). Positive lag denotes leader-first association.",
+      "scope": "Receive-clock previous-tick diagnostic, not physical propagation or causal proof. Asynchronous sampling, stale quotes, transport, overlapping returns and shared news can move the peak. No iid confidence bands or lag winner selection."
+    }
+  ],
+  "waterfall": {
+    "synthetic": true,
+    "reference_mid": "60000",
+    "entry_ask": "60006",
+    "horizon_mid": "60084",
+    "exit_bid": "60078",
+    "terms_bps": [
+      {
+        "name": "Gross mid move",
+        "value": "14"
+      },
+      {
+        "name": "Entry half-spread",
+        "value": "-1"
+      },
+      {
+        "name": "Entry fee",
+        "value": "-5.0005"
+      },
+      {
+        "name": "Exit half-spread",
+        "value": "-1"
+      },
+      {
+        "name": "Exit fee",
+        "value": "-5.0065"
+      }
+    ],
+    "net_bps": "1.9930",
+    "scope": "Long hypothetical round trip; all bps relative to initial mid. Start from gross mid movement, not entry-net primary. No funding or impact."
+  },
+  "selected_winner": null,
+  "fixture": "Seeded Gaussian leader returns and an exact toy 30ms delayed follower; invented queue, trades, future mids and volatility labels. No empirical edge or transmission estimate.",
+  "source_sha256": {
+    "research/maker_opportunity.py": "bd272dd8445f5be3bbeebe4075912cb787e5564b09c08743634761762c48258c",
+    "research/leadlag_curve.py": "84ae0232e1f7881dc0bdbd688178cde42360571a381fbf827c81f27b1bc1d6f1",
+    "research/opportunity_demo.py": "5e762501235d233ec34291e0f9d69254471b3e5f80c38a579931c443d4876418"
+  }
+}

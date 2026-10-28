@@ -1,5 +1,7 @@
 # crypto-exec-lab
 
+![Synthetic cross-venue mechanism and both-side execution-cost waterfall; no empirical edge estimate](reports/opportunity/hero.png)
+
 A BTC perpetual research case study: **does cross-venue price discovery survive
 fees, latency and liquidation?** It uses public Binance, OKX and Bybit data,
 frozen hypotheses, received-quote replay and explicit execution assumptions.
@@ -27,6 +29,16 @@ Its 18 fixed cases are synthetic arithmetic, with no market estimates or orders.
 Use the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
 coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
 reading order and reproducible audit questions.
+
+The [maker and conditional opportunity experiment](docs/MAKER_OPPORTUNITY.md)
+adds queue/cancellation races, missed profitable fills, fixed tail conditions and
+receive-clock correlation curves. Its [36-case report](reports/opportunity/README.md)
+and hero graphic are synthetic; no predictive or maker edge has been established.
+
+The portfolio Pages preview is prepared by the
+[deployment workflow](.github/workflows/portfolio-pages.yml). Publication status
+will be verified before a live demo link is advertised. The interactive
+[cost lab HTML](reports/trading_decision/decision.html) remains available offline.
 
 The [microstructure research tools](docs/MICROSTRUCTURE_RESEARCH.md) add causal
 OFI, a separate dynamic trigger, latency/depth stresses and event clustering.

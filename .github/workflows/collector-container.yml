@@ -1,0 +1,27 @@
+name: collector container smoke
+on:
+  push:
+    branches: [main, 'research/**']
+    paths: ['deploy/continuous-capture/**', 'research/continuous_capture.py', '.github/workflows/collector-container.yml']
+  pull_request:
+    paths: ['deploy/continuous-capture/**', 'research/continuous_capture.py', '.github/workflows/collector-container.yml']
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - name: Build pinned minimal collector image
+        run: docker build -f deploy/continuous-capture/Dockerfile -t capture:smoke .
+      - name: Non-root offline smoke with read-only root and persistent spool
+        run: |
+          set -e
+          docker run --rm --network=none --read-only --cap-drop=ALL --security-opt=no-new-privileges capture:smoke --help
+          capture_smoke_volume="$(docker volume create)"
+          trap 'docker volume rm "$capture_smoke_volume" >/dev/null' EXIT
+          docker run --rm --network=none --read-only --cap-drop=ALL --security-opt=no-new-privileges --mount "type=volume,src=$capture_smoke_volume,dst=/spool" --entrypoint python capture:smoke -c 'import os; from pathlib import Path; from research.continuous_capture import Spool,verify_spool; assert os.getuid()==10001; s=Spool(Path("/spool"),reserve_bytes=0); s.write({"offline_smoke":True}); s.seal(); r=verify_spool(Path("/spool")); assert r["records"]==1 and r["integrity_state"]=="verified"; print("offline non-root spool smoke passed")'
+          docker compose -f deploy/continuous-capture/compose.yaml config --quiet

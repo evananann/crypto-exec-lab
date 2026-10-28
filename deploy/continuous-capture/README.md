@@ -81,3 +81,34 @@ Before enrolling a new prospective study, require:
 
 No S3/R2 uploader, Object Lock policy, dedicated VPS or latency measurement is
 claimed by this template. Those require an actual configured destination/host.
+
+## Container package
+
+The Dockerfile pins the Python base image by digest and installs only
+`websocket-client` at the exact version/wheel hash from the frozen dependency
+lock. Its Dockerfile-specific context allowlist excludes tapes, archives, `.git`,
+credentials and unrelated research files. It runs as UID/GID 10001. Compose adds
+a persistent spool volume, read-only root filesystem, dropped capabilities,
+limited process/memory budgets and bounded failure restarts.
+
+```bash
+docker compose -f deploy/continuous-capture/compose.yaml build
+docker compose -f deploy/continuous-capture/compose.yaml up -d
+```
+
+These are deployment instructions, not actions performed by this commit. Review
+the host, configuration, ownership and limits before starting capture. The mounted
+public feed configuration must be readable by container UID 10001; do not place
+credentials in that public configuration. A custom `CAPTURE_CONFIG` path has the
+same ownership/readability requirement. In a proxy
+build environment, provide the combined trust bundle as a BuildKit `proxy_ca`
+secret and preserve the configured proxy; do not disable TLS verification or
+bake session certificates into the image. The default public-Internet build uses
+normal image CA roots. A running container also needs the target environment's
+approved network route and CA trust.
+
+The image was built and tested offline in the managed environment with networking
+disabled, non-root execution and a read-only root filesystem. No exchange socket
+or production host was used. The 512 MiB Compose budget is an example limit, not
+a measured throughput guarantee. There is deliberately no checksum-based health
+check claiming that socket activity or valid files mean healthy collection.

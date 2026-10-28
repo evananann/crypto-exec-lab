@@ -1,0 +1,19 @@
+services:
+  capture:
+    build:
+      context: ../..
+      dockerfile: deploy/continuous-capture/Dockerfile
+    image: crypto-exec-capture:local
+    init: true
+    restart: on-failure:5
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 512m
+    stop_grace_period: 60s
+    volumes:
+      - capture-spool:/spool
+      - ${CAPTURE_CONFIG:-./feeds.example.json}:/app/feeds.json:ro
+volumes:
+  capture-spool:

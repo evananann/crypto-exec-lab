@@ -1,0 +1,8 @@
+**
+!research/
+!research/continuous_capture.py
+!deploy/
+!deploy/continuous-capture/
+!deploy/continuous-capture/requirements.txt
+!deploy/continuous-capture/feeds.example.json
+!deploy/continuous-capture/Dockerfile

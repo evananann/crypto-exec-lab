@@ -140,3 +140,29 @@ recording-step conclusions. Fixed notices summarize skipped steps. This does
 not infer missing cron payloads, dispatch inputs, pre-creation scheduling delay
 or a completed sample from a green job. See the
 [internal validation contract](INTERNAL_VALIDATION.md) for provenance and scope.
+
+## Continuous acquisition and observed scheduling limits
+
+Historical Actions cron wake-ups missed or exceeded their collection start
+bounds; runners prepared in advance subsequently achieved three qualifying
+starts across October 22–23. The registered readiness record reports lateness
+of 4.434264, 3.744673 and 4.897492 seconds, within the five-second allowance.
+Those are distinct from earlier disqualified attempts. Missing slots remain missing.
+
+GitHub's scheduler, runner allocation, job setup and transport can each contribute
+to delivery delay. The retained timing evidence establishes late/missing delivery;
+it does not isolate provider contention or cold-start virtualization as the
+measured root cause, nor establish a universal 1–15-minute delay distribution.
+A hosted CI cron is therefore not a precision market-data scheduler.
+
+The [continuous capture pilot](../deploy/continuous-capture/README.md) separates
+sockets and monotonic segment rotation from CI. A dedicated worker writes raw
+wire segments, checksums and session faults; independent verification inspects
+closed copied bundles. The new pinned Docker/Compose package and existing systemd
+unit invoke `research.continuous_capture`, leaving frozen `scripts/` sources intact.
+
+Container build and offline non-root smoke checks establish packaging mechanics,
+not production readiness. Deployment, a long soak, feed semantics, clock drift,
+backlog/drop measurements and immutable remote readback remain acceptance work.
+The worker cannot relabel or backfill the active study's slots. GitHub Releases
+remain the approved archive destination; a WORM object store is not configured.

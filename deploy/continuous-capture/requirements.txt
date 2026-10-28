@@ -1,0 +1,2 @@
+# Exact wheel version/hash from the existing uv.lock; collector needs no numeric stack.
+websocket-client==1.9.2 --hash=sha256:e1a673830a9c7bfa47b1cd3d5e4178f4c9651d80a4eab02c9c23a1c3ec6250ce

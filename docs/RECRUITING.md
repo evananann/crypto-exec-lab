@@ -70,3 +70,13 @@ Use the infrastructure bullet as supporting evidence when relevant. Once release
 results exist, replace a method bullet with actual coverage, the fixed estimate,
 uncertainty and the conclusion. Keep unsupported profit, live trading, production,
 colocation, capacity and Sharpe claims out of the résumé.
+
+## Constructive opportunity extension
+
+The [maker experiment](MAKER_OPPORTUNITY.md) supplies a future quote-management
+formulation, synthetic FIFO/cancel races, missed-fill opportunity costs and fixed
+conditional tails. The [lead–lag figure](../reports/opportunity/leadlag.png) is a
+synthetic estimator check. Present these as implemented research tools, not as
+observed maker alpha, physical latency calibration or a production deployment.
+Use the screening pitch linked there until a released scientific result supports
+an empirical findings sentence.

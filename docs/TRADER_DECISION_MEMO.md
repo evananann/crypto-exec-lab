@@ -1,8 +1,8 @@
 # Trader decision memo
 
-October 22, 2026. **Current decision: remain in research.** Verified scientific
-outcomes and calibrated execution inputs are unavailable. The two completed
-900-second infrastructure trials supply no estimate of alpha or executable profit.
+October 28, 2026. **Current decision: remain in research.** Verified scientific
+outcomes and calibrated execution inputs are unavailable. The registered readiness record contains three qualified infrastructure trials;
+those supply no estimate of alpha or executable profit.
 
 ## Proposed trade and hurdle
 
@@ -56,3 +56,17 @@ order experiment needs separate authorization; this repository sends none.
 The [thesis](TRADING_THESIS.md) identifies rival explanations. The
 [execution review](EXECUTION_ASSUMPTION_AUDIT.md) covers existing simulator
 evidence. The [research memo](RESEARCH_MEMO.md) summarizes the case.
+
+## Constructive asymmetric opportunity
+
+A separate [future maker experiment](MAKER_OPPORTUNITY.md) tests cancellation of
+vulnerable follower quotes: a down leader jump may expose a bid and an up jump
+may expose an ask. Count avoided adverse fills, missed profitable fills, actual
+queue position, cancellation races and residual inventory together. Current
+examples are synthetic FIFO counterfactuals, not demonstrated maker savings.
+
+The same draft reports all fixed 1/2/3-sigma conditions and gross response tails
+above 12 bps. Tail probability is not expected net value. These refinements require
+separate future registration and cannot select a better subset of the active
+study after observing its outcomes. Remain in research until executable economics
+and uncertainty support a different decision.
