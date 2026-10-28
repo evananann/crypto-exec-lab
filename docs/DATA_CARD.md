@@ -130,3 +130,14 @@ or commercial data rights; check the relevant provider's applicable terms for
 your intended data use. No additional market-data sublicense is claimed here.
 No account credentials are required for public collection. Artifacts are not
 intended to contain credentials, private orders or account identifiers.
+
+## New pilot clock telemetry — measured bounds still unavailable
+
+The separate continuous pilot now logs session-boundary/periodic wall/monotonic
+pairs, optional chrony tracking estimates and segment writer-window divergence.
+Elapsed timers use `monotonic_ns`. The active qualified collector and its schema
+remain frozen. See [clock definitions and limitations](ENGINEERING_REFINEMENTS.md#clock-discipline-and-what-is-measurable).
+
+No host NTP accuracy bound has been verified here. An unavailable chrony probe
+stays unavailable; wall-minus-monotonic differences cannot establish ±1.2 ms UTC
+accuracy, zero drift, submillisecond venue causality or absence of all clock steps.

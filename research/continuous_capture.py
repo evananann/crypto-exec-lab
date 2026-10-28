@@ -83,8 +83,8 @@ class Spool:
             raise OSError('spool capacity exhausted; no silent retention deletion')
 
     def write(self, row, monotonic_now=None):
-        now = time.monotonic() if monotonic_now is None else monotonic_now
-        if self.file is not None and now-self.started >= self.seconds:
+        now_ns = time.monotonic_ns() if monotonic_now is None else int(monotonic_now*1_000_000_000)
+        if self.file is not None and now_ns-self.started_ns >= self.seconds*1_000_000_000:
             self.seal()
         self._capacity()
         if self.file is None:
@@ -92,7 +92,9 @@ class Spool:
             self.partial = self.root/(self.identifier+'.jsonl.gz.partial')
             self.raw = self.partial.open('xb')
             self.file = gzip.GzipFile(filename='', fileobj=self.raw, mode='wb', compresslevel=1, mtime=0)
-            self.started, self.count = now, 0
+            from research.clock_telemetry import clock_pair
+            self.clock_before = clock_pair()
+            self.started_ns, self.count = now_ns, 0
         payload = (json.dumps(row, separators=(',', ':'), allow_nan=False)+'\n').encode()
         # Uncompressed accounting is conservative and bounds very compressible input too.
         if self.used+len(payload) > self.maximum_bytes:
@@ -119,7 +121,10 @@ class Spool:
         with self.partial.open('rb') as stream:
             for chunk in iter(lambda: stream.read(1024*1024), b''):
                 checksum.update(chunk)
-        manifest = {'schema_version': 1, 'session_id': self.session_id, 'file': final.name, 'sha256': checksum.hexdigest(),
+        from research.clock_telemetry import clock_pair, divergence
+        clock_after = clock_pair()
+        manifest = {'clock_before': self.clock_before, 'clock_after': clock_after,
+                    'clock_divergence': divergence(self.clock_before, clock_after), 'schema_version': 1, 'session_id': self.session_id, 'file': final.name, 'sha256': checksum.hexdigest(),
                     'records': self.count, 'sealed_at_utc': datetime.now(timezone.utc).isoformat(),
                     'scope': 'local raw-wire segment; checksum is integrity, not WORM storage or study eligibility'}
         os.link(self.partial, final)  # atomic exclusive publication, same filesystem
@@ -244,14 +249,7 @@ def verify_spool(root):
             'scope': 'local file integrity only; source completeness, timing and scientific eligibility unassessed'}
 
 
-def run(config, root, *, queue_size=1024):
-    with capture_owner(root):
-        return _run(config, root, queue_size=queue_size)
-
-
-def _run(config, root, *, queue_size=1024):
-    from websocket import WebSocketApp
-
+def validate_capture_config(config, queue_size):
     if type(queue_size) is not int or queue_size <= 0:
         raise ValueError('bounded positive queue size required')
     if (not config.get('feeds') or len({f['name'] for f in config['feeds']}) != len(config['feeds'])
@@ -264,8 +262,27 @@ def _run(config, root, *, queue_size=1024):
             or type(maximum_frame) is not int or maximum_frame <= 0
             or type(silence) not in (int, float) or not math.isfinite(silence) or silence <= 0):
         raise ValueError('positive frame/silence limits required')
-    spool = Spool(root, seconds=config['segment_seconds'], maximum_bytes=config['maximum_spool_bytes'],
-                  reserve_bytes=config['reserve_free_bytes'])
+    return maximum_frame, silence, byte_limit
+
+
+def run(config, root, *, queue_size=1024):
+    from research.clock_telemetry import ClockTelemetry
+    validate_capture_config(config, queue_size)
+    with capture_owner(root):
+        spool = Spool(root, seconds=config['segment_seconds'], maximum_bytes=config['maximum_spool_bytes'],
+                      reserve_bytes=config['reserve_free_bytes'])
+        path = Path(root)/('session-'+spool.session_id+'.clock.jsonl')
+        with ClockTelemetry(path) as clock:
+            return _run(config, root, queue_size=queue_size, spool=spool, clock=clock)
+
+
+def _run(config, root, *, queue_size=1024, spool=None, clock=None):
+    from websocket import WebSocketApp
+
+    maximum_frame, silence, byte_limit = validate_capture_config(config, queue_size)
+    if spool is None:
+        spool = Spool(root, seconds=config['segment_seconds'], maximum_bytes=config['maximum_spool_bytes'],
+                      reserve_bytes=config['reserve_free_bytes'])
     stop, pending = threading.Event(), queue.Queue(maxsize=queue_size)
     faults = []
     queued_bytes, budget_lock = 0, threading.Lock()
@@ -293,7 +310,7 @@ def _run(config, root, *, queue_size=1024):
                 try:
                     row = pending.get(timeout=.5)
                 except queue.Empty:
-                    if spool.file is not None and time.monotonic()-spool.started >= spool.seconds:
+                    if spool.file is not None and time.monotonic_ns()-spool.started_ns >= spool.seconds*1_000_000_000:
                         spool.seal()
                     continue
                 if row is None:
@@ -313,7 +330,7 @@ def _run(config, root, *, queue_size=1024):
 
     thread = threading.Thread(target=writer, name='raw-spool', daemon=True)
     sockets, workers = [], []
-    last_seen = dict.fromkeys((f['name'] for f in config['feeds']), time.monotonic())
+    last_seen = dict.fromkeys((f['name'] for f in config['feeds']), time.monotonic_ns())
     for feed in config['feeds']:
         def handlers(feed):
             connection = uuid4().hex
@@ -330,7 +347,7 @@ def _run(config, root, *, queue_size=1024):
                 if stop.is_set():
                     return
                 captured_ns = time.monotonic_ns()
-                last_seen[feed['name']] = time.monotonic()
+                last_seen[feed['name']] = captured_ns
                 payload = raw.encode() if isinstance(raw, str) else raw
                 if len(payload) > maximum_frame:
                     faults.append('oversize_frame; capture incomplete')
@@ -359,7 +376,10 @@ def _run(config, root, *, queue_size=1024):
         for worker in workers:
             worker.start()
         while not stop.wait(1):
-            if any(time.monotonic()-stamp > silence for stamp in last_seen.values()):
+            if clock is not None and clock.failure:
+                faults.append(clock.failure)
+                stop.set()
+            if any(time.monotonic_ns()-stamp > silence*1_000_000_000 for stamp in last_seen.values()):
                 faults.append('feed_silence; no coverage assumed')
                 stop.set()
     finally:
@@ -378,8 +398,8 @@ def _run(config, root, *, queue_size=1024):
                 worker.join(timeout=10)
         if any(worker.is_alive() for worker in workers):
             faults.append('socket_worker_failed_to_stop')
-        drain_deadline = time.monotonic()+5
-        while thread.is_alive() and time.monotonic() < drain_deadline:
+        drain_deadline_ns = time.monotonic_ns()+5_000_000_000
+        while thread.is_alive() and time.monotonic_ns() < drain_deadline_ns:
             try:
                 pending.put(None, timeout=.2)
                 break

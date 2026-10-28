@@ -99,3 +99,11 @@ streams the authenticated original archives, retains failed/missing slots, write
 every fixed comparison and preserves a unique archive in the already approved
 GitHub Release. Remote bytes are downloaded and compared; assets are not replaced.
 No model places orders. Successful synthetic tests are not empirical validation.
+
+## Separately scoped selection audits
+
+[Multiplicity/DSR/PBO tools](ENGINEERING_REFINEMENTS.md#multiplicity-dsr-and-pbo)
+are available for valid future inputs. The fixed nine-cell response grid remains
+descriptive; there are no calibrated empirical p-values or portfolio-return
+series here to adjust. No retroactive winner selection, Sharpe claim, amended
+primary or source-lock refresh is introduced by these tools.

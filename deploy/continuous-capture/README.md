@@ -112,3 +112,13 @@ disabled, non-root execution and a read-only root filesystem. No exchange socket
 or production host was used. The 512 MiB Compose budget is an example limit, not
 a measured throughput guarantee. There is deliberately no checksum-based health
 check claiming that socket activity or valid files mean healthy collection.
+
+## Clock records
+
+Segment manifests now bracket writer windows with wall/monotonic pairs and
+relative divergence. Session `*.clock.jsonl` logs retain before/after and periodic
+samples plus chrony status when available, outside callbacks/writer work. A clock
+telemetry worker failure remains a capture fault. Segment, silence and drain
+elapsed timers use integer monotonic nanoseconds. Chrony is not installed in the
+minimal container and host NTP accuracy has not been verified. These records are
+operational diagnostics, not scientific eligibility or a zero-drift guarantee.

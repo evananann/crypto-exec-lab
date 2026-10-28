@@ -2,9 +2,9 @@ name: collector container smoke
 on:
   push:
     branches: [main, 'research/**']
-    paths: ['deploy/continuous-capture/**', 'research/continuous_capture.py', '.github/workflows/collector-container.yml']
+    paths: ['deploy/continuous-capture/**', 'research/continuous_capture.py', 'research/clock_telemetry.py', '.github/workflows/collector-container.yml']
   pull_request:
-    paths: ['deploy/continuous-capture/**', 'research/continuous_capture.py', '.github/workflows/collector-container.yml']
+    paths: ['deploy/continuous-capture/**', 'research/continuous_capture.py', 'research/clock_telemetry.py', '.github/workflows/collector-container.yml']
 permissions:
   contents: read
 jobs:

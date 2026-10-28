@@ -1,6 +1,7 @@
 **
 !research/
 !research/continuous_capture.py
+!research/clock_telemetry.py
 !deploy/
 !deploy/continuous-capture/
 !deploy/continuous-capture/requirements.txt

@@ -8,7 +8,7 @@ RUN --mount=type=secret,id=proxy_ca \
     python -m pip install --require-hashes --no-cache-dir -r /app/requirements.txt
 RUN groupadd --gid 10001 capture && useradd --uid 10001 --gid capture --no-create-home capture \
     && mkdir /spool /app/research && chmod 0755 /app/research && chown capture:capture /spool
-COPY --chmod=0444 research/continuous_capture.py /app/research/continuous_capture.py
+COPY --chmod=0444 research/continuous_capture.py research/clock_telemetry.py /app/research/
 COPY --chmod=0444 deploy/continuous-capture/feeds.example.json /app/feeds.json
 USER 10001:10001
 ENTRYPOINT ["python", "-m", "research.continuous_capture"]

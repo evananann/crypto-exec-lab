@@ -1,0 +1,6 @@
+# Separate optional tool environment; the registered study's uv.lock is unchanged.
+polars==1.35.2
+coverage==7.11.0
+nbformat==5.10.4
+nbclient==0.10.2
+ipykernel==6.30.1

@@ -1,5 +1,10 @@
 # crypto-exec-lab
 
+[![CI](https://github.com/evananann/crypto-exec-lab/actions/workflows/test.yml/badge.svg)](https://github.com/evananann/crypto-exec-lab/actions/workflows/test.yml)
+![Python CI versions](reports/engineering/python.svg)
+[![Measured coverage snapshot](reports/engineering/coverage.svg)](reports/engineering/README.md)
+[![Frozen source binding](reports/engineering/frozen.svg)](configs/successor/registered_study.json)
+
 ![Synthetic cross-venue mechanism and both-side execution-cost waterfall; no empirical edge estimate](reports/opportunity/hero.png)
 
 A BTC perpetual research case study: **does cross-venue price discovery survive
@@ -29,6 +34,28 @@ Its 18 fixed cases are synthetic arithmetic, with no market estimates or orders.
 Use the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
 coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
 reading order and reproducible audit questions.
+
+Open the [executed five-minute synthetic walkthrough](notebooks/01_thesis_walkthrough.ipynb)
+or [run it in Colab](https://colab.research.google.com/github/evananann/crypto-exec-lab/blob/main/notebooks/01_thesis_walkthrough.ipynb).
+The [engineering audits](docs/ENGINEERING_REFINEMENTS.md) add measured columnar
+as-of association, clock diagnostics, impact sensitivity and future-input
+multiplicity/DSR/PBO checks. Performance and coverage numbers are measured
+snapshots; no >95% coverage, calibrated impact or NTP-accuracy claim is assumed.
+
+```mermaid
+flowchart LR
+  B[Binance L1 WS] --> Q[Qualified BBO recorder]
+  O[OKX L1 WS] --> Q
+  Q --> A[Raw wire + provenance + SHA archives]
+  A --> V[Source / timing / health verification]
+  V --> T[Causal replay + fixed 50ms delay]
+  T --> C[Cost and markout engine]
+  C --> H[Development / holdout release gate]
+  B -.-> P[Separate continuous capture pilot]
+  O -.-> P
+  P --> S[Bounded queue + durable segments + clock logs]
+  S -.-> F[Future validated pipeline and new registration required]
+```
 
 The [maker and conditional opportunity experiment](docs/MAKER_OPPORTUNITY.md)
 adds queue/cancellation races, missed profitable fills, fixed tail conditions and
