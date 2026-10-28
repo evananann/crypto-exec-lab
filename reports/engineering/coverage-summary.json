@@ -1,0 +1,1434 @@
+{
+  "as_of_utc": "2026-10-28T18:51:58.078767+00:00",
+  "source_commit": "e8c2238eccade9821ac5020ee8542f6aab29e779",
+  "tracked_changes": false,
+  "coverage_version": "7.11.0",
+  "branch_measurement": true,
+  "totals": {
+    "covered_lines": 6259,
+    "num_statements": 8397,
+    "percent_covered": 72.48718616975067,
+    "percent_covered_display": "72",
+    "missing_lines": 2138,
+    "excluded_lines": 0,
+    "num_branches": 3114,
+    "num_partial_branches": 611,
+    "covered_branches": 2085,
+    "missing_branches": 1029
+  },
+  "files": {
+    "cel/__init__.py": {
+      "summary": {
+        "covered_lines": 3,
+        "num_statements": 3,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0
+      },
+      "sha256": "ad093d446d6438e9019e9b5ecf5070d1a854f4c2c72f73a863a85f2b7a2bbf7b"
+    },
+    "cel/__main__.py": {
+      "summary": {
+        "covered_lines": 8,
+        "num_statements": 10,
+        "percent_covered": 71.42857142857143,
+        "percent_covered_display": "71",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "num_branches": 4,
+        "num_partial_branches": 2,
+        "covered_branches": 2,
+        "missing_branches": 2
+      },
+      "sha256": "71172936578053d57da44f8eaad7f6671f658a6af034c988c96445875f1be131"
+    },
+    "cel/artifacts.py": {
+      "summary": {
+        "covered_lines": 22,
+        "num_statements": 22,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0
+      },
+      "sha256": "f0595e3c402b5e17e0c0e9eaae797648dd2fae1ada1ccfacfe69d5a8fda41726"
+    },
+    "cel/execution/__init__.py": {
+      "summary": {
+        "covered_lines": 2,
+        "num_statements": 2,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0
+      },
+      "sha256": "2fd2666d4d8f5f86568838391bb87d9cdcffcdc4d7c83b7f7da4102964fe4dd5"
+    },
+    "cel/execution/__main__.py": {
+      "summary": {
+        "covered_lines": 39,
+        "num_statements": 46,
+        "percent_covered": 76.66666666666667,
+        "percent_covered_display": "77",
+        "missing_lines": 7,
+        "excluded_lines": 0,
+        "num_branches": 14,
+        "num_partial_branches": 7,
+        "covered_branches": 7,
+        "missing_branches": 7
+      },
+      "sha256": "860263eea5e7a41dc870e947f0e3a044f1a8a35db2bd7695938a3204801f76dc"
+    },
+    "cel/execution/algo.py": {
+      "summary": {
+        "covered_lines": 322,
+        "num_statements": 336,
+        "percent_covered": 94.70338983050847,
+        "percent_covered_display": "95",
+        "missing_lines": 14,
+        "excluded_lines": 0,
+        "num_branches": 136,
+        "num_partial_branches": 11,
+        "covered_branches": 125,
+        "missing_branches": 11
+      },
+      "sha256": "0a1685c4aa7594fa358be083ffeb42cabe322b57e44eb403d5b1999d33200f2e"
+    },
+    "cel/experiments/__init__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 0,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0
+      },
+      "sha256": "c5b85c9f4f26fac668165f8ede240a9855be49b495469357fab2fac7b5c04c77"
+    },
+    "cel/experiments/__main__.py": {
+      "summary": {
+        "covered_lines": 61,
+        "num_statements": 147,
+        "percent_covered": 37.055837563451774,
+        "percent_covered_display": "37",
+        "missing_lines": 86,
+        "excluded_lines": 0,
+        "num_branches": 50,
+        "num_partial_branches": 10,
+        "covered_branches": 12,
+        "missing_branches": 38
+      },
+      "sha256": "f0f618b5d52b059384ef869d5ad680121f9f90bd6d9196bbbcf354fadc9da4e9"
+    },
+    "cel/experiments/audit.py": {
+      "summary": {
+        "covered_lines": 42,
+        "num_statements": 44,
+        "percent_covered": 92.1875,
+        "percent_covered_display": "92",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "num_branches": 20,
+        "num_partial_branches": 3,
+        "covered_branches": 17,
+        "missing_branches": 3
+      },
+      "sha256": "4d37a9ba5dec8cfe61f510e651febdb4421195001fdd47b76b46de2c1731de10"
+    },
+    "cel/experiments/precision.py": {
+      "summary": {
+        "covered_lines": 19,
+        "num_statements": 21,
+        "percent_covered": 83.87096774193549,
+        "percent_covered_display": "84",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "num_branches": 10,
+        "num_partial_branches": 3,
+        "covered_branches": 7,
+        "missing_branches": 3
+      },
+      "sha256": "b7d6cd40ebc1f100f9c4bb149614191bc5514d2e19bfefdb3c20a00df37a1e45"
+    },
+    "cel/experiments/roundtrip.py": {
+      "summary": {
+        "covered_lines": 131,
+        "num_statements": 142,
+        "percent_covered": 90.19607843137256,
+        "percent_covered_display": "90",
+        "missing_lines": 11,
+        "excluded_lines": 0,
+        "num_branches": 62,
+        "num_partial_branches": 9,
+        "covered_branches": 53,
+        "missing_branches": 9
+      },
+      "sha256": "44f270d3e6a901642d62a10264aa2b1a5f6a8b2461572e940e50a627a4075ba3"
+    },
+    "cel/experiments/scenarios.py": {
+      "summary": {
+        "covered_lines": 21,
+        "num_statements": 22,
+        "percent_covered": 93.75,
+        "percent_covered_display": "94",
+        "missing_lines": 1,
+        "excluded_lines": 0,
+        "num_branches": 10,
+        "num_partial_branches": 1,
+        "covered_branches": 9,
+        "missing_branches": 1
+      },
+      "sha256": "dbba7b1d1985e45fb07b30ba007e3f7f83cef631a979a528990d8aef60c89fa2"
+    },
+    "cel/ingest/__init__.py": {
+      "summary": {
+        "covered_lines": 3,
+        "num_statements": 3,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0
+      },
+      "sha256": "d01f320a6b7eabfab5a78b051dd238fb4e605296fbf47f738015da12e3f61212"
+    },
+    "cel/ingest/__main__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 46,
+        "percent_covered": 0.0,
+        "percent_covered_display": "0",
+        "missing_lines": 46,
+        "excluded_lines": 0,
+        "num_branches": 12,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 12
+      },
+      "sha256": "7646af19f697ebcaa9784b26ffbb7b7ab1101eab0aa050c8625742179db6c8c0"
+    },
+    "cel/ingest/fixture.py": {
+      "summary": {
+        "covered_lines": 35,
+        "num_statements": 36,
+        "percent_covered": 96.0,
+        "percent_covered_display": "96",
+        "missing_lines": 1,
+        "excluded_lines": 0,
+        "num_branches": 14,
+        "num_partial_branches": 1,
+        "covered_branches": 13,
+        "missing_branches": 1
+      },
+      "sha256": "fc3d4607153147275c4d9afb60dbb3309c5413ebbf10367a790511e1eac870e0"
+    },
+    "cel/ingest/gaps.py": {
+      "summary": {
+        "covered_lines": 30,
+        "num_statements": 30,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 4,
+        "num_partial_branches": 0,
+        "covered_branches": 4,
+        "missing_branches": 0
+      },
+      "sha256": "8b4afef116610facc0094057fb64b19aebb6b6ef521f44fa58a77288c29ab0ff"
+    },
+    "cel/ingest/instruments.py": {
+      "summary": {
+        "covered_lines": 22,
+        "num_statements": 30,
+        "percent_covered": 75.0,
+        "percent_covered_display": "75",
+        "missing_lines": 8,
+        "excluded_lines": 0,
+        "num_branches": 10,
+        "num_partial_branches": 2,
+        "covered_branches": 8,
+        "missing_branches": 2
+      },
+      "sha256": "252549d4d9f500bf5048bc5735f05d90543315622bd418352266e5f0a62b7ce9"
+    },
+    "cel/ingest/jsonl.py": {
+      "summary": {
+        "covered_lines": 39,
+        "num_statements": 41,
+        "percent_covered": 91.83673469387755,
+        "percent_covered_display": "92",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "num_branches": 8,
+        "num_partial_branches": 2,
+        "covered_branches": 6,
+        "missing_branches": 2
+      },
+      "sha256": "108c9aa742252a20eccdb80963ef20eb55b4661b182d38f7439420dc703746d1"
+    },
+    "cel/ingest/parse.py": {
+      "summary": {
+        "covered_lines": 74,
+        "num_statements": 79,
+        "percent_covered": 90.08264462809917,
+        "percent_covered_display": "90",
+        "missing_lines": 5,
+        "excluded_lines": 0,
+        "num_branches": 42,
+        "num_partial_branches": 7,
+        "covered_branches": 35,
+        "missing_branches": 7
+      },
+      "sha256": "66bd03de6396be6bf879ea6af3eaee8c76f179c177377bddd3efdbd663698b2c"
+    },
+    "cel/ingest/record.py": {
+      "summary": {
+        "covered_lines": 180,
+        "num_statements": 216,
+        "percent_covered": 80.65693430656934,
+        "percent_covered_display": "81",
+        "missing_lines": 36,
+        "excluded_lines": 0,
+        "num_branches": 58,
+        "num_partial_branches": 15,
+        "covered_branches": 41,
+        "missing_branches": 17
+      },
+      "sha256": "bc613b064fdef7935dd1028cc96c2743bdefbe6a1068d4f18b698b89fecae3ef"
+    },
+    "cel/ingest/replay.py": {
+      "summary": {
+        "covered_lines": 57,
+        "num_statements": 57,
+        "percent_covered": 97.33333333333333,
+        "percent_covered_display": "97",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 18,
+        "num_partial_branches": 2,
+        "covered_branches": 16,
+        "missing_branches": 2
+      },
+      "sha256": "4ddb66d8ac10d61e500d4a722b658c01400bd20b9215597c8c900b3a942305d6"
+    },
+    "cel/ingest/schema.py": {
+      "summary": {
+        "covered_lines": 71,
+        "num_statements": 78,
+        "percent_covered": 87.5,
+        "percent_covered_display": "88",
+        "missing_lines": 7,
+        "excluded_lines": 0,
+        "num_branches": 34,
+        "num_partial_branches": 7,
+        "covered_branches": 27,
+        "missing_branches": 7
+      },
+      "sha256": "29b151cf8d20c6891f32c00bcc5d71d10cfbb8c8cbaf2e7f4cf16b3a662662a2"
+    },
+    "cel/ingest/top_book.py": {
+      "summary": {
+        "covered_lines": 31,
+        "num_statements": 37,
+        "percent_covered": 81.63265306122449,
+        "percent_covered_display": "82",
+        "missing_lines": 6,
+        "excluded_lines": 0,
+        "num_branches": 12,
+        "num_partial_branches": 3,
+        "covered_branches": 9,
+        "missing_branches": 3
+      },
+      "sha256": "ef3982dc9bcc0be1667cbc261d62b15da6a1d0fff007815e56ea78a200687dbd"
+    },
+    "cel/research/__init__.py": {
+      "summary": {
+        "covered_lines": 3,
+        "num_statements": 3,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0
+      },
+      "sha256": "2c0db74f1d7bdb60c1f2cc167bb3794b1acda09bc6ec824f51431fcbb445ee6b"
+    },
+    "cel/research/__main__.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 79,
+        "percent_covered": 0.0,
+        "percent_covered_display": "0",
+        "missing_lines": 79,
+        "excluded_lines": 0,
+        "num_branches": 10,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 10
+      },
+      "sha256": "aa45f264cbd3b2443cf0ca8998598dff9fbf10065a81319951ca91718fe4d637"
+    },
+    "cel/research/evaluate.py": {
+      "summary": {
+        "covered_lines": 140,
+        "num_statements": 152,
+        "percent_covered": 90.9090909090909,
+        "percent_covered_display": "91",
+        "missing_lines": 12,
+        "excluded_lines": 0,
+        "num_branches": 68,
+        "num_partial_branches": 8,
+        "covered_branches": 60,
+        "missing_branches": 8
+      },
+      "sha256": "f5106ae1ff6504c95f7080064810777d49a1a194909bb355d3f02b27fc9dc255"
+    },
+    "cel/research/flow.py": {
+      "summary": {
+        "covered_lines": 46,
+        "num_statements": 51,
+        "percent_covered": 83.11688311688312,
+        "percent_covered_display": "83",
+        "missing_lines": 5,
+        "excluded_lines": 0,
+        "num_branches": 26,
+        "num_partial_branches": 8,
+        "covered_branches": 18,
+        "missing_branches": 8
+      },
+      "sha256": "a9adc61ff4cda3ac28582d2709667c914c15d36355cfb19a8b016b71f6f54607"
+    },
+    "cel/research/jumps.py": {
+      "summary": {
+        "covered_lines": 39,
+        "num_statements": 42,
+        "percent_covered": 88.88888888888889,
+        "percent_covered_display": "89",
+        "missing_lines": 3,
+        "excluded_lines": 0,
+        "num_branches": 12,
+        "num_partial_branches": 3,
+        "covered_branches": 9,
+        "missing_branches": 3
+      },
+      "sha256": "11ca46bab53c8f0957b78cafbbca79d89c3cc68480bdbaf30e98676b5e7d9f8a"
+    },
+    "cel/research/lead_lag.py": {
+      "summary": {
+        "covered_lines": 89,
+        "num_statements": 99,
+        "percent_covered": 84.10596026490066,
+        "percent_covered_display": "84",
+        "missing_lines": 10,
+        "excluded_lines": 0,
+        "num_branches": 52,
+        "num_partial_branches": 14,
+        "covered_branches": 38,
+        "missing_branches": 14
+      },
+      "sha256": "344e5c4d2dcb897a977c7329a5360cc2ce8a07c479c10f0965000da97135a799"
+    },
+    "cel/research/markout.py": {
+      "summary": {
+        "covered_lines": 93,
+        "num_statements": 97,
+        "percent_covered": 95.55555555555556,
+        "percent_covered_display": "96",
+        "missing_lines": 4,
+        "excluded_lines": 0,
+        "num_branches": 38,
+        "num_partial_branches": 2,
+        "covered_branches": 36,
+        "missing_branches": 2
+      },
+      "sha256": "5b11e08242f4dcd77ad18096d59185e960af97ef6175bb9ece8a77ad6d9fc2e6"
+    },
+    "cel/research/mids.py": {
+      "summary": {
+        "covered_lines": 38,
+        "num_statements": 39,
+        "percent_covered": 96.22641509433963,
+        "percent_covered_display": "96",
+        "missing_lines": 1,
+        "excluded_lines": 0,
+        "num_branches": 14,
+        "num_partial_branches": 1,
+        "covered_branches": 13,
+        "missing_branches": 1
+      },
+      "sha256": "124692ff6cd860f2397d12f7c0e75bb9d0b9518eb0003cd2989bf0014bc76ddf"
+    },
+    "cel/research/plots.py": {
+      "summary": {
+        "covered_lines": 25,
+        "num_statements": 40,
+        "percent_covered": 58.69565217391305,
+        "percent_covered_display": "59",
+        "missing_lines": 15,
+        "excluded_lines": 0,
+        "num_branches": 6,
+        "num_partial_branches": 2,
+        "covered_branches": 2,
+        "missing_branches": 4
+      },
+      "sha256": "f654b2a1c544c43b48c68850c3c9af1db82554cda2cceb0cb74c1b87a05eab38"
+    },
+    "cel/risk/__init__.py": {
+      "summary": {
+        "covered_lines": 2,
+        "num_statements": 2,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0
+      },
+      "sha256": "2aee6d966c5b5986de617e1a352c30ef2a7fd2c2bd6210972499dad5ef59851c"
+    },
+    "cel/risk/limits.py": {
+      "summary": {
+        "covered_lines": 17,
+        "num_statements": 26,
+        "percent_covered": 58.333333333333336,
+        "percent_covered_display": "58",
+        "missing_lines": 9,
+        "excluded_lines": 0,
+        "num_branches": 10,
+        "num_partial_branches": 4,
+        "covered_branches": 4,
+        "missing_branches": 6
+      },
+      "sha256": "070e18879c3c69077a52e3e305bc400eafac761bdadf9472458d630f6dc81568"
+    },
+    "cel/settings.py": {
+      "summary": {
+        "covered_lines": 78,
+        "num_statements": 80,
+        "percent_covered": 96.07843137254902,
+        "percent_covered_display": "96",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "num_branches": 22,
+        "num_partial_branches": 2,
+        "covered_branches": 20,
+        "missing_branches": 2
+      },
+      "sha256": "0ef2b7734d35136d6d79f2ebc5fa34df5126748ee4c9f2e349a3766260c07d79"
+    },
+    "cel/study.py": {
+      "summary": {
+        "covered_lines": 296,
+        "num_statements": 335,
+        "percent_covered": 85.35031847133757,
+        "percent_covered_display": "85",
+        "missing_lines": 39,
+        "excluded_lines": 0,
+        "num_branches": 136,
+        "num_partial_branches": 30,
+        "covered_branches": 106,
+        "missing_branches": 30
+      },
+      "sha256": "348a8aeec40162efc879111f45997f2efd398d4db20492bde3e31d33443000e0"
+    },
+    "cel/summary.py": {
+      "summary": {
+        "covered_lines": 64,
+        "num_statements": 65,
+        "percent_covered": 97.01492537313433,
+        "percent_covered_display": "97",
+        "missing_lines": 1,
+        "excluded_lines": 0,
+        "num_branches": 2,
+        "num_partial_branches": 1,
+        "covered_branches": 1,
+        "missing_branches": 1
+      },
+      "sha256": "905deeb4fc1fee08178c93539f741087573ba388d1e256b1edd521e2d80c2af4"
+    },
+    "research/clock_telemetry.py": {
+      "summary": {
+        "covered_lines": 69,
+        "num_statements": 88,
+        "percent_covered": 74.54545454545455,
+        "percent_covered_display": "75",
+        "missing_lines": 19,
+        "excluded_lines": 0,
+        "num_branches": 22,
+        "num_partial_branches": 9,
+        "covered_branches": 13,
+        "missing_branches": 9
+      },
+      "sha256": "942516bca63e294039fcd70c902e69b98f33a4fca3d38d0b968fbd457fe163d1"
+    },
+    "research/columnar_asof.py": {
+      "summary": {
+        "covered_lines": 46,
+        "num_statements": 50,
+        "percent_covered": 88.88888888888889,
+        "percent_covered_display": "89",
+        "missing_lines": 4,
+        "excluded_lines": 0,
+        "num_branches": 22,
+        "num_partial_branches": 4,
+        "covered_branches": 18,
+        "missing_branches": 4
+      },
+      "sha256": "5e0f8460c9a40d2b9d5eeff4fc75ff46fa9acf4b894bf882dd58ff89102b8770"
+    },
+    "research/continuous_capture.py": {
+      "summary": {
+        "covered_lines": 319,
+        "num_statements": 375,
+        "percent_covered": 80.07889546351085,
+        "percent_covered_display": "80",
+        "missing_lines": 56,
+        "excluded_lines": 0,
+        "num_branches": 132,
+        "num_partial_branches": 33,
+        "covered_branches": 87,
+        "missing_branches": 45
+      },
+      "sha256": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb"
+    },
+    "research/empirical_note.py": {
+      "summary": {
+        "covered_lines": 144,
+        "num_statements": 173,
+        "percent_covered": 80.81632653061224,
+        "percent_covered_display": "81",
+        "missing_lines": 29,
+        "excluded_lines": 0,
+        "num_branches": 72,
+        "num_partial_branches": 10,
+        "covered_branches": 54,
+        "missing_branches": 18
+      },
+      "sha256": "752093a817bc1a95648914db091345fb3be15919cd4633c82df903fcbf524320"
+    },
+    "research/impact_sensitivity.py": {
+      "summary": {
+        "covered_lines": 14,
+        "num_statements": 16,
+        "percent_covered": 81.81818181818181,
+        "percent_covered_display": "82",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "num_branches": 6,
+        "num_partial_branches": 2,
+        "covered_branches": 4,
+        "missing_branches": 2
+      },
+      "sha256": "fbf1b10cf1bf479c98d45d49c3f6a3d2638650f05c1a6d198e0ba8106541def8"
+    },
+    "research/leadlag_curve.py": {
+      "summary": {
+        "covered_lines": 31,
+        "num_statements": 34,
+        "percent_covered": 88.0,
+        "percent_covered_display": "88",
+        "missing_lines": 3,
+        "excluded_lines": 0,
+        "num_branches": 16,
+        "num_partial_branches": 3,
+        "covered_branches": 13,
+        "missing_branches": 3
+      },
+      "sha256": "84ae0232e1f7881dc0bdbd688178cde42360571a381fbf827c81f27b1bc1d6f1"
+    },
+    "research/maker_opportunity.py": {
+      "summary": {
+        "covered_lines": 74,
+        "num_statements": 91,
+        "percent_covered": 76.82119205298014,
+        "percent_covered_display": "77",
+        "missing_lines": 17,
+        "excluded_lines": 0,
+        "num_branches": 60,
+        "num_partial_branches": 18,
+        "covered_branches": 42,
+        "missing_branches": 18
+      },
+      "sha256": "bd272dd8445f5be3bbeebe4075912cb787e5564b09c08743634761762c48258c"
+    },
+    "research/microstructure.py": {
+      "summary": {
+        "covered_lines": 168,
+        "num_statements": 194,
+        "percent_covered": 82.0945945945946,
+        "percent_covered_display": "82",
+        "missing_lines": 26,
+        "excluded_lines": 0,
+        "num_branches": 102,
+        "num_partial_branches": 27,
+        "covered_branches": 75,
+        "missing_branches": 27
+      },
+      "sha256": "a8125c6900feae511dc7ac4e5e9c2eeeb20db623a38413ae9c9055709fbc0d95"
+    },
+    "research/microstructure_demo.py": {
+      "summary": {
+        "covered_lines": 41,
+        "num_statements": 46,
+        "percent_covered": 89.65517241379311,
+        "percent_covered_display": "90",
+        "missing_lines": 5,
+        "excluded_lines": 0,
+        "num_branches": 12,
+        "num_partial_branches": 1,
+        "covered_branches": 11,
+        "missing_branches": 1
+      },
+      "sha256": "a6e9a537c61e8100bb3067687f5da66fa919a03890241efcbd5060b8c7e1e14c"
+    },
+    "research/model_comparison.py": {
+      "summary": {
+        "covered_lines": 52,
+        "num_statements": 98,
+        "percent_covered": 51.492537313432834,
+        "percent_covered_display": "51",
+        "missing_lines": 46,
+        "excluded_lines": 0,
+        "num_branches": 36,
+        "num_partial_branches": 3,
+        "covered_branches": 17,
+        "missing_branches": 19
+      },
+      "sha256": "3459e56567b78795a26f16946379d6ad1a201043c4eeb28456ea3146c5ff0629"
+    },
+    "research/model_engine.py": {
+      "summary": {
+        "covered_lines": 198,
+        "num_statements": 205,
+        "percent_covered": 94.58483754512635,
+        "percent_covered_display": "95",
+        "missing_lines": 7,
+        "excluded_lines": 0,
+        "num_branches": 72,
+        "num_partial_branches": 8,
+        "covered_branches": 64,
+        "missing_branches": 8
+      },
+      "sha256": "6c84a028c6dbd408c115c7f399aef97cf7403992a81239a73674cf485fd41a88"
+    },
+    "research/opportunity_demo.py": {
+      "summary": {
+        "covered_lines": 29,
+        "num_statements": 97,
+        "percent_covered": 28.571428571428573,
+        "percent_covered_display": "29",
+        "missing_lines": 68,
+        "excluded_lines": 0,
+        "num_branches": 22,
+        "num_partial_branches": 1,
+        "covered_branches": 5,
+        "missing_branches": 17
+      },
+      "sha256": "5e762501235d233ec34291e0f9d69254471b3e5f80c38a579931c443d4876418"
+    },
+    "research/overfitting_audit.py": {
+      "summary": {
+        "covered_lines": 74,
+        "num_statements": 89,
+        "percent_covered": 82.6086956521739,
+        "percent_covered_display": "83",
+        "missing_lines": 15,
+        "excluded_lines": 0,
+        "num_branches": 26,
+        "num_partial_branches": 5,
+        "covered_branches": 21,
+        "missing_branches": 5
+      },
+      "sha256": "1c1a25f6238e662fa452d6a6c32ec9702e019b2e16441f3f143a1388ac101624"
+    },
+    "research/portfolio_site.py": {
+      "summary": {
+        "covered_lines": 54,
+        "num_statements": 85,
+        "percent_covered": 61.53846153846154,
+        "percent_covered_display": "62",
+        "missing_lines": 31,
+        "excluded_lines": 0,
+        "num_branches": 32,
+        "num_partial_branches": 4,
+        "covered_branches": 18,
+        "missing_branches": 14
+      },
+      "sha256": "1155c84ba2564db7358f47358f198ba905d1ca87fa84270651dbfdb0e724718c"
+    },
+    "research/trading_decision.py": {
+      "summary": {
+        "covered_lines": 68,
+        "num_statements": 73,
+        "percent_covered": 93.6842105263158,
+        "percent_covered_display": "94",
+        "missing_lines": 5,
+        "excluded_lines": 0,
+        "num_branches": 22,
+        "num_partial_branches": 1,
+        "covered_branches": 21,
+        "missing_branches": 1
+      },
+      "sha256": "8c9292e622deeada0a74ebfcfcedb688d933402e35eac6f1e1cee84d8e1954be"
+    },
+    "scripts/archive_study_releases.py": {
+      "summary": {
+        "covered_lines": 150,
+        "num_statements": 174,
+        "percent_covered": 81.35593220338983,
+        "percent_covered_display": "81",
+        "missing_lines": 24,
+        "excluded_lines": 0,
+        "num_branches": 62,
+        "num_partial_branches": 16,
+        "covered_branches": 42,
+        "missing_branches": 20
+      },
+      "sha256": "4d236c4d5bc90ddc48608add553b6544bfeaf9832beeadba74eb926ec40ec8f5"
+    },
+    "scripts/audit_artifact_storage.py": {
+      "summary": {
+        "covered_lines": 20,
+        "num_statements": 33,
+        "percent_covered": 58.13953488372093,
+        "percent_covered_display": "58",
+        "missing_lines": 13,
+        "excluded_lines": 0,
+        "num_branches": 10,
+        "num_partial_branches": 3,
+        "covered_branches": 5,
+        "missing_branches": 5
+      },
+      "sha256": "d21faaae0a0b374c262bf33996f325df2b803c78a3d362cdf9cd8604a38d3e6b"
+    },
+    "scripts/audit_recordings.py": {
+      "summary": {
+        "covered_lines": 52,
+        "num_statements": 75,
+        "percent_covered": 64.35643564356435,
+        "percent_covered_display": "64",
+        "missing_lines": 23,
+        "excluded_lines": 0,
+        "num_branches": 26,
+        "num_partial_branches": 9,
+        "covered_branches": 13,
+        "missing_branches": 13
+      },
+      "sha256": "24d305e251aae0086c751a9dbf385cda8b8b43e28962f485844e5b085ff680e8"
+    },
+    "scripts/benchmark_pipeline.py": {
+      "summary": {
+        "covered_lines": 61,
+        "num_statements": 110,
+        "percent_covered": 53.42465753424658,
+        "percent_covered_display": "53",
+        "missing_lines": 49,
+        "excluded_lines": 0,
+        "num_branches": 36,
+        "num_partial_branches": 3,
+        "covered_branches": 17,
+        "missing_branches": 19
+      },
+      "sha256": "325542843b82db9b97d6a2528859eeae30eb9250ace48dabeec825e5303a96da"
+    },
+    "scripts/benchmark_processing.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 44,
+        "percent_covered": 0.0,
+        "percent_covered_display": "0",
+        "missing_lines": 44,
+        "excluded_lines": 0,
+        "num_branches": 12,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 12
+      },
+      "sha256": "20e5bbaadbadaf1b9bf5eb51187c0f1197b4bb70deeff39332f6f8f78cd891c8"
+    },
+    "scripts/check_archive_restore.py": {
+      "summary": {
+        "covered_lines": 32,
+        "num_statements": 48,
+        "percent_covered": 62.121212121212125,
+        "percent_covered_display": "62",
+        "missing_lines": 16,
+        "excluded_lines": 0,
+        "num_branches": 18,
+        "num_partial_branches": 5,
+        "covered_branches": 9,
+        "missing_branches": 9
+      },
+      "sha256": "d4e1d4a28ba13d12ee99f41ea78d6c993b09a5eb8adc5effbd97b23a63b3daf0"
+    },
+    "scripts/collection_timeline.py": {
+      "summary": {
+        "covered_lines": 41,
+        "num_statements": 65,
+        "percent_covered": 60.91954022988506,
+        "percent_covered_display": "61",
+        "missing_lines": 24,
+        "excluded_lines": 0,
+        "num_branches": 22,
+        "num_partial_branches": 4,
+        "covered_branches": 12,
+        "missing_branches": 10
+      },
+      "sha256": "f1b2c901ae063453f2ddb6df08370ffe6a500938af1aa20a0ba731d7fecda893"
+    },
+    "scripts/compare_replication.py": {
+      "summary": {
+        "covered_lines": 50,
+        "num_statements": 73,
+        "percent_covered": 66.33663366336634,
+        "percent_covered_display": "66",
+        "missing_lines": 23,
+        "excluded_lines": 0,
+        "num_branches": 28,
+        "num_partial_branches": 9,
+        "covered_branches": 17,
+        "missing_branches": 11
+      },
+      "sha256": "b81dd29655b65535224589b2ee23c003a24917910f7c9eaaa4682d6b09060469"
+    },
+    "scripts/crosscheck_markouts.py": {
+      "summary": {
+        "covered_lines": 118,
+        "num_statements": 148,
+        "percent_covered": 78.92156862745098,
+        "percent_covered_display": "79",
+        "missing_lines": 30,
+        "excluded_lines": 0,
+        "num_branches": 56,
+        "num_partial_branches": 11,
+        "covered_branches": 43,
+        "missing_branches": 13
+      },
+      "sha256": "13cf69e905de383e2dc31f47f97d395f671ab8e954f920253af3a96f6148ae0d"
+    },
+    "scripts/download_replication_reports.py": {
+      "summary": {
+        "covered_lines": 62,
+        "num_statements": 73,
+        "percent_covered": 85.14851485148515,
+        "percent_covered_display": "85",
+        "missing_lines": 11,
+        "excluded_lines": 0,
+        "num_branches": 28,
+        "num_partial_branches": 4,
+        "covered_branches": 24,
+        "missing_branches": 4
+      },
+      "sha256": "a7118ca81245e621256869c83be61232595b0ab9d8f6fc6e442d3a55703cde41"
+    },
+    "scripts/download_study_artifacts.py": {
+      "summary": {
+        "covered_lines": 84,
+        "num_statements": 107,
+        "percent_covered": 78.2312925170068,
+        "percent_covered_display": "78",
+        "missing_lines": 23,
+        "excluded_lines": 0,
+        "num_branches": 40,
+        "num_partial_branches": 7,
+        "covered_branches": 31,
+        "missing_branches": 9
+      },
+      "sha256": "2eec32020374ae98047c2f017cff12147ef861df6a6b3eb12047da5221f87114"
+    },
+    "scripts/execution_assumption_audit.py": {
+      "summary": {
+        "covered_lines": 46,
+        "num_statements": 65,
+        "percent_covered": 69.87951807228916,
+        "percent_covered_display": "70",
+        "missing_lines": 19,
+        "excluded_lines": 0,
+        "num_branches": 18,
+        "num_partial_branches": 2,
+        "covered_branches": 12,
+        "missing_branches": 6
+      },
+      "sha256": "18ba63ddb7c361a9d22b46b7f5cbd9aaccae7490d07b431c034dbf1edf5fe3e7"
+    },
+    "scripts/failure_attribution.py": {
+      "summary": {
+        "covered_lines": 68,
+        "num_statements": 90,
+        "percent_covered": 74.6268656716418,
+        "percent_covered_display": "75",
+        "missing_lines": 22,
+        "excluded_lines": 0,
+        "num_branches": 44,
+        "num_partial_branches": 8,
+        "covered_branches": 32,
+        "missing_branches": 12
+      },
+      "sha256": "24fb8ab5f3050c07d5d53d5e42cc516d82e5ceed4af8044bbdb22fd620b9c59e"
+    },
+    "scripts/freeze_replication.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 43,
+        "percent_covered": 0.0,
+        "percent_covered_display": "0",
+        "missing_lines": 43,
+        "excluded_lines": 0,
+        "num_branches": 8,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 8
+      },
+      "sha256": "f1a48325fd8f3d41e60ad237a1ff0ccff58c6c9b0540980e7242df162943f8e6"
+    },
+    "scripts/missing_data_sensitivity.py": {
+      "summary": {
+        "covered_lines": 20,
+        "num_statements": 37,
+        "percent_covered": 57.4468085106383,
+        "percent_covered_display": "57",
+        "missing_lines": 17,
+        "excluded_lines": 0,
+        "num_branches": 10,
+        "num_partial_branches": 1,
+        "covered_branches": 7,
+        "missing_branches": 3
+      },
+      "sha256": "4de1f96d2bb37e239b416c64d5db4c575a618f8f6636199e664532afb1652fa8"
+    },
+    "scripts/numeric_reproducibility.py": {
+      "summary": {
+        "covered_lines": 38,
+        "num_statements": 72,
+        "percent_covered": 52.67857142857143,
+        "percent_covered_display": "53",
+        "missing_lines": 34,
+        "excluded_lines": 0,
+        "num_branches": 40,
+        "num_partial_branches": 7,
+        "covered_branches": 21,
+        "missing_branches": 19
+      },
+      "sha256": "719626d86f075def7a680fc7112d6e6e6f512067989cfe9dd04f405864515de8"
+    },
+    "scripts/order_lifecycle.py": {
+      "summary": {
+        "covered_lines": 151,
+        "num_statements": 194,
+        "percent_covered": 75.53191489361703,
+        "percent_covered_display": "76",
+        "missing_lines": 43,
+        "excluded_lines": 0,
+        "num_branches": 88,
+        "num_partial_branches": 22,
+        "covered_branches": 62,
+        "missing_branches": 26
+      },
+      "sha256": "07d7d49e68600de3bde78efe219542edf2ade60f3ecc1a7dce72b5e105d7c3a4"
+    },
+    "scripts/power_audit.py": {
+      "summary": {
+        "covered_lines": 76,
+        "num_statements": 82,
+        "percent_covered": 93.75,
+        "percent_covered_display": "94",
+        "missing_lines": 6,
+        "excluded_lines": 0,
+        "num_branches": 30,
+        "num_partial_branches": 1,
+        "covered_branches": 29,
+        "missing_branches": 1
+      },
+      "sha256": "8b2d53108043dfecbc1f619bcfcdb03f712bb109e40b02081924b6d8ca713ab2"
+    },
+    "scripts/preserve_study.py": {
+      "summary": {
+        "covered_lines": 45,
+        "num_statements": 62,
+        "percent_covered": 72.72727272727273,
+        "percent_covered_display": "73",
+        "missing_lines": 17,
+        "excluded_lines": 0,
+        "num_branches": 26,
+        "num_partial_branches": 7,
+        "covered_branches": 19,
+        "missing_branches": 7
+      },
+      "sha256": "e8de5ba8c802d3a2d6ca7879d580aa386ecfff116b04fc0eced93bbd6f4707e4"
+    },
+    "scripts/project_status.py": {
+      "summary": {
+        "covered_lines": 77,
+        "num_statements": 122,
+        "percent_covered": 58.108108108108105,
+        "percent_covered_display": "58",
+        "missing_lines": 45,
+        "excluded_lines": 0,
+        "num_branches": 26,
+        "num_partial_branches": 7,
+        "covered_branches": 9,
+        "missing_branches": 17
+      },
+      "sha256": "93ca1ee29026cb213a6f2a1b270b6e3b0a9632e709f1adb28ff240512acdbe31"
+    },
+    "scripts/reference_markouts.py": {
+      "summary": {
+        "covered_lines": 64,
+        "num_statements": 84,
+        "percent_covered": 76.5625,
+        "percent_covered_display": "77",
+        "missing_lines": 20,
+        "excluded_lines": 0,
+        "num_branches": 44,
+        "num_partial_branches": 6,
+        "covered_branches": 34,
+        "missing_branches": 10
+      },
+      "sha256": "cabd95bb9df0036cb185920b976bf74d3ef99ffae8f9703d9d1bf1a80bf77dd7"
+    },
+    "scripts/released_robustness.py": {
+      "summary": {
+        "covered_lines": 104,
+        "num_statements": 147,
+        "percent_covered": 70.04830917874396,
+        "percent_covered_display": "70",
+        "missing_lines": 43,
+        "excluded_lines": 0,
+        "num_branches": 60,
+        "num_partial_branches": 13,
+        "covered_branches": 41,
+        "missing_branches": 19
+      },
+      "sha256": "95b520303ff55ca1f49254f345c34a633e2b5853eff2e2c85ef3ba17fa67c10a"
+    },
+    "scripts/released_validation.py": {
+      "summary": {
+        "covered_lines": 62,
+        "num_statements": 142,
+        "percent_covered": 40.816326530612244,
+        "percent_covered_display": "41",
+        "missing_lines": 80,
+        "excluded_lines": 0,
+        "num_branches": 54,
+        "num_partial_branches": 10,
+        "covered_branches": 18,
+        "missing_branches": 36
+      },
+      "sha256": "f940e89888a6ec135d723df7c32fe14c5dfd8c8be05d2910a2b8b9353213391b"
+    },
+    "scripts/reproduce_clean.py": {
+      "summary": {
+        "covered_lines": 0,
+        "num_statements": 73,
+        "percent_covered": 0.0,
+        "percent_covered_display": "0",
+        "missing_lines": 73,
+        "excluded_lines": 0,
+        "num_branches": 16,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 16
+      },
+      "sha256": "610f687e366e8234c18b4d10dfceaa8c3e933f78d0f880aa69c3dcbf8ad97de5"
+    },
+    "scripts/study_diagnostics.py": {
+      "summary": {
+        "covered_lines": 33,
+        "num_statements": 46,
+        "percent_covered": 75.75757575757575,
+        "percent_covered_display": "76",
+        "missing_lines": 13,
+        "excluded_lines": 0,
+        "num_branches": 20,
+        "num_partial_branches": 1,
+        "covered_branches": 17,
+        "missing_branches": 3
+      },
+      "sha256": "40632a9f070c27f319c0ba3f26167bc6f93a82e9548d8e1fc02e9c56d7a7a5aa"
+    },
+    "scripts/study_gate.py": {
+      "summary": {
+        "covered_lines": 39,
+        "num_statements": 59,
+        "percent_covered": 68.35443037974683,
+        "percent_covered_display": "68",
+        "missing_lines": 20,
+        "excluded_lines": 0,
+        "num_branches": 20,
+        "num_partial_branches": 3,
+        "covered_branches": 15,
+        "missing_branches": 5
+      },
+      "sha256": "53693a4c31103b03643e8e61c3019941827f421adf6f08b48c7db0c346804b28"
+    },
+    "scripts/study_monitor.py": {
+      "summary": {
+        "covered_lines": 157,
+        "num_statements": 171,
+        "percent_covered": 87.44769874476988,
+        "percent_covered_display": "87",
+        "missing_lines": 14,
+        "excluded_lines": 0,
+        "num_branches": 68,
+        "num_partial_branches": 16,
+        "covered_branches": 52,
+        "missing_branches": 16
+      },
+      "sha256": "5aaa54a60bd34db6aedd3b60d9a7ce94f1e9ae54689c7283f10c2a50ebfff28f"
+    },
+    "scripts/successor_claim.py": {
+      "summary": {
+        "covered_lines": 55,
+        "num_statements": 87,
+        "percent_covered": 60.16260162601626,
+        "percent_covered_display": "60",
+        "missing_lines": 32,
+        "excluded_lines": 0,
+        "num_branches": 36,
+        "num_partial_branches": 11,
+        "covered_branches": 19,
+        "missing_branches": 17
+      },
+      "sha256": "48154ed7956b003164acc8d1a0ffafbc9a6894ca5a416479dc0240c047425c05"
+    },
+    "scripts/successor_control.py": {
+      "summary": {
+        "covered_lines": 73,
+        "num_statements": 84,
+        "percent_covered": 82.72727272727273,
+        "percent_covered_display": "83",
+        "missing_lines": 11,
+        "excluded_lines": 0,
+        "num_branches": 26,
+        "num_partial_branches": 6,
+        "covered_branches": 18,
+        "missing_branches": 8
+      },
+      "sha256": "eab9431c564b1256d7f099492724a6bb2548c7c41525854110338da56c3be44e"
+    },
+    "scripts/successor_dispatch.py": {
+      "summary": {
+        "covered_lines": 34,
+        "num_statements": 46,
+        "percent_covered": 70.37037037037037,
+        "percent_covered_display": "70",
+        "missing_lines": 12,
+        "excluded_lines": 0,
+        "num_branches": 8,
+        "num_partial_branches": 4,
+        "covered_branches": 4,
+        "missing_branches": 4
+      },
+      "sha256": "0a931016a6d9d6d6ca6ce91ca0653d9a7517a109a3a40574b632edc97219ffe8"
+    },
+    "scripts/successor_qualification.py": {
+      "summary": {
+        "covered_lines": 60,
+        "num_statements": 120,
+        "percent_covered": 46.98795180722892,
+        "percent_covered_display": "47",
+        "missing_lines": 60,
+        "excluded_lines": 0,
+        "num_branches": 46,
+        "num_partial_branches": 8,
+        "covered_branches": 18,
+        "missing_branches": 28
+      },
+      "sha256": "a4bde70410332f9cb41e554004b31ed28421cd0d7cdd5709c54d6efe350fd485"
+    },
+    "scripts/successor_readiness.py": {
+      "summary": {
+        "covered_lines": 82,
+        "num_statements": 186,
+        "percent_covered": 40.74074074074074,
+        "percent_covered_display": "41",
+        "missing_lines": 104,
+        "excluded_lines": 0,
+        "num_branches": 84,
+        "num_partial_branches": 14,
+        "covered_branches": 28,
+        "missing_branches": 56
+      },
+      "sha256": "20d8ab6b704dbaea412f6126b8014a33d42abb49ba6dd0ce112f4ad9fa870cb2"
+    },
+    "scripts/successor_recorder.py": {
+      "summary": {
+        "covered_lines": 109,
+        "num_statements": 141,
+        "percent_covered": 71.8232044198895,
+        "percent_covered_display": "72",
+        "missing_lines": 32,
+        "excluded_lines": 0,
+        "num_branches": 40,
+        "num_partial_branches": 11,
+        "covered_branches": 21,
+        "missing_branches": 19
+      },
+      "sha256": "e543ab4052c8255496a924708c59091b2075fca78aa6ce176c63d8796abe34d5"
+    },
+    "scripts/successor_recovery.py": {
+      "summary": {
+        "covered_lines": 67,
+        "num_statements": 98,
+        "percent_covered": 65.07936507936508,
+        "percent_covered_display": "65",
+        "missing_lines": 31,
+        "excluded_lines": 0,
+        "num_branches": 28,
+        "num_partial_branches": 11,
+        "covered_branches": 15,
+        "missing_branches": 13
+      },
+      "sha256": "542dbef7f9c3a459026c475973e5134de22d4839f2d0c7431ec848f69c73597e"
+    },
+    "scripts/successor_rehearsal.py": {
+      "summary": {
+        "covered_lines": 234,
+        "num_statements": 307,
+        "percent_covered": 72.13483146067416,
+        "percent_covered_display": "72",
+        "missing_lines": 73,
+        "excluded_lines": 0,
+        "num_branches": 138,
+        "num_partial_branches": 47,
+        "covered_branches": 87,
+        "missing_branches": 51
+      },
+      "sha256": "864736e8f5f4a2dc9ac8984c33436790d4afff921105a498bbbddd9e70b573e8"
+    },
+    "scripts/successor_study.py": {
+      "summary": {
+        "covered_lines": 110,
+        "num_statements": 264,
+        "percent_covered": 41.228070175438596,
+        "percent_covered_display": "41",
+        "missing_lines": 154,
+        "excluded_lines": 0,
+        "num_branches": 78,
+        "num_partial_branches": 3,
+        "covered_branches": 31,
+        "missing_branches": 47
+      },
+      "sha256": "06b6e07600fe487f3c580df72c3e4aa5da798fef9ed7b5f8dfb64f92a84b73a4"
+    },
+    "scripts/successor_trials.py": {
+      "summary": {
+        "covered_lines": 102,
+        "num_statements": 118,
+        "percent_covered": 81.25,
+        "percent_covered_display": "81",
+        "missing_lines": 16,
+        "excluded_lines": 0,
+        "num_branches": 42,
+        "num_partial_branches": 12,
+        "covered_branches": 28,
+        "missing_branches": 14
+      },
+      "sha256": "07c82b41a53cac2ed6334198f1d2aa5432aaaa9185f49eb71473b22bc1c5dec9"
+    },
+    "scripts/successor_warmup.py": {
+      "summary": {
+        "covered_lines": 54,
+        "num_statements": 102,
+        "percent_covered": 51.44927536231884,
+        "percent_covered_display": "51",
+        "missing_lines": 48,
+        "excluded_lines": 0,
+        "num_branches": 36,
+        "num_partial_branches": 5,
+        "covered_branches": 17,
+        "missing_branches": 19
+      },
+      "sha256": "8e91e8e78c4824c4581d937c34d0067a905aa038240a41bf65f6ad9b4f132dff"
+    },
+    "scripts/verify_bundle.py": {
+      "summary": {
+        "covered_lines": 106,
+        "num_statements": 133,
+        "percent_covered": 78.74396135265701,
+        "percent_covered_display": "79",
+        "missing_lines": 27,
+        "excluded_lines": 0,
+        "num_branches": 74,
+        "num_partial_branches": 15,
+        "covered_branches": 57,
+        "missing_branches": 17
+      },
+      "sha256": "f3f51fbd54d56834f946e7280b1cf8f90c95b16962a8000bb36df21efc0b0a74"
+    }
+  },
+  "test_source_sha256": {
+    "tests/test_algo.py": "b9ed13b053ebf307e7c1e55c42a1f457bd710106e775f578326b465988340325",
+    "tests/test_artifacts.py": "0694a5b39468eee3e2c5a98b110be721cb2cdc6871c0f55ee08089bc12208624",
+    "tests/test_bundle_verification.py": "1a17b1a1b99f1ddb2624943714de0da5d7d79aee1ca2cb3cd025cac48e1d650f",
+    "tests/test_capture_inventory.py": "8ea756e297b8bfbf535502f9b59e29ea7bbecc67f222c4f6b9e4039e9a58de82",
+    "tests/test_config.py": "0f1c6930620f823b44fbc6241e25fa2356583c0066ba20e0d88d07d18ebcb965",
+    "tests/test_continuous_capture.py": "89a06b5b5e11c3e9fdc8ddd17d8256111c73613e40652b6ebf68124c5d38b78b",
+    "tests/test_data_integrity.py": "111582b1ae970a327e0bc99e38e4c8a5b1f9e0236cc0d591bab7875307656278",
+    "tests/test_demo.py": "53dddbe89eb10c15ffcf22f7c0cf2e2ad5eba3b3a1e62b522b1f733dc1def1fb",
+    "tests/test_empirical_note.py": "21eb3f04c45e989e6f25d115a747c00371de6be5c804c588bf715d069db50f01",
+    "tests/test_engineering_audits.py": "8cd795db24bc3c8e7e2ffd7b35dc39d14b5a7e5fc6a17143a700446ff0a0acc4",
+    "tests/test_evaluate.py": "56640f51a51ab995dafa7bd01d637a0a56de07deee1953989ebe816db46c1066",
+    "tests/test_execution_causality.py": "146abd2bfe0880af793d765d8b49381d0df25f3c063f3a22a8ac82cdd1266182",
+    "tests/test_failure_attribution.py": "62a5d3784deb468ca8296b59b8f1fa6036fe9ffa38f95a0f4b6cf1b4d6843a9d",
+    "tests/test_independent_markouts.py": "075f5d01f47242666de1e8ba5f351ccf86a2c6647c6d8f1a230fb7f25874b0c9",
+    "tests/test_internal_validation.py": "60513576366015fad5e51d2e836e105f5916f4519d5ab80f733fcc089d2a9734",
+    "tests/test_maker_opportunity.py": "c626ccc4e60be67dcef3a3625766ece666fd3ec763be54c0844aa54565eaefd0",
+    "tests/test_markout.py": "4a58488dd2f4bcb6c4cbab83df6628b82d20be82b475165b568d2403e6f33357",
+    "tests/test_microstructure.py": "a6d7f635a63e630da42e350dcdef8566dae259749da44ab228b88bf2525a22a8",
+    "tests/test_model_comparison.py": "6976ca802337bd93d8f4a3005e22d30edeb0b827defc0697ed8aac24ac16ff5e",
+    "tests/test_monitor.py": "9ab2bd3c639ec9d7035754e61544ab2df551cb821568864d7b5c5e58f94464c9",
+    "tests/test_monitor_notifications.py": "3d66d5ed0e225f47cacb150d4fa92ce88c49ee363bc6d224319526b35e4f2613",
+    "tests/test_operational_tools.py": "f98f58aa3de3c0a575a246c81f1a3d91701a47c11b7b77349af3f6b9e9d7bc15",
+    "tests/test_parse.py": "923b71b3f87f2143bf645c0f37bb317ec4fc82b7d29a8e02352a3c4410ea3d30",
+    "tests/test_portfolio.py": "c5622898cdef53b036a977dc34c6f2003aa22cecd01a493dbd62ef8ef2449cbd",
+    "tests/test_portfolio_site.py": "348ac7c9a10e7cd93ed1727c089033a89b26b6b686cb4e8d66b13253c9065ed3",
+    "tests/test_publication_recovery.py": "85add8001f058d6cc931efcb55d70aa05097b4eb0c3300e9bf450c5db237ea6b",
+    "tests/test_release_preservation.py": "b958cd5024cb0b58ecfe1f61f106fd3c74c79353b4d09ff9bdc9c22b84702b5d",
+    "tests/test_replay.py": "52c56b3c8ba8452d5964599bb3190ea27c2f4b925b49e8575a873d8a169ecc07",
+    "tests/test_report_download.py": "45ae452b107634c216b2f99c798bdc43ef27bede85b16ec0b5511d2626b03e0c",
+    "tests/test_research.py": "0a012d5274d3a07cf45780815678b9e4757696c15449190e40fec1d710d5ef24",
+    "tests/test_research_audits.py": "ffbb0711d508e5886d0a5722b1a3e27fa9167326e926dd4e1dbb96b92d5fcef5",
+    "tests/test_research_causality.py": "88f7aaa533424b158d92082a0033b3ced9f4809b64bd9ee1f995d822658016e9",
+    "tests/test_robustness.py": "b158ddf1f9657b65188e0e154c0f4d07c6150b7b5e30ace84760e35c8735268c",
+    "tests/test_roundtrip.py": "29da20922b969e0102027841409bbef5637c25dbdbbcb0cd2c3ebbafa47b290b",
+    "tests/test_study.py": "530c0ca5984dcf48c41a8c99051cce5128693a2a0dcc3005bd860479a6c53dec",
+    "tests/test_study_operations.py": "8ee79303c65918dd321307d2542c81089ecf91b2082f9893ec3ceaa98c159298",
+    "tests/test_successor.py": "febf3ce29b360a01877f6e67ffd841a12cf76ccde70136bf35ba97836b2ae87b",
+    "tests/test_successor_qualification.py": "591c27ad057ad241705ae0535c31c171b36f117f0b519d6b510c589ed3b41408",
+    "tests/test_successor_report_workload.py": "2e763d1f636fb8a3cc945fd44f46deb973d70e5eaa278f3f088795b50011a93d",
+    "tests/test_successor_study.py": "2757e467759f007b486d72832c24c4286c5b6ed7bcfbaec7ef7a589d31d0c2c2",
+    "tests/test_successor_trials.py": "5dfa3797044e4f3e87fd17b4af5d184bb0255e2a378c42d9b0ea7e386d217766",
+    "tests/test_successor_warmup.py": "7be8234f632a1ced64fb1cc2333805d4db8a43289bc4bbab82704c07574ded30",
+    "tests/test_top_book.py": "34fb4b8af11de3da7411b4c53e60353934ce0af046c9d481bd57c0716d6ebba5",
+    "tests/test_trading_decision.py": "8bd809f39a26b8f9f0a7cafe16c77ebdef82491d84c4c226020a1fd3bd129810",
+    "tests/test_walkthrough.py": "57c67e8ea41fcd6339c1490fdf9a975d1abbe8e7fd45582e88a4c84d46be2d0a"
+  },
+  "scope": "Measured parent-process unittest coverage for cel, research and scripts. Combined line/branch percent; not proof of behavior, not coverage of uninstrumented subprocesses/notebooks/live feeds. Snapshot, not a 95% claim."
+}

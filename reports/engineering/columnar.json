@@ -1,0 +1,50 @@
+{
+  "synthetic": true,
+  "queries": 2000000,
+  "quotes": 1960000,
+  "matched": 1969750,
+  "tolerance_ms": 50,
+  "repetitions": 3,
+  "timing_clock": "perf_counter_ns; local elapsed time, not exchange latency",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "numpy": "2.5.4",
+  "polars": "1.35.2",
+  "logical_cpus": 5,
+  "polars_thread_pool_size": 4,
+  "input_numpy_buffers_shared_with_polars": {
+    "quote_ns": true,
+    "price": true
+  },
+  "row_materialization_seconds": 0.328472243,
+  "polars_frame_seconds": 0.004998591,
+  "join_seconds": {
+    "python_linear_merge": [
+      0.992082133,
+      0.920182716,
+      0.902601603
+    ],
+    "numpy_searchsorted": [
+      0.067325067,
+      0.060766337,
+      0.059141688
+    ],
+    "polars_backward_asof": [
+      0.034498374,
+      0.028743162,
+      0.019935143
+    ]
+  },
+  "median_queries_per_second": {
+    "python_linear_merge": 2173481.3806261495,
+    "numpy_searchsorted": 32912959.686874002,
+    "polars_backward_asof": 69581766.96078184
+  },
+  "process_peak_rss_kib_linux": 666616,
+  "output_id_sha256": "13e6ab7c0e33f5eeb57013a049312359c3de30cb677eb979322851171415cd23",
+  "source_sha256": {
+    "research/columnar_asof.py": "5e0f8460c9a40d2b9d5eeff4fc75ff46fa9acf4b894bf882dd58ff89102b8770",
+    "benchmarks/columnar_asof.py": "9c7686b4b9984d02e64f3d6ae3d924d3fbfcdd349389e95eaf6e7e50c0e276d5"
+  },
+  "scope": "All pass timings include input validation; the tuple baseline materializes a validation timestamp buffer. Common validated backward quote association only. Parsing, timer/queue/inventory state and costs are excluded. Polars input views can share typed buffers; joins and JSON conversion allocate. Per-backend process memory is not isolated."
+}
