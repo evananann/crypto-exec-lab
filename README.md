@@ -35,9 +35,11 @@ adds queue/cancellation races, missed profitable fills, fixed tail conditions an
 receive-clock correlation curves. Its [36-case report](reports/opportunity/README.md)
 and hero graphic are synthetic; no predictive or maker edge has been established.
 
-The portfolio Pages preview is prepared by the
-[deployment workflow](.github/workflows/portfolio-pages.yml). Publication status
-will be verified before a live demo link is advertised. The interactive
+The [portfolio Pages preview](https://github.com/evananann/crypto-exec-lab/actions/runs/40701481904)
+built successfully. **Live publication awaits repository administrator setup:**
+GitHub returned HTTP 403 for automatic Pages configuration. Select **Settings →
+Pages → Source: GitHub Actions**, then rerun the
+[deployment workflow](.github/workflows/portfolio-pages.yml). The interactive
 [cost lab HTML](reports/trading_decision/decision.html) remains available offline.
 
 The [microstructure research tools](docs/MICROSTRUCTURE_RESEARCH.md) add causal

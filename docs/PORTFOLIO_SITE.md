@@ -27,3 +27,12 @@ The expected default URL is `https://evananann.github.io/crypto-exec-lab/`; it m
 be checked after deployment before being advertised as a working demo. A custom
 repository Pages configuration may produce another URL. Current publication
 status is in the latest workflow deployment and the README's explicit status.
+
+## Verified October 28 publication status
+
+[Run 40701481904](https://github.com/evananann/crypto-exec-lab/actions/runs/40701481904)
+built the allowlisted preview and uploaded the Pages artifact. GitHub denied
+automatic Pages configuration with HTTP 403; deployment was skipped. This is a
+repository administration limitation, not a deployed website. An administrator
+must perform the setup above. The managed environment also does not allow direct
+HTTP access to the `github.io` host, so no public-site HTTP success is claimed.
