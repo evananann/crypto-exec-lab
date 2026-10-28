@@ -151,7 +151,7 @@ def verify_segment(root, manifest):
             or Path(name).name != name or not name.endswith('.jsonl.gz')
             or type(manifest.get('schema_version')) is not int or manifest['schema_version'] != 1
             or type(manifest.get('records')) is not int
-            or manifest['records'] < 0):
+            or manifest['records'] <= 0):
         raise ValueError('unsafe segment name')
     path = Path(root)/name
     if path.is_symlink():

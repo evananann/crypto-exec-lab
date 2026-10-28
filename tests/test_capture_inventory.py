@@ -42,6 +42,21 @@ class CaptureInventoryTests(unittest.TestCase):
             self.assertEqual(result['interrupted_files'], ['interrupted.partial'])
             self.assertEqual(result['pending_session_status'], [manifest['session_id']])
 
+    def test_empty_sealed_file_is_not_observation_evidence(self):
+        import gzip
+        import hashlib
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            raw = gzip.compress(b'')
+            (root/'empty.jsonl.gz').write_bytes(raw)
+            manifest = {'schema_version': 1, 'file': 'empty.jsonl.gz', 'records': 0,
+                        'sha256': hashlib.sha256(raw).hexdigest(), 'session_id': 'a'*32}
+            (root/'empty.manifest.json').write_text(json.dumps(manifest))
+            result = verify_spool(root)
+            self.assertEqual(result['integrity_state'], 'incomplete')
+            self.assertEqual(result['records'], 0)
+            self.assertEqual(len(result['invalid_files']), 1)
+
     def test_duplicate_claims_cannot_double_count_or_choose_favorable_copy(self):
         with tempfile.TemporaryDirectory() as directory:
             manifest = self.seal(directory)
