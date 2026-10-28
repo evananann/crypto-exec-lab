@@ -7,6 +7,8 @@ from __future__ import annotations
 
 import argparse
 import base64
+from collections import Counter
+from contextlib import contextmanager
 from datetime import datetime, timezone
 import gzip
 import hashlib
@@ -15,11 +17,49 @@ import math
 import os
 from pathlib import Path
 import queue
+import re
 import shutil
 import signal
 import threading
 import time
 from uuid import uuid4
+import zlib
+
+
+@contextmanager
+def capture_owner(root):
+    """Kernel-held Linux lock: process death releases ownership, not its lock file."""
+    import fcntl
+
+    root = Path(root)
+    root.mkdir(parents=True, exist_ok=True)
+    descriptor = os.open(root/'.capture.lock', os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
+    try:
+        try:
+            fcntl.flock(descriptor, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise RuntimeError('another collector owns this spool') from error
+        yield
+    finally:
+        os.close(descriptor)
+
+
+def strict_json(value):
+    def constant(_):
+        raise ValueError('nonfinite JSON number')
+    def finite_float(token):
+        result = float(token)
+        if not math.isfinite(result):
+            raise ValueError('nonfinite JSON number')
+        return result
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError('duplicate JSON key')
+            result[key] = value
+        return result
+    return json.loads(value, parse_constant=constant, parse_float=finite_float, object_pairs_hook=pairs)
 
 
 class Spool:
@@ -103,9 +143,14 @@ class Spool:
 
 
 def verify_segment(root, manifest):
-    name = manifest['file']
-    if (Path(name).name != name or not name.endswith('.jsonl.gz')
-            or manifest.get('schema_version') != 1 or type(manifest.get('records')) is not int
+    if not isinstance(manifest, dict):
+        raise ValueError('manifest object required')
+    name = manifest.get('file')
+    if (not isinstance(name, str) or not isinstance(manifest.get('sha256'), str)
+            or not re.fullmatch(r'[0-9a-f]{64}', manifest['sha256'])
+            or Path(name).name != name or not name.endswith('.jsonl.gz')
+            or type(manifest.get('schema_version')) is not int or manifest['schema_version'] != 1
+            or type(manifest.get('records')) is not int
             or manifest['records'] < 0):
         raise ValueError('unsafe segment name')
     path = Path(root)/name
@@ -127,14 +172,84 @@ def verify_segment(root, manifest):
             total += len(line)
             if len(line) > 2_000_000 or total > 1_000_000_000:
                 raise ValueError('oversize decompressed segment or record')
-            json.loads(line)
+            strict_json(line)
             count += 1
     if count != manifest['records']:
         raise ValueError('segment record count mismatch')
     return count
 
 
+def verify_spool(root):
+    """Inventory every evidence file; successful readback never implies healthy capture."""
+    root = Path(root)
+    if not root.is_dir():
+        raise FileNotFoundError('spool directory does not exist')
+    manifests, failures, references = [], [], Counter()
+    for path in sorted(root.glob('*.manifest.json')):
+        try:
+            if path.is_symlink():
+                raise ValueError('symlink manifest rejected')
+            if path.stat().st_size > 2_000_000:
+                raise ValueError('oversize manifest')
+            manifest = strict_json(path.read_bytes())
+            if not isinstance(manifest, dict) or not isinstance(manifest.get('file'), str):
+                raise ValueError('manifest file identity missing')
+            references[manifest['file']] += 1
+            manifests.append((path, manifest))
+        except (ValueError, OSError) as error:
+            failures.append({'file': path.name, 'reason': type(error).__name__})
+    verified, sessions = [], set()
+    for path, manifest in manifests:
+        try:
+            name = manifest['file']
+            if references[name] != 1:
+                raise ValueError('duplicate segment claim')
+            if path.name != name.removesuffix('.jsonl.gz')+'.manifest.json':
+                raise ValueError('manifest filename disagrees with segment')
+            session = manifest.get('session_id')
+            if not isinstance(session, str) or not re.fullmatch(r'[0-9a-f]{32}', session):
+                raise ValueError('invalid capture session identity')
+            sessions.add(session)
+            count = verify_segment(root, manifest)
+            verified.append({'file': name, 'records': count, 'session_id': session})
+        except (ValueError, OSError, EOFError, zlib.error) as error:
+            failures.append({'file': path.name, 'reason': type(error).__name__})
+    orphaned = sorted(p.name for p in root.glob('*.jsonl.gz') if p.name not in references)
+    partials = sorted(p.name for p in root.glob('*.partial'))
+    statuses, pending = [], sorted(sessions)
+    for path in sorted(root.glob('session-*.status.json')):
+        try:
+            if path.is_symlink():
+                raise ValueError('symlink status rejected')
+            if path.stat().st_size > 2_000_000:
+                raise ValueError('oversize status')
+            status = strict_json(path.read_bytes())
+            session = status.get('session_id')
+            if (not isinstance(session, str) or not re.fullmatch(r'[0-9a-f]{32}', session)
+                    or path.name != 'session-'+session+'.status.json'
+                    or not isinstance(status.get('faults'), list)
+                    or not all(isinstance(f, str) for f in status['faults'])):
+                raise ValueError('invalid session status identity')
+            statuses.append({'session_id': session, 'faults': status['faults']})
+            if session in pending:
+                pending.remove(session)
+        except (ValueError, OSError, AttributeError) as error:
+            failures.append({'file': path.name, 'reason': type(error).__name__})
+    faults = [s for s in statuses if s['faults']]
+    incomplete = bool(failures or orphaned or partials)
+    return {'integrity_state': 'incomplete' if incomplete else 'verified' if verified else 'empty',
+            'verified_segments': verified, 'records': sum(s['records'] for s in verified),
+            'invalid_files': failures, 'orphaned_segments': orphaned, 'interrupted_files': partials,
+            'reported_capture_faults': faults, 'pending_session_status': pending,
+            'scope': 'local file integrity only; source completeness, timing and scientific eligibility unassessed'}
+
+
 def run(config, root, *, queue_size=1024):
+    with capture_owner(root):
+        return _run(config, root, queue_size=queue_size)
+
+
+def _run(config, root, *, queue_size=1024):
     from websocket import WebSocketApp
 
     if type(queue_size) is not int or queue_size <= 0:
@@ -292,13 +407,10 @@ def main():
     parser.add_argument('--spool', type=Path, required=True)
     args = parser.parse_args()
     if args.mode == 'verify':
-        total, segments = 0, 0
-        for path in sorted(args.spool.glob('*.manifest.json')):
-            total += verify_segment(args.spool, json.loads(path.read_text()))
-            segments += 1
-        print(json.dumps({'segments': segments, 'records': total,
-            'interrupted_files': len(list(args.spool.glob('*.partial'))),
-            'scope': 'local integrity only; capture completeness and scientific eligibility unassessed'}))
+        result = verify_spool(args.spool)
+        print(json.dumps(result))
+        if result['integrity_state'] != 'verified' or result['reported_capture_faults']:
+            raise SystemExit(1)
         return
     if args.config is None:
         parser.error('--config is required for capture')

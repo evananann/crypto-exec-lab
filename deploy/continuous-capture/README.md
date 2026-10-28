@@ -17,7 +17,9 @@ The service uses `/var/lib/crypto-capture`, created by systemd `StateDirectory`,
 with a restrictive umask and filesystem permissions. Review/copy the unit into
 systemd only when provisioning that host. Install dependencies before enabling
 it. The service restarts failed sessions; reconnect gaps remain failures, not
-fabricated continuous coverage. Restart limiting prevents endless reconnect churn.
+fabricated continuous coverage. Restart limiting prevents endless reconnect churn. A kernel-held exclusive lock
+prevents a second collector from using the same spool. Process exit releases the
+lock automatically; never delete `.capture.lock` to override a running owner.
 Application-level subscription errors and source completeness still require feed
 validation; socket activity alone is not a healthy market tape.
 
@@ -47,10 +49,19 @@ A queue bounded by record count and an encoded-byte budget, frame limit, silence
 on loss/pressure. No unsent evidence is deleted to make room. Alert on service exit,
 restarts, queue faults, feed silence, interrupted files and spool capacity.
 
-`verify` streams checksums, gzip/JSON integrity and record counts with decompression
-bounds. It does not establish completeness, timing qualification, exchange source
-authentication or scientific eligibility. An active session may not yet have a
-final status file. Explicitly retain fault status and orphan files when publishing.
+`verify` inventories all manifests, sealed gzip files, interrupted files and session
+status records. It checks one-to-one filename claims, strict JSON, checksums and
+record counts with decompression bounds. Duplicate claims are rejected together;
+a favorable copy is never selected. Symlinked evidence is rejected. A missing
+root, empty inventory, invalid file, orphaned segment, interrupted file or reported
+capture fault produces a nonzero exit. Valid segments remain visible beside failures.
+
+An exit of zero establishes only local integrity of the inventoried sealed files.
+It does not establish capture completeness, timing qualification, exchange source
+authentication or scientific eligibility. Pending session status is reported
+explicitly; an active session may not have a final status. A scan of a live spool
+can observe work in progress or concurrent publication. Verify closed copied
+bundles in CI and retain fault status and orphan/interrupted files when publishing.
 
 Before enrolling a new prospective study, require:
 
