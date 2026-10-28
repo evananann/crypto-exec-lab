@@ -1,0 +1,26 @@
+[Unit]
+Description=Continuous public raw market data acquisition pilot
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=crypto-capture
+Group=crypto-capture
+WorkingDirectory=/opt/crypto-exec-lab
+ExecStart=/opt/crypto-exec-lab/.venv/bin/python -m research.continuous_capture capture --config /etc/crypto-capture/feeds.json --spool /var/lib/crypto-capture
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=60
+StateDirectory=crypto-capture
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/crypto-capture
+
+[Install]
+WantedBy=multi-user.target

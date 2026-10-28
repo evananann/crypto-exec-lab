@@ -1,0 +1,20 @@
+{
+  "protocol_id": "microstructure-future-draft-v1",
+  "state": "draft_not_registered",
+  "scope": "Offline synthetic tools for a separately registered future experiment; no changes to the active successor study or locked model comparison",
+  "dynamic_trigger": {"spread_multiple": 1.0, "rms_multiple": 1.0, "floor_bps": 0.01, "lookback_ms": 1000, "step_ms": 100, "absolute_usd_prefilter": null},
+  "ofi": {"lookback_ms": 1000, "units": "BTC", "normalizer": "mean displayed side depth", "interpretation": "BBO order-flow imbalance, not VPIN or toxicity probability"},
+  "latency_scenarios": [
+    {"name": "assumed_low_jitter", "p50_ms": 25, "p99_ms": 120, "stress_multiplier": 1.0},
+    {"name": "assumed_stress_correlated", "p50_ms": 25, "p99_ms": 120, "stress_multiplier": 2.0},
+    {"name": "assumed_high_jitter", "p50_ms": 50, "p99_ms": 250, "stress_multiplier": 3.0}
+  ],
+  "latency_data": "No measured execution trace. Ping/WS RTT is not order arrival/fill latency. Keep metric, venue, host and trace order separate.",
+  "depth": {"available_fractions": [1.0, 0.5, 0.1], "extra_adverse_slippage_bps": [0.0, 1.0, 5.0], "units": "BTC", "interpretation": "Deterministic availability/slippage stresses, not calibrated fill probabilities"},
+  "cooldown_ms": [0, 10000, 30000],
+  "event_cluster_gap_ms": 10000,
+  "bootstrap_repetitions": 2000,
+  "minimum_clusters": 5,
+  "seed": 0,
+  "empirical_enrollment": "Requires a new future study, verified L2/trade/latency data contracts as applicable, source freeze and outcome release. Do not apply new choices to current frozen outcomes."
+}

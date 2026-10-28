@@ -1,0 +1,647 @@
+{
+  "synthetic": true,
+  "protocol": {
+    "protocol_id": "microstructure-future-draft-v1",
+    "state": "draft_not_registered",
+    "scope": "Offline synthetic tools for a separately registered future experiment; no changes to the active successor study or locked model comparison",
+    "dynamic_trigger": {
+      "spread_multiple": 1.0,
+      "rms_multiple": 1.0,
+      "floor_bps": 0.01,
+      "lookback_ms": 1000,
+      "step_ms": 100,
+      "absolute_usd_prefilter": null
+    },
+    "ofi": {
+      "lookback_ms": 1000,
+      "units": "BTC",
+      "normalizer": "mean displayed side depth",
+      "interpretation": "BBO order-flow imbalance, not VPIN or toxicity probability"
+    },
+    "latency_scenarios": [
+      {
+        "name": "assumed_low_jitter",
+        "p50_ms": 25,
+        "p99_ms": 120,
+        "stress_multiplier": 1.0
+      },
+      {
+        "name": "assumed_stress_correlated",
+        "p50_ms": 25,
+        "p99_ms": 120,
+        "stress_multiplier": 2.0
+      },
+      {
+        "name": "assumed_high_jitter",
+        "p50_ms": 50,
+        "p99_ms": 250,
+        "stress_multiplier": 3.0
+      }
+    ],
+    "latency_data": "No measured execution trace. Ping/WS RTT is not order arrival/fill latency. Keep metric, venue, host and trace order separate.",
+    "depth": {
+      "available_fractions": [
+        1.0,
+        0.5,
+        0.1
+      ],
+      "extra_adverse_slippage_bps": [
+        0.0,
+        1.0,
+        5.0
+      ],
+      "units": "BTC",
+      "interpretation": "Deterministic availability/slippage stresses, not calibrated fill probabilities"
+    },
+    "cooldown_ms": [
+      0,
+      10000,
+      30000
+    ],
+    "event_cluster_gap_ms": 10000,
+    "bootstrap_repetitions": 2000,
+    "minimum_clusters": 5,
+    "seed": 0,
+    "empirical_enrollment": "Requires a new future study, verified L2/trade/latency data contracts as applicable, source freeze and outcome release. Do not apply new choices to current frozen outcomes."
+  },
+  "source_sha256": {
+    "research/microstructure.py": "a8125c6900feae511dc7ac4e5e9c2eeeb20db623a38413ae9c9055709fbc0d95",
+    "research/microstructure_demo.py": "a6e9a537c61e8100bb3067687f5da66fa919a03890241efcbd5060b8c7e1e14c",
+    "research/microstructure_protocol.json": "b80f435a5fbd8e8e59a34039f9f79e2aaff490ea25310d82adb0418f85cd04d3"
+  },
+  "fixture": "Toy periodic sub-$2 jumps, arbitrary displayed depth and deterministic alternating stress states; no market evidence.",
+  "dynamic_signals": [
+    {
+      "signal_ms": 2000,
+      "direction": 1,
+      "move_bps": 0.08333333333387927,
+      "hurdle_bps": 0.026352313834909137,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352313834909137,
+      "baseline_ms": 1000
+    },
+    {
+      "signal_ms": 4000,
+      "direction": -1,
+      "move_bps": -0.08333263889492848,
+      "hurdle_bps": 0.026352094234031093,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352094234031093,
+      "baseline_ms": 2000
+    },
+    {
+      "signal_ms": 6000,
+      "direction": 1,
+      "move_bps": 0.08333333333387927,
+      "hurdle_bps": 0.026352313834909137,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352313834909137,
+      "baseline_ms": 4000
+    },
+    {
+      "signal_ms": 8000,
+      "direction": -1,
+      "move_bps": -0.08333263889492848,
+      "hurdle_bps": 0.026352094234031093,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352094234031093,
+      "baseline_ms": 6000
+    },
+    {
+      "signal_ms": 10000,
+      "direction": 1,
+      "move_bps": 0.08333333333387927,
+      "hurdle_bps": 0.026352313834909137,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352313834909137,
+      "baseline_ms": 8000
+    }
+  ],
+  "ofi_at_10000": {
+    "available": true,
+    "ofi_btc": 0.031,
+    "ofi_per_mean_side_depth": 2.0058823529411764,
+    "updates": 10,
+    "reason": null
+  },
+  "latency": [
+    {
+      "name": "assumed_low_jitter",
+      "assumptions": {
+        "p50_ms": 25,
+        "p99_ms": 120,
+        "stress_multiplier": 1.0,
+        "seed": 0
+      },
+      "ordinary_p50_ms": 24.820963159781,
+      "stress_p50_ms": 24.87189081751957,
+      "all_p99_ms": 118.7977216396352,
+      "synthetic": true
+    },
+    {
+      "name": "assumed_stress_correlated",
+      "assumptions": {
+        "p50_ms": 25,
+        "p99_ms": 120,
+        "stress_multiplier": 2.0,
+        "seed": 0
+      },
+      "ordinary_p50_ms": 24.820963159781,
+      "stress_p50_ms": 49.74378163503914,
+      "all_p99_ms": 196.67304419491,
+      "synthetic": true
+    },
+    {
+      "name": "assumed_high_jitter",
+      "assumptions": {
+        "p50_ms": 50,
+        "p99_ms": 250,
+        "stress_multiplier": 3.0,
+        "seed": 0
+      },
+      "ordinary_p50_ms": 49.632642142456476,
+      "stress_p50_ms": 149.2113941206747,
+      "all_p99_ms": 603.9984375275562,
+      "synthetic": true
+    }
+  ],
+  "depth_scenarios": [
+    {
+      "available_fraction": 1.0,
+      "extra_slippage_bps": 0.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.005,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 60000.61000000001,
+        "notional_usdt": 300.00305000000003,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.005,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 59999.39000000001,
+        "notional_usdt": 299.99695,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.3061000000000036,
+        "residual_btc": 0.0,
+        "state": "hypothetical_closed"
+      }
+    },
+    {
+      "available_fraction": 1.0,
+      "extra_slippage_bps": 1.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.005,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 60006.610061,
+        "notional_usdt": 300.033050305,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.005,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 59993.390061,
+        "notional_usdt": 299.966950305,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.3661000003050058,
+        "residual_btc": 0.0,
+        "state": "hypothetical_closed"
+      }
+    },
+    {
+      "available_fraction": 1.0,
+      "extra_slippage_bps": 5.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.005,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 60030.610304999995,
+        "notional_usdt": 300.15305152499997,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.005,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 59969.390305,
+        "notional_usdt": 299.846951525,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.606100001524958,
+        "residual_btc": 0.0,
+        "state": "hypothetical_closed"
+      }
+    },
+    {
+      "available_fraction": 0.5,
+      "extra_slippage_bps": 0.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.0034999999999999996,
+        "unfilled_btc": 0.0015000000000000005,
+        "full_fill": false,
+        "vwap": 60000.72142857144,
+        "notional_usdt": 210.00252500000002,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.0034999999999999996,
+        "filled_btc": 0.0034999999999999996,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 59999.27857142857,
+        "notional_usdt": 209.99747499999998,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.21505000000003976,
+        "residual_btc": 0.0,
+        "state": "hypothetical_partial_request_closed"
+      }
+    },
+    {
+      "available_fraction": 0.5,
+      "extra_slippage_bps": 1.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.0034999999999999996,
+        "unfilled_btc": 0.0015000000000000005,
+        "full_fill": false,
+        "vwap": 60006.721500714295,
+        "notional_usdt": 210.0235252525,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.0034999999999999996,
+        "filled_btc": 0.0034999999999999996,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 59993.27864357143,
+        "notional_usdt": 209.9764752525,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.2570500002525129,
+        "residual_btc": 0.0,
+        "state": "hypothetical_partial_request_closed"
+      }
+    },
+    {
+      "available_fraction": 0.5,
+      "extra_slippage_bps": 5.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.0034999999999999996,
+        "unfilled_btc": 0.0015000000000000005,
+        "full_fill": false,
+        "vwap": 60030.721789285715,
+        "notional_usdt": 210.1075262625,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.0034999999999999996,
+        "filled_btc": 0.0034999999999999996,
+        "unfilled_btc": 0,
+        "full_fill": true,
+        "vwap": 59969.278932142865,
+        "notional_usdt": 209.8924762625,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.4250500012624909,
+        "residual_btc": 0.0,
+        "state": "hypothetical_partial_request_closed"
+      }
+    },
+    {
+      "available_fraction": 0.1,
+      "extra_slippage_bps": 0.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.0007000000000000001,
+        "unfilled_btc": 0.0043,
+        "full_fill": false,
+        "vwap": 60000.72142857143,
+        "notional_usdt": 42.000505000000004,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.0007000000000000001,
+        "filled_btc": 0.0007000000000000001,
+        "unfilled_btc": 5.421010862427522e-20,
+        "full_fill": true,
+        "vwap": 59999.278571428564,
+        "notional_usdt": 41.999495,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.04301000000000085,
+        "residual_btc": 0.0,
+        "state": "hypothetical_partial_request_closed"
+      }
+    },
+    {
+      "available_fraction": 0.1,
+      "extra_slippage_bps": 1.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.0007000000000000001,
+        "unfilled_btc": 0.0043,
+        "full_fill": false,
+        "vwap": 60006.72150071429,
+        "notional_usdt": 42.00470505050001,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.0007000000000000001,
+        "filled_btc": 0.0007000000000000001,
+        "unfilled_btc": 5.421010862427522e-20,
+        "full_fill": true,
+        "vwap": 59993.27864357143,
+        "notional_usdt": 41.995295050500005,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.051410000050502586,
+        "residual_btc": 0.0,
+        "state": "hypothetical_partial_request_closed"
+      }
+    },
+    {
+      "available_fraction": 0.1,
+      "extra_slippage_bps": 5.0,
+      "entry": {
+        "requested_btc": 0.005,
+        "filled_btc": 0.0007000000000000001,
+        "unfilled_btc": 0.0043,
+        "full_fill": false,
+        "vwap": 60030.7217892857,
+        "notional_usdt": 42.0215052525,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "exit": {
+        "requested_btc": 0.0007000000000000001,
+        "filled_btc": 0.0007000000000000001,
+        "unfilled_btc": 5.421010862427522e-20,
+        "full_fill": true,
+        "vwap": 59969.27893214286,
+        "notional_usdt": 41.978495252500004,
+        "levels_used": 3,
+        "scope": "snapshot availability stress; no queue/race probability or inferred missing depth"
+      },
+      "round_trip": {
+        "net_usdt": -0.08501000025249533,
+        "residual_btc": 0.0,
+        "state": "hypothetical_partial_request_closed"
+      }
+    }
+  ],
+  "cooldown": {
+    "0": {
+      "selected": [
+        {
+          "signal_ms": 2000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 1000
+        },
+        {
+          "signal_ms": 4000,
+          "direction": -1,
+          "move_bps": -0.08333263889492848,
+          "hurdle_bps": 0.026352094234031093,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352094234031093,
+          "baseline_ms": 2000
+        },
+        {
+          "signal_ms": 6000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 4000
+        },
+        {
+          "signal_ms": 8000,
+          "direction": -1,
+          "move_bps": -0.08333263889492848,
+          "hurdle_bps": 0.026352094234031093,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352094234031093,
+          "baseline_ms": 6000
+        },
+        {
+          "signal_ms": 10000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 8000
+        }
+      ],
+      "excluded": []
+    },
+    "10000": {
+      "selected": [
+        {
+          "signal_ms": 2000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 1000
+        }
+      ],
+      "excluded": [
+        {
+          "signal_ms": 4000,
+          "direction": -1,
+          "move_bps": -0.08333263889492848,
+          "hurdle_bps": 0.026352094234031093,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352094234031093,
+          "baseline_ms": 2000,
+          "reason": "cooldown"
+        },
+        {
+          "signal_ms": 6000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 4000,
+          "reason": "cooldown"
+        },
+        {
+          "signal_ms": 8000,
+          "direction": -1,
+          "move_bps": -0.08333263889492848,
+          "hurdle_bps": 0.026352094234031093,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352094234031093,
+          "baseline_ms": 6000,
+          "reason": "cooldown"
+        },
+        {
+          "signal_ms": 10000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 8000,
+          "reason": "cooldown"
+        }
+      ]
+    },
+    "30000": {
+      "selected": [
+        {
+          "signal_ms": 2000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 1000
+        }
+      ],
+      "excluded": [
+        {
+          "signal_ms": 4000,
+          "direction": -1,
+          "move_bps": -0.08333263889492848,
+          "hurdle_bps": 0.026352094234031093,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352094234031093,
+          "baseline_ms": 2000,
+          "reason": "cooldown"
+        },
+        {
+          "signal_ms": 6000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 4000,
+          "reason": "cooldown"
+        },
+        {
+          "signal_ms": 8000,
+          "direction": -1,
+          "move_bps": -0.08333263889492848,
+          "hurdle_bps": 0.026352094234031093,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352094234031093,
+          "baseline_ms": 6000,
+          "reason": "cooldown"
+        },
+        {
+          "signal_ms": 10000,
+          "direction": 1,
+          "move_bps": 0.08333333333387927,
+          "hurdle_bps": 0.026352313834909137,
+          "spread_bps": 0.016666666667636793,
+          "rms_bps": 0.026352313834909137,
+          "baseline_ms": 8000,
+          "reason": "cooldown"
+        }
+      ]
+    }
+  },
+  "clusters": [
+    {
+      "signal_ms": 2000,
+      "direction": 1,
+      "move_bps": 0.08333333333387927,
+      "hurdle_bps": 0.026352313834909137,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352313834909137,
+      "baseline_ms": 1000,
+      "cluster_id": 0
+    },
+    {
+      "signal_ms": 4000,
+      "direction": -1,
+      "move_bps": -0.08333263889492848,
+      "hurdle_bps": 0.026352094234031093,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352094234031093,
+      "baseline_ms": 2000,
+      "cluster_id": 0
+    },
+    {
+      "signal_ms": 6000,
+      "direction": 1,
+      "move_bps": 0.08333333333387927,
+      "hurdle_bps": 0.026352313834909137,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352313834909137,
+      "baseline_ms": 4000,
+      "cluster_id": 0
+    },
+    {
+      "signal_ms": 8000,
+      "direction": -1,
+      "move_bps": -0.08333263889492848,
+      "hurdle_bps": 0.026352094234031093,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352094234031093,
+      "baseline_ms": 6000,
+      "cluster_id": 0
+    },
+    {
+      "signal_ms": 10000,
+      "direction": 1,
+      "move_bps": 0.08333333333387927,
+      "hurdle_bps": 0.026352313834909137,
+      "spread_bps": 0.016666666667636793,
+      "rms_bps": 0.026352313834909137,
+      "baseline_ms": 8000,
+      "cluster_id": 0
+    }
+  ],
+  "empirical_results": null,
+  "selected_winner": null
+}

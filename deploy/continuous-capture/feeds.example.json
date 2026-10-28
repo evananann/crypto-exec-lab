@@ -1,0 +1,29 @@
+{
+  "segment_seconds": 60,
+  "maximum_spool_bytes": 10000000000,
+  "reserve_free_bytes": 1000000000,
+  "maximum_frame_bytes": 262144,
+  "maximum_silence_seconds": 60,
+  "feeds": [
+    {
+      "name": "binance-bbo",
+      "url": "wss://fstream.binance.com/public/stream?streams=btcusdt@bookTicker"
+    },
+    {
+      "name": "okx-bbo",
+      "url": "wss://ws.okx.com:8443/ws/v5/public",
+      "subscribe": [
+        {
+          "op": "subscribe",
+          "args": [
+            {
+              "channel": "bbo-tbt",
+              "instId": "BTC-USDT-SWAP"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "maximum_queue_bytes": 64000000
+}

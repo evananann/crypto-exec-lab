@@ -10,9 +10,11 @@ one second from the signal using local receive time. A separate prospective
 study repeats the fixed test across dates and on Binance→Bybit.
 
 **Current conclusion:** empirical outcomes remain unavailable in the committed
-verified evidence. Two independently restored 15-minute infrastructure trials
-passed on October 22; the final qualification trial remains pending. These
-recordings do not establish scientific-study outcomes or profitable execution.
+verified evidence. The [successor registration](configs/successor/registered_study.json)
+records three qualified 15-minute infrastructure trials across October 22–23.
+Its study window is October 25–November 21 UTC, with outcomes gated until
+November 22, 08:00 Shanghai. Registration does not establish collected coverage
+or profitable execution.
 The project sends no live orders.
 
 Start with the [research memo](docs/RESEARCH_MEMO.md),
@@ -25,6 +27,11 @@ Its 18 fixed cases are synthetic arithmetic, with no market estimates or orders.
 Use the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
 coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
 reading order and reproducible audit questions.
+
+The [microstructure research tools](docs/MICROSTRUCTURE_RESEARCH.md) add causal
+OFI, a separate dynamic trigger, latency/depth stresses and event clustering.
+Their [continuous capture pilot](deploy/continuous-capture/README.md) is undeployed;
+these tools require a future experiment and do not alter the registered study.
 
 The [secondary model comparison](docs/MODEL_COMPARISON.md) adds causal BBO
 features, executable round-trip labels, fixed ridge/logistic models and purged
@@ -40,14 +47,13 @@ spoken performance and feedback require the candidate's answers.
 The [project status page](reports/project_status/index.html) separates software,
 collection and research evidence. Use the [live status workflow](https://github.com/evananann/crypto-exec-lab/actions/workflows/project-status.yml)
 for refreshed checks. The [successor collection path](docs/SUCCESSOR_COLLECTION.md)
-adds durable slot claims and richer provenance; its scientific study remains
-blocked until prospective rehearsal qualification and a separate source freeze.
-The [October 20–21 schedule](docs/APPROVED_TRIALS.md) is historical: all three
-cron wake-ups were late and none qualified. The current
-[prepared-runner cohort](reports/prepared_cohort_20261022/README.md) has two
-verified on-time trials. Its final intended start is **October 23, 04:15 UTC
-(12:15 Shanghai)**. Qualification, separate registration and scientific
-collection remain gated; early wake-ups provide no scheduling guarantee.
+adds durable slot claims and richer provenance. The October 23 registration fixed 56
+slots across October 25–November 21 UTC; current collection coverage has not been
+re-audited here. The [October 20–21 schedule](docs/APPROVED_TRIALS.md) and
+[October 22 readback](reports/prepared_cohort_20261022/README.md) remain dated
+historical evidence. The registration embeds the full three-trial qualification
+record, including the October 23 trial. Early wake-ups provide no scheduling
+guarantee, and the new acquisition pilot cannot backfill registered slots.
 
 ## Evidence a reviewer can inspect
 
@@ -57,7 +63,7 @@ collection remain gated; early wake-ups provide no scheduling guarantee.
 | [Trading decision and exit-cost frontier](reports/trading_decision/decision.md) | Exact long/short cash bridge, break-even markout hurdles and assumption sensitivity; no alpha, fill probability or capacity estimate |
 | [Archive restore records](reports/operations/all-release-restores.json) | Eight original preflight attempts independently downloaded and restored, including failures |
 | [Successor rehearsal](reports/successor_validation/README.md) | A real 900-second BBO rehearsal with 388,049 events, independently restored after preservation recovery; not a frozen-study observation |
-| [Prepared qualification readback](reports/prepared_cohort_20261022/README.md) | Two healthy 900-second trials, 643,677 total events, starts 4.434264 s and 3.744673 s late; original runs, archive hashes and source bindings checked; full cohort pending |
+| [Prepared qualification readback](reports/prepared_cohort_20261022/README.md) | Two healthy 900-second trials, 643,677 total events, starts 4.434264 s and 3.744673 s late; original runs, archive hashes and source bindings checked as of October 22; registration records the later full cohort |
 | [56-session report benchmark](reports/successor_report_workload/README.md) | Complete offline synthetic report workload, measured runtime, memory and bounded temporary disk; no empirical market evidence |
 | [Report stress measurements](reports/successor_report_stress/README.md) | Separate 400,000-event bursty and dense-signal sessions, with failure-cleanup and published-evidence checks in CI; engineering evidence only |
 | [Power and execution audits](reports/research_audit/README.md) | Reproducible assumption calculations and adversarial synthetic examples, with source hashes |

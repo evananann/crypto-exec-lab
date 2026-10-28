@@ -350,13 +350,30 @@ class StatusFailureTests(unittest.TestCase):
         inventory = {'healthy':False,'as_of_utc':'2026-10-19T00:00:00Z', 'inventory_available':False,
                      'counts':{'unverified':5},'sessions':[],'alerts':['inventory unavailable'],
                      'scope':'collection health only'}
-        with patch('scripts.project_status.api_json',side_effect=RuntimeError('unavailable')), patch('scripts.project_status.collection_inventory',return_value=inventory), patch('scripts.project_status.rehearsal_readiness',side_effect=ValueError('no evidence')):
+        with patch('scripts.project_status.api_json',side_effect=RuntimeError('unavailable')), patch('scripts.project_status.collection_inventory',return_value=inventory), patch('scripts.project_status.rehearsal_readiness',side_effect=ValueError('no evidence')), patch('scripts.successor_study.load_registration',side_effect=ValueError('no verified registration')):
             state = build('owner/repo')
         self.assertEqual(state['software']['state'],'unverified')
         self.assertEqual(state['collection']['state'],'ALERT')
         self.assertEqual(state['collection']['counts'],{'unverified':5})
         self.assertEqual(state['successor']['state'],'unverified')
         self.assertFalse(state['successor']['study_activated'])
+
+    def test_verified_registration_does_not_make_unavailable_inventory_healthy(self):
+        from unittest.mock import patch
+        from scripts.project_status import build
+        plan = {'study_id': 'synthetic', 'start_date_utc': '2030-01-01',
+                'end_date_utc': '2030-01-28', 'outcome_release_date_utc': '2030-01-29'}
+        inventory = {'healthy': False, 'as_of_utc': '2030-01-01T00:00:00Z', 'inventory_available': False,
+                     'counts': {'unverified': 5}, 'sessions': [], 'alerts': ['inventory unavailable'],
+                     'scope': 'collection health only'}
+        # Registration is now present on main; isolate both registration states explicitly.
+        with patch('scripts.project_status.api_json', side_effect=RuntimeError('unavailable')), patch('scripts.project_status.collection_inventory', return_value=inventory), patch('scripts.project_status.rehearsal_readiness', side_effect=ValueError('no evidence')), patch('scripts.successor_study.load_registration', return_value=plan):
+            state = build('owner/repo')
+        self.assertTrue(state['successor']['study_activated'])
+        self.assertEqual(state['collection']['state'], 'ALERT')
+        self.assertFalse(state['collection']['inventory_available'])
+        self.assertEqual(state['successor']['state'], 'unverified')
+        self.assertEqual(state['software']['state'], 'unverified')
 
 
 class ProtocolEvolutionTests(unittest.TestCase):
