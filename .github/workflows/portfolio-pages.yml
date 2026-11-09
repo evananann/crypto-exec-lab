@@ -34,7 +34,7 @@ jobs:
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
         with:
           python-version: '3.12'
-      - name: Build allowlisted synthetic portfolio preview
+      - name: Build research portfolio and decision workbench
         run: python -S -m research.portfolio_site build --output data/raw/portfolio-site
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
