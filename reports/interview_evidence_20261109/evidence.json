@@ -1,0 +1,603 @@
+{
+  "synthetic": true,
+  "market_tapes_read": 0,
+  "controls": {
+    "no_information": {
+      "synthetic": true,
+      "policy_mean_net_usd": [
+        "0",
+        "0"
+      ],
+      "diagnostics": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "1bc1d967de3ac95151d9f05a264806754d0b9bf8bd04c114f720ac91fdd82161",
+          "ledger_sha256": "7100e1a4fac4df8fdbe6127630f06ccbc1ff39f3f3480e9f9e50806b6173b745",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0"
+        },
+        "opportunity_set_sha256": "a06965bb3786aff59d64a8adeecbb6aef7a229564583ed010917b7db55bf09fe",
+        "available_pairs": 48,
+        "unavailable_opportunity_ids": [],
+        "action_matrix_local_rows_cross_columns": {
+          "-1": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "0": {
+            "-1": 0,
+            "0": 48,
+            "1": 0
+          },
+          "1": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          }
+        },
+        "executed_entries_local_cross": [
+          0,
+          0
+        ],
+        "policy_contrast_opportunities": 0,
+        "occupied_dates": 6,
+        "contrast_dates": 0,
+        "attribution": {
+          "same_action": {
+            "opportunities": 48,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "filtered_local": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "added_cross": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "reversed": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          }
+        },
+        "sum_incremental_net_usd": "0",
+        "leave_one_date_out": [
+          {
+            "excluded_utc_date": "2024-11-01",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0"
+          },
+          {
+            "excluded_utc_date": "2024-11-02",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0"
+          },
+          {
+            "excluded_utc_date": "2024-11-03",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0"
+          },
+          {
+            "excluded_utc_date": "2024-11-04",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0"
+          },
+          {
+            "excluded_utc_date": "2024-11-05",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0"
+          },
+          {
+            "excluded_utc_date": "2024-11-06",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0"
+          }
+        ],
+        "missingness": {
+          "assumed_absolute_missing_delta_bound_usd": "1",
+          "all_opportunity_mean_bounds_usd": [
+            "0",
+            "0"
+          ],
+          "missing_mean_usd_to_erase_observed_total": null,
+          "scope": "Assumption-based arithmetic, not an estimated missing-data distribution or confidence interval"
+        },
+        "interpretation_status": "no_policy_contrast",
+        "score_scale_warning": "Averaging local and leader scores changes local weight. A matched local/2 comparator is needed before attributing improvement to added leader information.",
+        "limitations": "No causal identification, p-value or deployment recommendation. Same-action agreement and five contrast dates do not establish population inference. Spread is already in gross fill PnL; fees are attributed once."
+      }
+    },
+    "helpful": {
+      "synthetic": true,
+      "policy_mean_net_usd": [
+        "0",
+        "0.1380000"
+      ],
+      "diagnostics": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "84391bb652e305ae414525f9e06826dd5cdb4773f3a31cc0854648fcca6efec5",
+          "ledger_sha256": "2d25dabcbeaf7bf006ab458f60234b293f3c20d8f2545b18c8e2fb766efea320",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0"
+        },
+        "opportunity_set_sha256": "a06965bb3786aff59d64a8adeecbb6aef7a229564583ed010917b7db55bf09fe",
+        "available_pairs": 48,
+        "unavailable_opportunity_ids": [],
+        "action_matrix_local_rows_cross_columns": {
+          "-1": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "0": {
+            "-1": 24,
+            "0": 0,
+            "1": 24
+          },
+          "1": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          }
+        },
+        "executed_entries_local_cross": [
+          0,
+          48
+        ],
+        "policy_contrast_opportunities": 48,
+        "occupied_dates": 6,
+        "contrast_dates": 6,
+        "attribution": {
+          "same_action": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "filtered_local": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "added_cross": {
+            "opportunities": 48,
+            "gross_difference_usd": "9.504",
+            "fee_saving_usd": "-2.8800000",
+            "net_difference_usd": "6.6240000"
+          },
+          "reversed": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          }
+        },
+        "sum_incremental_net_usd": "6.6240000",
+        "leave_one_date_out": [
+          {
+            "excluded_utc_date": "2024-11-01",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.1380000"
+          },
+          {
+            "excluded_utc_date": "2024-11-02",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.1380000"
+          },
+          {
+            "excluded_utc_date": "2024-11-03",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.1380000"
+          },
+          {
+            "excluded_utc_date": "2024-11-04",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.1380000"
+          },
+          {
+            "excluded_utc_date": "2024-11-05",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.1380000"
+          },
+          {
+            "excluded_utc_date": "2024-11-06",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.1380000"
+          }
+        ],
+        "missingness": {
+          "assumed_absolute_missing_delta_bound_usd": "1",
+          "all_opportunity_mean_bounds_usd": [
+            "0.1380000",
+            "0.1380000"
+          ],
+          "missing_mean_usd_to_erase_observed_total": null,
+          "scope": "Assumption-based arithmetic, not an estimated missing-data distribution or confidence interval"
+        },
+        "interpretation_status": "descriptive_only",
+        "score_scale_warning": "Averaging local and leader scores changes local weight. A matched local/2 comparator is needed before attributing improvement to added leader information.",
+        "limitations": "No causal identification, p-value or deployment recommendation. Same-action agreement and five contrast dates do not establish population inference. Spread is already in gross fill PnL; fees are attributed once."
+      }
+    },
+    "misleading": {
+      "synthetic": true,
+      "policy_mean_net_usd": [
+        "0",
+        "-0.2620000"
+      ],
+      "diagnostics": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "d24bcb1e72e8d234d861e7b33cdd772d668416e550c66832db46c7bc642e304f",
+          "ledger_sha256": "a4bde7d060908180e9c8560b009e1118fc1f8724494a356f87a594f50ec289bf",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0"
+        },
+        "opportunity_set_sha256": "a06965bb3786aff59d64a8adeecbb6aef7a229564583ed010917b7db55bf09fe",
+        "available_pairs": 48,
+        "unavailable_opportunity_ids": [],
+        "action_matrix_local_rows_cross_columns": {
+          "-1": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "0": {
+            "-1": 24,
+            "0": 0,
+            "1": 24
+          },
+          "1": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          }
+        },
+        "executed_entries_local_cross": [
+          0,
+          48
+        ],
+        "policy_contrast_opportunities": 48,
+        "occupied_dates": 6,
+        "contrast_dates": 6,
+        "attribution": {
+          "same_action": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "filtered_local": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "added_cross": {
+            "opportunities": 48,
+            "gross_difference_usd": "-9.696",
+            "fee_saving_usd": "-2.8800000",
+            "net_difference_usd": "-12.5760000"
+          },
+          "reversed": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          }
+        },
+        "sum_incremental_net_usd": "-12.5760000",
+        "leave_one_date_out": [
+          {
+            "excluded_utc_date": "2024-11-01",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "-0.2620000"
+          },
+          {
+            "excluded_utc_date": "2024-11-02",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "-0.2620000"
+          },
+          {
+            "excluded_utc_date": "2024-11-03",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "-0.2620000"
+          },
+          {
+            "excluded_utc_date": "2024-11-04",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "-0.2620000"
+          },
+          {
+            "excluded_utc_date": "2024-11-05",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "-0.2620000"
+          },
+          {
+            "excluded_utc_date": "2024-11-06",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "-0.2620000"
+          }
+        ],
+        "missingness": {
+          "assumed_absolute_missing_delta_bound_usd": "1",
+          "all_opportunity_mean_bounds_usd": [
+            "-0.2620000",
+            "-0.2620000"
+          ],
+          "missing_mean_usd_to_erase_observed_total": null,
+          "scope": "Assumption-based arithmetic, not an estimated missing-data distribution or confidence interval"
+        },
+        "interpretation_status": "descriptive_only",
+        "score_scale_warning": "Averaging local and leader scores changes local weight. A matched local/2 comparator is needed before attributing improvement to added leader information.",
+        "limitations": "No causal identification, p-value or deployment recommendation. Same-action agreement and five contrast dates do not establish population inference. Spread is already in gross fill PnL; fees are attributed once."
+      }
+    },
+    "less_bad": {
+      "synthetic": true,
+      "policy_mean_net_usd": [
+        "-0.0722050",
+        "-0.0361025"
+      ],
+      "diagnostics": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "3fe57bc0d4e4f216aed73e26a025f0d935649272b2edc30e5e3ed1f368ee0d48",
+          "ledger_sha256": "9c05b97323db613ef12ec5c780289488899cae71d01b23e557f205af1cc992ea",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0"
+        },
+        "opportunity_set_sha256": "a06965bb3786aff59d64a8adeecbb6aef7a229564583ed010917b7db55bf09fe",
+        "available_pairs": 48,
+        "unavailable_opportunity_ids": [],
+        "action_matrix_local_rows_cross_columns": {
+          "-1": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 0,
+            "0": 24,
+            "1": 24
+          }
+        },
+        "executed_entries_local_cross": [
+          48,
+          24
+        ],
+        "policy_contrast_opportunities": 24,
+        "occupied_dates": 6,
+        "contrast_dates": 6,
+        "attribution": {
+          "same_action": {
+            "opportunities": 24,
+            "gross_difference_usd": "0.000",
+            "fee_saving_usd": "0E-7",
+            "net_difference_usd": "0E-7"
+          },
+          "filtered_local": {
+            "opportunities": 24,
+            "gross_difference_usd": "0.288",
+            "fee_saving_usd": "1.4449200",
+            "net_difference_usd": "1.7329200"
+          },
+          "added_cross": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "reversed": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          }
+        },
+        "sum_incremental_net_usd": "1.7329200",
+        "leave_one_date_out": [
+          {
+            "excluded_utc_date": "2024-11-01",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0361025"
+          },
+          {
+            "excluded_utc_date": "2024-11-02",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0361025"
+          },
+          {
+            "excluded_utc_date": "2024-11-03",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0361025"
+          },
+          {
+            "excluded_utc_date": "2024-11-04",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0361025"
+          },
+          {
+            "excluded_utc_date": "2024-11-05",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0361025"
+          },
+          {
+            "excluded_utc_date": "2024-11-06",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0361025"
+          }
+        ],
+        "missingness": {
+          "assumed_absolute_missing_delta_bound_usd": "1",
+          "all_opportunity_mean_bounds_usd": [
+            "0.0361025",
+            "0.0361025"
+          ],
+          "missing_mean_usd_to_erase_observed_total": null,
+          "scope": "Assumption-based arithmetic, not an estimated missing-data distribution or confidence interval"
+        },
+        "interpretation_status": "descriptive_only",
+        "score_scale_warning": "Averaging local and leader scores changes local weight. A matched local/2 comparator is needed before attributing improvement to added leader information.",
+        "limitations": "No causal identification, p-value or deployment recommendation. Same-action agreement and five contrast dates do not establish population inference. Spread is already in gross fill PnL; fees are attributed once."
+      }
+    },
+    "shrinkage_only": {
+      "synthetic": true,
+      "policy_mean_net_usd": [
+        "-0.0721050",
+        "0"
+      ],
+      "diagnostics": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "598056f5e1fbdcbee293fdaa364cdda902710ad2b78829b3ecb82d227a9a3e41",
+          "ledger_sha256": "449153a7784a9adaf8b922e0976945a6bc80a6d28eb2fe0c5c119909f4acb5e7",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0"
+        },
+        "opportunity_set_sha256": "a06965bb3786aff59d64a8adeecbb6aef7a229564583ed010917b7db55bf09fe",
+        "available_pairs": 48,
+        "unavailable_opportunity_ids": [],
+        "action_matrix_local_rows_cross_columns": {
+          "-1": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "0": {
+            "-1": 0,
+            "0": 0,
+            "1": 0
+          },
+          "1": {
+            "-1": 0,
+            "0": 48,
+            "1": 0
+          }
+        },
+        "executed_entries_local_cross": [
+          48,
+          0
+        ],
+        "policy_contrast_opportunities": 48,
+        "occupied_dates": 6,
+        "contrast_dates": 6,
+        "attribution": {
+          "same_action": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "filtered_local": {
+            "opportunities": 48,
+            "gross_difference_usd": "0.576",
+            "fee_saving_usd": "2.8850400",
+            "net_difference_usd": "3.4610400"
+          },
+          "added_cross": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          },
+          "reversed": {
+            "opportunities": 0,
+            "gross_difference_usd": "0",
+            "fee_saving_usd": "0",
+            "net_difference_usd": "0"
+          }
+        },
+        "sum_incremental_net_usd": "3.4610400",
+        "leave_one_date_out": [
+          {
+            "excluded_utc_date": "2024-11-01",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0721050"
+          },
+          {
+            "excluded_utc_date": "2024-11-02",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0721050"
+          },
+          {
+            "excluded_utc_date": "2024-11-03",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0721050"
+          },
+          {
+            "excluded_utc_date": "2024-11-04",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0721050"
+          },
+          {
+            "excluded_utc_date": "2024-11-05",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0721050"
+          },
+          {
+            "excluded_utc_date": "2024-11-06",
+            "remaining_opportunities": 40,
+            "mean_delta_usd": "0.0721050"
+          }
+        ],
+        "missingness": {
+          "assumed_absolute_missing_delta_bound_usd": "1",
+          "all_opportunity_mean_bounds_usd": [
+            "0.0721050",
+            "0.0721050"
+          ],
+          "missing_mean_usd_to_erase_observed_total": null,
+          "scope": "Assumption-based arithmetic, not an estimated missing-data distribution or confidence interval"
+        },
+        "interpretation_status": "descriptive_only",
+        "score_scale_warning": "Averaging local and leader scores changes local weight. A matched local/2 comparator is needed before attributing improvement to added leader information.",
+        "limitations": "No causal identification, p-value or deployment recommendation. Same-action agreement and five contrast dates do not establish population inference. Spread is already in gross fill PnL; fees are attributed once."
+      }
+    }
+  },
+  "invented_missingness_example": {
+    "assumed_absolute_missing_delta_bound_usd": "3",
+    "all_opportunity_mean_bounds_usd": [
+      "-0.6666666666666666666666666667",
+      "1.333333333333333333333333333"
+    ],
+    "missing_mean_usd_to_erase_observed_total": "-1",
+    "scope": "Assumption-based arithmetic, not an estimated missing-data distribution or confidence interval"
+  },
+  "source_sha256": {
+    "research/decision_study/__init__.py": "a9270e768b8fd78ccf37843102aba0ab5daee52ce91478dad616bc4d1b0bdd5a",
+    "research/decision_study/controls.py": "9c35cfc68efa7e0a730bbead1b54de31d38c6f19c34384363f80e34783e5804d",
+    "research/decision_study/coverage.py": "f06e996d990e7ca539ae6082d30e071eeb6e42afe34b2bb4988d36c6f4a10c2c",
+    "research/decision_study/delivery.py": "66f1311c1db8838b19e626f03f2107adf5411254f0561437fafbd3aa0cbad369",
+    "research/decision_study/diagnostics.py": "51cb7f3aa3310496f444b444b5f32b9a762f13f3d7b4172d35083602b09846f0",
+    "research/decision_study/historical.py": "49caa16731a8dce33919e701c362946b6c976c85500aa7206129b000140cff2c",
+    "research/decision_study/interview.py": "a580bd9fa83faa78841dc351db7975c9791eb8ffc6f7d54555bdfe2e9f3a0297",
+    "research/decision_study/paper.py": "a8aabb40f4e4f48fe77a54cca227195024a4afc92660fcd30f4cd42b54e616d9",
+    "research/decision_study/pipeline.py": "29abc72844fa120f6b9395131e9118f0b7405ba73eedc8c32ff015d02dc6495c",
+    "research/decision_study/portfolio.py": "eca2a065d793792b20e3987925f1c508cf03c6508bb85fd8b9788481753bc3b3",
+    "research/decision_study/workbench.py": "08c476665e8b693e31d9a39eb04365f9d929108163b023634e1b85059dcda3de"
+  }
+}

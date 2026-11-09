@@ -9,6 +9,7 @@ on:
       - 'reports/collection_review_20261109/**'
       - 'reports/collection_delivery_20261109/**'
       - 'tests/test_decision*'
+      - 'tests/test_interview*'
       - '.github/workflows/decision-workbench.yml'
   workflow_dispatch:
 permissions:
@@ -28,9 +29,10 @@ jobs:
         with:
           python-version: '3.12'
       - name: Test independent execution and accounting
-        run: python -S -m unittest tests.test_decision_pipeline tests.test_decision_workbench -v
+        run: python -S -m unittest tests.test_decision_pipeline tests.test_decision_workbench tests.test_interview_diagnostics -v
       - name: Build dashboard from committed evidence and synthetic controls
         run: |
+          python -S -m research.decision_study.interview --out data/raw/workbench/interview-evidence
           python -S -m research.decision_study.workbench --out data/raw/workbench/index.html
           python -S -m research.decision_study.paper --inputs data/raw/workbench/helpful-inputs.json --paper-csv data/raw/workbench/helpful-fills.csv --out data/raw/workbench/paper-fixture-check.json
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f

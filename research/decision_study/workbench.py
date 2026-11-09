@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 
 from .controls import control
+from .diagnostics import diagnose
 from .paper import FIELDS, synthetic_fills, reconcile
 from .portfolio import simulate
 
@@ -20,7 +21,7 @@ def build(path):
     if path.exists():
         raise ValueError("choose a new dashboard path")
     controls = {}
-    for name in ("no_information", "helpful", "misleading"):
+    for name in ("no_information", "helpful", "misleading", "less_bad", "shrinkage_only"):
         replay, opps, ledger, result = control(name)
         fills = synthetic_fills(ledger)
         paper = reconcile(replay, opps, ledger, fills)
@@ -33,6 +34,7 @@ def build(path):
         writer.writerows(fills)
         controls[name] = {
             "summary": result,
+            "diagnostics": diagnose(replay, opps, ledger),
             "ledger": ledger,
             "portfolio": simulate(replay, opps, ledger, "cross"),
             "paper": paper,

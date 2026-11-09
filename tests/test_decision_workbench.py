@@ -152,7 +152,10 @@ class WorkbenchTests(unittest.TestCase):
             p = Path(tmp) / "index.html"
             data = build(p)
             self.assertFalse(data["historical"]["active_study_outcomes_read"])
-            self.assertEqual(set(data["controls"]), {"no_information", "helpful", "misleading"})
+            self.assertEqual(
+                set(data["controls"]),
+                {"no_information", "helpful", "misleading", "less_bad", "shrinkage_only"},
+            )
             html = p.read_text()
             self.assertNotIn("__DATA__", html)
             self.assertNotIn("fetch(", html)

@@ -94,3 +94,21 @@ remaining inventory, cash/equity identities and rejection of active-window input
 The dashboard browser check also exercises tabs, scenario selection, ledger
 filtering, CSV download and desktop/mobile layout. These validate software;
 synthetic performance is never evidence of predictive alpha.
+
+## Interview diagnostics
+
+The execution view now decomposes incremental value into gross fill differences
+and fee savings, grouped by unchanged actions, filtered local trades, added cross
+trades and reversals. It also shows descriptive leave-one-date-out stability and
+terminal inventory valuation. Missingness bounds and break-even unobserved means
+are in the reproducible [interview packet](../reports/interview_evidence_20261109/README.md).
+
+The **Better baseline, still losing** and **Shrinkage, no leader information**
+controls expose two distinct inference errors: relative improvement is not an
+absolute trading edge, and averaging scores changes local exposure independently
+of added information. These are constructed controls; no historical threshold
+was changed. A fair future information comparison needs matched local scaling.
+
+Terminal liquidation is hypothetical: it uses residual quote-side depth after
+already processed fills, charges actual-notional unwind fees and refuses a full
+valuation when depth is inadequate. It does not submit orders or model impact.

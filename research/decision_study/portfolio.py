@@ -4,6 +4,31 @@ from decimal import Decimal
 from .pipeline import decimal
 
 
+def liquidation_snapshot(cash, lots, quote, fee_bps):
+    """Hypothetical full unwind at a fresh BBO; no fill is submitted or invented."""
+    long_qty = sum((q for q in lots.values() if q > 0), Decimal(0))
+    short_qty = -sum((q for q in lots.values() if q < 0), Decimal(0))
+    if not long_qty and not short_qty:
+        return {"status": "FLAT", "equity_usd": str(cash), "unwind_fee_usd": "0"}
+    if quote is None:
+        return {"status": "UNAVAILABLE_QUOTE", "equity_usd": None, "unwind_fee_usd": None}
+    quote.validate()
+    rate = decimal(fee_bps) / 10000
+    if rate < 0:
+        raise ValueError("nonnegative fee required")
+    if long_qty > decimal(quote.bid_qty) or short_qty > decimal(quote.ask_qty):
+        return {"status": "INSUFFICIENT_DEPTH", "equity_usd": None, "unwind_fee_usd": None}
+    sells = long_qty * decimal(quote.bid)
+    buys = short_qty * decimal(quote.ask)
+    fee = (sells + buys) * rate
+    return {
+        "status": "HYPOTHETICAL_FULL_UNWIND",
+        "equity_usd": str(cash + sells - buys - fee),
+        "unwind_fee_usd": str(fee),
+        "quote_time_ms": quote.time_ms,
+    }
+
+
 def simulate(replay, opportunities, ledger, policy, initial_cash="10000", max_gross_leverage="1.5"):
     replay.audit(opportunities, ledger)
     cash, cap = decimal(initial_cash), decimal(max_gross_leverage)
@@ -82,7 +107,32 @@ def simulate(replay, opportunities, ledger, policy, initial_cash="10000", max_gr
             }
         )
     remaining = {k: str(v) for k, v in lots.items() if v}
+    # Depth already consumed by the last event is not available again for unwind.
+    terminal_quote = replay.quote("follower", records[-1]["time_ms"]) if records else None
+    if terminal_quote is not None:
+        from dataclasses import replace
+
+        terminal_quote = replace(
+            terminal_quote,
+            bid_qty=str(
+                max(
+                    Decimal(0),
+                    decimal(terminal_quote.bid_qty)
+                    - depth_used.get((terminal_quote.time_ms, "bid"), Decimal(0)),
+                )
+            ),
+            ask_qty=str(
+                max(
+                    Decimal(0),
+                    decimal(terminal_quote.ask_qty)
+                    - depth_used.get((terminal_quote.time_ms, "ask"), Decimal(0)),
+                )
+            ),
+        )
     return {
+        "terminal_liquidation": liquidation_snapshot(
+            cash, lots, terminal_quote, replay.config.fee_bps
+        ),
         "status": "OPEN_INVENTORY" if remaining else "FLAT",
         "policy": policy,
         "initial_cash_usd": str(initial),

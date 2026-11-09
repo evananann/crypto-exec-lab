@@ -29,6 +29,10 @@ and its [guide](docs/DECISION_WORKBENCH.md): collection evidence, the historical
 pilot, synthetic controls, execution reconciliation and portfolio accounting.
 Download the HTML or serve it locally; GitHub's file viewer does not run it.
 
+For interview preparation, use the [case study and evidence map](docs/INTERVIEW_CASE_STUDY.md):
+why a policy can beat its baseline without making money, how score shrinkage can
+imitate added information, and which accounting and robustness checks support each claim.
+
 The [decision-study reviewer guide](docs/DECISION_STUDY.md) covers
 shared local/cross-venue replay, audited paired outcomes, a reproducible synthetic
 memo, and a dated metadata-only collection review. The separate October 22 exploratory pilot found zero active decisions across 180

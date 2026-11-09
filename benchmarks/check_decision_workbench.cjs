@@ -10,6 +10,10 @@ if(await page.locator('#historical tr').count()!==2)throw Error('historical rows
 await page.getByRole('button',{name:'03 · Execution & risk'}).click();
 await page.locator('#scenario').selectOption('helpful');const help=await page.locator('#cash').innerText();
 await page.locator('#scenario').selectOption('misleading');const bad=await page.locator('#cash').innerText();if(!(Number(help)>10000&&Number(bad)<10000))throw Error('control chart mismatch');
+await page.locator('#scenario').selectOption('less_bad');
+if(!(Number(await page.locator('#cash').innerText())<10000&&Number(await page.locator('#delta').innerText())>0))throw Error('relative-versus-absolute control failed');
+await page.locator('#scenario').selectOption('shrinkage_only');
+if(!(Number(await page.locator('#cash').innerText())===10000&&Number(await page.locator('#delta').innerText())>0))throw Error('shrinkage control failed');
 await page.locator('#policy').selectOption('cross');if(await page.locator('#ledger tr').count()!==48)throw Error('filter mismatch');
 await page.locator('#scenario').selectOption('helpful');
 const [download]=await Promise.all([page.waitForEvent('download'),page.locator('#download').click()]);

@@ -80,3 +80,13 @@ synthetic estimator check. Present these as implemented research tools, not as
 observed maker alpha, physical latency calibration or a production deployment.
 Use the screening pitch linked there until a released scientific result supports
 an empirical findings sentence.
+
+## Current decision-workbench interview path
+
+Use the [case study and evidence map](INTERVIEW_CASE_STUDY.md) for the latest
+implemented work. It adds a constant-leader shrinkage counterexample, a candidate
+that beats its baseline while still losing money, exact gross/fee attribution,
+missingness and date sensitivity, and depth-aware residual valuation. These are
+synthetic research controls, not new alpha estimates. The actual October22 pilot
+has zero active decisions across180 sampled opportunities and does not identify
+an incremental information effect.

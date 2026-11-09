@@ -8,5 +8,8 @@
   "page_errors": [],
   "browser": "Chromium 154.0.8037.57",
   "playwright": "1.62.1",
-  "scope": "Local HTTP server, not live Pages publication"
+  "scope": "Local HTTP server, not live Pages publication",
+  "relative_vs_absolute_control": true,
+  "shrinkage_counterexample": true,
+  "attribution_view": true
 }
