@@ -28,7 +28,7 @@ def build(path):
         if corrupt:
             corrupt[0]["fee_usd"] = "999"
         stream = io.StringIO()
-        writer = csv.DictWriter(stream, fieldnames=FIELDS)
+        writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(fills)
         controls[name] = {
