@@ -1,8 +1,9 @@
 # Portfolio Pages publication
 
 The site consists of an overview, the existing interactive exit-cost lab, and
-synthetic maker/correlation examples. It contains no raw tapes or empirical study
-outputs. The builder accepts an exact checksum-bound synthetic presentation
+synthetic maker/correlation examples, and the decision workbench. The workbench
+includes the separate exploratory October22 pilot and metadata-only collection
+review. It contains no raw tapes or active registered-study outcomes. The builder accepts an exact checksum-bound synthetic presentation
 inventory and copies only allowlisted files. It does not install dependencies,
 read archives, fit models or bypass scientific release gates.
 
@@ -36,3 +37,21 @@ automatic Pages configuration with HTTP 403; deployment was skipped. This is a
 repository administration limitation, not a deployed website. An administrator
 must perform the setup above. The managed environment also does not allow direct
 HTTP access to the `github.io` host, so no public-site HTTP success is claimed.
+
+## Verified November 9 publication status
+
+[Run42603234321](https://github.com/evananann/crypto-exec-lab/actions/runs/42603234321)
+completed successfully after administrator activation. The public workflow page
+shows the build job completed in10seconds and the deploy job completed in43seconds,
+with deployment URL `https://evananann.github.io/crypto-exec-lab/`.
+The decision workbench is included as `workbench.html` in that artifact.
+
+- [Portfolio](https://evananann.github.io/crypto-exec-lab/)
+- [Decision workbench](https://evananann.github.io/crypto-exec-lab/workbench.html)
+
+This verifies publication through GitHub's deployment record. The same built
+workbench passed local Chromium desktop/mobile interaction checks. A direct
+HTTP request to the published host from this managed workspace was blocked at
+the proxy CONNECT stage with403; it did not reach the website. No live-host
+HTTP200 or hosted-browser rendering is claimed. The October28 failure above
+remains dated history; it is no longer the current publication state.

@@ -72,12 +72,12 @@ adds queue/cancellation races, missed profitable fills, fixed tail conditions an
 receive-clock correlation curves. Its [36-case report](reports/opportunity/README.md)
 and hero graphic are synthetic; no predictive or maker edge has been established.
 
-The [portfolio Pages preview](https://github.com/evananann/crypto-exec-lab/actions/runs/40701481904)
-built successfully. **Live publication awaits repository administrator setup:**
-GitHub returned HTTP 403 for automatic Pages configuration. Select **Settings →
-Pages → Source: GitHub Actions**, then rerun the
-[deployment workflow](.github/workflows/portfolio-pages.yml). The interactive
-[cost lab HTML](reports/trading_decision/decision.html) remains available offline.
+The [portfolio site](https://evananann.github.io/crypto-exec-lab/) and
+[decision workbench](https://evananann.github.io/crypto-exec-lab/workbench.html)
+are published through GitHub Pages. [Deployment 42603234321](https://github.com/evananann/crypto-exec-lab/actions/runs/42603234321)
+completed its build and deploy jobs on November 9 after administrator activation.
+The [cost lab HTML](reports/trading_decision/decision.html) and dashboard remain
+available offline. See [publication evidence and access limits](docs/PORTFOLIO_SITE.md).
 
 The [microstructure research tools](docs/MICROSTRUCTURE_RESEARCH.md) add causal
 OFI, a separate dynamic trigger, latency/depth stresses and event clustering.
