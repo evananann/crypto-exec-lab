@@ -24,6 +24,11 @@ November 22, 08:00 Shanghai. Registration does not establish collected coverage
 or profitable execution.
 The project sends no live orders.
 
+Start with the [decision-study reviewer guide](docs/DECISION_STUDY.md):
+shared local/cross-venue replay, audited paired outcomes, a reproducible synthetic
+memo, and a dated metadata-only collection review. The historical pilot remains
+blocked on eligible data; no empirical edge is claimed.
+
 Start with the [research memo](docs/RESEARCH_MEMO.md),
 [trading thesis and falsification plan](docs/TRADING_THESIS.md), and
 [trader decision memo](docs/TRADER_DECISION_MEMO.md). The

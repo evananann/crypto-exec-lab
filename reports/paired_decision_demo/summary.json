@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "audit": {
+    "passed": true,
+    "records": 96,
+    "input_sha256": "964d5dccdfc0bae27e585702dca01807dda8723f2170b5623038e9e5be3b3e3c",
+    "ledger_sha256": "9050d448a31b1239e3e74f46452e8a4ec0213050f9a5b825553d3dbac0263bb4",
+    "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0"
+  },
+  "planned_opportunities": 48,
+  "paired_available": 48,
+  "unavailable_opportunities": [],
+  "policy_order": [
+    "local",
+    "cross"
+  ],
+  "active_decisions": [
+    24,
+    30
+  ],
+  "policy_mean_usd_per_available_opportunity": [
+    "-0.00856625",
+    "-0.0119571875"
+  ],
+  "mean_increment_usd_per_available_opportunity": "-0.0033909375",
+  "occupied_utc_dates": 6,
+  "seed": 42,
+  "repetitions": 2000,
+  "method": "resample whole occupied UTC dates; pooled opportunity mean",
+  "inference_valid": true,
+  "ci95_usd": [
+    -0.005056770833333333,
+    -0.0017251041666666667
+  ],
+  "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+  "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias."
+}

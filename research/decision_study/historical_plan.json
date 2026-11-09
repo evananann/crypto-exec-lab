@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "exploratory_plan_data_blocked_not_registered",
+  "question": "Does leader information add net value to local-only execution decisions?",
+  "instrument": "Matched Binance and OKX linear BTC perpetuals; instrument IDs and BTC depth conversion must be verified before enrollment",
+  "eligibility": "Receive-time BBO tapes ending before 2026-10-25T00:00:00Z; exclude all active successor slots; no candles or invented exchange-to-local timestamp conversions",
+  "data_selection": "Earliest chronological independently verified eligible original recordings in an enumerated inventory; retain failed eligibility reasons; no selection on outcomes",
+  "policies": {"local": "100ms follower midpoint return", "cross": "Arithmetic mean of 100ms follower and leader midpoint returns"},
+  "config": {"quantity_btc": "0.001", "fee_bps": "5", "threshold_bps": "12", "delay_ms": 50, "horizon_ms": 1000, "lookback_ms": 100, "max_age_ms": 500},
+  "opportunities": "Every 10000ms on a fixed UTC grid inside joint tape coverage; same timestamps for both policies; no signal-conditioned enrollment",
+  "primary": "Cross minus local net USD per jointly available opportunity; abstentions zero, unavailable outcomes not zero",
+  "inference": "2000 whole occupied UTC-date bootstrap draws, seed42; unavailable below5dates; descriptive and exploratory even above5dates",
+  "limitations": "No portfolio PnL, funding, impact or live-order calibration; partial exits unavailable; no claim of untouched holdout or causal exchange leadership",
+  "decision": "No live deployment; further independent prospective validation required regardless of pilot outcome"
+}
