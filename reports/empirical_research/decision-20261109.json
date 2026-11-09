@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-11-09T06:48:28.759865+00:00",
+  "status": "evidence_pending",
+  "decision": "abstain_from_live_deployment",
+  "decision_basis": "Insufficient released evidence; not a finding of negative expected returns.",
+  "study_id": "btc-successor-v3-20261025",
+  "study_dates": {
+    "start": "2026-10-25",
+    "end": "2026-11-21"
+  },
+  "planned_slots": 56,
+  "release_date_utc": "2026-11-22",
+  "empirical_publication_gate_open": false,
+  "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+  "source_checks": [
+    {
+      "binding": "registered_science",
+      "files_checked": 91,
+      "matches": true
+    },
+    {
+      "binding": "model_comparison",
+      "files_checked": 5,
+      "matches": true
+    }
+  ],
+  "current_collection_coverage_verified": false,
+  "restricted_outcomes_read": false,
+  "primary_markout_bps": null,
+  "executable_net_return_bps": null,
+  "confidence_interval_bps": null,
+  "capacity_estimate": null
+}

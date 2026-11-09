@@ -1,3 +1,13 @@
+# Current decision record
+
+See the [November 9 evidence review and trading decision](decision-20261109.md).
+The successor is registered; empirical results remain gated until November 22,
+08:00 Shanghai. Current collection coverage has not been re-audited.
+
+The October 22 note below is retained as dated history and predates registration.
+
+---
+
 # Research note: evidence pending
 
 October 22, 2026. **Scientific finding unavailable; current decision: remain
