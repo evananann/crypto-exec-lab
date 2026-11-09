@@ -112,3 +112,9 @@ was changed. A fair future information comparison needs matched local scaling.
 Terminal liquidation is hypothetical: it uses residual quote-side depth after
 already processed fills, charges actual-notional unwind fees and refuses a full
 valuation when depth is inadequate. It does not submit orders or model impact.
+
+The terminal snapshot defaults to netting within the single follower account;
+offsetting research lots are not charged another round trip. The separate
+`segregated` sensitivity closes gross lots using the supplied BBO. It is not a
+venue-specific two-exchange liquidation model. Gross per-lot entry limits remain
+a conservative research constraint rather than a claim about exchange margin.

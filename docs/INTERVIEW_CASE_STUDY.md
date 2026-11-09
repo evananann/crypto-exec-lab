@@ -58,7 +58,7 @@ Do not retrofit a newly chosen comparator into the active frozen study.
 | Interview question | Defensible answer and proof |
 | --- | --- |
 | Why not show a Sharpe ratio? | Independent overlapping opportunity labels are not a portfolio return series. Separate financed cash/BTC accounting tracks shared cash, gross inventory and quote depth; it is not calibrated perpetual margin. |
-| Is zero net BTC flat? | Opposing lots retain gross exposure. The terminal unwind values longs at bid and shorts at ask, charges both fees, and returns unavailable if gross-side depth is insufficient. |
+| Is zero net BTC flat? | It depends on account netting. Same-account offsetting lots need no extra spread crossing; segregated lots may require gross closeout. The terminal snapshot declares its assumption, charges actual-notional fees and refuses unsupported depth. Real cross-venue closeout needs each venue’s own book. |
 | Can one date drive the result? | Every leave-one-date-out mean is reported. This is a descriptive stability diagnostic, not another confidence interval. |
 | Can missing data reverse the conclusion? | The missingness calculation reports the assumed unobserved mean needed to erase the observed total. Bounds depend on explicit assumptions; missing sessions and missing opportunities are different units. |
 | Does a policy contrast establish new information? | No. Shrinkage, turnover, cost savings, selection and changed exposure can alter outcomes. Attribution and the constant-leader counterexample make these alternatives inspectable. |

@@ -92,15 +92,30 @@ class InterviewDiagnosticsTests(unittest.TestCase):
 
     def test_gross_offsetting_inventory_still_costs_to_unwind(self):
         q = Quote(1, "99", "101", "2", "2")
-        r = liquidation_snapshot(Decimal(100), {"long": Decimal(1), "short": Decimal(-1)}, q, "5")
+        r = liquidation_snapshot(
+            Decimal(100), {"long": Decimal(1), "short": Decimal(-1)}, q, "5", netting="segregated"
+        )
         self.assertEqual(r["status"], "HYPOTHETICAL_FULL_UNWIND")
         self.assertEqual(Decimal(r["equity_usd"]), Decimal("97.9000"))
         self.assertEqual(Decimal(r["unwind_fee_usd"]), Decimal(".1000"))
         self.assertIsNone(
-            liquidation_snapshot(Decimal(100), {"long": Decimal(3), "short": Decimal(-3)}, q, "5")[
-                "equity_usd"
-            ]
+            liquidation_snapshot(
+                Decimal(100),
+                {"long": Decimal(3), "short": Decimal(-3)},
+                q,
+                "5",
+                netting="segregated",
+            )["equity_usd"]
         )
+
+    def test_same_account_netting_does_not_invent_another_roundtrip(self):
+        q = Quote(1, "99", "101", "0", "0")
+        r = liquidation_snapshot(Decimal(100), {"a": Decimal(1), "b": Decimal(-1)}, q, "5")
+        self.assertEqual(r["status"], "FLAT")
+        self.assertEqual(r["equity_usd"], "100")
+        self.assertEqual(r["unwind_fee_usd"], "0")
+        with self.assertRaises(ValueError):
+            liquidation_snapshot(Decimal(100), {}, None, "-1")
 
     def test_long_short_fees_and_no_quote(self):
         q = Quote(1, "99", "101", "2", "2")

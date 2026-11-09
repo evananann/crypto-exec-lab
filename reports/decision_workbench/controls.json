@@ -1973,6 +1973,7 @@
     ],
     "portfolio": {
       "terminal_liquidation": {
+        "netting_assumption": "account",
         "status": "FLAT",
         "equity_usd": "10000",
         "unwind_fee_usd": "0"
@@ -4568,6 +4569,7 @@
     ],
     "portfolio": {
       "terminal_liquidation": {
+        "netting_assumption": "account",
         "status": "FLAT",
         "equity_usd": "10006.6240000",
         "unwind_fee_usd": "0"
@@ -8713,6 +8715,7 @@
     ],
     "portfolio": {
       "terminal_liquidation": {
+        "netting_assumption": "account",
         "status": "FLAT",
         "equity_usd": "9987.4240000",
         "unwind_fee_usd": "0"
@@ -13146,6 +13149,7 @@
     ],
     "portfolio": {
       "terminal_liquidation": {
+        "netting_assumption": "account",
         "status": "FLAT",
         "equity_usd": "9998.2670800",
         "unwind_fee_usd": "0"
@@ -16523,6 +16527,7 @@
     ],
     "portfolio": {
       "terminal_liquidation": {
+        "netting_assumption": "account",
         "status": "FLAT",
         "equity_usd": "10000",
         "unwind_fee_usd": "0"

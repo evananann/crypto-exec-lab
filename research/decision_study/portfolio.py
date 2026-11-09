@@ -4,24 +4,34 @@ from decimal import Decimal
 from .pipeline import decimal
 
 
-def liquidation_snapshot(cash, lots, quote, fee_bps):
-    """Hypothetical full unwind at a fresh BBO; no fill is submitted or invented."""
-    long_qty = sum((q for q in lots.values() if q > 0), Decimal(0))
-    short_qty = -sum((q for q in lots.values() if q < 0), Decimal(0))
-    if not long_qty and not short_qty:
-        return {"status": "FLAT", "equity_usd": str(cash), "unwind_fee_usd": "0"}
-    if quote is None:
-        return {"status": "UNAVAILABLE_QUOTE", "equity_usd": None, "unwind_fee_usd": None}
-    quote.validate()
+def liquidation_snapshot(cash, lots, quote, fee_bps, *, netting="account"):
+    """Conditional closeout proxy. Account lots net; segregated lots close gross."""
+    if netting not in ("account", "segregated"):
+        raise ValueError("explicit account or segregated netting required")
     rate = decimal(fee_bps) / 10000
     if rate < 0:
         raise ValueError("nonnegative fee required")
+    long_qty = sum((q for q in lots.values() if q > 0), Decimal(0))
+    short_qty = -sum((q for q in lots.values() if q < 0), Decimal(0))
+    if netting == "account":
+        net = long_qty - short_qty
+        long_qty, short_qty = max(net, Decimal(0)), max(-net, Decimal(0))
+    result = {
+        "netting_assumption": netting,
+        "status": "FLAT",
+        "equity_usd": str(cash),
+        "unwind_fee_usd": "0",
+    }
+    if not long_qty and not short_qty:
+        return result
+    if quote is None:
+        return result | {"status": "UNAVAILABLE_QUOTE", "equity_usd": None, "unwind_fee_usd": None}
+    quote.validate()
     if long_qty > decimal(quote.bid_qty) or short_qty > decimal(quote.ask_qty):
-        return {"status": "INSUFFICIENT_DEPTH", "equity_usd": None, "unwind_fee_usd": None}
-    sells = long_qty * decimal(quote.bid)
-    buys = short_qty * decimal(quote.ask)
+        return result | {"status": "INSUFFICIENT_DEPTH", "equity_usd": None, "unwind_fee_usd": None}
+    sells, buys = long_qty * decimal(quote.bid), short_qty * decimal(quote.ask)
     fee = (sells + buys) * rate
-    return {
+    return result | {
         "status": "HYPOTHETICAL_FULL_UNWIND",
         "equity_usd": str(cash + sells - buys - fee),
         "unwind_fee_usd": str(fee),
