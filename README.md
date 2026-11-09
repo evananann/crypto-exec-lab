@@ -24,10 +24,15 @@ November 22, 08:00 Shanghai. Registration does not establish collected coverage
 or profitable execution.
 The project sends no live orders.
 
-Start with the [decision-study reviewer guide](docs/DECISION_STUDY.md):
+Start with the [interactive decision workbench](reports/decision_workbench/index.html)
+and its [guide](docs/DECISION_WORKBENCH.md): collection evidence, the historical
+pilot, synthetic controls, execution reconciliation and portfolio accounting.
+Download the HTML or serve it locally; GitHub's file viewer does not run it.
+
+The [decision-study reviewer guide](docs/DECISION_STUDY.md) covers
 shared local/cross-venue replay, audited paired outcomes, a reproducible synthetic
-memo, and a dated metadata-only collection review. The historical pilot remains
-blocked on eligible data; no empirical edge is claimed.
+memo, and a dated metadata-only collection review. The separate October 22 exploratory pilot found zero active decisions across 180
+fixed-grid opportunities; it establishes no trading edge or useful effect estimate.
 
 Start with the [research memo](docs/RESEARCH_MEMO.md),
 [trading thesis and falsification plan](docs/TRADING_THESIS.md), and

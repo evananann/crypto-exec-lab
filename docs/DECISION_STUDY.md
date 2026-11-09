@@ -5,6 +5,15 @@ both OKX and Binance information. It preserves the active registered study and
 its source files. The rules are illustrative, fixed and untrained. The output
 is a comparison of independent hypothetical opportunities, not portfolio PnL.
 
+## Current workbench
+
+The [interactive workbench and reproduction guide](DECISION_WORKBENCH.md) now
+adds actual pre-study historical observations, synthetic controls, a paper-fill
+adapter and event-ordered portfolio accounting. The initial data blocker below
+is dated history; the two restored October22 qualification tapes are now analyzed
+in a separate [exploratory pilot](../reports/historical_exploratory_20261109/memo.md).
+The active study's outcomes remain unread.
+
 ## Inspect the evidence
 
 1. [Executed synthetic memo](../reports/paired_decision_demo/memo.md): shared

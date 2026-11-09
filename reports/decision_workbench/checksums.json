@@ -1,0 +1,15 @@
+{
+  "README.md": "696969fa8512421ddcc7d7df98504f7d36813ea7f69c54e6e0285ef335174228",
+  "browser-check.json": "2304b8bc8635648687db1c00f2d5080f0f3f0d244b37aa00ea2cb6d645d848a7",
+  "controls.json": "31e402f950215fb4cac5b7dcc2f9d430f0282c0f2106dd0b548b5debc11e8df6",
+  "desktop.png": "a2d6f527a9c32408c580c8a9b45a879aba260c0a19469059c78693ad865d9472",
+  "helpful-fills.csv": "5d3ae2aec5955349506bf24aaa419515f5986350b5b0ca078db38c2c53a68b6a",
+  "helpful-inputs.json": "7f04b3c152936209b59b2750244c71664ca176caa95dcac07e3be07644f66aeb",
+  "index.html": "e8bb811361ff38bd54bca5de7c6c698cab5088db21981f70608be52a3b599d17",
+  "misleading-fills.csv": "8cc01d539b7eb2431d98c072a71e3f0357717c8cea46bf1f944298d0a52c0659",
+  "misleading-inputs.json": "a3f57ba901ee237c9a3c701ddddbed24960702a0f54403d7b121f1d65f9b0b85",
+  "mobile.png": "0a9aca24a37ea09aa9842a2e9668d1f9b2c16db46927649542c64cb7349005cb",
+  "no_information-fills.csv": "7b0a25c95e02211f2593122965885614d07deacdeab9458617e0240c2e4df425",
+  "no_information-inputs.json": "c272871b15f199618eaafc7c9c5680a5216b0539a6275beb4af86094c7b439fb",
+  "overview.png": "d452f659f5561ce3bb73dfcb2caae55f936686fbe0fef159d858f8b2ac3c3c44"
+}

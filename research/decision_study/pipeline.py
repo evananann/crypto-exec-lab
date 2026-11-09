@@ -258,7 +258,7 @@ illustrative rules, not trained or calibrated alpha models.
 
 {result['interpretation']}
 
-Decision: remain in research. Synthetic outcomes cannot authorize deployment.
+Decision: remain in research. {'Synthetic outcomes cannot authorize deployment.' if synthetic else 'This exploratory pilot cannot authorize deployment.'}
 Both policies share entry/exit quotes, fees and size rules. Spread is embedded
 in fills and is never subtracted again. Partial entry is allowed; unresolved
 exit inventory leaves net outcome unavailable. Missing outcomes are not zeros.

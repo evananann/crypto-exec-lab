@@ -1,0 +1,12 @@
+{
+  "desktop": true,
+  "mobile": true,
+  "tabs": true,
+  "scenario_switch": true,
+  "ledger_filter": true,
+  "csv_download": true,
+  "page_errors": [],
+  "browser": "Chromium 154.0.8037.57",
+  "playwright": "1.62.1",
+  "scope": "Local HTTP server, not live Pages publication"
+}

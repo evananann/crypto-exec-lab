@@ -1,0 +1,472 @@
+{
+  "as_of_utc": "2026-11-09T07:59:34.104813+00:00",
+  "claims": [
+    {
+      "slot_id": "2026-10-25-am",
+      "owner": "40141981106-1",
+      "claim_commit": "e4afdc2646aacd7cfe4ec2ed8435f8e7d731a2b8",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-25-am-40141981106-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "eff673d6d688f56b10846be52c6a22ecff25f7d11724668a46503e3a488c82fc",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "7fb5d6af3c7c20d5e929fec9af9ea4c9ebf13feb6abfa92eb963c3625656b915",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-10-25-am-40141981106-1.json"
+    },
+    {
+      "slot_id": "2026-10-25-pm",
+      "owner": "40198829017-1",
+      "claim_commit": "2b63659a35ab6ec8ed18ff53ee127b22611db4de",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-25-pm-40198829017-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "3ca4b416b6244d743dfc45e98873781fb5c5ff0b10e3b891823b1e006c79d619",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "57ab7393941211e126d6f62be6d39eeee5e5f13286d995a5488a533fc13849af",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-10-25-pm-40198829017-1.json"
+    },
+    {
+      "slot_id": "2026-10-26-am",
+      "owner": "40244039436-1",
+      "claim_commit": "b9031da7ce405bb435a7439c827d2a48038aa5d0",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-26-am-40244039436-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "468c521d071695ad532ac74f7e4a49bd6fcab1e7c5a29945250392c5fa8426a1",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "757c7fef95ea1ec7ceeb8e1ab1c12227424226ff9b7d9a83f91d5b1e70d85591",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-10-26-am-40244039436-1.json"
+    },
+    {
+      "slot_id": "2026-10-27-am",
+      "owner": "40426369723-1",
+      "claim_commit": "581d859661eee3d769781f279ae6e0d02dfa433f",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-27-am-40426369723-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "1c5797e8b58d22e166e0db2b3c873f4167de27f9e94800bcdaaf46b420774bf8",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "b75839594ad75932a08d9a53c79213b3f9ff5396beac7ccf8459cd3d62dc7417",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-10-27-am-40426369723-1.json"
+    },
+    {
+      "slot_id": "2026-10-28-am",
+      "owner": "40609336892-1",
+      "claim_commit": "a1fea44b7ae14cba97d070265ff7733357616e8f",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-28-am-40609336892-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "c890da3717b1622bf458f90ae64fc89f1dd19a3f5ceedec5fcc04bba932bacf2",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "d42ccfdff2015f660a8446b4aedbe6154c6b3c97688974f887a0eaf4d1dcb50e",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-10-28-am-40609336892-1.json"
+    },
+    {
+      "slot_id": "2026-10-29-am",
+      "owner": "40797426037-1",
+      "claim_commit": "4e2d034d6f6e80e87e8082e34c15cb0a65b31cb6",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-29-am-40797426037-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "c715fb66564a6afc8896f603c888fbe380291a6c99d0852656a3e2ff282876c8",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "4b8540b360e9ccc72c1bb2b8f8eff807e74caf02a57de85e78b0e27ca72da23b",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-10-29-am-40797426037-1.json"
+    },
+    {
+      "slot_id": "2026-10-30-am",
+      "owner": "40983206578-1",
+      "claim_commit": "794dfc144bdd00770a7553ee9b9711e96661de86",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-30-am-40983206578-1.tar.gz",
+      "metadata_error": "HTTPError"
+    },
+    {
+      "slot_id": "2026-10-31-am",
+      "owner": "41152123830-1",
+      "claim_commit": "7e8a332eb42a84e33dc58e83f66919e8e4e552e1",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-31-am-41152123830-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "d71803e0be82429922d8163601b14624f0ee1a69665cfba3921c5ebd5f3ce5c1",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "3d20c70dc6b4dee734945f31230e0d5f09da71fb760d5f8c673d692e61cadbd4",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-10-31-am-41152123830-1.json"
+    },
+    {
+      "slot_id": "2026-11-01-am",
+      "owner": "41255435032-1",
+      "claim_commit": "6b4da2ac9fbd0ca0f10c48333ce5846f6037f1bd",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-01-am-41255435032-1.tar.gz",
+      "metadata_error": "HTTPError"
+    },
+    {
+      "slot_id": "2026-11-02-am",
+      "owner": "41368855552-1",
+      "claim_commit": "8c269e4c15a5ba36e7a4409ad6d7aa3b12836362",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-02-am-41368855552-1.tar.gz",
+      "metadata_error": "HTTPError"
+    },
+    {
+      "slot_id": "2026-11-03-am",
+      "owner": "41569083986-1",
+      "claim_commit": "e8daca9d2a6ffed8c63beab9c7639e25fb54a861",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-03-am-41569083986-1.tar.gz",
+      "metadata_error": "HTTPError"
+    },
+    {
+      "slot_id": "2026-11-04-am",
+      "owner": "41753596652-1",
+      "claim_commit": "04daffb52067f2ba200cab3010bb6455de916416",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-04-am-41753596652-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "e9ca3cba44fb1da233db9dc779825e72d7a2e2c552f7103f6e742dc1ae3a2467",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "d4a763ddb976cbcd8015f25270f03bd2280e7854e88458c4f9188c48ec80856b",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-11-04-am-41753596652-1.json"
+    },
+    {
+      "slot_id": "2026-11-05-am",
+      "owner": "41948683995-1",
+      "claim_commit": "50269bc28561f5d0475296d91b0da6ccf8164e2f",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-05-am-41948683995-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "ddc9a08c1a44b0df3d96c00f4523b9b0a798299dfd711f53d9e3c9b618136be4",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "93f73adef51237b0b7cae53e2c2329b6a43388e8b72203fe4f883b1f1e6ff170",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-11-05-am-41948683995-1.json"
+    },
+    {
+      "slot_id": "2026-11-06-am",
+      "owner": "42144673438-1",
+      "claim_commit": "fdbbadd64969c72d61a45c0f3d02ec4a9e1a7be0",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-06-am-42144673438-1.tar.gz",
+      "metadata_error": "HTTPError"
+    },
+    {
+      "slot_id": "2026-11-07-am",
+      "owner": "42321299380-1",
+      "claim_commit": "5411f17c75bc5d2de2bf31015095886231d1d55d",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-07-am-42321299380-1.tar.gz",
+      "hosted_remote_restored": true,
+      "hosted_collection_healthy": true,
+      "hosted_timing_qualified": true,
+      "archive_sha256": "f91713e037d73bec140baeb04935f92dbcd59f30894bb89e388774fca56699de",
+      "archive_bytes_independently_verified": false,
+      "receipt_sha256": "cbc751754011cc72fe474ccb7087352697e3797aaca0a0a02d68aa9ce4c19a50",
+      "readback_url": "https://github.com/evananann/crypto-exec-lab/releases/download/study-archive-btc-execution-v1/readback-study-btc-successor-v3-20261025-2026-11-07-am-42321299380-1.json"
+    },
+    {
+      "slot_id": "2026-11-08-am",
+      "owner": "42430552756-1",
+      "claim_commit": "ec41b452545656d455ef022f4a67dc76238ef736",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-08-am-42430552756-1.tar.gz",
+      "metadata_error": "HTTPError"
+    },
+    {
+      "slot_id": "2026-11-09-am",
+      "owner": "42542799690-1",
+      "claim_commit": "ecca8db675ef00d26a1d0195db410284a01251bc",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-09-am-42542799690-1.tar.gz",
+      "metadata_error": "HTTPError"
+    }
+  ],
+  "elapsed_without_claim": [
+    {
+      "slot_id": "2026-10-26-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-10-27-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-10-28-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-10-29-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-10-30-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-10-31-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-11-01-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-11-02-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-11-03-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-11-04-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-11-05-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-11-06-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-11-07-pm",
+      "request_ref_observed": false
+    },
+    {
+      "slot_id": "2026-11-08-pm",
+      "request_ref_observed": false
+    }
+  ],
+  "recent_public_run_metadata": [
+    {
+      "run_id": "42542799690",
+      "created_at_utc": "2026-11-09T00:55:32Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-09-am"
+    },
+    {
+      "run_id": "42542786122",
+      "created_at_utc": "2026-11-09T00:55:23Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-09-am"
+    },
+    {
+      "run_id": "42497367207",
+      "created_at_utc": "2026-11-08T15:57:04Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": null
+    },
+    {
+      "run_id": "42430552756",
+      "created_at_utc": "2026-11-08T00:36:57Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-08-am"
+    },
+    {
+      "run_id": "42430542514",
+      "created_at_utc": "2026-11-08T00:36:50Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-08-am"
+    },
+    {
+      "run_id": "42387415142",
+      "created_at_utc": "2026-11-07T15:39:12Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": null
+    },
+    {
+      "run_id": "42321299380",
+      "created_at_utc": "2026-11-07T00:57:11Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-07-am"
+    },
+    {
+      "run_id": "42321283316",
+      "created_at_utc": "2026-11-07T00:57:02Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-07-am"
+    },
+    {
+      "run_id": "42255150926",
+      "created_at_utc": "2026-11-06T16:44:18Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": null
+    },
+    {
+      "run_id": "42144673438",
+      "created_at_utc": "2026-11-06T01:33:54Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_FAILURE"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-06-am"
+    },
+    {
+      "run_id": "42144655638",
+      "created_at_utc": "2026-11-06T01:33:45Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-06-am"
+    },
+    {
+      "run_id": "42074072073",
+      "created_at_utc": "2026-11-05T17:23:00Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": null
+    },
+    {
+      "run_id": "41948683995",
+      "created_at_utc": "2026-11-05T01:27:48Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-05-am"
+    },
+    {
+      "run_id": "41948670965",
+      "created_at_utc": "2026-11-05T01:27:41Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-05-am"
+    },
+    {
+      "run_id": "41875412905",
+      "created_at_utc": "2026-11-04T17:13:10Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": null
+    },
+    {
+      "run_id": "41753596652",
+      "created_at_utc": "2026-11-04T01:22:23Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-04-am"
+    },
+    {
+      "run_id": "41753583640",
+      "created_at_utc": "2026-11-04T01:22:16Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-04-am"
+    },
+    {
+      "run_id": "41679909714",
+      "created_at_utc": "2026-11-03T17:00:25Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": null
+    },
+    {
+      "run_id": "41569083986",
+      "created_at_utc": "2026-11-03T02:55:38Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-03-am"
+    },
+    {
+      "run_id": "41569068758",
+      "created_at_utc": "2026-11-03T02:55:29Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-03-am"
+    },
+    {
+      "run_id": "41510195621",
+      "created_at_utc": "2026-11-02T19:28:04Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": null
+    },
+    {
+      "run_id": "41368855552",
+      "created_at_utc": "2026-11-02T00:45:28Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-02-am"
+    },
+    {
+      "run_id": "41368840953",
+      "created_at_utc": "2026-11-02T00:45:19Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-02-am"
+    },
+    {
+      "run_id": "41324044707",
+      "created_at_utc": "2026-11-01T16:00:15Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": null
+    },
+    {
+      "run_id": "41255435032",
+      "created_at_utc": "2026-11-01T00:08:41Z",
+      "workflow_state": {
+        "status": "WORKFLOW_RUN_STATUS_COMPLETED",
+        "conclusion": "WORKFLOW_RUN_CONCLUSION_SUCCESS"
+      },
+      "eligible_preparation_slot_at_creation": "2026-11-01-am"
+    }
+  ],
+  "active_market_archives_downloaded": 0,
+  "outcomes_read": false,
+  "limits": "Public hosted declarations and checksum sidecars checked against Git claim bodies. Active archive contents and authenticated original workflow actors are not independently verified. Run creation time is not necessarily job start time."
+}

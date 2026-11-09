@@ -5,6 +5,10 @@ on:
     paths:
       - '.github/workflows/portfolio-pages.yml'
       - 'research/portfolio_site.py'
+      - 'research/decision_study/**'
+      - 'reports/historical_exploratory_20261109/**'
+      - 'reports/collection_review_20261109/**'
+      - 'reports/collection_delivery_20261109/**'
       - 'reports/opportunity/**'
       - 'reports/trading_decision/**'
   workflow_dispatch:

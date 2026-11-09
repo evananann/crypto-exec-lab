@@ -1,0 +1,41 @@
+name: decision workbench
+on:
+  push:
+    branches: [main, 'research/**']
+    paths:
+      - 'research/decision_study/**'
+      - 'research/portfolio_site.py'
+      - 'reports/historical_exploratory_20261109/**'
+      - 'reports/collection_review_20261109/**'
+      - 'reports/collection_delivery_20261109/**'
+      - 'tests/test_decision*'
+      - '.github/workflows/decision-workbench.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: decision-workbench-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Test independent execution and accounting
+        run: python -S -m unittest tests.test_decision_pipeline tests.test_decision_workbench -v
+      - name: Build dashboard from committed evidence and synthetic controls
+        run: |
+          python -S -m research.decision_study.workbench --out data/raw/workbench/index.html
+          python -S -m research.decision_study.paper --inputs data/raw/workbench/helpful-inputs.json --paper-csv data/raw/workbench/helpful-fills.csv --out data/raw/workbench/paper-fixture-check.json
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: decision-workbench-${{ github.run_id }}
+          path: data/raw/workbench/
+          if-no-files-found: error
+          retention-days: 90
