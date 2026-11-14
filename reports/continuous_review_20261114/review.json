@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-11-14T16:07:15.201582+00:00",
+  "cold_start": true,
+  "seed": 20261114,
+  "generated_parameter_cases": 1000,
+  "unique_cases_checked": 1000,
+  "new_case_ids_in_rolling_window": 1000,
+  "previous_regressions_replayed": 0,
+  "unclaimed_count_change_since_previous": null,
+  "resolved_prior_case_ids": [],
+  "outcome_counts": {
+    "OPEN": 214,
+    "ABSTAIN": 325,
+    "CLOSED": 310,
+    "REJECTED": 151
+  },
+  "failed_cases": [],
+  "readiness": {
+    "schema_version": 1,
+    "as_of_utc": "2026-11-14T16:07:15.201582+00:00",
+    "studies": [
+      {
+        "study_id": "btc-successor-v3-20261025",
+        "registration": "source_verified",
+        "release_utc": "2026-11-22T00:00:00+00:00",
+        "release_shanghai": "2026-11-22T08:00:00+08:00",
+        "outcome_time_gate_open": false,
+        "planned_slots": 56,
+        "outcomes_status": "EMPIRICAL_UNRELEASED",
+        "configuration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21"
+      },
+      {
+        "study_id": "btc-replication-v2-okx",
+        "registration": "configuration_exists_activation_not_authenticated",
+        "release_utc": "2026-11-23T00:00:00+00:00",
+        "release_shanghai": "2026-11-23T08:00:00+08:00",
+        "outcome_time_gate_open": false,
+        "outcomes_status": "EMPIRICAL_UNRELEASED",
+        "configuration_sha256": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9"
+      },
+      {
+        "study_id": "btc-replication-v2-bybit",
+        "registration": "configuration_exists_activation_not_authenticated",
+        "release_utc": "2026-11-23T00:00:00+00:00",
+        "release_shanghai": "2026-11-23T08:00:00+08:00",
+        "outcome_time_gate_open": false,
+        "outcomes_status": "EMPIRICAL_UNRELEASED",
+        "configuration_sha256": "cd4605e0c51843058e96a3f3c8448021d0a90a7b3c89b836a89989c77ad44a56"
+      }
+    ],
+    "outcome_files_read": 0,
+    "market_tapes_read": 0,
+    "source_binding_verified": true,
+    "signing_status": "SHA256 integrity binding; no cryptographic signer configured",
+    "decision": "Remain in research; a date gate opening alone never establishes eligible evidence or alpha."
+  },
+  "readiness_error": null,
+  "coverage": {
+    "as_of_utc": "2026-11-14T16:07:15.201582+00:00",
+    "planned_slots": 56,
+    "study_id": "btc-successor-v3-20261025",
+    "elapsed_claims": 21,
+    "unclaimed_after_allowance": [
+      "2026-10-26-pm",
+      "2026-10-27-pm",
+      "2026-10-28-pm",
+      "2026-10-29-pm",
+      "2026-10-30-pm",
+      "2026-10-31-pm",
+      "2026-11-01-pm",
+      "2026-11-02-pm",
+      "2026-11-03-pm",
+      "2026-11-04-pm",
+      "2026-11-05-pm",
+      "2026-11-06-pm",
+      "2026-11-07-pm",
+      "2026-11-08-pm",
+      "2026-11-09-pm",
+      "2026-11-10-am",
+      "2026-11-10-pm",
+      "2026-11-11-pm",
+      "2026-11-12-pm",
+      "2026-11-13-pm",
+      "2026-11-14-pm"
+    ],
+    "archive_health_verified": false,
+    "scope": "Fresh Git ownership metadata only; no market outcomes"
+  },
+  "recommendations": [
+    {
+      "priority": "P0",
+      "id": "collection-delivery",
+      "action": "Investigate future delivery and original-run metadata; preserve missing slots without backfill.",
+      "evidence_count": 21
+    },
+    {
+      "priority": "P1",
+      "id": "external-execution-evidence",
+      "action": "Obtain independent paper fills and instrument/clock metadata before claiming execution calibration."
+    }
+  ],
+  "critical_failure": false,
+  "strategy_parameters_changed": false,
+  "market_outcomes_read": 0,
+  "case_recipe": "bbo-roundtrip-reference-v1",
+  "checker_source_sha256": {
+    "research/roadmap/self_review.py": "321c94010df86da6c6ffcc1da49d602899ff90cd3ca52ef94782921735ab0127",
+    "research/decision_study/pipeline.py": "29abc72844fa120f6b9395131e9118f0b7405ba73eedc8c32ff015d02dc6495c"
+  },
+  "memory_scope": "Last10000 case IDs and30 reviews; new IDs are novel within that window, not lifetime uniqueness. Cache is best-effort; cold starts are explicit.",
+  "authority": "Regression discovery and recommendations only. No code edits, tuning, PRs, live orders or messages.",
+  "coverage_fetch_error": null
+}

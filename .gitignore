@@ -26,3 +26,6 @@ _pdf_pages/
 # OS / editor
 .idea/
 .vscode/
+
+# Continuous review memory is generated and cached separately.
+.self-review/

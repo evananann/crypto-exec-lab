@@ -116,6 +116,14 @@ historical evidence. The registration embeds the full three-trial qualification
 record, including the October 23 trial. Early wake-ups provide no scheduling
 guarantee, and the new acquisition pilot cannot backfill registered slots.
 
+## Continuous improvement
+
+[Daily research review](https://github.com/evananann/crypto-exec-lab/actions/workflows/self-review.yml)
+automatically checks new seeded cases, replays retained failures, reviews source/
+collection metadata and produces a ranked action queue. It preserves bounded
+history between runs when the cache is available. [Scope, recovery and stop instructions](docs/CONTINUOUS_REVIEW.md)
+explain why this is verification automation, not automatic strategy tuning or code repair.
+
 ## Evidence a reviewer can inspect
 
 | Evidence | What it establishes |

@@ -2,6 +2,29 @@
 
 Entries link evidence and limitations; they are not a claim of continuous trading.
 
+## 2026-11-14 — Continuous regression discovery and review memory
+
+**Problem:** static demonstrations do not accumulate engineering evidence or
+identify the next operational gap between chat sessions.
+
+**Change:** added a daily seeded differential-review workflow, bounded cache
+memory, retained/replayed counterexamples, source checks and a prioritized action
+queue. Branch runs cannot write main-branch review memory. No strategy tuning,
+protected-source edits, empirical outcome reads or automatic code repair occur.
+
+**Evidence:** [initial review](../reports/continuous_review_20261114/README.md),
+`tests/test_self_review.py`, and [workflow](../.github/workflows/self-review.yml).
+Tests inject a failure, retain it, replay it after a fix and verify resolution.
+Two sequential local runs verify window novelty/history behavior. Synthetic
+counterexample discovery is not alpha learning or an execution calibration.
+
+**Limits/next check:** confirm hosted cache continuity on later runs. Cache is
+best-effort and artifacts have configured90-day retention. Cold starts and
+unavailable metadata stay explicit. Source/financial-reference failures are
+critical; pending release gates and unknown collection health are not failures.
+
+**Reproduce:** see [continuous review](CONTINUOUS_REVIEW.md).
+
 ## 2026-11-14 — Can a comparator and its timing assumptions be defended?
 
 **Problem:** the external roadmap includes release-dependent tasks and capabilities

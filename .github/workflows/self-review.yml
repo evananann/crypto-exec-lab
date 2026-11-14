@@ -1,0 +1,76 @@
+name: continuous research review
+on:
+  push:
+    branches: [main, 'research/**']
+    paths:
+      - 'research/roadmap/**'
+      - 'research/decision_study/**'
+      - 'research/model_source_lock.json'
+      - 'research/model_engine.py'
+      - 'research/model_comparison.py'
+      - 'research/model_protocol.json'
+      - 'configs/**'
+      - 'cel/**'
+      - 'scripts/**'
+      - 'uv.lock'
+      - 'tests/test_self_review.py'
+      - '.github/workflows/self-review.yml'
+  schedule:
+    - cron: '47 0 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: continuous-review-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Restore bounded main-branch review memory
+        id: memory
+        continue-on-error: true
+        if: github.ref == 'refs/heads/main'
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: .self-review/state.json
+          key: self-review-v1-main-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: self-review-v1-main-
+      - name: Verify the review mechanism and research boundaries
+        run: python -S -m unittest tests.test_self_review tests.test_roadmap -v
+      - name: Discover synthetic regressions and refresh ownership metadata
+        run: >-
+          python -S -m research.roadmap.self_review
+          --seed ${{ github.run_id }} --cases 1000
+          --state .self-review/state.json
+          --out data/raw/continuous-review --refresh-claims
+      - name: Retain regressions even when a reference check fails
+        id: save_memory
+        continue-on-error: true
+        if: always() && github.ref == 'refs/heads/main' && hashFiles('.self-review/state.json') != ''
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: .self-review/state.json
+          key: self-review-v1-main-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Publish the review and next-action queue
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: continuous-review-${{ github.run_id }}
+          path: data/raw/continuous-review/
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Show current review in the run summary
+        if: always()
+        run: |
+          if test -f data/raw/continuous-review/README.md; then
+            cat data/raw/continuous-review/README.md >> "$GITHUB_STEP_SUMMARY"
+            echo "Cache restore: ${{ steps.memory.outcome }}; cache save: ${{ steps.save_memory.outcome }}. Cache errors do not establish uninterrupted history." >> "$GITHUB_STEP_SUMMARY"
+          fi
