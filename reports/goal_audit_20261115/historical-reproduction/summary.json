@@ -1,0 +1,105 @@
+{
+  "as_of_utc": "2026-11-14T17:11:36.963063+00:00",
+  "synthetic": false,
+  "exploratory": true,
+  "active_study_outcomes_read": false,
+  "config": {
+    "quantity_btc": "0.001",
+    "fee_bps": "5",
+    "threshold_bps": "12",
+    "delay_ms": 50,
+    "horizon_ms": 1000,
+    "lookback_ms": 100,
+    "max_age_ms": 500
+  },
+  "plan_sha256": "6faf7f5a6145f2c9437fb8b030069b361d45971f6311db56464c9278ade9475e",
+  "results": [
+    {
+      "schema_version": 1,
+      "audit": {
+        "passed": true,
+        "records": 180,
+        "input_sha256": "d6af06f3f63daa5b1abd97b9e1a00a55bad91e32299c5c2d969664a0701c658c",
+        "ledger_sha256": "0795826cd408048281cd01d42b14fd33a7dd7c4aaebbdd2da5a1d253791ea690",
+        "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0"
+      },
+      "planned_opportunities": 90,
+      "paired_available": 90,
+      "unavailable_opportunities": [],
+      "policy_order": [
+        "local",
+        "cross"
+      ],
+      "active_decisions": [
+        0,
+        0
+      ],
+      "policy_mean_usd_per_available_opportunity": [
+        "0",
+        "0"
+      ],
+      "mean_increment_usd_per_available_opportunity": "0",
+      "occupied_utc_dates": 1,
+      "seed": 42,
+      "repetitions": 2000,
+      "method": "resample whole occupied UTC dates; pooled opportunity mean",
+      "inference_valid": false,
+      "ci95_usd": null,
+      "interpretation": "Insufficient occupied dates; no inference.",
+      "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+      "run_id": 39719023935,
+      "synthetic": false,
+      "archive_sha256": "08d88a64e55f09dbb5bf5a118a0f92d43ae8a34c695763e4b4dd0d25be74c51e",
+      "source_commit": "d8a5e9d74e4bb53ec3f8803295fa3092b10b2b59",
+      "same_ms_collapsed": {
+        "binance": 183316,
+        "okx": 4
+      },
+      "receive_clock": "Last received BBO per integer millisecond; no submillisecond cross-venue ordering"
+    },
+    {
+      "schema_version": 1,
+      "audit": {
+        "passed": true,
+        "records": 180,
+        "input_sha256": "51eb23d9d0b2b0eb6b821a131ad76cf4ceea902b295c505adecd2b0386321e10",
+        "ledger_sha256": "6529850df8059d4ffa2434b11427227b3c1507a087e1f95727d2ee557acfad9c",
+        "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0"
+      },
+      "planned_opportunities": 90,
+      "paired_available": 90,
+      "unavailable_opportunities": [],
+      "policy_order": [
+        "local",
+        "cross"
+      ],
+      "active_decisions": [
+        0,
+        0
+      ],
+      "policy_mean_usd_per_available_opportunity": [
+        "0",
+        "0"
+      ],
+      "mean_increment_usd_per_available_opportunity": "0",
+      "occupied_utc_dates": 1,
+      "seed": 42,
+      "repetitions": 2000,
+      "method": "resample whole occupied UTC dates; pooled opportunity mean",
+      "inference_valid": false,
+      "ci95_usd": null,
+      "interpretation": "Insufficient occupied dates; no inference.",
+      "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+      "run_id": 39719029085,
+      "synthetic": false,
+      "archive_sha256": "137519eb693ce850214364f9549e7ebc3207098d8c89037dccd6d3c96c97abad",
+      "source_commit": "d8a5e9d74e4bb53ec3f8803295fa3092b10b2b59",
+      "same_ms_collapsed": {
+        "binance": 176895,
+        "okx": 0
+      },
+      "receive_clock": "Last received BBO per integer millisecond; no submillisecond cross-venue ordering"
+    }
+  ],
+  "decision": "Abstain; narrow qualification recordings, not a prospective holdout or deployable edge."
+}

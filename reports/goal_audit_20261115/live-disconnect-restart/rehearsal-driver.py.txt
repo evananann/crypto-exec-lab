@@ -1,0 +1,63 @@
+from pathlib import Path
+import os,sys,json,hashlib,subprocess,signal,gzip,base64
+from datetime import datetime,timezone
+root=Path('/Users/evan/Documents/ChatGPT/crypto lab/crypto-exec-lab');sys.path.insert(0,str(root))
+from research.continuous_capture import verify_spool
+out=root/'reports/goal_audit_20261115/live-disconnect-restart';out.mkdir(exist_ok=False)
+config=json.loads((root/'deploy/continuous-capture/feeds.example.json').read_text());config.update(segment_seconds=5,maximum_spool_bytes=50000000,maximum_silence_seconds=15,reserve_free_bytes=100000000)
+(out/'config.json').write_text(json.dumps(config,indent=2)+'\n')
+protocol={'created_at_utc':datetime.now(timezone.utc).isoformat(),'fault':'abort real Binance socket five seconds after first received message','restart':'fresh collector process in the same spool; stop with SIGTERM after 12 seconds','acceptance':['first process fails with retained transport/close fault','both sessions have real BBO wire messages from both feeds','prior file hashes unchanged after restart','distinct session and connection identities','second session exits cleanly','old fault remains in combined inventory'],'source_sha256':hashlib.sha256((root/'research/continuous_capture.py').read_bytes()).hexdigest(),'scope':'Bounded local public-feed failure experiment; no scientific enrollment'}
+(out/'protocol.json').write_text(json.dumps(protocol,indent=2)+'\n')
+child_program='''
+import json,sys,threading,time
+from pathlib import Path
+import websocket
+from research.continuous_capture import run
+original=websocket.WebSocketApp
+class FaultSocket(original):
+ def __init__(self,url,**handlers):
+  callback=handlers['on_message'];armed=[False]
+  def message(ws,raw):
+   callback(ws,raw)
+   if 'binance.com' in url and not armed[0]:
+    armed[0]=True
+    def disconnect():
+     Path(sys.argv[3]).write_text(json.dumps({'fault_applied':True,'monotonic_ns':time.monotonic_ns()}))
+     if ws.sock is not None:ws.sock.abort()
+    timer=threading.Timer(5,disconnect);timer.daemon=True;timer.start()
+  handlers['on_message']=message
+  super().__init__(url,**handlers)
+websocket.WebSocketApp=FaultSocket
+run(json.loads(Path(sys.argv[1]).read_text()),sys.argv[2])
+'''
+(out/'fault-child.py').write_text(child_program)
+env=dict(os.environ,SSL_CERT_FILE='/etc/ssl/cert.pem',PYTHONPATH=str(root))
+with (out/'fault-process.log').open('w') as log:
+ first=subprocess.Popen([str(root/'.venv/bin/python'),str(out/'fault-child.py'),str(out/'config.json'),str(out/'spool'),str(out/'fault-applied.json')],cwd=root,env=env,stdout=log,stderr=log)
+ try:first.wait(timeout=30)
+ except subprocess.TimeoutExpired:first.kill();first.wait();raise RuntimeError('fault process failed to stop')
+before={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (out/'spool').iterdir() if p.is_file()}
+first_inventory=verify_spool(out/'spool')
+with (out/'restart-process.log').open('w') as log:
+ second=subprocess.Popen([str(root/'.venv/bin/python'),'-m','research.continuous_capture','capture','--config',str(out/'config.json'),'--spool',str(out/'spool')],cwd=root,env=env,stdout=log,stderr=log)
+ try:second.wait(timeout=12)
+ except subprocess.TimeoutExpired:
+  second.send_signal(signal.SIGTERM)
+  try:second.wait(timeout=40)
+  except subprocess.TimeoutExpired:second.kill();second.wait();raise RuntimeError('restart process failed to stop')
+unchanged=all(hashlib.sha256((out/'spool'/name).read_bytes()).hexdigest()==sha for name,sha in before.items())
+counts={};connections={}
+for p in (out/'spool').glob('*.jsonl.gz'):
+ with gzip.open(p,'rt') as stream:
+  for line in stream:
+   r=json.loads(line)
+   if r['kind']!='wire':continue
+   session=r['capture_session_id'];feed=r['feed'];msg=json.loads(base64.b64decode(r['payload']));body=msg.get('data',msg)
+   bbo=isinstance(body,dict) and body.get('e')=='bookTicker' or isinstance(body,list) and bool(body) and msg.get('arg',{}).get('channel')=='bbo-tbt' and 'bids' in body[0]
+   if bbo:counts.setdefault(session,{}).setdefault(feed,0);counts[session][feed]+=1
+   connections.setdefault(session,set()).add(r['connection_id'])
+statuses=[json.loads(p.read_text()) for p in (out/'spool').glob('*status.json')]
+final=verify_spool(out/'spool')
+checks={'fault_applied':(out/'fault-applied.json').exists(),'first_failed':first.returncode!=0,'fault_retained':bool(first_inventory['reported_capture_faults']),'prior_files_unchanged':unchanged,'second_clean':second.returncode==0 and sum(not s['faults'] for s in statuses)==1,'two_sessions_received_both_feeds':len(counts)==2 and all(len(c)==2 and min(c.values())>0 for c in counts.values()),'distinct_connections':len(connections)==2 and not set.intersection(*connections.values()),'old_fault_still_visible':bool(final['reported_capture_faults'])}
+report={'checks':checks,'passed':all(checks.values()),'first_exit':first.returncode,'second_exit':second.returncode,'bbo_counts':counts,'first_inventory':first_inventory,'final_inventory':final,'qualification':'local failure containment only; deployed host qualification remains pending','protocol_sha256':hashlib.sha256((out/'protocol.json').read_bytes()).hexdigest()}
+(out/'report.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report))

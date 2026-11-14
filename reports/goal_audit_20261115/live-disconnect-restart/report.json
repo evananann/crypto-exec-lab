@@ -1,0 +1,100 @@
+{
+  "checks": {
+    "fault_applied": true,
+    "first_failed": true,
+    "fault_retained": true,
+    "prior_files_unchanged": true,
+    "second_clean": true,
+    "two_sessions_received_both_feeds": true,
+    "distinct_connections": true,
+    "old_fault_still_visible": true
+  },
+  "passed": true,
+  "first_exit": 1,
+  "second_exit": 0,
+  "bbo_counts": {
+    "7bb41f74bd3d43b28d47a9a5ed0f1295": {
+      "binance-bbo": 5442,
+      "okx-bbo": 243
+    },
+    "eade7e7ee5464e6486a113516d124d12": {
+      "binance-bbo": 23508,
+      "okx-bbo": 785
+    }
+  },
+  "first_inventory": {
+    "integrity_state": "verified",
+    "verified_segments": [
+      {
+        "file": "20261114T172333-cd5346caaef64cd3a275511ff20bc647.jsonl.gz",
+        "records": 5676,
+        "session_id": "7bb41f74bd3d43b28d47a9a5ed0f1295"
+      },
+      {
+        "file": "20261114T172338-2548b83e1ff042b1ac1060afe03b1329.jsonl.gz",
+        "records": 14,
+        "session_id": "7bb41f74bd3d43b28d47a9a5ed0f1295"
+      }
+    ],
+    "records": 5690,
+    "invalid_files": [],
+    "orphaned_segments": [],
+    "interrupted_files": [],
+    "reported_capture_faults": [
+      {
+        "session_id": "7bb41f74bd3d43b28d47a9a5ed0f1295",
+        "faults": [
+          "transport_error"
+        ]
+      }
+    ],
+    "pending_session_status": [],
+    "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+  },
+  "final_inventory": {
+    "integrity_state": "verified",
+    "verified_segments": [
+      {
+        "file": "20261114T172333-cd5346caaef64cd3a275511ff20bc647.jsonl.gz",
+        "records": 5676,
+        "session_id": "7bb41f74bd3d43b28d47a9a5ed0f1295"
+      },
+      {
+        "file": "20261114T172338-2548b83e1ff042b1ac1060afe03b1329.jsonl.gz",
+        "records": 14,
+        "session_id": "7bb41f74bd3d43b28d47a9a5ed0f1295"
+      },
+      {
+        "file": "20261114T172339-f31009202d124958836637809ff0871c.jsonl.gz",
+        "records": 10178,
+        "session_id": "eade7e7ee5464e6486a113516d124d12"
+      },
+      {
+        "file": "20261114T172344-d55bef3e31a244a38cae94e7e787d75b.jsonl.gz",
+        "records": 9598,
+        "session_id": "eade7e7ee5464e6486a113516d124d12"
+      },
+      {
+        "file": "20261114T172349-fcbf16a76ed94e82955b350e165faa59.jsonl.gz",
+        "records": 4521,
+        "session_id": "eade7e7ee5464e6486a113516d124d12"
+      }
+    ],
+    "records": 29987,
+    "invalid_files": [],
+    "orphaned_segments": [],
+    "interrupted_files": [],
+    "reported_capture_faults": [
+      {
+        "session_id": "7bb41f74bd3d43b28d47a9a5ed0f1295",
+        "faults": [
+          "transport_error"
+        ]
+      }
+    ],
+    "pending_session_status": [],
+    "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+  },
+  "qualification": "local failure containment only; deployed host qualification remains pending",
+  "protocol_sha256": "115f07d62305bd4d3ee2012c5e3a1bd7dcf4d535625fe1f2bf16bdd667fbe544"
+}

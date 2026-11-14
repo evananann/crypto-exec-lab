@@ -1,0 +1,14 @@
+test_committed_stress_measurements_exercise_dense_markouts_and_reject_tampering (tests.test_successor_report_workload.CommittedWorkloadEvidenceTests.test_committed_stress_measurements_exercise_dense_markouts_and_reject_tampering) ... ok
+test_published_complete_workload_record_is_consistent (tests.test_successor_report_workload.CommittedWorkloadEvidenceTests.test_published_complete_workload_record_is_consistent) ... ok
+test_tampered_added_duplicate_and_inconsistent_records_rejected (tests.test_successor_report_workload.CommittedWorkloadEvidenceTests.test_tampered_added_duplicate_and_inconsistent_records_rejected) ... ok
+test_failed_preparation_restore_or_consumer_cleans_up_and_never_completes (tests.test_successor_report_workload.ReportWorkloadTests.test_failed_preparation_restore_or_consumer_cleans_up_and_never_completes) ... ok
+test_interrupted_summary_serialization_does_not_publish_a_completion_marker (tests.test_successor_report_workload.ReportWorkloadTests.test_interrupted_summary_serialization_does_not_publish_a_completion_marker) ... ok
+test_invalid_volume_rejected_before_creating_output (tests.test_successor_report_workload.ReportWorkloadTests.test_invalid_volume_rejected_before_creating_output) ... ok
+test_stress_profiles_restore_healthy_tapes_and_exercise_dense_signals (tests.test_successor_report_workload.ReportWorkloadTests.test_stress_profiles_restore_healthy_tapes_and_exercise_dense_signals) ... ok
+test_two_real_restores_feed_the_unchanged_report_without_live_registration (tests.test_successor_report_workload.ReportWorkloadTests.test_two_real_restores_feed_the_unchanged_report_without_live_registration) ... ok
+test_unknown_profile_rejected_before_creating_output (tests.test_successor_report_workload.ReportWorkloadTests.test_unknown_profile_rejected_before_creating_output) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 5.222s
+
+OK

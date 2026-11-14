@@ -34,8 +34,10 @@ uv run --frozen python -m research.continuous_capture verify --spool /var/lib/cr
 Do not run capture inside CI as a substitute for deploying the worker. The offline
 unit tests use fake transports and do not contact exchanges. Live connectivity,
 long-duration throughput and service recovery on a real host remain unverified.
-This managed workspace has no dedicated-host credentials; its current network
-policy does not authorize the exchange feeds.
+This managed workspace has no dedicated-host credentials. Bounded, explicitly
+approved public-feed rehearsals were run on November 15 (Shanghai); see the
+[dated evidence](../../reports/goal_audit_20261115/README.md). They do not qualify
+a dedicated host or authorize a persistent deployment.
 
 Each wire record preserves exact bytes as base64, feed, connection/session ID,
 callback-entry monotonic receive time and UTC anchored to a monotonic clock.

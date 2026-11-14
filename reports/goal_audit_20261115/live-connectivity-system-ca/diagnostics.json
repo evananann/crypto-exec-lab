@@ -1,0 +1,25 @@
+{
+  "feeds": {
+    "binance-bbo": {
+      "wire_messages": 15854,
+      "recognized_bbo_messages": 15854,
+      "subscription_errors": 0,
+      "receive_span_seconds": 19.799582334,
+      "callback_to_writer_ms_p99": 13.967917,
+      "callback_to_writer_ms_max": 22.871
+    },
+    "okx-bbo": {
+      "wire_messages": 681,
+      "recognized_bbo_messages": 679,
+      "subscription_errors": 0,
+      "receive_span_seconds": 19.927311958,
+      "callback_to_writer_ms_p99": 7.374417,
+      "callback_to_writer_ms_max": 11.016541
+    }
+  },
+  "total_uncompressed_record_bytes": 9999542,
+  "configured_spool_budget": 10000000,
+  "failed_qualification": true,
+  "scope": "Connectivity and local processing diagnostics only; records in quarantined partial included explicitly; no strategy outcomes",
+  "partial_records_included": true
+}

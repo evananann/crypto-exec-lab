@@ -1,0 +1,36 @@
+{
+  "state": "failed_public_connectivity",
+  "inventory": {
+    "integrity_state": "verified",
+    "verified_segments": [
+      {
+        "file": "20261114T171952-9892cf6d2c644a82bb652adeb6db4182.jsonl.gz",
+        "records": 1,
+        "session_id": "4aeb9596d818434bb16658230a3de47e"
+      }
+    ],
+    "records": 1,
+    "invalid_files": [],
+    "orphaned_segments": [],
+    "interrupted_files": [],
+    "reported_capture_faults": [
+      {
+        "session_id": "4aeb9596d818434bb16658230a3de47e",
+        "faults": [
+          "transport_error"
+        ]
+      }
+    ],
+    "pending_session_status": [],
+    "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+  },
+  "wire_records": 0,
+  "recorded_events": [
+    {
+      "feed": "okx-bbo",
+      "kind": "transport_error"
+    }
+  ],
+  "qualification": "failed; no market capture demonstrated",
+  "scope": "Bounded live connectivity attempt, no study enrollment or outcomes"
+}

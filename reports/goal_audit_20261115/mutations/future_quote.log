@@ -1,0 +1,24 @@
+BASELINE
+test_future_stale_and_uncovered_quotes_not_used (tests.test_decision_pipeline.DecisionPipelineTests.test_future_stale_and_uncovered_quotes_not_used) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+MUTANT
+test_future_stale_and_uncovered_quotes_not_used (tests.test_decision_pipeline.DecisionPipelineTests.test_future_stale_and_uncovered_quotes_not_used) ... FAIL
+
+======================================================================
+FAIL: test_future_stale_and_uncovered_quotes_not_used (tests.test_decision_pipeline.DecisionPipelineTests.test_future_stale_and_uncovered_quotes_not_used)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/9g/6b5bp4397g708lj7v6v7xy2h0000gn/T/financial-mutation-an5f1ldh/tests/test_decision_pipeline.py", line 77, in test_future_stale_and_uncovered_quotes_not_used
+    self.assertIsNone(r.quote('follower', -1))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Quote(time_ms=0, bid='59999', ask='60001', bid_qty='1', ask_qty='1') is not None
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

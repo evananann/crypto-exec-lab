@@ -24,6 +24,11 @@ November 22, 08:00 Shanghai. Registration does not establish collected coverage
 or profitable execution.
 The project sends no live orders.
 
+**November 15 evidence audit:** [decision and all twelve goal statuses](reports/goal_audit_20261115/README.md)
+and [decision-first summary](reports/goal_audit_20261115/index.html). The hosted review
+cold-started; replication recording steps were skipped except preflight; all four
+controlled financial mutations were detected. Unreleased results remain unavailable.
+
 Start with the [interactive decision workbench](reports/decision_workbench/index.html)
 and its [guide](docs/DECISION_WORKBENCH.md): collection evidence, the historical
 pilot, synthetic controls, execution reconciliation and portfolio accounting.

@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "evidence": "real pre-study exploratory abstention; not a successor result",
+  "original_run_id": 39719023935,
+  "archive_sha256": "08d88a64e55f09dbb5bf5a118a0f92d43ae8a34c695763e4b4dd0d25be74c51e",
+  "collector_source_commit": "d8a5e9d74e4bb53ec3f8803295fa3092b10b2b59",
+  "member_sha256": {
+    "manifest.json": "164ec32e3fa722a0965895cd75b158172b66c5d6fef8c6d8c0f181affdc2974c",
+    "trigger.json": "9deea0e6f1c7145ce13f9b64fef4827eac80dc250f0508d1eb29b32654852d19",
+    "provenance.jsonl": "5a9e2fa5fdf51c8cc78ae895f9bddf2eacb7fe4aaae78222e77670269d5713b1",
+    "connections.json": "cc91e59d1931a7b410663b21fd26e3b431a5e09bac1652fb1b48f5049e7d4b4d",
+    "assessment.json": "37cc571cc148b3bc93ca99b9260b63f3d3080f84e3e08137dc71bbb0070729d9",
+    "events.jsonl": "f630f1d1854ebb4635ac1268fb1a3f11fa3377a9b790e39284d398d8e9a86888",
+    "protocol.json": "a5e4117f339b33ae852ca5a56375d0940a4230b758a49fd98bc5c4ac47efae0d",
+    "recorder.json": "3fd3b15e5a30b8570d55653f5e1d2eb5af6b24fd9781c883c9190a96114a0c55",
+    "wire.jsonl": "1fced0cf5ed92b7d92b1c28312e754c6620351f2cde177162dce15ff8c77d20b",
+    "claim.json": "33303d605ba373499823a198df87f6d9c6224ae8ef29acbf3e719b7a88ddeb70",
+    "instruments.jsonl": "5c8c939c8e78b9d1b93653b9e32caac2a4c209b74d68c05d78b285d3f7790659",
+    "source.json": "f3c12dc9c01178f162a161e09427613a5632274dfc23027096d4f674c7fc3409"
+  },
+  "config": {
+    "quantity_btc": "0.001",
+    "fee_bps": "5",
+    "threshold_bps": "12",
+    "delay_ms": 50,
+    "horizon_ms": 1000,
+    "lookback_ms": 100,
+    "max_age_ms": 500
+  },
+  "features": [
+    {
+      "venue": "okx",
+      "queried_at_ms": 1792642509900,
+      "quote": {
+        "time_ms": 1792642509883,
+        "bid": "82876.2",
+        "ask": "82876.3",
+        "bid_qty": "26.3949",
+        "ask_qty": "10.304300000000001"
+      },
+      "event_index": 1331
+    },
+    {
+      "venue": "okx",
+      "queried_at_ms": 1792642510000,
+      "quote": {
+        "time_ms": 1792642509924,
+        "bid": "82876.2",
+        "ask": "82876.3",
+        "bid_qty": "26.612",
+        "ask_qty": "10.3046"
+      },
+      "event_index": 1345
+    },
+    {
+      "venue": "binance",
+      "queried_at_ms": 1792642509900,
+      "quote": {
+        "time_ms": 1792642509899,
+        "bid": "82864.8",
+        "ask": "82864.9",
+        "bid_qty": "5.643",
+        "ask_qty": "2.755"
+      },
+      "event_index": 1339
+    },
+    {
+      "venue": "binance",
+      "queried_at_ms": 1792642510000,
+      "quote": {
+        "time_ms": 1792642509980,
+        "bid": "82864.8",
+        "ask": "82864.9",
+        "bid_qty": "5.643",
+        "ask_qty": "2.612"
+      },
+      "event_index": 1364
+    }
+  ],
+  "events": [
+    {
+      "event_index": 1331,
+      "event": {
+        "venue": "okx",
+        "kind": "bbo",
+        "exchange_ts": 1792642509834,
+        "local_ts": 1792642509883,
+        "seq": 347725435884,
+        "bid": 82876.2,
+        "ask": 82876.3,
+        "bid_sz": 26.3949,
+        "ask_sz": 10.304300000000001,
+        "px": null,
+        "sz": null,
+        "side": null,
+        "trade_id": null,
+        "quantity_unit": "BTC",
+        "sequence_kind": "sequence"
+      },
+      "provenance": {
+        "event_index": 1331,
+        "venue": "okx",
+        "connection_id": "de2477413c7b42b28fe1c7467e43cf6d",
+        "exchange_timestamp_source": "ts",
+        "timestamp_fallback": false
+      },
+      "wire_index": 1332,
+      "wire": {
+        "venue": "okx",
+        "connection_id": "de2477413c7b42b28fe1c7467e43cf6d",
+        "local_ts": 1792642509883,
+        "payload": {
+          "arg": {
+            "channel": "bbo-tbt",
+            "instId": "BTC-USDT-SWAP"
+          },
+          "data": [
+            {
+              "asks": [
+                [
+                  "82876.3",
+                  "1030.43",
+                  "0",
+                  "39"
+                ]
+              ],
+              "bids": [
+                [
+                  "82876.2",
+                  "2639.49",
+                  "0",
+                  "105"
+                ]
+              ],
+              "ts": "1792642509834",
+              "seqId": 347725435884
+            }
+          ]
+        }
+      },
+      "exchange_timestamp_source": "ts"
+    },
+    {
+      "event_index": 1339,
+      "event": {
+        "venue": "binance",
+        "kind": "bbo",
+        "exchange_ts": 1792642509849,
+        "local_ts": 1792642509899,
+        "seq": 11888062229546,
+        "bid": 82864.8,
+        "ask": 82864.9,
+        "bid_sz": 5.643,
+        "ask_sz": 2.755,
+        "px": null,
+        "sz": null,
+        "side": null,
+        "trade_id": null,
+        "quantity_unit": "BTC",
+        "sequence_kind": "sequence"
+      },
+      "provenance": {
+        "event_index": 1339,
+        "venue": "binance",
+        "connection_id": "452a39dc04564aa29de59bcae512d106",
+        "exchange_timestamp_source": "E",
+        "timestamp_fallback": false
+      },
+      "wire_index": 1340,
+      "wire": {
+        "venue": "binance",
+        "connection_id": "452a39dc04564aa29de59bcae512d106",
+        "local_ts": 1792642509899,
+        "payload": {
+          "stream": "btcusdt@bookTicker",
+          "data": {
+            "e": "bookTicker",
+            "u": 11888062229546,
+            "s": "BTCUSDT",
+            "ps": "BTCUSDT",
+            "b": "82864.80",
+            "B": "5.643",
+            "a": "82864.90",
+            "A": "2.755",
+            "T": 1792642509849,
+            "E": 1792642509849,
+            "st": 1
+          }
+        }
+      },
+      "exchange_timestamp_source": "E"
+    },
+    {
+      "event_index": 1345,
+      "event": {
+        "venue": "okx",
+        "kind": "bbo",
+        "exchange_ts": 1792642509874,
+        "local_ts": 1792642509924,
+        "seq": 347725435930,
+        "bid": 82876.2,
+        "ask": 82876.3,
+        "bid_sz": 26.612,
+        "ask_sz": 10.3046,
+        "px": null,
+        "sz": null,
+        "side": null,
+        "trade_id": null,
+        "quantity_unit": "BTC",
+        "sequence_kind": "sequence"
+      },
+      "provenance": {
+        "event_index": 1345,
+        "venue": "okx",
+        "connection_id": "de2477413c7b42b28fe1c7467e43cf6d",
+        "exchange_timestamp_source": "ts",
+        "timestamp_fallback": false
+      },
+      "wire_index": 1346,
+      "wire": {
+        "venue": "okx",
+        "connection_id": "de2477413c7b42b28fe1c7467e43cf6d",
+        "local_ts": 1792642509924,
+        "payload": {
+          "arg": {
+            "channel": "bbo-tbt",
+            "instId": "BTC-USDT-SWAP"
+          },
+          "data": [
+            {
+              "asks": [
+                [
+                  "82876.3",
+                  "1030.46",
+                  "0",
+                  "39"
+                ]
+              ],
+              "bids": [
+                [
+                  "82876.2",
+                  "2661.2",
+                  "0",
+                  "106"
+                ]
+              ],
+              "ts": "1792642509874",
+              "seqId": 347725435930
+            }
+          ]
+        }
+      },
+      "exchange_timestamp_source": "ts"
+    },
+    {
+      "event_index": 1364,
+      "event": {
+        "venue": "binance",
+        "kind": "bbo",
+        "exchange_ts": 1792642509931,
+        "local_ts": 1792642509980,
+        "seq": 11888062235515,
+        "bid": 82864.8,
+        "ask": 82864.9,
+        "bid_sz": 5.643,
+        "ask_sz": 2.612,
+        "px": null,
+        "sz": null,
+        "side": null,
+        "trade_id": null,
+        "quantity_unit": "BTC",
+        "sequence_kind": "sequence"
+      },
+      "provenance": {
+        "event_index": 1364,
+        "venue": "binance",
+        "connection_id": "452a39dc04564aa29de59bcae512d106",
+        "exchange_timestamp_source": "E",
+        "timestamp_fallback": false
+      },
+      "wire_index": 1365,
+      "wire": {
+        "venue": "binance",
+        "connection_id": "452a39dc04564aa29de59bcae512d106",
+        "local_ts": 1792642509980,
+        "payload": {
+          "stream": "btcusdt@bookTicker",
+          "data": {
+            "e": "bookTicker",
+            "u": 11888062235515,
+            "s": "BTCUSDT",
+            "ps": "BTCUSDT",
+            "b": "82864.80",
+            "B": "5.643",
+            "a": "82864.90",
+            "A": "2.612",
+            "T": 1792642509931,
+            "E": 1792642509931,
+            "st": 1
+          }
+        }
+      },
+      "exchange_timestamp_source": "E"
+    }
+  ],
+  "ledger": [
+    {
+      "schema_version": 1,
+      "opportunity_id": "39719023935-1792642510000",
+      "policy": "local",
+      "decision_time_ms": 1792642510000,
+      "arrival_time_ms": 1792642510050,
+      "exit_time_ms": 1792642511050,
+      "action": 0,
+      "status": "ABSTAIN",
+      "reason": null,
+      "entry_quote": null,
+      "exit_quote": null,
+      "entry_qty_btc": "0",
+      "exit_qty_btc": "0",
+      "residual_btc": "0",
+      "gross_fill_pnl_usd": "0",
+      "fees_usd": "0",
+      "net_pnl_usd": "0"
+    },
+    {
+      "schema_version": 1,
+      "opportunity_id": "39719023935-1792642510000",
+      "policy": "cross",
+      "decision_time_ms": 1792642510000,
+      "arrival_time_ms": 1792642510050,
+      "exit_time_ms": 1792642511050,
+      "action": 0,
+      "status": "ABSTAIN",
+      "reason": null,
+      "entry_quote": null,
+      "exit_quote": null,
+      "entry_qty_btc": "0",
+      "exit_qty_btc": "0",
+      "residual_btc": "0",
+      "gross_fill_pnl_usd": "0",
+      "fees_usd": "0",
+      "net_pnl_usd": "0"
+    }
+  ],
+  "ledger_sha256": "b6030320834cdf7177c47608edf53df72bb4b592239e226ccf5b7873d9e76eb5",
+  "accounting": {
+    "orders": 0,
+    "fills": 0,
+    "gross_usd": "0",
+    "fees_usd": "0",
+    "net_usd": "0",
+    "turnover_usd": "0",
+    "residual_btc": "0"
+  },
+  "limitation": "No trade occurred. No confidence interval, execution calibration or successor eligibility is inferred."
+}

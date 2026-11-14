@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "repository": "evananann/crypto-exec-lab",
+  "release_tag": "study-archive-btc-execution-v1",
+  "archive_name": "study-btc-successor-v3-20261025-2026-11-14-am-43540719972-1.tar.gz",
+  "receipt_asset_name": "readback-study-btc-successor-v3-20261025-2026-11-14-am-43540719972-1.json",
+  "archive_sha256": "11bd1fd571f1fb6163279c880efb76566dfcf15ac92d0b3d90f74d10466b2d11",
+  "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+  "slot_id": "btc-successor-v3-20261025/20261114T031700Z",
+  "claim": {
+    "schema_version": 1,
+    "repository": "evananann/crypto-exec-lab",
+    "slot_id": "btc-successor-v3-20261025/20261114T031700Z",
+    "intended_start_utc": "2026-11-14T03:17:00+00:00",
+    "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+    "owner_run_attempt": "43540719972-1",
+    "protocol_sha256": "558ac75aa55697247d0d9de0f50fc78a5e57df395ed3e72812b43a27f348811e",
+    "claim_ref": "refs/tags/successor-claims/btc-successor-v3-20261025/20261114T031700Z",
+    "claim_commit": "7feec22adf9763e2a22e6b920c9fc28d11d9def9",
+    "archive_tag": "refs/tags/successor-rehearsal-43540719972-1",
+    "claimed_at_utc": "2026-11-14T03:17:02.051740+00:00"
+  },
+  "verified_at_utc": "2026-11-14T03:33:08.553586+00:00",
+  "remote_restored": true,
+  "assessment": {
+    "collection_healthy": true,
+    "issues": [],
+    "events": 726671,
+    "timestamp_fallback_events": 0,
+    "instrument_snapshots": 16,
+    "venues": {
+      "binance": {
+        "bbo": 691691,
+        "span_ms": 899477,
+        "maximum_gap_ms": 581
+      },
+      "okx": {
+        "bbo": 34980,
+        "span_ms": 898990,
+        "maximum_gap_ms": 412
+      }
+    },
+    "timing": {
+      "accepted": true,
+      "mode": "prospective",
+      "intended_start_utc": "2026-11-14T03:17:00+00:00",
+      "checked_at_utc": "2026-11-14T03:17:03.001150+00:00",
+      "lateness_seconds": 3.00115,
+      "timing_qualified": true
+    },
+    "study_observation": true,
+    "scope": "Registered successor data; outcomes time-gated."
+  },
+  "scope": "Shared infrastructure storage only; not a v1 study observation"
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "host": "fstream.binance.com",
+    "tls_verified": false,
+    "error_type": "SSLCertVerificationError",
+    "errno": 1,
+    "verify_code": 19
+  },
+  {
+    "host": "ws.okx.com",
+    "tls_verified": false,
+    "error_type": "SSLCertVerificationError",
+    "errno": 1,
+    "verify_code": 20
+  }
+]

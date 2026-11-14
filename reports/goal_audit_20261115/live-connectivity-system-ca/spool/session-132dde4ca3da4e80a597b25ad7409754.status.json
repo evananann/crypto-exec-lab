@@ -1,0 +1,8 @@
+{
+  "session_id": "132dde4ca3da4e80a597b25ad7409754",
+  "faults": [
+    "writer_failure; unfinished segment quarantined"
+  ],
+  "interrupted_segments_at_start": [],
+  "scope": "raw acquisition pilot; not scientific slot eligibility"
+}

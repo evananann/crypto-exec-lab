@@ -1,0 +1,660 @@
+[
+  {
+    "slot_id": "2026-10-25-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-25-am",
+    "request_commit": "1c5d3785ca294d84cd22b9279c57b29eb3cd8b65",
+    "request_body": {
+      "dispatch_id": "d1bba9a739cf4a8ba6da361dcb5bab74",
+      "intended_start_utc": "2026-10-25T03:17:00Z",
+      "owner": "40141970515-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-10-25-am",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-25-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-25-pm",
+    "request_commit": "94d68e695cca623ee0cf06aa60702f34a83650fa",
+    "request_body": {
+      "dispatch_id": "fdcf9905f7354a28b39169548413adad",
+      "intended_start_utc": "2026-10-25T15:17:00Z",
+      "owner": "40198817469-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-10-25-pm",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-26-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-26-am",
+    "request_commit": "11de7822e94c647602a67b82420ad5769456b11c",
+    "request_body": {
+      "dispatch_id": "643f4691637c4417a1b64038c6e8b4a8",
+      "intended_start_utc": "2026-10-26T03:17:00Z",
+      "owner": "40244029552-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-10-26-am",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-26-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-26-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-27-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-27-am",
+    "request_commit": "cc8ece5fa585d0b541b298c937f40d0c348690aa",
+    "request_body": {
+      "dispatch_id": "f52ca509497f49f4a5891af78bdb007a",
+      "intended_start_utc": "2026-10-27T03:17:00Z",
+      "owner": "40426353616-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-10-27-am",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-27-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-27-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-28-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-28-am",
+    "request_commit": "5c04a6a8216959476c9a00d3d0c166c7e3aa2a4c",
+    "request_body": {
+      "dispatch_id": "f1f3d66cc7c04435a07f1af65be1cb0d",
+      "intended_start_utc": "2026-10-28T03:17:00Z",
+      "owner": "40609323480-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-10-28-am",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-28-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-28-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-29-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-29-am",
+    "request_commit": "64eb04bfe9a4de5f6a55528a36e71a63d67c87ac",
+    "request_body": {
+      "dispatch_id": "0a701fb670404a4f83f38bb398dd510f",
+      "intended_start_utc": "2026-10-29T03:17:00Z",
+      "owner": "40797412516-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-10-29-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-29-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-29-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-30-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-30-am",
+    "request_commit": "8025372d0e417c97d691df4faffe8a5da5ac1376",
+    "request_body": {
+      "dispatch_id": "08240f7f256345cb953539e231476bd4",
+      "intended_start_utc": "2026-10-30T03:17:00Z",
+      "owner": "40983188839-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-10-30-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-30-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-30-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-31-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-31-am",
+    "request_commit": "63b3e915b058e1654318c0b2a4b9b871de69e10c",
+    "request_body": {
+      "dispatch_id": "88667967f8274617a23eb22416e2c681",
+      "intended_start_utc": "2026-10-31T03:17:00Z",
+      "owner": "41152110393-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-10-31-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-10-31-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-10-31-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-01-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-01-am",
+    "request_commit": "91c3bda89c96617fcd58fa2315e14d5f2b6837c2",
+    "request_body": {
+      "dispatch_id": "0fe332294e4049c2a708fc40f7b00690",
+      "intended_start_utc": "2026-11-01T03:17:00Z",
+      "owner": "41255425309-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-01-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-01-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-01-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-02-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-02-am",
+    "request_commit": "16118cd6e5eec59ef1e0c9330bdc56ad876894e5",
+    "request_body": {
+      "dispatch_id": "30b9832a79ae4cfc87fa4538bdef60fc",
+      "intended_start_utc": "2026-11-02T03:17:00Z",
+      "owner": "41368840953-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-02-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-02-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-02-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-03-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-03-am",
+    "request_commit": "3bfaf25af17b6e08be7dfca75d6cbf66315e832a",
+    "request_body": {
+      "dispatch_id": "12e6858c39ea4ae4b6c33ce6ac4e88be",
+      "intended_start_utc": "2026-11-03T03:17:00Z",
+      "owner": "41569068758-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-03-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-03-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-03-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-04-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-04-am",
+    "request_commit": "e12059a77794510fcacff6edd144c44daafbea3f",
+    "request_body": {
+      "dispatch_id": "d24e550d72174d18a9938b5532b20466",
+      "intended_start_utc": "2026-11-04T03:17:00Z",
+      "owner": "41753583640-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-04-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-04-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-04-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-05-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-05-am",
+    "request_commit": "d45a46b207c0a983f6998aeb4988e1a6894f874a",
+    "request_body": {
+      "dispatch_id": "0db7b13cb3c64d888bf057d271d44429",
+      "intended_start_utc": "2026-11-05T03:17:00Z",
+      "owner": "41948670965-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-05-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-05-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-05-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-06-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-06-am",
+    "request_commit": "5eda653c61254043411c3e509142901fdf3808ef",
+    "request_body": {
+      "dispatch_id": "7b57811b21324644be5c11b472a61ae0",
+      "intended_start_utc": "2026-11-06T03:17:00Z",
+      "owner": "42144655638-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-06-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-06-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-06-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-07-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-07-am",
+    "request_commit": "7af7614528dfca2e799fdf7ca4f81e8fe8cd2c27",
+    "request_body": {
+      "dispatch_id": "4bc80e0c873542c6a063f953684cab77",
+      "intended_start_utc": "2026-11-07T03:17:00Z",
+      "owner": "42321283316-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-07-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-07-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-07-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-08-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-08-am",
+    "request_commit": "e937f4b11f28d313441fdc4d1805832a6f89d8d9",
+    "request_body": {
+      "dispatch_id": "01710c62807e48ba84b5fe339fb24e57",
+      "intended_start_utc": "2026-11-08T03:17:00Z",
+      "owner": "42430542514-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-08-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-08-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-08-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-09-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-09-am",
+    "request_commit": "04f636c5d5d739b02241cf65152bebc83e7c7ebb",
+    "request_body": {
+      "dispatch_id": "73a97b779d8d4a44824bb8487fde0449",
+      "intended_start_utc": "2026-11-09T03:17:00Z",
+      "owner": "42542786122-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-09-am",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-09-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-09-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-10-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-10-am",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-10-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-10-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-11-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-11-am",
+    "request_commit": "626ad5237b16527c4f9cd8fe6c06bf9d646f1d1b",
+    "request_body": {
+      "dispatch_id": "fb14c38509b44e9b8436fcb5009c4b0b",
+      "intended_start_utc": "2026-11-11T03:17:00Z",
+      "owner": "42937467111-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-11-am",
+      "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-11-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-11-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-12-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-12-am",
+    "request_commit": "4fa2ce0f0fa65ea745aedac26f53d5d81497bff4",
+    "request_body": {
+      "dispatch_id": "66d8ee99288244628bec5f9ca1c558ff",
+      "intended_start_utc": "2026-11-12T03:17:00Z",
+      "owner": "43140208894-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-12-am",
+      "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-12-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-12-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-13-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-13-am",
+    "request_commit": "c78e88b995ff46981c9b0ae1b521a5740bcaac46",
+    "request_body": {
+      "dispatch_id": "1fa250916577473a8cb2743ecb96e015",
+      "intended_start_utc": "2026-11-13T03:17:00Z",
+      "owner": "43347812331-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-13-am",
+      "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-13-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-13-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-14-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-14-am",
+    "request_commit": "41e45e8e70ccbf7c7286c65837d4bc97b78d5e89",
+    "request_body": {
+      "dispatch_id": "9f7076742a9e45cb98619a83b3be0275",
+      "intended_start_utc": "2026-11-14T03:17:00Z",
+      "owner": "43540695454-1",
+      "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+      "sender_event": "schedule",
+      "sender_workflow": ".github/workflows/successor-study.yml",
+      "slot_id": "2026-11-14-am",
+      "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+      "study_id": "btc-successor-v3-20261025"
+    },
+    "sender_run_metadata_verified": true,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-14-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-14-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-15-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-15-am",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-15-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-15-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-16-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-16-am",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-16-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-16-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-17-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-17-am",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-17-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-17-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-18-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-18-am",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-18-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-18-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-19-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-19-am",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-19-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-19-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-20-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-20-am",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-20-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-20-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-21-am",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-21-am",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  },
+  {
+    "slot_id": "2026-11-21-pm",
+    "request_ref": "refs/tags/successor-study-requests/btc-successor-v3-20261025/2026-11-21-pm",
+    "request_commit": null,
+    "request_body": null,
+    "sender_run_metadata_verified": false,
+    "collector_trigger_link_verified": null
+  }
+]

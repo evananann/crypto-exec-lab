@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "evidence": "controlled synthetic faults in isolated copies",
+  "financial_correctness_proven": false,
+  "all_detected": true,
+  "mutations": [
+    {
+      "fault": "double_counted_spread",
+      "source": "research/decision_study/pipeline.py",
+      "test": "tests.test_decision_pipeline.DecisionPipelineTests.test_same_action_identical_execution_and_exact_cash",
+      "detected": true,
+      "baseline_exit": 0,
+      "mutant_exit": 1,
+      "original_sha256": "29abc72844fa120f6b9395131e9118f0b7405ba73eedc8c32ff015d02dc6495c",
+      "mutant_sha256": "bf1421997880dd916217c6b0f035103be6f4dd75530f4ea7d2fdd0beb05bf1f2"
+    },
+    {
+      "fault": "incorrect_fee_notional",
+      "source": "research/decision_study/pipeline.py",
+      "test": "tests.test_decision_pipeline.DecisionPipelineTests.test_same_action_identical_execution_and_exact_cash",
+      "detected": true,
+      "baseline_exit": 0,
+      "mutant_exit": 1,
+      "original_sha256": "29abc72844fa120f6b9395131e9118f0b7405ba73eedc8c32ff015d02dc6495c",
+      "mutant_sha256": "ac7f5c684111bb2dd7e1752edf3b9e350d2a72863695c139044f4bb736e33b8f"
+    },
+    {
+      "fault": "future_quote",
+      "source": "research/decision_study/pipeline.py",
+      "test": "tests.test_decision_pipeline.DecisionPipelineTests.test_future_stale_and_uncovered_quotes_not_used",
+      "detected": true,
+      "baseline_exit": 0,
+      "mutant_exit": 1,
+      "original_sha256": "29abc72844fa120f6b9395131e9118f0b7405ba73eedc8c32ff015d02dc6495c",
+      "mutant_sha256": "debf5dd98573eb3a5a14d8f5559e8a77da2656c71ea5adc76423f85fafc2284c"
+    },
+    {
+      "fault": "duplicate_fill",
+      "source": "scripts/order_lifecycle.py",
+      "test": "tests.test_internal_validation.LifecycleTests.test_duplicate_reports_and_retries_never_double_fill",
+      "detected": true,
+      "baseline_exit": 0,
+      "mutant_exit": 1,
+      "original_sha256": "07d7d49e68600de3bde78efe219542edf2ade60f3ecc1a7dce72b5e105d7c3a4",
+      "mutant_sha256": "ba5cae3bb8ada860195978f6d5ff347d93eb8cb2caa60b60cff8ec677d63c4fb"
+    }
+  ]
+}

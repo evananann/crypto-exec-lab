@@ -1,0 +1,33 @@
+{
+  "errno": 27,
+  "error_name": "EFBIG",
+  "previous_files_unchanged": true,
+  "failed_segment_not_promoted": true,
+  "inventory": {
+    "integrity_state": "incomplete",
+    "verified_segments": [
+      {
+        "file": "20261114T171559-622b1a2e2ad64d83bcd32e6bd4d05a0d.jsonl.gz",
+        "records": 1,
+        "session_id": "1dd10cd7a4674c91a615cce8c9cfe346"
+      }
+    ],
+    "records": 1,
+    "invalid_files": [],
+    "orphaned_segments": [],
+    "interrupted_files": [
+      "20261114T171559-e1c93c9528654234a0055a32498cdbb6.jsonl.gz.partial"
+    ],
+    "reported_capture_faults": [],
+    "pending_session_status": [
+      "1dd10cd7a4674c91a615cce8c9cfe346"
+    ],
+    "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+  },
+  "passed": true,
+  "schema_version": 1,
+  "synthetic": true,
+  "fault": "kernel RLIMIT_FSIZE; real write failure, not a mocked OSError",
+  "scope": "Local file-size failure containment; does not reproduce full-volume ENOSPC, device failure or hosted storage behavior",
+  "trial_source_sha256": "3f727f88566d00d534a87df01fd4690732d7ed6c82db383eb13a254288a387ad"
+}
