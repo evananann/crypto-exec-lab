@@ -133,6 +133,7 @@ explain why this is verification automation, not automatic strategy tuning or co
 
 | Evidence | What it establishes |
 | --- | --- |
+| [OKX demo evidence](docs/OKX_DEMO_EVIDENCE.md) | Read-only exports and an opt-in bounded demo transaction rehearsal; actual matched paper/replay parity remains pending |
 | [Working paper](reports/STUDY_V1_RESEARCH.md) and [research memo](docs/RESEARCH_MEMO.md) | Exact hypothesis, frozen rules, observed failures and current research limitations |
 | [Trading decision and exit-cost frontier](reports/trading_decision/decision.md) | Exact long/short cash bridge, break-even markout hurdles and assumption sensitivity; no alpha, fill probability or capacity estimate |
 | [Archive restore records](reports/operations/all-release-restores.json) | Eight original preflight attempts independently downloaded and restored, including failures |
