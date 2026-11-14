@@ -1,0 +1,32 @@
+{
+  "started_at_utc": "2026-11-14T17:24:07.913064+00:00",
+  "finished_at_utc": "2026-11-14T17:24:08.591439+00:00",
+  "exit_code": 1,
+  "inventory": {
+    "integrity_state": "verified",
+    "verified_segments": [
+      {
+        "file": "20261114T172408-b6805754c6e644bcad2107b859a417e0.jsonl.gz",
+        "records": 1,
+        "session_id": "ea5653dc91bd4207adac339001ff7a43"
+      }
+    ],
+    "records": 1,
+    "invalid_files": [],
+    "orphaned_segments": [],
+    "interrupted_files": [],
+    "reported_capture_faults": [
+      {
+        "session_id": "ea5653dc91bd4207adac339001ff7a43",
+        "faults": [
+          "queue_overflow; capture incomplete",
+          "transport_error"
+        ]
+      }
+    ],
+    "pending_session_status": [],
+    "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+  },
+  "scope": "Bounded public-feed connectivity rehearsal; no scientific enrollment or strategy outcomes",
+  "collector_sha256": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb"
+}

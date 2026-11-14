@@ -23,6 +23,11 @@ class SelfReviewTests(unittest.TestCase):
         self.assertTrue(first["cold_start"])
         again, next_state = review(seed=10, count=40, previous=state, now=NOW)
         self.assertFalse(again["cold_start"])
+        from research.decision_study.pipeline import digest
+        self.assertEqual(again["previous_state_sha256"], digest(state))
+        self.assertEqual(again["previous_history_entries"], 1)
+        self.assertEqual(again["retained_history_entries"], 2)
+        self.assertTrue(again["history_prefix_preserved"])
         self.assertEqual(again["new_case_ids_in_rolling_window"], 0)
         new, _ = review(seed=11, count=40, previous=next_state, now=NOW)
         self.assertGreater(new["new_case_ids_in_rolling_window"], 0)

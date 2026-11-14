@@ -1,0 +1,21 @@
+
+import json,sys,threading,time
+from pathlib import Path
+import websocket
+from research.continuous_capture import run
+original=websocket.WebSocketApp
+class FaultSocket(original):
+ def __init__(self,url,**handlers):
+  callback=handlers['on_message'];armed=[False]
+  def message(ws,raw):
+   callback(ws,raw)
+   if 'binance.com' in url and not armed[0]:
+    armed[0]=True
+    def disconnect():
+     Path(sys.argv[3]).write_text(json.dumps({'fault_applied':True,'monotonic_ns':time.monotonic_ns()}))
+     if ws.sock is not None:ws.sock.abort()
+    timer=threading.Timer(5,disconnect);timer.daemon=True;timer.start()
+  handlers['on_message']=message
+  super().__init__(url,**handlers)
+websocket.WebSocketApp=FaultSocket
+run(json.loads(Path(sys.argv[1]).read_text()),sys.argv[2])

@@ -1,0 +1,11 @@
+{
+  "status": "verified_isolated_hosted_cross_run_mechanism",
+  "seed_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/43620295375",
+  "replay_run": "https://github.com/evananann/crypto-exec-lab/actions/runs/43620341377",
+  "branch": "codex/hosted-continuity-proof",
+  "regressions_replayed": 16,
+  "history_entries_retained": 2,
+  "restored_state_sha256": "7082852caf8d372de3bac95bf3307da5d66bd63e94bc858db313e5b9631757fd",
+  "main_production_cache_continuity_verified": false,
+  "synthetic_faults": true
+}

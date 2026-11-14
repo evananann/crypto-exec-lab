@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "runs_inspected": 57,
+  "jobs_inspected": 114,
+  "record_steps_skipped": 112,
+  "successful_record_steps": [
+    {
+      "run_id": 39002936193,
+      "url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39002936193",
+      "event": "push",
+      "created_at": "2026-10-17T04:32:14Z",
+      "pair": "collect (bybit)",
+      "record_step": "success"
+    },
+    {
+      "run_id": 39002936193,
+      "url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39002936193",
+      "event": "push",
+      "created_at": "2026-10-17T04:32:14Z",
+      "pair": "collect (okx)",
+      "record_step": "success"
+    }
+  ],
+  "eligible_collection_demonstrated": false,
+  "scope": "Every run in the 57-run API inventory; successful recordings were preflight push only. Snapshot is not a claim about future collection.",
+  "release_gate_shanghai": "2026-11-23T08:00:00+08:00",
+  "outcomes_read": false
+}

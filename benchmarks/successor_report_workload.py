@@ -10,6 +10,7 @@ import argparse
 from contextlib import closing
 from datetime import datetime, timedelta, timezone
 import json
+import os
 from pathlib import Path
 import platform
 import resource
@@ -115,7 +116,7 @@ def run(out, *, sessions=56, events=400000, profile="regular"):
         "harness_sha256": study.digest(Path(__file__)),
         "bound_source_sha256": {str(p): study.digest(p) for p in study.bound_sources()},
         "python": platform.python_version(), "platform": platform.platform(),
-        "cpu_affinity_count": len(__import__("os").sched_getaffinity(0)),
+        "cpu_affinity_count": len(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else None,
         "sessions": sessions, "events_per_session": events, "total_events": sessions * events,
         "disk_free_at_start_bytes": shutil.disk_usage(out).free,
         "scope": "Offline engineering workload. Synthetic registration and download generator replace hosted authentication/network. Real pack/restore, raw reparse, estimator, condition metrics and report aggregation. No live tape access or registration.",
@@ -213,7 +214,8 @@ def run(out, *, sessions=56, events=400000, profile="regular"):
     finally:
         stopped.set()
         watcher.join()
-    rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024  # Linux benchmark host.
+    # macOS reports bytes; Linux reports KiB. Missing affinity is not CPU count.
+    rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * (1 if platform.system() == "Darwin" else 1024)
     preparation = sum(r["generation_seconds"] + r["packing_seconds"] for r in measurements)
     per_session = sum(r["restore_and_reparse_seconds"] + r["evaluation_conditions_and_session_output_seconds"] for r in measurements)
     summary = metadata | {"completed": True, "completed_at_utc": datetime.now(timezone.utc).isoformat(),

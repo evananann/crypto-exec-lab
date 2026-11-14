@@ -72,5 +72,5 @@ jobs:
         run: |
           if test -f data/raw/continuous-review/README.md; then
             cat data/raw/continuous-review/README.md >> "$GITHUB_STEP_SUMMARY"
-            echo "Cache restore: ${{ steps.memory.outcome }}; cache save: ${{ steps.save_memory.outcome }}. Cache errors do not establish uninterrupted history." >> "$GITHUB_STEP_SUMMARY"
+            echo "Cache action: ${{ steps.memory.outcome }}; matched key: ${{ steps.memory.outputs.cache-matched-key }}; save: ${{ steps.save_memory.outcome }}. Action success can mean a cache miss. Inspect cold_start, previous_state_sha256, history and replay counts in review.json." >> "$GITHUB_STEP_SUMMARY"
           fi

@@ -1,0 +1,25 @@
+from pathlib import Path
+from datetime import datetime,timezone
+import subprocess,json,signal,time,hashlib,sys,os
+root=Path('/Users/evan/Documents/ChatGPT/crypto lab/crypto-exec-lab')
+sys.path.insert(0,str(root))
+out=root/'reports/goal_audit_20261115/live-baseline-system-ca'
+out.mkdir(exist_ok=False)
+config=json.loads((root/'deploy/continuous-capture/feeds.example.json').read_text())
+config.update(segment_seconds=10,maximum_spool_bytes=50000000,maximum_silence_seconds=15,reserve_free_bytes=100000000)
+(out/'config.json').write_text(json.dumps(config,indent=2)+'\n')
+started=datetime.now(timezone.utc).isoformat()
+with (out/'process.log').open('w') as log:
+ child=subprocess.Popen([str(root/'.venv/bin/python'),'-m','research.continuous_capture','capture','--config',str(out/'config.json'),'--spool',str(out/'spool')],cwd=root,stdout=log,stderr=log,env=dict(os.environ,SSL_CERT_FILE='/etc/ssl/cert.pem'))
+ try:
+  child.wait(timeout=30)
+ except subprocess.TimeoutExpired:
+  child.send_signal(signal.SIGTERM)
+  try: child.wait(timeout=45)
+  except subprocess.TimeoutExpired:
+   child.kill();child.wait();raise RuntimeError('collector failed graceful shutdown')
+from research.continuous_capture import verify_spool
+inventory=verify_spool(out/'spool')
+report=dict(started_at_utc=started,finished_at_utc=datetime.now(timezone.utc).isoformat(),exit_code=child.returncode,inventory=inventory,scope='Bounded public-feed connectivity rehearsal; no scientific enrollment or strategy outcomes',collector_sha256=hashlib.sha256((root/'research/continuous_capture.py').read_bytes()).hexdigest())
+(out/'report.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps(report))

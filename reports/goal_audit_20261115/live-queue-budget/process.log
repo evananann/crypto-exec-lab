@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/evan/Documents/ChatGPT/crypto lab/crypto-exec-lab/research/continuous_capture.py", line 444, in <module>
+    main()
+    ~~~~^^
+  File "/Users/evan/Documents/ChatGPT/crypto lab/crypto-exec-lab/research/continuous_capture.py", line 440, in main
+    run(config, args.spool)
+    ~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/evan/Documents/ChatGPT/crypto lab/crypto-exec-lab/research/continuous_capture.py", line 276, in run
+    return _run(config, root, queue_size=queue_size, spool=spool, clock=clock)
+  File "/Users/evan/Documents/ChatGPT/crypto lab/crypto-exec-lab/research/continuous_capture.py", line 420, in _run
+    raise RuntimeError('capture stopped with retained faults; inspect session status')
+RuntimeError: capture stopped with retained faults; inspect session status

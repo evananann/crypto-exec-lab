@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "seen": [
+    "cf1fa3d716a0c5a5f2aa37740da5c044f5b07818daae398ba9705454fbd6f3ba",
+    "e450cd6392ed7eb3421e1c2be16ef319c7702df3703cdf2da86e9be44d00fcd2",
+    "2322875e9936a8921d6a03260cf8d45a5ddd171623120dcc03e45acc598c43f2",
+    "3987da3e4db94ecf247463a5af4b63b0ec6e3353ef70b26926614fcaf433c358",
+    "e7a41ac2d20f69e5329067f231a70ce879d5677647d9aaa53bb65c7b73cbac4f",
+    "e1740fce58419b40f034883ab60042e7f5f6faf24d4f3a89a8bf4b3c311038b3",
+    "c773fd2c530681ffc20ee18b5a3bc740c6ea2408d320bd59f2a7777dbd395656",
+    "2d9f252aa7189e43abe23d7c0e710b6029ab6e1bff249514610ee73963a2f688",
+    "4924b38c50c9012427f0e3c7cf4f595aa358493677ab28deea6da83a0f44ce04",
+    "dadf919809a0afac4992e98d9996a51dce1f8de70ad1353a90f8031281f0e229",
+    "ccb7c13f33a900fa9d40903fc6049b811645bc2549fbe9e92a527b91d8b35f46",
+    "6ce2453568d0c3697d4a0ce3faa0b28cffbfe354d12deebf7616f5fac9b941d2",
+    "71884c1884065a64473b03c974e081f948bb926dc501179891f3246984ab28a2",
+    "1eb488d20e8ddc012d8ae6d4cec1401373271d120b9a1146b7abbddcc835372b",
+    "fdf56caeae9b1f6b5430d63c333f614b2ebefc0216bd75ace3631b0d976ee54f",
+    "e9b72eb814ecd7cff8a07bbe1bb06d1af8dd2cdc573acecaf2e229481e591167",
+    "31c9a9ad5f2a3580c4842210dad3ad41c156063518bff81cbc214e4aa0ec9db4",
+    "01711e73940172fa84b7ee0c324570b0e3330082b6adda67c71cd3fc856e2cad",
+    "90c39428c1e1f43014d713097b3084b102f2f945a3b1e6ea7e82f048309c2289",
+    "9e31e5d3a42938b83c96b513533a31d9a760de1600d32eb359e41bd090f05c14",
+    "2143acbc8ab0fea07b8193d8ebd4558a2d10821674a56284e498e26b3f1ba252",
+    "6ebb36e0baaf98190f94b3e329d2593e1de6ab3d10f74f5de18c7e4b0644ea52",
+    "619983954518f0f8fe9e6aeefa2a7c4e905243d337cac7b3ae9fcbea18cddb8b",
+    "29c854ef38cb84963324a4bf7b8a44e64877654c3737fdb43c7b31255ab4cafa",
+    "b2064e8e3006aeaff2a21e2a53e1a544b5311604fed23bec3963ec5065174da2",
+    "6c9e5ac8dc7d9f6959be17be8c7da6171d37d95ce7ada2cc57390305a91699dc",
+    "3e62ca21d44c28cbe3c1e5a4bf9d19638e7627964b566b9e4edde12201441090",
+    "8b16ef8254809196eb3f3111bd432cd6e5ccc4604cf3eab67a95b8d679772780",
+    "bbcc8e2e5f82f9da6007cf27d373fdf8ed3cd9c6478bbbe7c85c6118a3655a0d",
+    "252e1592c9887b7e8e962f71cba16b326bdce4ca71884744b068a3bcd4a96344",
+    "c6f9f4266f73f915141b4b8ff822c276b0067c5e078b93f42a247fe8f90834c2",
+    "d7e896ea5ce534341f3d2b2968412bfce80b55f7ad34304211b7ab6a4635e388",
+    "24bdc9f7ce8aa39254c101e537caa9b20cafc90c798b75759c2efffd0dbbe9f0",
+    "b824ad9860451af3e6951ca92df0dea48a15d04352dddaf110c41249cf21f616",
+    "57822c3d83272c44b72f6fcad8bdad6662f36d5513476ef1e3d6d1dc28eeb1ef",
+    "1ab5a246f36fb307d73bf4310620c8633d61ae7a88b70ced693f80c7d6db5f14",
+    "fa3e0ccd93a52a364c7e33febe017af9d4ad98323bc70d62f3fe5940095ec3af",
+    "666fc23c12f71106a42f725c947dc74fe4661b0c6b222a87823af9642fc06622",
+    "a56fd88e5ed951532c4608076f17de2a45288738dbf532837e2ceef6e902c6fc",
+    "4a62e569655db34648c266d7acbc7ceeef394680f0851e295bdd8fc5444ca336",
+    "9b842c7a92b1ce7cfc3f4fc9efb82fbd4d1edd48f7bd72f25d7c36f838e449dd",
+    "48088e2697b84ad1267903c9f2683c2c071d67ad9784c080e28ae46ccd02f135",
+    "fbd3a5f5717937422ba94960b96e349284306e80d4e544677e8be7aeefb2e103",
+    "d82cf3505b520d29f981c22e95a53d272d562b25e489333ccc28f6084d510d70",
+    "9ea0a911e252755d9020f8b60dfec77b01b2f2fa6ea752cfa8132d01328d7d00",
+    "5c228503edadf5e324d27cdff4ae48609504f633c0c3bb2b45b893fad3f10779",
+    "1e649474d5816c8d626be5bd20ea21bf9d848b9231a6e3bbf2b5a442c69262a9",
+    "37bb2ef48af9bb472aa9d1c634ca2559b17f17cda9764bbcb7b82f1fe31a70fb",
+    "2d22d5daed895b914b074b4abaaf356029fdac2f570d04bb56752e7179aba7a6",
+    "7be1310214e97a6df667c625a693c0612865373cd5526a0fce6475feb7e810a1",
+    "a2fc69d14cafb68a83f6dd3308bbb097c84cfe976e5717a8c7e0a00059b6866a",
+    "b32e270fc66a8e6d8a989d7ca37e3c065b0e3a66c775d839502edc5be02741df",
+    "9e98c989d5d8307eb01e7099d81ccb9f1b81a75ee231e405c06403dfe3ce6e69",
+    "454d17ab0f08d2cbc4ef6e69121fe780ab17a1ef76ed46ee028c96acc6a1d3b3",
+    "a03d0d56cac5c21ef58b6f0f005a5954b14100e90e0533b19bacf264eaee2335",
+    "e9c2174d7751e32811f792328f75fb5e14f072743a83b6e99aaa0953a93108af",
+    "fcd726d4ba8e33c3d1d1e1d8214c653157f90b40246e1d0a2526d745882f58ef",
+    "fd960d979334a6e0ddd387c58dfc04da0ca7d3d3c1188fd6ffee132ffd1d77c2",
+    "90f8bfc8a0d0dfc9fe3f08a44af608ccef63cc76daf2213f058ebcce393bc2c7",
+    "5d47797ce0609c994e3d1bb05a37047abc9f5bf6c2ffe2c60b3a6e258f12372a"
+  ],
+  "failures": [
+    {
+      "sign": 1,
+      "spread": 8,
+      "arrival_shift": 30,
+      "exit_shift": -102,
+      "entry_depth": "0",
+      "exit_depth": "0",
+      "fee": "3"
+    },
+    {
+      "sign": 1,
+      "spread": 3,
+      "arrival_shift": -31,
+      "exit_shift": -160,
+      "entry_depth": ".002",
+      "exit_depth": ".0004",
+      "fee": "5"
+    },
+    {
+      "sign": 1,
+      "spread": 7,
+      "arrival_shift": -49,
+      "exit_shift": -16,
+      "entry_depth": ".001",
+      "exit_depth": ".001",
+      "fee": "5"
+    },
+    {
+      "sign": 1,
+      "spread": 2,
+      "arrival_shift": -43,
+      "exit_shift": 11,
+      "entry_depth": ".002",
+      "exit_depth": ".0004",
+      "fee": "3"
+    },
+    {
+      "sign": 1,
+      "spread": 2,
+      "arrival_shift": 20,
+      "exit_shift": -90,
+      "entry_depth": ".0004",
+      "exit_depth": "0",
+      "fee": "5"
+    },
+    {
+      "sign": 1,
+      "spread": 1,
+      "arrival_shift": 16,
+      "exit_shift": -139,
+      "entry_depth": ".002",
+      "exit_depth": ".001",
+      "fee": "3"
+    },
+    {
+      "sign": 1,
+      "spread": 10,
+      "arrival_shift": -6,
+      "exit_shift": 150,
+      "entry_depth": ".002",
+      "exit_depth": "0",
+      "fee": "3"
+    },
+    {
+      "sign": 1,
+      "spread": 10,
+      "arrival_shift": -31,
+      "exit_shift": 79,
+      "entry_depth": ".0004",
+      "exit_depth": ".001",
+      "fee": "10"
+    },
+    {
+      "sign": 1,
+      "spread": 6,
+      "arrival_shift": -44,
+      "exit_shift": 173,
+      "entry_depth": "0",
+      "exit_depth": ".001",
+      "fee": "3"
+    },
+    {
+      "sign": 1,
+      "spread": 3,
+      "arrival_shift": -24,
+      "exit_shift": -126,
+      "entry_depth": ".002",
+      "exit_depth": ".002",
+      "fee": "0"
+    },
+    {
+      "sign": 1,
+      "spread": 6,
+      "arrival_shift": -37,
+      "exit_shift": -135,
+      "entry_depth": ".0004",
+      "exit_depth": ".002",
+      "fee": "10"
+    },
+    {
+      "sign": 1,
+      "spread": 10,
+      "arrival_shift": -31,
+      "exit_shift": 103,
+      "entry_depth": ".002",
+      "exit_depth": "0",
+      "fee": "5"
+    },
+    {
+      "sign": 1,
+      "spread": 1,
+      "arrival_shift": 10,
+      "exit_shift": 175,
+      "entry_depth": ".001",
+      "exit_depth": "0",
+      "fee": "0"
+    },
+    {
+      "sign": 1,
+      "spread": 3,
+      "arrival_shift": 34,
+      "exit_shift": -155,
+      "entry_depth": ".002",
+      "exit_depth": "0",
+      "fee": "3"
+    },
+    {
+      "sign": 1,
+      "spread": 3,
+      "arrival_shift": 6,
+      "exit_shift": -143,
+      "entry_depth": "0",
+      "exit_depth": ".001",
+      "fee": "3"
+    },
+    {
+      "sign": 1,
+      "spread": 4,
+      "arrival_shift": -41,
+      "exit_shift": 177,
+      "entry_depth": ".0004",
+      "exit_depth": ".0004",
+      "fee": "0"
+    }
+  ],
+  "history": [
+    {
+      "at": "2026-11-14T17:17:40.566827+00:00",
+      "seed": 20261115,
+      "cases": 60,
+      "failures": 16,
+      "unclaimed": null,
+      "study_id": "btc-successor-v3-20261025"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "created_at_utc": "2026-11-14T17:23:33.130288+00:00",
+  "fault": "abort real Binance socket five seconds after first received message",
+  "restart": "fresh collector process in the same spool; stop with SIGTERM after 12 seconds",
+  "acceptance": [
+    "first process fails with retained transport/close fault",
+    "both sessions have real BBO wire messages from both feeds",
+    "prior file hashes unchanged after restart",
+    "distinct session and connection identities",
+    "second session exits cleanly",
+    "old fault remains in combined inventory"
+  ],
+  "source_sha256": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb",
+  "scope": "Bounded local public-feed failure experiment; no scientific enrollment"
+}

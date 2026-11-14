@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "audited_at_utc": "2026-11-14T17:25:28.566900+00:00",
+  "objective_sha256": "7f52da326f75ecd77738a1e7dbd4b721bd9aa17446bee7db9b907c19a39697b2",
+  "full_objective_complete": false,
+  "requirements": [
+    {
+      "goal": 1,
+      "status": "verified_isolated_hosted_mechanism",
+      "evidence": [
+        {
+          "path": "hosted-continuity/verification.json",
+          "sha256": "ff6e4121deaf3660be8cfe02db757e0f922ca0e6def34b7567aae2e90a92a21b"
+        },
+        {
+          "path": "hosted-continuity/seed-evidence.json",
+          "sha256": "f6ced96961846e4017210e633b3decd08c3abe371a6c0765d7da63510d010a14"
+        },
+        {
+          "path": "hosted-continuity/replay-evidence.json",
+          "sha256": "e2ad16487222e02590f1f3ee1e4b8dd4442d76f337b44b25ee5960b0e49db952"
+        }
+      ],
+      "remaining_or_scope_limit": "Main production-cache continuity is not covered by the isolated proof."
+    },
+    {
+      "goal": 2,
+      "status": "verified_dated_inventory_with_explicit_unknowns",
+      "evidence": [
+        {
+          "path": "collection/reconciled.json",
+          "sha256": "6856c1fff3cff402037655b358c930ba0c3ac77fd112982a51e4f99a6acd55c8"
+        },
+        {
+          "path": "archive-health/verification.json",
+          "sha256": "86d526bc9ac951eefae33a68281fb111e165be332fbabb399324b54a6a866244"
+        },
+        {
+          "path": "sources/failed-collector-excerpt.txt",
+          "sha256": "f18762139005ef63a77633bf3316d57a6a01761420f7c35fae6d2cb97b1cb3b2"
+        }
+      ],
+      "remaining_or_scope_limit": "42 elapsed slots accounted for at the snapshot; future slots require a later audit. Scientific sender/trigger authentication is still required for eligibility."
+    },
+    {
+      "goal": 3,
+      "status": "incomplete_release_date_dependency",
+      "evidence": [
+        {
+          "path": "synthetic/release-readiness.json",
+          "sha256": "23f20531ad0d3e66e7dcd0c454593921fc5823bfc277dbdcb30015ed5ec528e6"
+        }
+      ],
+      "remaining_or_scope_limit": "After 2026-11-22 08:00 Shanghai authenticate and publish the original registered finding or formal inconclusive result."
+    },
+    {
+      "goal": 4,
+      "status": "incomplete_release_date_dependency",
+      "evidence": [
+        {
+          "path": "replication-assessment.json",
+          "sha256": "e0f86417f049f8e286c84fffad67c23e925f27a3249ae46ccfb09b39664e29b7"
+        },
+        {
+          "path": "sources/replication-jobs.json",
+          "sha256": "022e6b114fce17c7877e8ea9074e3baa462441dc479af29b9c3e397ea1496d7f"
+        }
+      ],
+      "remaining_or_scope_limit": "After 2026-11-23 08:00 Shanghai reconcile activation and eligible observations; the current inventory demonstrates only preflight recording."
+    },
+    {
+      "goal": 5,
+      "status": "incomplete_eligible_released_decision_missing",
+      "evidence": [
+        {
+          "path": "historical-abstention-trace.json",
+          "sha256": "7c924aabafc591a478a3928a4b137d79ffda78eec445a83584cf039a46771336"
+        }
+      ],
+      "remaining_or_scope_limit": "A real exploratory abstention trace exists; it does not meet the eligible released successor-decision requirement."
+    },
+    {
+      "goal": 6,
+      "status": "incomplete_prospective_enrollment_and_data_missing",
+      "evidence": [
+        {
+          "path": "synthetic/matched-study.json",
+          "sha256": "d81789c4df3c0bc230daa912cc2d79e4b4f5f5723ead1da23b66634ea001e26e"
+        }
+      ],
+      "remaining_or_scope_limit": "The matched-scale computation is synthetic. A qualified independent acquisition setup, immutable prospective enrollment and untouched evaluation period remain required."
+    },
+    {
+      "goal": 7,
+      "status": "incomplete_eligible_economic_evidence_missing",
+      "evidence": [
+        {
+          "path": "historical-reproduction/summary.json",
+          "sha256": "9eb638392b894ea3195163e2c47c8ab81ecd2735be43744c26b0662a00cd0519"
+        },
+        {
+          "path": "historical-abstention-trace.json",
+          "sha256": "7c924aabafc591a478a3928a4b137d79ffda78eec445a83584cf039a46771336"
+        }
+      ],
+      "remaining_or_scope_limit": "Exploratory no-trade results and synthetic cash flow do not establish economic significance; report executable net value, activity, missing exits and uncertainty on eligible data."
+    },
+    {
+      "goal": 8,
+      "status": "incomplete_actual_sandbox_records_missing",
+      "evidence": [],
+      "remaining_or_scope_limit": "Actual venue paper/sandbox order, fill, fee and timestamp records are required; the user has not supplied a source."
+    },
+    {
+      "goal": 9,
+      "status": "incomplete_target_host_qualification",
+      "evidence": [
+        {
+          "path": "process-restart/report.json",
+          "sha256": "e96728d621e4a0947374c3340881e1502ec95c7f867cb2e8ea0e064aade2efb8"
+        },
+        {
+          "path": "disk-failure/report.json",
+          "sha256": "d74513210b2a6cca99e881d3bfc6abd61047a2df98997b5ef7973cf9eabfe3df"
+        },
+        {
+          "path": "live-baseline-system-ca/report.json",
+          "sha256": "ff8b7adf1aa91ac111b6e2b1daf6090f46069d1acbf75d9d455940d29d62edcf"
+        },
+        {
+          "path": "live-disconnect-restart/report.json",
+          "sha256": "d3bbb2be76faad02cd66757121b62b307dcd0696085caadc2e26b74659d39cab"
+        },
+        {
+          "path": "live-queue-budget/report.json",
+          "sha256": "395d2df61ebd3aea851842cd019bc4bc1a8e580c44129cf2945ffabad094400e"
+        }
+      ],
+      "remaining_or_scope_limit": "Real local baseline and failure trials passed their stated checks. Absolute host clock qualification, prespecified soak, remote archive readback and future protocol qualification remain pending."
+    },
+    {
+      "goal": 10,
+      "status": "verified_four_requested_controlled_faults",
+      "evidence": [
+        {
+          "path": "mutations/mutations.json",
+          "sha256": "282cf53f5cbcad97b74c0d427bb3e15df7b4dcf3c981ed53ad83cf6938f6f3e6"
+        }
+      ],
+      "remaining_or_scope_limit": "Four isolated mutations were detected; this is not a proof of general financial correctness."
+    },
+    {
+      "goal": 11,
+      "status": "implemented_visual_review_unverified",
+      "evidence": [
+        {
+          "path": "index.html",
+          "sha256": "8a286e5e29ef675ba58701c63bcdf0986786d8eaf34c19f62ce92c1da6915dc4"
+        }
+      ],
+      "remaining_or_scope_limit": "Decision, dated coverage, unavailable economics/uncertainty and blockers lead the dashboard. Link checks passed; browser local-file policy blocked visual review; public deployment not performed."
+    },
+    {
+      "goal": 12,
+      "status": "incomplete_personal_participation_missing",
+      "evidence": [
+        {
+          "path": "historical-reproduction/summary.json",
+          "sha256": "9eb638392b894ea3195163e2c47c8ab81ecd2735be43744c26b0662a00cd0519"
+        }
+      ],
+      "remaining_or_scope_limit": "The agent reproduced historical results. The user must reproduce one result and explain cash flow, baseline, timing and limitations in their own five-minute defense."
+    }
+  ],
+  "external_dependencies": [
+    "Release dates November 22 and 23 UTC",
+    "Qualified collection host and untouched prospective data",
+    "Actual paper/sandbox order and fill records",
+    "User reproduction and spoken defense"
+  ],
+  "previous_turn_classification": "progress: live disconnect/restart and queue-boundary evidence added",
+  "goal_status": "active",
+  "blocker_audit_consecutive_no_progress_turns": 0
+}

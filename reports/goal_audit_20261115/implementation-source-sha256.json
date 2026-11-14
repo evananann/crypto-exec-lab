@@ -1,0 +1,17 @@
+{
+  "base_commit": "85e92f71303920939bddf884fa4fd04e49d27449",
+  "local_changes_not_published": true,
+  "files": {
+    "research/roadmap/self_review.py": "031132f0e3d127a99b62e8611a1356053c93b29e8946aebec7177ab0e29c3d90",
+    "research/roadmap/slot_audit.py": "05ce2f4b8d9b4cc9d5140aaeebc776ac1cf071daed6a9ac3206861b1b433e1ad",
+    "research/roadmap/restore_health.py": "9f870b6c0ff900d30b0c1b3432e6ab761ceaf83c483c13ea7b1e78383af8b2d2",
+    "research/roadmap/historical_trace.py": "372e8d64f71e498c4d8c8e2a3d66c85046ab002ba2520a6ac1db182c286338ad",
+    "research/roadmap/financial_mutations.py": "27a29b76598a1a5f0d047183d497fe08e0520cd957fbd1f18cc6f52f85e1c1ea",
+    "benchmarks/successor_report_workload.py": "2633603b3e218b900fcf2bfdfe600e9205e277c7a47a31dfaac493aa09a7f269",
+    ".github/workflows/self-review.yml": "7ebbb1a6275df8d1e2e5557e69e2268461898c02af92a69ee45e4c97fb9c132b",
+    "tests/test_self_review.py": "e36d6e2f9a67fa27d1218b5421e5b4070e48690150a6aad9f2b0272d94c46792",
+    "tests/test_goal_evidence.py": "78b6ad13daedbd8aae20c979ae2d48e14c5230ee2b8385a020d7ceafdcc7a8e6",
+    "research/roadmap/process_restart_trial.py": "c271960b5de9bcc73a036ae8e1f28e869289c2d60462009069c0c46fa588deb5",
+    "research/roadmap/disk_failure_trial.py": "3f727f88566d00d534a87df01fd4690732d7ed6c82db383eb13a254288a387ad"
+  }
+}

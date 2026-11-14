@@ -1,0 +1,28 @@
+BASELINE
+test_duplicate_reports_and_retries_never_double_fill (tests.test_internal_validation.LifecycleTests.test_duplicate_reports_and_retries_never_double_fill) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+MUTANT
+test_duplicate_reports_and_retries_never_double_fill (tests.test_internal_validation.LifecycleTests.test_duplicate_reports_and_retries_never_double_fill) ... ERROR
+
+======================================================================
+ERROR: test_duplicate_reports_and_retries_never_double_fill (tests.test_internal_validation.LifecycleTests.test_duplicate_reports_and_retries_never_double_fill)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/9g/6b5bp4397g708lj7v6v7xy2h0000gn/T/financial-mutation-zjo2btoe/tests/test_internal_validation.py", line 55, in test_duplicate_reports_and_retries_never_double_fill
+    ledger.apply({**event,'message_id':'different-notification','received_ms':200})
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/9g/6b5bp4397g708lj7v6v7xy2h0000gn/T/financial-mutation-zjo2btoe/scripts/order_lifecycle.py", line 56, in apply
+    changed = candidate._apply(event)
+  File "/private/var/folders/9g/6b5bp4397g708lj7v6v7xy2h0000gn/T/financial-mutation-zjo2btoe/scripts/order_lifecycle.py", line 156, in _apply
+    raise ValueError('fill conflicts with order lifecycle')
+ValueError: fill conflicts with order lifecycle
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

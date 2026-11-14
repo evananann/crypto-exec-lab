@@ -1,0 +1,16 @@
+{
+  "feeds": {
+    "okx-bbo": {
+      "wire_messages": 907,
+      "recognized_bbo_messages": 905,
+      "subscription_errors": 0
+    },
+    "binance-bbo": {
+      "wire_messages": 15349,
+      "recognized_bbo_messages": 15349,
+      "subscription_errors": 0
+    }
+  },
+  "study_eligible": false,
+  "scope": "30 second public connectivity baseline only"
+}

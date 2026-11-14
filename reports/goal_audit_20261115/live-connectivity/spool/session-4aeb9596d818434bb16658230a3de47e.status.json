@@ -1,0 +1,8 @@
+{
+  "session_id": "4aeb9596d818434bb16658230a3de47e",
+  "faults": [
+    "transport_error"
+  ],
+  "interrupted_segments_at_start": [],
+  "scope": "raw acquisition pilot; not scientific slot eligibility"
+}

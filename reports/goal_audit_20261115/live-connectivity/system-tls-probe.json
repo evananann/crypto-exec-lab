@@ -1,0 +1,10 @@
+[
+  {
+    "host": "fstream.binance.com",
+    "tls_verified": true
+  },
+  {
+    "host": "ws.okx.com",
+    "tls_verified": true
+  }
+]

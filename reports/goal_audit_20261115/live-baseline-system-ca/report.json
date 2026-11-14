@@ -1,0 +1,34 @@
+{
+  "started_at_utc": "2026-11-14T17:21:46.236355+00:00",
+  "finished_at_utc": "2026-11-14T17:22:16.354447+00:00",
+  "exit_code": 0,
+  "inventory": {
+    "integrity_state": "verified",
+    "verified_segments": [
+      {
+        "file": "20261114T172146-b9e8a79c1c954db39db7dd76b6b8eac1.jsonl.gz",
+        "records": 5583,
+        "session_id": "0660d70debb44f1b81fe9d507e6c98f7"
+      },
+      {
+        "file": "20261114T172156-26e676235e2645a3b66f54a12098c37a.jsonl.gz",
+        "records": 7875,
+        "session_id": "0660d70debb44f1b81fe9d507e6c98f7"
+      },
+      {
+        "file": "20261114T172206-d4aa16b43eec45888d14a922be341761.jsonl.gz",
+        "records": 2800,
+        "session_id": "0660d70debb44f1b81fe9d507e6c98f7"
+      }
+    ],
+    "records": 16258,
+    "invalid_files": [],
+    "orphaned_segments": [],
+    "interrupted_files": [],
+    "reported_capture_faults": [],
+    "pending_session_status": [],
+    "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+  },
+  "scope": "Bounded public-feed connectivity rehearsal; no scientific enrollment or strategy outcomes",
+  "collector_sha256": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb"
+}

@@ -1,0 +1,9 @@
+{
+  "session_id": "ea5653dc91bd4207adac339001ff7a43",
+  "faults": [
+    "queue_overflow; capture incomplete",
+    "transport_error"
+  ],
+  "interrupted_segments_at_start": [],
+  "scope": "raw acquisition pilot; not scientific slot eligibility"
+}

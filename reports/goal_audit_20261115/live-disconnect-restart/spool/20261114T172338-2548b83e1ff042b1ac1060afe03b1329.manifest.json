@@ -1,0 +1,27 @@
+{
+  "clock_before": {
+    "monotonic_ns": 139865072259812,
+    "wall_ns": 1794677018681206000,
+    "pair_uncertainty_ns": 479
+  },
+  "clock_after": {
+    "monotonic_ns": 139865143575229,
+    "wall_ns": 1794677018752522000,
+    "pair_uncertainty_ns": 396
+  },
+  "clock_divergence": {
+    "available": true,
+    "elapsed_monotonic_ns": 71315417,
+    "wall_minus_monotonic_ns": 583,
+    "pair_uncertainty_ns": 875,
+    "apparent_divergence_ppm": 8.174950445848197,
+    "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+  },
+  "schema_version": 1,
+  "session_id": "7bb41f74bd3d43b28d47a9a5ed0f1295",
+  "file": "20261114T172338-2548b83e1ff042b1ac1060afe03b1329.jsonl.gz",
+  "sha256": "63ffc311799e4615952b07b4766debe3efabe67c8d1dc1dad0c23b1a9c90486a",
+  "records": 14,
+  "sealed_at_utc": "2026-11-14T17:23:38.752582+00:00",
+  "scope": "local raw-wire segment; checksum is integrity, not WORM storage or study eligibility"
+}

@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-11-14T17:03:02.469004+00:00",
+  "cold_start": true,
+  "previous_state_sha256": null,
+  "previous_history_entries": 0,
+  "retained_history_entries": 1,
+  "history_prefix_preserved": true,
+  "seed": 20261115,
+  "generated_parameter_cases": 60,
+  "unique_cases_checked": 60,
+  "new_case_ids_in_rolling_window": 60,
+  "previous_regressions_replayed": 0,
+  "unclaimed_count_change_since_previous": null,
+  "resolved_prior_case_ids": [],
+  "outcome_counts": {
+    "ABSTAIN": 20,
+    "CLOSED": 9,
+    "OPEN": 11,
+    "REJECTED": 4
+  },
+  "failed_cases": [
+    {
+      "case_id": "e450cd6392ed7eb3421e1c2be16ef319c7702df3703cdf2da86e9be44d00fcd2",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "2322875e9936a8921d6a03260cf8d45a5ddd171623120dcc03e45acc598c43f2",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "e7a41ac2d20f69e5329067f231a70ce879d5677647d9aaa53bb65c7b73cbac4f",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "6ce2453568d0c3697d4a0ce3faa0b28cffbfe354d12deebf7616f5fac9b941d2",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "fdf56caeae9b1f6b5430d63c333f614b2ebefc0216bd75ace3631b0d976ee54f",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "01711e73940172fa84b7ee0c324570b0e3330082b6adda67c71cd3fc856e2cad",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "90c39428c1e1f43014d713097b3084b102f2f945a3b1e6ea7e82f048309c2289",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "b2064e8e3006aeaff2a21e2a53e1a544b5311604fed23bec3963ec5065174da2",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "6c9e5ac8dc7d9f6959be17be8c7da6171d37d95ce7ada2cc57390305a91699dc",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "d7e896ea5ce534341f3d2b2968412bfce80b55f7ad34304211b7ab6a4635e388",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "57822c3d83272c44b72f6fcad8bdad6662f36d5513476ef1e3d6d1dc28eeb1ef",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "1ab5a246f36fb307d73bf4310620c8633d61ae7a88b70ced693f80c7d6db5f14",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "9b842c7a92b1ce7cfc3f4fc9efb82fbd4d1edd48f7bd72f25d7c36f838e449dd",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "48088e2697b84ad1267903c9f2683c2c071d67ad9784c080e28ae46ccd02f135",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "d82cf3505b520d29f981c22e95a53d272d562b25e489333ccc28f6084d510d70",
+      "error_type": "AssertionError"
+    },
+    {
+      "case_id": "7be1310214e97a6df667c625a693c0612865373cd5526a0fce6475feb7e810a1",
+      "error_type": "AssertionError"
+    }
+  ],
+  "readiness": {
+    "schema_version": 1,
+    "as_of_utc": "2026-11-14T17:03:02.469004+00:00",
+    "studies": [
+      {
+        "study_id": "btc-successor-v3-20261025",
+        "registration": "source_verified",
+        "release_utc": "2026-11-22T00:00:00+00:00",
+        "release_shanghai": "2026-11-22T08:00:00+08:00",
+        "outcome_time_gate_open": false,
+        "planned_slots": 56,
+        "outcomes_status": "EMPIRICAL_UNRELEASED",
+        "configuration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21"
+      },
+      {
+        "study_id": "btc-replication-v2-okx",
+        "registration": "configuration_exists_activation_not_authenticated",
+        "release_utc": "2026-11-23T00:00:00+00:00",
+        "release_shanghai": "2026-11-23T08:00:00+08:00",
+        "outcome_time_gate_open": false,
+        "outcomes_status": "EMPIRICAL_UNRELEASED",
+        "configuration_sha256": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9"
+      },
+      {
+        "study_id": "btc-replication-v2-bybit",
+        "registration": "configuration_exists_activation_not_authenticated",
+        "release_utc": "2026-11-23T00:00:00+00:00",
+        "release_shanghai": "2026-11-23T08:00:00+08:00",
+        "outcome_time_gate_open": false,
+        "outcomes_status": "EMPIRICAL_UNRELEASED",
+        "configuration_sha256": "cd4605e0c51843058e96a3f3c8448021d0a90a7b3c89b836a89989c77ad44a56"
+      }
+    ],
+    "outcome_files_read": 0,
+    "market_tapes_read": 0,
+    "source_binding_verified": true,
+    "signing_status": "SHA256 integrity binding; no cryptographic signer configured",
+    "decision": "Remain in research; a date gate opening alone never establishes eligible evidence or alpha."
+  },
+  "readiness_error": null,
+  "coverage": null,
+  "recommendations": [
+    {
+      "priority": "P0",
+      "id": "regression-failure",
+      "action": "Replay retained counterexamples, fix the implementation and rerun independent reference checks. No source is auto-edited.",
+      "evidence_count": 16
+    },
+    {
+      "priority": "P1",
+      "id": "external-execution-evidence",
+      "action": "Obtain independent paper fills and instrument/clock metadata before claiming execution calibration."
+    }
+  ],
+  "critical_failure": true,
+  "strategy_parameters_changed": false,
+  "market_outcomes_read": 0,
+  "case_recipe": "bbo-roundtrip-reference-v1",
+  "checker_source_sha256": {
+    "research/roadmap/self_review.py": "031132f0e3d127a99b62e8611a1356053c93b29e8946aebec7177ab0e29c3d90",
+    "research/decision_study/pipeline.py": "29abc72844fa120f6b9395131e9118f0b7405ba73eedc8c32ff015d02dc6495c"
+  },
+  "memory_scope": "Last10000 case IDs and30 reviews; new IDs are novel within that window, not lifetime uniqueness. Cache is best-effort; cold starts are explicit.",
+  "authority": "Regression discovery and recommendations only. No code edits, tuning, PRs, live orders or messages."
+}

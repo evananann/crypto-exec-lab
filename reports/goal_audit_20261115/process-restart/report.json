@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "process_killed": true,
+  "child_exit_code": -9,
+  "concurrent_owner_refused": true,
+  "lock_reacquired_after_death": true,
+  "previous_files_unchanged": true,
+  "interrupted_files_retained": [
+    "20261114T171508-566ffc7fb6a042bcbb45082fc0b7503c.jsonl.gz.partial"
+  ],
+  "after_death": {
+    "integrity_state": "incomplete",
+    "verified_segments": [
+      {
+        "file": "20261114T171508-acdc2e412082485b8b2f98c0a524a168.jsonl.gz",
+        "records": 1,
+        "session_id": "062caad65369410e933c5fe9d5eec566"
+      }
+    ],
+    "records": 1,
+    "invalid_files": [],
+    "orphaned_segments": [],
+    "interrupted_files": [
+      "20261114T171508-566ffc7fb6a042bcbb45082fc0b7503c.jsonl.gz.partial"
+    ],
+    "reported_capture_faults": [],
+    "pending_session_status": [
+      "062caad65369410e933c5fe9d5eec566"
+    ],
+    "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+  },
+  "after_restart": {
+    "integrity_state": "incomplete",
+    "verified_segments": [
+      {
+        "file": "20261114T171508-a979506c4fe443779141915e1fcbcf04.jsonl.gz",
+        "records": 1,
+        "session_id": "367d193844674e6bb7779263c7b3fc87"
+      },
+      {
+        "file": "20261114T171508-acdc2e412082485b8b2f98c0a524a168.jsonl.gz",
+        "records": 1,
+        "session_id": "062caad65369410e933c5fe9d5eec566"
+      }
+    ],
+    "records": 2,
+    "invalid_files": [],
+    "orphaned_segments": [],
+    "interrupted_files": [
+      "20261114T171508-566ffc7fb6a042bcbb45082fc0b7503c.jsonl.gz.partial"
+    ],
+    "reported_capture_faults": [],
+    "pending_session_status": [
+      "062caad65369410e933c5fe9d5eec566",
+      "367d193844674e6bb7779263c7b3fc87"
+    ],
+    "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+  },
+  "passed": true,
+  "scope": "Real local process death and restart; fixture records, no exchange transport or deployment qualification"
+}
