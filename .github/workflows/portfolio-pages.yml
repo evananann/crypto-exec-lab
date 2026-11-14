@@ -6,6 +6,8 @@ on:
       - '.github/workflows/portfolio-pages.yml'
       - 'research/portfolio_site.py'
       - 'research/decision_study/**'
+      - 'research/roadmap/**'
+      - 'reports/roadmap_20261114/**'
       - 'reports/historical_exploratory_20261109/**'
       - 'reports/collection_review_20261109/**'
       - 'reports/collection_delivery_20261109/**'

@@ -85,3 +85,13 @@ turnover, liquidity and the abstention decision. For quant development, demonstr
 exact accounting, tamper rejection, duplicate-fill handling, shared-depth limits
 and reproducible CI. Use the same evidence; do not invent a profitable result
 for any of these audiences.
+
+## November14 follow-on implementation
+
+The [matched-scale lab](https://evananann.github.io/crypto-exec-lab/followon.html)
+now implements L/2 versus L/2+B/2 on synthetic tapes. It reports every fixed
+delay/holding cell and four activity-preserving placebos, including unavailable
+intervals when there is no policy contrast. This implements the proposed scaling
+fix as an independent prototype, not a completed empirical information-value
+study. Use the [contract](EVENT_TIME_CONTRACT.md) and [roadmap status](ROADMAP_DELIVERY.md)
+to explain source tracing, mixed units, reconnects and future release dependencies.

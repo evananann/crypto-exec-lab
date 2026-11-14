@@ -1,0 +1,13 @@
+{
+  "research/decision_study/coverage.py": "f06e996d990e7ca539ae6082d30e071eeb6e42afe34b2bb4988d36c6f4a10c2c",
+  "research/decision_study/pipeline.py": "29abc72844fa120f6b9395131e9118f0b7405ba73eedc8c32ff015d02dc6495c",
+  "research/roadmap/__init__.py": "32a71e45468cf16943ee9ac5441173bfa0a64b3d2454b57ee10b1b249b4523b8",
+  "research/roadmap/event_time.py": "dcb188caa1ad60f60077882237d1909c8f9648e74257710d494b6858565bd976",
+  "research/roadmap/followon.py": "1fb163f53db91c6ee7e0df56c5219685764ee806c35e3a8aa7c7a0fda9cc9ba9",
+  "research/roadmap/followon_protocol.json": "cb3224f4ba37aa8bc1a806aefa3a6e2faf129a6e25c457fc98974087d53949c9",
+  "research/roadmap/package.py": "8567b71f1657aec1c747857b4705e785222748bf9e64a96907a931be327c9587",
+  "research/roadmap/readiness.py": "31d92c40889eca19420308ab59b0e392633413f5fda8aa5babb7f507249d37fa",
+  "scripts/order_lifecycle.py": "07d7d49e68600de3bde78efe219542edf2ade60f3ecc1a7dce72b5e105d7c3a4",
+  "scripts/study_gate.py": "53693a4c31103b03643e8e61c3019941827f421adf6f08b48c7db0c346804b28",
+  "scripts/successor_study.py": "06b6e07600fe487f3c580df72c3e4aa5da798fef9ed7b5f8dfb64f92a84b73a4"
+}

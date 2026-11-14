@@ -1,0 +1,13 @@
+{
+  "protocol_id": "matched-scale-followon-draft-20261114",
+  "state": "draft_not_registered_no_empirical_enrollment",
+  "question": "Does B/2 add executable opportunity value beyond L/2 at common receive-time decisions?",
+  "policies": {"local": "L/2", "cross": "L/2+B/2", "threshold_bps": "12", "lookback_ms": 100, "shared_feature_eligibility": true},
+  "grid": {"delays_ms": [0,25,50,100,250,500], "holding_horizons_ms": [250,1000,5000], "synthetic_regimes": ["informative","constant_leader"], "reported_cells": 36},
+  "execution": {"quantity_btc": "0.001", "entry_fee_bps": "5", "exit_fee_bps": "5", "max_quote_age_ms": 500, "entry": "decision+delay", "exit": "decision+delay+holding_horizon", "spread": "embedded in BBO fills; no second deduction"},
+  "controls": ["cyclic_shift", "sign_inversion", "within_day_shuffle", "random_trigger"],
+  "control_cell": {"delay_ms": 50, "holding_horizon_ms": 1000, "seed": 7, "activity": "same active count per synthetic date; inversion may change buy/sell mix"},
+  "inference": {"bootstrap_repetitions": 2000, "seed": 42, "cluster": "whole synthetic UTC dates", "meaning": "plumbing only; not a calibrated confidence guarantee or market result", "pvalues": "not calculated", "winner_selection": "none; report every cell"},
+  "prospective_requirements": ["Independent verified tape and instrument metadata", "New immutable enrollment/source manifest before reading outcomes", "Discovery, validation and untouched future test boundaries", "Purged label overlap and embargo if fitting models", "A separately fixed primary contrast and multiplicity plan", "Preserve outages and unavailable exits; do not replace failed slots"],
+  "limitations": ["No market data loader in this experiment", "Shuffled/rotated controls may use future actions; never executable policies", "Matched score scaling does not prove causal exchange leadership", "No funding, impact, queue calibration, live fills or portfolio return inferred", "No modification to the active registered study or locked learned models"]
+}

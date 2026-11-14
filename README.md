@@ -29,6 +29,12 @@ and its [guide](docs/DECISION_WORKBENCH.md): collection evidence, the historical
 pilot, synthetic controls, execution reconciliation and portfolio accounting.
 Download the HTML or serve it locally; GitHub's file viewer does not run it.
 
+**November 14 substantive update:** [roadmap delivery and dependencies](docs/ROADMAP_DELIVERY.md),
+a [matched-scale latency/control lab](https://evananann.github.io/crypto-exec-lab/followon.html)
+(**synthetic only**), and the [formal event-time contract](docs/EVENT_TIME_CONTRACT.md).
+The [research log](docs/RESEARCH_LOG.md) records what changed and what failed.
+Primary results remain gated; the lab is a separate draft experiment.
+
 For interview preparation, use the [case study and evidence map](docs/INTERVIEW_CASE_STUDY.md):
 why a policy can beat its baseline without making money, how score shrinkage can
 imitate added information, and which accounting and robustness checks support each claim.

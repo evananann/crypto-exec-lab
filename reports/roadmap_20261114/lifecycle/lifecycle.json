@@ -1,0 +1,91 @@
+{
+  "synthetic": true,
+  "before_restart": {
+    "orders": {
+      "entry": {
+        "status": "canceled",
+        "venue": "okx",
+        "side": "buy",
+        "quantity": "0.001",
+        "filled": "0.0006",
+        "instrument": "BTC-USDT-SWAP",
+        "order_type": "market",
+        "limit_price": null,
+        "remaining": "0.0004",
+        "venue_order_id": "venue-1"
+      }
+    },
+    "positions_btc": {
+      "okx": "0.0006"
+    },
+    "cash_usdt": {
+      "okx": "-36.0182001"
+    },
+    "fees_usdt": {
+      "okx": "0.0180001"
+    },
+    "net_btc": "0.0006",
+    "gross_btc": "0.0006",
+    "reconciled": true,
+    "unique_executions": 2
+  },
+  "after_restart_before_reconcile": {
+    "orders": {
+      "entry": {
+        "status": "canceled",
+        "venue": "okx",
+        "side": "buy",
+        "quantity": "0.001",
+        "filled": "0.0006",
+        "instrument": "BTC-USDT-SWAP",
+        "order_type": "market",
+        "limit_price": null,
+        "remaining": "0.0004",
+        "venue_order_id": "venue-1"
+      }
+    },
+    "positions_btc": {
+      "okx": "0.0006"
+    },
+    "cash_usdt": {
+      "okx": "-36.0182001"
+    },
+    "fees_usdt": {
+      "okx": "0.0180001"
+    },
+    "net_btc": "0.0006",
+    "gross_btc": "0.0006",
+    "reconciled": false,
+    "unique_executions": 2
+  },
+  "after_reconcile": {
+    "orders": {
+      "entry": {
+        "status": "canceled",
+        "venue": "okx",
+        "side": "buy",
+        "quantity": "0.001",
+        "filled": "0.0006",
+        "instrument": "BTC-USDT-SWAP",
+        "order_type": "market",
+        "limit_price": null,
+        "remaining": "0.0004",
+        "venue_order_id": "venue-1"
+      }
+    },
+    "positions_btc": {
+      "okx": "0.0006"
+    },
+    "cash_usdt": {
+      "okx": "-36.0182001"
+    },
+    "fees_usdt": {
+      "okx": "0.0180001"
+    },
+    "net_btc": "0.0006",
+    "gross_btc": "0.0006",
+    "reconciled": true,
+    "unique_executions": 2
+  },
+  "scope": "Offline lifecycle/accounting harness only. No transport, orders, accounts or fill probabilities."
+}

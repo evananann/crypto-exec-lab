@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "as_of_utc": "2026-11-14T15:27:34.624902+00:00",
+  "studies": [
+    {
+      "study_id": "btc-successor-v3-20261025",
+      "registration": "source_verified",
+      "release_utc": "2026-11-22T00:00:00+00:00",
+      "release_shanghai": "2026-11-22T08:00:00+08:00",
+      "outcome_time_gate_open": false,
+      "planned_slots": 56,
+      "outcomes_status": "EMPIRICAL_UNRELEASED",
+      "configuration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21"
+    },
+    {
+      "study_id": "btc-replication-v2-okx",
+      "registration": "configuration_exists_activation_not_authenticated",
+      "release_utc": "2026-11-23T00:00:00+00:00",
+      "release_shanghai": "2026-11-23T08:00:00+08:00",
+      "outcome_time_gate_open": false,
+      "outcomes_status": "EMPIRICAL_UNRELEASED",
+      "configuration_sha256": "793075d10cbd14f9bc471b7df256ae648d2b427f9105c8993a4ce96d21ee72d9"
+    },
+    {
+      "study_id": "btc-replication-v2-bybit",
+      "registration": "configuration_exists_activation_not_authenticated",
+      "release_utc": "2026-11-23T00:00:00+00:00",
+      "release_shanghai": "2026-11-23T08:00:00+08:00",
+      "outcome_time_gate_open": false,
+      "outcomes_status": "EMPIRICAL_UNRELEASED",
+      "configuration_sha256": "cd4605e0c51843058e96a3f3c8448021d0a90a7b3c89b836a89989c77ad44a56"
+    }
+  ],
+  "outcome_files_read": 0,
+  "market_tapes_read": 0,
+  "source_binding_verified": true,
+  "signing_status": "SHA256 integrity binding; no cryptographic signer configured",
+  "decision": "Remain in research; a date gate opening alone never establishes eligible evidence or alpha."
+}

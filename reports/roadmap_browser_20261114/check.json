@@ -1,0 +1,10 @@
+{
+  "desktop": true,
+  "mobile": true,
+  "informative_heatmap_cells": 18,
+  "reported_regime_cells": 36,
+  "negative_controls": 4,
+  "page_errors": [],
+  "scope": "Local built artifact. Hosted deployment verified separately through GitHub Actions.",
+  "followon_html_sha256": "f42feb2e1ef66d5678bc2b48214644d0b1f580cce89dcb709dc4b76d7b2ccb3b"
+}

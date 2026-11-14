@@ -25,7 +25,7 @@ class PortfolioSiteTests(unittest.TestCase):
             output = Path(directory)/'site'
             build(output)
             self.assertEqual({p.name for p in output.iterdir()}, {'index.html', 'experiment.html',
-                'cost-lab.html', 'workbench.html', 'hero.png', 'leadlag.png', 'site-checksums.json'})
+                'cost-lab.html', 'workbench.html', 'followon.html', 'hero.png', 'leadlag.png', 'site-checksums.json'})
             for name in ('index.html', 'experiment.html', 'cost-lab.html'):
                 page = (output/name).read_text()
                 self.assertIn('synthetic', page.lower())

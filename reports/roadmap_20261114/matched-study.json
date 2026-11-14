@@ -1,0 +1,1814 @@
+{
+  "schema_version": 1,
+  "evidence_status": "SYNTHETIC",
+  "market_tapes_read": 0,
+  "search_size_cells": 36,
+  "fixed_control_count": 4,
+  "winner_selected": false,
+  "surfaces": {
+    "informative": [
+      {
+        "delay_ms": 0,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "0a7909540429dfe5cb815174ae54bc5dd8dcb388e53040f57e1cd0a272ec49ca",
+            "config_sha256": "bae4acf9a4f9d2868052e25c60b0015f4d3b90fce54aa277ad4571dfc0523033",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.01937518750"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.01937518750",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.0133751875,
+            0.0253751875
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 0,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "7b389f642a77ba738289fb7d94250ee941e049ea921dc164b1300183a6954609",
+            "config_sha256": "38abd4469514264235105ac9e7b5ec00a973e57bd021cc9db5802e9041fa7f86",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.15500050"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.15500050",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.1390005,
+            0.1710005
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 0,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "6b478f9690fd440e5a81d8b7c2eef525afd9bf141e67050e18f5176d8773af16",
+            "config_sha256": "6a893052daad2dace865ab7ac196294a67a833a9c1ae05dd533a8dc8533c2ffc",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.00310015000"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.00310015000",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            -0.00169985,
+            0.00790015
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 25,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "ecaaad104dc7f9f4a4a5904f017206ef9deed214d59379241a9ce3fa22453b68",
+            "config_sha256": "545259c1dcb4ae5e57feedd74fb3571cbfc898293a58b9814f48ed53be8241c7",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.032937718750"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.032937718750",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.02593771875,
+            0.03993771875
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 25,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "067e86efae15642cb2fa4a618d8f3e54ea12bf5aca44b4be7c4b52278be364b7",
+            "config_sha256": "20f0e4cc1449354a3a81d8b6b902b3f2d99b37138c87da49b2635c0a20c8236a",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.15500050"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.15500050",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.1390005,
+            0.1710005
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 25,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "51e77b9850f37bbea27b2e91ee4eb8b66bac2a7efd2da5449d075a3eda250ec3",
+            "config_sha256": "28c67b3a864c14198b5fd6156ad3c334e4057a5de56f5bc46ef3bc444059ebff",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.0020151475000"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.0020151475000",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            -0.0027048525,
+            0.0067351475
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 50,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "6c1f83be170bc4b323927db94a2563075f124c3acc2006b66500c367841a5d27",
+            "config_sha256": "f0e625ed02af6776ca0ee08d0109e0a96c8110a7136b7ab096818a707666caee",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.046500250"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.046500250",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.03850025,
+            0.05450025
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 50,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "3bebad9c255bc6cfbdfd266a5776051113db8799b8d4af8dcdeff3d0463c1887",
+            "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.15500050"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.15500050",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.1390005,
+            0.1710005
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 50,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "75b8b88d739fbacec5b2053f1dea3ebabe615a24cc757d8858a2e6435fd72df9",
+            "config_sha256": "9198db6194e6b063e40e63ff5942647f60e9ab9740e5b29e8a61b0c13197cd36",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.000930145000"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.000930145000",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            -0.003709855,
+            0.005570145
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 100,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "02e5e393167936cfc4c9395603c41d366770f2280de90945c5e6b9b6234da54a",
+            "config_sha256": "64fc6054d98728c959eaa228296601dc1e28a2b2ed31f4e061b56cb12c115f80",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.07362531250"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.07362531250",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.0636253125,
+            0.0836253125
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 100,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "67d11b33ff2286b25f16382c6ea976f86e404c833eece274453a8e4a696b13f3",
+            "config_sha256": "11b9bec14c6c49e55b5e97b6ad6e173dd2798d1784613a99c9d6488b00c34b11",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.15500050"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.15500050",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.1390005,
+            0.1710005
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 100,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "5b66288791850a8f42488f6763636532a508df0d9027e9c651933ab31356ea2a",
+            "config_sha256": "77f8f3727a27a8ca265a686144fbb881f13703183229de535711c3adc7e022b8",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "-0.001239860"
+          ],
+          "mean_increment_usd_per_available_opportunity": "-0.001239860",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            -0.00571986,
+            0.00324014
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 250,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "d637afe5d4b6bde0f72fa3168c9819170ba844b71a2d160be79ecd832af97936",
+            "config_sha256": "3ab61b5703cff0fe3710eabdb49647cc722db2a42c6a1813e154b0baa3b32f63",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.07362568750"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.07362568750",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.0636256875,
+            0.0836256875
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 250,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "1af24b13cae5eef04e461746e5a8a0271ee7a1b7ef4c641d4c49fb2761fcd53c",
+            "config_sha256": "fdb32a4cab179849cbc749f866a050731bff80ee74d09165213c6585ef2cd931",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0.07362568750"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0.07362568750",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            0.0636256875,
+            0.0836256875
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 250,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "894ee9ece153087c21e48051b57d2ef89b472a16dc31e176763ba7dd48c6ebd7",
+            "config_sha256": "a670925b68176a4fed7c6d21d54cac722e94cb6733509286515ba439fd22416c",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "-0.089124687500"
+          ],
+          "mean_increment_usd_per_available_opportunity": "-0.089124687500",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            -0.0911246875,
+            -0.0871246875
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 500,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "ad0d10e17d992c06f57cd4e77b1d69ab16c39946c1c4c2493b448399ee93d501",
+            "config_sha256": "72b3e6e1449181775bc154e6798c4c8e58c06dceca62ad12178847918852f398",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "-0.06199900"
+          ],
+          "mean_increment_usd_per_available_opportunity": "-0.06199900",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            -0.061999,
+            -0.061999
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 500,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "1860a2c9535ee77ff815e8d6cf84c502e444ae51629750404af77cc33ffa9d16",
+            "config_sha256": "395188cd937d167b321f1c677f5d9fc43f2b51de8441795a62f06b396a8fabe7",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "-0.06199900"
+          ],
+          "mean_increment_usd_per_available_opportunity": "-0.06199900",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            -0.061999,
+            -0.061999
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 500,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+            "ledger_sha256": "ad21a12502030365e02fd2f03c77134033690f0a3157cf51ba3b65814c21a56b",
+            "config_sha256": "5314eb6bf0776cd7e2e7146ab6205d1bb887addc1dccab26b7dd082580c244ca",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            48
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "-0.23559940"
+          ],
+          "mean_increment_usd_per_available_opportunity": "-0.23559940",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": true,
+          "ci95_usd": [
+            -0.2483994,
+            -0.2227994
+          ],
+          "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 48,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      }
+    ],
+    "constant_leader": [
+      {
+        "delay_ms": 0,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "325ddeb8c76f6d6a64a21fdf21b108cd339c1e3385419e425e2d892d2754f179",
+            "config_sha256": "bae4acf9a4f9d2868052e25c60b0015f4d3b90fce54aa277ad4571dfc0523033",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 0,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "20cb98092258b82e0e43517569238aa5677b7cf0ce1857362bc8a6c878f99322",
+            "config_sha256": "38abd4469514264235105ac9e7b5ec00a973e57bd021cc9db5802e9041fa7f86",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 0,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "b53e5e1fbf6fae87dc20ef950c04189bbf4c281e9cfb61ca955d4bebf9332da4",
+            "config_sha256": "6a893052daad2dace865ab7ac196294a67a833a9c1ae05dd533a8dc8533c2ffc",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 25,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "0232c0fa39a09d9bbf15aeec2f2859ca1b8fb55090c87c18a00387fcfe3ce09f",
+            "config_sha256": "545259c1dcb4ae5e57feedd74fb3571cbfc898293a58b9814f48ed53be8241c7",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 25,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "96a124faddf8801b04c978247fb5dfacc60f2859be381c0ce8371ea79ab986c6",
+            "config_sha256": "20f0e4cc1449354a3a81d8b6b902b3f2d99b37138c87da49b2635c0a20c8236a",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 25,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "99bc2af6ed7f31b5a0e40f1536461b3d5c43bc1a5c837612152df2a145567af9",
+            "config_sha256": "28c67b3a864c14198b5fd6156ad3c334e4057a5de56f5bc46ef3bc444059ebff",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 50,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "2e9b986e00ea55aac81f56a90a71ffead461b9156b54f2734b2e7dbe4c9dab31",
+            "config_sha256": "f0e625ed02af6776ca0ee08d0109e0a96c8110a7136b7ab096818a707666caee",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 50,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "7100e1a4fac4df8fdbe6127630f06ccbc1ff39f3f3480e9f9e50806b6173b745",
+            "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 50,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "7926e4a56dbd33099b00e74ef484aebb1434cb87e02bca4d2b83a1f75906f7e5",
+            "config_sha256": "9198db6194e6b063e40e63ff5942647f60e9ab9740e5b29e8a61b0c13197cd36",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 100,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "1b5b738039ed28785ac311bb015332ff41b45edfd8f73f63c9ac616b21781b88",
+            "config_sha256": "64fc6054d98728c959eaa228296601dc1e28a2b2ed31f4e061b56cb12c115f80",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 100,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "51f94390062d471a50a5cdd43d59bc29989309380deae610fd2ff6f7e98c330a",
+            "config_sha256": "11b9bec14c6c49e55b5e97b6ad6e173dd2798d1784613a99c9d6488b00c34b11",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 100,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "6559f5ca4e2f4b11f28671dd11280968daea007f90692e139521e529d8720d99",
+            "config_sha256": "77f8f3727a27a8ca265a686144fbb881f13703183229de535711c3adc7e022b8",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 250,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "e3dc6afe0bf1e4b502c47f8efbbb76bb7d82399482481d3061395436ef5785ab",
+            "config_sha256": "3ab61b5703cff0fe3710eabdb49647cc722db2a42c6a1813e154b0baa3b32f63",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 250,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "867b265f756355845c018e52a69fce5df9f591e13dec7bac7328b012f7702aab",
+            "config_sha256": "fdb32a4cab179849cbc749f866a050731bff80ee74d09165213c6585ef2cd931",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 250,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "82f100275a73ba65e03683b35406fd1109f1a4653c48f6f565c214a160183368",
+            "config_sha256": "a670925b68176a4fed7c6d21d54cac722e94cb6733509286515ba439fd22416c",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 500,
+        "holding_horizon_ms": 250,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "fc23a89c942bdd67fc460c0958966a5c878dc24166833ffdc909fdc138c040d0",
+            "config_sha256": "72b3e6e1449181775bc154e6798c4c8e58c06dceca62ad12178847918852f398",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 500,
+        "holding_horizon_ms": 1000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "a5f86c9c032258772f52a1903b043c82228975ac2eb7af40b8f12ee25d663ddc",
+            "config_sha256": "395188cd937d167b321f1c677f5d9fc43f2b51de8441795a62f06b396a8fabe7",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      },
+      {
+        "delay_ms": 500,
+        "holding_horizon_ms": 5000,
+        "result": {
+          "schema_version": 1,
+          "audit": {
+            "passed": true,
+            "records": 96,
+            "input_sha256": "c5e97265630566b597c05fc44fc64b1a220e0a5a5bb7ecfb29330285d81cee64",
+            "ledger_sha256": "7bc9f8b7ca80bf82e028770c2cf2e0549dda869d37eb10bd629a643e3af5fc21",
+            "config_sha256": "5314eb6bf0776cd7e2e7146ab6205d1bb887addc1dccab26b7dd082580c244ca",
+            "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+            "override_sha256": null
+          },
+          "planned_opportunities": 48,
+          "paired_available": 48,
+          "unavailable_opportunities": [],
+          "policy_order": [
+            "local",
+            "cross"
+          ],
+          "active_decisions": [
+            0,
+            0
+          ],
+          "policy_mean_usd_per_available_opportunity": [
+            "0",
+            "0"
+          ],
+          "mean_increment_usd_per_available_opportunity": "0",
+          "occupied_utc_dates": 6,
+          "seed": 42,
+          "repetitions": 2000,
+          "method": "resample whole occupied UTC dates; pooled opportunity mean",
+          "inference_valid": false,
+          "ci95_usd": null,
+          "interpretation": "No policy contrast; zero observed difference is not an information-value estimate.",
+          "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+          "synthetic": true,
+          "action_contrasts": 0,
+          "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+        }
+      }
+    ]
+  },
+  "negative_controls": [
+    {
+      "name": "cyclic_shift",
+      "source_active": 48,
+      "control_active": 48,
+      "scope": "Synthetic retrospective placebo; shuffling/rotation may use future actions. Not an executable policy.",
+      "result": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+          "ledger_sha256": "c0c551b36a8f048b2f9e749150fbc0e8bd1581468170ac57153b64feb4eabdd7",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0",
+          "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+          "override_sha256": "4140e73e83e67c80a07443095db4d8d8cfb079fabd38d581ae6dc53def75eae5"
+        },
+        "planned_opportunities": 48,
+        "paired_available": 48,
+        "unavailable_opportunities": [],
+        "policy_order": [
+          "local",
+          "cross"
+        ],
+        "active_decisions": [
+          0,
+          48
+        ],
+        "policy_mean_usd_per_available_opportunity": [
+          "0",
+          "-0.27899950"
+        ],
+        "mean_increment_usd_per_available_opportunity": "-0.27899950",
+        "occupied_utc_dates": 6,
+        "seed": 42,
+        "repetitions": 2000,
+        "method": "resample whole occupied UTC dates; pooled opportunity mean",
+        "inference_valid": true,
+        "ci95_usd": [
+          -0.2949995,
+          -0.2629995
+        ],
+        "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+        "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+        "synthetic": true,
+        "action_contrasts": 48,
+        "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+      }
+    },
+    {
+      "name": "sign_inversion",
+      "source_active": 48,
+      "control_active": 48,
+      "scope": "Synthetic retrospective placebo; shuffling/rotation may use future actions. Not an executable policy.",
+      "result": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+          "ledger_sha256": "c0c551b36a8f048b2f9e749150fbc0e8bd1581468170ac57153b64feb4eabdd7",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0",
+          "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+          "override_sha256": "4140e73e83e67c80a07443095db4d8d8cfb079fabd38d581ae6dc53def75eae5"
+        },
+        "planned_opportunities": 48,
+        "paired_available": 48,
+        "unavailable_opportunities": [],
+        "policy_order": [
+          "local",
+          "cross"
+        ],
+        "active_decisions": [
+          0,
+          48
+        ],
+        "policy_mean_usd_per_available_opportunity": [
+          "0",
+          "-0.27899950"
+        ],
+        "mean_increment_usd_per_available_opportunity": "-0.27899950",
+        "occupied_utc_dates": 6,
+        "seed": 42,
+        "repetitions": 2000,
+        "method": "resample whole occupied UTC dates; pooled opportunity mean",
+        "inference_valid": true,
+        "ci95_usd": [
+          -0.2949995,
+          -0.2629995
+        ],
+        "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+        "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+        "synthetic": true,
+        "action_contrasts": 48,
+        "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+      }
+    },
+    {
+      "name": "within_day_shuffle",
+      "source_active": 48,
+      "control_active": 48,
+      "scope": "Synthetic retrospective placebo; shuffling/rotation may use future actions. Not an executable policy.",
+      "result": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+          "ledger_sha256": "13fadb89eddf5d86b1967158851d044593290c411f3ed43dc33f90683cd93b93",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0",
+          "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+          "override_sha256": "ae6c01b5c347d24c3c59a2e2c66f0e701a4db13d55624676cdb0e22fc83e9978"
+        },
+        "planned_opportunities": 48,
+        "paired_available": 48,
+        "unavailable_opportunities": [],
+        "policy_order": [
+          "local",
+          "cross"
+        ],
+        "active_decisions": [
+          0,
+          48
+        ],
+        "policy_mean_usd_per_available_opportunity": [
+          "0",
+          "-0.06399950"
+        ],
+        "mean_increment_usd_per_available_opportunity": "-0.06399950",
+        "occupied_utc_dates": 6,
+        "seed": 42,
+        "repetitions": 2000,
+        "method": "resample whole occupied UTC dates; pooled opportunity mean",
+        "inference_valid": true,
+        "ci95_usd": [
+          -0.11491616666666667,
+          -0.015916166666666665
+        ],
+        "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+        "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+        "synthetic": true,
+        "action_contrasts": 48,
+        "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+      }
+    },
+    {
+      "name": "random_trigger",
+      "source_active": 48,
+      "control_active": 48,
+      "scope": "Synthetic retrospective placebo; shuffling/rotation may use future actions. Not an executable policy.",
+      "result": {
+        "schema_version": 1,
+        "audit": {
+          "passed": true,
+          "records": 96,
+          "input_sha256": "ee62a3dcd3c4039e34aaf7117bc53830d2bd66d1c31181a1d24c45686b3c2472",
+          "ledger_sha256": "60488ef859c578cc7e19689d65b7c12e8b024b927710fa8fb219cf015eeb837b",
+          "config_sha256": "90b578c9e615f30537bd868e42178dadc6d7380e00a0de7f784ffa59759ecdd0",
+          "policy_definition": "L/2 versus L/2+B/2; joint feature eligibility",
+          "override_sha256": "7964f73c87a6662b803f2d267f8ef3f17f32cbe8352324952f238dd9182fd8c6"
+        },
+        "planned_opportunities": 48,
+        "paired_available": 48,
+        "unavailable_opportunities": [],
+        "policy_order": [
+          "local",
+          "cross"
+        ],
+        "active_decisions": [
+          0,
+          48
+        ],
+        "policy_mean_usd_per_available_opportunity": [
+          "0",
+          "-0.04058283333333333333333333333"
+        ],
+        "mean_increment_usd_per_available_opportunity": "-0.04058283333333333333333333333",
+        "occupied_utc_dates": 6,
+        "seed": 42,
+        "repetitions": 2000,
+        "method": "resample whole occupied UTC dates; pooled opportunity mean",
+        "inference_valid": true,
+        "ci95_usd": [
+          -0.1212495,
+          0.034417166666666665
+        ],
+        "interpretation": "Descriptive date-bootstrap interval; further validation required. No deployment clearance.",
+        "limitations": "Independent hypothetical opportunities; no portfolio return, inventory coupling, funding, impact, live fills or causal proof. Date bootstrap does not remove cross-date dependence or missingness bias.",
+        "synthetic": true,
+        "action_contrasts": 48,
+        "identification": "Matched local coefficient; illustrative rules, not causal proof or a trained-model ablation"
+      }
+    }
+  ],
+  "clock": "receive-time backward asof; 500ms maximum age; 100ms feature lookback",
+  "execution": "0.001BTC requested, recorded ask/bid,5bps each fill, depth-limited; independent opportunities",
+  "inference": "Synthetic date-bootstrap intervals are plumbing checks, not empirical coverage or adjusted hypothesis tests. Controls are dependent; no p-values or best cell reported.",
+  "decision": "No empirical edge or deployment conclusion. New empirical enrollment requires its own source freeze and future untouched evaluation."
+}

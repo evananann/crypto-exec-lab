@@ -4,6 +4,9 @@ on:
     branches: [main, 'research/**']
     paths:
       - 'research/decision_study/**'
+      - 'research/roadmap/**'
+      - 'reports/roadmap_20261114/**'
+      - 'tests/test_roadmap.py'
       - 'research/portfolio_site.py'
       - 'reports/historical_exploratory_20261109/**'
       - 'reports/collection_review_20261109/**'
@@ -29,9 +32,10 @@ jobs:
         with:
           python-version: '3.12'
       - name: Test independent execution and accounting
-        run: python -S -m unittest tests.test_decision_pipeline tests.test_decision_workbench tests.test_interview_diagnostics -v
+        run: python -S -m unittest tests.test_decision_pipeline tests.test_decision_workbench tests.test_interview_diagnostics tests.test_roadmap -v
       - name: Build dashboard from committed evidence and synthetic controls
         run: |
+          python -S -m research.roadmap.package --out data/raw/workbench/roadmap
           python -S -m research.decision_study.interview --out data/raw/workbench/interview-evidence
           python -S -m research.decision_study.workbench --out data/raw/workbench/index.html
           python -S -m research.decision_study.paper --inputs data/raw/workbench/helpful-inputs.json --paper-csv data/raw/workbench/helpful-fills.csv --out data/raw/workbench/paper-fixture-check.json
