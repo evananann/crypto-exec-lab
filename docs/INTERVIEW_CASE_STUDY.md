@@ -4,6 +4,13 @@
 decision? The project has demonstrated research and accounting mechanics; a
 profitable cross-venue strategy has not been established.
 
+Read the dated [two-page evidence and decision memo](../reports/execution_sensitivity_20261116/RESEARCH_MEMO.pdf)
+([HTML](../reports/execution_sensitivity_20261116/memo.html)). It separates the
+historical abstention pilot, the completed independent spot execution batch,
+post-batch cost scenarios and unreleased registered outcomes. The six demo fills
+check quantities, native-currency fees and cash conservation; they do not establish
+production execution calibration or a profitable signal.
+
 ## A 90-second walkthrough
 
 “I built a BTC cross-venue execution research lab. I distinguish received-price
@@ -62,7 +69,7 @@ Do not retrofit a newly chosen comparator into the active frozen study.
 | Can one date drive the result? | Every leave-one-date-out mean is reported. This is a descriptive stability diagnostic, not another confidence interval. |
 | Can missing data reverse the conclusion? | The missingness calculation reports the assumed unobserved mean needed to erase the observed total. Bounds depend on explicit assumptions; missing sessions and missing opportunities are different units. |
 | Does a policy contrast establish new information? | No. Shrinkage, turnover, cost savings, selection and changed exposure can alter outcomes. Attribution and the constant-leader counterexample make these alternatives inspectable. |
-| What has actually run? |Automated adversarial tests cover accounting identities, missingness, score shrinkage and residual depth. Chromium desktop/mobile checks exercise the built dashboard. External paper-runner parity remains unverified without independent logs. |
+| What has actually run? |Automated adversarial tests cover accounting identities, missingness, score shrinkage and residual depth. Chromium desktop/mobile checks exercise the built dashboard. Three independent spot-demo round trips and six fills now have original private logs and reconciled cash balances. Conditional same-order snapshot comparisons show price discrepancies; matched policy parity and production execution remain unverified. |
 | What is the trading decision? | Remain in research. There is no demonstrated executable edge, calibrated fill model or capacity estimate. |
 
 ## Reproduce the numerical evidence

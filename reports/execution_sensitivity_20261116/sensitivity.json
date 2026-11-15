@@ -1,0 +1,97 @@
+{
+  "status": "DESCRIPTIVE_SENSITIVITY",
+  "sample_round_trips": 3,
+  "sample_fills": 6,
+  "observed_max_absolute_price_error_bps": "5.009338396269588986876770275",
+  "observed_max_adverse_price_error_bps": "0.1082672902862587155168680438",
+  "observed_most_favorable_price_error_bps": "-5.009338396269588986876770275",
+  "baseline_net_usdt": "-0.031243733232",
+  "gross_price_effect_usdt": "-0.000240",
+  "entry_btc_fees_valued_at_sell_usdt": "0.015517384",
+  "exit_quote_fees_usdt": "0.015486349232",
+  "scenarios": [
+    {
+      "additional_adverse_bps_each_leg": "0",
+      "aggregate_net_usdt": "-0.031243733232",
+      "additional_cost_usdt": "0E-12",
+      "attempts": [
+        {
+          "attempt": 1,
+          "net_usdt": "-0.010340309344"
+        },
+        {
+          "attempt": 2,
+          "net_usdt": "-0.010562311344"
+        },
+        {
+          "attempt": 3,
+          "net_usdt": "-0.010341112544"
+        }
+      ]
+    },
+    {
+      "additional_adverse_bps_each_leg": "1",
+      "aggregate_net_usdt": "-0.0327923952586768",
+      "additional_cost_usdt": "0.0015486620266768",
+      "attempts": [
+        {
+          "attempt": 1,
+          "net_usdt": "-0.0108566089130656"
+        },
+        {
+          "attempt": 2,
+          "net_usdt": "-0.0110785335128656"
+        },
+        {
+          "attempt": 3,
+          "net_usdt": "-0.0108572528327456"
+        }
+      ]
+    },
+    {
+      "additional_adverse_bps_each_leg": "6",
+      "aggregate_net_usdt": "-0.0405357053920608",
+      "additional_cost_usdt": "0.0092919721600608",
+      "attempts": [
+        {
+          "attempt": 1,
+          "net_usdt": "-0.0134381067583936"
+        },
+        {
+          "attempt": 2,
+          "net_usdt": "-0.0136596443571936"
+        },
+        {
+          "attempt": 3,
+          "net_usdt": "-0.0134379542764736"
+        }
+      ]
+    },
+    {
+      "additional_adverse_bps_each_leg": "10",
+      "aggregate_net_usdt": "-0.046730353498768",
+      "additional_cost_usdt": "0.015486620266768",
+      "attempts": [
+        {
+          "attempt": 1,
+          "net_usdt": "-0.015503305034656"
+        },
+        {
+          "attempt": 2,
+          "net_usdt": "-0.015724533032656"
+        },
+        {
+          "attempt": 3,
+          "net_usdt": "-0.015502515431456"
+        }
+      ]
+    }
+  ],
+  "sensitivity_is_post_hoc": true,
+  "probabilities_estimated": false,
+  "scope": "Additional adverse shifts on observed VWAPs, identical actual submitted quantities, recomputed quote fees. Hypothetical full-fill economics only: shocks can breach original FOK limits, so these are not executable replay predictions. The ~5bps largest deviation was favorable. Neither it nor its rounded-up stress is a production slippage quantile. No alpha or active-study result.",
+  "input_sha256": {
+    "protocol.json": "7a15bb9a2fd1f14b4a1959f5e860134d8e51fa7731f5a9cc024f51dc69d1abfd",
+    "validation.json": "aedf49e358269c2c2f8be6c088d20570dd77987d6f0e71d3a6e4725fa4bca658"
+  }
+}
