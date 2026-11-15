@@ -139,3 +139,37 @@ matched strategy/replay calibration requirement for goal 8.
 Spot fills cannot be audited with the SWAP-only `okx_demo` exporter: that module
 still explicitly supports BTC-USDT-SWAP contract history. The spot runner instead
 retains its own spot order states, fills and balances in its private journal.
+
+### Completed cash-spot rehearsal — November 15, 2026
+
+After the allowed-asset selection was updated, one real demo round trip completed:
+
+| Component | Observed value |
+| --- | --- |
+| Buy | 0.00004 BTC, 2.589408 USDT notional |
+| Entry fee | 0.00000008 BTC deducted from acquired BTC |
+| Sell | 0.00003992 BTC, 2.58418128 USDT notional |
+| Exit fee | 0.00516836256 USDT |
+| Net available balance change | 0 BTC; -0.01039508256 USDT |
+| Outstanding orders | None observed at terminal check |
+
+The [anonymized cash-flow audit](../reports/okx_demo_spot_20261115/completed-round-trip.json)
+checks both currencies against original available-balance snapshots, matches the
+two fills to their order states and detects no unexplained balance discrepancy at
+1e-8 BTC / 1e-6 USDT tolerances. The BTC fee is already reflected in the smaller sell
+quantity; subtracting its USDT equivalent again would double-count its cash effect.
+Original journals remain private. The earlier permission-rejection report remains
+unchanged as a historical observation. This single demonstration supplies actual
+demo transaction/accounting evidence, but leaves matched replay, independent clock
+synchronization, rejection coverage and policy-level calibration outstanding.
+
+To reproduce the anonymized audit locally with access to the private journal:
+
+```sh
+python -m research.decision_study.okx_spot_audit --private-journal /path/to/private/events.jsonl --out /tmp/new-spot-audit.json
+```
+
+The auditor never submits orders and refuses to overwrite its report. Synthetic
+mutation tests cover double-counted/wrong fees, duplicates, missing fills, changed
+balances, unmatched orders and outstanding orders. Hashes bind a report to its
+local source file, not to a publicly authenticated exchange record.

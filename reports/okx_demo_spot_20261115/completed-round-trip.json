@@ -1,0 +1,25 @@
+{
+  "status": "RECONCILED",
+  "instrument": "BTC-USDT",
+  "environment": "OKX demo cash spot",
+  "source_journal_sha256": "143b14c54afae079d872791a2ac53e9a302115475f8d4dcf2fe45e5bd77b63d1",
+  "fill_count": 2,
+  "order_count": 2,
+  "bought_btc": "0.00004",
+  "sold_btc": "0.00003992",
+  "buy_notional_usdt": "2.589408",
+  "sell_notional_usdt": "2.58418128",
+  "signed_fee_changes": {
+    "BTC": "-8E-8",
+    "USDT": "-0.00516836256"
+  },
+  "net_balance_changes": {
+    "BTC": "0E-8",
+    "USDT": "-0.01039508256"
+  },
+  "balance_discrepancies": {},
+  "no_pending_orders": true,
+  "replay_parity_verified": false,
+  "latency_calibrated": false,
+  "scope": "One actual demo connectivity round trip. Local journal consistency, not independent venue authentication, matched policy replay, production fill quality or alpha. Fees remain in native currencies; USDT is not USD. Local software timestamps do not establish wire latency."
+}
