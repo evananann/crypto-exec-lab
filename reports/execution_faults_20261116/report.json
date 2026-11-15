@@ -1,0 +1,66 @@
+{
+  "status": "PASSED_SYNTHETIC_FAULTS",
+  "cases": [
+    {
+      "case": "stale_or_future_quote",
+      "test": "tests.test_okx_demo_trial.DemoTrialTests.test_stale_future_and_insufficient_book_refused",
+      "passed": true,
+      "tests_run": 1,
+      "scope": "Offline synthetic fault injection, not venue behavior or production recovery"
+    },
+    {
+      "case": "partial_fill_cancel_race",
+      "test": "tests.test_internal_validation.LifecycleTests.test_partial_cancel_race_retains_late_fill_and_canceled_remainder",
+      "passed": true,
+      "tests_run": 1,
+      "scope": "Offline synthetic fault injection, not venue behavior or production recovery"
+    },
+    {
+      "case": "restart_requires_full_reconciliation",
+      "test": "tests.test_internal_validation.LifecycleTests.test_restart_requires_complete_reconciliation_and_preserves_outstanding_orders",
+      "passed": true,
+      "tests_run": 1,
+      "scope": "Offline synthetic fault injection, not venue behavior or production recovery"
+    },
+    {
+      "case": "unknown_submission_never_resubmitted",
+      "test": "tests.test_okx_demo_trial.DemoTrialTests.test_unresolved_submission_stops_without_second_order",
+      "passed": true,
+      "tests_run": 1,
+      "scope": "Offline synthetic fault injection, not venue behavior or production recovery"
+    },
+    {
+      "case": "duplicate_execution",
+      "test": "tests.test_internal_validation.LifecycleTests.test_duplicate_reports_and_retries_never_double_fill",
+      "passed": true,
+      "tests_run": 1,
+      "scope": "Offline synthetic fault injection, not venue behavior or production recovery"
+    },
+    {
+      "case": "no_exit_after_unfilled_spot_fok",
+      "test": "tests.test_okx_spot_trial.SpotTrialTests.test_unfilled_spot_fok_sends_no_exit",
+      "passed": true,
+      "tests_run": 1,
+      "scope": "Offline synthetic fault injection, not venue behavior or production recovery"
+    },
+    {
+      "case": "partial_below_exit_minimum_preserves_existing_btc",
+      "test": "tests.test_okx_spot_trial.SpotTrialTests.test_partial_below_spot_minimum_does_not_sell_existing_btc",
+      "passed": true,
+      "tests_run": 1,
+      "scope": "Offline synthetic fault injection, not venue behavior or production recovery"
+    }
+  ],
+  "exchange_requests": 0,
+  "live_orders": 0,
+  "venue_failure_coverage_established": false,
+  "source_sha256": {
+    "scripts/order_lifecycle.py": "07d7d49e68600de3bde78efe219542edf2ade60f3ecc1a7dce72b5e105d7c3a4",
+    "research/decision_study/okx_spot_trial.py": "b386fc07e50202c0bee9b0888617ec68e4dfce2a0352efc824e7612e0e32d36b",
+    "research/decision_study/okx_demo_trial.py": "f0994b7fff48e6d3dc3e38dbef4f80d84d5c9a0d86e06d9e759919583ac7c464",
+    "tests/test_internal_validation.py": "60513576366015fad5e51d2e836e105f5916f4519d5ab80f733fcc089d2a9734",
+    "tests/test_okx_demo_trial.py": "2bef73c810a17b6c372ddc05fa82b741e7e75e57900e13e44ad4f3db3c5b0a8a",
+    "tests/test_okx_spot_trial.py": "3f37965a8217a4b3a76db1113bab6e22124f3261427754ee1431bd26376a0c77"
+  },
+  "limits": "Reuses the frozen lifecycle harness and spot runner through synthetic tests. No live venue outage, actual partial fill, cancellation race or autonomous restart is claimed."
+}

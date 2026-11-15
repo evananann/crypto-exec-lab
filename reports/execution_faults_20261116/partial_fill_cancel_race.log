@@ -1,0 +1,6 @@
+test_partial_cancel_race_retains_late_fill_and_canceled_remainder (tests.test_internal_validation.LifecycleTests.test_partial_cancel_race_retains_late_fill_and_canceled_remainder) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK

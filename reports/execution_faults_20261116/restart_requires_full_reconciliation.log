@@ -1,0 +1,6 @@
+test_restart_requires_complete_reconciliation_and_preserves_outstanding_orders (tests.test_internal_validation.LifecycleTests.test_restart_requires_complete_reconciliation_and_preserves_outstanding_orders) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK

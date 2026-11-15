@@ -106,6 +106,56 @@ class SpotTrialTests(unittest.TestCase):
         with self.assertRaises(DemoError):
             balance(c)
 
+    def test_unfilled_spot_fok_sends_no_exit(self):
+        c = Mock(origin="https://eea.okx.com")
+        c.get.side_effect = [
+            [{"perm": "read_only,trade"}],
+            [],
+            [{"details": [{"ccy": "BTC", "availBal": "1"}, {"ccy": "USDT", "availBal": "100"}]}],
+            [self.metadata()],
+            [self.book()],
+            [{"ts": "1001"}],
+        ]
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch(
+                "research.decision_study.okx_spot_trial.settle", return_value={"accFillSz": "0"}
+            ) as settling,
+        ):
+            result = run(c, Path(tmp) / "unfilled")
+            self.assertEqual(result["status"], "FOK_UNFILLED")
+            self.assertEqual(settling.call_count, 1)
+
+    def test_partial_below_spot_minimum_does_not_sell_existing_btc(self):
+        c = Mock(origin="https://eea.okx.com")
+        c.get.side_effect = [
+            [{"perm": "read_only,trade"}],
+            [],
+            [{"details": [{"ccy": "BTC", "availBal": "1"}, {"ccy": "USDT", "availBal": "100"}]}],
+            [self.metadata()],
+            [self.book()],
+            [{"ts": "1001"}],
+            [self.fill(fillSz="0.00001", fee="-0.00000001")],
+            [
+                {
+                    "details": [
+                        {"ccy": "BTC", "availBal": "1.00000999"},
+                        {"ccy": "USDT", "availBal": "99.4"},
+                    ]
+                }
+            ],
+        ]
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            patch(
+                "research.decision_study.okx_spot_trial.settle",
+                return_value={"ordId": "entry", "accFillSz": "0.00001"},
+            ) as settling,
+        ):
+            with self.assertRaisesRegex(DemoError, "below venue minimum"):
+                run(c, Path(tmp) / "partial")
+            self.assertEqual(settling.call_count, 1)
+
     def test_close_sells_only_newly_acquired_btc_after_base_fee(self):
         c = Mock(origin="https://eea.okx.com")
 

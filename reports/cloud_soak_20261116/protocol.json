@@ -1,0 +1,47 @@
+{
+  "scope": "Independent cloud acquisition qualification only; zero strategy outcomes",
+  "planned_seconds": 600,
+  "restart_seconds": 15,
+  "minimum_main_span_seconds": 590,
+  "maximum_main_receive_gap_ms": 2000,
+  "maximum_queue_p99_ms": 100,
+  "requires_both_recognized_feeds": true,
+  "requires_no_capture_or_integrity_faults": true,
+  "requires_clock_daemon_sync_diagnostics": true,
+  "production_qualification": false,
+  "source_sha256": {
+    "research/continuous_capture.py": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb",
+    "research/clock_telemetry.py": "942516bca63e294039fcd70c902e69b98f33a4fca3d38d0b968fbd457fe163d1",
+    "research/roadmap/qualification_soak.py": "c0465e80f22ed6359412759218f6ecd298da8e5105266343960696293ef59a38"
+  },
+  "frozen_at_utc": "2026-11-15T16:59:09.972584+00:00",
+  "config": {
+    "segment_seconds": 30,
+    "maximum_spool_bytes": 1000000000,
+    "reserve_free_bytes": 1000000000,
+    "maximum_frame_bytes": 262144,
+    "maximum_silence_seconds": 15,
+    "feeds": [
+      {
+        "name": "binance-bbo",
+        "url": "wss://fstream.binance.com/public/stream?streams=btcusdt@bookTicker"
+      },
+      {
+        "name": "okx-bbo",
+        "url": "wss://ws.okx.com:8443/ws/v5/public",
+        "subscribe": [
+          {
+            "op": "subscribe",
+            "args": [
+              {
+                "channel": "bbo-tbt",
+                "instId": "BTC-USDT-SWAP"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "maximum_queue_bytes": 64000000
+  }
+}

@@ -1,0 +1,6 @@
+test_stale_future_and_insufficient_book_refused (tests.test_okx_demo_trial.DemoTrialTests.test_stale_future_and_insufficient_book_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

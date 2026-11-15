@@ -102,3 +102,13 @@ intervals when there is no policy contrast. This implements the proposed scaling
 fix as an independent prototype, not a completed empirical information-value
 study. Use the [contract](EVENT_TIME_CONTRACT.md) and [roadmap status](ROADMAP_DELIVERY.md)
 to explain source tracing, mixed units, reconnects and future release dependencies.
+
+## Personal reproduction
+
+Complete [the ownership exercise](OWNERSHIP_EXERCISE.md) using your own terminal
+output and explanation. The [worked actual execution](../reports/worked_execution_20261116/README.md)
+connects one selected received quote to a predicted and observed sell, native
+fees and conserved cash. It is explicitly separate from a leader-signal study.
+The [pre-release work index](../reports/pre_enrollment_20261116/README.md) records
+what remains blocked; neither an agent-run test nor this guide certifies your
+personal interview performance.

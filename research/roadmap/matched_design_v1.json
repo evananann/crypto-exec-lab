@@ -1,0 +1,57 @@
+{
+  "protocol_id": "matched-information-design-v1-20261116",
+  "state": "design_frozen_not_enrolled",
+  "question": "Does Binance information add executable opportunity value beyond identically scaled OKX information?",
+  "relationship_to_active_studies": "Independent prospective follow-on; never alters or pools the active successor or replication cohorts",
+  "calendar": {
+    "earliest_start": "At least two complete UTC days after qualification and immutable enrollment publication, and after 2026-11-23T00:00:00Z",
+    "discovery_days": 7,
+    "embargo_days_after_discovery": 1,
+    "validation_days": 7,
+    "embargo_days_after_validation": 1,
+    "untouched_test_days": 28,
+    "fixed_dates": null,
+    "activation": "Not activated. Publish exact dates, collector/instrument/source identities, acceptance rules and holdout gate before the first eligible recording. No retrospective enrollment or outage replacement."
+  },
+  "observations": {
+    "instruments": ["Binance BTCUSDT perpetual", "OKX BTC-USDT-SWAP"],
+    "clock": "Monotonic software receive timestamps; independently qualified clock diagnostics required; no exchange timestamp substitution",
+    "decision_grid_ms": 10000,
+    "lookback_ms": 100,
+    "maximum_quote_age_ms": 500,
+    "L": "10000*(OKX mid(t)/OKX mid(t-100ms)-1)",
+    "B": "10000*(Binance mid(t)/Binance mid(t-100ms)-1)",
+    "common_eligibility": "Both venues have valid received quotes at t and t-100ms, validated quantities and sessions; preserve every grid opportunity and missingness reason"
+  },
+  "policies": {
+    "baseline_score": "L/2",
+    "candidate_score": "L/2+B/2",
+    "threshold_bps": "12",
+    "actions": "buy if score>=12; sell if score<=-12; otherwise abstain",
+    "training": "No learned parameters or outcome-driven changes; discovery and validation audit plumbing only"
+  },
+  "execution": {
+    "quantity_btc": "0.001",
+    "decision_delay_ms": 50,
+    "holding_after_entry_ms": 1000,
+    "entry_fee_bps": "5",
+    "exit_fee_bps": "5",
+    "quote_currency": "USDT, never silently USD",
+    "fill_rule": "Independent counterfactual taker orders at last received follower BBO at each modeled arrival; depth must suffice; otherwise explicit rejection. Unknown exits stay unavailable, never zero PnL.",
+    "spread": "Embedded in bid/ask fills, not deducted again",
+    "limits": "Independent opportunity values, not a financed portfolio return series or calibrated perpetual margin/funding model. Fee assumptions are scenario inputs, not verified account tiers."
+  },
+  "primary_estimate": "Candidate minus baseline net USDT per jointly eligible grid opportunity, including abstentions as zero and separating unavailable outcomes",
+  "inference": {
+    "primary_contrasts": 1,
+    "method": "Paired moving-block bootstrap of two contiguous UTC dates; 5000 repetitions; seed 42; 95% percentile interval",
+    "minimum_observed_test_dates": 28,
+    "minimum_nonzero_paired_contrast_dates": 10,
+    "minimum_nonzero_paired_opportunities": 30,
+    "missing_day_rule": "Report incomplete coverage and descriptive estimates; primary confirmatory conclusion is inconclusive if minimum date coverage fails. No replacing calendar days.",
+    "limitations": "Minimum counts are administrative sufficiency gates, not a prospective power guarantee. Dependence beyond two dates and nonstationarity can invalidate nominal coverage; disclose rather than assert calibrated inference."
+  },
+  "secondary_checks": ["L/2 versus L/2 with constant/zero leader", "gross price value versus fee savings and turnover", "all fixed delays 0,25,50,100,250,500ms and horizons 250,1000,5000ms without winner selection", "leave-one-UTC-date-out means and missingness sensitivity", "absolute candidate economics alongside the paired difference"],
+  "decision_rule": "A positive paired difference does not imply a profitable strategy. Require valid eligibility, sufficient coverage, a positive lower interval endpoint and separately positive absolute candidate economics before describing a promising result. No report automatically authorizes deployment. Otherwise label evidence negative or inconclusive as appropriate.",
+  "enrollment_blockers": ["Collector cloud rehearsal does not qualify a dedicated production host", "Absolute UTC accuracy and immutable remote readback need evidence", "Versioned raw-to-normalized units, instrument metadata and gap/sequence rules must be bound", "Existing cash-opportunity replay is not a calibrated perpetual execution engine", "Exact future dates and holdout-release rules must be published before collection", "Sensitivity and placebo definitions must be fully source-bound before enrollment"]
+}

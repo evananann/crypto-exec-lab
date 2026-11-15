@@ -1,0 +1,6 @@
+test_partial_below_spot_minimum_does_not_sell_existing_btc (tests.test_okx_spot_trial.SpotTrialTests.test_partial_below_spot_minimum_does_not_sell_existing_btc) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+OK

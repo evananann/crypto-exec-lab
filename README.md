@@ -133,6 +133,7 @@ explain why this is verification automation, not automatic strategy tuning or co
 
 | Evidence | What it establishes |
 | --- | --- |
+| [Pre-release work and remaining blockers](reports/pre_enrollment_20261116/README.md) | Frozen matched design, ten-minute acquisition rehearsal, failure cases, source-to-decision trace and ownership exercise |
 | [Two-page decision memo](reports/execution_sensitivity_20261116/RESEARCH_MEMO.pdf) | Actual demo evidence, cash-cost attribution, explicit sensitivity scenarios and remaining release gates |
 | [Actual demo execution validation](reports/spot_validation_20261115/README.md) | Three prespecified round trips; concurrent quotes; predicted versus observed fills, fees and local timing; no production-calibration claim |
 | [OKX demo evidence](docs/OKX_DEMO_EVIDENCE.md) | Read-only exports and an opt-in bounded demo transaction rehearsal; actual matched paper/replay parity remains pending |

@@ -1,0 +1,88 @@
+{
+  "evidence": "Actual independent demo execution; illustrative post-batch selection",
+  "selection": "Attempt 2 sell, explicitly chosen to explain the observed adverse price discrepancy; not a random or confirmatory sample",
+  "decision": "Close only newly acquired BTC in cash spot; no alpha signal or leader information used",
+  "public_report_sha256": "aedf49e358269c2c2f8be6c088d20570dd77987d6f0e71d3a6e4725fa4bca658",
+  "private_journal_sha256": "b521e944ce5b3ee90dca0b5ffb282f8ce553d2133713c8278b92dec37938564c",
+  "private_quote_tape_sha256": "eedb9f829ab9d3d3919eba98903205cd13d11e6c1cc1a4c9628ab9ad0c375afb",
+  "intent": {
+    "instId": "BTC-USDT",
+    "tdMode": "cash",
+    "side": "sell",
+    "ordType": "market",
+    "sz": "0.00003992",
+    "tgtCcy": "base_ccy"
+  },
+  "send_monotonic_ns": 5624386509778,
+  "modeled_arrival_monotonic_ns": 5624436509778,
+  "selected_quote": {
+    "kind": "quote_receive",
+    "wall_time_ns": 1794758560395624587,
+    "monotonic_ns": 5624214687336,
+    "data": {
+      "exchange_ts": "1794758560252",
+      "bid": "64654.8",
+      "bid_size": "0.0721457",
+      "ask": "64654.9",
+      "ask_size": "2.08227198"
+    }
+  },
+  "quote_source": {
+    "byte_offset": 8995,
+    "line_sha256": "94cf19355c1e18cdf648a985dedf2c330a25642475dff807f71d93bce3cac9af"
+  },
+  "intent_source": {
+    "byte_offset": 4927,
+    "line_sha256": "22f9880db07ba5e388af89841acc45365bebb0001a5b9b03ec6e72e414f72101"
+  },
+  "fill_source": {
+    "byte_offset": 7033,
+    "line_sha256": "43c92012795dc12fa5deb09fad118109d23ae8fd2698f96e38e3e3b9cd99c639"
+  },
+  "prediction": {
+    "status": "PREDICTED_FULL",
+    "predicted_qty_btc": "0.00003992",
+    "predicted_price_usdt": "64654.8",
+    "predicted_fee": "-0.005162039232",
+    "fee_currency": "USDT",
+    "receive_age_ms": 221.822442
+  },
+  "observed_fills": [
+    {
+      "side": "sell",
+      "fillSz": "0.00003992",
+      "fillPx": "64654.1",
+      "fee": "-0.005161983344",
+      "feeCcy": "USDT"
+    }
+  ],
+  "observed_notional_usdt": "2.580991672",
+  "observed_vwap_usdt": "64654.1",
+  "adverse_price_error_bps": "0.1082672902862587155168680438",
+  "round_trip_cash_audit": {
+    "status": "RECONCILED",
+    "instrument": "BTC-USDT",
+    "environment": "OKX demo cash spot",
+    "source_journal_sha256": "b521e944ce5b3ee90dca0b5ffb282f8ce553d2133713c8278b92dec37938564c",
+    "fill_count": 2,
+    "order_count": 2,
+    "bought_btc": "0.00004",
+    "sold_btc": "0.00003992",
+    "buy_notional_usdt": "2.586392",
+    "sell_notional_usdt": "2.580991672",
+    "signed_fee_changes": {
+      "BTC": "-8E-8",
+      "USDT": "-0.005161983344"
+    },
+    "net_balance_changes": {
+      "BTC": "0E-8",
+      "USDT": "-0.010562311344"
+    },
+    "balance_discrepancies": {},
+    "no_pending_orders": true,
+    "replay_parity_verified": false,
+    "latency_calibrated": false,
+    "scope": "One actual demo connectivity round trip. Local journal consistency, not independent venue authentication, matched policy replay, production fill quality or alpha. Fees remain in native currencies; USDT is not USD. Local software timestamps do not establish wire latency."
+  },
+  "limits": "Received REST quote records, not complete raw HTTP response bytes or a matching-engine tape. Order/account IDs are redacted. Local timestamps and file hashes prove local consistency only, not one-way latency, exchange authentication or cross-venue causal leadership."
+}

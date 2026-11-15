@@ -1,0 +1,1212 @@
+{
+  "status": "QUALIFICATION_INCOMPLETE",
+  "checks": {
+    "main_duration": true,
+    "main_exit_clean": true,
+    "both_feeds": true,
+    "minimum_receive_span": true,
+    "receive_gaps": true,
+    "queue_p99": true,
+    "no_source_errors": true,
+    "integrity": true,
+    "restart_clean": true,
+    "old_files_retained": true,
+    "daemon_clock_diagnostics": false
+  },
+  "main_process": {
+    "exit_code": 0,
+    "forced_kill": false,
+    "elapsed_seconds": 600.1507916709998
+  },
+  "restart_process": {
+    "exit_code": 0,
+    "forced_kill": false,
+    "elapsed_seconds": 15.04225434699947
+  },
+  "main_measurements": {
+    "inventory": {
+      "integrity_state": "verified",
+      "verified_segments": [
+        {
+          "file": "20261115T165910-d12fbf9a151d428cb46d364c6ad89650.jsonl.gz",
+          "records": 10493,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T165940-bdc5fa599bde4c9e959057178e71b258.jsonl.gz",
+          "records": 14490,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170010-220f90b157ea499a8b24e2f11e57d602.jsonl.gz",
+          "records": 19640,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170040-c39034e6738a4f629d606f0159b383ce.jsonl.gz",
+          "records": 23600,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170110-24595f41a69d433dacc2b8d9b539008a.jsonl.gz",
+          "records": 18489,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170140-429710bef7414dd48b2bb75a13896b57.jsonl.gz",
+          "records": 18241,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170210-190a12afcdfa406f89786da4384a275e.jsonl.gz",
+          "records": 15676,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170240-0ef1d1b0ead242d2a5e9d0b9d1eb027b.jsonl.gz",
+          "records": 12944,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170310-96ab3c8dc7b54547848c550edb4b96e0.jsonl.gz",
+          "records": 10222,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170340-6ac1fd2288a944b8a28778d57b416176.jsonl.gz",
+          "records": 13153,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170410-50f94c1d930e45f4936c27f725e8e646.jsonl.gz",
+          "records": 9127,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170440-28c9c47355994620a0b273d95a23a9d8.jsonl.gz",
+          "records": 9066,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170510-0e65fbc6f01c4918938158e5d200fbb3.jsonl.gz",
+          "records": 15231,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170541-447d6f4b79274abc89a9c5f4610d0c1f.jsonl.gz",
+          "records": 7747,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170611-1f56e9e2346f43ecb3f6bb0f5cb6ad59.jsonl.gz",
+          "records": 9211,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170641-19b362dd402b4e2db7cc7b6a47706ad8.jsonl.gz",
+          "records": 14014,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170711-1bab2428568c4bdfa0ba0529ae724d5a.jsonl.gz",
+          "records": 15482,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170741-530f234d30e144448f5e5dfad28c623a.jsonl.gz",
+          "records": 11019,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170811-b477b25f3730490bbfe5a0aa7d1c7e19.jsonl.gz",
+          "records": 8716,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170841-b602174ea68f418a97c82f38f9b37bef.jsonl.gz",
+          "records": 11834,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        }
+      ],
+      "records": 268395,
+      "invalid_files": [],
+      "orphaned_segments": [],
+      "interrupted_files": [],
+      "reported_capture_faults": [],
+      "pending_session_status": [],
+      "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+    },
+    "wire_counts": {
+      "binance-bbo": 248797,
+      "okx-bbo": 19596
+    },
+    "recognized_bbo_counts": {
+      "binance-bbo": 248797,
+      "okx-bbo": 19594
+    },
+    "parse_or_subscription_errors": {},
+    "maximum_receive_gap_ms": {
+      "binance-bbo": 844.114919,
+      "okx-bbo": 622.111537
+    },
+    "receive_span_seconds": {
+      "binance-bbo": 599.260543294,
+      "okx-bbo": 599.17392971
+    },
+    "enqueue_to_writer": {
+      "n": 268393,
+      "maximum_ms": 35.931718,
+      "p99_ms": 2.354829
+    },
+    "clock_samples": 22,
+    "all_daemon_sync_estimates_available": false,
+    "clock_samples_data": [
+      {
+        "phase": "before_session",
+        "monotonic_ns": 9013820874169,
+        "wall_ns": 1794761950001812037,
+        "pair_uncertainty_ns": 106,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)"
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9043821391068,
+        "wall_ns": 1794761980002329101,
+        "pair_uncertainty_ns": 331,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 30000516899,
+          "wall_minus_monotonic_ns": 165,
+          "pair_uncertainty_ns": 437,
+          "apparent_divergence_ppm": 0.0054999052368161,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9073821751994,
+        "wall_ns": 1794762010002689992,
+        "pair_uncertainty_ns": 466,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 60000877825,
+          "wall_minus_monotonic_ns": 130,
+          "pair_uncertainty_ns": 572,
+          "apparent_divergence_ppm": 0.002166634967894322,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9103823164987,
+        "wall_ns": 1794762040004102979,
+        "pair_uncertainty_ns": 631,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 90002290818,
+          "wall_minus_monotonic_ns": 124,
+          "pair_uncertainty_ns": 737,
+          "apparent_divergence_ppm": 0.0013777427093578005,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9133823661844,
+        "wall_ns": 1794762070004599966,
+        "pair_uncertainty_ns": 661,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 120002787675,
+          "wall_minus_monotonic_ns": 254,
+          "pair_uncertainty_ns": 767,
+          "apparent_divergence_ppm": 0.0021166174963193414,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9163824191205,
+        "wall_ns": 1794762100005129418,
+        "pair_uncertainty_ns": 571,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 150003317036,
+          "wall_minus_monotonic_ns": 345,
+          "pair_uncertainty_ns": 677,
+          "apparent_divergence_ppm": 0.002299949139906032,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9193824650025,
+        "wall_ns": 1794762130005588363,
+        "pair_uncertainty_ns": 806,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 180003775856,
+          "wall_minus_monotonic_ns": 470,
+          "pair_uncertainty_ns": 912,
+          "apparent_divergence_ppm": 0.0026110563390403106,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9223826242624,
+        "wall_ns": 1794762160007180746,
+        "pair_uncertainty_ns": 701,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 210005368455,
+          "wall_minus_monotonic_ns": 254,
+          "pair_uncertainty_ns": 807,
+          "apparent_divergence_ppm": 0.001209492889961178,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9253826603421,
+        "wall_ns": 1794762190007541499,
+        "pair_uncertainty_ns": 356,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 240005729252,
+          "wall_minus_monotonic_ns": 210,
+          "pair_uncertainty_ns": 462,
+          "apparent_divergence_ppm": 0.0008749791126007049,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9283828300974,
+        "wall_ns": 1794762220009238956,
+        "pair_uncertainty_ns": 250,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 270007426805,
+          "wall_minus_monotonic_ns": 114,
+          "pair_uncertainty_ns": 356,
+          "apparent_divergence_ppm": 0.00042221060860792936,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9313828688914,
+        "wall_ns": 1794762250009626931,
+        "pair_uncertainty_ns": 696,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 300007814745,
+          "wall_minus_monotonic_ns": 149,
+          "pair_uncertainty_ns": 802,
+          "apparent_divergence_ppm": 0.0004966537292591751,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9343830209795,
+        "wall_ns": 1794762280011147743,
+        "pair_uncertainty_ns": 296,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 330009335626,
+          "wall_minus_monotonic_ns": 80,
+          "pair_uncertainty_ns": 402,
+          "apparent_divergence_ppm": 0.00024241738449079544,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9373830595182,
+        "wall_ns": 1794762310011533230,
+        "pair_uncertainty_ns": 626,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 360009721013,
+          "wall_minus_monotonic_ns": 180,
+          "pair_uncertainty_ns": 732,
+          "apparent_divergence_ppm": 0.0004999864989576218,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9403831104429,
+        "wall_ns": 1794762340012042406,
+        "pair_uncertainty_ns": 456,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 390010230260,
+          "wall_minus_monotonic_ns": 109,
+          "pair_uncertainty_ns": 562,
+          "apparent_divergence_ppm": 0.0002794798483294534,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9433831474482,
+        "wall_ns": 1794762370012412690,
+        "pair_uncertainty_ns": 707,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 420010600313,
+          "wall_minus_monotonic_ns": 340,
+          "pair_uncertainty_ns": 813,
+          "apparent_divergence_ppm": 0.0008095033785971722,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9463833276705,
+        "wall_ns": 1794762400014214733,
+        "pair_uncertainty_ns": 316,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 450012402536,
+          "wall_minus_monotonic_ns": 160,
+          "pair_uncertainty_ns": 422,
+          "apparent_divergence_ppm": 0.0003555457562910177,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9493833570260,
+        "wall_ns": 1794762430014508202,
+        "pair_uncertainty_ns": 541,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 480012696091,
+          "wall_minus_monotonic_ns": 74,
+          "pair_uncertainty_ns": 647,
+          "apparent_divergence_ppm": 0.00015416258903695997,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9523833876148,
+        "wall_ns": 1794762460014814251,
+        "pair_uncertainty_ns": 401,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 510013001979,
+          "wall_minus_monotonic_ns": 235,
+          "pair_uncertainty_ns": 507,
+          "apparent_divergence_ppm": 0.00046077256675443784,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9553834269716,
+        "wall_ns": 1794762490015207698,
+        "pair_uncertainty_ns": 771,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 540013395547,
+          "wall_minus_monotonic_ns": 114,
+          "pair_uncertainty_ns": 877,
+          "apparent_divergence_ppm": 0.00021110587429877566,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9583835989420,
+        "wall_ns": 1794762520016927428,
+        "pair_uncertainty_ns": 256,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 570015115251,
+          "wall_minus_monotonic_ns": 140,
+          "pair_uncertainty_ns": 362,
+          "apparent_divergence_ppm": 0.000245607522071327,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9613836305328,
+        "wall_ns": 1794762550017243280,
+        "pair_uncertainty_ns": 441,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 600015431159,
+          "wall_minus_monotonic_ns": 84,
+          "pair_uncertainty_ns": 547,
+          "apparent_divergence_ppm": 0.00013999639948883343,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "after_session",
+        "monotonic_ns": 9613920602816,
+        "wall_ns": 1794762550101540854,
+        "pair_uncertainty_ns": 326,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 600099728647,
+          "wall_minus_monotonic_ns": 170,
+          "pair_uncertainty_ns": 432,
+          "apparent_divergence_ppm": 0.00028328624707644226,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      }
+    ]
+  },
+  "final_measurements": {
+    "inventory": {
+      "integrity_state": "verified",
+      "verified_segments": [
+        {
+          "file": "20261115T165910-d12fbf9a151d428cb46d364c6ad89650.jsonl.gz",
+          "records": 10493,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T165940-bdc5fa599bde4c9e959057178e71b258.jsonl.gz",
+          "records": 14490,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170010-220f90b157ea499a8b24e2f11e57d602.jsonl.gz",
+          "records": 19640,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170040-c39034e6738a4f629d606f0159b383ce.jsonl.gz",
+          "records": 23600,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170110-24595f41a69d433dacc2b8d9b539008a.jsonl.gz",
+          "records": 18489,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170140-429710bef7414dd48b2bb75a13896b57.jsonl.gz",
+          "records": 18241,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170210-190a12afcdfa406f89786da4384a275e.jsonl.gz",
+          "records": 15676,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170240-0ef1d1b0ead242d2a5e9d0b9d1eb027b.jsonl.gz",
+          "records": 12944,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170310-96ab3c8dc7b54547848c550edb4b96e0.jsonl.gz",
+          "records": 10222,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170340-6ac1fd2288a944b8a28778d57b416176.jsonl.gz",
+          "records": 13153,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170410-50f94c1d930e45f4936c27f725e8e646.jsonl.gz",
+          "records": 9127,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170440-28c9c47355994620a0b273d95a23a9d8.jsonl.gz",
+          "records": 9066,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170510-0e65fbc6f01c4918938158e5d200fbb3.jsonl.gz",
+          "records": 15231,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170541-447d6f4b79274abc89a9c5f4610d0c1f.jsonl.gz",
+          "records": 7747,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170611-1f56e9e2346f43ecb3f6bb0f5cb6ad59.jsonl.gz",
+          "records": 9211,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170641-19b362dd402b4e2db7cc7b6a47706ad8.jsonl.gz",
+          "records": 14014,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170711-1bab2428568c4bdfa0ba0529ae724d5a.jsonl.gz",
+          "records": 15482,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170741-530f234d30e144448f5e5dfad28c623a.jsonl.gz",
+          "records": 11019,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170811-b477b25f3730490bbfe5a0aa7d1c7e19.jsonl.gz",
+          "records": 8716,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170841-b602174ea68f418a97c82f38f9b37bef.jsonl.gz",
+          "records": 11834,
+          "session_id": "89dfd5fc291b4079a824f16b95a5458e"
+        },
+        {
+          "file": "20261115T170914-768f4cf5c4af4365a0aa7b49698bb4b9.jsonl.gz",
+          "records": 2267,
+          "session_id": "daac1da861314dfbb9706655ceb3ca71"
+        }
+      ],
+      "records": 270662,
+      "invalid_files": [],
+      "orphaned_segments": [],
+      "interrupted_files": [],
+      "reported_capture_faults": [],
+      "pending_session_status": [],
+      "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+    },
+    "wire_counts": {
+      "binance-bbo": 250741,
+      "okx-bbo": 19917
+    },
+    "recognized_bbo_counts": {
+      "binance-bbo": 250741,
+      "okx-bbo": 19913
+    },
+    "parse_or_subscription_errors": {},
+    "maximum_receive_gap_ms": {
+      "binance-bbo": 4960.334794,
+      "okx-bbo": 5134.549185
+    },
+    "receive_span_seconds": {
+      "binance-bbo": 618.403054579,
+      "okx-bbo": 618.43235986
+    },
+    "enqueue_to_writer": {
+      "n": 270658,
+      "maximum_ms": 35.931718,
+      "p99_ms": 2.344289
+    },
+    "clock_samples": 24,
+    "all_daemon_sync_estimates_available": false,
+    "clock_samples_data": [
+      {
+        "phase": "before_session",
+        "monotonic_ns": 9013820874169,
+        "wall_ns": 1794761950001812037,
+        "pair_uncertainty_ns": 106,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)"
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9043821391068,
+        "wall_ns": 1794761980002329101,
+        "pair_uncertainty_ns": 331,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 30000516899,
+          "wall_minus_monotonic_ns": 165,
+          "pair_uncertainty_ns": 437,
+          "apparent_divergence_ppm": 0.0054999052368161,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9073821751994,
+        "wall_ns": 1794762010002689992,
+        "pair_uncertainty_ns": 466,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 60000877825,
+          "wall_minus_monotonic_ns": 130,
+          "pair_uncertainty_ns": 572,
+          "apparent_divergence_ppm": 0.002166634967894322,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9103823164987,
+        "wall_ns": 1794762040004102979,
+        "pair_uncertainty_ns": 631,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 90002290818,
+          "wall_minus_monotonic_ns": 124,
+          "pair_uncertainty_ns": 737,
+          "apparent_divergence_ppm": 0.0013777427093578005,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9133823661844,
+        "wall_ns": 1794762070004599966,
+        "pair_uncertainty_ns": 661,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 120002787675,
+          "wall_minus_monotonic_ns": 254,
+          "pair_uncertainty_ns": 767,
+          "apparent_divergence_ppm": 0.0021166174963193414,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9163824191205,
+        "wall_ns": 1794762100005129418,
+        "pair_uncertainty_ns": 571,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 150003317036,
+          "wall_minus_monotonic_ns": 345,
+          "pair_uncertainty_ns": 677,
+          "apparent_divergence_ppm": 0.002299949139906032,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9193824650025,
+        "wall_ns": 1794762130005588363,
+        "pair_uncertainty_ns": 806,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 180003775856,
+          "wall_minus_monotonic_ns": 470,
+          "pair_uncertainty_ns": 912,
+          "apparent_divergence_ppm": 0.0026110563390403106,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9223826242624,
+        "wall_ns": 1794762160007180746,
+        "pair_uncertainty_ns": 701,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 210005368455,
+          "wall_minus_monotonic_ns": 254,
+          "pair_uncertainty_ns": 807,
+          "apparent_divergence_ppm": 0.001209492889961178,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9253826603421,
+        "wall_ns": 1794762190007541499,
+        "pair_uncertainty_ns": 356,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 240005729252,
+          "wall_minus_monotonic_ns": 210,
+          "pair_uncertainty_ns": 462,
+          "apparent_divergence_ppm": 0.0008749791126007049,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9283828300974,
+        "wall_ns": 1794762220009238956,
+        "pair_uncertainty_ns": 250,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 270007426805,
+          "wall_minus_monotonic_ns": 114,
+          "pair_uncertainty_ns": 356,
+          "apparent_divergence_ppm": 0.00042221060860792936,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9313828688914,
+        "wall_ns": 1794762250009626931,
+        "pair_uncertainty_ns": 696,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 300007814745,
+          "wall_minus_monotonic_ns": 149,
+          "pair_uncertainty_ns": 802,
+          "apparent_divergence_ppm": 0.0004966537292591751,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9343830209795,
+        "wall_ns": 1794762280011147743,
+        "pair_uncertainty_ns": 296,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 330009335626,
+          "wall_minus_monotonic_ns": 80,
+          "pair_uncertainty_ns": 402,
+          "apparent_divergence_ppm": 0.00024241738449079544,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9373830595182,
+        "wall_ns": 1794762310011533230,
+        "pair_uncertainty_ns": 626,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 360009721013,
+          "wall_minus_monotonic_ns": 180,
+          "pair_uncertainty_ns": 732,
+          "apparent_divergence_ppm": 0.0004999864989576218,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9403831104429,
+        "wall_ns": 1794762340012042406,
+        "pair_uncertainty_ns": 456,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 390010230260,
+          "wall_minus_monotonic_ns": 109,
+          "pair_uncertainty_ns": 562,
+          "apparent_divergence_ppm": 0.0002794798483294534,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9433831474482,
+        "wall_ns": 1794762370012412690,
+        "pair_uncertainty_ns": 707,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 420010600313,
+          "wall_minus_monotonic_ns": 340,
+          "pair_uncertainty_ns": 813,
+          "apparent_divergence_ppm": 0.0008095033785971722,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9463833276705,
+        "wall_ns": 1794762400014214733,
+        "pair_uncertainty_ns": 316,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 450012402536,
+          "wall_minus_monotonic_ns": 160,
+          "pair_uncertainty_ns": 422,
+          "apparent_divergence_ppm": 0.0003555457562910177,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9493833570260,
+        "wall_ns": 1794762430014508202,
+        "pair_uncertainty_ns": 541,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 480012696091,
+          "wall_minus_monotonic_ns": 74,
+          "pair_uncertainty_ns": 647,
+          "apparent_divergence_ppm": 0.00015416258903695997,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9523833876148,
+        "wall_ns": 1794762460014814251,
+        "pair_uncertainty_ns": 401,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 510013001979,
+          "wall_minus_monotonic_ns": 235,
+          "pair_uncertainty_ns": 507,
+          "apparent_divergence_ppm": 0.00046077256675443784,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9553834269716,
+        "wall_ns": 1794762490015207698,
+        "pair_uncertainty_ns": 771,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 540013395547,
+          "wall_minus_monotonic_ns": 114,
+          "pair_uncertainty_ns": 877,
+          "apparent_divergence_ppm": 0.00021110587429877566,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9583835989420,
+        "wall_ns": 1794762520016927428,
+        "pair_uncertainty_ns": 256,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 570015115251,
+          "wall_minus_monotonic_ns": 140,
+          "pair_uncertainty_ns": 362,
+          "apparent_divergence_ppm": 0.000245607522071327,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 9613836305328,
+        "wall_ns": 1794762550017243280,
+        "pair_uncertainty_ns": 441,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 600015431159,
+          "wall_minus_monotonic_ns": 84,
+          "pair_uncertainty_ns": 547,
+          "apparent_divergence_ppm": 0.00013999639948883343,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "after_session",
+        "monotonic_ns": 9613920602816,
+        "wall_ns": 1794762550101540854,
+        "pair_uncertainty_ns": 326,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 600099728647,
+          "wall_minus_monotonic_ns": 170,
+          "pair_uncertainty_ns": 432,
+          "apparent_divergence_ppm": 0.00028328624707644226,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "before_session",
+        "monotonic_ns": 9618058272538,
+        "wall_ns": 1794762554239210561,
+        "pair_uncertainty_ns": 261,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)"
+      },
+      {
+        "phase": "after_session",
+        "monotonic_ns": 9633049808896,
+        "wall_ns": 1794762569230746904,
+        "pair_uncertainty_ns": 336,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 14991536358,
+          "wall_minus_monotonic_ns": -15,
+          "pair_uncertainty_ns": 597,
+          "apparent_divergence_ppm": -0.0010005645613496766,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      }
+    ]
+  },
+  "original_file_sha256": {
+    "20261115T165940-bdc5fa599bde4c9e959057178e71b258.jsonl.gz": "8fa997ff4b974ab1abf368ceadbe0fc90d0f8271fe537107fa681407d8dcd0bf",
+    "20261115T170410-50f94c1d930e45f4936c27f725e8e646.manifest.json": "44952243847e5155d760ff39a3d3ba3e3f23d1d157326f78e9c0f9d4bb38e0c8",
+    "20261115T170510-0e65fbc6f01c4918938158e5d200fbb3.manifest.json": "4b6230d5b462ad9c65d1b9d8902a93a2542588cbeacc6c13876058d9fcd90982",
+    "20261115T170340-6ac1fd2288a944b8a28778d57b416176.jsonl.gz": "3b398ccad542864a2e6eb95bdad8006bcee2dda87150b4cb102a3497801bc98e",
+    "20261115T170110-24595f41a69d433dacc2b8d9b539008a.manifest.json": "dd17fa2ce24da4a8802ac45a1ad4eb524f4ca322f186b98f1d19519346aa87d3",
+    "20261115T165940-bdc5fa599bde4c9e959057178e71b258.manifest.json": "f6daf2cc021a5e5894c3a8c77d48ff7449557dc109ccaf58dcccd76a2098a1db",
+    "20261115T170310-96ab3c8dc7b54547848c550edb4b96e0.manifest.json": "e6a04b1e3ab8609a1558d9260f68437edd70d2517b190c39489928124e3ebd6b",
+    "20261115T170741-530f234d30e144448f5e5dfad28c623a.jsonl.gz": "f3900539e8910f93aba015e356cc594c63a18d8dda5377fd1d16219d3ce154c1",
+    ".capture.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "session-89dfd5fc291b4079a824f16b95a5458e.clock.jsonl": "51b29bc139a9b01145789aa40d4a21eff9be037362c0fc3230795e4e8ecafcbd",
+    "20261115T170240-0ef1d1b0ead242d2a5e9d0b9d1eb027b.jsonl.gz": "998cb9c7ad241065bf895626d923a14d8c00f7061c5e79e7b5521972cef0601a",
+    "20261115T170140-429710bef7414dd48b2bb75a13896b57.jsonl.gz": "22cff83a99c982e4616e59c8ee2260cd8f5c2049cbf42127528635d91a69bb12",
+    "20261115T170210-190a12afcdfa406f89786da4384a275e.jsonl.gz": "709f0481e1ccd9b289475f43c78e4d0a18679b75f97de54ba62761f519cdf8c3",
+    "20261115T170210-190a12afcdfa406f89786da4384a275e.manifest.json": "6cc9dce439383fba315a571f65f5cdafd63d7a05d53ee30f4d77ee5cb4604ee9",
+    "20261115T165910-d12fbf9a151d428cb46d364c6ad89650.manifest.json": "e8032671baacba1f24d7519201998d96a58327c5f90b9b9b9e4a6c2787bd1ebf",
+    "20261115T170110-24595f41a69d433dacc2b8d9b539008a.jsonl.gz": "74e6d0cd6163fe364acd5d8bdb462ba05dec37815b00b131b433938a237dadbe",
+    "20261115T170040-c39034e6738a4f629d606f0159b383ce.manifest.json": "c1bf071a5c2c7d70a0292cfbdd6e98f576fe046018c8848ea0079386857f47b3",
+    "20261115T170741-530f234d30e144448f5e5dfad28c623a.manifest.json": "a3fc50a623735c7131d73750c14167f85c7df5e39a34315f1117cd9f04b7b1b1",
+    "20261115T170310-96ab3c8dc7b54547848c550edb4b96e0.jsonl.gz": "2ea4d9beb23d5d4dd7e7b6c6bc2db01922a26cd4eb38376ab64ca21a86231399",
+    "20261115T170340-6ac1fd2288a944b8a28778d57b416176.manifest.json": "90baba2a3318cbb2e3b002092ee8239160adab4b47bd20232985c3ef1d5c11df",
+    "20261115T170440-28c9c47355994620a0b273d95a23a9d8.manifest.json": "c431e3b8472fedef0bbcff8d1626a03cfea83a769effc347dcdaf3825bf69421",
+    "20261115T170841-b602174ea68f418a97c82f38f9b37bef.manifest.json": "8b56ca109df7972f0b8af25db81f3ea62d3b7ff428b58dc492b60198bacd8a1e",
+    "20261115T170641-19b362dd402b4e2db7cc7b6a47706ad8.jsonl.gz": "3bcf7e2450594a01f197478f19ba8f32a34affa3401d79e8dd93c1a969920a37",
+    "20261115T170541-447d6f4b79274abc89a9c5f4610d0c1f.jsonl.gz": "39df7ed0dc081c1d01d5cf1304b30617eb3f2d8037280884fbb20aa3840258a3",
+    "20261115T170140-429710bef7414dd48b2bb75a13896b57.manifest.json": "53b5fc12120e1d0ac15025fee1a1039a5c66253b95ea3dcdad9e34812bce6912",
+    "20261115T170711-1bab2428568c4bdfa0ba0529ae724d5a.jsonl.gz": "83578975c7afe4f619bfa9ab87ce95b02b812a0682881328e2dd60082a061408",
+    "20261115T170541-447d6f4b79274abc89a9c5f4610d0c1f.manifest.json": "13377a62712cc35422cb1cb7ecd0aa07989e0668f87a3e71c49c5913f9a13d17",
+    "20261115T170811-b477b25f3730490bbfe5a0aa7d1c7e19.jsonl.gz": "39a3d0dc5069b9c955832ded9b00f6e04489f523d24e077b830c75a678fa3c0c",
+    "20261115T170811-b477b25f3730490bbfe5a0aa7d1c7e19.manifest.json": "76974f967cc34e1fd9fef431a8b3379f7b4cd65703801964a13b876499a9c073",
+    "session-89dfd5fc291b4079a824f16b95a5458e.status.json": "93f02ca455d1498430f126e298786377693ae664b5f65ab08f53829d23f1c498",
+    "20261115T170510-0e65fbc6f01c4918938158e5d200fbb3.jsonl.gz": "317f4a3fd163ddc7895bd6db6e58cff17db88f3a2069bbb85eb03bdd9a68578f",
+    "20261115T170040-c39034e6738a4f629d606f0159b383ce.jsonl.gz": "b57ff642076682f59a019d618b764d62d6a44b330ad3023b191e93f80ea83106",
+    "20261115T170711-1bab2428568c4bdfa0ba0529ae724d5a.manifest.json": "482c65cacd877e1d7348110df29d331edd605f6202f90a3fd994fb2a1cd52766",
+    "20261115T170611-1f56e9e2346f43ecb3f6bb0f5cb6ad59.jsonl.gz": "f46c678b54c74754733dc23da67027202218b5b9f69cc932b4e64467d185bbcc",
+    "20261115T170440-28c9c47355994620a0b273d95a23a9d8.jsonl.gz": "04843873457f4a1cbd982c20b89806a235e0f5ebcb82ed3915d5ba9d5927c72f",
+    "20261115T170841-b602174ea68f418a97c82f38f9b37bef.jsonl.gz": "8dcb8b4056d9bfe07b734dc3097b0038477fa2ee727dd94b3d8a9b64316a45b6",
+    "20261115T170611-1f56e9e2346f43ecb3f6bb0f5cb6ad59.manifest.json": "8e75c284b97b65db18f01df879cd2b1f8aec1d294f70a290b31877f781d36782",
+    "20261115T170010-220f90b157ea499a8b24e2f11e57d602.jsonl.gz": "86efb032de887701b095d93bc74df92a839b6214d253820e5d5a34711669004d",
+    "20261115T165910-d12fbf9a151d428cb46d364c6ad89650.jsonl.gz": "f81b931db3338d5015d50837f90e2b8ecdf7e06d4522fae1c451182a56f21d2c",
+    "20261115T170641-19b362dd402b4e2db7cc7b6a47706ad8.manifest.json": "ccadbc40de0316e3bff9c4712544aadb6b33887231cfa0358ef98820fbf2e518",
+    "20261115T170410-50f94c1d930e45f4936c27f725e8e646.jsonl.gz": "b028f3388185f2a255dda5e5a9242c69c58a8a3eb937e8bc0be58186740eb529",
+    "20261115T170010-220f90b157ea499a8b24e2f11e57d602.manifest.json": "402e3a106f29a40c800290f6129a12840c9ac6904146939228b03961f6387b94",
+    "20261115T170240-0ef1d1b0ead242d2a5e9d0b9d1eb027b.manifest.json": "d24efbaa5f1a7a33a1365b127235be2872c56e6b662905115a700732ffc8d996"
+  },
+  "production_host_qualified": false,
+  "remote_retention_verified": false,
+  "absolute_utc_accuracy_verified": false,
+  "study_enrollment": false,
+  "strategy_outcomes_evaluated": 0,
+  "limits": "Local cloud rehearsal only. Relative wall/monotonic sampling and daemon estimates cannot independently prove UTC accuracy. No dedicated service, long-term uptime or remote immutable-store readback is certified. Raw public-feed spool stays outside Git."
+}

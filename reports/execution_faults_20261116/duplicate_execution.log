@@ -1,0 +1,6 @@
+test_duplicate_reports_and_retries_never_double_fill (tests.test_internal_validation.LifecycleTests.test_duplicate_reports_and_retries_never_double_fill) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
