@@ -100,3 +100,42 @@ python -m unittest tests.test_okx_demo_evidence tests.test_okx_demo_trial -v
 Fixtures include duplicate fills, retention gaps, contract/fee units, stale books,
 permission failures, uncertain submission without a retry and partial-entry sizing
 for reduce-only closeout. These tests are synthetic, not sandbox execution results.
+
+## Cash-spot alternative (spot-only API keys)
+
+Use the separate spot runner when the account/API-key UI permits only Spot:
+
+```sh
+python -m research.decision_study.okx_spot_trial --region eea --execute-demo --private-out /workspace/scratch/okx-demo-private/new-spot-trial
+```
+
+This runner uses **BTC-USDT**, `tdMode=cash`, no borrowing and no short position.
+Its opening FOK limit buy is twice the advertised minimum BTC size, rounded to the
+lot step and bounded by visible depth, a 5-bps limit and 25 USDT opening notional.
+FOK avoids intentionally accepting a sub-minimum partial buy. It verifies retained
+entry executions before any sell, deducts BTC-denominated fees, and sizes the sell
+to the smaller of net acquired BTC and the actual increase in available BTC.
+It never intentionally sells pre-existing BTC. The market sell explicitly uses
+base-currency size. Lot dust is reported rather than labeled a perfectly flat
+position. Both quote/base balance deltas and outstanding orders are recorded.
+Do not run manual trades or another connector concurrently; balance deltas assume
+exclusive use during this short rehearsal. If a submission is unresolved, use the
+private client IDs and account history to reconcile before another deliberate run.
+There is no automatic retry or restart recovery.
+
+Read + Trade is necessary but not sufficient: OKX also restricts allowed Markets
+and Crypto on the key. A real November 15 attempt authenticated with Read + Trade
+but was rejected with **HTTP 401 / API 50123**, meaning the key lacked trading
+permission for the requested crypto. The UI restriction must permit Spot BTC/USDT
+before retrying. This is venue rejection evidence, not a successful fill test.
+The [sanitized observation summary](../reports/okx_demo_spot_20261115/summary.json)
+reports zero retained fills/orders, no pending orders and unchanged available
+BTC/USDT. It preserves the earlier uncertain acknowledgement and deliberate
+follow-up attempt instead of erasing the failure. Original journals stay private;
+their public hashes are integrity references, not independently authenticated
+exchange evidence. Neither this rejection nor the spot rehearsal completes the
+matched strategy/replay calibration requirement for goal 8.
+
+Spot fills cannot be audited with the SWAP-only `okx_demo` exporter: that module
+still explicitly supports BTC-USDT-SWAP contract history. The spot runner instead
+retains its own spot order states, fills and balances in its private journal.

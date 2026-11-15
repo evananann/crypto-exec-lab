@@ -18,6 +18,11 @@ import uuid
 
 from .okx_demo import ALLOWED, Client, DemoError, REPO, signature
 
+
+class OrderRejected(DemoError):
+    """Definitive venue rejection, distinct from an uncertain acknowledgement."""
+
+
 INSTRUMENT = "BTC-USDT-SWAP"
 MAX_OPEN_NOTIONAL_USDT = Decimal("25")
 MAX_PRICE_SLIPPAGE_BPS = Decimal("5")
@@ -107,6 +112,7 @@ class Journal:
 class TrialClient(Client):
     allowed_paths = ALLOWED | {
         "/api/v5/account/positions",
+        "/api/v5/account/balance",
         "/api/v5/trade/orders-pending",
         "/api/v5/market/books",
         "/api/v5/trade/order",
@@ -149,10 +155,31 @@ class TrialClient(Client):
                 journal.append(
                     "http_receive", {"clOrdId": order["clOrdId"], "http_status": response.status}
                 )
-        except (HTTPError, URLError, TimeoutError, ValueError):
+        except HTTPError as exc:
+            try:
+                payload = json.loads(exc.read(8192))
+                api_code = str(payload.get("code", ""))
+            except (ValueError, AttributeError):
+                api_code = ""
+            if journal is not None:
+                journal.append(
+                    "http_error",
+                    {
+                        "http_status": exc.code,
+                        "api_code": api_code
+                        if api_code.isdecimal() and len(api_code) <= 6
+                        else "unknown",
+                    },
+                )
+            if exc.code in (400, 401, 403) and api_code in {"50123", "50120", "50101", "50119"}:
+                raise OrderRejected("Demo order rejected by OKX; API code " + api_code) from None
+            raise DemoError("Submission HTTP error; reconcile saved client order ID") from None
+        except (URLError, TimeoutError, ValueError):
             # Caller queries deterministic client ID. Do not print bodies or resend.
             raise DemoError("Submission acknowledgement uncertain; query client order ID") from None
         if not isinstance(result, dict) or result.get("code") != "0":
+            if journal is not None and isinstance(result, dict):
+                journal.append("api_rejection", result)
             raise DemoError("Demo order rejected or acknowledgement uncertain")
         return result.get("data")
 
@@ -177,12 +204,19 @@ def settle(client, journal, order):
     try:
         response = client.post_order(order, journal=journal)
         journal.append("order_ack", response)
+    except OrderRejected as exc:
+        journal.append(
+            "order_rejected",
+            {"clOrdId": order["clOrdId"], "reason": str(exc), "resubmitted": False},
+        )
+        raise
     except DemoError:
         journal.append("ack_uncertain", {"clOrdId": order["clOrdId"], "resubmitted": False})
     for _ in range(20):
         try:
             rows = client.get(
-                "/api/v5/trade/order", {"instId": INSTRUMENT, "clOrdId": order["clOrdId"]}
+                "/api/v5/trade/order",
+                {"instId": order.get("instId", INSTRUMENT), "clOrdId": order["clOrdId"]},
             )
         except DemoError:
             journal.append("status_query_unavailable", {"clOrdId": order["clOrdId"]})
@@ -193,7 +227,7 @@ def settle(client, journal, order):
         if (
             len(rows) != 1
             or rows[0].get("clOrdId") != order["clOrdId"]
-            or rows[0].get("instId") != INSTRUMENT
+            or rows[0].get("instId") != order.get("instId", INSTRUMENT)
             or rows[0].get("side") != order["side"]
         ):
             raise DemoError("Unmatched order status; inspect private journal and demo account")

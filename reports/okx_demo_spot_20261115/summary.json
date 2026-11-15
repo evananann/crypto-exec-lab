@@ -1,0 +1,26 @@
+{
+  "status": "BLOCKED_CRYPTO_PERMISSION",
+  "observed_at_utc": "2026-11-15T15:20:28.489286+00:00",
+  "environment": "OKX demo cash spot",
+  "instrument": "BTC-USDT",
+  "api_origin": "https://eea.okx.com",
+  "account_permission": "read_only,trade",
+  "opening_notional_cap_usdt": "25",
+  "opening_attempts": 2,
+  "non_executable_schema_probes": 1,
+  "definitive_rejection": {
+    "http_status": 401,
+    "api_code": "50123"
+  },
+  "retained_spot_fills": 0,
+  "retained_spot_orders": 0,
+  "pending_orders": 0,
+  "available_btc_usdt_unchanged": true,
+  "private_journal_sha256": [
+    "b63640fd310ad309331169653a1af9866ea7e1c9610382ba28009f07ddaa870f",
+    "314d0646ede73f674cc2234267595fcfd8a06e8bc5d46d3f949154651b841b92"
+  ],
+  "replay_parity_verified": false,
+  "latency_calibrated": false,
+  "limits": "Sanitized direct observations. Original account records remain private; public hashes alone do not authenticate venue responses. First acknowledgement was uncertain; no retained execution, no pending order and unchanged balances were checked before a follow-up attempt. Follow-up gave definitive crypto-permission rejection. No strategy outcome evaluated."
+}
