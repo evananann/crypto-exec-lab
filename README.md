@@ -133,6 +133,7 @@ explain why this is verification automation, not automatic strategy tuning or co
 
 | Evidence | What it establishes |
 | --- | --- |
+| [Actual demo execution validation](reports/spot_validation_20261115/README.md) | Three prespecified round trips; concurrent quotes; predicted versus observed fills, fees and local timing; no production-calibration claim |
 | [OKX demo evidence](docs/OKX_DEMO_EVIDENCE.md) | Read-only exports and an opt-in bounded demo transaction rehearsal; actual matched paper/replay parity remains pending |
 | [Working paper](reports/STUDY_V1_RESEARCH.md) and [research memo](docs/RESEARCH_MEMO.md) | Exact hypothesis, frozen rules, observed failures and current research limitations |
 | [Trading decision and exit-cost frontier](reports/trading_decision/decision.md) | Exact long/short cash bridge, break-even markout hurdles and assumption sensitivity; no alpha, fill probability or capacity estimate |

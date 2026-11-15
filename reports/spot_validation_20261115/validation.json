@@ -1,0 +1,281 @@
+{
+  "status": "BATCH_COMPLETED",
+  "created_at_utc": "2026-11-15T16:02:28.809438+00:00",
+  "protocol_sha256": "7a15bb9a2fd1f14b4a1959f5e860134d8e51fa7731f5a9cc024f51dc69d1abfd",
+  "source_sha256": {
+    "spot_validation.py": "7000570d42a3fb6f83bb1593ae56ecf664f71f9b558aa790ef858a49ad1af548",
+    "spot_validation_protocol.json": "7a15bb9a2fd1f14b4a1959f5e860134d8e51fa7731f5a9cc024f51dc69d1abfd",
+    "okx_spot_trial.py": "b386fc07e50202c0bee9b0888617ec68e4dfce2a0352efc824e7612e0e32d36b",
+    "okx_demo_trial.py": "f0994b7fff48e6d3dc3e38dbef4f80d84d5c9a0d86e06d9e759919583ac7c464",
+    "okx_demo.py": "2852c67dc31f680d8675091833b2ce6c6a02de371421d2936d7755f9188edfa1",
+    "okx_spot_audit.py": "d09bd354fe82de0f83eb108cb98178b97b79f94a108e17230c7f46cd4d31368e"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "DEMO_SPOT_ROUND_TRIP",
+      "result": {
+        "status": "DEMO_SPOT_ROUND_TRIP",
+        "bought_btc": "0.00004",
+        "sold_btc": "0.00003992",
+        "residual_btc": "0",
+        "available_usdt_change": "-0.010340309344",
+        "no_pending_orders": true,
+        "existing_btc_preserved": true,
+        "replay_parity_verified": false,
+        "latency_calibrated": false
+      },
+      "accounting_audit": {
+        "status": "RECONCILED",
+        "instrument": "BTC-USDT",
+        "environment": "OKX demo cash spot",
+        "source_journal_sha256": "866ec635436eb7e4d7612d5cade8049eabcd97808fe2def27f35ac12498f416e",
+        "fill_count": 2,
+        "order_count": 2,
+        "bought_btc": "0.00004",
+        "sold_btc": "0.00003992",
+        "buy_notional_usdt": "2.586668",
+        "sell_notional_usdt": "2.581490672",
+        "signed_fee_changes": {
+          "BTC": "-8E-8",
+          "USDT": "-0.005162981344"
+        },
+        "net_balance_changes": {
+          "BTC": "0E-8",
+          "USDT": "-0.010340309344"
+        },
+        "balance_discrepancies": {},
+        "no_pending_orders": true,
+        "replay_parity_verified": false,
+        "latency_calibrated": false,
+        "scope": "One actual demo connectivity round trip. Local journal consistency, not independent venue authentication, matched policy replay, production fill quality or alpha. Fees remain in native currencies; USDT is not USD. Local software timestamps do not establish wire latency."
+      },
+      "private_journal_sha256": "866ec635436eb7e4d7612d5cade8049eabcd97808fe2def27f35ac12498f416e",
+      "legs": [
+        {
+          "side": "buy",
+          "submitted_quantity_btc": "0.00004",
+          "prediction": {
+            "status": "PREDICTED_FULL",
+            "predicted_qty_btc": "0.00004",
+            "predicted_price_usdt": "64666.7",
+            "predicted_fee": "-8E-8",
+            "fee_currency": "BTC",
+            "receive_age_ms": 315.904119
+          },
+          "observed_state": "filled",
+          "local_http_round_trip_ms": 326.759856,
+          "observed_quantity_btc": "0.00004",
+          "observed_vwap_usdt": "64666.7",
+          "observed_signed_fees": {
+            "BTC": "-8E-8"
+          },
+          "adverse_price_error_bps": "0",
+          "quantity_error_btc": "0.00000",
+          "fee_error_native": "0E-8"
+        },
+        {
+          "side": "sell",
+          "submitted_quantity_btc": "0.00003992",
+          "prediction": {
+            "status": "PREDICTED_FULL",
+            "predicted_qty_btc": "0.00003992",
+            "predicted_price_usdt": "64666.6",
+            "predicted_fee": "-0.005162981344",
+            "fee_currency": "USDT",
+            "receive_age_ms": 362.163303
+          },
+          "observed_state": "filled",
+          "local_http_round_trip_ms": 331.108703,
+          "observed_quantity_btc": "0.00003992",
+          "observed_vwap_usdt": "64666.6",
+          "observed_signed_fees": {
+            "USDT": "-0.005162981344"
+          },
+          "adverse_price_error_bps": "-0",
+          "quantity_error_btc": "0E-8",
+          "fee_error_native": "0E-12"
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "status": "DEMO_SPOT_ROUND_TRIP",
+      "result": {
+        "status": "DEMO_SPOT_ROUND_TRIP",
+        "bought_btc": "0.00004",
+        "sold_btc": "0.00003992",
+        "residual_btc": "0",
+        "available_usdt_change": "-0.010562311344",
+        "no_pending_orders": true,
+        "existing_btc_preserved": true,
+        "replay_parity_verified": false,
+        "latency_calibrated": false
+      },
+      "accounting_audit": {
+        "status": "RECONCILED",
+        "instrument": "BTC-USDT",
+        "environment": "OKX demo cash spot",
+        "source_journal_sha256": "b521e944ce5b3ee90dca0b5ffb282f8ce553d2133713c8278b92dec37938564c",
+        "fill_count": 2,
+        "order_count": 2,
+        "bought_btc": "0.00004",
+        "sold_btc": "0.00003992",
+        "buy_notional_usdt": "2.586392",
+        "sell_notional_usdt": "2.580991672",
+        "signed_fee_changes": {
+          "BTC": "-8E-8",
+          "USDT": "-0.005161983344"
+        },
+        "net_balance_changes": {
+          "BTC": "0E-8",
+          "USDT": "-0.010562311344"
+        },
+        "balance_discrepancies": {},
+        "no_pending_orders": true,
+        "replay_parity_verified": false,
+        "latency_calibrated": false,
+        "scope": "One actual demo connectivity round trip. Local journal consistency, not independent venue authentication, matched policy replay, production fill quality or alpha. Fees remain in native currencies; USDT is not USD. Local software timestamps do not establish wire latency."
+      },
+      "private_journal_sha256": "b521e944ce5b3ee90dca0b5ffb282f8ce553d2133713c8278b92dec37938564c",
+      "legs": [
+        {
+          "side": "buy",
+          "submitted_quantity_btc": "0.00004",
+          "prediction": {
+            "status": "PREDICTED_FULL",
+            "predicted_qty_btc": "0.00004",
+            "predicted_price_usdt": "64659.8",
+            "predicted_fee": "-8E-8",
+            "fee_currency": "BTC",
+            "receive_age_ms": 212.665375
+          },
+          "observed_state": "filled",
+          "local_http_round_trip_ms": 314.951101,
+          "observed_quantity_btc": "0.00004",
+          "observed_vwap_usdt": "64659.8",
+          "observed_signed_fees": {
+            "BTC": "-8E-8"
+          },
+          "adverse_price_error_bps": "0",
+          "quantity_error_btc": "0.00000",
+          "fee_error_native": "0E-8"
+        },
+        {
+          "side": "sell",
+          "submitted_quantity_btc": "0.00003992",
+          "prediction": {
+            "status": "PREDICTED_FULL",
+            "predicted_qty_btc": "0.00003992",
+            "predicted_price_usdt": "64654.8",
+            "predicted_fee": "-0.005162039232",
+            "fee_currency": "USDT",
+            "receive_age_ms": 221.822442
+          },
+          "observed_state": "filled",
+          "local_http_round_trip_ms": 313.46426,
+          "observed_quantity_btc": "0.00003992",
+          "observed_vwap_usdt": "64654.1",
+          "observed_signed_fees": {
+            "USDT": "-0.005161983344"
+          },
+          "adverse_price_error_bps": "0.1082672902862587155168680438",
+          "quantity_error_btc": "0E-8",
+          "fee_error_native": "5.5888E-8"
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "status": "DEMO_SPOT_ROUND_TRIP",
+      "result": {
+        "status": "DEMO_SPOT_ROUND_TRIP",
+        "bought_btc": "0.00004",
+        "sold_btc": "0.00003992",
+        "residual_btc": "0",
+        "available_usdt_change": "-0.010341112544",
+        "no_pending_orders": true,
+        "existing_btc_preserved": true,
+        "replay_parity_verified": false,
+        "latency_calibrated": false
+      },
+      "accounting_audit": {
+        "status": "RECONCILED",
+        "instrument": "BTC-USDT",
+        "environment": "OKX demo cash spot",
+        "source_journal_sha256": "b5443275a4311cb545efbe4b52c0111ac34c5d2a616903649d01b961cb5d2511",
+        "fill_count": 2,
+        "order_count": 2,
+        "bought_btc": "0.00004",
+        "sold_btc": "0.00003992",
+        "buy_notional_usdt": "2.585872",
+        "sell_notional_usdt": "2.580692272",
+        "signed_fee_changes": {
+          "BTC": "-8E-8",
+          "USDT": "-0.005161384544"
+        },
+        "net_balance_changes": {
+          "BTC": "0E-8",
+          "USDT": "-0.010341112544"
+        },
+        "balance_discrepancies": {},
+        "no_pending_orders": true,
+        "replay_parity_verified": false,
+        "latency_calibrated": false,
+        "scope": "One actual demo connectivity round trip. Local journal consistency, not independent venue authentication, matched policy replay, production fill quality or alpha. Fees remain in native currencies; USDT is not USD. Local software timestamps do not establish wire latency."
+      },
+      "private_journal_sha256": "b5443275a4311cb545efbe4b52c0111ac34c5d2a616903649d01b961cb5d2511",
+      "legs": [
+        {
+          "side": "buy",
+          "submitted_quantity_btc": "0.00004",
+          "prediction": {
+            "status": "PREDICTED_FULL",
+            "predicted_qty_btc": "0.00004",
+            "predicted_price_usdt": "64679.2",
+            "predicted_fee": "-8E-8",
+            "fee_currency": "BTC",
+            "receive_age_ms": 248.9206
+          },
+          "observed_state": "filled",
+          "local_http_round_trip_ms": 320.390236,
+          "observed_quantity_btc": "0.00004",
+          "observed_vwap_usdt": "64646.8",
+          "observed_signed_fees": {
+            "BTC": "-8E-8"
+          },
+          "adverse_price_error_bps": "-5.009338396269588986876770275",
+          "quantity_error_btc": "0.00000",
+          "fee_error_native": "0E-8"
+        },
+        {
+          "side": "sell",
+          "submitted_quantity_btc": "0.00003992",
+          "prediction": {
+            "status": "PREDICTED_FULL",
+            "predicted_qty_btc": "0.00003992",
+            "predicted_price_usdt": "64646.6",
+            "predicted_fee": "-0.005161384544",
+            "fee_currency": "USDT",
+            "receive_age_ms": 175.821236
+          },
+          "observed_state": "filled",
+          "local_http_round_trip_ms": 313.810585,
+          "observed_quantity_btc": "0.00003992",
+          "observed_vwap_usdt": "64646.6",
+          "observed_signed_fees": {
+            "USDT": "-0.005161384544"
+          },
+          "adverse_price_error_bps": "-0",
+          "quantity_error_btc": "0E-8",
+          "fee_error_native": "0E-12"
+        }
+      ]
+    }
+  ],
+  "quote_capture_fault": false,
+  "execution_parity_established": false,
+  "scope": "Three sequential engineering observations in one short regime. No significance test, alpha claim, perpetual-study enrollment or production calibration. REST snapshots do not reveal the matching engine book between observations.",
+  "received_quote_count": 55,
+  "private_quote_tape_sha256": "eedb9f829ab9d3d3919eba98903205cd13d11e6c1cc1a4c9628ab9ad0c375afb"
+}

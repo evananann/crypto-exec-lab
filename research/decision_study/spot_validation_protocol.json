@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "study": "independent-demo-spot-execution-validation-v1",
+  "instrument": "BTC-USDT",
+  "mode": "demo_cash_spot",
+  "attempts": 3,
+  "maximum_opening_notional_usdt_per_attempt": "25",
+  "maximum_batch_opening_notional_usdt": "75",
+  "minimum_spacing_seconds": 2,
+  "quote_poll_seconds": 0.2,
+  "modeled_send_to_arrival_ms": 50,
+  "maximum_receive_quote_age_ms": 1000,
+  "assumed_fee_rate_each_fill": "0.002",
+  "entry_fee_currency": "BTC",
+  "exit_fee_currency": "USDT",
+  "fee_assumption_origin": "Fixed from the earlier completed demo connectivity pilot; not estimated from this batch",
+  "prediction": "Replay identical submitted orders using latest REST BBO received no later than modeled send+50ms. Full fill only if top depth suffices and entry ask clears its FOK limit. Unknown quote/depth stays unavailable; this is conditional same-order replay, not independent policy replication.",
+  "stop_rule": "Stop on the first exception, unresolved order, accounting discrepancy, quote-capture failure or leftover exposure; no replacement attempt, tuning or automatic order retry",
+  "scope": "Three sequential engineering observations in one short regime. No significance test, alpha claim, perpetual-study enrollment or production calibration. REST snapshots do not reveal the matching engine book between observations."
+}
