@@ -1,0 +1,159 @@
+{
+  "status": "BLOCKED_NOT_ENROLLED",
+  "checks": {
+    "design_hash_verified": true,
+    "bounded_capture_health": true,
+    "original_daemon_clock_requirement_met": false,
+    "independent_utc_accuracy_verified": false,
+    "remote_readback_verified": false,
+    "raw_normalization_and_instrument_binding_qualified": false,
+    "independent_discovery_contrast_activity_measured": false,
+    "executable_inference_sources_frozen_for_enrollment": false,
+    "exact_future_dates_published": false
+  },
+  "kernel_clock_query": {
+    "available": true,
+    "provider": "Linux adjtimex modes=0 query only",
+    "kernel_time_state": 0,
+    "kernel_reports_time_ok": true,
+    "clock_modified": false,
+    "independent_utc_accuracy_verified": false,
+    "scope": "Kernel-reported state is not source/root-dispersion evidence, a container clock certificate or independent UTC verification. It does not retroactively satisfy the prior chrony requirement."
+  },
+  "planned_untouched_test_days": 28,
+  "power_scenarios": [
+    {
+      "effect_usdt_per_opportunity": "0.001",
+      "sd_of_paired_daily_mean_same_units": "0.005",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 197,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.001",
+      "sd_of_paired_daily_mean_same_units": "0.005",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 393,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.001",
+      "sd_of_paired_daily_mean_same_units": "0.02",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 3140,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.001",
+      "sd_of_paired_daily_mean_same_units": "0.02",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 6280,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.001",
+      "sd_of_paired_daily_mean_same_units": "0.05",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 19623,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.001",
+      "sd_of_paired_daily_mean_same_units": "0.05",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 39245,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.005",
+      "sd_of_paired_daily_mean_same_units": "0.005",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 8,
+      "exceeds_planned_test_days": false
+    },
+    {
+      "effect_usdt_per_opportunity": "0.005",
+      "sd_of_paired_daily_mean_same_units": "0.005",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 16,
+      "exceeds_planned_test_days": false
+    },
+    {
+      "effect_usdt_per_opportunity": "0.005",
+      "sd_of_paired_daily_mean_same_units": "0.02",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 126,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.005",
+      "sd_of_paired_daily_mean_same_units": "0.02",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 252,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.005",
+      "sd_of_paired_daily_mean_same_units": "0.05",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 785,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.005",
+      "sd_of_paired_daily_mean_same_units": "0.05",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 1570,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.01",
+      "sd_of_paired_daily_mean_same_units": "0.005",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 2,
+      "exceeds_planned_test_days": false
+    },
+    {
+      "effect_usdt_per_opportunity": "0.01",
+      "sd_of_paired_daily_mean_same_units": "0.005",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 4,
+      "exceeds_planned_test_days": false
+    },
+    {
+      "effect_usdt_per_opportunity": "0.01",
+      "sd_of_paired_daily_mean_same_units": "0.02",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 32,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.01",
+      "sd_of_paired_daily_mean_same_units": "0.02",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 63,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.01",
+      "sd_of_paired_daily_mean_same_units": "0.05",
+      "assumed_design_effect": 1,
+      "approximate_required_days": 197,
+      "exceeds_planned_test_days": true
+    },
+    {
+      "effect_usdt_per_opportunity": "0.01",
+      "sd_of_paired_daily_mean_same_units": "0.05",
+      "assumed_design_effect": 2,
+      "approximate_required_days": 393,
+      "exceeds_planned_test_days": true
+    }
+  ],
+  "power_method": "Two-sided 5% alpha, 80% power normal approximation for paired daily means: ceil((z.975+z.8)^2*(SD/effect)^2*assumed_design_effect), at least two dates.",
+  "power_limitations": "Every effect, SD and dependence inflation is hypothetical, not estimated from the released unpaired primary study or three demo trades. Known-variance normal approximations ignore finite-sample uncertainty and are not power guarantees. No sample size or threshold is changed by this diagnostic.",
+  "activity_check": "Next study requires at least 30 nonzero paired opportunities on at least 10 test dates. One contrast/day for 28 days would fail the count gate. New design-specific discovery eligibility/action counts are required; 21,388 old leader-triggered labels are not estimates of matched-policy activity.",
+  "calendar_action": "Do not activate or choose retrospective dates while any qualification gate is missing. Any design change must be a new public version before future enrollment, preserving v1 and the completed study.",
+  "capital_deployment": false,
+  "new_orders": 0,
+  "active_study_outcomes_read": false
+}

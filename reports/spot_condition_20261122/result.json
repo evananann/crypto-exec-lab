@@ -1,0 +1,14 @@
+{
+  "status": "PRE_SUBMISSION_DEPTH_REJECTION",
+  "reason": "Displayed ask size below the twice-minimum opening quantity; guard stopped before order intent/submission",
+  "observed_ask_size_btc": "0.00002",
+  "required_opening_size_btc": "0.00004",
+  "opening_order_submissions": 0,
+  "exit_order_submissions": 0,
+  "pending_orders": 0,
+  "available_btc_usdt_unchanged": true,
+  "expected_venue_unfilled_case_completed": false,
+  "replacement_attempts": 0,
+  "private_journal_sha256": "d6c72feb1c61b922cff685e25148720e32e6e499aafab2d28ec8aa2b5c8c143a",
+  "scope": "Actual demo metadata/depth eligibility check; not an observed venue cancellation, fill or production liquidity measurement. No order was submitted and the case was not replaced."
+}

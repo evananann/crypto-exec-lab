@@ -1,0 +1,13 @@
+{
+  "case": "One demo cash-spot FOK limit 1% below observed bid",
+  "expected": "Unfilled and no exit order; this is an expectation, not guaranteed",
+  "attempt_limit": 1,
+  "opening_notional_cap_usdt": "25",
+  "unexpected_fill_action": "Close only newly acquired BTC after base fees; retain unexpected outcome, never replace attempt",
+  "stop_rule": "Unknown order status or residual exposure stops execution without retry",
+  "source_sha256": {
+    "spot_unfilled_condition.py": "12ec5fcb8f1edd2cde405d24bcbaec8e73841e78b88e3c5da4901dda4c84dc2a",
+    "okx_spot_trial.py": "b386fc07e50202c0bee9b0888617ec68e4dfce2a0352efc824e7612e0e32d36b",
+    "okx_demo_trial.py": "f0994b7fff48e6d3dc3e38dbef4f80d84d5c9a0d86e06d9e759919583ac7c464"
+  }
+}

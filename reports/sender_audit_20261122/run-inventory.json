@@ -1,0 +1,632 @@
+[
+  {
+    "id": 45047691121,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/45047691121",
+    "created_at": "2026-11-22T17:07:54Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44970924010,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44970924010",
+    "created_at": "2026-11-22T01:19:39Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44926348949,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44926348949",
+    "created_at": "2026-11-21T16:45:57Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44854895030,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44854895030",
+    "created_at": "2026-11-21T02:15:43Z",
+    "conclusion": "failure"
+  },
+  {
+    "id": 44854863480,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44854863480",
+    "created_at": "2026-11-21T02:15:24Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44786445400,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44786445400",
+    "created_at": "2026-11-20T17:46:12Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44659963653,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44659963653",
+    "created_at": "2026-11-20T02:19:34Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44659933715,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44659933715",
+    "created_at": "2026-11-20T02:19:18Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44585753087,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44585753087",
+    "created_at": "2026-11-19T18:14:51Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44445311939,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44445311939",
+    "created_at": "2026-11-19T02:34:31Z",
+    "conclusion": "failure"
+  },
+  {
+    "id": 44445276755,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44445276755",
+    "created_at": "2026-11-19T02:34:13Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44365153229,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44365153229",
+    "created_at": "2026-11-18T18:01:43Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44226670751,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44226670751",
+    "created_at": "2026-11-18T02:54:52Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44226657614,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44226657614",
+    "created_at": "2026-11-18T02:54:45Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44148929210,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44148929210",
+    "created_at": "2026-11-17T18:32:20Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 44013456608,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44013456608",
+    "created_at": "2026-11-17T03:54:33Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43940666445,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43940666445",
+    "created_at": "2026-11-16T19:34:03Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43783863664,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43783863664",
+    "created_at": "2026-11-16T01:02:16Z",
+    "conclusion": "failure"
+  },
+  {
+    "id": 43783845600,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43783845600",
+    "created_at": "2026-11-16T01:02:05Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43734859619,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43734859619",
+    "created_at": "2026-11-15T16:19:48Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43661272277,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43661272277",
+    "created_at": "2026-11-15T01:03:59Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43661261869,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43661261869",
+    "created_at": "2026-11-15T01:03:51Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43612045667,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43612045667",
+    "created_at": "2026-11-14T15:47:17Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43540719972,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43540719972",
+    "created_at": "2026-11-14T01:27:41Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43540695454,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43540695454",
+    "created_at": "2026-11-14T01:27:26Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43470269959,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43470269959",
+    "created_at": "2026-11-13T17:11:16Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43347886215,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43347886215",
+    "created_at": "2026-11-13T01:50:50Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43347812331,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43347812331",
+    "created_at": "2026-11-13T01:50:14Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43270832539,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43270832539",
+    "created_at": "2026-11-12T17:34:14Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43140225449,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43140225449",
+    "created_at": "2026-11-12T02:16:18Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43140208894,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43140208894",
+    "created_at": "2026-11-12T02:16:10Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 43064760129,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43064760129",
+    "created_at": "2026-11-11T17:05:44Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42937488616,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42937488616",
+    "created_at": "2026-11-11T01:14:32Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42937467111,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42937467111",
+    "created_at": "2026-11-11T01:14:22Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42860399646,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42860399646",
+    "created_at": "2026-11-10T17:00:22Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42750363865,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42750363865",
+    "created_at": "2026-11-10T03:34:50Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42686659214,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42686659214",
+    "created_at": "2026-11-09T19:47:08Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42542799690,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42542799690",
+    "created_at": "2026-11-09T00:55:32Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42542786122,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42542786122",
+    "created_at": "2026-11-09T00:55:23Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42497367207,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42497367207",
+    "created_at": "2026-11-08T15:57:04Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42430552756,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42430552756",
+    "created_at": "2026-11-08T00:36:57Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42430542514,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42430542514",
+    "created_at": "2026-11-08T00:36:50Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42387415142,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42387415142",
+    "created_at": "2026-11-07T15:39:12Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42321299380,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42321299380",
+    "created_at": "2026-11-07T00:57:11Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42321283316,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42321283316",
+    "created_at": "2026-11-07T00:57:02Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42255150926,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42255150926",
+    "created_at": "2026-11-06T16:44:18Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42144673438,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42144673438",
+    "created_at": "2026-11-06T01:33:54Z",
+    "conclusion": "failure"
+  },
+  {
+    "id": 42144655638,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42144655638",
+    "created_at": "2026-11-06T01:33:45Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 42074072073,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42074072073",
+    "created_at": "2026-11-05T17:23:00Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41948683995,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41948683995",
+    "created_at": "2026-11-05T01:27:48Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41948670965,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41948670965",
+    "created_at": "2026-11-05T01:27:41Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41875412905,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41875412905",
+    "created_at": "2026-11-04T17:13:10Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41753596652,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41753596652",
+    "created_at": "2026-11-04T01:22:23Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41753583640,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41753583640",
+    "created_at": "2026-11-04T01:22:16Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41679909714,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41679909714",
+    "created_at": "2026-11-03T17:00:25Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41569083986,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41569083986",
+    "created_at": "2026-11-03T02:55:38Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41569068758,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41569068758",
+    "created_at": "2026-11-03T02:55:29Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41510195621,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41510195621",
+    "created_at": "2026-11-02T19:28:04Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41368855552,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41368855552",
+    "created_at": "2026-11-02T00:45:28Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41368840953,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41368840953",
+    "created_at": "2026-11-02T00:45:19Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41324044707,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41324044707",
+    "created_at": "2026-11-01T16:00:15Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41255435032,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41255435032",
+    "created_at": "2026-11-01T00:08:41Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41255425309,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41255425309",
+    "created_at": "2026-11-01T00:08:33Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41214244668,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41214244668",
+    "created_at": "2026-10-31T15:18:46Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41152123830,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41152123830",
+    "created_at": "2026-10-31T00:48:08Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41152110393,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41152110393",
+    "created_at": "2026-10-31T00:47:59Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 41085134516,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41085134516",
+    "created_at": "2026-10-30T15:55:17Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40983206578,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40983206578",
+    "created_at": "2026-10-30T01:00:26Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40983188839,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40983188839",
+    "created_at": "2026-10-30T01:00:17Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40908269398,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40908269398",
+    "created_at": "2026-10-29T16:06:27Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40797426037,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40797426037",
+    "created_at": "2026-10-29T00:57:47Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40797412516,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40797412516",
+    "created_at": "2026-10-29T00:57:39Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40721508738,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40721508738",
+    "created_at": "2026-10-28T15:59:32Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40609336892,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40609336892",
+    "created_at": "2026-10-28T00:31:48Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40609323480,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40609323480",
+    "created_at": "2026-10-28T00:31:41Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40529993959,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40529993959",
+    "created_at": "2026-10-27T15:20:29Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40426369723,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40426369723",
+    "created_at": "2026-10-27T00:26:06Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40426353616,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40426353616",
+    "created_at": "2026-10-27T00:25:58Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40355897863,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40355897863",
+    "created_at": "2026-10-26T16:06:35Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40244039436,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40244039436",
+    "created_at": "2026-10-25T23:16:57Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40244029552,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40244029552",
+    "created_at": "2026-10-25T23:16:49Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40198829017,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40198829017",
+    "created_at": "2026-10-25T13:42:19Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40198817469,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40198817469",
+    "created_at": "2026-10-25T13:42:10Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40141981106,
+    "event": "workflow_dispatch",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40141981106",
+    "created_at": "2026-10-24T23:15:25Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40141970515,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40141970515",
+    "created_at": "2026-10-24T23:15:17Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40097608314,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40097608314",
+    "created_at": "2026-10-24T13:19:02Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 40041976263,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40041976263",
+    "created_at": "2026-10-23T23:51:31Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 39967827330,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39967827330",
+    "created_at": "2026-10-23T14:13:42Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 39875305342,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39875305342",
+    "created_at": "2026-10-22T23:59:24Z",
+    "conclusion": "success"
+  },
+  {
+    "id": 39796242516,
+    "event": "schedule",
+    "html_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39796242516",
+    "created_at": "2026-10-22T14:30:31Z",
+    "conclusion": "success"
+  }
+]

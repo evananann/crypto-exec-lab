@@ -1,0 +1,61 @@
+{
+  "as_of_utc": "2026-11-22T12:01:39.613813+00:00",
+  "decision_status": "inconclusive_missing_coverage_or_precision",
+  "phases": {
+    "development": {
+      "planned_slots": 42,
+      "eligible_slots": 20,
+      "available_primary_means": 20,
+      "occupied_days": 19,
+      "equal_day_mean_bps": -4.703059961401743,
+      "ci95_bps": [
+        -4.758502253716774,
+        -4.649810541587178
+      ],
+      "precision_goal_met": false
+    },
+    "holdout": {
+      "planned_slots": 14,
+      "eligible_slots": 3,
+      "available_primary_means": 3,
+      "occupied_days": 3,
+      "equal_day_mean_bps": -4.647123319973564,
+      "ci95_bps": null,
+      "precision_goal_met": false
+    },
+    "full": {
+      "planned_slots": 56,
+      "eligible_slots": 23,
+      "available_primary_means": 23,
+      "occupied_days": 22,
+      "equal_day_mean_bps": -4.695432237570627,
+      "ci95_bps": [
+        -4.7474920800204625,
+        -4.6480759671933205
+      ],
+      "precision_goal_met": false
+    }
+  },
+  "eligible_slots": 23,
+  "planned_slots": 56,
+  "coverage_percent": 41.07142857142857,
+  "eligible_am_pm": {
+    "am": 22,
+    "pm": 1
+  },
+  "missing_reasons": {
+    "missing verified archive; not a zero return": 30,
+    "unhealthy, late or failed original attempt": 3
+  },
+  "eligible_event_records": 10753415,
+  "source_run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/45020145212",
+  "source_report_sha256": "eae9aebae4d7165a839883f8e969885e51c3c549128180ff82d7d073be72ef95",
+  "entry_fee_bps": 5,
+  "estimated_before_entry_fee_markout_bps": 0.30456776242937256,
+  "claims": {
+    "executable_returns_measured": false,
+    "incremental_information_tested": false,
+    "deployment_authorized": false
+  },
+  "scope": "Released entry-to-mid result with one assumed entry fee. Descriptive intervals apply only to observed days; missing slots are unknown. No new estimator, policy ablation or executable return is produced."
+}

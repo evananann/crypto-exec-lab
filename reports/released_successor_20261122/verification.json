@@ -1,0 +1,11 @@
+{
+  "checked_at_utc": "2026-11-22T17:19:45.547898+00:00",
+  "earliest_original_selected": true,
+  "run_id": 45020145212,
+  "run_source_commit": "26533211bceb284ea76c5c7e7edd9227df6338cc",
+  "report_sha256": "eae9aebae4d7165a839883f8e969885e51c3c549128180ff82d7d073be72ef95",
+  "archive_sha256": "264fd457339c8b5ba7febc3960d8658c49d2ae536c2735b05089f69e158c4479",
+  "note_sha256": "e6f3b61b8e31a3a03f83de4f9109198f9e3233be1cebf14373d8d940be397696",
+  "source_bindings_verified": true,
+  "new_estimator_runs": 0
+}

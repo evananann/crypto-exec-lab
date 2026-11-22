@@ -3,8 +3,9 @@
 Lead with the economic question, the evidence and the decision. Use the
 [research memo](RESEARCH_MEMO.md), [thesis](TRADING_THESIS.md) and
 [trader decision memo](TRADER_DECISION_MEMO.md) as the main reading path.
-The current conclusion is to remain in research: verified scientific outcomes
-and execution calibration are unavailable. Collection and software evidence
+The current conclusion is to remain in research: the released observed primary
+mean is -4.6954bps after an assumed 5bps entry fee, but only 23/56 slots qualified
+and the frozen conclusion is inconclusive. Production execution calibration remains unavailable. Collection and software evidence
 support the experiment but do not establish an edge.
 
 Use the [timed defense pack](RESEARCH_DEFENSE.md) for a first attempt and
@@ -20,7 +21,7 @@ and reporting gates still have to complete.
 | 0:45–1:45 | What else could explain the pattern? | Common information, receive-location delays, bid/ask bounce and condition selection; distinguish proposed checks from implemented controls |
 | 1:45–2:45 | What constitutes independent evidence? | Frozen phases, original slots, missingness, day dependence and correlated venue pairs; no outcome-driven replacement or winning-grid selection |
 | 2:45–3:45 | Is the effect economically meaningful? | Entry-net markout versus executable liquidation; compare all fixed assumed exit cases and uncertainty limits |
-| 3:45–5:00 | What is the result and next decision? | Scientific results unavailable; explain the actual collection record, abstention and the release-gated report that would permit interpretation |
+| 3:45–5:00 | What is the result and next decision? | Explain the unfavorable observed mean, 23/56 coverage, three holdout dates and the formal inconclusive decision |
 
 An honest negative or inconclusive result is a research outcome. Do not replace
 it with a better-looking grid cell, extrapolated Sharpe ratio or larger signal count.
@@ -57,8 +58,9 @@ full fills and supplies no empirical latency, depth or acceptance distribution.
 ## Résumé bullets supported today
 
 - Designed a source-bound BTC cross-venue markout study with fixed hypotheses,
-  chronological development/holdout phases, release gates and explicit treatment
-  of failed and missing observations; empirical conclusions remain pending.
+  chronological development/holdout phases and explicit missing-data treatment;
+  reported -4.70bps observed entry-net markout while retaining an inconclusive
+  conclusion because only 23/56 sessions qualified.
 - Built an exact long/short entry-to-exit cash bridge and interactive cost frontier
   across 18 fixed assumption cases, separating predictive markouts from executable
   round-trip economics without double-counting entry costs.
@@ -90,3 +92,8 @@ missingness and date sensitivity, and depth-aware residual valuation. These are
 synthetic research controls, not new alpha estimates. The actual October22 pilot
 has zero active decisions across180 sampled opportunities and does not identify
 an incremental information effect.
+
+The [released result](../reports/released_successor_20261122/README.md) is the
+current evidence anchor. Do not describe the 10.75 million event records as
+independent research observations, the markout as realized P&L, or the study as
+a completed matched policy ablation. Personal reproduction remains required.

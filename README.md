@@ -16,18 +16,25 @@ entry-to-mid markout after a 50ms decision delay and 5bps entry fee, measured
 one second from the signal using local receive time. A separate prospective
 study repeats the fixed test across dates and on Binance→Bybit.
 
-**Current conclusion:** empirical outcomes remain unavailable in the committed
-verified evidence. The [successor registration](configs/successor/registered_study.json)
-records three qualified 15-minute infrastructure trials across October 22–23.
-Its study window is October 25–November 21 UTC, with outcomes gated until
-November 22, 08:00 Shanghai. Registration does not establish collected coverage
-or profitable execution.
-The project sends no live orders.
+**Released November 22:** the [authenticated primary report](reports/released_successor_20261122/README.md)
+has an observed **-4.6954bps entry-net mean**, but only **23/56 eligible slots**
+and three holdout dates. The frozen decision is **inconclusive_missing_coverage_or_precision**.
+A narrow observed-day interval does not repair missing coverage. The metric is
+50ms/5bps entry-to-mid markout, not executable round-trip profit. No live deployment.
+
+[November 22 implementation and remaining dependencies](reports/improvements_20261122/README.md).
+
+Read the [current memo](docs/RESEARCH_MEMO.md),
+[two-page PDF](reports/released_successor_20261122/RESEARCH_MEMO.pdf),
+[sender timing diagnosis](reports/sender_audit_20261122/README.md) and
+[next-enrollment blockers and power scenarios](reports/enrollment_readiness_20261122/README.md).
+Independent demo transactions and diagnostic checks remain separate from the
+registered perpetual study; no live-money orders are submitted by this project.
 
 **November 15 evidence audit:** [decision and all twelve goal statuses](reports/goal_audit_20261115/README.md)
 and [decision-first summary](reports/goal_audit_20261115/index.html). The hosted review
 cold-started; replication recording steps were skipped except preflight; all four
-controlled financial mutations were detected. Unreleased results remain unavailable.
+controlled financial mutations were detected. This November 15 snapshot predates the primary release; use the current report above.
 
 Start with the [interactive decision workbench](reports/decision_workbench/index.html)
 and its [guide](docs/DECISION_WORKBENCH.md): collection evidence, the historical
@@ -38,7 +45,7 @@ Download the HTML or serve it locally; GitHub's file viewer does not run it.
 a [matched-scale latency/control lab](https://evananann.github.io/crypto-exec-lab/followon.html)
 (**synthetic only**), and the [formal event-time contract](docs/EVENT_TIME_CONTRACT.md).
 The [research log](docs/RESEARCH_LOG.md) records what changed and what failed.
-Primary results remain gated; the lab is a separate draft experiment.
+This November 14 snapshot predates the primary release; the lab remains a separate synthetic experiment.
 
 For interview preparation, use the [case study and evidence map](docs/INTERVIEW_CASE_STUDY.md):
 why a policy can beat its baseline without making money, how score shrinkage can

@@ -1,0 +1,1965 @@
+{
+  "study_id": "btc-successor-v3-20261025",
+  "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21",
+  "as_of_utc": "2026-11-22T12:01:39.613813+00:00",
+  "outcomes_released": true,
+  "planned_slots": 56,
+  "eligible_slots": 23,
+  "sessions": [
+    {
+      "slot_id": "2026-10-25-am",
+      "intended_start_utc": "2026-10-25T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 172506,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 155370,
+            "span_ms": 899196,
+            "maximum_gap_ms": 787
+          },
+          "okx": {
+            "bbo": 17136,
+            "span_ms": 898819,
+            "maximum_gap_ms": 980
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-10-25T03:17:00+00:00",
+          "checked_at_utc": "2026-10-25T03:17:03.141466+00:00",
+          "lateness_seconds": 3.141466,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-25-am-40141981106-1.tar.gz",
+      "archive_sha256": "eff673d6d688f56b10846be52c6a22ecff25f7d11724668a46503e3a488c82fc",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-10-25-am.json",
+      "tape_sha256": "ef981491c3d3d8d738aedd1154b82e74d85ea2493773b2223f3a98f9f21e689c"
+    },
+    {
+      "slot_id": "2026-10-25-pm",
+      "intended_start_utc": "2026-10-25T15:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 218525,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 200189,
+            "span_ms": 899435,
+            "maximum_gap_ms": 740
+          },
+          "okx": {
+            "bbo": 18336,
+            "span_ms": 899139,
+            "maximum_gap_ms": 910
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-10-25T15:17:00+00:00",
+          "checked_at_utc": "2026-10-25T15:17:03.792511+00:00",
+          "lateness_seconds": 3.792511,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-25-pm-40198829017-1.tar.gz",
+      "archive_sha256": "3ca4b416b6244d743dfc45e98873781fb5c5ff0b10e3b891823b1e006c79d619",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-10-25-pm.json",
+      "tape_sha256": "8a24e2f4e0efecff3a898e6656ec12d031a79d907a501384e8f1fc5b9d4916fd"
+    },
+    {
+      "slot_id": "2026-10-26-am",
+      "intended_start_utc": "2026-10-26T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 487756,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 459486,
+            "span_ms": 899283,
+            "maximum_gap_ms": 718
+          },
+          "okx": {
+            "bbo": 28270,
+            "span_ms": 898929,
+            "maximum_gap_ms": 610
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-10-26T03:17:00+00:00",
+          "checked_at_utc": "2026-10-26T03:17:03.290694+00:00",
+          "lateness_seconds": 3.290694,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-26-am-40244039436-1.tar.gz",
+      "archive_sha256": "468c521d071695ad532ac74f7e4a49bd6fcab1e7c5a29945250392c5fa8426a1",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-10-26-am.json",
+      "tape_sha256": "7702ff3b6811331e4da64903ce69b20bc1269bd7f6405df608dddde14745f903"
+    },
+    {
+      "slot_id": "2026-10-26-pm",
+      "intended_start_utc": "2026-10-26T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-27-am",
+      "intended_start_utc": "2026-10-27T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 370514,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 342368,
+            "span_ms": 899501,
+            "maximum_gap_ms": 622
+          },
+          "okx": {
+            "bbo": 28146,
+            "span_ms": 899329,
+            "maximum_gap_ms": 629
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-10-27T03:17:00+00:00",
+          "checked_at_utc": "2026-10-27T03:17:04.191978+00:00",
+          "lateness_seconds": 4.191978,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-27-am-40426369723-1.tar.gz",
+      "archive_sha256": "1c5797e8b58d22e166e0db2b3c873f4167de27f9e94800bcdaaf46b420774bf8",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-10-27-am.json",
+      "tape_sha256": "471d9fb50f2c2527a55c96c603a8b26ce620cb656adec90770de2e41f54148f6"
+    },
+    {
+      "slot_id": "2026-10-27-pm",
+      "intended_start_utc": "2026-10-27T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-28-am",
+      "intended_start_utc": "2026-10-28T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 265605,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 241126,
+            "span_ms": 899359,
+            "maximum_gap_ms": 490
+          },
+          "okx": {
+            "bbo": 24479,
+            "span_ms": 898901,
+            "maximum_gap_ms": 679
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-10-28T03:17:00+00:00",
+          "checked_at_utc": "2026-10-28T03:17:03.488414+00:00",
+          "lateness_seconds": 3.488414,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-28-am-40609336892-1.tar.gz",
+      "archive_sha256": "c890da3717b1622bf458f90ae64fc89f1dd19a3f5ceedec5fcc04bba932bacf2",
+      "source_commit": "e7a7c1c3dff4cb2aeddff4c9537115775f96ac44",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-10-28-am.json",
+      "tape_sha256": "93c4fd4cebf5e6cd2255da092fd3d193042535285091bd14ed59e9660ca09d7a"
+    },
+    {
+      "slot_id": "2026-10-28-pm",
+      "intended_start_utc": "2026-10-28T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-29-am",
+      "intended_start_utc": "2026-10-29T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 335524,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 307420,
+            "span_ms": 899276,
+            "maximum_gap_ms": 779
+          },
+          "okx": {
+            "bbo": 28104,
+            "span_ms": 898872,
+            "maximum_gap_ms": 691
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-10-29T03:17:00+00:00",
+          "checked_at_utc": "2026-10-29T03:17:03.228890+00:00",
+          "lateness_seconds": 3.22889,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-29-am-40797426037-1.tar.gz",
+      "archive_sha256": "c715fb66564a6afc8896f603c888fbe380291a6c99d0852656a3e2ff282876c8",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-10-29-am.json",
+      "tape_sha256": "894eeca4c5bfca528ec70dd9525be18dd3d1e9588930606d842560613f5737dc"
+    },
+    {
+      "slot_id": "2026-10-29-pm",
+      "intended_start_utc": "2026-10-29T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-30-am",
+      "intended_start_utc": "2026-10-30T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 528374,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 485327,
+            "span_ms": 899424,
+            "maximum_gap_ms": 427
+          },
+          "okx": {
+            "bbo": 43047,
+            "span_ms": 898929,
+            "maximum_gap_ms": 418
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-10-30T03:17:00+00:00",
+          "checked_at_utc": "2026-10-30T03:17:03.242336+00:00",
+          "lateness_seconds": 3.242336,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-30-am-40983206578-1.tar.gz",
+      "archive_sha256": "94cf8a620513ef2a71d5e85c0a1a10ebbcc8afb235421e6f3d490814fb341b5c",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-10-30-am.json",
+      "tape_sha256": "6cce4abf24b8a24891834c4e6e853feb894a80cd736ef53cc29499413b24cf13"
+    },
+    {
+      "slot_id": "2026-10-30-pm",
+      "intended_start_utc": "2026-10-30T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-31-am",
+      "intended_start_utc": "2026-10-31T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 169050,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 156059,
+            "span_ms": 899416,
+            "maximum_gap_ms": 728
+          },
+          "okx": {
+            "bbo": 12991,
+            "span_ms": 899189,
+            "maximum_gap_ms": 1080
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-10-31T03:17:00+00:00",
+          "checked_at_utc": "2026-10-31T03:17:03.270598+00:00",
+          "lateness_seconds": 3.270598,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-10-31-am-41152123830-1.tar.gz",
+      "archive_sha256": "d71803e0be82429922d8163601b14624f0ee1a69665cfba3921c5ebd5f3ce5c1",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-10-31-am.json",
+      "tape_sha256": "ccd16cf0c8feefd37e44c64b23daf6b548f46477a6bb7f7c47ffd15b089426f1"
+    },
+    {
+      "slot_id": "2026-10-31-pm",
+      "intended_start_utc": "2026-10-31T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-01-am",
+      "intended_start_utc": "2026-11-01T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 64992,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 55298,
+            "span_ms": 899417,
+            "maximum_gap_ms": 729
+          },
+          "okx": {
+            "bbo": 9694,
+            "span_ms": 899129,
+            "maximum_gap_ms": 1390
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-01T03:17:00+00:00",
+          "checked_at_utc": "2026-11-01T03:17:03.726329+00:00",
+          "lateness_seconds": 3.726329,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-01-am-41255435032-1.tar.gz",
+      "archive_sha256": "ee5a4c3dcf3aa6ed08f76d8af857ec644afde0d9c47d67f47f377f51bb60f0df",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-01-am.json",
+      "tape_sha256": "9b12f16eedf98e56a4a5114f147acd43b175567d2f84c04bdfde1516d62a52a5"
+    },
+    {
+      "slot_id": "2026-11-01-pm",
+      "intended_start_utc": "2026-11-01T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-02-am",
+      "intended_start_utc": "2026-11-02T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 445305,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 410599,
+            "span_ms": 899434,
+            "maximum_gap_ms": 838
+          },
+          "okx": {
+            "bbo": 34706,
+            "span_ms": 898941,
+            "maximum_gap_ms": 870
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-02T03:17:00+00:00",
+          "checked_at_utc": "2026-11-02T03:17:03.533283+00:00",
+          "lateness_seconds": 3.533283,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-02-am-41368855552-1.tar.gz",
+      "archive_sha256": "82aecfa7d6a0f42563b32888097c956d22d55c4f023ca97fc478a8dae25c6299",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-02-am.json",
+      "tape_sha256": "61f22675037428e51657e491b851a6bfcb8056750ed7a76016b05cd506e9b5a4"
+    },
+    {
+      "slot_id": "2026-11-02-pm",
+      "intended_start_utc": "2026-11-02T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-03-am",
+      "intended_start_utc": "2026-11-03T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 293554,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 268162,
+            "span_ms": 899360,
+            "maximum_gap_ms": 644
+          },
+          "okx": {
+            "bbo": 25392,
+            "span_ms": 899039,
+            "maximum_gap_ms": 610
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-03T03:17:00+00:00",
+          "checked_at_utc": "2026-11-03T03:17:04.260998+00:00",
+          "lateness_seconds": 4.260998,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-03-am-41569083986-1.tar.gz",
+      "archive_sha256": "749cb8a117f839fa04e17c95e7c659ca66476ce7f86be79c051dadaf0b4119d9",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-03-am.json",
+      "tape_sha256": "d1c3211183ce7808ed66d52d41fe3e90dd7988c1e59141cbd417fb27ab853c50"
+    },
+    {
+      "slot_id": "2026-11-03-pm",
+      "intended_start_utc": "2026-11-03T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-04-am",
+      "intended_start_utc": "2026-11-04T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 865316,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 822765,
+            "span_ms": 899349,
+            "maximum_gap_ms": 215
+          },
+          "okx": {
+            "bbo": 42551,
+            "span_ms": 899030,
+            "maximum_gap_ms": 409
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-04T03:17:00+00:00",
+          "checked_at_utc": "2026-11-04T03:17:03.410136+00:00",
+          "lateness_seconds": 3.410136,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-04-am-41753596652-1.tar.gz",
+      "archive_sha256": "e9ca3cba44fb1da233db9dc779825e72d7a2e2c552f7103f6e742dc1ae3a2467",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-04-am.json",
+      "tape_sha256": "d26a6075c61ec9736f917fd59abee3323b764b57d25b1783096d19430bf6927b"
+    },
+    {
+      "slot_id": "2026-11-04-pm",
+      "intended_start_utc": "2026-11-04T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-05-am",
+      "intended_start_utc": "2026-11-05T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 369546,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 337688,
+            "span_ms": 899298,
+            "maximum_gap_ms": 978
+          },
+          "okx": {
+            "bbo": 31858,
+            "span_ms": 899143,
+            "maximum_gap_ms": 669
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-05T03:17:00+00:00",
+          "checked_at_utc": "2026-11-05T03:17:04.040504+00:00",
+          "lateness_seconds": 4.040504,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-05-am-41948683995-1.tar.gz",
+      "archive_sha256": "ddc9a08c1a44b0df3d96c00f4523b9b0a798299dfd711f53d9e3c9b618136be4",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-05-am.json",
+      "tape_sha256": "19eccc29821aab57c924157d04fb69ab86457650c366b98fc203707d0ddf16c0"
+    },
+    {
+      "slot_id": "2026-11-05-pm",
+      "intended_start_utc": "2026-11-05T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-06-am",
+      "intended_start_utc": "2026-11-06T03:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-06-pm",
+      "intended_start_utc": "2026-11-06T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-07-am",
+      "intended_start_utc": "2026-11-07T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 112933,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 95926,
+            "span_ms": 899215,
+            "maximum_gap_ms": 988
+          },
+          "okx": {
+            "bbo": 17007,
+            "span_ms": 898869,
+            "maximum_gap_ms": 1290
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-07T03:17:00+00:00",
+          "checked_at_utc": "2026-11-07T03:17:03.282644+00:00",
+          "lateness_seconds": 3.282644,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-07-am-42321299380-1.tar.gz",
+      "archive_sha256": "f91713e037d73bec140baeb04935f92dbcd59f30894bb89e388774fca56699de",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-07-am.json",
+      "tape_sha256": "c90d0f40791630f0918e4699650fdcc1900611f0bd1b8b868e75b8e5c1e2de0c"
+    },
+    {
+      "slot_id": "2026-11-07-pm",
+      "intended_start_utc": "2026-11-07T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-08-am",
+      "intended_start_utc": "2026-11-08T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 110112,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 97947,
+            "span_ms": 899384,
+            "maximum_gap_ms": 669
+          },
+          "okx": {
+            "bbo": 12165,
+            "span_ms": 898537,
+            "maximum_gap_ms": 1071
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-08T03:17:00+00:00",
+          "checked_at_utc": "2026-11-08T03:17:03.243353+00:00",
+          "lateness_seconds": 3.243353,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-08-am-42430552756-1.tar.gz",
+      "archive_sha256": "42c65127c16d776246eea1d20abccc354cd8fd4fab9e5591e9f63e77f23de34c",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-08-am.json",
+      "tape_sha256": "2f4a486cdb143f898d2952b6b9e2804ba45baadd7456765e23f68444f6145954"
+    },
+    {
+      "slot_id": "2026-11-08-pm",
+      "intended_start_utc": "2026-11-08T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-09-am",
+      "intended_start_utc": "2026-11-09T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 520044,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 483600,
+            "span_ms": 899294,
+            "maximum_gap_ms": 427
+          },
+          "okx": {
+            "bbo": 36444,
+            "span_ms": 899039,
+            "maximum_gap_ms": 640
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-09T03:17:00+00:00",
+          "checked_at_utc": "2026-11-09T03:17:03.356301+00:00",
+          "lateness_seconds": 3.356301,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-09-am-42542799690-1.tar.gz",
+      "archive_sha256": "e6cc0404ce2125e98a217aa5ed418e6e99957001b8ce3c0a21f09bb9acda64dc",
+      "source_commit": "80e35160923a22e66dcff80223b04ce57b2df0dc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-09-am.json",
+      "tape_sha256": "52b721e9234d98876c5170c2488de2a82eb380416c99243039b53a4b38171657"
+    },
+    {
+      "slot_id": "2026-11-09-pm",
+      "intended_start_utc": "2026-11-09T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-10-am",
+      "intended_start_utc": "2026-11-10T03:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-10-pm",
+      "intended_start_utc": "2026-11-10T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-11-am",
+      "intended_start_utc": "2026-11-11T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 367917,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 337918,
+            "span_ms": 899416,
+            "maximum_gap_ms": 726
+          },
+          "okx": {
+            "bbo": 29999,
+            "span_ms": 899019,
+            "maximum_gap_ms": 840
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-11T03:17:00+00:00",
+          "checked_at_utc": "2026-11-11T03:17:03.621374+00:00",
+          "lateness_seconds": 3.621374,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-11-am-42937488616-1.tar.gz",
+      "archive_sha256": "a85a1b66e3364e31d520e8c4b2580ba8cbd7fce9b777b8d4edd5d2cfd54683d1",
+      "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-11-am.json",
+      "tape_sha256": "f400110dcac336e7c6a33cfd8719d9e0b34b472996d98e402717ff1a584c13fb"
+    },
+    {
+      "slot_id": "2026-11-11-pm",
+      "intended_start_utc": "2026-11-11T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-12-am",
+      "intended_start_utc": "2026-11-12T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 441426,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 414775,
+            "span_ms": 899337,
+            "maximum_gap_ms": 658
+          },
+          "okx": {
+            "bbo": 26651,
+            "span_ms": 898750,
+            "maximum_gap_ms": 849
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-12T03:17:00+00:00",
+          "checked_at_utc": "2026-11-12T03:17:03.158635+00:00",
+          "lateness_seconds": 3.158635,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-12-am-43140225449-1.tar.gz",
+      "archive_sha256": "d5ada4c5696f1316638dfdf6bf5d39476eb805819e2ea67756963b778becee1f",
+      "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-12-am.json",
+      "tape_sha256": "2d56bfd9fcfac46b52925101949d95d8bfde267bd3eb0f32d0cdfbf0426ac7e3"
+    },
+    {
+      "slot_id": "2026-11-12-pm",
+      "intended_start_utc": "2026-11-12T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-13-am",
+      "intended_start_utc": "2026-11-13T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 1839966,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 1769479,
+            "span_ms": 899422,
+            "maximum_gap_ms": 168
+          },
+          "okx": {
+            "bbo": 70487,
+            "span_ms": 899129,
+            "maximum_gap_ms": 255
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-13T03:17:00+00:00",
+          "checked_at_utc": "2026-11-13T03:17:03.718355+00:00",
+          "lateness_seconds": 3.718355,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-13-am-43347886215-1.tar.gz",
+      "archive_sha256": "3c0fd793010076f30221b86b3281db8f69aa723c3879e26e27c9652db1801513",
+      "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-13-am.json",
+      "tape_sha256": "7ff1580d56297ff3465bdb0d71397b5fc38963fa5c637a7e74527e2e2c408d52"
+    },
+    {
+      "slot_id": "2026-11-13-pm",
+      "intended_start_utc": "2026-11-13T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-14-am",
+      "intended_start_utc": "2026-11-14T03:17:00Z",
+      "phase": "development",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 726671,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 691691,
+            "span_ms": 899477,
+            "maximum_gap_ms": 581
+          },
+          "okx": {
+            "bbo": 34980,
+            "span_ms": 898990,
+            "maximum_gap_ms": 412
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-14T03:17:00+00:00",
+          "checked_at_utc": "2026-11-14T03:17:03.001150+00:00",
+          "lateness_seconds": 3.00115,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-14-am-43540719972-1.tar.gz",
+      "archive_sha256": "11bd1fd571f1fb6163279c880efb76566dfcf15ac92d0b3d90f74d10466b2d11",
+      "source_commit": "70661226ead9eae8869baedae384308771f748d3",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-14-am.json",
+      "tape_sha256": "63d1ffcebf1d5aac9aae7a123bc8d448c0aba469e93ff9ed94374fa4b4836503"
+    },
+    {
+      "slot_id": "2026-11-14-pm",
+      "intended_start_utc": "2026-11-14T15:17:00Z",
+      "phase": "development",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-15-am",
+      "intended_start_utc": "2026-11-15T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 627945,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 589004,
+            "span_ms": 899357,
+            "maximum_gap_ms": 335
+          },
+          "okx": {
+            "bbo": 38941,
+            "span_ms": 898900,
+            "maximum_gap_ms": 371
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-15T03:17:00+00:00",
+          "checked_at_utc": "2026-11-15T03:17:03.219676+00:00",
+          "lateness_seconds": 3.219676,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-15-am-43661272277-1.tar.gz",
+      "archive_sha256": "6d0db60a802db52ce4f3822c49aa81e7a12b1ade6e25126bb0b3e7948e32da72",
+      "source_commit": "3d2e93c46ae2bb7b35e91cdf3b689c756492ebb1",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-15-am.json",
+      "tape_sha256": "3057450b78618566aea1ca2bb979d9cbbb68a2d49531e9767715277d8ffdb64b"
+    },
+    {
+      "slot_id": "2026-11-15-pm",
+      "intended_start_utc": "2026-11-15T15:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-16-am",
+      "intended_start_utc": "2026-11-16T03:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "assessment": {
+        "collection_healthy": false,
+        "issues": [
+          "recorder workers still running"
+        ],
+        "events": 493672,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 17,
+        "venues": {
+          "binance": {
+            "bbo": 460984,
+            "span_ms": 899671,
+            "maximum_gap_ms": 546
+          },
+          "okx": {
+            "bbo": 32688,
+            "span_ms": 899459,
+            "maximum_gap_ms": 620
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-16T03:17:00+00:00",
+          "checked_at_utc": "2026-11-16T03:17:03.118921+00:00",
+          "lateness_seconds": 3.118921,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "failure",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-16-am-43783863664-1.tar.gz",
+      "archive_sha256": "0f32849a4bc58399fb3b38fb193c643d16b8a22016b2fbcd2bd7f85bb0033b77",
+      "source_commit": "26533211bceb284ea76c5c7e7edd9227df6338cc",
+      "reason": "unhealthy, late or failed original attempt"
+    },
+    {
+      "slot_id": "2026-11-16-pm",
+      "intended_start_utc": "2026-11-16T15:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-17-am",
+      "intended_start_utc": "2026-11-17T03:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-17-pm",
+      "intended_start_utc": "2026-11-17T15:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-18-am",
+      "intended_start_utc": "2026-11-18T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 396437,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 366554,
+            "span_ms": 899344,
+            "maximum_gap_ms": 392
+          },
+          "okx": {
+            "bbo": 29883,
+            "span_ms": 899119,
+            "maximum_gap_ms": 739
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-18T03:17:00+00:00",
+          "checked_at_utc": "2026-11-18T03:17:03.124147+00:00",
+          "lateness_seconds": 3.124147,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-18-am-44226670751-1.tar.gz",
+      "archive_sha256": "a1ec6145d0bcfa2774c0fb1707cefc478b1da9ebde93f42d12cd4a814bcc3d99",
+      "source_commit": "26533211bceb284ea76c5c7e7edd9227df6338cc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-18-am.json",
+      "tape_sha256": "c6dd8a84650bd08851a2b932289e942aa53c0566b2c05d3c127e4825b11ecd29"
+    },
+    {
+      "slot_id": "2026-11-18-pm",
+      "intended_start_utc": "2026-11-18T15:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-19-am",
+      "intended_start_utc": "2026-11-19T03:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "assessment": {
+        "collection_healthy": false,
+        "issues": [
+          "recorder workers still running"
+        ],
+        "events": 604015,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 17,
+        "venues": {
+          "binance": {
+            "bbo": 570460,
+            "span_ms": 899440,
+            "maximum_gap_ms": 475
+          },
+          "okx": {
+            "bbo": 33555,
+            "span_ms": 898990,
+            "maximum_gap_ms": 710
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-19T03:17:00+00:00",
+          "checked_at_utc": "2026-11-19T03:17:02.703992+00:00",
+          "lateness_seconds": 2.703992,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "failure",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-19-am-44445311939-1.tar.gz",
+      "archive_sha256": "f69388b2087620c7c1dc9cbc7e13955c3461cf5b19a9250cdee1c32f4497cf9d",
+      "source_commit": "26533211bceb284ea76c5c7e7edd9227df6338cc",
+      "reason": "unhealthy, late or failed original attempt"
+    },
+    {
+      "slot_id": "2026-11-19-pm",
+      "intended_start_utc": "2026-11-19T15:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-20-am",
+      "intended_start_utc": "2026-11-20T03:17:00Z",
+      "phase": "holdout",
+      "eligible": true,
+      "assessment": {
+        "collection_healthy": true,
+        "issues": [],
+        "events": 1023397,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 16,
+        "venues": {
+          "binance": {
+            "bbo": 980085,
+            "span_ms": 899492,
+            "maximum_gap_ms": 280
+          },
+          "okx": {
+            "bbo": 43312,
+            "span_ms": 899410,
+            "maximum_gap_ms": 451
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-20T03:17:00+00:00",
+          "checked_at_utc": "2026-11-20T03:17:04.274644+00:00",
+          "lateness_seconds": 4.274644,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "success",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-20-am-44659963653-1.tar.gz",
+      "archive_sha256": "87c1accbdb0d9ef98c5471c40ce63b5fa6ddb30df87bcb54e67d16e295425199",
+      "source_commit": "26533211bceb284ea76c5c7e7edd9227df6338cc",
+      "reason": null,
+      "evaluation_file": "evaluation-2026-11-20-am.json",
+      "tape_sha256": "2a02869884bd0c419ef853d0b0b02e51c13f5df9c016709b056b238dfc2d97d5"
+    },
+    {
+      "slot_id": "2026-11-20-pm",
+      "intended_start_utc": "2026-11-20T15:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-21-am",
+      "intended_start_utc": "2026-11-21T03:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "assessment": {
+        "collection_healthy": false,
+        "issues": [
+          "recorder workers still running"
+        ],
+        "events": 1104084,
+        "timestamp_fallback_events": 0,
+        "instrument_snapshots": 17,
+        "venues": {
+          "binance": {
+            "bbo": 1057499,
+            "span_ms": 899514,
+            "maximum_gap_ms": 456
+          },
+          "okx": {
+            "bbo": 46585,
+            "span_ms": 899059,
+            "maximum_gap_ms": 521
+          }
+        },
+        "timing": {
+          "accepted": true,
+          "mode": "prospective",
+          "intended_start_utc": "2026-11-21T03:17:00+00:00",
+          "checked_at_utc": "2026-11-21T03:17:02.753962+00:00",
+          "lateness_seconds": 2.753962,
+          "timing_qualified": true
+        },
+        "study_observation": true,
+        "scope": "Registered successor data; outcomes time-gated."
+      },
+      "original_run_conclusion": "failure",
+      "archive_name": "study-btc-successor-v3-20261025-2026-11-21-am-44854895030-1.tar.gz",
+      "archive_sha256": "6b1b36a83d0109d26aa2583a8fc3e263f9b4c6be259a50b35a766d4a5bcb1e56",
+      "source_commit": "26533211bceb284ea76c5c7e7edd9227df6338cc",
+      "reason": "unhealthy, late or failed original attempt"
+    },
+    {
+      "slot_id": "2026-11-21-pm",
+      "intended_start_utc": "2026-11-21T15:17:00Z",
+      "phase": "holdout",
+      "eligible": false,
+      "reason": "missing verified archive; not a zero return"
+    }
+  ],
+  "unavailable_outcome_slots": [
+    "2026-10-26-pm",
+    "2026-10-27-pm",
+    "2026-10-28-pm",
+    "2026-10-29-pm",
+    "2026-10-30-pm",
+    "2026-10-31-pm",
+    "2026-11-01-pm",
+    "2026-11-02-pm",
+    "2026-11-03-pm",
+    "2026-11-04-pm",
+    "2026-11-05-pm",
+    "2026-11-06-am",
+    "2026-11-06-pm",
+    "2026-11-07-pm",
+    "2026-11-08-pm",
+    "2026-11-09-pm",
+    "2026-11-10-am",
+    "2026-11-10-pm",
+    "2026-11-11-pm",
+    "2026-11-12-pm",
+    "2026-11-13-pm",
+    "2026-11-14-pm",
+    "2026-11-15-pm",
+    "2026-11-16-am",
+    "2026-11-16-pm",
+    "2026-11-17-am",
+    "2026-11-17-pm",
+    "2026-11-18-pm",
+    "2026-11-19-am",
+    "2026-11-19-pm",
+    "2026-11-20-pm",
+    "2026-11-21-am",
+    "2026-11-21-pm"
+  ],
+  "fixed_primary_day_analysis": {
+    "development": {
+      "unavailable_slots": [
+        "2026-10-26-pm",
+        "2026-10-27-pm",
+        "2026-10-28-pm",
+        "2026-10-29-pm",
+        "2026-10-30-pm",
+        "2026-10-31-pm",
+        "2026-11-01-pm",
+        "2026-11-02-pm",
+        "2026-11-03-pm",
+        "2026-11-04-pm",
+        "2026-11-05-pm",
+        "2026-11-06-am",
+        "2026-11-06-pm",
+        "2026-11-07-pm",
+        "2026-11-08-pm",
+        "2026-11-09-pm",
+        "2026-11-10-am",
+        "2026-11-10-pm",
+        "2026-11-11-pm",
+        "2026-11-12-pm",
+        "2026-11-13-pm",
+        "2026-11-14-pm"
+      ],
+      "available_slots": [
+        "2026-10-25-am",
+        "2026-10-25-pm",
+        "2026-10-26-am",
+        "2026-10-27-am",
+        "2026-10-28-am",
+        "2026-10-29-am",
+        "2026-10-30-am",
+        "2026-10-31-am",
+        "2026-11-01-am",
+        "2026-11-02-am",
+        "2026-11-03-am",
+        "2026-11-04-am",
+        "2026-11-05-am",
+        "2026-11-07-am",
+        "2026-11-08-am",
+        "2026-11-09-am",
+        "2026-11-11-am",
+        "2026-11-12-am",
+        "2026-11-13-am",
+        "2026-11-14-am"
+      ],
+      "occupied_day_slot_counts": {
+        "2026-10-25": 2,
+        "2026-10-26": 1,
+        "2026-10-27": 1,
+        "2026-10-28": 1,
+        "2026-10-29": 1,
+        "2026-10-30": 1,
+        "2026-10-31": 1,
+        "2026-11-01": 1,
+        "2026-11-02": 1,
+        "2026-11-03": 1,
+        "2026-11-04": 1,
+        "2026-11-05": 1,
+        "2026-11-07": 1,
+        "2026-11-08": 1,
+        "2026-11-09": 1,
+        "2026-11-11": 1,
+        "2026-11-12": 1,
+        "2026-11-13": 1,
+        "2026-11-14": 1
+      },
+      "observed_day_means_bps": {
+        "2026-10-25": -4.838237496837763,
+        "2026-10-26": -4.570924569018621,
+        "2026-10-27": -4.700935149648393,
+        "2026-10-28": -4.879699334646389,
+        "2026-10-29": -4.678284526595078,
+        "2026-10-30": -4.641525095932324,
+        "2026-10-31": -4.702629041164947,
+        "2026-11-01": -4.94911714477285,
+        "2026-11-02": -4.532249995784257,
+        "2026-11-03": -4.58719740556757,
+        "2026-11-04": -4.667307560862958,
+        "2026-11-05": -4.7402901216821,
+        "2026-11-07": -4.733438082296408,
+        "2026-11-08": -4.933411846875738,
+        "2026-11-09": -4.569767626944576,
+        "2026-11-11": -4.608822753148859,
+        "2026-11-12": -4.765951236043247,
+        "2026-11-13": -4.694986121942516,
+        "2026-11-14": -4.56336415686851
+      },
+      "missing_data": {
+        "planned_slots": 42,
+        "available_primary_means": 20,
+        "unavailable_primary_means": 22,
+        "observed_equal_slot_mean_bps": -4.709818838173543,
+        "missing_mean_needed_for_zero_bps": 4.281653489248676,
+        "zero_crossing_interpretation": "Assumption for the average unavailable slot, not an estimated value.",
+        "scenarios": [
+          {
+            "assumed_missing_mean_bps": -10.0,
+            "hypothetical_full_schedule_mean_bps": -7.480866113415973
+          },
+          {
+            "assumed_missing_mean_bps": -5.0,
+            "hypothetical_full_schedule_mean_bps": -4.861818494368355
+          },
+          {
+            "assumed_missing_mean_bps": 0.0,
+            "hypothetical_full_schedule_mean_bps": -2.2427708753207347
+          },
+          {
+            "assumed_missing_mean_bps": 5.0,
+            "hypothetical_full_schedule_mean_bps": 0.37627674372688413
+          },
+          {
+            "assumed_missing_mean_bps": 10.0,
+            "hypothetical_full_schedule_mean_bps": 2.995324362774503
+          }
+        ],
+        "scope": "Equal-weight session-mean arithmetic only; no confidence interval, data repair or frozen-rule change.",
+        "limitation": "Without externally justified outcome bounds, the missing contribution is unbounded. The scenario range is not an identified bound or a confidence interval."
+      },
+      "dependence": {
+        "occupied_days": 19,
+        "status": "descriptive; small samples and unknown dependence remain",
+        "equal_day_mean_bps": -4.703059961401742,
+        "lag_pairs": [
+          {
+            "calendar_lag_days": 1,
+            "observed_pairs": 16,
+            "lag_product_sum_bps2": -0.06932789468687998,
+            "paired_lag_covariance_bps2": -0.004332993417929999
+          },
+          {
+            "calendar_lag_days": 2,
+            "observed_pairs": 15,
+            "lag_product_sum_bps2": -0.07459860195627466,
+            "paired_lag_covariance_bps2": -0.00497324013041831
+          },
+          {
+            "calendar_lag_days": 3,
+            "observed_pairs": 14,
+            "lag_product_sum_bps2": 0.007077970235971034,
+            "paired_lag_covariance_bps2": 0.0005055693025693595
+          }
+        ],
+        "hac": [
+          {
+            "calendar_lag_days": 0,
+            "se_bps": 0.02791536613243575,
+            "normal_ci95_bps": [
+              -4.7577730736365655,
+              -4.648346849166918
+            ]
+          },
+          {
+            "calendar_lag_days": 1,
+            "se_bps": 0.024232697676989972,
+            "normal_ci95_bps": [
+              -4.750555176096889,
+              -4.655564746706594
+            ]
+          },
+          {
+            "calendar_lag_days": 2,
+            "se_bps": 0.01963278064031577,
+            "normal_ci95_bps": [
+              -4.741539504373136,
+              -4.664580418430348
+            ]
+          },
+          {
+            "calendar_lag_days": 3,
+            "se_bps": 0.017156939646371824,
+            "normal_ci95_bps": [
+              -4.736686945193558,
+              -4.669432977609926
+            ]
+          }
+        ],
+        "iid_day_bootstrap_ci95_bps": [
+          -4.758502253716774,
+          -4.649810541587178
+        ],
+        "constant_day_values": false,
+        "limitation": "Fixed Bartlett HC0 calendar-lag normal intervals are sensitivity diagnostics, not valid-coverage guarantees. Wider or narrower intervals do not establish bootstrap coverage. Constant observed days may yield zero width despite unknown missing outcomes."
+      }
+    },
+    "holdout": {
+      "unavailable_slots": [
+        "2026-11-15-pm",
+        "2026-11-16-am",
+        "2026-11-16-pm",
+        "2026-11-17-am",
+        "2026-11-17-pm",
+        "2026-11-18-pm",
+        "2026-11-19-am",
+        "2026-11-19-pm",
+        "2026-11-20-pm",
+        "2026-11-21-am",
+        "2026-11-21-pm"
+      ],
+      "available_slots": [
+        "2026-11-15-am",
+        "2026-11-18-am",
+        "2026-11-20-am"
+      ],
+      "occupied_day_slot_counts": {
+        "2026-11-15": 1,
+        "2026-11-18": 1,
+        "2026-11-20": 1
+      },
+      "observed_day_means_bps": {
+        "2026-11-15": -4.624799294436493,
+        "2026-11-18": -4.730914873410968,
+        "2026-11-20": -4.585655792073231
+      },
+      "missing_data": {
+        "planned_slots": 14,
+        "available_primary_means": 3,
+        "unavailable_primary_means": 11,
+        "observed_equal_slot_mean_bps": -4.647123319973564,
+        "missing_mean_needed_for_zero_bps": 1.2673972690836992,
+        "zero_crossing_interpretation": "Assumption for the average unavailable slot, not an estimated value.",
+        "scenarios": [
+          {
+            "assumed_missing_mean_bps": -10.0,
+            "hypothetical_full_schedule_mean_bps": -8.852954997137193
+          },
+          {
+            "assumed_missing_mean_bps": -5.0,
+            "hypothetical_full_schedule_mean_bps": -4.924383568565764
+          },
+          {
+            "assumed_missing_mean_bps": 0.0,
+            "hypothetical_full_schedule_mean_bps": -0.9958121399943352
+          },
+          {
+            "assumed_missing_mean_bps": 5.0,
+            "hypothetical_full_schedule_mean_bps": 2.9327592885770932
+          },
+          {
+            "assumed_missing_mean_bps": 10.0,
+            "hypothetical_full_schedule_mean_bps": 6.861330717148522
+          }
+        ],
+        "scope": "Equal-weight session-mean arithmetic only; no confidence interval, data repair or frozen-rule change.",
+        "limitation": "Without externally justified outcome bounds, the missing contribution is unbounded. The scenario range is not an identified bound or a confidence interval."
+      },
+      "dependence": {
+        "occupied_days": 3,
+        "status": "unavailable: minimum five occupied days",
+        "equal_day_mean_bps": -4.647123319973564,
+        "lag_pairs": [],
+        "hac": [],
+        "iid_day_bootstrap_ci95_bps": null
+      }
+    },
+    "full": {
+      "unavailable_slots": [
+        "2026-10-26-pm",
+        "2026-10-27-pm",
+        "2026-10-28-pm",
+        "2026-10-29-pm",
+        "2026-10-30-pm",
+        "2026-10-31-pm",
+        "2026-11-01-pm",
+        "2026-11-02-pm",
+        "2026-11-03-pm",
+        "2026-11-04-pm",
+        "2026-11-05-pm",
+        "2026-11-06-am",
+        "2026-11-06-pm",
+        "2026-11-07-pm",
+        "2026-11-08-pm",
+        "2026-11-09-pm",
+        "2026-11-10-am",
+        "2026-11-10-pm",
+        "2026-11-11-pm",
+        "2026-11-12-pm",
+        "2026-11-13-pm",
+        "2026-11-14-pm",
+        "2026-11-15-pm",
+        "2026-11-16-am",
+        "2026-11-16-pm",
+        "2026-11-17-am",
+        "2026-11-17-pm",
+        "2026-11-18-pm",
+        "2026-11-19-am",
+        "2026-11-19-pm",
+        "2026-11-20-pm",
+        "2026-11-21-am",
+        "2026-11-21-pm"
+      ],
+      "available_slots": [
+        "2026-10-25-am",
+        "2026-10-25-pm",
+        "2026-10-26-am",
+        "2026-10-27-am",
+        "2026-10-28-am",
+        "2026-10-29-am",
+        "2026-10-30-am",
+        "2026-10-31-am",
+        "2026-11-01-am",
+        "2026-11-02-am",
+        "2026-11-03-am",
+        "2026-11-04-am",
+        "2026-11-05-am",
+        "2026-11-07-am",
+        "2026-11-08-am",
+        "2026-11-09-am",
+        "2026-11-11-am",
+        "2026-11-12-am",
+        "2026-11-13-am",
+        "2026-11-14-am",
+        "2026-11-15-am",
+        "2026-11-18-am",
+        "2026-11-20-am"
+      ],
+      "occupied_day_slot_counts": {
+        "2026-10-25": 2,
+        "2026-10-26": 1,
+        "2026-10-27": 1,
+        "2026-10-28": 1,
+        "2026-10-29": 1,
+        "2026-10-30": 1,
+        "2026-10-31": 1,
+        "2026-11-01": 1,
+        "2026-11-02": 1,
+        "2026-11-03": 1,
+        "2026-11-04": 1,
+        "2026-11-05": 1,
+        "2026-11-07": 1,
+        "2026-11-08": 1,
+        "2026-11-09": 1,
+        "2026-11-11": 1,
+        "2026-11-12": 1,
+        "2026-11-13": 1,
+        "2026-11-14": 1,
+        "2026-11-15": 1,
+        "2026-11-18": 1,
+        "2026-11-20": 1
+      },
+      "observed_day_means_bps": {
+        "2026-10-25": -4.838237496837763,
+        "2026-10-26": -4.570924569018621,
+        "2026-10-27": -4.700935149648393,
+        "2026-10-28": -4.879699334646389,
+        "2026-10-29": -4.678284526595078,
+        "2026-10-30": -4.641525095932324,
+        "2026-10-31": -4.702629041164947,
+        "2026-11-01": -4.94911714477285,
+        "2026-11-02": -4.532249995784257,
+        "2026-11-03": -4.58719740556757,
+        "2026-11-04": -4.667307560862958,
+        "2026-11-05": -4.7402901216821,
+        "2026-11-07": -4.733438082296408,
+        "2026-11-08": -4.933411846875738,
+        "2026-11-09": -4.569767626944576,
+        "2026-11-11": -4.608822753148859,
+        "2026-11-12": -4.765951236043247,
+        "2026-11-13": -4.694986121942516,
+        "2026-11-14": -4.56336415686851,
+        "2026-11-15": -4.624799294436493,
+        "2026-11-18": -4.730914873410968,
+        "2026-11-20": -4.585655792073231
+      },
+      "missing_data": {
+        "planned_slots": 56,
+        "available_primary_means": 23,
+        "unavailable_primary_means": 33,
+        "observed_equal_slot_mean_bps": -4.70164116188659,
+        "missing_mean_needed_for_zero_bps": 3.27690141586035,
+        "zero_crossing_interpretation": "Assumption for the average unavailable slot, not an estimated value.",
+        "scenarios": [
+          {
+            "assumed_missing_mean_bps": -10.0,
+            "hypothetical_full_schedule_mean_bps": -7.823888334346278
+          },
+          {
+            "assumed_missing_mean_bps": -5.0,
+            "hypothetical_full_schedule_mean_bps": -4.877459762917707
+          },
+          {
+            "assumed_missing_mean_bps": 0.0,
+            "hypothetical_full_schedule_mean_bps": -1.931031191489135
+          },
+          {
+            "assumed_missing_mean_bps": 5.0,
+            "hypothetical_full_schedule_mean_bps": 1.0153973799394365
+          },
+          {
+            "assumed_missing_mean_bps": 10.0,
+            "hypothetical_full_schedule_mean_bps": 3.961825951368008
+          }
+        ],
+        "scope": "Equal-weight session-mean arithmetic only; no confidence interval, data repair or frozen-rule change.",
+        "limitation": "Without externally justified outcome bounds, the missing contribution is unbounded. The scenario range is not an identified bound or a confidence interval."
+      },
+      "dependence": {
+        "occupied_days": 22,
+        "status": "descriptive; small samples and unknown dependence remain",
+        "equal_day_mean_bps": -4.695432237570627,
+        "lag_pairs": [
+          {
+            "calendar_lag_days": 1,
+            "observed_pairs": 17,
+            "lag_product_sum_bps2": -0.057814323392732174,
+            "paired_lag_covariance_bps2": -0.0034008425525136575
+          },
+          {
+            "calendar_lag_days": 2,
+            "observed_pairs": 17,
+            "lag_product_sum_bps2": -0.08020670413481061,
+            "paired_lag_covariance_bps2": -0.004718041419694742
+          },
+          {
+            "calendar_lag_days": 3,
+            "observed_pairs": 16,
+            "lag_product_sum_bps2": 0.0027760986253337985,
+            "paired_lag_covariance_bps2": 0.0001735061640833624
+          }
+        ],
+        "hac": [
+          {
+            "calendar_lag_days": 0,
+            "se_bps": 0.024926337214359943,
+            "normal_ci95_bps": [
+              -4.7442869607772735,
+              -4.646577514363981
+            ]
+          },
+          {
+            "calendar_lag_days": 1,
+            "se_bps": 0.022402482128863376,
+            "normal_ci95_bps": [
+              -4.7393402957075015,
+              -4.651524179433753
+            ]
+          },
+          {
+            "calendar_lag_days": 2,
+            "se_bps": 0.018750376649533315,
+            "normal_ci95_bps": [
+              -4.732182300500273,
+              -4.658682174640981
+            ]
+          },
+          {
+            "calendar_lag_days": 3,
+            "se_bps": 0.01671218730336462,
+            "normal_ci95_bps": [
+              -4.72818752278811,
+              -4.662676952353145
+            ]
+          }
+        ],
+        "iid_day_bootstrap_ci95_bps": [
+          -4.7474920800204625,
+          -4.6480759671933205
+        ],
+        "constant_day_values": false,
+        "limitation": "Fixed Bartlett HC0 calendar-lag normal intervals are sensitivity diagnostics, not valid-coverage guarantees. Wider or narrower intervals do not establish bootstrap coverage. Constant observed days may yield zero width despite unknown missing outcomes."
+      }
+    }
+  },
+  "precision_diagnostics": {
+    "development": {
+      "occupied_days": 19,
+      "equal_day_mean_bps": -4.703059961401743,
+      "ci95_bps": [
+        -4.758502253716774,
+        -4.649810541587178
+      ],
+      "interval_half_width_bps": 0.054345856064797804,
+      "precision_goal_met": false,
+      "interpretation": "Descriptive day-cluster interval; day dependence and limited coverage remain limitations."
+    },
+    "holdout": {
+      "occupied_days": 3,
+      "equal_day_mean_bps": -4.647123319973564,
+      "ci95_bps": null,
+      "interval_half_width_bps": null,
+      "precision_goal_met": false,
+      "interpretation": "Descriptive day-cluster interval; day dependence and limited coverage remain limitations."
+    },
+    "full": {
+      "occupied_days": 22,
+      "equal_day_mean_bps": -4.695432237570627,
+      "ci95_bps": [
+        -4.7474920800204625,
+        -4.6480759671933205
+      ],
+      "interval_half_width_bps": 0.04970805641357101,
+      "precision_goal_met": false,
+      "interpretation": "Descriptive day-cluster interval; day dependence and limited coverage remain limitations."
+    }
+  },
+  "observed_conditions": {
+    "2026-10-25-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 6.566586848159845,
+      "range_bps": 13.635877563913379
+    },
+    "2026-10-25-pm": {
+      "one_second_returns": 898,
+      "realized_variation_bps": 7.950096252955165,
+      "range_bps": 17.518629074091407
+    },
+    "2026-10-26-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 16.377031681986722,
+      "range_bps": 29.44535980985208
+    },
+    "2026-10-27-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 14.522406316829956,
+      "range_bps": 24.013487250804655
+    },
+    "2026-10-28-am": {
+      "one_second_returns": 898,
+      "realized_variation_bps": 10.221969219403652,
+      "range_bps": 22.528409213786738
+    },
+    "2026-10-29-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 10.733001801301652,
+      "range_bps": 21.014290595291474
+    },
+    "2026-10-30-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 19.92977196009843,
+      "range_bps": 54.34954871503584
+    },
+    "2026-10-31-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 8.58206922742929,
+      "range_bps": 13.806390922717071
+    },
+    "2026-11-01-am": {
+      "one_second_returns": 898,
+      "realized_variation_bps": 6.013463674876792,
+      "range_bps": 5.134134078106367
+    },
+    "2026-11-02-am": {
+      "one_second_returns": 898,
+      "realized_variation_bps": 16.62150385631575,
+      "range_bps": 33.3832170335957
+    },
+    "2026-11-03-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 13.338763320210312,
+      "range_bps": 26.399578336449014
+    },
+    "2026-11-04-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 25.705672393636046,
+      "range_bps": 63.92677813651382
+    },
+    "2026-11-05-am": {
+      "one_second_returns": 898,
+      "realized_variation_bps": 11.74582836945985,
+      "range_bps": 19.413320763259634
+    },
+    "2026-11-07-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 4.236980655556743,
+      "range_bps": 5.002497957862229
+    },
+    "2026-11-08-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 2.393165174978412,
+      "range_bps": 5.735649832643297
+    },
+    "2026-11-09-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 18.522371698698947,
+      "range_bps": 36.29848958990989
+    },
+    "2026-11-11-am": {
+      "one_second_returns": 898,
+      "realized_variation_bps": 11.265316014309095,
+      "range_bps": 22.120606158892997
+    },
+    "2026-11-12-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 14.807418563088815,
+      "range_bps": 18.61566986222085
+    },
+    "2026-11-13-am": {
+      "one_second_returns": 898,
+      "realized_variation_bps": 68.73379459521833,
+      "range_bps": 127.12599319450123
+    },
+    "2026-11-14-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 42.28790529285655,
+      "range_bps": 112.992359200077
+    },
+    "2026-11-15-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 27.92096614111222,
+      "range_bps": 71.37552889683319
+    },
+    "2026-11-18-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 14.513025408239562,
+      "range_bps": 32.42106016089208
+    },
+    "2026-11-20-am": {
+      "one_second_returns": 899,
+      "realized_variation_bps": 30.26064780151002,
+      "range_bps": 42.96770728410504
+    }
+  },
+  "decision_status": "inconclusive_missing_coverage_or_precision",
+  "decision_rule": "No profit claim from mid markouts. Missing slots, inadequate eligible coverage, fewer than 25 occupied days, CI half width above 2bps, or insufficient regime diversity make the replication inconclusive. Report both venues without choosing a winner.",
+  "scope": "Fixed 50ms/5bps entry-to-mid markouts only, not executable round-trip PnL. Missing slots and unavailable means are not zero returns. No parameter selection or pooling with other studies."
+}

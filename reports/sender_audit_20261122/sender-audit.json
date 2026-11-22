@@ -1,0 +1,763 @@
+{
+  "scope": "GitHub sender-step timestamps and frozen six-hour window arithmetic only; no delivery artifact or scheduler internals inferred",
+  "scheduled_runs_with_sender_step": 63,
+  "sender_steps_within_collection_dates": 55,
+  "outside_window_within_collection_dates": 29,
+  "outside_window_after_same_date_pm": 27,
+  "outside_window_steps": 36,
+  "green_outside_window_steps": 36,
+  "rows": [
+    {
+      "run_id": 45047691121,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/45047691121",
+      "created_at": "2026-11-22T17:07:54Z",
+      "step_started_at": "2026-11-22T17:07:59Z",
+      "step_completed_at": "2026-11-22T17:07:59Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": null
+    },
+    {
+      "run_id": 44970924010,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44970924010",
+      "created_at": "2026-11-22T01:19:39Z",
+      "step_started_at": "2026-11-22T01:19:47Z",
+      "step_completed_at": "2026-11-22T01:19:47Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": null
+    },
+    {
+      "run_id": 44926348949,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44926348949",
+      "created_at": "2026-11-21T16:45:57Z",
+      "step_started_at": "2026-11-21T16:46:03Z",
+      "step_completed_at": "2026-11-21T16:46:03Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 89.05
+    },
+    {
+      "run_id": 44854863480,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44854863480",
+      "created_at": "2026-11-21T02:15:24Z",
+      "step_started_at": "2026-11-21T02:15:37Z",
+      "step_completed_at": "2026-11-21T02:15:43Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-21-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -781.3833333333333
+    },
+    {
+      "run_id": 44786445400,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44786445400",
+      "created_at": "2026-11-20T17:46:12Z",
+      "step_started_at": "2026-11-20T17:46:23Z",
+      "step_completed_at": "2026-11-20T17:46:24Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 149.38333333333333
+    },
+    {
+      "run_id": 44659933715,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44659933715",
+      "created_at": "2026-11-20T02:19:18Z",
+      "step_started_at": "2026-11-20T02:19:29Z",
+      "step_completed_at": "2026-11-20T02:19:34Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-20-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -777.5166666666667
+    },
+    {
+      "run_id": 44585753087,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44585753087",
+      "created_at": "2026-11-19T18:14:51Z",
+      "step_started_at": "2026-11-19T18:14:55Z",
+      "step_completed_at": "2026-11-19T18:14:56Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 177.91666666666666
+    },
+    {
+      "run_id": 44445276755,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44445276755",
+      "created_at": "2026-11-19T02:34:13Z",
+      "step_started_at": "2026-11-19T02:34:26Z",
+      "step_completed_at": "2026-11-19T02:34:31Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-19-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -762.5666666666667
+    },
+    {
+      "run_id": 44365153229,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44365153229",
+      "created_at": "2026-11-18T18:01:43Z",
+      "step_started_at": "2026-11-18T18:01:54Z",
+      "step_completed_at": "2026-11-18T18:01:54Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 164.9
+    },
+    {
+      "run_id": 44226657614,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44226657614",
+      "created_at": "2026-11-18T02:54:45Z",
+      "step_started_at": "2026-11-18T02:54:49Z",
+      "step_completed_at": "2026-11-18T02:54:52Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-18-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -742.1833333333333
+    },
+    {
+      "run_id": 44148929210,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44148929210",
+      "created_at": "2026-11-17T18:32:20Z",
+      "step_started_at": "2026-11-17T18:32:32Z",
+      "step_completed_at": "2026-11-17T18:32:32Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 195.53333333333333
+    },
+    {
+      "run_id": 44013456608,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/44013456608",
+      "created_at": "2026-11-17T03:54:33Z",
+      "step_started_at": "2026-11-17T03:54:38Z",
+      "step_completed_at": "2026-11-17T03:54:38Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": -682.3666666666667
+    },
+    {
+      "run_id": 43940666445,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43940666445",
+      "created_at": "2026-11-16T19:34:03Z",
+      "step_started_at": "2026-11-16T19:34:08Z",
+      "step_completed_at": "2026-11-16T19:34:08Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 257.1333333333333
+    },
+    {
+      "run_id": 43783845600,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43783845600",
+      "created_at": "2026-11-16T01:02:05Z",
+      "step_started_at": "2026-11-16T01:02:13Z",
+      "step_completed_at": "2026-11-16T01:02:17Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-16-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -854.7833333333333
+    },
+    {
+      "run_id": 43734859619,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43734859619",
+      "created_at": "2026-11-15T16:19:48Z",
+      "step_started_at": "2026-11-15T16:19:53Z",
+      "step_completed_at": "2026-11-15T16:19:53Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 62.88333333333333
+    },
+    {
+      "run_id": 43661261869,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43661261869",
+      "created_at": "2026-11-15T01:03:51Z",
+      "step_started_at": "2026-11-15T01:03:56Z",
+      "step_completed_at": "2026-11-15T01:03:59Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-15-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -853.0666666666667
+    },
+    {
+      "run_id": 43612045667,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43612045667",
+      "created_at": "2026-11-14T15:47:17Z",
+      "step_started_at": "2026-11-14T15:47:21Z",
+      "step_completed_at": "2026-11-14T15:47:21Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 30.35
+    },
+    {
+      "run_id": 43540695454,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43540695454",
+      "created_at": "2026-11-14T01:27:26Z",
+      "step_started_at": "2026-11-14T01:27:35Z",
+      "step_completed_at": "2026-11-14T01:27:41Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-14-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -829.4166666666666
+    },
+    {
+      "run_id": 43470269959,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43470269959",
+      "created_at": "2026-11-13T17:11:16Z",
+      "step_started_at": "2026-11-13T17:11:21Z",
+      "step_completed_at": "2026-11-13T17:11:21Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 114.35
+    },
+    {
+      "run_id": 43347812331,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43347812331",
+      "created_at": "2026-11-13T01:50:14Z",
+      "step_started_at": "2026-11-13T01:50:47Z",
+      "step_completed_at": "2026-11-13T01:50:50Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-13-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -806.2166666666667
+    },
+    {
+      "run_id": 43270832539,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43270832539",
+      "created_at": "2026-11-12T17:34:14Z",
+      "step_started_at": "2026-11-12T17:34:27Z",
+      "step_completed_at": "2026-11-12T17:34:28Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 137.45
+    },
+    {
+      "run_id": 43140208894,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43140208894",
+      "created_at": "2026-11-12T02:16:10Z",
+      "step_started_at": "2026-11-12T02:16:15Z",
+      "step_completed_at": "2026-11-12T02:16:18Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-12-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -780.75
+    },
+    {
+      "run_id": 43064760129,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/43064760129",
+      "created_at": "2026-11-11T17:05:44Z",
+      "step_started_at": "2026-11-11T17:05:49Z",
+      "step_completed_at": "2026-11-11T17:05:49Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 108.81666666666666
+    },
+    {
+      "run_id": 42937467111,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42937467111",
+      "created_at": "2026-11-11T01:14:22Z",
+      "step_started_at": "2026-11-11T01:14:29Z",
+      "step_completed_at": "2026-11-11T01:14:33Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-11-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -842.5166666666667
+    },
+    {
+      "run_id": 42860399646,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42860399646",
+      "created_at": "2026-11-10T17:00:22Z",
+      "step_started_at": "2026-11-10T17:00:29Z",
+      "step_completed_at": "2026-11-10T17:00:29Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 103.48333333333333
+    },
+    {
+      "run_id": 42750363865,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42750363865",
+      "created_at": "2026-11-10T03:34:50Z",
+      "step_started_at": "2026-11-10T03:34:55Z",
+      "step_completed_at": "2026-11-10T03:34:56Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": -702.0833333333334
+    },
+    {
+      "run_id": 42686659214,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42686659214",
+      "created_at": "2026-11-09T19:47:08Z",
+      "step_started_at": "2026-11-09T19:47:14Z",
+      "step_completed_at": "2026-11-09T19:47:14Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 270.23333333333335
+    },
+    {
+      "run_id": 42542786122,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42542786122",
+      "created_at": "2026-11-09T00:55:23Z",
+      "step_started_at": "2026-11-09T00:55:29Z",
+      "step_completed_at": "2026-11-09T00:55:32Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-09-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -861.5166666666667
+    },
+    {
+      "run_id": 42497367207,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42497367207",
+      "created_at": "2026-11-08T15:57:04Z",
+      "step_started_at": "2026-11-08T15:57:10Z",
+      "step_completed_at": "2026-11-08T15:57:10Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 40.166666666666664
+    },
+    {
+      "run_id": 42430542514,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42430542514",
+      "created_at": "2026-11-08T00:36:50Z",
+      "step_started_at": "2026-11-08T00:36:54Z",
+      "step_completed_at": "2026-11-08T00:36:58Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-08-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -880.1
+    },
+    {
+      "run_id": 42387415142,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42387415142",
+      "created_at": "2026-11-07T15:39:12Z",
+      "step_started_at": "2026-11-07T15:39:17Z",
+      "step_completed_at": "2026-11-07T15:39:17Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 22.283333333333335
+    },
+    {
+      "run_id": 42321283316,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42321283316",
+      "created_at": "2026-11-07T00:57:02Z",
+      "step_started_at": "2026-11-07T00:57:08Z",
+      "step_completed_at": "2026-11-07T00:57:12Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-07-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -859.8666666666667
+    },
+    {
+      "run_id": 42255150926,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42255150926",
+      "created_at": "2026-11-06T16:44:18Z",
+      "step_started_at": "2026-11-06T16:44:25Z",
+      "step_completed_at": "2026-11-06T16:44:25Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 87.41666666666667
+    },
+    {
+      "run_id": 42144655638,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42144655638",
+      "created_at": "2026-11-06T01:33:45Z",
+      "step_started_at": "2026-11-06T01:33:49Z",
+      "step_completed_at": "2026-11-06T01:33:54Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-06-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -823.1833333333333
+    },
+    {
+      "run_id": 42074072073,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/42074072073",
+      "created_at": "2026-11-05T17:23:00Z",
+      "step_started_at": "2026-11-05T17:23:04Z",
+      "step_completed_at": "2026-11-05T17:23:04Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 126.06666666666666
+    },
+    {
+      "run_id": 41948670965,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41948670965",
+      "created_at": "2026-11-05T01:27:41Z",
+      "step_started_at": "2026-11-05T01:27:46Z",
+      "step_completed_at": "2026-11-05T01:27:49Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-05-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -829.2333333333333
+    },
+    {
+      "run_id": 41875412905,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41875412905",
+      "created_at": "2026-11-04T17:13:10Z",
+      "step_started_at": "2026-11-04T17:13:17Z",
+      "step_completed_at": "2026-11-04T17:13:17Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 116.28333333333333
+    },
+    {
+      "run_id": 41753583640,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41753583640",
+      "created_at": "2026-11-04T01:22:16Z",
+      "step_started_at": "2026-11-04T01:22:20Z",
+      "step_completed_at": "2026-11-04T01:22:23Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-04-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -834.6666666666666
+    },
+    {
+      "run_id": 41679909714,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41679909714",
+      "created_at": "2026-11-03T17:00:25Z",
+      "step_started_at": "2026-11-03T17:00:32Z",
+      "step_completed_at": "2026-11-03T17:00:32Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 103.53333333333333
+    },
+    {
+      "run_id": 41569068758,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41569068758",
+      "created_at": "2026-11-03T02:55:29Z",
+      "step_started_at": "2026-11-03T02:55:35Z",
+      "step_completed_at": "2026-11-03T02:55:38Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-03-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -741.4166666666666
+    },
+    {
+      "run_id": 41510195621,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41510195621",
+      "created_at": "2026-11-02T19:28:04Z",
+      "step_started_at": "2026-11-02T19:28:10Z",
+      "step_completed_at": "2026-11-02T19:28:10Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 251.16666666666666
+    },
+    {
+      "run_id": 41368840953,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41368840953",
+      "created_at": "2026-11-02T00:45:19Z",
+      "step_started_at": "2026-11-02T00:45:25Z",
+      "step_completed_at": "2026-11-02T00:45:28Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-02-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -871.5833333333334
+    },
+    {
+      "run_id": 41324044707,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41324044707",
+      "created_at": "2026-11-01T16:00:15Z",
+      "step_started_at": "2026-11-01T16:00:21Z",
+      "step_completed_at": "2026-11-01T16:00:21Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 43.35
+    },
+    {
+      "run_id": 41255425309,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41255425309",
+      "created_at": "2026-11-01T00:08:33Z",
+      "step_started_at": "2026-11-01T00:08:38Z",
+      "step_completed_at": "2026-11-01T00:08:41Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-11-01-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -908.3666666666667
+    },
+    {
+      "run_id": 41214244668,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41214244668",
+      "created_at": "2026-10-31T15:18:46Z",
+      "step_started_at": "2026-10-31T15:18:51Z",
+      "step_completed_at": "2026-10-31T15:18:51Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 1.85
+    },
+    {
+      "run_id": 41152110393,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41152110393",
+      "created_at": "2026-10-31T00:47:59Z",
+      "step_started_at": "2026-10-31T00:48:05Z",
+      "step_completed_at": "2026-10-31T00:48:09Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-10-31-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -868.9166666666666
+    },
+    {
+      "run_id": 41085134516,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/41085134516",
+      "created_at": "2026-10-30T15:55:17Z",
+      "step_started_at": "2026-10-30T15:55:22Z",
+      "step_completed_at": "2026-10-30T15:55:22Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 38.36666666666667
+    },
+    {
+      "run_id": 40983188839,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40983188839",
+      "created_at": "2026-10-30T01:00:17Z",
+      "step_started_at": "2026-10-30T01:00:23Z",
+      "step_completed_at": "2026-10-30T01:00:26Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-10-30-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -856.6166666666667
+    },
+    {
+      "run_id": 40908269398,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40908269398",
+      "created_at": "2026-10-29T16:06:27Z",
+      "step_started_at": "2026-10-29T16:06:33Z",
+      "step_completed_at": "2026-10-29T16:06:33Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 49.55
+    },
+    {
+      "run_id": 40797412516,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40797412516",
+      "created_at": "2026-10-29T00:57:39Z",
+      "step_started_at": "2026-10-29T00:57:44Z",
+      "step_completed_at": "2026-10-29T00:57:47Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-10-29-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -859.2666666666667
+    },
+    {
+      "run_id": 40721508738,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40721508738",
+      "created_at": "2026-10-28T15:59:32Z",
+      "step_started_at": "2026-10-28T15:59:37Z",
+      "step_completed_at": "2026-10-28T15:59:37Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 42.61666666666667
+    },
+    {
+      "run_id": 40609323480,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40609323480",
+      "created_at": "2026-10-28T00:31:41Z",
+      "step_started_at": "2026-10-28T00:31:46Z",
+      "step_completed_at": "2026-10-28T00:31:49Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-10-28-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -885.2333333333333
+    },
+    {
+      "run_id": 40529993959,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40529993959",
+      "created_at": "2026-10-27T15:20:29Z",
+      "step_started_at": "2026-10-27T15:20:34Z",
+      "step_completed_at": "2026-10-27T15:20:34Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 3.566666666666667
+    },
+    {
+      "run_id": 40426353616,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40426353616",
+      "created_at": "2026-10-27T00:25:58Z",
+      "step_started_at": "2026-10-27T00:26:03Z",
+      "step_completed_at": "2026-10-27T00:26:07Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-10-27-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -890.95
+    },
+    {
+      "run_id": 40355897863,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40355897863",
+      "created_at": "2026-10-26T16:06:35Z",
+      "step_started_at": "2026-10-26T16:06:39Z",
+      "step_completed_at": "2026-10-26T16:06:39Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": 49.65
+    },
+    {
+      "run_id": 40244029552,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40244029552",
+      "created_at": "2026-10-25T23:16:49Z",
+      "step_started_at": "2026-10-25T23:16:54Z",
+      "step_completed_at": "2026-10-25T23:16:57Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-10-26-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": 479.9
+    },
+    {
+      "run_id": 40198817469,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40198817469",
+      "created_at": "2026-10-25T13:42:10Z",
+      "step_started_at": "2026-10-25T13:42:15Z",
+      "step_completed_at": "2026-10-25T13:42:19Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-10-25-pm"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": -94.75
+    },
+    {
+      "run_id": 40141970515,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40141970515",
+      "created_at": "2026-10-24T23:15:17Z",
+      "step_started_at": "2026-10-24T23:15:22Z",
+      "step_completed_at": "2026-10-24T23:15:26Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [
+        "2026-10-25-am"
+      ],
+      "outside_all_preparation_windows": false,
+      "minutes_after_same_date_pm_start": null
+    },
+    {
+      "run_id": 40097608314,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40097608314",
+      "created_at": "2026-10-24T13:19:02Z",
+      "step_started_at": "2026-10-24T13:19:06Z",
+      "step_completed_at": "2026-10-24T13:19:06Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": null
+    },
+    {
+      "run_id": 40041976263,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/40041976263",
+      "created_at": "2026-10-23T23:51:31Z",
+      "step_started_at": "2026-10-23T23:51:37Z",
+      "step_completed_at": "2026-10-23T23:51:37Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": null
+    },
+    {
+      "run_id": 39967827330,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39967827330",
+      "created_at": "2026-10-23T14:13:42Z",
+      "step_started_at": "2026-10-23T14:13:48Z",
+      "step_completed_at": "2026-10-23T14:13:48Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": null
+    },
+    {
+      "run_id": 39875305342,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39875305342",
+      "created_at": "2026-10-22T23:59:24Z",
+      "step_started_at": "2026-10-22T23:59:29Z",
+      "step_completed_at": "2026-10-22T23:59:29Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": null
+    },
+    {
+      "run_id": 39796242516,
+      "run_url": "https://github.com/evananann/crypto-exec-lab/actions/runs/39796242516",
+      "created_at": "2026-10-22T14:30:31Z",
+      "step_started_at": "2026-10-22T14:30:36Z",
+      "step_completed_at": "2026-10-22T14:30:36Z",
+      "run_conclusion": "success",
+      "possible_preparation_slots": [],
+      "outside_all_preparation_windows": true,
+      "minutes_after_same_date_pm_start": null
+    }
+  ],
+  "artifact_logs_verified": false,
+  "scheduler_root_cause_verified": false,
+  "finding": "Senders whose entire recorded step is outside all preparation windows have no eligible future slot under the frozen chooser. A successful workflow is compatible with no request. Metadata supports this failure mechanism; it does not explain every missing archive or establish why GitHub woke late.",
+  "future_action": "Use separately qualified continuous acquisition for the next cohort. Keep gap reporting independent from workflow success. Do not backfill or modify the completed registered study.",
+  "registration_sha256": "a88368184d02eac11180ef878518fa9d11a103fe907a41a464c741270b86fb21"
+}

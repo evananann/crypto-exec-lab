@@ -1,10 +1,15 @@
+**Current evidence, November 22:** [released research memo](RESEARCH_MEMO.md),
+[authenticated results](../reports/released_successor_20261122/README.md) and
+[current PDF](../reports/released_successor_20261122/RESEARCH_MEMO.pdf).
+Earlier dated snapshots below are retained as history.
+
 # A defensible quant interview case
 
 **Question:** does leader-venue information improve an executable follower-venue
 decision? The project has demonstrated research and accounting mechanics; a
 profitable cross-venue strategy has not been established.
 
-Read the dated [two-page evidence and decision memo](../reports/execution_sensitivity_20261116/RESEARCH_MEMO.pdf)
+Read the historical [two-page evidence and decision memo](../reports/execution_sensitivity_20261116/RESEARCH_MEMO.pdf)
 ([HTML](../reports/execution_sensitivity_20261116/memo.html)). It separates the
 historical abstention pilot, the completed independent spot execution batch,
 post-batch cost scenarios and unreleased registered outcomes. The six demo fills
@@ -18,7 +23,7 @@ prediction from closed-trade economics, because spreads, latency, fees and
 incomplete liquidation can erase a markout. I compare policies on common
 opportunities and derive their values from audited fills rather than unrelated
 P&L summaries. The dashboard separates synthetic controls, a small historical
-pilot, and the registered study whose results remain gated.
+pilot, and the registered study now released with a -4.70bps observed mean, 23/56 coverage and a formal inconclusive conclusion.
 
 “One useful finding from reviewing the design was that averaging local and leader
 signals also changes the local score's scale. A candidate can beat a losing
@@ -46,7 +51,7 @@ and explain each assumption rather than recite the pitch.
 
 The two recordings were restored against previously committed archive hashes,
 member integrity, source and raw-wire checks. They were qualification recordings,
-not an untouched holdout. The primary registered study remains a different test.
+not an untouched holdout. The primary registered study is a different test; its [released result](../reports/released_successor_20261122/README.md) is unfavorable on the observed subset and formally inconclusive.
 
 ## The identification problem you should be able to derive
 

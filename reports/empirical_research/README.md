@@ -1,3 +1,14 @@
+# Current released decision — November 22, 2026
+
+The [authenticated original successor result](../released_successor_20261122/README.md)
+is available. Observed full-period entry-net mean: **-4.6954bps**; coverage:
+**23/56 slots**. The frozen conclusion is **inconclusive_missing_coverage_or_precision**.
+No executable return or incremental-information result is claimed.
+
+Everything below is retained dated history, not current release status.
+
+---
+
 # Current decision record
 
 See the [November 9 evidence review and trading decision](decision-20261109.md).
