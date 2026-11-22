@@ -11,7 +11,7 @@
     },
     {
       "name": "okx-bbo",
-      "url": "wss://ws.okx.com:8443/ws/v5/public",
+      "url": "wss://ws.okx.com/ws/v5/public",
       "subscribe": [
         {
           "op": "subscribe",

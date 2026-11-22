@@ -1,0 +1,19 @@
+{
+  "status": "PROBE_INCOMPLETE",
+  "process": {
+    "exit_code": 1,
+    "forced_kill": false,
+    "elapsed_seconds": 0.25019282099947304
+  },
+  "normalized_bbo_records": 0,
+  "native_unit": "contracts",
+  "normalized_unit": "BTC",
+  "contract_value_btc": "0.01",
+  "matching_metadata_brackets": true,
+  "control_notices": [],
+  "sources_sha256": {},
+  "clock_qualified": false,
+  "binance_units_qualified": false,
+  "new_study_enrolled": false,
+  "scope": "Twenty-second public-feed/OKX-unit observation only. Metadata was observed before and after; no uninterrupted exchange metadata-change feed or independent UTC accuracy is proven. No strategy outcomes or orders."
+}

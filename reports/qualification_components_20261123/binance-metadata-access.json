@@ -1,0 +1,7 @@
+{
+  "status": "NETWORK_HOST_UNAVAILABLE",
+  "required_host": "fapi.binance.com",
+  "credentials_required": false,
+  "fallback_attempted": false,
+  "effect": "Binance contemporaneous instrument-unit qualification remains blocked"
+}

@@ -1,0 +1,148 @@
+"""Twenty-second documented OKX public-port probe with bracketed unit metadata."""
+
+import argparse
+import base64
+import gzip
+import hashlib
+import json
+from pathlib import Path
+import time
+from urllib.request import Request, urlopen
+
+from research.roadmap.feed_activity import normalize
+from research.roadmap.qualification_soak import run_capture
+from research.continuous_capture import verify_spool
+
+ROOT = Path(__file__).resolve().parents[2]
+
+
+def metadata():
+    req = Request(
+        "https://www.okx.com/api/v5/public/instruments?instType=SWAP&instId=BTC-USDT-SWAP",
+        headers={"User-Agent": "crypto-exec-lab-readonly/1.0"},
+    )
+    with urlopen(req, timeout=20) as r:
+        body = r.read()
+    parsed = json.loads(body)
+    if parsed.get("code") != "0" or len(parsed.get("data", [])) != 1:
+        raise ValueError("Invalid public instrument response")
+    return {
+        "raw_response": parsed,
+        "raw_body_base64": base64.b64encode(body).decode(),
+        "sha256": hashlib.sha256(body).hexdigest(),
+        "received_monotonic_ns": time.monotonic_ns(),
+    }
+
+
+def run(private, out):
+    private.mkdir(parents=True, exist_ok=False)
+    out.mkdir(parents=True, exist_ok=False)
+    config = json.loads((ROOT / "deploy/continuous-capture/feeds.example.json").read_text())
+    config.update(
+        segment_seconds=10, maximum_spool_bytes=50_000_000, reserve_free_bytes=100_000_000
+    )
+    config["feeds"] = [
+        {
+            "name": "okx-bbo",
+            "url": "wss://ws.okx.com/ws/v5/public",
+            "subscribe": [
+                {"op": "subscribe", "args": [{"channel": "bbo-tbt", "instId": "BTC-USDT-SWAP"}]}
+            ],
+        }
+    ]
+    protocol = {
+        "purpose": "Documented default TLS port 443 connectivity and contemporaneously bracketed OKX contract-unit probe",
+        "seconds": 20,
+        "config": config,
+        "clock_qualified": False,
+        "empirical_enrollment": False,
+        "source_sha256": {
+            n: hashlib.sha256((ROOT / n).read_bytes()).hexdigest()
+            for n in (
+                "research/roadmap/endpoint_probe.py",
+                "research/roadmap/feed_activity.py",
+                "research/continuous_capture.py",
+            )
+        },
+    }
+    (out / "protocol.json").write_text(json.dumps(protocol, indent=2) + "\n")
+    before = metadata()
+    (out / "instrument-before.json").write_text(json.dumps(before, indent=2) + "\n")
+    config_path = private / "config.json"
+    config_path.write_text(json.dumps(config, indent=2) + "\n")
+    process = run_capture(config_path, private / "spool", private / "process.log", 20)
+    after = metadata()
+    (out / "instrument-after.json").write_text(json.dumps(after, indent=2) + "\n")
+    fields = ("instId", "ctVal", "ctMult", "ctValCcy", "settleCcy", "ctType")
+    a, b = before["raw_response"]["data"][0], after["raw_response"]["data"][0]
+    matched = all(a.get(k) == b.get(k) for k in fields)
+    binding = {
+        "contemporaneous_verified": matched,
+        "instrument": a,
+        "source_sha256": before["sha256"],
+    }
+    inventory = verify_spool(private / "spool")
+    counts = 0
+    notices = []
+    sample = []
+    sources = {}
+    for segment in inventory["verified_segments"]:
+        path = private / "spool" / segment["file"]
+        sources[path.name] = hashlib.sha256(path.read_bytes()).hexdigest()
+        with gzip.open(path, "rt") as stream:
+            for line in stream:
+                q, control = normalize(json.loads(line), okx_metadata=binding)
+                counts += len(q)
+                if control:
+                    notices.append(control)
+                if len(sample) < 5:
+                    sample.extend(q[: 5 - len(sample)])
+    result = {
+        "status": "PORT443_UNIT_PROBE_PASSED"
+        if matched
+        and counts > 0
+        and process["exit_code"] == 0
+        and inventory["integrity_state"] == "verified"
+        and not inventory["reported_capture_faults"]
+        else "PROBE_INCOMPLETE",
+        "process": process,
+        "normalized_bbo_records": counts,
+        "native_unit": "contracts",
+        "normalized_unit": "BTC" if matched else None,
+        "contract_value_btc": str(
+            __import__("decimal").Decimal(a["ctVal"]) * __import__("decimal").Decimal(a["ctMult"])
+        ),
+        "matching_metadata_brackets": matched,
+        "control_notices": notices,
+        "sources_sha256": sources,
+        "clock_qualified": False,
+        "binance_units_qualified": False,
+        "new_study_enrolled": False,
+        "scope": "Twenty-second public-feed/OKX-unit observation only. Metadata was observed before and after; no uninterrupted exchange metadata-change feed or independent UTC accuracy is proven. No strategy outcomes or orders.",
+    }
+    (out / "report.json").write_text(json.dumps(result, indent=2) + "\n")
+    (out / "normalized-sample.json").write_text(json.dumps(sample, indent=2) + "\n")
+    print(
+        json.dumps(
+            {
+                k: result[k]
+                for k in (
+                    "status",
+                    "normalized_bbo_records",
+                    "contract_value_btc",
+                    "matching_metadata_brackets",
+                )
+            }
+        )
+    )
+    return result
+
+
+if __name__ == "__main__":
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--private-out", type=Path, required=True)
+    p.add_argument("--out", type=Path, required=True)
+    a = p.parse_args()
+    result = run(a.private_out, a.out)
+    if result["status"] != "PORT443_UNIT_PROBE_PASSED":
+        raise SystemExit(1)

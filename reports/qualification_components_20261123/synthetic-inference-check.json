@@ -1,0 +1,36 @@
+{
+  "synthetic": true,
+  "enrollment": false,
+  "result": {
+    "status": "POSITIVE_INCREMENTAL_ABSOLUTE_UNSUPPORTED",
+    "unit": "USDT per jointly eligible opportunity",
+    "paired_observations": 126,
+    "unknown_eligible_outcomes": 0,
+    "ineligible_feature_records": 0,
+    "nonzero_paired_contrasts": 126,
+    "nonzero_contrast_dates": 28,
+    "gates": {
+      "all_expected_dates_have_paired_outcomes": true,
+      "enough_test_dates": true,
+      "enough_contrast_dates": true,
+      "enough_contrasts": true,
+      "no_unknown_eligible_outcomes": true,
+      "nondegenerate_observed_day_contrasts": true
+    },
+    "baseline_mean_usdt": "-0.10",
+    "candidate_mean_usdt": "-0.08808730158730158730158730159",
+    "paired_mean_incremental_usdt": "0.01191269841269841269841269841",
+    "paired_percentile_ci95": [
+      0.01142177588619403,
+      0.012462206112852663
+    ],
+    "candidate_absolute_percentile_ci95": [
+      -0.08857822411380596,
+      -0.08753779388714734
+    ],
+    "method": "5000 seeded overlapping two-UTC-date block resamples of paired totals and counts",
+    "deployment_authorized": false,
+    "limitations": "Inference mechanics only. Callers must authenticate original grid/coverage, units, features, raw sources, temporal release and enrollment. Nominal percentile coverage is not guaranteed under long dependence or nonstationarity. No production calibration is inferred."
+  },
+  "scope": "Deliberately constructed less-bad but still losing candidate; no market data or alpha result"
+}

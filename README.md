@@ -22,6 +22,8 @@ and three holdout dates. The frozen decision is **inconclusive_missing_coverage_
 A narrow observed-day interval does not repair missing coverage. The metric is
 50ms/5bps entry-to-mid markout, not executable round-trip profit. No live deployment.
 
+[November 23 qualification progress and owner actions](reports/qualification_components_20261123/README.md).
+
 [November 22 implementation and remaining dependencies](reports/improvements_20261122/README.md).
 
 Read the [current memo](docs/RESEARCH_MEMO.md),

@@ -1,0 +1,19 @@
+{
+  "state": "COMPONENT_IMPLEMENTATION_FREEZE_NOT_ENROLLMENT",
+  "recorded_at_utc": "2026-11-22T18:10:18.260396+00:00",
+  "source_sha256": {
+    "research/roadmap/feed_activity.py": "c0b323369ded11496c33a2503babd2dd83f16a59eb9a02ef3343f944d562c33c",
+    "research/roadmap/paired_inference.py": "0fd8229a543e107bcd774b816d795dea76dd055101d787969c1ff1ea2c614cd7",
+    "research/roadmap/endpoint_probe.py": "a9af2b18be05884593dbee179989ef0623ecbcf43c901d22eed4aa06984c35a6",
+    "research/roadmap/public_instruments.py": "0edbb84279d511ac41c761b9e87fa5eee89aca7c131d169b9d1906d344e5a9cd",
+    "research/continuous_capture.py": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb",
+    "research/clock_telemetry.py": "942516bca63e294039fcd70c902e69b98f33a4fca3d38d0b968fbd457fe163d1",
+    "research/roadmap/qualification_soak.py": "c0465e80f22ed6359412759218f6ecd298da8e5105266343960696293ef59a38",
+    "research/roadmap/matched_design_v1.json": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1",
+    "deploy/continuous-capture/feeds.example.json": "4a8d4db6343a98f06643a4475d31b71b167f9e3fce24233aed62613a91f1417b",
+    "tests/test_qualification_components.py": "7e16e4e9f2322ce0cde39fcffba608d06e432cccacaf17c6ea1fccb6f48f4c6d"
+  },
+  "empirical_enrollment": false,
+  "future_dates_selected": false,
+  "scope": "Offline normalization/activity/inference mechanics and observed endpoint probe. This is not a prospective enrollment manifest or qualification certificate."
+}

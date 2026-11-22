@@ -1,0 +1,36 @@
+{
+  "purpose": "Documented default TLS port 443 connectivity and contemporaneously bracketed OKX contract-unit probe",
+  "seconds": 20,
+  "config": {
+    "segment_seconds": 10,
+    "maximum_spool_bytes": 50000000,
+    "reserve_free_bytes": 100000000,
+    "maximum_frame_bytes": 262144,
+    "maximum_silence_seconds": 60,
+    "feeds": [
+      {
+        "name": "okx-bbo",
+        "url": "wss://ws.okx.com/ws/v5/public",
+        "subscribe": [
+          {
+            "op": "subscribe",
+            "args": [
+              {
+                "channel": "bbo-tbt",
+                "instId": "BTC-USDT-SWAP"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "maximum_queue_bytes": 64000000
+  },
+  "clock_qualified": false,
+  "empirical_enrollment": false,
+  "source_sha256": {
+    "research/roadmap/endpoint_probe.py": "d5dcc86945a204c8e827ec9901ab63e5fff422f9bfae774a65f97625c6784762",
+    "research/roadmap/feed_activity.py": "bfe26bef9674401996b7b99040c4b29abb6697caa66767215addade772671506",
+    "research/continuous_capture.py": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb"
+  }
+}

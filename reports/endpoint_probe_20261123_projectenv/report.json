@@ -1,0 +1,28 @@
+{
+  "status": "PORT443_UNIT_PROBE_PASSED",
+  "process": {
+    "exit_code": 0,
+    "forced_kill": false,
+    "elapsed_seconds": 30.057747544999984
+  },
+  "normalized_bbo_records": 528,
+  "native_unit": "contracts",
+  "normalized_unit": "BTC",
+  "contract_value_btc": "0.01",
+  "matching_metadata_brackets": true,
+  "control_notices": [
+    {
+      "event": "subscribe",
+      "code": null,
+      "scope": "Control/notice retained, not a market quote"
+    }
+  ],
+  "sources_sha256": {
+    "20261122T180009-7c415a4ed4cf44ab97965974d8ab5106.jsonl.gz": "aad42dc681f267c7db1ac67c44200fdb586b73a280dc5215008bcfbf8c110a7b",
+    "20261122T180019-1bc4d7a0ca01492ab153b0ebf1ef21d9.jsonl.gz": "ccb80631f3621329af3af324c724518582afd93e7f093eb874d5437891414253"
+  },
+  "clock_qualified": false,
+  "binance_units_qualified": false,
+  "new_study_enrolled": false,
+  "scope": "Twenty-second public-feed/OKX-unit observation only. Metadata was observed before and after; no uninterrupted exchange metadata-change feed or independent UTC accuracy is proven. No strategy outcomes or orders."
+}

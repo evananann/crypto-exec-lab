@@ -1,0 +1,53 @@
+{
+  "status": "EXPLORATORY_ACTIVITY_ONLY",
+  "counts": {
+    "grid_opportunities": 62,
+    "common_feature_opportunities": 61,
+    "baseline_active": 0,
+    "candidate_active": 0,
+    "unavailable_features": 1
+  },
+  "action_pairs": {
+    "0,0": 61
+  },
+  "different_action_opportunities": 0,
+  "all_selected_quantities_qualified": false,
+  "exact_duplicate_updates_ignored": 0,
+  "policy_outcomes_computed": 0,
+  "scope": "Monotonic receive-grid feature/action counts only. No returns, UTC-day inference or future-study eligibility. Original per-venue source order is preserved; no source file or timestamp is repaired.",
+  "input_records": 270662,
+  "normalized_bbo_records": 270654,
+  "source_segments_sha256": {
+    "20261115T165910-d12fbf9a151d428cb46d364c6ad89650.jsonl.gz": "f81b931db3338d5015d50837f90e2b8ecdf7e06d4522fae1c451182a56f21d2c",
+    "20261115T165940-bdc5fa599bde4c9e959057178e71b258.jsonl.gz": "8fa997ff4b974ab1abf368ceadbe0fc90d0f8271fe537107fa681407d8dcd0bf",
+    "20261115T170010-220f90b157ea499a8b24e2f11e57d602.jsonl.gz": "86efb032de887701b095d93bc74df92a839b6214d253820e5d5a34711669004d",
+    "20261115T170040-c39034e6738a4f629d606f0159b383ce.jsonl.gz": "b57ff642076682f59a019d618b764d62d6a44b330ad3023b191e93f80ea83106",
+    "20261115T170110-24595f41a69d433dacc2b8d9b539008a.jsonl.gz": "74e6d0cd6163fe364acd5d8bdb462ba05dec37815b00b131b433938a237dadbe",
+    "20261115T170140-429710bef7414dd48b2bb75a13896b57.jsonl.gz": "22cff83a99c982e4616e59c8ee2260cd8f5c2049cbf42127528635d91a69bb12",
+    "20261115T170210-190a12afcdfa406f89786da4384a275e.jsonl.gz": "709f0481e1ccd9b289475f43c78e4d0a18679b75f97de54ba62761f519cdf8c3",
+    "20261115T170240-0ef1d1b0ead242d2a5e9d0b9d1eb027b.jsonl.gz": "998cb9c7ad241065bf895626d923a14d8c00f7061c5e79e7b5521972cef0601a",
+    "20261115T170310-96ab3c8dc7b54547848c550edb4b96e0.jsonl.gz": "2ea4d9beb23d5d4dd7e7b6c6bc2db01922a26cd4eb38376ab64ca21a86231399",
+    "20261115T170340-6ac1fd2288a944b8a28778d57b416176.jsonl.gz": "3b398ccad542864a2e6eb95bdad8006bcee2dda87150b4cb102a3497801bc98e",
+    "20261115T170410-50f94c1d930e45f4936c27f725e8e646.jsonl.gz": "b028f3388185f2a255dda5e5a9242c69c58a8a3eb937e8bc0be58186740eb529",
+    "20261115T170440-28c9c47355994620a0b273d95a23a9d8.jsonl.gz": "04843873457f4a1cbd982c20b89806a235e0f5ebcb82ed3915d5ba9d5927c72f",
+    "20261115T170510-0e65fbc6f01c4918938158e5d200fbb3.jsonl.gz": "317f4a3fd163ddc7895bd6db6e58cff17db88f3a2069bbb85eb03bdd9a68578f",
+    "20261115T170541-447d6f4b79274abc89a9c5f4610d0c1f.jsonl.gz": "39df7ed0dc081c1d01d5cf1304b30617eb3f2d8037280884fbb20aa3840258a3",
+    "20261115T170611-1f56e9e2346f43ecb3f6bb0f5cb6ad59.jsonl.gz": "f46c678b54c74754733dc23da67027202218b5b9f69cc932b4e64467d185bbcc",
+    "20261115T170641-19b362dd402b4e2db7cc7b6a47706ad8.jsonl.gz": "3bcf7e2450594a01f197478f19ba8f32a34affa3401d79e8dd93c1a969920a37",
+    "20261115T170711-1bab2428568c4bdfa0ba0529ae724d5a.jsonl.gz": "83578975c7afe4f619bfa9ab87ce95b02b812a0682881328e2dd60082a061408",
+    "20261115T170741-530f234d30e144448f5e5dfad28c623a.jsonl.gz": "f3900539e8910f93aba015e356cc594c63a18d8dda5377fd1d16219d3ce154c1",
+    "20261115T170811-b477b25f3730490bbfe5a0aa7d1c7e19.jsonl.gz": "39a3d0dc5069b9c955832ded9b00f6e04489f523d24e077b830c75a678fa3c0c",
+    "20261115T170841-b602174ea68f418a97c82f38f9b37bef.jsonl.gz": "8dcb8b4056d9bfe07b734dc3097b0038477fa2ee727dd94b3d8a9b64316a45b6",
+    "20261115T170914-768f4cf5c4af4365a0aa7b49698bb4b9.jsonl.gz": "23270d2a3744dba6d8bd2e93750ce5fa1e9c43ab0f55066b016e0a0c32d71577"
+  },
+  "control_notice_counts": {
+    "64010": 2,
+    "None": 2
+  },
+  "contemporaneous_instrument_metadata_available": false,
+  "clock_qualified": false,
+  "prospective_discovery_qualified": false,
+  "enrollment": false,
+  "source_sha256": "c0b323369ded11496c33a2503babd2dd83f16a59eb9a02ef3343f944d562c33c",
+  "limits": "Old independent qualification rehearsal, not prospective discovery/test data. Native quantities remain unverified when contemporaneous metadata is absent. These counts cannot qualify a new cohort or estimate trading performance."
+}

@@ -124,3 +124,14 @@ telemetry worker failure remains a capture fault. Segment, silence and drain
 elapsed timers use integer monotonic nanoseconds. Chrony is not installed in the
 minimal container and host NTP accuracy has not been verified. These records are
 operational diagnostics, not scientific eligibility or a zero-drift guarantee.
+
+## Public endpoint maintenance (November 23, 2026)
+
+The future example now uses `wss://ws.okx.com/ws/v5/public` on default TLS port
+443, matching current official docs and a bounded observed 528-BBO probe. Older
+raw tapes retain the port-8443 retirement notice. See
+[the endpoint evidence](../../reports/endpoint_probe_20261123_projectenv/README.md).
+The first probe failed before connection due to the system interpreter lacking
+the dependency; it remains preserved. Use the installed project environment.
+This template change does not modify source-locked old collectors, retroactively
+normalize old contracts or qualify a new host/cohort.

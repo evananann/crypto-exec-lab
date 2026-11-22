@@ -1,0 +1,314 @@
+"""Source-linked BBO normalization and outcome-free pre-enrollment activity rehearsal."""
+
+from bisect import bisect_right
+from collections import Counter
+from decimal import Decimal, InvalidOperation
+import argparse
+import base64
+import gzip
+import hashlib
+import json
+import re
+from pathlib import Path
+
+from research.continuous_capture import verify_spool
+
+ROOT = Path(__file__).resolve().parents[2]
+
+
+def positive(raw):
+    if not isinstance(raw, str):
+        raise ValueError("Venue numeric fields must be decimal strings")
+    try:
+        value = Decimal(raw)
+    except InvalidOperation:
+        raise ValueError("Invalid venue decimal") from None
+    if not value.is_finite() or value <= 0:
+        raise ValueError("Non-positive/nonfinite venue number")
+    return value
+
+
+def integer(raw):
+    if type(raw) is not int or raw < 0:
+        raise ValueError("Nonnegative integer required")
+    return raw
+
+
+def factor(metadata):
+    if not metadata:
+        return None
+    if metadata.get("contemporaneous_verified") is not True:
+        return None
+    item = metadata["instrument"]
+    if (
+        item.get("instId") != "BTC-USDT-SWAP"
+        or item.get("ctValCcy") != "BTC"
+        or item.get("settleCcy") != "USDT"
+        or item.get("ctType") != "linear"
+    ):
+        raise ValueError("Unsupported OKX contract metadata")
+    if not isinstance(metadata.get("source_sha256"), str) or not re.fullmatch(
+        r"[0-9a-f]{64}", metadata["source_sha256"]
+    ):
+        raise ValueError("Metadata provenance required")
+    return positive(item["ctVal"]) * positive(item["ctMult"])
+
+
+def normalize(row, *, okx_metadata=None, binance_metadata=None):
+    if row.get("kind") != "wire":
+        return [], None
+    receive = integer(row["receive_monotonic_ns"])
+    if not row.get("connection_id") or not row.get("capture_session_id"):
+        raise ValueError("Capture/connection provenance required")
+    payload = json.loads(base64.b64decode(row["payload"], validate=True))
+    feed = row["feed"]
+    if feed == "binance-bbo":
+        item = payload.get("data", payload)
+        if item.get("e") != "bookTicker" or item.get("s") != "BTCUSDT":
+            raise ValueError("Unexpected Binance instrument/event")
+        raw = [
+            {
+                "bid": item["b"],
+                "ask": item["a"],
+                "bid_native": item["B"],
+                "ask_native": item["A"],
+                "sequence": integer(item["u"]),
+                "exchange_ms": item.get("E"),
+                "venue": "binance",
+            }
+        ]
+    elif feed == "okx-bbo":
+        if payload.get("event"):
+            if payload["event"] == "error":
+                raise ValueError("Venue subscription error")
+            return [], {
+                "event": payload["event"],
+                "code": payload.get("code"),
+                "scope": "Control/notice retained, not a market quote",
+            }
+        if (
+            payload.get("arg", {}).get("instId") != "BTC-USDT-SWAP"
+            or payload.get("arg", {}).get("channel") != "bbo-tbt"
+        ):
+            raise ValueError("Unexpected OKX instrument/channel")
+        raw = []
+        for item in payload["data"]:
+            raw.append(
+                {
+                    "bid": item["bids"][0][0],
+                    "ask": item["asks"][0][0],
+                    "bid_native": item["bids"][0][1],
+                    "ask_native": item["asks"][0][1],
+                    "sequence": integer(item["seqId"]),
+                    "exchange_ms": item.get("ts"),
+                    "venue": "okx",
+                }
+            )
+    else:
+        raise ValueError("Unrecognized feed")
+    output = []
+    for r in raw:
+        bid, ask, bq, aq = map(positive, (r["bid"], r["ask"], r["bid_native"], r["ask_native"]))
+        if bid > ask:
+            raise ValueError("Crossed BBO")
+        venue = r["venue"]
+        multiplier = factor(okx_metadata) if venue == "okx" else None
+        if venue == "binance" and binance_metadata:
+            if (
+                binance_metadata.get("contemporaneous_verified") is not True
+                or binance_metadata.get("baseAsset") != "BTC"
+                or binance_metadata.get("quoteAsset") != "USDT"
+                or binance_metadata.get("contractType") != "PERPETUAL"
+                or binance_metadata.get("symbol") != "BTCUSDT"
+                or binance_metadata.get("native_quantity_unit") != "BTC"
+                or not isinstance(binance_metadata.get("source_sha256"), str)
+                or not re.fullmatch(r"[0-9a-f]{64}", binance_metadata["source_sha256"])
+            ):
+                raise ValueError("Unverified Binance units/identity")
+            multiplier = Decimal(1)
+        output.append(
+            r
+            | {
+                "receive_monotonic_ns": receive,
+                "instrument": "BTCUSDT" if venue == "binance" else "BTC-USDT-SWAP",
+                "quote_currency": "USDT",
+                "contract_kind": "linear_perpetual_feed",
+                "session": row["capture_session_id"] + "/" + row["connection_id"],
+                "native_quantity_unit": "contracts"
+                if venue == "okx"
+                else "BTC"
+                if multiplier is not None
+                else "unverified_native",
+                "bid_qty_btc": str(bq * multiplier) if multiplier is not None else None,
+                "ask_qty_btc": str(aq * multiplier) if multiplier is not None else None,
+                "execution_units_qualified": multiplier is not None,
+                "mid": str((bid + ask) / 2),
+            }
+        )
+    return output, None
+
+
+def activity(quotes, lookback_ms=100, step_ms=10000, max_age_ms=500, threshold_bps="12"):
+    series = {v: [] for v in ("binance", "okx")}
+    previous = {}
+    errors = Counter()
+    duplicates = 0
+    for q in quotes:
+        venue = q["venue"]
+        old = previous.get(venue)
+        if old and q["receive_monotonic_ns"] < old["receive_monotonic_ns"]:
+            errors["per_venue_receive_regression"] += 1
+            continue
+        if old and q["session"] == old["session"]:
+            if q["sequence"] < old["sequence"]:
+                errors["sequence_regression"] += 1
+                continue
+            if q["sequence"] == old["sequence"]:
+                if any(q[k] != old[k] for k in ("bid", "ask", "bid_native", "ask_native")):
+                    errors["conflicting_duplicate_sequence"] += 1
+                else:
+                    duplicates += 1
+                continue
+        previous[venue] = q
+        series[venue].append(q)
+    if errors or any(not s for s in series.values()):
+        return {
+            "status": "UNAVAILABLE_STREAM_INTEGRITY",
+            "issues": dict(errors),
+            "policy_outcomes_computed": 0,
+        }
+    # Preserve each venue's received order; merge as-of views, never sort/repair raw bytes.
+    keys = {v: [q["receive_monotonic_ns"] for q in s] for v, s in series.items()}
+    step = step_ms * 1_000_000
+    lookback = lookback_ms * 1_000_000
+    age = max_age_ms * 1_000_000
+    start = max(k[0] for k in keys.values()) + lookback
+    end = min(k[-1] for k in keys.values())
+    current = ((start + step - 1) // step) * step
+    counts = Counter()
+    contrasts = 0
+    pair_counts = Counter()
+    units = True
+    while current <= end:
+        counts["grid_opportunities"] += 1
+        features = []
+        for venue in ("okx", "binance"):
+            picked = []
+            for when in (current - lookback, current):
+                i = bisect_right(keys[venue], when) - 1
+                q = series[venue][i] if i >= 0 and when - keys[venue][i] <= age else None
+                picked.append(q)
+            if any(q is None for q in picked) or picked[0]["session"] != picked[1]["session"]:
+                break
+            units = units and all(q["execution_units_qualified"] for q in picked)
+            features.append((Decimal(picked[1]["mid"]) / Decimal(picked[0]["mid"]) - 1) * 10000)
+        if len(features) != 2:
+            counts["unavailable_features"] += 1
+        else:
+            counts["common_feature_opportunities"] += 1
+            local, cross = features[0] / 2, (features[0] + features[1]) / 2
+
+            def action(score):
+                return (
+                    1
+                    if score >= Decimal(threshold_bps)
+                    else -1
+                    if score <= -Decimal(threshold_bps)
+                    else 0
+                )
+
+            a, b = action(local), action(cross)
+            pair_counts[f"{a},{b}"] += 1
+            counts["baseline_active"] += a != 0
+            counts["candidate_active"] += b != 0
+            contrasts += a != b
+        current += step
+    return {
+        "status": "EXPLORATORY_ACTIVITY_ONLY",
+        "counts": dict(counts),
+        "action_pairs": dict(pair_counts),
+        "different_action_opportunities": contrasts,
+        "all_selected_quantities_qualified": units and counts["common_feature_opportunities"] > 0,
+        "exact_duplicate_updates_ignored": duplicates,
+        "policy_outcomes_computed": 0,
+        "scope": "Monotonic receive-grid feature/action counts only. No returns, UTC-day inference or future-study eligibility. Original per-venue source order is preserved; no source file or timestamp is repaired.",
+    }
+
+
+def build(spool, out):
+    inventory = verify_spool(spool)
+    if (
+        inventory["integrity_state"] != "verified"
+        or inventory["reported_capture_faults"]
+        or inventory["pending_session_status"]
+    ):
+        raise ValueError("Only sealed clean local rehearsal spools accepted")
+    quotes = []
+    controls = []
+    sources = {}
+    errors = Counter()
+    for segment in inventory["verified_segments"]:
+        path = spool / segment["file"]
+        sha = hashlib.sha256(path.read_bytes()).hexdigest()
+        sources[path.name] = sha
+        with gzip.open(path, "rb") as stream:
+            while True:
+                offset = stream.tell()
+                line = stream.readline()
+                if not line:
+                    break
+                try:
+                    normalized, control = normalize(json.loads(line))
+                    if control:
+                        controls.append(control)
+                    for q in normalized:
+                        quotes.append(
+                            q | {"segment_sha256": sha, "uncompressed_record_offset": offset}
+                        )
+                except (ValueError, KeyError, TypeError, IndexError):
+                    errors["invalid_wire_record"] += 1
+    result = (
+        activity(quotes)
+        if not errors
+        else {"status": "UNAVAILABLE_NORMALIZATION_ERRORS", "issues": dict(errors)}
+    )
+    result |= {
+        "input_records": inventory["records"],
+        "normalized_bbo_records": len(quotes),
+        "source_segments_sha256": sources,
+        "control_notice_counts": dict(Counter(str(c.get("code")) for c in controls)),
+        "contemporaneous_instrument_metadata_available": False,
+        "clock_qualified": False,
+        "prospective_discovery_qualified": False,
+        "enrollment": False,
+        "source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "limits": "Old independent qualification rehearsal, not prospective discovery/test data. Native quantities remain unverified when contemporaneous metadata is absent. These counts cannot qualify a new cohort or estimate trading performance.",
+    }
+    out.mkdir(parents=True, exist_ok=False)
+    (out / "activity.json").write_text(json.dumps(result, indent=2) + "\n")
+    (out / "normalized-sample.json").write_text(json.dumps(quotes[:8], indent=2) + "\n")
+    return result
+
+
+if __name__ == "__main__":
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--spool", type=Path, required=True)
+    p.add_argument("--out", type=Path, required=True)
+    a = p.parse_args()
+    r = build(a.spool, a.out)
+    print(
+        json.dumps(
+            {
+                k: r.get(k)
+                for k in (
+                    "status",
+                    "normalized_bbo_records",
+                    "counts",
+                    "different_action_opportunities",
+                    "control_notice_counts",
+                )
+            }
+        )
+    )
+    if r["status"] != "EXPLORATORY_ACTIVITY_ONLY":
+        raise SystemExit(1)

@@ -1,0 +1,25 @@
+{
+  "status": "BLOCKED_NOT_ENROLLED",
+  "mechanics": {
+    "native_unit_normalizer_implemented": true,
+    "paired_calendar_block_inference_implemented": true,
+    "documented_okx_port443_probe_passed": true,
+    "okx_contract_conversion_observed_on_bracketed_probe": true,
+    "exploratory_common_feature_opportunities": 61,
+    "exploratory_different_action_opportunities": 0
+  },
+  "remaining": {
+    "network_draft_applied": false,
+    "remote_archive_readback_verified": false,
+    "original_sender_log_and_zip_bytes_verified": false,
+    "binance_contemporaneous_instrument_units_qualified": false,
+    "independent_utc_accuracy_verified": false,
+    "new_prospective_discovery_activity_sufficient": false,
+    "full_enrollment_sources_qualified": false,
+    "future_dates_published": false
+  },
+  "no_original_protocol_changed": true,
+  "no_replication_outcomes_read": true,
+  "new_orders": 0,
+  "scope": "Partial, source-bound engineering progress. Components are not evidence of an economic edge and cannot substitute for missing qualification or future observations."
+}
