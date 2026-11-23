@@ -23,6 +23,16 @@ def compile_decision(evidence, out):
               'restart-diagnostic.json': evidence / 'pipeline-proof/restart-diagnostic.json',
               'activity.json': evidence / 'faulted-activity-v2/summary.json',
               'transport-probe.json': evidence / 'transport-probe.json'}
+    for name in ('old-preservation.json', 'current-preservation.json'):
+        path = evidence / name
+        if path.exists():
+            receipt = json.loads(path.read_text())
+            if (receipt.get('status') != 'REMOTE_READBACK_VERIFIED'
+                    or receipt.get('scientific_enrollment') is not False
+                    or receipt.get('production_host_qualified') is not False
+                    or receipt.get('absolute_utc_accuracy_verified') is not False):
+                raise ValueError('archive receipt cannot grant scientific or host qualification')
+            inputs[name] = path
     data = {k: json.loads(p.read_text()) for k, p in inputs.items()}
     order, capture, activity = (data[k] for k in ('original-order-audit.json', 'long-capture.json', 'activity.json'))
     if not order['original_bytes_unchanged'] or activity['execution_outcomes_computed'] != 0:
@@ -60,6 +70,9 @@ def compile_decision(evidence, out):
             'New discovery and validation dates demonstrating adequate policy contrasts',
             'Exact future enrollment calendar followed by an untouched test period'],
         'deployment_authorized': False}
+    result['archive_preservation'] = {k: {field: data[k][field] for field in (
+        'release_url', 'run_id', 'archive_sha256', 'archive_bytes', 'members_verified')}
+        for k in ('old-preservation.json', 'current-preservation.json') if k in data}
     out.mkdir(parents=True, exist_ok=False)
     for name, path in inputs.items():
         shutil.copyfile(path, out / name)
@@ -129,6 +142,21 @@ The original primary is entry-to-mid markout after 50 ms and one 5 bps entry fee
 not a realized round-trip return. Its descriptive interval cannot repair missing
 coverage. Original detailed summaries and source hashes accompany this memo.
 '''
+    archive_html = ''
+    if result['archive_preservation']:
+        text += '\n## Archive readback completed\n\n'
+        for name, r in result['archive_preservation'].items():
+            text += (f"- [{name}]({name}): {r['members_verified']} members verified; "
+                     f"{r['archive_bytes']:,} archive bytes; [Release]({r['release_url']}).\n")
+        text += ('\nThe repository worker and a separate cloud download both matched original '
+                 'asset hashes and every member. Both failed attempts are retained. This closes '
+                 'the archive-readback gap, not transport, UTC or scientific qualification. '
+                 'GitHub administrators can change Release assets; WORM retention is not claimed.\n')
+        archive_html = ('<h2>Archive readback completed</h2><p>Both public rehearsal archives were '
+            'preserved and independently downloaded: 54 members in the earlier archive and 60 '
+            'in the current one. All member hashes matched. This closes an operational gap, '
+            'while transport, independent UTC evidence and new sampling remain unqualified. '
+            'GitHub Release assets remain mutable by administrators.</p>')
     (out / 'README.md').write_text(text)
     table = [
         ('Original study', f"{full['equal_day_mean_bps']:.4f} bps; {full['eligible_slots']}/{full['planned_slots']} slots", 'Inconclusive under frozen coverage rules'),
@@ -152,7 +180,7 @@ coverage. Original detailed summaries and source hashes accompany this memo.
         '<p>The historical recorder permits callback overtaking before the write lock. Three 1 ms cross-venue '
         'reversals were found in the first affected slot. Individual causes cannot be proved from legacy events. '
         'The new writer-availability convention requires its own future source freeze.</p>'
-        '<h2>Evidence required to change the decision</h2><ol>' + gates + '</ol>'
+        + archive_html + '<h2>Evidence required to change the decision</h2><ol>' + gates + '</ol>'
         '<p>The primary metric is entry-to-mid after one 5 bps entry fee, not realized round-trip profit. '
         'Missing sessions remain unknown. Relative improvement alone does not establish positive absolute economics.</p>'
         '<p><a href="https://github.com/evananann/crypto-exec-lab/blob/main/reports/formal_decision_20261123/README.md">'

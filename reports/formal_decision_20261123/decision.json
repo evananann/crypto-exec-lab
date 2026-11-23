@@ -71,10 +71,12 @@
     "short-capture.json": "9c52ab3d239d91a386331f61f75a60073cc9fd7feab3ab69282f45196f4febc3",
     "restart-diagnostic.json": "0f45146f532c438f61e0a3632f99ad995bb5ba3bf259b0dc31c9ff9d5977831c",
     "activity.json": "24334ec762c5f1b2f506e41eec49ad3dfad94ebcdacb33696b98ea7276b10287",
-    "transport-probe.json": "faee63e1e0e837a17184f202436fe7a888d874ab00812a28770be059fecfec1c"
+    "transport-probe.json": "faee63e1e0e837a17184f202436fe7a888d874ab00812a28770be059fecfec1c",
+    "old-preservation.json": "f5c268c1f8a8524e606876ee1e760cdde1173ad1f18373337d977856108a3f95",
+    "current-preservation.json": "17af6828c8f78fbc4d54492bd3f093886e28f10dea7c7f9a573501dc3b4fa517"
   },
   "implementation_sha256": {
-    "research/roadmap/formal_decision.py": "c66f61f6f064ef0e27340deabdf549209f27592937e97f2b83668ae37e1a0030",
+    "research/roadmap/formal_decision.py": "49de3ff0a14aba8155f6e4df37066c3b554837187c6ddf1689b31ed72ec17746",
     "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87",
     "research/roadmap/timestamp_audit.py": "9e8ba196b04966ee65c588e100352359e7b33d18ad7ad13ddce62ff6b42d653c"
   },
@@ -86,5 +88,21 @@
     "New discovery and validation dates demonstrating adequate policy contrasts",
     "Exact future enrollment calendar followed by an untouched test period"
   ],
-  "deployment_authorized": false
+  "deployment_authorized": false,
+  "archive_preservation": {
+    "old-preservation.json": {
+      "release_url": "https://github.com/evananann/crypto-exec-lab/releases/tag/qualification-cloud-20261116-v1",
+      "run_id": 45208048634,
+      "archive_sha256": "1755f577eee264aeaa5bbf1ef5cb749deaa0e1e2641aa60e1fbee66522c71858",
+      "archive_bytes": 13230088,
+      "members_verified": 54
+    },
+    "current-preservation.json": {
+      "release_url": "https://github.com/evananann/crypto-exec-lab/releases/tag/qualification-cloud-20261123-failed-attempts-v1",
+      "run_id": 45208334490,
+      "archive_sha256": "cf696263389dc4883e41dd6c6e0cf83e4f1b476c7ccb0cd5881123fd1606ec76",
+      "archive_bytes": 27743448,
+      "members_verified": 60
+    }
+  }
 }

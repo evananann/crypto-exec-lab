@@ -1,3 +1,5 @@
+> Later November 23 update: the network grants are active and public archive readback has completed. A longer capture attempt failed with a transport error. Use the [current formal disposition](../formal_decision_20261123/README.md); the readiness snapshot below predates these results.
+
 # Remaining-work progress — November 23, 2026 (Yangon)
 
 **Not enrolled. External and prospective dependencies remain.** No original

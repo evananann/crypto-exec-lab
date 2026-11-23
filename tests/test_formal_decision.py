@@ -33,6 +33,13 @@ class FormalDecisionTests(unittest.TestCase):
             p.write_text(json.dumps(invalid))
             with self.assertRaisesRegex(ValueError, 'diagnostic scope differs'):
                 compile_decision(root, root / 'invalid-memo')
+            invalid['execution_outcomes_computed'] = 0
+            p.write_text(json.dumps(invalid))
+            (root / 'current-preservation.json').write_text(json.dumps({
+                'status': 'REMOTE_READBACK_VERIFIED', 'scientific_enrollment': True,
+                'production_host_qualified': False, 'absolute_utc_accuracy_verified': False}))
+            with self.assertRaisesRegex(ValueError, 'cannot grant scientific or host qualification'):
+                compile_decision(root, root / 'invalid-archive-claim')
 
 
 if __name__ == '__main__':

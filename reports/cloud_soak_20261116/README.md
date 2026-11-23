@@ -1,3 +1,5 @@
+> November 23 update: [remote archive readback verified](preservation.json) for all 54 members. The original failed clock/host qualification findings below remain unchanged. See the [current formal disposition](../formal_decision_20261123/README.md).
+
 # Ten-minute cloud acquisition rehearsal — November 16, 2026
 
 **Result: qualification incomplete.** Ten declared local health/preservation
