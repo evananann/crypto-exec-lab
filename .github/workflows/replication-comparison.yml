@@ -48,10 +48,22 @@ jobs:
           REPOSITORY: ${{ github.repository }}
           RUN_ID: ${{ github.event.workflow_run.id || inputs.report_run_id }}
         run: |
-          uv run --frozen python -m scripts.download_replication_reports --repository "$REPOSITORY" --run-id "$RUN_ID" --out data/raw/reports
+          uv run --frozen python -m research.release_recovery replication --repository "$REPOSITORY" --run-id "$RUN_ID" --out data/raw/reports
           uv run --frozen python -m scripts.compare_replication --okx data/raw/reports/okx/bundle --bybit data/raw/reports/bybit/bundle --out data/raw/comparison
           cp data/raw/reports/run-provenance.json data/raw/comparison/
+          cp data/raw/reports/recovery.json data/raw/comparison/
           cat data/raw/comparison/comparison.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
+        if: steps.release.outputs.run == 'true'
+        with:
+          name: btc-replication-v2-rebuilt-reports
+          path: |
+            data/raw/reports/*/bundle/
+            data/raw/reports/*/provenance/*.provenance.json
+            data/raw/reports/run-provenance.json
+            data/raw/reports/recovery.json
+          retention-days: 90
+          if-no-files-found: error
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
         if: steps.release.outputs.run == 'true'
         with:
