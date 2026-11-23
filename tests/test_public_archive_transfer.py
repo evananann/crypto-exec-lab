@@ -12,6 +12,15 @@ from research.roadmap import archive_transfer as transfer
 
 
 class ArchiveTransferTests(unittest.TestCase):
+    def test_compressed_bomb_is_bounded_before_tar_parsing(self):
+        import gzip
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / 'qualification.tar.gz'
+            path.write_bytes(gzip.compress(b'\0' * 5000))
+            with patch.object(transfer, 'LIMIT', 256):
+                with self.assertRaisesRegex(ValueError, 'decompressed archive exceeds'):
+                    transfer.checked_archive(path)
+
     def test_git_blob_content_identity_is_verified(self):
         data = b'public fixture bytes'
         identifier = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()

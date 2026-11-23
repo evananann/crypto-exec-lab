@@ -81,4 +81,3 @@ interpretation and spoken practice are not marked complete by these artifacts.
 
 This is a dated historical roadmap. Use the [November 23 formal disposition](../reports/formal_decision_20261123/README.md)
 for completed work, failed qualification attempts and current enrollment blockers.
-

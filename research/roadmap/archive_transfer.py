@@ -8,6 +8,8 @@ Public data objects are unreferenced blobs; raw tapes never enter commit history
 import argparse
 import base64
 import hashlib
+import gzip
+from io import BytesIO
 import json
 from pathlib import Path, PurePosixPath
 import re
@@ -28,7 +30,12 @@ def gh(*args, payload=None):
 def checked_archive(path):
     if path.is_symlink() or path.stat().st_size > LIMIT:
         raise ValueError('archive exceeds public transfer bound')
-    with tarfile.open(path, 'r:gz') as archive:
+    # Bound decompression before tarfile parses members or extended headers.
+    with gzip.open(path, 'rb') as source:
+        raw = source.read(LIMIT + 1)
+    if len(raw) > LIMIT:
+        raise ValueError('decompressed archive exceeds public transfer bound')
+    with tarfile.open(fileobj=BytesIO(raw), mode='r:') as archive:
         members = archive.getmembers()
         names = [m.name for m in members]
         if len(members) > 1000 or len(set(names)) != len(names) or sum(m.size for m in members) > LIMIT:
