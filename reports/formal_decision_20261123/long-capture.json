@@ -1,0 +1,614 @@
+{
+  "main": {
+    "exit_code": 1,
+    "forced_kill": false,
+    "elapsed_seconds": 296.6975270419998
+  },
+  "restart": null,
+  "main_inspection": {
+    "inventory": {
+      "integrity_state": "verified",
+      "verified_segments": [
+        {
+          "file": "20261123T151117-1bca3c623b8d4154bb2d0c80eccc5259.jsonl.gz",
+          "records": 55676,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151147-49c0277956f740d3aaf14710bdc4bd57.jsonl.gz",
+          "records": 38756,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151217-5439be6c18bc4a0aa1bc7d57099ada8e.jsonl.gz",
+          "records": 54522,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151247-49b41744fda540bb9a390f76dc1833b8.jsonl.gz",
+          "records": 51226,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151317-fbb536e1d86a4868a8d2fdc752f59b62.jsonl.gz",
+          "records": 43801,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151347-858759456ccd4a0daef6cdd6899c27ea.jsonl.gz",
+          "records": 48486,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151417-0e9415e904d94de7a0659454c16448a5.jsonl.gz",
+          "records": 49762,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151447-d506a9a44013488492e3a01b1deb74e7.jsonl.gz",
+          "records": 53798,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151517-b446b83f428143adb0b2b98c7c73e256.jsonl.gz",
+          "records": 48682,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151547-942c414465dc46e5a2d47a635e6675f4.jsonl.gz",
+          "records": 44361,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        }
+      ],
+      "records": 489070,
+      "invalid_files": [],
+      "orphaned_segments": [],
+      "interrupted_files": [],
+      "reported_capture_faults": [
+        {
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768",
+          "faults": [
+            "transport_error"
+          ]
+        }
+      ],
+      "pending_session_status": [],
+      "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+    },
+    "wire_counts": {
+      "binance-bbo": 465964,
+      "okx-bbo": 23103
+    },
+    "recognized_bbo_counts": {
+      "binance-bbo": 465964,
+      "okx-bbo": 23102
+    },
+    "parse_or_subscription_errors": {},
+    "maximum_receive_gap_ms": {
+      "binance-bbo": 275.049039,
+      "okx-bbo": 163.89878
+    },
+    "receive_span_seconds": {
+      "binance-bbo": 294.912898406,
+      "okx-bbo": 295.884596434
+    },
+    "enqueue_to_writer": {
+      "n": 489067,
+      "maximum_ms": 56.175987,
+      "p99_ms": 3.170545
+    },
+    "clock_samples": 11,
+    "all_daemon_sync_estimates_available": false,
+    "clock_samples_data": [
+      {
+        "phase": "before_session",
+        "monotonic_ns": 2473097234828,
+        "wall_ns": 1795446676518611644,
+        "pair_uncertainty_ns": 195,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)"
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2503098213898,
+        "wall_ns": 1795446706519597414,
+        "pair_uncertainty_ns": 7166,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 30000979070,
+          "wall_minus_monotonic_ns": 6700,
+          "pair_uncertainty_ns": 7361,
+          "apparent_divergence_ppm": 0.2233260449389727,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2533102237202,
+        "wall_ns": 1795446736523614034,
+        "pair_uncertainty_ns": 421,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 60005002374,
+          "wall_minus_monotonic_ns": 16,
+          "pair_uncertainty_ns": 616,
+          "apparent_divergence_ppm": 0.0002666444357467896,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2563103638308,
+        "wall_ns": 1795446766525015245,
+        "pair_uncertainty_ns": 326,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 90006403480,
+          "wall_minus_monotonic_ns": 121,
+          "pair_uncertainty_ns": 521,
+          "apparent_divergence_ppm": 0.0013443487943264722,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2593104876843,
+        "wall_ns": 1795446796526260269,
+        "pair_uncertainty_ns": 7106,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 120007642015,
+          "wall_minus_monotonic_ns": 6610,
+          "pair_uncertainty_ns": 7301,
+          "apparent_divergence_ppm": 0.055079825659550934,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2623108092209,
+        "wall_ns": 1795446826529469136,
+        "pair_uncertainty_ns": 346,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 150010857381,
+          "wall_minus_monotonic_ns": 111,
+          "pair_uncertainty_ns": 541,
+          "apparent_divergence_ppm": 0.0007399464407971512,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2653109514971,
+        "wall_ns": 1795446856530891872,
+        "pair_uncertainty_ns": 291,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 180012280143,
+          "wall_minus_monotonic_ns": 85,
+          "pair_uncertainty_ns": 486,
+          "apparent_divergence_ppm": 0.00047219000799543693,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2683111736170,
+        "wall_ns": 1795446886533113151,
+        "pair_uncertainty_ns": 381,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 210014501342,
+          "wall_minus_monotonic_ns": 165,
+          "pair_uncertainty_ns": 576,
+          "apparent_divergence_ppm": 0.0007856600327389025,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2713112689009,
+        "wall_ns": 1795446916534065825,
+        "pair_uncertainty_ns": 336,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 240015454181,
+          "wall_minus_monotonic_ns": 0,
+          "pair_uncertainty_ns": 531,
+          "apparent_divergence_ppm": 0.0,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2743113877289,
+        "wall_ns": 1795446946535261712,
+        "pair_uncertainty_ns": 8072,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 270016642461,
+          "wall_minus_monotonic_ns": 7607,
+          "pair_uncertainty_ns": 8267,
+          "apparent_divergence_ppm": 0.028172337566558407,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "after_session",
+        "monotonic_ns": 2769673270319,
+        "wall_ns": 1795446973094647246,
+        "pair_uncertainty_ns": 326,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 296576035491,
+          "wall_minus_monotonic_ns": 111,
+          "pair_uncertainty_ns": 521,
+          "apparent_divergence_ppm": 0.0003742716427382024,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      }
+    ]
+  },
+  "final_inspection": {
+    "inventory": {
+      "integrity_state": "verified",
+      "verified_segments": [
+        {
+          "file": "20261123T151117-1bca3c623b8d4154bb2d0c80eccc5259.jsonl.gz",
+          "records": 55676,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151147-49c0277956f740d3aaf14710bdc4bd57.jsonl.gz",
+          "records": 38756,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151217-5439be6c18bc4a0aa1bc7d57099ada8e.jsonl.gz",
+          "records": 54522,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151247-49b41744fda540bb9a390f76dc1833b8.jsonl.gz",
+          "records": 51226,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151317-fbb536e1d86a4868a8d2fdc752f59b62.jsonl.gz",
+          "records": 43801,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151347-858759456ccd4a0daef6cdd6899c27ea.jsonl.gz",
+          "records": 48486,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151417-0e9415e904d94de7a0659454c16448a5.jsonl.gz",
+          "records": 49762,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151447-d506a9a44013488492e3a01b1deb74e7.jsonl.gz",
+          "records": 53798,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151517-b446b83f428143adb0b2b98c7c73e256.jsonl.gz",
+          "records": 48682,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        },
+        {
+          "file": "20261123T151547-942c414465dc46e5a2d47a635e6675f4.jsonl.gz",
+          "records": 44361,
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768"
+        }
+      ],
+      "records": 489070,
+      "invalid_files": [],
+      "orphaned_segments": [],
+      "interrupted_files": [],
+      "reported_capture_faults": [
+        {
+          "session_id": "af28ec9b0ef048b59b2c5b6294995768",
+          "faults": [
+            "transport_error"
+          ]
+        }
+      ],
+      "pending_session_status": [],
+      "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+    },
+    "wire_counts": {
+      "binance-bbo": 465964,
+      "okx-bbo": 23103
+    },
+    "recognized_bbo_counts": {
+      "binance-bbo": 465964,
+      "okx-bbo": 23102
+    },
+    "parse_or_subscription_errors": {},
+    "maximum_receive_gap_ms": {
+      "binance-bbo": 275.049039,
+      "okx-bbo": 163.89878
+    },
+    "receive_span_seconds": {
+      "binance-bbo": 294.912898406,
+      "okx-bbo": 295.884596434
+    },
+    "enqueue_to_writer": {
+      "n": 489067,
+      "maximum_ms": 56.175987,
+      "p99_ms": 3.170545
+    },
+    "clock_samples": 11,
+    "all_daemon_sync_estimates_available": false,
+    "clock_samples_data": [
+      {
+        "phase": "before_session",
+        "monotonic_ns": 2473097234828,
+        "wall_ns": 1795446676518611644,
+        "pair_uncertainty_ns": 195,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)"
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2503098213898,
+        "wall_ns": 1795446706519597414,
+        "pair_uncertainty_ns": 7166,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 30000979070,
+          "wall_minus_monotonic_ns": 6700,
+          "pair_uncertainty_ns": 7361,
+          "apparent_divergence_ppm": 0.2233260449389727,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2533102237202,
+        "wall_ns": 1795446736523614034,
+        "pair_uncertainty_ns": 421,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 60005002374,
+          "wall_minus_monotonic_ns": 16,
+          "pair_uncertainty_ns": 616,
+          "apparent_divergence_ppm": 0.0002666444357467896,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2563103638308,
+        "wall_ns": 1795446766525015245,
+        "pair_uncertainty_ns": 326,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 90006403480,
+          "wall_minus_monotonic_ns": 121,
+          "pair_uncertainty_ns": 521,
+          "apparent_divergence_ppm": 0.0013443487943264722,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2593104876843,
+        "wall_ns": 1795446796526260269,
+        "pair_uncertainty_ns": 7106,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 120007642015,
+          "wall_minus_monotonic_ns": 6610,
+          "pair_uncertainty_ns": 7301,
+          "apparent_divergence_ppm": 0.055079825659550934,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2623108092209,
+        "wall_ns": 1795446826529469136,
+        "pair_uncertainty_ns": 346,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 150010857381,
+          "wall_minus_monotonic_ns": 111,
+          "pair_uncertainty_ns": 541,
+          "apparent_divergence_ppm": 0.0007399464407971512,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2653109514971,
+        "wall_ns": 1795446856530891872,
+        "pair_uncertainty_ns": 291,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 180012280143,
+          "wall_minus_monotonic_ns": 85,
+          "pair_uncertainty_ns": 486,
+          "apparent_divergence_ppm": 0.00047219000799543693,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2683111736170,
+        "wall_ns": 1795446886533113151,
+        "pair_uncertainty_ns": 381,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 210014501342,
+          "wall_minus_monotonic_ns": 165,
+          "pair_uncertainty_ns": 576,
+          "apparent_divergence_ppm": 0.0007856600327389025,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2713112689009,
+        "wall_ns": 1795446916534065825,
+        "pair_uncertainty_ns": 336,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 240015454181,
+          "wall_minus_monotonic_ns": 0,
+          "pair_uncertainty_ns": 531,
+          "apparent_divergence_ppm": 0.0,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "periodic",
+        "monotonic_ns": 2743113877289,
+        "wall_ns": 1795446946535261712,
+        "pair_uncertainty_ns": 8072,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 270016642461,
+          "wall_minus_monotonic_ns": 7607,
+          "pair_uncertainty_ns": 8267,
+          "apparent_divergence_ppm": 0.028172337566558407,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      },
+      {
+        "phase": "after_session",
+        "monotonic_ns": 2769673270319,
+        "wall_ns": 1795446973094647246,
+        "pair_uncertainty_ns": 326,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 296576035491,
+          "wall_minus_monotonic_ns": 111,
+          "pair_uncertainty_ns": 521,
+          "apparent_divergence_ppm": 0.0003742716427382024,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      }
+    ]
+  },
+  "old_bytes_retained": true,
+  "clock_after": {
+    "monotonic_ns": 2785675295317,
+    "wall_ns": 1795446989096676235,
+    "pair_uncertainty_ns": 4417
+  },
+  "production_host_qualified": false,
+  "independent_utc_accuracy_verified": false,
+  "scientific_enrollment": false,
+  "orders_submitted": 0
+}

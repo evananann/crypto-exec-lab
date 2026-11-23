@@ -85,6 +85,20 @@ body{font:17px/1.65 system-ui,sans-serif;color:#142238;background:#f6f8fb;margin
     if hashlib.sha256((released/'RESEARCH_MEMO.pdf').read_bytes()).hexdigest() != released_checksums['RESEARCH_MEMO.pdf']:
         raise ValueError('released memo checksum mismatch')
     shutil.copyfile(released/'RESEARCH_MEMO.pdf',output/'research-memo.pdf')
+    formal = ROOT/'reports/formal_decision_20261123'
+    formal_checksums = json.loads((formal/'checksums.json').read_text())
+    for original, published in (('decision.html', 'formal-decision.html'),
+                                ('decision.json', 'formal-decision.json')):
+        if hashlib.sha256((formal/original).read_bytes()).hexdigest() != formal_checksums[original]:
+            raise ValueError('formal decision evidence checksum mismatch')
+        shutil.copyfile(formal/original, output/published)
+    home = output/'index.html'
+    home.write_text(home.read_text().replace('<h2>What is established?</h2>',
+        '<h2>Current formal decision — November 23</h2><p><a href="formal-decision.html">'
+        'Read the current decision and timestamp/capture diagnosis</a> · '
+        '<a href="formal-decision.json">Structured findings</a>. '
+        'Do not deploy. The paired follow-on is not enrolled; transport qualification '
+        'failed and incremental Binance value remains unestablished.</p><h2>What is established?</h2>'))
     files = sorted(p.name for p in output.iterdir())
     (output/'site-checksums.json').write_text(json.dumps({name: hashlib.sha256((output/name).read_bytes()).hexdigest() for name in files}, indent=2)+'\n')
 

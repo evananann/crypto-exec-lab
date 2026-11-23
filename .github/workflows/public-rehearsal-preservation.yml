@@ -1,0 +1,40 @@
+name: public rehearsal archive preservation
+on:
+  workflow_dispatch:
+    inputs:
+      manifest_blob:
+        description: 'Exact staged public manifest Git blob SHA'
+        required: true
+      manifest_sha256:
+        description: 'Locally verified manifest SHA256'
+        required: true
+      tag:
+        description: 'Existing isolated qualification-cloud release tag'
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: public-rehearsal-preservation-${{ inputs.tag }}
+  cancel-in-progress: false
+jobs:
+  preserve:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - name: Reassemble public archive, verify originals, preserve and read back
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BLOB: ${{ inputs.manifest_blob }}
+          DIGEST: ${{ inputs.manifest_sha256 }}
+          TAG: ${{ inputs.tag }}
+        run: python -m research.roadmap.archive_transfer receive --manifest-blob "$BLOB" --manifest-sha256 "$DIGEST" --tag "$TAG" --out data/raw/public-preservation
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: public-preservation-receipt
+          path: data/raw/public-preservation/preservation.json
+          if-no-files-found: error
+          retention-days: 90

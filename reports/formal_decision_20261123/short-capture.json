@@ -1,0 +1,93 @@
+{
+  "main": {
+    "exit_code": 1,
+    "forced_kill": false,
+    "elapsed_seconds": 25.01985583900023
+  },
+  "restart": null,
+  "inspection": {
+    "inventory": {
+      "integrity_state": "verified",
+      "verified_segments": [
+        {
+          "file": "20261123T152144-a5ed31fe0d604c60a8c25b714db6ca88.jsonl.gz",
+          "records": 38545,
+          "session_id": "016953a0aa1f412d854a112c40eb1d7b"
+        }
+      ],
+      "records": 38545,
+      "invalid_files": [],
+      "orphaned_segments": [],
+      "interrupted_files": [],
+      "reported_capture_faults": [
+        {
+          "session_id": "016953a0aa1f412d854a112c40eb1d7b",
+          "faults": [
+            "transport_error"
+          ]
+        }
+      ],
+      "pending_session_status": [],
+      "scope": "local file integrity only; source completeness, timing and scientific eligibility unassessed"
+    },
+    "wire_counts": {
+      "binance-bbo": 36573,
+      "okx-bbo": 1969
+    },
+    "recognized_bbo_counts": {
+      "binance-bbo": 36573,
+      "okx-bbo": 1968
+    },
+    "parse_or_subscription_errors": {},
+    "maximum_receive_gap_ms": {
+      "binance-bbo": 176.712135,
+      "okx-bbo": 144.364849
+    },
+    "receive_span_seconds": {
+      "binance-bbo": 23.172369187,
+      "okx-bbo": 23.999722213
+    },
+    "enqueue_to_writer": {
+      "n": 38542,
+      "maximum_ms": 22.958626,
+      "p99_ms": 4.676455
+    },
+    "clock_samples": 2,
+    "all_daemon_sync_estimates_available": false,
+    "clock_samples_data": [
+      {
+        "phase": "before_session",
+        "monotonic_ns": 3100261519967,
+        "wall_ns": 1795447303682896879,
+        "pair_uncertainty_ns": 331,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)"
+      },
+      {
+        "phase": "after_session",
+        "monotonic_ns": 3124960992649,
+        "wall_ns": 1795447328382369526,
+        "pair_uncertainty_ns": 286,
+        "ntp": {
+          "available": false,
+          "reason": "chronyc_not_installed"
+        },
+        "monotonic_implementation": "clock_gettime(CLOCK_MONOTONIC)",
+        "since_start": {
+          "available": true,
+          "elapsed_monotonic_ns": 24699472682,
+          "wall_minus_monotonic_ns": -35,
+          "pair_uncertainty_ns": 617,
+          "apparent_divergence_ppm": -0.0014170343007163314,
+          "scope": "Relative wall/monotonic divergence; includes steps/slew/sampling. Not absolute UTC offset or proof of zero clock steps."
+        }
+      }
+    ]
+  },
+  "old_bytes_retained": true,
+  "orders_submitted": 0,
+  "enrolled": false
+}
