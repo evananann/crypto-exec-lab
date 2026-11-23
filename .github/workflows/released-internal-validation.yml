@@ -92,7 +92,7 @@ jobs:
         env:
           PLAN: ${{ steps.gate.outputs.plan }}
         run: |
-          uv run --frozen python -m scripts.released_validation --root data/raw/internal-restored --plan "$GITHUB_WORKSPACE/$PLAN" --benchmark-repeats 3 --provenance-root data/raw/internal-downloads --out data/raw/internal-validation
+          uv run --frozen python -m research.release_recovery internal --root data/raw/internal-restored --plan "$GITHUB_WORKSPACE/$PLAN" --benchmark-repeats 3 --provenance-root data/raw/internal-downloads --out data/raw/internal-validation
           python -S scripts/released_validation.py --verify data/raw/internal-validation
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
         if: always() && steps.gate.outputs.run == 'true'

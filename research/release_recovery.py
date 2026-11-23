@@ -98,16 +98,121 @@ def model_report(now, repository):
                 'No tapes were sorted, excluded to obtain results, or modified.'}
 
 
+def complete_inventory(original, target, plan_path, commit):
+    """Extend provenance in a copy, preserving all original scientific outputs."""
+    from cel.artifacts import file_sha256
+    from cel.study import load_plan
+    from scripts.verify_bundle import verify, safe_name
+    verify(original, expected_commit=commit, source_repo=ROOT)
+    plan, _ = load_plan(plan_path)
+    data = json.loads((original / 'experiments.json').read_text())
+    sources = data['sources_sha256']
+    additions = {}
+    for name, expected in plan['analysis_files_sha256'].items():
+        if not safe_name(name):
+            raise ValueError('unsafe registered source')
+        blob = subprocess.check_output(['git', 'cat-file', 'blob', commit + ':' + name], cwd=ROOT)
+        if hashlib.sha256(blob).hexdigest() != expected or file_sha256(ROOT / name) != expected:
+            raise ValueError('registered source differs from committed bytes')
+        if name in sources and sources[name] != expected:
+            raise ValueError('conflicting existing source digest')
+        if name not in sources:
+            additions[name] = expected
+    if not additions:
+        raise ValueError('no omitted registered source references to recover')
+    shutil.copytree(original, target)
+    sources.update(additions)
+    (target / 'experiments.json').write_text(json.dumps(data, indent=2, allow_nan=False) + '\n')
+    index = json.loads((target / 'checksums.json').read_text())
+    index['experiments.json'] = file_sha256(target / 'experiments.json')
+    (target / 'checksums.json').write_text(json.dumps(index, indent=2) + '\n')
+    verify(target, expected_commit=commit, source_repo=ROOT)
+    return {'original_experiments_sha256': file_sha256(original / 'experiments.json'),
+            'derived_experiments_sha256': file_sha256(target / 'experiments.json'),
+            'added_registered_sources': additions,
+            'scope': 'Only omitted registered source references added in a copy. '
+                     'Original bundle retained; no scientific outputs or source bytes changed.'}
+
+
+def recover_internal(out, root, plan_path, provenance_root, repeats, *, now=None):
+    from scripts import released_validation, released_robustness
+    from cel.artifacts import file_sha256
+    from cel.study import verify_archive
+    plan_path = canonical_plan(plan_path)
+    now = now or datetime.now(timezone.utc)
+    try:
+        return released_validation.run(out, root=root, plan_path=plan_path,
+            provenance_root=provenance_root, benchmark_repeats=repeats, now=now)
+    except ValueError as exc:
+        if str(exc) != 'released report source or plan mismatch':
+            raise
+    progress = json.loads((out / 'progress.json').read_text())
+    if progress['active_step'] != 'released_sensitivity':
+        raise ValueError('unexpected validation recovery stage')
+    commit = progress['source_commit']
+    original, derived = out / 'bundle', out / 'provenance-complete-bundle'
+    recovery = complete_inventory(original, derived, plan_path, commit)
+    result = released_robustness.released(derived, plan_path, commit, now=now)
+    (out / 'robustness.json').write_text(json.dumps(result, indent=2) + '\n')
+    bundle = json.loads((original / 'experiments.json').read_text())
+    if repeats:
+        from scripts.benchmark_pipeline import benchmark
+        from cel.study import load_plan
+        _, config = load_plan(plan_path)
+        measurements = [{'session': item['session'], 'result': benchmark(
+            Path(item['path']), config, repeats=repeats)} for item in bundle['inputs']]
+        (out / 'released_benchmarks.json').write_text(json.dumps(measurements, indent=2) + '\n')
+    receipts = out / 'source-provenance'
+    receipts.mkdir()
+    sessions = set()
+    for path in sorted(provenance_root.glob('*.provenance.json')):
+        receipt = json.loads(path.read_text())
+        session = receipt['session_id']
+        if not isinstance(session, str) or Path(session).name != session or session in sessions:
+            raise ValueError('unsafe or duplicate receipt session')
+        sessions.add(session)
+        archive = provenance_root / (session + '.tar.gz')
+        manifest = verify_archive(archive)
+        if (receipt['archive_sha256'] != file_sha256(archive)
+                or receipt['head_sha'] != manifest['collector_commit']
+                or receipt['plan_sha256'] != manifest['plan_sha256']
+                or manifest['session_id'] != session):
+            raise ValueError('provenance receipt conflicts with original archive')
+        shutil.copyfile(path, receipts / path.name)
+    checked = json.loads((out / 'crosscheck.json').read_text())
+    expected = {r['session'] for r in checked['cases']} | {
+        r['session'] for r in checked['skipped'] if r['phase'] != 'preflight'}
+    if sessions != expected:
+        raise ValueError('receipt coverage differs from restored attempts')
+    recovery.update(status='operational_recovery_complete', source_commit=commit,
+                    scientific_conclusion='Completion is not evidence of profitability or adequate coverage.')
+    (out / 'recovery.json').write_text(json.dumps(recovery, indent=2) + '\n')
+    marker = {'status': 'complete', 'synthetic': False, 'source_commit': commit,
+              'files_sha256': {str(p.relative_to(out)): file_sha256(p)
+                               for p in sorted(out.rglob('*')) if p.is_file()}}
+    (out / 'completion.json').write_text(json.dumps(marker, indent=2) + '\n')
+    return released_validation.verify_package(out)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('mode', choices=['replication', 'model'])
+    parser.add_argument('mode', choices=['replication', 'model', 'internal'])
     parser.add_argument('--repository', default='evananann/crypto-exec-lab')
     parser.add_argument('--run-id', type=int)
     parser.add_argument('--out', '--output', dest='out', required=True, type=Path)
+    parser.add_argument('--root', type=Path)
+    parser.add_argument('--plan', type=Path)
+    parser.add_argument('--provenance-root', type=Path)
+    parser.add_argument('--benchmark-repeats', type=int, default=0)
     args = parser.parse_args()
     now = datetime.now(timezone.utc)
     if args.mode == 'replication':
         recover_replication(args.repository, args.run_id, args.out, now=now)
+    elif args.mode == 'internal':
+        if any(value is None for value in (args.root, args.plan, args.provenance_root)):
+            parser.error('internal mode requires root, plan and provenance-root')
+        print(json.dumps(recover_internal(args.out, args.root, args.plan,
+                         args.provenance_root, args.benchmark_repeats, now=now)))
     else:
         from research.model_comparison import write_report
         report = model_report(now, args.repository)
