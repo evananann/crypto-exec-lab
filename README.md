@@ -28,6 +28,12 @@ one 5 bps entry fee, not a realized round-trip return. Missing observations stay
 unknown. A narrow interval on the observed dates cannot repair selection or
 missing coverage. No profitable strategy, maker savings or deployable model is claimed.
 
+The [AM/PM missing-data frontier](reports/missingness_frontier_20261123/README.md)
+quantifies the selection uncertainty: if missing AM sessions matched observed AM,
+the 27 missing PM sessions would need **+5.0488 bps entry-net** on average to make
+the complete schedule break even. This is conditional arithmetic, not estimated
+missing performance, and it leaves the frozen conclusion unchanged.
+
 ## What the code does
 
 - Preserves public market recordings, hashes, source identities and release gates.
