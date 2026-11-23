@@ -1,5 +1,11 @@
 # Released research decision — November 22, 2026
 
+**Current November 23 disposition:** [formal decision and original timestamp/capture
+diagnosis](../reports/formal_decision_20261123/README.md). Deployment remains rejected;
+the original frozen conclusion below is unchanged. Incremental Binance value is
+unestablished, and the follow-on is not enrolled. The sections below retain the
+dated primary-study interpretation; the replication release gate has now elapsed.
+
 **Decision: no live deployment. Formal study conclusion: inconclusive because
 coverage/precision requirements were not met.** The observed subset is unfavorable.
 Read the [authenticated report and provenance](../reports/released_successor_20261122/README.md)

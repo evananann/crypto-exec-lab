@@ -1,0 +1,15 @@
+{
+  "started_at_utc": "2026-11-23T15:29:25.983287+00:00",
+  "seconds_requested": 60,
+  "endpoint": "wss://fstream.binance.com/public/stream?streams=btcusdt@bookTicker",
+  "error_types": {},
+  "messages": 92687,
+  "bytes": 18750187,
+  "opened": true,
+  "close_codes": [],
+  "orders_submitted": 0,
+  "ended_before_deadline": false,
+  "worker_stopped": false,
+  "elapsed_seconds": 65.04269899799965,
+  "scope": "Transport classification only. No original error can be attributed to this probe, and no UTC, capture or research qualification is established."
+}

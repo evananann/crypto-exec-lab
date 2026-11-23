@@ -77,3 +77,8 @@ The [implementation contract](INTERNAL_VALIDATION.md) explains recovery and
 validation limits. The [committed engineering evidence](../reports/internal_validation/README.md)
 records actual commands and source revision. Future collection, scientific
 interpretation and spoken practice are not marked complete by these artifacts.
+# Current-status note
+
+This is a dated historical roadmap. Use the [November 23 formal disposition](../reports/formal_decision_20261123/README.md)
+for completed work, failed qualification attempts and current enrollment blockers.
+

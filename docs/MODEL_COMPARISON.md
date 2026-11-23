@@ -1,5 +1,14 @@
 # Secondary predictive-model comparison
 
+**November 23 update:** released empirical processing is unavailable because an
+authenticated original tape has receive-time regressions. See the
+[formal diagnosis](../reports/formal_decision_20261123/README.md). The original
+source-locked workflow is disabled operationally; its bytes and guards are
+unchanged. The [replacement availability workflow](../.github/workflows/model-comparison-availability.yml)
+records the limitation and preserves its report in GitHub Releases. It does not
+fit a repaired or selected sample. The protocol description below is retained;
+references to fitting being pending are historical.
+
 This is a precommitted secondary comparison for the first qualified successor
 study registered after the analysis source commit. It does not replace the
 frozen $2 jump / 50 ms / one-second entry-to-mid primary, supply an independent

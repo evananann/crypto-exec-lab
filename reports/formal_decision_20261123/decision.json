@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-23",
+  "deployment_decision": "DO_NOT_DEPLOY",
+  "followon_enrollment": "BLOCKED_NOT_ENROLLED",
+  "original_scientific_conclusion": "inconclusive_missing_coverage_or_precision",
+  "primary_phases": {
+    "development": {
+      "planned_slots": 42,
+      "eligible_slots": 20,
+      "available_primary_means": 20,
+      "occupied_days": 19,
+      "equal_day_mean_bps": -4.703059961401743,
+      "ci95_bps": [
+        -4.758502253716774,
+        -4.649810541587178
+      ],
+      "precision_goal_met": false
+    },
+    "holdout": {
+      "planned_slots": 14,
+      "eligible_slots": 3,
+      "available_primary_means": 3,
+      "occupied_days": 3,
+      "equal_day_mean_bps": -4.647123319973564,
+      "ci95_bps": null,
+      "precision_goal_met": false
+    },
+    "full": {
+      "planned_slots": 56,
+      "eligible_slots": 23,
+      "available_primary_means": 23,
+      "occupied_days": 22,
+      "equal_day_mean_bps": -4.695432237570627,
+      "ci95_bps": [
+        -4.7474920800204625,
+        -4.6480759671933205
+      ],
+      "precision_goal_met": false
+    }
+  },
+  "incremental_binance_value": "UNESTABLISHED",
+  "secondary_model_status": "UNAVAILABLE_RECORDED_ORDER_VIOLATION",
+  "first_problematic_original_slot": "2026-11-13-am",
+  "original_slots_diagnosed": 19,
+  "original_records_diagnosed": 7978965,
+  "first_problematic_slot_order_counts": {
+    "records": 1839966,
+    "local_ts_adjacent_regressions": 3
+  },
+  "long_capture": {
+    "exit_code": 1,
+    "forced_kill": false,
+    "elapsed_seconds": 296.6975270419998
+  },
+  "long_capture_target_seconds": 1800,
+  "activity_counts": {
+    "grid_opportunities": 30,
+    "jointly_eligible": 30,
+    "baseline_active": 0,
+    "candidate_active": 0,
+    "different_action_opportunities": 0
+  },
+  "execution_outcomes_computed": 0,
+  "restart_original_bytes_preserved": true,
+  "independent_utc_accuracy_verified": false,
+  "original_report_sha256": "eae9aebae4d7165a839883f8e969885e51c3c549128180ff82d7d073be72ef95",
+  "source_evidence_sha256": {
+    "original-order-audit.json": "05c70ffc83094d2a8344039b2269175b86985efe70f236d7e5c1d0c0b59e009c",
+    "long-capture.json": "4247dff729e12316443f46a2031d24fa973a5f589e96cd01fbc89470c3f251d2",
+    "short-capture.json": "9c52ab3d239d91a386331f61f75a60073cc9fd7feab3ab69282f45196f4febc3",
+    "restart-diagnostic.json": "0f45146f532c438f61e0a3632f99ad995bb5ba3bf259b0dc31c9ff9d5977831c",
+    "activity.json": "24334ec762c5f1b2f506e41eec49ad3dfad94ebcdacb33696b98ea7276b10287",
+    "transport-probe.json": "faee63e1e0e837a17184f202436fe7a888d874ab00812a28770be059fecfec1c"
+  },
+  "implementation_sha256": {
+    "research/roadmap/formal_decision.py": "c66f61f6f064ef0e27340deabdf549209f27592937e97f2b83668ae37e1a0030",
+    "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87",
+    "research/roadmap/timestamp_audit.py": "9e8ba196b04966ee65c588e100352359e7b33d18ad7ad13ddce62ff6b42d653c"
+  },
+  "interpretation": "Do not allocate capital to the tested taker setup. The observed primary subset is unfavorable, but incomplete coverage prevents the frozen confirmatory conclusion. Incremental Binance information has not been established. No model estimate is recovered by sorting timestamps. Failed capture attempts and zero action contrasts do not qualify a new experiment or prove that no useful signal exists.",
+  "next_required_evidence": [
+    "Reliable sustained transport on a durable acquisition host",
+    "Independently measured clock quality and archived original source/data readback",
+    "Future source freeze covering the conservative writer-availability boundary, normalization, gap rules, fixed sensitivity and control definitions",
+    "New discovery and validation dates demonstrating adequate policy contrasts",
+    "Exact future enrollment calendar followed by an untouched test period"
+  ],
+  "deployment_authorized": false
+}

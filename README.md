@@ -1,237 +1,73 @@
 # crypto-exec-lab
 
 [![CI](https://github.com/evananann/crypto-exec-lab/actions/workflows/test.yml/badge.svg)](https://github.com/evananann/crypto-exec-lab/actions/workflows/test.yml)
-![Python CI versions](reports/engineering/python.svg)
-[![Measured coverage snapshot](reports/engineering/coverage.svg)](reports/engineering/README.md)
-[![Frozen source binding](reports/engineering/frozen.svg)](configs/successor/registered_study.json)
 
-![Synthetic cross-venue mechanism and both-side execution-cost waterfall; no empirical edge estimate](reports/opportunity/hero.png)
+**Research question:** does Binance information improve execution decisions on
+OKX beyond information already available on OKX, after fees and latency?
 
-A BTC perpetual research case study: **does cross-venue price discovery survive
-fees, latency and liquidation?** It uses public Binance, OKX and Bybit data,
-frozen hypotheses, received-quote replay and explicit execution assumptions.
+**Current trading decision: DO NOT DEPLOY.** The original registered study is
+formally **inconclusive because coverage/precision requirements failed**.
+Incremental Binance information has not been established.
 
-**Hypothesis:** an accumulated $2 Binance jump predicts a positive OKX
-entry-to-mid markout after a 50ms decision delay and 5bps entry fee, measured
-one second from the signal using local receive time. A separate prospective
-study repeats the fixed test across dates and on Binance→Bybit.
+Read the [November 23 formal disposition](reports/formal_decision_20261123/README.md),
+[structured evidence](reports/formal_decision_20261123/decision.json), or
+[portfolio](https://evananann.github.io/crypto-exec-lab/).
 
-**Released November 22:** the [authenticated primary report](reports/released_successor_20261122/README.md)
-has an observed **-4.6954bps entry-net mean**, but only **23/56 eligible slots**
-and three holdout dates. The frozen decision is **inconclusive_missing_coverage_or_precision**.
-A narrow observed-day interval does not repair missing coverage. The metric is
-50ms/5bps entry-to-mid markout, not executable round-trip profit. No live deployment.
+| Evidence | Actual finding | What it establishes |
+| --- | --- | --- |
+| [Released original study](reports/released_successor_20261122/README.md) | −4.6954 bps entry-net; 23/56 eligible slots; three holdout dates | Unfavorable observed subset; insufficient confirmatory coverage |
+| [Original timestamp diagnosis](reports/formal_decision_20261123/original-order-audit.json) | 19 eligible tapes / 7,978,965 records examined through November 13 AM; three cross-venue 1 ms reversals in that slot | Secondary model unavailable; raw bytes and frozen guards preserved |
+| [Sustained-capture attempt](reports/formal_decision_20261123/long-capture.json) | Intended 30 minutes; stopped after about 297 seconds with a transport error | This host/route has not passed acquisition qualification |
+| [Partial-window activity](reports/formal_decision_20261123/activity.json) | 30 common-feature grid points; zero active decisions or contrasts | Feasibility remains unknown; no execution outcomes computed |
+| [Independent demo execution](reports/spot_validation_20261115/README.md) | Three prescribed spot round trips, reconciled fills and fees | Accounting/execution exercise, separate from perpetual alpha research |
 
-[November 23 qualification progress and owner actions](reports/qualification_components_20261123/README.md).
+The original primary is entry-to-mid markout after an assumed 50 ms delay and
+one 5 bps entry fee, not a realized round-trip return. Missing observations stay
+unknown. A narrow interval on the observed dates cannot repair selection or
+missing coverage. No profitable strategy, maker savings or deployable model is claimed.
 
-[November 22 implementation and remaining dependencies](reports/improvements_20261122/README.md).
+## What the code does
 
-Read the [current memo](docs/RESEARCH_MEMO.md),
-[two-page PDF](reports/released_successor_20261122/RESEARCH_MEMO.pdf),
-[sender timing diagnosis](reports/sender_audit_20261122/README.md) and
-[next-enrollment blockers and power scenarios](reports/enrollment_readiness_20261122/README.md).
-Independent demo transactions and diagnostic checks remain separate from the
-registered perpetual study; no live-money orders are submitted by this project.
+- Preserves public market recordings, hashes, source identities and release gates.
+- Replays quoted execution with explicit latency, spread, depth and fee assumptions.
+- Audits event order and execution accounting without sorting broken tapes.
+- Builds paired opportunities from sealed public-feed spools and original
+  bracketing instrument responses. [Pipeline scope](docs/EMPIRICAL_PIPELINE.md).
+- Keeps failed capture attempts visible and restricts them to outcome-free activity.
+- Tests mechanics using synthetic and adversarial cases, clearly separated from market evidence.
 
-**November 15 evidence audit:** [decision and all twelve goal statuses](reports/goal_audit_20261115/README.md)
-and [decision-first summary](reports/goal_audit_20261115/index.html). The hosted review
-cold-started; replication recording steps were skipped except preflight; all four
-controlled financial mutations were detected. This November 15 snapshot predates the primary release; use the current report above.
+The future paired design compares identically scaled **L/2** and **L/2+B/2**
+policies on a common grid. Its implementation and new conservative
+writer-availability clock need a complete future source freeze and enrollment.
+The existing [design v1](research/roadmap/matched_design_v1.json) stays unchanged
+and **not enrolled**. No historical recordings become its discovery or holdout data.
 
-Start with the [interactive decision workbench](reports/decision_workbench/index.html)
-and its [guide](docs/DECISION_WORKBENCH.md): collection evidence, the historical
-pilot, synthetic controls, execution reconciliation and portfolio accounting.
-Download the HTML or serve it locally; GitHub's file viewer does not run it.
+## Reproduce
 
-**November 14 substantive update:** [roadmap delivery and dependencies](docs/ROADMAP_DELIVERY.md),
-a [matched-scale latency/control lab](https://evananann.github.io/crypto-exec-lab/followon.html)
-(**synthetic only**), and the [formal event-time contract](docs/EVENT_TIME_CONTRACT.md).
-The [research log](docs/RESEARCH_LOG.md) records what changed and what failed.
-This November 14 snapshot predates the primary release; the lab remains a separate synthetic experiment.
-
-For interview preparation, use the [case study and evidence map](docs/INTERVIEW_CASE_STUDY.md):
-why a policy can beat its baseline without making money, how score shrinkage can
-imitate added information, and which accounting and robustness checks support each claim.
-
-The [decision-study reviewer guide](docs/DECISION_STUDY.md) covers
-shared local/cross-venue replay, audited paired outcomes, a reproducible synthetic
-memo, and a dated metadata-only collection review. The separate October 22 exploratory pilot found zero active decisions across 180
-fixed-grid opportunities; it establishes no trading edge or useful effect estimate.
-
-Start with the [research memo](docs/RESEARCH_MEMO.md),
-[trading thesis and falsification plan](docs/TRADING_THESIS.md), and
-[trader decision memo](docs/TRADER_DECISION_MEMO.md). The
-[interactive cost-hurdle lab](reports/trading_decision/decision.html) explores
-when an assumed positive primary markout could survive an executable exit.
-Its 18 fixed cases are synthetic arithmetic, with no market estimates or orders.
-
-Use the [data card](docs/DATA_CARD.md) for instrument, unit, clock and
-coverage provenance, or the [reviewer packet](docs/REVIEWER_PACKET.md) for a short
-reading order and reproducible audit questions.
-
-Open the [executed five-minute synthetic walkthrough](notebooks/01_thesis_walkthrough.ipynb)
-or [run it in Colab](https://colab.research.google.com/github/evananann/crypto-exec-lab/blob/main/notebooks/01_thesis_walkthrough.ipynb).
-The [engineering audits](docs/ENGINEERING_REFINEMENTS.md) add measured columnar
-as-of association, clock diagnostics, impact sensitivity and future-input
-multiplicity/DSR/PBO checks. Performance and coverage numbers are measured
-snapshots; no >95% coverage, calibrated impact or NTP-accuracy claim is assumed.
-
-```mermaid
-flowchart LR
-  B[Binance L1 WS] --> Q[Qualified BBO recorder]
-  O[OKX L1 WS] --> Q
-  Q --> A[Raw wire + provenance + SHA archives]
-  A --> V[Source / timing / health verification]
-  V --> T[Causal replay + fixed 50ms delay]
-  T --> C[Cost and markout engine]
-  C --> H[Development / holdout release gate]
-  B -.-> P[Separate continuous capture pilot]
-  O -.-> P
-  P --> S[Bounded queue + durable segments + clock logs]
-  S -.-> F[Future validated pipeline and new registration required]
-```
-
-The [maker and conditional opportunity experiment](docs/MAKER_OPPORTUNITY.md)
-adds queue/cancellation races, missed profitable fills, fixed tail conditions and
-receive-clock correlation curves. Its [36-case report](reports/opportunity/README.md)
-and hero graphic are synthetic; no predictive or maker edge has been established.
-
-The [portfolio site](https://evananann.github.io/crypto-exec-lab/) and
-[decision workbench](https://evananann.github.io/crypto-exec-lab/workbench.html)
-are published through GitHub Pages. [Deployment 42603234321](https://github.com/evananann/crypto-exec-lab/actions/runs/42603234321)
-completed its build and deploy jobs on November 9 after administrator activation.
-The [cost lab HTML](reports/trading_decision/decision.html) and dashboard remain
-available offline. See [publication evidence and access limits](docs/PORTFOLIO_SITE.md).
-
-The [microstructure research tools](docs/MICROSTRUCTURE_RESEARCH.md) add causal
-OFI, a separate dynamic trigger, latency/depth stresses and event clustering.
-Their [continuous capture pilot](deploy/continuous-capture/README.md) is undeployed;
-these tools require a future experiment and do not alter the registered study.
-
-The [secondary model comparison](docs/MODEL_COMPARISON.md) adds causal BBO
-features, executable round-trip labels, fixed ridge/logistic models and purged
-chronological validation. Its [demo](reports/model_comparison/comparison.md) is
-synthetic; empirical fitting remains release-gated.
-
-The [empirical note](reports/empirical_research/README.md) records the current
-pending state. [Publication automation](docs/EMPIRICAL_HANDOFF.md) will produce
-a one-page interpretation only from an authenticated released scientific report.
-Use the [defense pack](docs/RESEARCH_DEFENSE.md) to practice the research case;
-spoken performance and feedback require the candidate's answers.
-
-The [project status page](reports/project_status/index.html) separates software,
-collection and research evidence. Use the [live status workflow](https://github.com/evananann/crypto-exec-lab/actions/workflows/project-status.yml)
-for refreshed checks. The [successor collection path](docs/SUCCESSOR_COLLECTION.md)
-adds durable slot claims and richer provenance. The October 23 registration fixed 56
-slots across October 25–November 21 UTC; current collection coverage has not been
-re-audited here. The [October 20–21 schedule](docs/APPROVED_TRIALS.md) and
-[October 22 readback](reports/prepared_cohort_20261022/README.md) remain dated
-historical evidence. The registration embeds the full three-trial qualification
-record, including the October 23 trial. Early wake-ups provide no scheduling
-guarantee, and the new acquisition pilot cannot backfill registered slots.
-
-## Continuous improvement
-
-[Daily research review](https://github.com/evananann/crypto-exec-lab/actions/workflows/self-review.yml)
-automatically checks new seeded cases, replays retained failures, reviews source/
-collection metadata and produces a ranked action queue. It preserves bounded
-history between runs when the cache is available. [Scope, recovery and stop instructions](docs/CONTINUOUS_REVIEW.md)
-explain why this is verification automation, not automatic strategy tuning or code repair.
-
-## Evidence a reviewer can inspect
-
-| Evidence | What it establishes |
-| --- | --- |
-| [Pre-release work and remaining blockers](reports/pre_enrollment_20261116/README.md) | Frozen matched design, ten-minute acquisition rehearsal, failure cases, source-to-decision trace and ownership exercise |
-| [Two-page decision memo](reports/execution_sensitivity_20261116/RESEARCH_MEMO.pdf) | Actual demo evidence, cash-cost attribution, explicit sensitivity scenarios and remaining release gates |
-| [Actual demo execution validation](reports/spot_validation_20261115/README.md) | Three prespecified round trips; concurrent quotes; predicted versus observed fills, fees and local timing; no production-calibration claim |
-| [OKX demo evidence](docs/OKX_DEMO_EVIDENCE.md) | Read-only exports and an opt-in bounded demo transaction rehearsal; actual matched paper/replay parity remains pending |
-| [Working paper](reports/STUDY_V1_RESEARCH.md) and [research memo](docs/RESEARCH_MEMO.md) | Exact hypothesis, frozen rules, observed failures and current research limitations |
-| [Trading decision and exit-cost frontier](reports/trading_decision/decision.md) | Exact long/short cash bridge, break-even markout hurdles and assumption sensitivity; no alpha, fill probability or capacity estimate |
-| [Archive restore records](reports/operations/all-release-restores.json) | Eight original preflight attempts independently downloaded and restored, including failures |
-| [Successor rehearsal](reports/successor_validation/README.md) | A real 900-second BBO rehearsal with 388,049 events, independently restored after preservation recovery; not a frozen-study observation |
-| [Prepared qualification readback](reports/prepared_cohort_20261022/README.md) | Two healthy 900-second trials, 643,677 total events, starts 4.434264 s and 3.744673 s late; original runs, archive hashes and source bindings checked as of October 22; registration records the later full cohort |
-| [56-session report benchmark](reports/successor_report_workload/README.md) | Complete offline synthetic report workload, measured runtime, memory and bounded temporary disk; no empirical market evidence |
-| [Report stress measurements](reports/successor_report_stress/README.md) | Separate 400,000-event bursty and dense-signal sessions, with failure-cleanup and published-evidence checks in CI; engineering evidence only |
-| [Power and execution audits](reports/research_audit/README.md) | Reproducible assumption calculations and adversarial synthetic examples, with source hashes |
-| [Missing-data and dependence examples](reports/robustness_examples/README.md) | Hypothetical missing-slot tipping points and calendar-day dependence diagnostics; no market evidence |
-| [Independent markout cross-check](docs/INDEPENDENT_MARKOUT_CHECK.md) | Separate parser and linear-scan reference agree on 9,762 synthetic markout rows; empirical checks remain release-gated |
-| [Test workflow](.github/workflows/test.yml) | Python 3.11–3.13 tests, adversarial checks, fixture CLIs and complete bundle verification |
-
-The power audit finds that **28 independent days give about 56% power to detect
-2bps**, under an assumed 5bps daily standard deviation and known-variance normal
-model. Seven days give about 19%; correlation weakens both. These are planning
-assumptions, not measured market parameters or bootstrap guarantees.
-
-The execution audit shows how a synthetic gross-winning trade loses after both
-fees, and why zero net BTC can still leave opposing venue positions open.
-Entry-to-mid markouts, follower round trips and two-venue hedges are reported
-as different quantities. None guarantees order acceptance or an executable exit.
-
-## Reproduce the offline package
-
-Python 3.11–3.13. No exchange account or credentials are needed for this demo.
-Use new output directories:
-
-```bash
+```sh
 python -m pip install uv==0.12.23
 uv sync --frozen --extra dev
-uv run --frozen python -m research.trading_decision --out data/raw/trading-decision
-uv run --frozen python -m cel.experiments --demo --out data/raw/demo-bundle
-python -S scripts/verify_bundle.py data/raw/demo-bundle
-uv run --frozen --extra dev python -m unittest discover -s tests -v
+uv run --frozen --extra dev python -m unittest discover -s tests
 uv run --frozen --extra dev ruff check .
+uv run --frozen python -m cel.experiments --demo --out data/raw/new-synthetic-bundle
 ```
 
-The demo produces a labeled synthetic tape, fixed fee/latency grid, four
-controls, five execution stresses, fill audits, three figures and SHA-256
-checksums. See [generated figures](reports/portfolio_demo/README.md) and
-[full reproduction instructions](docs/PORTFOLIO_REPRODUCTION.md). Released-data
-mode requires verified original archives and enforces the frozen holdout dates.
+The demo needs no exchange credentials. It generates synthetic evidence only.
+The raw-source pipeline needs the original spool and instrument snapshots;
+commands and gates are in the [pipeline guide](docs/EMPIRICAL_PIPELINE.md).
 
-## Design and remaining limits
+## Reading order for a reviewer
 
-- Causal order timers use only received quotes. Entry and hedge delays are
-  separate; no fills are created beyond the observed tape.
-- Displayed-size budgets constrain partial fills. Stale/sequence stops and
-  position/loss controls expose incomplete liquidation and residual inventory.
-- Frozen plans preserve failed and missing slots. Source hashes, provenance,
-  independent restore checks and [Release backups](docs/DURABLE_ARCHIVES.md)
-  make recorded evidence reviewable beyond Actions artifact retention.
-- L1 replay omits queue priority, market impact, funding and actual order
-  acceptance. Fixed latency and replenishment remain assumptions. The
-  [execution-calibration plan](docs/EXECUTION_CALIBRATION_PLAN.md) defines the
-  measurements needed before a future production-execution study.
+1. [Formal decision and measured limitations](reports/formal_decision_20261123/README.md).
+2. [Authenticated original study and dated two-page PDF](reports/released_successor_20261122/README.md).
+3. [Paired pipeline and timestamp evidence](docs/EMPIRICAL_PIPELINE.md).
+4. [Execution accounting and demo evidence](docs/DECISION_STUDY.md).
+5. [Interview case study](docs/INTERVIEW_CASE_STUDY.md).
 
-V1 runs October 17–23, 2026 UTC with outcome release October 24 UTC. The
-[status inspection at October 22, 06:25 UTC](https://github.com/evananann/crypto-exec-lab/actions/runs/39733880505)
-reported 11 missing slots and zero eligible slots, preventing a conclusive
-full-study claim under the frozen rule. This is a dated snapshot; consult the
-live workflow for later checks. The separate 28-day replication runs October 26–November 22 UTC,
-with release November 23 UTC. Future collections and reports must be verified
-from actual artifacts; missing observations are not zero returns.
-
-The [internal improvement tracker](docs/INTERNAL_ROADMAP.md) distinguishes
-implemented checks from future empirical milestones. The
-[validation contract](docs/INTERNAL_VALIDATION.md) covers offline order lifecycle,
-restart reconciliation, recording integrity, cross-version numerical checks and
-the separate release-gated supplement.
-
-## Read further
-
-- Research: [protocol](docs/RESEARCH_PROTOCOL.md), [v1 plan](docs/LIVE_STUDY.md),
-  [v2 replication](docs/REPLICATION_V2.md), [results template](docs/RESULTS_WRITEUP_TEMPLATE.md).
-- Trading case: [thesis](docs/TRADING_THESIS.md),
-  [decision memo](docs/TRADER_DECISION_MEMO.md), [assumption lab](reports/trading_decision/decision.html).
-- Assumptions: [power](docs/STATISTICAL_POWER_AUDIT.md),
-  [execution](docs/EXECUTION_ASSUMPTION_AUDIT.md),
-  [missingness and dependence](docs/MISSING_DATA_AND_DEPENDENCE.md).
-- Engineering: [execution contract](docs/EXECUTION_MODEL.md),
-  [commands and layout](docs/CLI_GUIDE.md), [operations](docs/OPERATIONS.md),
-  [CI review](docs/CI_REVIEW.md), [benchmark evidence](reports/operations/README.md).
-- Interview: [timed walkthrough](docs/RECRUITING.md),
-  [defense questions](docs/INTERVIEW_PRACTICE.md), [glossary](GLOSSARY.md).
-
-The [prepared-runner qualification and successor lifecycle](docs/PREPARED_QUALIFICATION.md)
-registers a new fixed three-trial cohort and automates a future study freeze only
-after actual verified qualification. Scientific collection/reporting remain gated.
+The [decision workbench](https://evananann.github.io/crypto-exec-lab/workbench.html),
+[synthetic cost lab](reports/trading_decision/decision.html),
+[maker counterfactuals](docs/MAKER_OPPORTUNITY.md), and
+[continuous verification](docs/CONTINUOUS_REVIEW.md) remain supporting material.
+Continuous verification is not automatic strategy tuning or a profitability guarantee.
+Historical memos are retained with their original dates. Current status takes precedence
+for what has actually completed. [November 23 workflow incident and repairs](docs/RELEASE_JOB_INCIDENT_20261123.md).
