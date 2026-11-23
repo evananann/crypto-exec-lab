@@ -1,0 +1,8 @@
+{
+  "original_available_primary_labels": 21388,
+  "labels_in_derivative_unavailable_sessions": 8460,
+  "common_opportunities": 11441,
+  "original_eligible_tapes_scanned": 23,
+  "original_event_records_scanned": 10753415,
+  "scope": "Recorded labels, not independent trades or the unknown label counts of missing slots. Stream-integrity exclusion can be regime selective."
+}

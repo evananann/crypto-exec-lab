@@ -9,6 +9,7 @@ import json
 import math
 from pathlib import Path
 import resource
+import shutil
 import subprocess
 import time
 
@@ -67,7 +68,45 @@ def aggregate(inventory):
     return result
 
 
-def run(out, cache, primary_archive):
+def load_checkpoint(root, plan, original, engine_sha):
+    protocol = json.loads((root/'protocol.json').read_text())
+    rows = json.loads((root/'session-results.json').read_text())
+    if (protocol['source_sha256']['research/roadmap/latency_cost.py'] != engine_sha
+            or tuple(protocol['delays_ms']) != engine.DELAYS
+            or tuple(protocol['fees_bps_per_side']) != engine.FEES
+            or protocol['exit_horizon_from_signal_ms'] != engine.HORIZON
+            or protocol['maximum_quote_age_ms'] != engine.MAX_AGE
+            or protocol['quantity_btc'] != str(engine.QUANTITY)
+            or protocol['original_report_sha256'] != original['source_report_sha256']):
+        raise ValueError('checkpoint economics, source or scenario binding changed')
+    if [r['slot_id'] for r in rows] != [s['slot_id'] for s in plan['planned_slots'][:len(rows)]]:
+        raise ValueError('checkpoint must be a complete original chronological prefix')
+    published = json.loads((ROOT/'reports/released_successor_20261122/released-report.json').read_text())
+    identities = {r['slot_id']: r for r in published['sessions']}
+    expected = {r['slot_id']: r for r in original['rows']}
+    allowed = {'AVAILABLE', 'ORIGINAL_UNAVAILABLE', 'UNAVAILABLE_RECORDED_STREAM_INTEGRITY',
+               'UNAVAILABLE_ORIGINAL_INSTRUMENT_BINDING', 'UNAVAILABLE_NO_COMMON_OPPORTUNITIES'}
+    for row in rows:
+        fixed = expected[row['slot_id']]
+        public = identities[row['slot_id']]
+        if (row['status'] not in allowed or row['published_primary_reference'] != fixed
+                or row['original_eligible'] != fixed['eligible'] or row['phase'] != fixed['phase']
+                or any(row.get(k) != public.get(k) for k in ('archive_name', 'archive_sha256', 'source_commit'))):
+            raise ValueError('checkpoint original identity differs from pinned primary')
+        if fixed['eligible'] and row['tape_audit']['source_tape_sha256'] != fixed['original_tape_sha256']:
+            raise ValueError('checkpoint tape binding differs')
+        if row['status'] == 'AVAILABLE':
+            reproduced = row['original_primary_reproduction']
+            if (reproduced['n'] != fixed['signals'] or not math.isclose(reproduced['mean_bps'],
+                    float(fixed['mean_bps']), rel_tol=0, abs_tol=1e-8)):
+                raise ValueError('checkpoint benchmark differs from original primary')
+    return rows, {'cached_slots': len(rows), 'checkpoint_sha256': digest(root/'session-results.json'),
+        'previous_protocol_sha256': digest(root/'protocol.json'),
+        'previous_source_commit': protocol['source_commit'],
+        'scope': 'Trusted local outputs from the interrupted authenticated computation, bound to unchanged price arithmetic and pinned original identities. These slots were not independently re-executed in this invocation.'}
+
+
+def run(out, cache, primary_archive, *, resume=None):
     from research.empirical_note import current_plan
     plan = current_plan(datetime.now(timezone.utc))
     if plan is None:
@@ -83,7 +122,7 @@ def run(out, cache, primary_archive):
         'common_set': 'Each signal must have original-order signal quote and valid full-depth entry/exit quotes at all six delays. Ex-post measurement conditioning, not an executable entry filter.',
         'same_millisecond_rule': 'At signal and zero delay, only quotes already written by the signal record are available. Positive-delay and exit timers use the last quote in their timestamp bucket, matching frozen market-before-timer priority. Millisecond clocks do not establish submillisecond ordering or actual wire latency.',
         'source_gate': 'Reject the whole derivative session on any recorded receive regression, sequence conflict, unknown book unit or incompatible original contract metadata. Never repair by sorting.',
-        'source_sha256': {n: digest(ROOT / n) for n in ('research/roadmap/latency_cost.py', 'research/roadmap/latency_report.py')},
+        'source_sha256': {n: digest(ROOT / n) for n in ('research/roadmap/latency_cost.py', 'research/roadmap/latency_report.py', 'research/roadmap/released_sources.py')},
         'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
         'source_dirty': bool(subprocess.check_output(['git', 'status', '--porcelain'], text=True).strip()),
         'original_report_sha256': original['source_report_sha256'], 'created_at_utc': datetime.now(timezone.utc).isoformat(),
@@ -91,10 +130,16 @@ def run(out, cache, primary_archive):
     out.mkdir(parents=True, exist_ok=False)
     cache.mkdir(parents=True, exist_ok=False)
     (out / 'protocol.json').write_text(json.dumps(protocol, indent=2) + '\n')
-    from scripts.successor_study import download_verified
     inventory = []
+    if resume is not None:
+        inventory, protocol['resumed_from'] = load_checkpoint(resume, plan, original,
+            protocol['source_sha256']['research/roadmap/latency_cost.py'])
+        shutil.copyfile(resume/'protocol.json', out/'resumed-source-protocol.json')
+        (out / 'protocol.json').write_text(json.dumps(protocol, indent=2) + '\n')
+    from research.roadmap.released_sources import download_pending
     started = time.monotonic()
-    with closing(download_verified(plan, 'evananann/crypto-exec-lab', cache)) as originals:
+    with closing(download_pending(plan, 'evananann/crypto-exec-lab', cache,
+            completed={r['slot_id'] for r in inventory})) as originals:
         while True:
             fetch_started = time.monotonic()
             try:
@@ -151,10 +196,13 @@ def run(out, cache, primary_archive):
             'eligible_slots': original['phases']['full']['observed_slots'],
             'planned_slots': original['phases']['full']['planned_slots'],
             'scope': 'Original full cohort only. Supplement uses stricter session and common-opportunity gates; its levels must not be substituted for this estimate.'},
-        'performance': {'elapsed_seconds': time.monotonic()-started,
+        'performance': {'current_invocation_elapsed_seconds': time.monotonic()-started,
+            'reused_completed_slot_outputs': protocol.get('resumed_from', {}).get('cached_slots', 0),
             'authenticated_restore_seconds': math.fsum(r['authenticated_restore_seconds'] for r in inventory),
             'replay_seconds': math.fsum(r.get('replay_seconds', 0) for r in inventory),
             'peak_process_rss_mib': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss/1024,
+            'peak_rss_scope': 'Current invocation only; the interrupted prefix peak was not recorded.'
+                if resume else 'Full invocation including authenticated restore and replay.',
             'bounded_original_archives_in_flight': 1,
             'price_state_builds_per_common_signal': len(engine.DELAYS),
             'fee_cells_per_common_signal': len(engine.DELAYS)*len(engine.FEES)},
@@ -175,5 +223,6 @@ if __name__ == '__main__':
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--cache', type=Path, required=True)
     p.add_argument('--primary-archive', type=Path, required=True)
+    p.add_argument('--resume', type=Path)
     a = p.parse_args()
-    run(a.out, a.cache, a.primary_archive)
+    run(a.out, a.cache, a.primary_archive, resume=a.resume)

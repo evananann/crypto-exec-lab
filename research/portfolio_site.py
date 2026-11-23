@@ -102,6 +102,9 @@ body{font:17px/1.65 system-ui,sans-serif;color:#142238;background:#f6f8fb;margin
         '<p><a href="https://github.com/evananann/crypto-exec-lab/blob/main/reports/missingness_frontier_20261123/README.md">'
         'How favorable would missing PM sessions need to be?</a> The released-data '
         'AM/PM frontier separates observed evidence from missing-outcome assumptions.</p>'
+        '<p><a href="https://github.com/evananann/crypto-exec-lab/blob/main/reports/latency_cost_20261124/MEMO.md">'
+        'Does faster execution overcome the fee hurdle?</a> Read the measured '
+        'latency and round-trip cost breakdown, its chart and sample limitations.</p>'
         '<h2>What is established?</h2>'))
     files = sorted(p.name for p in output.iterdir())
     (output/'site-checksums.json').write_text(json.dumps({name: hashlib.sha256((output/name).read_bytes()).hexdigest() for name in files}, indent=2)+'\n')

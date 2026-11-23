@@ -1,0 +1,26 @@
+{
+  "synthetic": true,
+  "market_outcomes_read": 0,
+  "scenario_equality_verified": true,
+  "fixtures": 6,
+  "groups_per_repetition": 6000,
+  "cells_per_group": 4,
+  "measured_seconds": {
+    "direct": [
+      0.2919715890020598,
+      0.2746703830016486,
+      0.284289382998395
+    ],
+    "shared_price_state": [
+      0.18479715099965688,
+      0.18526346400176408,
+      0.18765375800285256
+    ]
+  },
+  "median_direct_to_shared_ratio": 1.5345140205069685,
+  "source_sha256": {
+    "research/roadmap/latency_cost.py": "f4708247acdbd09be2102dfc6f6446b306972d3846eb59929b2972d39a95fce7",
+    "research/roadmap/benchmark_fee_grid.py": "2ee5ea54572db8d2a502f2f629bed3574d3e8783f909fcb09151ca04954dca5f"
+  },
+  "scope": "Three alternating-order local microbenchmark repetitions of identical synthetic cells. Not an end-to-end speedup, production throughput, latency distribution or market result."
+}

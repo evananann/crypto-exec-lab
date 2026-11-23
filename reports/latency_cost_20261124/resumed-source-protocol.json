@@ -1,0 +1,34 @@
+{
+  "scope": "Post-release exploratory recorded-BBO decomposition; not a new registered study.",
+  "delays_ms": [
+    0,
+    25,
+    50,
+    100,
+    250,
+    500
+  ],
+  "fees_bps_per_side": [
+    0,
+    1,
+    3,
+    5
+  ],
+  "exit_horizon_from_signal_ms": 1000,
+  "maximum_quote_age_ms": 2000,
+  "quantity_btc": "0.001",
+  "trigger_usd": 2,
+  "denominators": "Waterfall: signal-mid notional. Separate returns: entry-price notional. Do not mix either with the original full-cohort mean.",
+  "common_set": "Each signal must have original-order signal quote and valid full-depth entry/exit quotes at all six delays. Ex-post measurement conditioning, not an executable entry filter.",
+  "same_millisecond_rule": "At signal and zero delay, only quotes already written by the signal record are available. Positive-delay and exit timers use the last quote in their timestamp bucket, matching frozen market-before-timer priority. Millisecond clocks do not establish submillisecond ordering or actual wire latency.",
+  "source_gate": "Reject the whole derivative session on any recorded receive regression, sequence conflict, unknown book unit or incompatible original contract metadata. Never repair by sorting.",
+  "source_sha256": {
+    "research/roadmap/latency_cost.py": "f4708247acdbd09be2102dfc6f6446b306972d3846eb59929b2972d39a95fce7",
+    "research/roadmap/latency_report.py": "411abfbc5ddef46d997d261410c43d3529109a5d1f2f335ba2e1842458fa7ef4"
+  },
+  "source_commit": "a8f95794f09ec2f320dd51ce5dea78da89343faa",
+  "source_dirty": false,
+  "original_report_sha256": "eae9aebae4d7165a839883f8e969885e51c3c549128180ff82d7d073be72ef95",
+  "created_at_utc": "2026-11-23T22:17:38.746008+00:00",
+  "deployment_authorized": false
+}

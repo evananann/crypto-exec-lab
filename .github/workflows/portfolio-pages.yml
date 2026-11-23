@@ -13,6 +13,7 @@ on:
       - 'reports/released_successor_20261122/**'
       - 'reports/formal_decision_20261123/**'
       - 'reports/missingness_frontier_20261123/**'
+      - 'reports/latency_cost_20261124/**'
       - 'reports/historical_exploratory_20261109/**'
       - 'reports/collection_review_20261109/**'
       - 'reports/collection_delivery_20261109/**'
