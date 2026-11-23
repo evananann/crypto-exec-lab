@@ -30,3 +30,16 @@ Regression tests cover canonical source keys with the actual frozen builder,
 the release gate before network reads, the specific timestamp failure, unchanged
 successful output, and continued propagation of unexpected failures. Synthetic
 tests had missed the relative-plan invocation used in the newly released jobs.
+
+The first internal-validation recovery passed source-bound bundle verification
+but exposed a second compatibility issue: the frozen builder inventories Python
+files in `cel/`, the plan, lab config and lockfile, while the replication plans
+also bind scripts and workflows. Supplemental robustness requires all those
+references in the bundle inventory. The operational wrapper preserves the
+original bundle and failed progress record, creates a separate
+`provenance-complete-bundle`, and adds only the omitted source hashes after
+checking both working-tree and committed bytes. It then runs the original strict
+robustness validator, benchmarks and archive receipt reconciliation. The recovery
+record binds original and derived metadata digests. No estimates, fills or frozen
+source files change. The unmodified original pipeline still records its failure;
+the supplemental package completes only after the additional checks pass.

@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import subprocess
 from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
@@ -9,6 +10,35 @@ from research import release_recovery as recovery
 
 
 class ReleaseRecoveryTests(unittest.TestCase):
+    def test_actual_empty_released_pipeline_recovers_only_source_metadata(self):
+        # Empty fixture exercises the released orchestration; no market evidence.
+        original_check_output = subprocess.check_output
+
+        def clean_fixture(command, **kwargs):
+            if command == ['git', 'status', '--porcelain']:
+                return ''
+            return original_check_output(command, **kwargs)
+
+        with TemporaryDirectory() as directory:
+            work = Path(directory)
+            root, receipts, out = work / 'inputs', work / 'receipts', work / 'out'
+            root.mkdir()
+            receipts.mkdir()
+            with patch('subprocess.check_output', side_effect=clean_fixture), \
+                    patch('cel.experiments.__main__.figures'):
+                result = recovery.recover_internal(out, root,
+                    recovery.ROOT / 'configs/study_v2_okx.json', receipts, 0,
+                    now=datetime(2026, 11, 23, tzinfo=timezone.utc))
+            self.assertTrue(result['verified'])
+            original = json.loads((out / 'bundle/experiments.json').read_text())
+            derived = json.loads((out / 'provenance-complete-bundle/experiments.json').read_text())
+            self.assertNotEqual(original['sources_sha256'], derived['sources_sha256'])
+            self.assertEqual({k: v for k, v in original.items() if k != 'sources_sha256'},
+                             {k: v for k, v in derived.items() if k != 'sources_sha256'})
+            self.assertEqual(json.loads((out / 'progress.json').read_text())['status'], 'failed')
+            self.assertEqual(json.loads((out / 'recovery.json').read_text())['status'],
+                             'operational_recovery_complete')
+
     def test_only_known_frozen_plans_are_canonicalized(self):
         plan = recovery.canonical_plan(Path('configs/study_v2_okx.json'))
         self.assertTrue(plan.is_absolute())
