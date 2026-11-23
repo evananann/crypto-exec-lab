@@ -6,6 +6,13 @@ the original frozen conclusion below is unchanged. Incremental Binance value is
 unestablished, and the follow-on is not enrolled. The sections below retain the
 dated primary-study interpretation; the replication release gate has now elapsed.
 
+**Post-release sensitivity supplement:** the [AM/PM missing-data frontier](../reports/missingness_frontier_20261123/README.md)
+reconstructs the original slot outcomes from the authenticated archive. Holding
+missing AM means at the observed AM mean, missing PM would need +5.0488 bps
+entry-net on average to bring the complete balanced schedule to zero. This is
+an assumption threshold, not an estimated PM effect, confidence interval or
+change to the original observed-day estimand.
+
 **Decision: no live deployment. Formal study conclusion: inconclusive because
 coverage/precision requirements were not met.** The observed subset is unfavorable.
 Read the [authenticated report and provenance](../reports/released_successor_20261122/README.md)

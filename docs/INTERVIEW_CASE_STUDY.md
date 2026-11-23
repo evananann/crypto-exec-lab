@@ -117,3 +117,16 @@ fees and conserved cash. It is explicitly separate from a leader-signal study.
 The [pre-release work index](../reports/pre_enrollment_20261116/README.md) records
 what remains blocked; neither an agent-run test nor this guide certifies your
 personal interview performance.
+# Released-data missingness question
+
+“How much does the missing PM coverage matter?” now has a reproducible answer in
+the [post-release AM/PM frontier](../reports/missingness_frontier_20261123/README.md).
+The common missing-slot break-even mean is +3.2769 bps. If missing AM outcomes
+instead match observed AM, missing PM needs +5.0488 bps entry-net to reach zero.
+Only one PM outcome was observed, so the project cannot establish a PM distribution
+or decide how plausible that assumption is from this sample.
+
+Explain the difference between the frozen observed occupied-day mean and the
+hypothetical complete balanced-calendar mean. Explain why conditional outcome
+bounds are not confidence intervals. A negative observed result supports rejecting
+deployment while systematic missingness prevents a universal profitability claim.

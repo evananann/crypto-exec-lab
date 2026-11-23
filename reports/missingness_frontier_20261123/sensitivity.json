@@ -1,0 +1,1129 @@
+{
+  "source_run_id": 45020145212,
+  "source_archive_sha256": "264fd457339c8b5ba7febc3960d8658c49d2ae536c2735b05089f69e158c4479",
+  "source_report_sha256": "eae9aebae4d7165a839883f8e969885e51c3c549128180ff82d7d073be72ef95",
+  "rows": [
+    {
+      "slot_id": "2026-10-25-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.861542479170832",
+      "signals": 133,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "ba024ee0934459220004a0386f90c0ea7f707f10de7893881c8357511927dd34",
+      "original_tape_sha256": "ef981491c3d3d8d738aedd1154b82e74d85ea2493773b2223f3a98f9f21e689c"
+    },
+    {
+      "slot_id": "2026-10-25-pm",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.8149325145046955",
+      "signals": 164,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "a1e703e50de76689886d4ebbf6dd3543b118210873fa85718115d2fe19458a6d",
+      "original_tape_sha256": "8a24e2f4e0efecff3a898e6656ec12d031a79d907a501384e8f1fc5b9d4916fd"
+    },
+    {
+      "slot_id": "2026-10-26-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.570924569018621",
+      "signals": 625,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "4256b362fe3dbdaf91e60fa83b00f614d951c6ba5571ac0b683850268cf315f3",
+      "original_tape_sha256": "7702ff3b6811331e4da64903ce69b20bc1269bd7f6405df608dddde14745f903"
+    },
+    {
+      "slot_id": "2026-10-26-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-27-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.700935149648393",
+      "signals": 510,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "15899951bc8cb9471af7d585a6285f43676446b04b3b4f3f5a9d7e93082ad84b",
+      "original_tape_sha256": "471d9fb50f2c2527a55c96c603a8b26ce620cb656adec90770de2e41f54148f6"
+    },
+    {
+      "slot_id": "2026-10-27-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-28-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.879699334646389",
+      "signals": 234,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "5d8d82264feb3b11fb5b8f2750e3e837a6328b88fe7ec2e0746b98c2608a029b",
+      "original_tape_sha256": "93c4fd4cebf5e6cd2255da092fd3d193042535285091bd14ed59e9660ca09d7a"
+    },
+    {
+      "slot_id": "2026-10-28-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-29-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.678284526595078",
+      "signals": 308,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "a3a8845ee1c4a825f89a0a9a635f635e0498255e6a0765d3323a401c7da91e1c",
+      "original_tape_sha256": "894eeca4c5bfca528ec70dd9525be18dd3d1e9588930606d842560613f5737dc"
+    },
+    {
+      "slot_id": "2026-10-29-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-30-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.641525095932324",
+      "signals": 792,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "f7f5a1731bed5f559cbafee46794d9df19f7f129c941c549c3ab3973b6979662",
+      "original_tape_sha256": "6cce4abf24b8a24891834c4e6e853feb894a80cd736ef53cc29499413b24cf13"
+    },
+    {
+      "slot_id": "2026-10-30-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-10-31-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.702629041164947",
+      "signals": 155,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "8a7f007bc5340f4aa51299f3ae566f83959ae780f8cb3091697ce9f796e969a8",
+      "original_tape_sha256": "ccd16cf0c8feefd37e44c64b23daf6b548f46477a6bb7f7c47ffd15b089426f1"
+    },
+    {
+      "slot_id": "2026-10-31-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-01-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.94911714477285",
+      "signals": 33,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "043f6c3ac2ab5487f701f2154030b611f2552da94c7c8648b81c408d0243feaf",
+      "original_tape_sha256": "9b12f16eedf98e56a4a5114f147acd43b175567d2f84c04bdfde1516d62a52a5"
+    },
+    {
+      "slot_id": "2026-11-01-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-02-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.532249995784257",
+      "signals": 578,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "ab4597d760bfa156f267b3b07bd0b235725f33b855434b028f974e670d1f5eb3",
+      "original_tape_sha256": "61f22675037428e51657e491b851a6bfcb8056750ed7a76016b05cd506e9b5a4"
+    },
+    {
+      "slot_id": "2026-11-02-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-03-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.58719740556757",
+      "signals": 351,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "a727eff18f6114a0bc6d90fced9fb9d6ffd8e55a5334f2755e956b146746b58d",
+      "original_tape_sha256": "d1c3211183ce7808ed66d52d41fe3e90dd7988c1e59141cbd417fb27ab853c50"
+    },
+    {
+      "slot_id": "2026-11-03-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-04-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.667307560862958",
+      "signals": 1403,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "f4f00ed83a76d128157f586a28eaeecaa0fde16b5ce6da91ebbc330091541e22",
+      "original_tape_sha256": "d26a6075c61ec9736f917fd59abee3323b764b57d25b1783096d19430bf6927b"
+    },
+    {
+      "slot_id": "2026-11-04-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-05-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.7402901216821",
+      "signals": 431,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "c150d59f6cd5b03b432eeee767a470660fa8e0fca9e68514d2593785cff7fbab",
+      "original_tape_sha256": "19eccc29821aab57c924157d04fb69ab86457650c366b98fc203707d0ddf16c0"
+    },
+    {
+      "slot_id": "2026-11-05-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-06-am",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-06-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-07-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.733438082296408",
+      "signals": 56,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "5fc4f4d4c8f103d7968e6aaa15029a5e4a1af0d8f3e9621fcf1f6c7607c50bc4",
+      "original_tape_sha256": "c90d0f40791630f0918e4699650fdcc1900611f0bd1b8b868e75b8e5c1e2de0c"
+    },
+    {
+      "slot_id": "2026-11-07-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-08-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.933411846875738",
+      "signals": 20,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "3c475cb611017aa319dd09957e461bb45bad518044b5032cb0adda2ce8d2b0af",
+      "original_tape_sha256": "2f4a486cdb143f898d2952b6b9e2804ba45baadd7456765e23f68444f6145954"
+    },
+    {
+      "slot_id": "2026-11-08-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-09-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.569767626944576",
+      "signals": 684,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "8635c800525bcfe42eaaae6148742e51f3d7d6fa0dd198de10f9195bb54883b0",
+      "original_tape_sha256": "52b721e9234d98876c5170c2488de2a82eb380416c99243039b53a4b38171657"
+    },
+    {
+      "slot_id": "2026-11-09-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-10-am",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-10-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-11-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.608822753148859",
+      "signals": 316,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "a5ef7ed37d1dc959b6ea065e655e6054b87198df29e24678d31aff0624f23c02",
+      "original_tape_sha256": "f400110dcac336e7c6a33cfd8719d9e0b34b472996d98e402717ff1a584c13fb"
+    },
+    {
+      "slot_id": "2026-11-11-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-12-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.765951236043247",
+      "signals": 423,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "c196bd3f73d6166d377440451db70322fe7b1c973fbcaf3a740cc32ca191e91d",
+      "original_tape_sha256": "2d56bfd9fcfac46b52925101949d95d8bfde267bd3eb0f32d0cdfbf0426ac7e3"
+    },
+    {
+      "slot_id": "2026-11-12-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-13-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.694986121942516",
+      "signals": 8460,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "9e29bada3c001aa354c34f8428bc75ce64d2c2dd6c7acd8563f55e6d712fc357",
+      "original_tape_sha256": "7ff1580d56297ff3465bdb0d71397b5fc38963fa5c637a7e74527e2e2c408d52"
+    },
+    {
+      "slot_id": "2026-11-13-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-14-am",
+      "phase": "development",
+      "eligible": true,
+      "mean_bps": "-4.56336415686851",
+      "signals": 2352,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "3b997ade519176d85f78ffe9213a78e4f6b13f87e66ead4a58cf9921fe8a64a2",
+      "original_tape_sha256": "63d1ffcebf1d5aac9aae7a123bc8d448c0aba469e93ff9ed94374fa4b4836503"
+    },
+    {
+      "slot_id": "2026-11-14-pm",
+      "phase": "development",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-15-am",
+      "phase": "holdout",
+      "eligible": true,
+      "mean_bps": "-4.624799294436493",
+      "signals": 1306,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "02ecc182661b60c5fd56b2261d51691b6479512d1f4fdabaca6b9504ee2d6d5d",
+      "original_tape_sha256": "3057450b78618566aea1ca2bb979d9cbbb68a2d49531e9767715277d8ffdb64b"
+    },
+    {
+      "slot_id": "2026-11-15-pm",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-16-am",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "unhealthy, late or failed original attempt"
+    },
+    {
+      "slot_id": "2026-11-16-pm",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-17-am",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-17-pm",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-18-am",
+      "phase": "holdout",
+      "eligible": true,
+      "mean_bps": "-4.730914873410968",
+      "signals": 485,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "e082bd9789115446bbd3794193aca01ab86f8631172c8f3a2a1b8a40bd2ac9f1",
+      "original_tape_sha256": "c6dd8a84650bd08851a2b932289e942aa53c0566b2c05d3c127e4825b11ecd29"
+    },
+    {
+      "slot_id": "2026-11-18-pm",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-19-am",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "unhealthy, late or failed original attempt"
+    },
+    {
+      "slot_id": "2026-11-19-pm",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-20-am",
+      "phase": "holdout",
+      "eligible": true,
+      "mean_bps": "-4.585655792073231",
+      "signals": 1569,
+      "unavailable_reason": null,
+      "original_evaluation_sha256": "068b69d39471a45dfd8d464301b7164547296f1890c2e52294b9f5cd38e43e8f",
+      "original_tape_sha256": "2a02869884bd0c419ef853d0b0b02e51c13f5df9c016709b056b238dfc2d97d5"
+    },
+    {
+      "slot_id": "2026-11-20-pm",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    },
+    {
+      "slot_id": "2026-11-21-am",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "unhealthy, late or failed original attempt"
+    },
+    {
+      "slot_id": "2026-11-21-pm",
+      "phase": "holdout",
+      "eligible": false,
+      "mean_bps": null,
+      "signals": null,
+      "unavailable_reason": "missing verified archive; not a zero return"
+    }
+  ],
+  "phases": {
+    "development": {
+      "planned_slots": 42,
+      "planned_days": 21,
+      "observed_slots": 20,
+      "unavailable_slots": 22,
+      "observed_occupied_days": 19,
+      "strata": {
+        "am": {
+          "planned": 21,
+          "observed": 19,
+          "unavailable": 2,
+          "observed_mean_bps": "-4.704286539419272263157894737"
+        },
+        "pm": {
+          "planned": 21,
+          "observed": 1,
+          "unavailable": 20,
+          "observed_mean_bps": "-4.8149325145046955"
+        }
+      },
+      "observed_slot_sum_bps": "-94.1963767634708685",
+      "observed_equal_slot_mean_bps": "-4.709818838173543425",
+      "observed_equal_occupied_day_mean_bps": "-4.703059961401742355263157895",
+      "common_missing_mean_needed_for_zero_bps": "4.281653489248675840909090909",
+      "pm_needed_if_missing_am_matches_observed_am_bps": "5.180247492115470651315789475",
+      "fixed_assumption_scenarios": [
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-7.480866113415973059523809524"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-5.099913732463592107142857143"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-2.718961351511211154761904762"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "-0.3380089705588302023809523810"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "2.04294341039355075"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-7.242770875320734964285714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-4.861818494368354011904761905"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-2.480866113415973059523809524"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "-0.09991373246359210714285714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "2.281038648488788845238095238"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-7.004675637225496869047619048"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-4.623723256273115916666666667"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-2.242770875320734964285714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "0.1381815056316459880952380952"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "2.519133886584026940476190476"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-6.766580399130258773809523810"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-4.385628018177877821428571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-2.004675637225496869047619048"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "0.3762767437268840833333333333"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "2.757229124679265035714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-6.528485161035020678571428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-4.147532780082639726190476190"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-1.766580399130258773809523810"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "0.6143719818221221785714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "2.995324362774503130952380952"
+        }
+      ],
+      "am_pm_zero_frontier": [
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "missing_pm_mean_needed_for_zero_bps": "5.709818838173543425"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "missing_pm_mean_needed_for_zero_bps": "5.209818838173543425"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "missing_pm_mean_needed_for_zero_bps": "4.709818838173543425"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "missing_pm_mean_needed_for_zero_bps": "4.209818838173543425"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "missing_pm_mean_needed_for_zero_bps": "3.709818838173543425"
+        }
+      ],
+      "conditional_identification_regions": [
+        {
+          "assumed_every_missing_slot_lower_bps": "-1",
+          "assumed_every_missing_slot_upper_bps": "1",
+          "sharp_complete_schedule_lower_bps": "-2.766580399130258773809523810",
+          "sharp_complete_schedule_upper_bps": "-1.718961351511211154761904762"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-2",
+          "assumed_every_missing_slot_upper_bps": "2",
+          "sharp_complete_schedule_lower_bps": "-3.290389922939782583333333333",
+          "sharp_complete_schedule_upper_bps": "-1.195151827701687345238095238"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-5",
+          "assumed_every_missing_slot_upper_bps": "5",
+          "sharp_complete_schedule_lower_bps": "-4.861818494368354011904761905",
+          "sharp_complete_schedule_upper_bps": "0.3762767437268840833333333333"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-10",
+          "assumed_every_missing_slot_upper_bps": "10",
+          "sharp_complete_schedule_lower_bps": "-7.480866113415973059523809524",
+          "sharp_complete_schedule_upper_bps": "2.995324362774503130952380952"
+        }
+      ],
+      "without_outcome_bounds": "UNBOUNDED",
+      "formula": "(observed_slot_sum + missing_am_count*assumed_am_mean + missing_pm_count*assumed_pm_mean) / planned_slots",
+      "target": "Hypothetical complete balanced schedule: equal weight per planned day and equal weight per AM/PM slot.",
+      "not_the_frozen_estimate": "Observed occupied-day means retain their original weighting. No missing outcome is filled into the original estimator.",
+      "inference": "No confidence intervals, p-values, missing-at-random assumption or repaired coverage. Bounds are sharp only conditional on the supplied outcome limits; scenario ranges are not evidence-based bounds."
+    },
+    "holdout": {
+      "planned_slots": 14,
+      "planned_days": 7,
+      "observed_slots": 3,
+      "unavailable_slots": 11,
+      "observed_occupied_days": 3,
+      "strata": {
+        "am": {
+          "planned": 7,
+          "observed": 3,
+          "unavailable": 4,
+          "observed_mean_bps": "-4.647123319973564"
+        },
+        "pm": {
+          "planned": 7,
+          "observed": 0,
+          "unavailable": 7,
+          "observed_mean_bps": null
+        }
+      },
+      "observed_slot_sum_bps": "-13.941369959920692",
+      "observed_equal_slot_mean_bps": "-4.647123319973564",
+      "observed_equal_occupied_day_mean_bps": "-4.647123319973564",
+      "common_missing_mean_needed_for_zero_bps": "1.267397269083699272727272727",
+      "pm_needed_if_missing_am_matches_observed_am_bps": "4.647123319973564",
+      "fixed_assumption_scenarios": [
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-8.852954997137192285714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-6.352954997137192285714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-3.852954997137192285714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "-1.352954997137192285714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "1.147045002862807714285714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-7.424383568565763714285714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-4.924383568565763714285714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-2.424383568565763714285714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "0.07561643143423628571428571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "2.575616431434236285714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-5.995812139994335142857142857"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-3.495812139994335142857142857"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-0.9958121399943351428571428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "1.504187860005664857142857143"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "4.004187860005664857142857143"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-4.567240711422906571428571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-2.067240711422906571428571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "0.4327592885770934285714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "2.932759288577093428571428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "5.432759288577093428571428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-3.138669282851478"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-0.638669282851478"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "1.861330717148522"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "4.361330717148522"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "6.861330717148522"
+        }
+      ],
+      "am_pm_zero_frontier": [
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "missing_pm_mean_needed_for_zero_bps": "7.705909994274384571428571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "missing_pm_mean_needed_for_zero_bps": "4.848767137131527428571428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "missing_pm_mean_needed_for_zero_bps": "1.991624279988670285714285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "missing_pm_mean_needed_for_zero_bps": "-0.8655185771541868571428571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "missing_pm_mean_needed_for_zero_bps": "-3.722661434297044"
+        }
+      ],
+      "conditional_identification_regions": [
+        {
+          "assumed_every_missing_slot_lower_bps": "-1",
+          "assumed_every_missing_slot_upper_bps": "1",
+          "sharp_complete_schedule_lower_bps": "-1.781526425708620857142857143",
+          "sharp_complete_schedule_upper_bps": "-0.2100978542800494285714285714"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-2",
+          "assumed_every_missing_slot_upper_bps": "2",
+          "sharp_complete_schedule_lower_bps": "-2.567240711422906571428571429",
+          "sharp_complete_schedule_upper_bps": "0.5756164314342362857142857143"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-5",
+          "assumed_every_missing_slot_upper_bps": "5",
+          "sharp_complete_schedule_lower_bps": "-4.924383568565763714285714286",
+          "sharp_complete_schedule_upper_bps": "2.932759288577093428571428571"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-10",
+          "assumed_every_missing_slot_upper_bps": "10",
+          "sharp_complete_schedule_lower_bps": "-8.852954997137192285714285714",
+          "sharp_complete_schedule_upper_bps": "6.861330717148522"
+        }
+      ],
+      "without_outcome_bounds": "UNBOUNDED",
+      "formula": "(observed_slot_sum + missing_am_count*assumed_am_mean + missing_pm_count*assumed_pm_mean) / planned_slots",
+      "target": "Hypothetical complete balanced schedule: equal weight per planned day and equal weight per AM/PM slot.",
+      "not_the_frozen_estimate": "Observed occupied-day means retain their original weighting. No missing outcome is filled into the original estimator.",
+      "inference": "No confidence intervals, p-values, missing-at-random assumption or repaired coverage. Bounds are sharp only conditional on the supplied outcome limits; scenario ranges are not evidence-based bounds."
+    },
+    "full": {
+      "planned_slots": 56,
+      "planned_days": 28,
+      "observed_slots": 23,
+      "unavailable_slots": 33,
+      "observed_occupied_days": 22,
+      "strata": {
+        "am": {
+          "planned": 28,
+          "observed": 22,
+          "unavailable": 6,
+          "observed_mean_bps": "-4.696491554949402954545454545"
+        },
+        "pm": {
+          "planned": 28,
+          "observed": 1,
+          "unavailable": 27,
+          "observed_mean_bps": "-4.8149325145046955"
+        }
+      },
+      "observed_slot_sum_bps": "-108.1377467233915605",
+      "observed_equal_slot_mean_bps": "-4.701641161886589586956521739",
+      "observed_equal_occupied_day_mean_bps": "-4.695432237570627125",
+      "common_missing_mean_needed_for_zero_bps": "3.276901415860350318181818182",
+      "pm_needed_if_missing_am_matches_observed_am_bps": "5.048766520484739934343434344",
+      "fixed_assumption_scenarios": [
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-7.823888334346277866071428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-5.413174048631992151785714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-3.0024597629177064375"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "-0.5917454772034207232142857143"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "1.818968808510864991071428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-7.288174048631992151785714286"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-4.8774597629177064375"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-2.466745477203420723214285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "-0.05603119148913500892857142857"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "2.354683094225150705357142857"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-6.7524597629177064375"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-4.341745477203420723214285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-1.931031191489135008928571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "0.4796830942251507053571428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "2.890397379939436419642857143"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-6.216745477203420723214285714"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-3.806031191489135008928571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-1.395316905774849294642857143"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "1.015397379939436419642857143"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "3.426111665653722133928571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "-10",
+          "hypothetical_complete_schedule_mean_bps": "-5.681031191489135008928571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "-5",
+          "hypothetical_complete_schedule_mean_bps": "-3.270316905774849294642857143"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "0",
+          "hypothetical_complete_schedule_mean_bps": "-0.8596026200605635803571428571"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "5",
+          "hypothetical_complete_schedule_mean_bps": "1.551111665653722133928571429"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "assumed_missing_pm_mean_bps": "10",
+          "hypothetical_complete_schedule_mean_bps": "3.961825951368007848214285714"
+        }
+      ],
+      "am_pm_zero_frontier": [
+        {
+          "assumed_missing_am_mean_bps": "-10",
+          "missing_pm_mean_needed_for_zero_bps": "6.227323952718205944444444444"
+        },
+        {
+          "assumed_missing_am_mean_bps": "-5",
+          "missing_pm_mean_needed_for_zero_bps": "5.116212841607094833333333333"
+        },
+        {
+          "assumed_missing_am_mean_bps": "0",
+          "missing_pm_mean_needed_for_zero_bps": "4.005101730495983722222222222"
+        },
+        {
+          "assumed_missing_am_mean_bps": "5",
+          "missing_pm_mean_needed_for_zero_bps": "2.893990619384872611111111111"
+        },
+        {
+          "assumed_missing_am_mean_bps": "10",
+          "missing_pm_mean_needed_for_zero_bps": "1.7828795082737615"
+        }
+      ],
+      "conditional_identification_regions": [
+        {
+          "assumed_every_missing_slot_lower_bps": "-1",
+          "assumed_every_missing_slot_upper_bps": "1",
+          "sharp_complete_schedule_lower_bps": "-2.520316905774849294642857143",
+          "sharp_complete_schedule_upper_bps": "-1.341745477203420723214285714"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-2",
+          "assumed_every_missing_slot_upper_bps": "2",
+          "sharp_complete_schedule_lower_bps": "-3.109602620060563580357142857",
+          "sharp_complete_schedule_upper_bps": "-0.7524597629177064375"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-5",
+          "assumed_every_missing_slot_upper_bps": "5",
+          "sharp_complete_schedule_lower_bps": "-4.8774597629177064375",
+          "sharp_complete_schedule_upper_bps": "1.015397379939436419642857143"
+        },
+        {
+          "assumed_every_missing_slot_lower_bps": "-10",
+          "assumed_every_missing_slot_upper_bps": "10",
+          "sharp_complete_schedule_lower_bps": "-7.823888334346277866071428571",
+          "sharp_complete_schedule_upper_bps": "3.961825951368007848214285714"
+        }
+      ],
+      "without_outcome_bounds": "UNBOUNDED",
+      "formula": "(observed_slot_sum + missing_am_count*assumed_am_mean + missing_pm_count*assumed_pm_mean) / planned_slots",
+      "target": "Hypothetical complete balanced schedule: equal weight per planned day and equal weight per AM/PM slot.",
+      "not_the_frozen_estimate": "Observed occupied-day means retain their original weighting. No missing outcome is filled into the original estimator.",
+      "inference": "No confidence intervals, p-values, missing-at-random assumption or repaired coverage. Bounds are sharp only conditional on the supplied outcome limits; scenario ranges are not evidence-based bounds."
+    }
+  },
+  "original_scientific_conclusion": "inconclusive_missing_coverage_or_precision",
+  "study_id": "btc-successor-v3-20261025",
+  "synthetic": false,
+  "new_estimators_fitted": 0,
+  "supplement_status": "POST_RELEASE_ASSUMPTION_SENSITIVITY",
+  "missing_outcomes_estimated": false,
+  "deployment_authorized": false,
+  "implementation_sha256": "b3d4c001a424196b69b5dafa167d9c6b9341f4d2105a50653d0a7f2c95d6d788"
+}
