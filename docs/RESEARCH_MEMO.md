@@ -13,6 +13,13 @@ entry-net on average to bring the complete balanced schedule to zero. This is
 an assumption threshold, not an estimated PM effect, confidence interval or
 change to the original observed-day estimand.
 
+**November 24 execution-cost supplement:** the [short trading memo](../reports/latency_cost_20261124/MEMO.md)
+reports all six fixed delays and four commission settings on a common quote/depth
+subset. At 50 ms the modeled round trip averages +0.2604 bps before commissions
+and −9.7397 bps with 5 bps per fill. Its chart separates latency, both spread
+crosses and both commissions. This derivative uses a different cohort and return
+definition from the original primary and does not revise the frozen decision.
+
 **Decision: no live deployment. Formal study conclusion: inconclusive because
 coverage/precision requirements were not met.** The observed subset is unfavorable.
 Read the [authenticated report and provenance](../reports/released_successor_20261122/README.md)

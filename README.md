@@ -34,6 +34,13 @@ the 27 missing PM sessions would need **+5.0488 bps entry-net** on average to ma
 the complete schedule break even. This is conditional arithmetic, not estimated
 missing performance, and it leaves the frozen conclusion unchanged.
 
+The [latency and cost memo](reports/latency_cost_20261124/MEMO.md) measures a
+separate post-release round trip on 11,441 overlapping signals across 22 usable
+slots / 21 dates. At 50 ms, the equal-day quote-price mean is **+0.2604 bps before
+commissions** and **−9.7397 bps with 5 bps per fill**. Even the zero-delay reference
+is negative after those fees. Ex-post quote/depth eligibility and a large rejected
+slot limit this result; it does not establish incremental Binance value.
+
 ## What the code does
 
 - Preserves public market recordings, hashes, source identities and release gates.

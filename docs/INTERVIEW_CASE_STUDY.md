@@ -130,3 +130,26 @@ Explain the difference between the frozen observed occupied-day mean and the
 hypothetical complete balanced-calendar mean. Explain why conditional outcome
 bounds are not confidence intervals. A negative observed result supports rejecting
 deployment while systematic missingness prevents a universal profitability claim.
+
+# Does faster entry solve the economics?
+
+The [measured latency/cost memo](../reports/latency_cost_20261124/MEMO.md) answers
+this for a restricted recorded-quote sample. With 5 bps commission on each fill,
+the zero-delay reference averages −9.4121 bps versus −9.7397 bps at 50 ms.
+Reducing delay improves price capture but does not clear that fee hurdle. At
+50 ms, the before-commission round trip is +0.2604 bps; both spread crosses are
+already included. Every tested delay is negative at even 1 bp commission per fill.
+
+Be explicit about the limits: 11,441 correlated overlapping signals, equal-day
+weighting, future quote/depth conditioning, and exclusion of a high-label-count
+source with timestamp regressions. These are hypothetical isolated OKX round
+trips, not an inventory-constrained portfolio or verified fills. Exit is fixed
+at signal plus one second, so delay also changes holding time. The practical
+decision is to reject this tested taker setup; whether Binance improves decisions
+over an OKX-only policy remains unanswered.
+
+The replay scans one archive at a time and shares price calculations across fee
+cases. A source-bound synthetic microbenchmark measures about 1.53× faster fee-grid
+arithmetic, not an end-to-end speedup. Checked restart checkpoints and bounded
+transport retries avoid repeating already authenticated work without treating
+unavailable source data as zero returns.
