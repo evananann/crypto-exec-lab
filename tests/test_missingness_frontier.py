@@ -6,7 +6,7 @@ from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
 
-from research.roadmap.missingness_frontier import ROOT, analyze, source_records
+from research.roadmap.missingness_frontier import ROOT, analyze, digest, source_records
 
 PLAN = ['2026-01-01-am', '2026-01-01-pm', '2026-01-02-am', '2026-01-02-pm']
 
@@ -79,6 +79,9 @@ class MissingnessFrontierTests(unittest.TestCase):
 
     def test_published_source_rows_reproduce_stratified_finding(self):
         p = ROOT / 'reports/missingness_frontier_20261123/sensitivity.json'
+        for name, expected in json.loads((p.parent / 'checksums.json').read_text()).items():
+            self.assertEqual(Path(name).name, name)
+            self.assertEqual(digest(p.parent / name), expected)
         published = json.loads(p.read_text())
         rows = published['rows']
         result = analyze([r['slot_id'] for r in rows],
