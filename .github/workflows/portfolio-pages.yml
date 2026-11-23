@@ -11,6 +11,7 @@ on:
       - 'reports/spot_validation_20261115/**'
       - 'reports/execution_sensitivity_20261116/**'
       - 'reports/released_successor_20261122/**'
+      - 'reports/formal_decision_20261123/**'
       - 'reports/historical_exploratory_20261109/**'
       - 'reports/collection_review_20261109/**'
       - 'reports/collection_delivery_20261109/**'

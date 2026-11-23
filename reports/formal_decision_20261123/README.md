@@ -61,3 +61,10 @@ would still not establish a profitable strategy or authorize deployment.
 The original primary is entry-to-mid markout after 50 ms and one 5 bps entry fee,
 not a realized round-trip return. Its descriptive interval cannot repair missing
 coverage. Original detailed summaries and source hashes accompany this memo.
+
+## Archive readback completed
+
+- [old-preservation.json](old-preservation.json): 54 members verified; 13,230,088 archive bytes; [Release](https://github.com/evananann/crypto-exec-lab/releases/tag/qualification-cloud-20261116-v1).
+- [current-preservation.json](current-preservation.json): 60 members verified; 27,743,448 archive bytes; [Release](https://github.com/evananann/crypto-exec-lab/releases/tag/qualification-cloud-20261123-failed-attempts-v1).
+
+The repository worker and a separate cloud download both matched original asset hashes and every member. Both failed attempts are retained. This closes the archive-readback gap, not transport, UTC or scientific qualification. GitHub administrators can change Release assets; WORM retention is not claimed.

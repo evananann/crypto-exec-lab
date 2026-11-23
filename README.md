@@ -21,6 +21,8 @@ Read the [November 23 formal disposition](reports/formal_decision_20261123/READM
 | [Partial-window activity](reports/formal_decision_20261123/activity.json) | 30 common-feature grid points; zero active decisions or contrasts | Feasibility remains unknown; no execution outcomes computed |
 | [Independent demo execution](reports/spot_validation_20261115/README.md) | Three prescribed spot round trips, reconciled fills and fees | Accounting/execution exercise, separate from perpetual alpha research |
 
+The [public archive receipts](reports/formal_decision_20261123/current-preservation.json) document independently verified Release readback. Transport and clock qualification remain unresolved.
+
 The original primary is entry-to-mid markout after an assumed 50 ms delay and
 one 5 bps entry fee, not a realized round-trip return. Missing observations stay
 unknown. A narrow interval on the observed dates cannot repair selection or
