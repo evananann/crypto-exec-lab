@@ -1,0 +1,78 @@
+name: automated research lab
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research/autolab/**'
+      - 'research/roadmap/**'
+      - 'research/decision_study/**'
+      - 'reports/latency_cost_20261124/**'
+      - 'reports/missingness_frontier_20261123/**'
+      - 'reports/formal_decision_20261123/**'
+      - 'configs/**'
+      - 'cel/**'
+      - 'scripts/**'
+      - 'uv.lock'
+      - 'research/model_source_lock.json'
+      - 'tests/test_autolab.py'
+      - '.github/workflows/automated-research-lab.yml'
+  schedule:
+    - cron: '7 15 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: automated-research-lab-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Install frozen dependencies
+        run: |
+          python -m pip install uv==0.12.23
+          uv sync --frozen --python 3.12
+      - name: Restore optional main-branch checkpoint cache
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: data/raw/autolab-state
+          key: autolab-v1-main-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: autolab-v1-main-
+      - name: Verify controller recovery and research boundaries
+        run: uv run --frozen python -m unittest tests.test_autolab -v
+      - name: Run bounded research queue
+        run: >-
+          uv run --frozen python -m research.autolab.controller
+          --store data/raw/autolab-state --summary data/raw/autolab-summary.md
+      - name: Save optional checkpoints, including failed attempts
+        if: always() && github.ref == 'refs/heads/main' && hashFiles('data/raw/autolab-state/*/journal.json') != ''
+        continue-on-error: true
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: data/raw/autolab-state
+          key: autolab-v1-main-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Publish auditable task receipts
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: automated-research-lab-${{ github.run_id }}
+          path: |
+            data/raw/autolab-state/
+            data/raw/autolab-summary.md
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Show the current findings and blocked research queue
+        if: always()
+        run: |
+          if test -f data/raw/autolab-summary.md; then
+            cat data/raw/autolab-summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi

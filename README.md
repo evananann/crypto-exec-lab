@@ -41,6 +41,15 @@ commissions** and **−9.7397 bps with 5 bps per fill**. Even the zero-delay ref
 is negative after those fees. Ex-post quote/depth eligibility and a large rejected
 slot limit this result; it does not establish incremental Binance value.
 
+## Automated research lab
+
+The [research controller](docs/AUTOMATED_RESEARCH_LAB.md) runs a daily, bounded
+queue: frozen-source checks, released-evidence verification, latency/cost
+reproduction and 1,000 synthetic execution checks. Content-addressed journals
+support checked resume and preserve failures. GitHub run summaries expose findings
+and blocked experiments. This automates research operations; new market evidence
+and the OKX-only versus OKX + Binance experiment still require qualified data.
+
 ## What the code does
 
 - Preserves public market recordings, hashes, source identities and release gates.
