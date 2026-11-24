@@ -105,6 +105,11 @@ body{font:17px/1.65 system-ui,sans-serif;color:#142238;background:#f6f8fb;margin
         '<p><a href="https://github.com/evananann/crypto-exec-lab/blob/main/reports/latency_cost_20261124/MEMO.md">'
         'Does faster execution overcome the fee hurdle?</a> Read the measured '
         'latency and round-trip cost breakdown, its chart and sample limitations.</p>'
+        '<p><a href="https://github.com/evananann/crypto-exec-lab/actions/workflows/automated-research-lab.yml">'
+        'Automated research lab</a>: daily evidence checks, reproducible task receipts '
+        'and an explicit queue of blocked experiments. '
+        '<a href="https://github.com/evananann/crypto-exec-lab/blob/main/docs/AUTOMATED_RESEARCH_LAB.md">'
+        'Scope and operating guide</a>.</p>'
         '<h2>What is established?</h2>'))
     files = sorted(p.name for p in output.iterdir())
     (output/'site-checksums.json').write_text(json.dumps({name: hashlib.sha256((output/name).read_bytes()).hexdigest() for name in files}, indent=2)+'\n')

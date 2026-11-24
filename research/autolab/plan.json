@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {"id": "frozen_integrity", "depends_on": []},
+    {"id": "released_integrity", "depends_on": ["frozen_integrity"]},
+    {"id": "latency_reproduction", "depends_on": ["released_integrity"]},
+    {"id": "execution_mechanics", "depends_on": ["frozen_integrity"]}
+  ],
+  "synthetic_seed": 42,
+  "synthetic_cases": 1000,
+  "research_queue": [
+    {"id": "incremental_binance_value", "state": "BLOCKED", "question": "Does OKX plus Binance improve net execution decisions over OKX-only on the same opportunities?", "requires": ["Qualified sustained acquisition and original instrument metadata", "Prospective protocol and untouched evaluation data", "Matched policy execution and reconciled ledgers"], "next_action": "Qualify acquisition before enrolling a prospective paired-policy experiment; existing server setup is parked."},
+    {"id": "maker_quote_defense", "state": "BLOCKED", "question": "Does canceling follower quotes reduce adverse selection after missed-fill opportunity costs?", "requires": ["Incremental predictive value established out of sample", "Queue and cancellation-latency observations", "Validated passive-fill counterfactual"], "next_action": "Specify the counterfactual and missing-fill cost before claiming maker savings."}
+  ]
+}
