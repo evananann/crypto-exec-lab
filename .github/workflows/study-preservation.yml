@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/archive_study_releases.py'
+      - 'research/roadmap/archive_original_releases.py'
       - '.github/workflows/study-preservation.yml'
   workflow_run:
     workflows: [frozen live study, preregistered replication collection]
@@ -61,7 +62,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
-        run: uv run --frozen python -m scripts.archive_study_releases --repository "$REPOSITORY" --out data/raw/preservation
+        run: uv run --frozen python -m research.roadmap.archive_original_releases --repository "$REPOSITORY" --out data/raw/preservation
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6, Node 24
         if: always() && steps.window.outputs.run == 'true'
         with:
