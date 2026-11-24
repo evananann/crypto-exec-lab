@@ -241,6 +241,9 @@ def main():
     if args.summary:
         args.summary.parent.mkdir(parents=True, exist_ok=True)
         args.summary.write_text((run/'README.md').read_text())
+    modes = Counter(state['task_modes'].values())
+    print(f"::notice title=Automated research lab::{state['status']}; executed={modes['EXECUTED']}; "
+          f"verified_reuse={modes['VERIFIED_REUSE']}; research={state['research_status']}; deployment_authorized=false")
     print(f"Research lab {state['status']}: {run}")
     return 0 if state['status'] == 'COMPLETE' else 1
 
