@@ -173,9 +173,10 @@ def draft(archive_binding, clocks, capture):
               'source_bound_sensitivity_and_placebo_checks': False, 'perpetual_execution_calibration': False}
     names = ('research/continuous_capture.py', 'research/clock_telemetry.py',
              'research/roadmap/empirical_pipeline.py', 'research/roadmap/feed_activity.py',
-             'research/roadmap/public_instruments.py', 'research/roadmap/paired_inference.py')
+             'research/roadmap/public_instruments.py', 'research/roadmap/paired_inference.py',
+             'research/roadmap/followon.py', 'research/decision_study/pipeline.py')
     sources = {name: digest(ROOT/name) for name in (*names, 'uv.lock', 'pyproject.toml')}
-    sources[str(CATALOG.relative_to(ROOT))] = digest(CATALOG)
+    sources.update({str(path.relative_to(ROOT)): digest(path) for path in Path(__file__).parent.glob('*.json')})
     sources.update({str(path.relative_to(ROOT)): digest(path) for path in Path(__file__).parent.glob('*.py')})
     return {'schema_version': 1, 'state': 'DRAFT_NOT_ENROLLED', 'hypothesis_sha256': digest(HYPOTHESIS),
             'design_sha256': hypothesis['design_sha256'], 'checks': checks,

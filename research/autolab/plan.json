@@ -69,5 +69,6 @@
     }
   ],
   "collector_evidence": null,
-  "paired_evidence": null
+  "paired_evidence": null,
+  "cohort_manifest": null
 }

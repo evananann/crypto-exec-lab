@@ -97,3 +97,11 @@ The controller does not modify strategies, tune parameters, rewrite frozen studi
 submit orders, read exchange secrets, or enable trading. Adding an experiment
 requires a reviewed task implementation and explicit evidence requirements;
 a favorable statistic cannot grant deployment clearance.
+
+## Multiple daily captures and fixed controls
+
+The [cohort adapter and control runner](COHORT_AND_CONTROLS.md) reconstruct a
+declared multi-date grid from separate daily originals and report all 18 fixed
+delay/holding cases, five controls and leave-one-date-out coverage. Missing days
+remain unknown. Configure the optional `cohort_manifest` alongside paired
+evidence to use this route; its results remain exploratory.

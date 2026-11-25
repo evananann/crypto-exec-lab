@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "state": "PROPOSED_NOT_ENROLLED",
+  "delays_ms": [
+    0,
+    25,
+    50,
+    100,
+    250,
+    500
+  ],
+  "holding_after_entry_ms": [
+    250,
+    1000,
+    5000
+  ],
+  "primary_delay_ms": 50,
+  "primary_holding_ms": 1000,
+  "entry_fee_bps": "5",
+  "exit_fee_bps": "5",
+  "placebos": [
+    "cyclic_shift",
+    "within_day_shuffle",
+    "sign_inversion",
+    "random_trigger"
+  ],
+  "placebo_seed": 7,
+  "unknown_eligible_delta_bounds_usdt": [
+    "-0.10",
+    "0.10"
+  ],
+  "interpretation": "All cases descriptive, no winner selection or confidence intervals. Placebos retrospective within-date controls; unavailable features are not imputed."
+}

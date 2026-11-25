@@ -50,6 +50,8 @@ def load_plan():
         raise ValueError('mandatory integrity dependencies changed')
     capture_paths(plan)
     paired_paths(plan)
+    if cohort_path(plan) and plan.get('collector_evidence') is not None:
+        raise ValueError('choose a cohort manifest or a single capture, not both')
     seen = set()
     for task in plan['tasks']:
         if not set(task['depends_on']) <= seen:
@@ -81,7 +83,12 @@ def bindings():
     paths.update((ROOT/'scripts').glob('*.py'))
     paths.update((ROOT/'cel').rglob('*.py'))
     paths.update((ROOT/'.github/workflows').glob('successor-*.yml'))
-    return {str(p.relative_to(ROOT)): sha(p) for p in sorted(paths)}
+    result = {str(p.relative_to(ROOT)): sha(p) for p in sorted(paths)}
+    cohort_input = cohort_path(plan)
+    if cohort_input:
+        from research.autolab.cohort import source_bindings
+        result.update({'.cohort-inputs/'+key: value for key, value in source_bindings(cohort_input).items()})
+    return result
 
 
 def capture_paths(plan):
@@ -102,8 +109,26 @@ def capture_paths(plan):
     return tuple(paths)
 
 
+def cohort_path(plan):
+    name = plan.get('cohort_manifest')
+    if name is None:
+        return None
+    if not isinstance(name, str) or not name.startswith('data/raw/'):
+        raise ValueError('cohort manifest must be staged under data/raw')
+    path = ROOT/name
+    if path.is_symlink() or not path.resolve().is_relative_to((ROOT/'data/raw').resolve()) or not path.is_file():
+        raise ValueError('original local cohort manifest required')
+    from research.autolab.cohort import load_manifest
+    load_manifest(path)
+    return path
+
+
 def collector_readiness(plan):
     from research.autolab.qualification import qualify
+    if cohort_path(plan):
+        result = qualify()
+        result.update(status='COHORT_REQUIRES_PER_DAY_REVIEW', reasons=['PER_DAY_CAPTURE_GATES_RUN_IN_PAIRED_STAGE'])
+        return result
     paths = capture_paths(plan)
     return qualify(spool=paths[0], metadata=paths[1]) if paths else qualify()
 
@@ -129,10 +154,31 @@ def paired_paths(plan):
 def paired_evaluation(plan):
     from research.autolab.paired_review import suite, load_items, load_calendar, review
     scenarios = suite()
+    from research.autolab.secondary import protocol, PROTOCOL
+    spec = protocol()
     result = {'synthetic_scenario_statuses': {name: row['status'] for name, row in scenarios.items()},
               'empirical_status': 'DATA_NOT_PROVIDED', 'empirical_review': None, 'raw_grid_verification': None,
-              'confirmatory_inference_valid': False, 'deployment_authorized': False}
+              'confirmatory_inference_valid': False, 'deployment_authorized': False, 'secondary_review': None,
+              'secondary_protocol_sha256': sha(PROTOCOL),
+              'fixed_secondary_cells': len(spec['delays_ms'])*len(spec['holding_after_entry_ms'])}
     paths = paired_paths(plan)
+    if paths and cohort_path(plan):
+        from research.autolab.cohort import assess, load_manifest
+        from research.autolab.secondary import run as secondary_review
+        manifest_path = cohort_path(plan)
+        ledger, calendar = paths
+        manifest = load_manifest(manifest_path)
+        if load_calendar(calendar) != manifest['calendar']:
+            raise ValueError('paired calendar differs from declared cohort calendar')
+        verification = assess(manifest_path, ledger=ledger)
+        result['raw_grid_verification'] = verification
+        if not verification['raw_replay_matched']:
+            result['empirical_status'] = 'BLOCKED_RAW_GRID_VERIFICATION'
+            return result
+        result['empirical_review'] = review(load_items(ledger), manifest['calendar'])
+        result['empirical_status'] = result['empirical_review']['status']
+        result['secondary_review'] = secondary_review(manifest_path)
+        return result
     if paths:
         originals = capture_paths(plan)
         if originals is None:
