@@ -130,15 +130,22 @@ def paired_evaluation(plan):
     from research.autolab.paired_review import suite, load_items, load_calendar, review
     scenarios = suite()
     result = {'synthetic_scenario_statuses': {name: row['status'] for name, row in scenarios.items()},
-              'empirical_status': 'DATA_NOT_PROVIDED', 'empirical_review': None,
+              'empirical_status': 'DATA_NOT_PROVIDED', 'empirical_review': None, 'raw_grid_verification': None,
               'confirmatory_inference_valid': False, 'deployment_authorized': False}
     paths = paired_paths(plan)
     if paths:
-        capture = collector_readiness(plan)
-        if capture['mechanical_capture_acceptable'] is not True:
+        originals = capture_paths(plan)
+        if originals is None:
             result['empirical_status'] = 'BLOCKED_DATA_NOT_QUALIFIED'
             return result
         ledger, calendar = paths
+        from research.autolab.raw_replay import assess
+        verification = assess(*originals, calendar, ledger=ledger)
+        result['raw_grid_verification'] = verification
+        if verification['raw_replay_matched'] is not True:
+            result['empirical_status'] = ('BLOCKED_DATA_NOT_QUALIFIED'
+                if verification['status'] == 'BLOCKED_DATA_NOT_QUALIFIED' else 'BLOCKED_RAW_GRID_VERIFICATION')
+            return result
         result['empirical_review'] = review(load_items(ledger), load_calendar(calendar))
         result['empirical_status'] = result['empirical_review']['status']
     return result
@@ -304,6 +311,7 @@ def execute(store, plan, source_bindings, handlers, current_bindings=None):
             evidence = json.loads((run/item['file']).read_text())['result']
             summary += ['', '## Paired-policy review', '',
                         f"Empirical status: **{evidence['empirical_status']}**. No confirmatory conclusion or deployment clearance.",
+                        'Raw replay and complete declared-grid match are required before supplied-ledger analysis.',
                         'Synthetic decision-rule checks: '+str(len(evidence['synthetic_scenario_statuses']))+
                         ' passed. These are simulated mechanics, not observed market results.']
         summary += ['', '## Research queue', '']
