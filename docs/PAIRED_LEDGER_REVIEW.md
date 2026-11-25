@@ -28,12 +28,13 @@ Audit failures halt the comparison. Invalid IDs, actions, dates, duplicate pairs
 nonfinite amounts and unavailable-outcome inconsistencies are also rejected.
 The reader limits rows and decompressed bytes and checks CLI inputs for changes.
 
-This is a **supplied-trace consistency audit**. It cannot authenticate a trace
+The standalone reviewer is a **supplied-trace consistency audit**. It cannot authenticate a trace
 against the original feed, prove that a selected quote was the last available
 quote, verify complete decision-grid coverage or establish clock accuracy. The
 existing raw capture gate, source authentication and future enrollment remain
-separate requirements. Attaching a valid capture and a ledger does not itself
-prove that the ledger was derived from that capture.
+separate requirements. The daily lab now additionally requires
+[raw derivation and full declared-grid verification](RAW_GRID_VERIFICATION.md) to
+check that relationship. Independent source origin and enrollment remain separate.
 
 ## Evaluation and conclusion scope
 
@@ -89,8 +90,9 @@ The sixth lab task runs the three synthetic decision-rule cases. With no staged
 ledger, its empirical status is DATA_NOT_PROVIDED. To attach an exploratory
 ledger, set `paired_evidence` in `research/autolab/plan.json` to an object with
 `ledger` and `calendar` file paths under `data/raw/`. Those files become part of
-the content fingerprint. The task rechecks capture mechanics before reading
-paired outcomes; rejected or missing capture data produces
+the content fingerprint. The task requires both capture mechanics and a complete raw replay match before
+paired analysis. A mismatch produces BLOCKED_RAW_GRID_VERIFICATION; rejected or
+missing capture data produces
 BLOCKED_DATA_NOT_QUALIFIED without evaluating the supplied ledger.
 
 A mechanically accepted capture permits only exploratory consistency review.

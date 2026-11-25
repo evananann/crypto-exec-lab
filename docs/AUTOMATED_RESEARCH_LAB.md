@@ -27,7 +27,8 @@ The allowlisted task graph in `research/autolab/plan.json` executes:
    empirical experiment blocked. [Hypothesis interface and collector gate](HYPOTHESIS_TO_CONCLUSION.md).
 
 6. Audit paired feature/execution ledgers and run three synthetic conclusion-rule
-   checks. Staged ledgers require a successful capture-mechanics review and remain
+   checks. Staged ledgers require successful capture mechanics plus
+   [raw reconstruction and full-grid matching](RAW_GRID_VERIFICATION.md), and remain
    exploratory; missing data stays blocked. [Paired review interface](PAIRED_LEDGER_REVIEW.md).
 
 Each task writes an immutable attempt receipt. Dependencies prevent downstream

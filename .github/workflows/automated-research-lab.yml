@@ -17,6 +17,7 @@ on:
       - 'tests/test_autolab.py'
       - 'tests/test_capture_qualification.py'
       - 'tests/test_paired_review.py'
+      - 'tests/test_raw_replay.py'
       - 'reports/collector_gate_20261125/**'
       - '.github/workflows/automated-research-lab.yml'
   schedule:
@@ -51,7 +52,7 @@ jobs:
           key: autolab-v1-main-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: autolab-v1-main-
       - name: Verify controller recovery and research boundaries
-        run: uv run --frozen python -m unittest tests.test_autolab tests.test_capture_qualification tests.test_paired_review -v
+        run: uv run --frozen python -m unittest tests.test_autolab tests.test_capture_qualification tests.test_paired_review tests.test_raw_replay -v
       - name: Run bounded research queue
         run: >-
           uv run --frozen python -m research.autolab.controller
