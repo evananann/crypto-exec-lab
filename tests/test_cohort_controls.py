@@ -145,8 +145,8 @@ class CohortControlsTests(unittest.TestCase):
             root = Path(directory)
             manifest = fixture(root, total_days=1, captured=(0,))
             original = cohort.daily_views
-            def changing(*args):
-                yield from original(*args)
+            def changing(*args, **kwargs):
+                yield from original(*args, **kwargs)
                 manifest.write_text(manifest.read_text()+'\n')
             ledger = root/'changed.jsonl.gz'
             with patch.object(cohort, 'daily_views', side_effect=changing):

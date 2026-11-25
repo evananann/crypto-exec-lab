@@ -4,6 +4,7 @@ Local raw-byte derivation is not independent source authentication or enrollment
 """
 import argparse
 from collections import Counter
+from contextlib import ExitStack
 from datetime import date, timedelta
 import gzip
 import json
@@ -80,7 +81,7 @@ def compare_row(actual, expected, index):
             raise Mismatch(code, index, expected)
 
 
-def assess(spool, metadata, calendar_path, *, ledger=None, build_to=None):
+def assess(spool, metadata, calendar_path, *, ledger=None, build_to=None, storage='memory'):
     """Build OR verify; all result flags remain nonconfirmatory."""
     if (ledger is None) == (build_to is None):
         raise ValueError('choose a supplied ledger or a new reconstruction path')
@@ -92,12 +93,15 @@ def assess(spool, metadata, calendar_path, *, ledger=None, build_to=None):
         if (build_to.exists() or build_to.resolve().is_relative_to(spool.resolve())
                 or build_to.resolve().is_relative_to(metadata.resolve())):
             raise ValueError('new derived ledger must be outside the original spool')
+    if storage not in ('memory', 'disk'):
+        raise ValueError('unsupported replay storage')
+    resources = ExitStack()
     hypothesis = load_hypothesis()
     result = {'schema_version': 1, 'status': 'VERIFICATION_FAILED', 'raw_replay_matched': False,
-              'grid_complete': False, 'analysis': None, 'empirical_conclusion': 'NOT_EVALUATED_PENDING_ENROLLMENT',
+              'grid_complete': False, 'analysis': None, 'storage': storage, 'empirical_conclusion': 'NOT_EVALUATED_PENDING_ENROLLMENT',
               'hypothesis_sha256': digest(HYPOTHESIS), 'design_sha256': hypothesis['design_sha256'],
               'implementation_sha256': {name: digest(engine.ROOT/name) for name in (
-                  'research/autolab/raw_replay.py', 'research/autolab/qualification.py',
+                  'research/autolab/raw_replay.py', 'research/autolab/disk_replay.py', 'research/autolab/qualification.py',
                   'research/roadmap/empirical_pipeline.py', 'research/roadmap/feed_activity.py')},
               'independent_archive_verified': False, 'independent_utc_accuracy_verified': False,
               'enrolled': False, 'confirmatory_inference_valid': False, 'deployment_authorized': False,
@@ -117,19 +121,21 @@ def assess(spool, metadata, calendar_path, *, ledger=None, build_to=None):
         if capture['mechanical_capture_acceptable'] is not True:
             result.update(status='BLOCKED_DATA_NOT_QUALIFIED', reasons=capture['reasons'])
             return result
-        if capture['metrics']['records'] > MAX_RAW_RECORDS:
+        if storage == 'memory' and capture['metrics']['records'] > MAX_RAW_RECORDS:
             result.update(status='BLOCKED_REPLAY_RESOURCE_LIMIT', reasons=['RAW_RECORD_LIMIT_EXCEEDED'])
             return result
         stage = 'RAW_RECONSTRUCTION'
         before = source_files(spool, metadata)
-        books, source = engine.load_session(spool, metadata, max_records=MAX_RAW_RECORDS)
+        from research.autolab.disk_replay import open_replay
+        replay, source = resources.enter_context(open_replay(spool, metadata, design, storage=storage))
+        if storage == 'disk':
+            result['index_metrics'] = replay.metrics
         start, finish = source['start_ns']+source['utc_minus_monotonic_ns'], source['end_ns']+source['utc_minus_monotonic_ns']
         if finish < grid[0][0] or start >= grid[-1][0]+DAY_NS:
             raise ValueError('capture does not overlap declared calendar')
         result['source_sha256'] = before
         result['capture_session'] = source['selected_capture_session']
         result['utc_minus_monotonic_ns'] = source['utc_minus_monotonic_ns']
-        replay = engine.Replay(books, design)
         supplied_hash = digest(ledger) if ledger is not None else None
         actual = iter(load_items(ledger)) if ledger is not None else None
         counts = Counter({'checked_grid_rows': 0, 'jointly_eligible_rows': 0, 'both_abstain_rows': 0,
@@ -183,6 +189,8 @@ def assess(spool, metadata, calendar_path, *, ledger=None, build_to=None):
             result['expected_utc_date'] = error.expected['pair']['utc_date']
     except (ValueError, OSError, KeyError, TypeError, ArithmeticError, EOFError, zlib.error) as error:
         result.update(status='VERIFICATION_FAILED', failure_stage=stage, error_type=type(error).__name__)
+    finally:
+        resources.close()
     return result
 
 
@@ -191,12 +199,13 @@ def main():
     parser.add_argument('--spool', type=Path, required=True)
     parser.add_argument('--metadata', type=Path, required=True)
     parser.add_argument('--calendar', type=Path, required=True)
+    parser.add_argument('--storage', choices=('memory', 'disk'), default='memory')
     parser.add_argument('--ledger', type=Path, help='Omit to build a new full-calendar ledger')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
     report = assess(args.spool, args.metadata, args.calendar, ledger=args.ledger,
-                    build_to=None if args.ledger else args.out/'paired-ledger.jsonl.gz')
+                    build_to=None if args.ledger else args.out/'paired-ledger.jsonl.gz', storage=args.storage)
     (args.out/'verification.json').write_text(json.dumps(report, indent=2, allow_nan=False)+'\n')
     lines = ['# Raw reconstruction and declared-grid verification', '', f"Status: **{report['status']}**.", '',
              'A complete ledger does not imply adequate market coverage or a registered experiment.', '',
