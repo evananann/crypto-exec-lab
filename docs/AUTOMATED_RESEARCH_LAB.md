@@ -60,7 +60,8 @@ Releases. For a persistent local worker, retain/back up the state directory.
 The first version has no cross-host transaction or concurrent-worker support.
 
 Disable the workflow in Actions to stop its scheduled runs; re-enable and use
-Run workflow to resume. It runs independently of this chat once enabled on main.
+Run workflow to resume. Once enabled on main, scheduled runs execute through
+GitHub Actions without an interactive session.
 
 ## What the lab still cannot conclude
 

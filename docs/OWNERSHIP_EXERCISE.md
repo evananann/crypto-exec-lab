@@ -1,9 +1,9 @@
 # Personal reproduction and five-minute defense
 
-**Status: exercise prepared; personal completion is not certified.** Agent-run
-commands do not prove that the candidate understands or personally reproduced a
-result. The tasks below need no exchange key, private account log or active-study
-outcome. Keep the dated reports unchanged. Use a fresh output directory.
+**Status: walkthrough prepared; individual reproduction remains to be completed.**
+Automated checks establish software behavior. The walkthrough verifies the
+ability to reproduce and explain a result. The tasks below need no exchange key,
+private account log or active-study outcome. Keep the dated reports unchanged. Use a fresh output directory.
 
 ## Your reproduction (about ten minutes)
 
@@ -58,9 +58,9 @@ their net cash figures. Preserve BTC versus USDT, and do not rename USDT USD.
 Keep your own console output, source commit and a short explanation in your own
 words. A convincing explanation identifies the exact source and units, derives
 one value, states an assumption that could fail, and gives a proportionate action.
-If you cannot reproduce a number, record the discrepancy rather than substituting
-an agent's answer. Reading an answer key or passing automated tests alone is not
-personal ownership. No automated completion badge is issued.
+If you cannot reproduce a number, record the discrepancy and investigate its
+source. Retain the commands, outputs and reasoning used to resolve it. Passing
+automated tests alone does not demonstrate understanding of the research.
 
-The project owner must complete the walkthrough; an assistant can review the
-explanation but cannot certify personal interview performance on their behalf.
+Complete the walkthrough independently and use peer review to check the
+explanation, assumptions and interpretation.

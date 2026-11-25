@@ -115,8 +115,8 @@ output and explanation. The [worked actual execution](../reports/worked_executio
 connects one selected received quote to a predicted and observed sell, native
 fees and conserved cash. It is explicitly separate from a leader-signal study.
 The [pre-release work index](../reports/pre_enrollment_20261116/README.md) records
-what remains blocked; neither an agent-run test nor this guide certifies your
-personal interview performance.
+what remains blocked. Use the walkthrough to demonstrate independent
+reproduction, explain the accounting and defend the limits of the evidence.
 # Released-data missingness question
 
 “How much does the missing PM coverage matter?” now has a reproducible answer in
