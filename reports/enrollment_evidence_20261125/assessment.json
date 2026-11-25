@@ -1,0 +1,220 @@
+{
+  "assessed_at_utc": "2026-11-25T04:56:55.766210+00:00",
+  "archive_binding": {
+    "source_id": "public-rehearsal-20261123",
+    "approved_receipt_sha256": "17af6828c8f78fbc4d54492bd3f093886e28f10dea7c7f9a573501dc3b4fa517",
+    "archive_sha256": "cf696263389dc4883e41dd6c6e0cf83e4f1b476c7ccb0cd5881123fd1606ec76",
+    "archive_members_verified": 60,
+    "retained_archive_bytes_verified": true,
+    "local_member_binding_verified": true,
+    "release_url": "https://github.com/evananann/crypto-exec-lab/releases/tag/qualification-cloud-20261123-failed-attempts-v1",
+    "matched_local_files": 26,
+    "members": {
+      "spool/20261123T151117-1bca3c623b8d4154bb2d0c80eccc5259.jsonl.gz": {
+        "archive_member": "spool/20261123T151117-1bca3c623b8d4154bb2d0c80eccc5259.jsonl.gz",
+        "sha256": "826c0a51e7fae4e9555df333b4ea29bdca4aee485032b511494f4b46bfee0472"
+      },
+      "spool/20261123T151117-1bca3c623b8d4154bb2d0c80eccc5259.manifest.json": {
+        "archive_member": "spool/20261123T151117-1bca3c623b8d4154bb2d0c80eccc5259.manifest.json",
+        "sha256": "73c765c455a40ea38d2c0d7e34e4ba0589a0270a1a4cdd55ec863395fa3e7ca9"
+      },
+      "spool/20261123T151147-49c0277956f740d3aaf14710bdc4bd57.jsonl.gz": {
+        "archive_member": "spool/20261123T151147-49c0277956f740d3aaf14710bdc4bd57.jsonl.gz",
+        "sha256": "0b47b0200fac6a1251cbcb7e11a1597a12dd56d1399e2d3b98878e436cc2d272"
+      },
+      "spool/20261123T151147-49c0277956f740d3aaf14710bdc4bd57.manifest.json": {
+        "archive_member": "spool/20261123T151147-49c0277956f740d3aaf14710bdc4bd57.manifest.json",
+        "sha256": "cc79a66d322e12fd30e9753311410bcb7cdbfd03cf46e87122e580b14fe3a1eb"
+      },
+      "spool/20261123T151217-5439be6c18bc4a0aa1bc7d57099ada8e.jsonl.gz": {
+        "archive_member": "spool/20261123T151217-5439be6c18bc4a0aa1bc7d57099ada8e.jsonl.gz",
+        "sha256": "73d5356a995f3d103571174c010b1afec1218515a7d4ec0eab6e3314453452a9"
+      },
+      "spool/20261123T151217-5439be6c18bc4a0aa1bc7d57099ada8e.manifest.json": {
+        "archive_member": "spool/20261123T151217-5439be6c18bc4a0aa1bc7d57099ada8e.manifest.json",
+        "sha256": "d1308db14976a0fe467bb0ab4d754d647d93ed221ab9cd7b5c2b3df2e1286bec"
+      },
+      "spool/20261123T151247-49b41744fda540bb9a390f76dc1833b8.jsonl.gz": {
+        "archive_member": "spool/20261123T151247-49b41744fda540bb9a390f76dc1833b8.jsonl.gz",
+        "sha256": "1fc220fc113c940a09ac22be19470dbb4709c1028bb4be0cb12e42733de9f640"
+      },
+      "spool/20261123T151247-49b41744fda540bb9a390f76dc1833b8.manifest.json": {
+        "archive_member": "spool/20261123T151247-49b41744fda540bb9a390f76dc1833b8.manifest.json",
+        "sha256": "01968dd1fb911cdb2d2e0513686b43c1f7d416e87395976501fa325fc56186ae"
+      },
+      "spool/20261123T151317-fbb536e1d86a4868a8d2fdc752f59b62.jsonl.gz": {
+        "archive_member": "spool/20261123T151317-fbb536e1d86a4868a8d2fdc752f59b62.jsonl.gz",
+        "sha256": "67952c6fb46d4be93dcc47d5479bf180ab0f6d9c168caea17ae43cd3b49e8408"
+      },
+      "spool/20261123T151317-fbb536e1d86a4868a8d2fdc752f59b62.manifest.json": {
+        "archive_member": "spool/20261123T151317-fbb536e1d86a4868a8d2fdc752f59b62.manifest.json",
+        "sha256": "332b1d0207188a4ade2bdc60afddd932ea80631d9b73e805279706f5512d11e2"
+      },
+      "spool/20261123T151347-858759456ccd4a0daef6cdd6899c27ea.jsonl.gz": {
+        "archive_member": "spool/20261123T151347-858759456ccd4a0daef6cdd6899c27ea.jsonl.gz",
+        "sha256": "de28be1f2083db4ac0213adaa9692b8dff92c2b3972e41f910353582545c8ac0"
+      },
+      "spool/20261123T151347-858759456ccd4a0daef6cdd6899c27ea.manifest.json": {
+        "archive_member": "spool/20261123T151347-858759456ccd4a0daef6cdd6899c27ea.manifest.json",
+        "sha256": "78e72b379c5b628f0f8ceda50c2b20343527b19cee8374c359b70d912e467cc4"
+      },
+      "spool/20261123T151417-0e9415e904d94de7a0659454c16448a5.jsonl.gz": {
+        "archive_member": "spool/20261123T151417-0e9415e904d94de7a0659454c16448a5.jsonl.gz",
+        "sha256": "fb79125e7c04c439aff294bb922944bad625b8d9361cbb5c233da671acd75679"
+      },
+      "spool/20261123T151417-0e9415e904d94de7a0659454c16448a5.manifest.json": {
+        "archive_member": "spool/20261123T151417-0e9415e904d94de7a0659454c16448a5.manifest.json",
+        "sha256": "91ce6f1e64903bdc78c67796fddaf55ef41f89672857d2da1cb6040d9b8408c8"
+      },
+      "spool/20261123T151447-d506a9a44013488492e3a01b1deb74e7.jsonl.gz": {
+        "archive_member": "spool/20261123T151447-d506a9a44013488492e3a01b1deb74e7.jsonl.gz",
+        "sha256": "525b31c828f72016bbea9e4021aec072f973a442af1b6fa414e4eb4deeb00efe"
+      },
+      "spool/20261123T151447-d506a9a44013488492e3a01b1deb74e7.manifest.json": {
+        "archive_member": "spool/20261123T151447-d506a9a44013488492e3a01b1deb74e7.manifest.json",
+        "sha256": "d8ea04ee1cba8186771365a0c2124c8cf9eddb96616e7ab1e4d5f3d3751bbac1"
+      },
+      "spool/20261123T151517-b446b83f428143adb0b2b98c7c73e256.jsonl.gz": {
+        "archive_member": "spool/20261123T151517-b446b83f428143adb0b2b98c7c73e256.jsonl.gz",
+        "sha256": "7010272527d913e57b560973b8502e3ca86e11d15590535e8d37eb99f55640fb"
+      },
+      "spool/20261123T151517-b446b83f428143adb0b2b98c7c73e256.manifest.json": {
+        "archive_member": "spool/20261123T151517-b446b83f428143adb0b2b98c7c73e256.manifest.json",
+        "sha256": "f54caf137299d9fe4007c135591357657d1450ffd644cf9ec5c916d58d905f00"
+      },
+      "spool/20261123T151547-942c414465dc46e5a2d47a635e6675f4.jsonl.gz": {
+        "archive_member": "spool/20261123T151547-942c414465dc46e5a2d47a635e6675f4.jsonl.gz",
+        "sha256": "b83aeca40be560c5402524acba721b10546f67a4383ce175fd841fee1e8d7fad"
+      },
+      "spool/20261123T151547-942c414465dc46e5a2d47a635e6675f4.manifest.json": {
+        "archive_member": "spool/20261123T151547-942c414465dc46e5a2d47a635e6675f4.manifest.json",
+        "sha256": "b5fb3ec7e503032083e2b26b9ccce85b88f68ed0dddf61e905b417a5bd639c32"
+      },
+      "spool/session-af28ec9b0ef048b59b2c5b6294995768.clock.jsonl": {
+        "archive_member": "spool/session-af28ec9b0ef048b59b2c5b6294995768.clock.jsonl",
+        "sha256": "0298cb0e4c88030addbbca9543d851f9ae41057b829f2806f6d0c510ca33d488"
+      },
+      "spool/session-af28ec9b0ef048b59b2c5b6294995768.status.json": {
+        "archive_member": "spool/session-af28ec9b0ef048b59b2c5b6294995768.status.json",
+        "sha256": "a57782ca28c9bb50ad0bbfdac7f7f5552a85e1b07d1a1452e0da03a243b5e54d"
+      },
+      "metadata/binance-after.json": {
+        "archive_member": "source/long-binance-after.json",
+        "sha256": "a1d1dfc2f667c8eb8dfb22668403da5d3deb1ca24c0518a09909039fa02940b1"
+      },
+      "metadata/binance-before.json": {
+        "archive_member": "source/long-binance-before.json",
+        "sha256": "b52e2fea1369a1d05f49cc5f30abb0ed66a1a23ed58cee3d17c420a5d3d8029d"
+      },
+      "metadata/okx-after.json": {
+        "archive_member": "source/long-okx-after.json",
+        "sha256": "6fd02f81580881db7df679ee505cd025d4d857afdda6379c083e488a5c637c77"
+      },
+      "metadata/okx-before.json": {
+        "archive_member": "source/long-okx-before.json",
+        "sha256": "5fdaf4b6900b1c688caaac1255cceb854a3540a4d7a3a8b611f235a6921f3973"
+      }
+    },
+    "excluded_empty_operational_files": [
+      "spool/.capture.lock"
+    ],
+    "venue_origin_authenticated": false,
+    "worm_or_object_lock": false,
+    "scope": "Provided archive matches the reviewed independently read-back preservation inventory. Same-provider administrator mutability and upstream venue authenticity remain outside this proof."
+  },
+  "clock_review": {
+    "status": "CLOCK_EVIDENCE_INSUFFICIENT",
+    "samples": 11,
+    "unavailable_daemon_samples": 11,
+    "unavailable_reason_codes": [
+      "chronyc_not_installed"
+    ],
+    "checks": {
+      "boundary_phases": true,
+      "interior_phases": true,
+      "brackets_recording": true,
+      "ordered_samples": true,
+      "sample_gaps": true,
+      "pair_uncertainty": true,
+      "sampled_wall_consistency": true,
+      "daemon_diagnostics_available": false,
+      "daemon_error_estimate": false,
+      "fresh_reference": false
+    },
+    "profile": {
+      "maximum_sample_gap_ns": 60000000000,
+      "maximum_pair_uncertainty_ns": 1000000,
+      "maximum_sampled_wall_step_ns": 1000000,
+      "maximum_daemon_error_estimate_s": 0.001,
+      "maximum_reference_age_s": 300
+    },
+    "clock_file_sha256": "0298cb0e4c88030addbbca9543d851f9ae41057b829f2806f6d0c510ca33d488",
+    "independent_utc_accuracy_verified": false,
+    "scope": "Archived software/daemon diagnostics only. Passing sampled checks is not independent UTC accuracy proof or continuous clock-error assurance."
+  },
+  "capture_status": "DATA_NOT_QUALIFIED",
+  "capture_checks": {},
+  "recording_bounds_ns": [
+    2473614396791,
+    2769638317855
+  ],
+  "draft": {
+    "schema_version": 1,
+    "state": "DRAFT_NOT_ENROLLED",
+    "hypothesis_sha256": "16b324010921af7f8873db7fd2bc2dcc892d0e124b8137494427f97c22d5a20a",
+    "design_sha256": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1",
+    "checks": {
+      "retained_archive_member_binding": true,
+      "capture_mechanics": false,
+      "daemon_clock_profile": false,
+      "independent_utc_accuracy": false,
+      "target_host_qualification": false,
+      "independent_origin_attestation": false,
+      "complete_cohort_adapter": false,
+      "prospective_publication_before_collection": false,
+      "source_bound_sensitivity_and_placebo_checks": false,
+      "perpetual_execution_calibration": false
+    },
+    "blockers": [
+      "capture_mechanics",
+      "daemon_clock_profile",
+      "independent_utc_accuracy",
+      "target_host_qualification",
+      "independent_origin_attestation",
+      "complete_cohort_adapter",
+      "prospective_publication_before_collection",
+      "source_bound_sensitivity_and_placebo_checks",
+      "perpetual_execution_calibration"
+    ],
+    "source_sha256": {
+      "research/continuous_capture.py": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb",
+      "research/clock_telemetry.py": "942516bca63e294039fcd70c902e69b98f33a4fca3d38d0b968fbd457fe163d1",
+      "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87",
+      "research/roadmap/feed_activity.py": "c0b323369ded11496c33a2503babd2dd83f16a59eb9a02ef3343f944d562c33c",
+      "research/roadmap/public_instruments.py": "0edbb84279d511ac41c761b9e87fa5eee89aca7c131d169b9d1906d344e5a9cd",
+      "research/roadmap/paired_inference.py": "0fd8229a543e107bcd774b816d795dea76dd055101d787969c1ff1ea2c614cd7",
+      "uv.lock": "0e4d843c3c53685af45dafca003f7d0944ba4fe324b6c44509b74e4024810cf7",
+      "pyproject.toml": "9930503cd148e5b26349ad7e59aa6377fd20b6c16df735e4562788ca0e953fbb",
+      "research/autolab/retained_sources.json": "c0f5845e297e2453277d63120d723acfda5f26994477ecbc2ed90dc8dea2c108",
+      "research/autolab/raw_replay.py": "f232dd660e0ab28242255dc2db8429b5ec28c241a0c9b2df1ff93bb6268a59dc",
+      "research/autolab/__init__.py": "34d442eff305f76a2f0c3c2461e4d6e9093d57f6ef000240b5701cd66279c282",
+      "research/autolab/controller.py": "d5641b6165d8352aec4272136235dc610965d0d004faa533fa8cc2f89c4b0572",
+      "research/autolab/enrollment.py": "531c5bb2188a8abccf3fb5a5f263aa665d76b669d61412a82dfa2d331c553ce9",
+      "research/autolab/paired_review.py": "4ce6c2cfbf9ced470498028831f05b0c19128205bb5270db40e53ae92e186a1a",
+      "research/autolab/qualification.py": "8548a6b030278623faf880a35f8c58b6d3b294279a60c929eacd0e8349217a47"
+    },
+    "calendar": {
+      "fixed_dates": null,
+      "discovery_days": 7,
+      "validation_days": 7,
+      "untouched_test_days": 28,
+      "embargo_days_after_discovery": 1,
+      "embargo_days_after_validation": 1,
+      "minimum_complete_utc_days_after_qualification_and_publication": 2
+    },
+    "scientific_enrollment": false,
+    "deployment_authorized": false,
+    "strategy_outcomes_computed": 0,
+    "scope": "Evidence assessment and source-bound enrollment preparation only. No activation, retrospective enrollment, study dates or publication attestation are issued."
+  }
+}

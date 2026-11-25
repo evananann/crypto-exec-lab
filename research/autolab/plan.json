@@ -34,6 +34,12 @@
       "depends_on": [
         "collector_readiness"
       ]
+    },
+    {
+      "id": "enrollment_evidence",
+      "depends_on": [
+        "released_integrity"
+      ]
     }
   ],
   "synthetic_seed": 42,
