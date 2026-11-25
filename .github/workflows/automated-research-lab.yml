@@ -20,6 +20,7 @@ on:
       - 'tests/test_raw_replay.py'
       - 'tests/test_cohort_controls.py'
       - 'tests/test_retained_audit.py'
+      - 'tests/test_acquisition.py'
       - 'reports/retained_decision_20261126/**'
       - 'tests/test_enrollment_evidence.py'
       - 'reports/enrollment_evidence_20261125/**'
@@ -57,7 +58,7 @@ jobs:
           key: autolab-v1-main-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: autolab-v1-main-
       - name: Verify controller recovery and research boundaries
-        run: uv run --frozen python -m unittest tests.test_autolab tests.test_capture_qualification tests.test_paired_review tests.test_raw_replay tests.test_enrollment_evidence tests.test_cohort_controls tests.test_retained_audit -v
+        run: uv run --frozen python -m unittest tests.test_autolab tests.test_capture_qualification tests.test_paired_review tests.test_raw_replay tests.test_enrollment_evidence tests.test_cohort_controls tests.test_retained_audit tests.test_acquisition -v
       - name: Run bounded research queue
         run: >-
           uv run --frozen python -m research.autolab.controller

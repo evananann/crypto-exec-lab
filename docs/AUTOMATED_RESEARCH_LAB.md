@@ -113,3 +113,10 @@ restores both acquisition bundles and checks every original process session.
 It explains why no paired-policy estimate can be computed from those sources,
 while separately reproducing the legacy execution-cost aggregates. The scheduled
 lab verifies this report’s checksums; it does not download archives on each run.
+
+## Acquisition prerequisite tooling
+
+The [bounded launcher](QUALIFICATION_LAUNCHER.md) prepares one new public-feed
+qualification attempt with fresh instrument snapshots and independent child
+deadlines. The scheduled lab runs its synthetic lifecycle tests only. It never
+launches market collection or activates hosting.
