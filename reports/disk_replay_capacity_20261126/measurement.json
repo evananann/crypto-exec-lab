@@ -1,0 +1,32 @@
+{
+  "scope": "Synthetic capacity measurement only; no market observations or strategy outcomes.",
+  "dataset": "Alternating venue frames every millisecond, unique sequence per venue, fixed prices and size.",
+  "metrics": {
+    "storage": "disk",
+    "database_bytes": 385720320,
+    "maximum_database_bytes": 4000000000,
+    "sqlite_cache_kib": 8192,
+    "raw_records": 2000002,
+    "indexed_quotes": 2000002
+  },
+  "index_build_seconds": 87.07815119600036,
+  "asof_identity_checks": 1006,
+  "asof_query_seconds": 0.021111038000526605,
+  "worker_peak_rss_kib_linux": 26144,
+  "derived_index_removed": true,
+  "implementation_sha256": {
+    "research/autolab/benchmark_disk.py": "558638353e23ace730932eea23ffafdacf81a1b67084fb9281e30daeab7e00ae",
+    "research/autolab/disk_replay.py": "d6a689058d10a0700e7be57f0001c83e9d6ca5726c6d85fc5d0f07be8237dd39",
+    "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87",
+    "research/roadmap/feed_activity.py": "c0b323369ded11496c33a2503babd2dd83f16a59eb9a02ef3343f944d562c33c",
+    "research/continuous_capture.py": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb",
+    "research/autolab/qualification.py": "8548a6b030278623faf880a35f8c58b6d3b294279a60c929eacd0e8349217a47"
+  },
+  "compressed_source_sha256": "6cee2391e47b675ec85e1f988a08b7d72263af3bcfcd82d1ba2351697787ecea",
+  "compressed_source_bytes": 38149572,
+  "python": "3.12.14",
+  "strategy_outcomes_computed": 0,
+  "scientifically_eligible": false,
+  "deployment_authorized": false,
+  "generation_seconds": 20.826873405999322
+}

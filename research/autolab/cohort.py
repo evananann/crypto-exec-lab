@@ -77,8 +77,11 @@ def source_bindings(path, manifest=None):
     return result
 
 
-def daily_views(path, manifest, reports):
-    """Only one indexed capture is live at a time. Never stitch connection history."""
+def daily_views(path, manifest, reports, *, storage='memory'):
+    """One capture view at a time, with temporary disk resources closed on exit."""
+    if storage not in ('memory', 'disk'):
+        raise ValueError('unsupported replay storage')
+    from research.autolab.disk_replay import open_replay
     captures = {row['utc_date']: row for row in manifest['captures']}
     design = strict_json(engine.DESIGN.read_bytes())
     seen_sessions = set()
@@ -91,30 +94,30 @@ def daily_views(path, manifest, reports):
         spool, metadata = (path.parent/capture[key] for key in ('spool', 'metadata'))
         gate = qualify(spool=spool, metadata=metadata)
         reports[day] = {'status': gate['status'], 'mechanical_capture_acceptable': gate['mechanical_capture_acceptable'],
-                        'reasons': gate['reasons']}
+                        'reasons': gate['reasons'], 'storage': storage}
         if not gate['mechanical_capture_acceptable']:
             yield day, None, None, design
             continue
-        if gate['metrics']['records'] > raw.MAX_RAW_RECORDS:
+        if storage == 'memory' and gate['metrics']['records'] > raw.MAX_RAW_RECORDS:
             reports[day]['status'] = 'REPLAY_RESOURCE_LIMIT'
             yield day, None, None, design
             continue
-        books, source = engine.load_session(spool, metadata, max_records=raw.MAX_RAW_RECORDS)
-        session = source['selected_capture_session']
-        if session in seen_sessions:
-            raise ValueError('capture session reused across daily ownership')
-        seen_sessions.add(session)
-        grid, _ = raw.calendar_grid([day], 10**10)
-        first = source['start_ns']+source['utc_minus_monotonic_ns']
-        last = source['end_ns']+source['utc_minus_monotonic_ns']
-        if last < grid[0][0] or first >= grid[0][0]+raw.DAY_NS:
-            raise ValueError('recording does not overlap its declared UTC date')
-        reports[day].update(status='SOURCE_RECONSTRUCTED', capture_session=session,
-                            raw_records=source['counts']['raw_records'])
-        view = engine.Replay(books, design)
-        yield day, view, source, design
-        # Release the prior day before loading the next capture.
-        del view, books, source
+        with open_replay(spool, metadata, design, storage=storage) as (view, source):
+            session = source['selected_capture_session']
+            if session in seen_sessions:
+                raise ValueError('capture session reused across daily ownership')
+            seen_sessions.add(session)
+            grid, _ = raw.calendar_grid([day], 10**10)
+            first = source['start_ns']+source['utc_minus_monotonic_ns']
+            last = source['end_ns']+source['utc_minus_monotonic_ns']
+            if last < grid[0][0] or first >= grid[0][0]+raw.DAY_NS:
+                raise ValueError('recording does not overlap its declared UTC date')
+            reports[day].update(status='SOURCE_RECONSTRUCTED', capture_session=session,
+                                raw_records=source['counts']['raw_records'])
+            if storage == 'disk':
+                reports[day]['index_metrics'] = view.metrics
+            yield day, view, source, design
+        del view, source
 
 
 def unavailable_day(day):
@@ -128,7 +131,7 @@ def unavailable_day(day):
                    'features': None, 'executions': []}
 
 
-def assess(manifest_path, *, ledger=None, build_to=None):
+def assess(manifest_path, *, ledger=None, build_to=None, storage='memory'):
     if (ledger is None) == (build_to is None):
         raise ValueError('choose supplied ledger or new cohort reconstruction')
     manifest = load_manifest(manifest_path)
@@ -143,6 +146,7 @@ def assess(manifest_path, *, ledger=None, build_to=None):
     expected_count = len(manifest['calendar'])*8640
     result = {'schema_version': 1, 'status': 'COHORT_VERIFICATION_FAILED', 'raw_replay_matched': False,
               'grid_complete': False, 'declared_opportunities': expected_count, 'sources': {},
+              'storage': storage, 'implementation_sha256': {name: digest(Path(__file__).with_name(name)) for name in ('cohort.py', 'disk_replay.py')},
               'manifest_sha256': digest(manifest_path), 'source_bindings_sha256': hashlib.sha256(raw.canonical(before).encode()).hexdigest(),
               'independent_origin_verified': False, 'clock_qualified': False, 'enrolled': False,
               'empirical_conclusion': 'NOT_EVALUATED_PENDING_ENROLLMENT',
@@ -154,10 +158,11 @@ def assess(manifest_path, *, ledger=None, build_to=None):
     writer = None
     counts = Counter({'grid_rows': 0, 'jointly_eligible': 0, 'unavailable_features': 0, 'unknown_eligible_outcomes': 0})
     observed_dates = set()
+    views = daily_views(manifest_path, manifest, result['sources'], storage=storage)
     try:
         if partial:
             writer = gzip.open(partial, 'xt')
-        for day, replay, source, design in daily_views(manifest_path, manifest, result['sources']):
+        for day, replay, source, design in views:
             if replay is None:
                 items = unavailable_day(day)
             else:
@@ -200,6 +205,7 @@ def assess(manifest_path, *, ledger=None, build_to=None):
     except (ValueError, OSError, KeyError, TypeError, ArithmeticError, EOFError, zlib.error) as error:
         result.update(error_type=type(error).__name__)
     finally:
+        views.close()
         if writer is not None:
             writer.close()
         if actual is not None and hasattr(actual, 'close'):
@@ -210,12 +216,13 @@ def assess(manifest_path, *, ledger=None, build_to=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', type=Path, required=True)
+    parser.add_argument('--storage', choices=('memory', 'disk'), default='memory')
     parser.add_argument('--ledger', type=Path)
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=False)
     report = assess(args.manifest, ledger=args.ledger,
-                    build_to=None if args.ledger else args.out/'cohort-ledger.jsonl.gz')
+                    build_to=None if args.ledger else args.out/'cohort-ledger.jsonl.gz', storage=args.storage)
     (args.out/'cohort.json').write_text(json.dumps(report, indent=2, allow_nan=False)+'\n')
     print(report['status'])
     return 0 if report['grid_complete'] else 2

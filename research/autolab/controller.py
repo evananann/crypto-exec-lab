@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PLAN = Path(__file__).with_name('plan.json')
 REPORTS = ('formal_decision_20261123', 'missingness_frontier_20261123',
            'latency_cost_20261124', 'collector_gate_20261125', 'enrollment_evidence_20261125',
-           'retained_decision_20261126')
+           'retained_decision_20261126', 'disk_replay_capacity_20261126')
 FROZEN = (('configs/successor/registered_study.json', 'source_files_sha256'),
           ('configs/study_v2_okx.json', 'analysis_files_sha256'),
           ('configs/study_v2_bybit.json', 'analysis_files_sha256'),
@@ -49,6 +49,8 @@ def load_plan():
         raise ValueError('unsupported lab plan')
     if tuple(t['depends_on'] for t in plan['tasks']) != DEPENDENCIES:
         raise ValueError('mandatory integrity dependencies changed')
+    if plan.get('replay_storage', 'memory') not in ('memory', 'disk'):
+        raise ValueError('unsupported replay storage')
     capture_paths(plan)
     paired_paths(plan)
     if cohort_path(plan) and plan.get('collector_evidence') is not None:
@@ -171,14 +173,14 @@ def paired_evaluation(plan):
         manifest = load_manifest(manifest_path)
         if load_calendar(calendar) != manifest['calendar']:
             raise ValueError('paired calendar differs from declared cohort calendar')
-        verification = assess(manifest_path, ledger=ledger)
+        verification = assess(manifest_path, ledger=ledger, storage=plan.get('replay_storage', 'memory'))
         result['raw_grid_verification'] = verification
         if not verification['raw_replay_matched']:
             result['empirical_status'] = 'BLOCKED_RAW_GRID_VERIFICATION'
             return result
         result['empirical_review'] = review(load_items(ledger), manifest['calendar'])
         result['empirical_status'] = result['empirical_review']['status']
-        result['secondary_review'] = secondary_review(manifest_path)
+        result['secondary_review'] = secondary_review(manifest_path, storage=plan.get('replay_storage', 'memory'))
         return result
     if paths:
         originals = capture_paths(plan)
@@ -187,7 +189,7 @@ def paired_evaluation(plan):
             return result
         ledger, calendar = paths
         from research.autolab.raw_replay import assess
-        verification = assess(*originals, calendar, ledger=ledger)
+        verification = assess(*originals, calendar, ledger=ledger, storage=plan.get('replay_storage', 'memory'))
         result['raw_grid_verification'] = verification
         if verification['raw_replay_matched'] is not True:
             result['empirical_status'] = ('BLOCKED_DATA_NOT_QUALIFIED'

@@ -104,3 +104,9 @@ Clock qualification, immutable source/enrollment publication, registered dates
 and release rules, complete-grid provenance across the cohort, and untouched
 observations still precede a formal hypothesis conclusion. Existing scientific
 results, source locks and the no-deployment decision are unchanged.
+
+## Optional disk storage
+
+Use `--storage disk` to reconstruct larger qualified captures through a temporary
+index. [Semantics, resource limits and capacity measurement](DISK_REPLAY.md).
+The memory path remains the default and the independent parity oracle.

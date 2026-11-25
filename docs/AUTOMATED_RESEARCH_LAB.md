@@ -120,3 +120,10 @@ The [bounded launcher](QUALIFICATION_LAUNCHER.md) prepares one new public-feed
 qualification attempt with fresh instrument snapshots and independent child
 deadlines. The scheduled lab runs its synthetic lifecycle tests only. It never
 launches market collection or activates hosting.
+
+## Optional disk-backed replay
+
+For staged larger captures, a reviewed plan can select `replay_storage: "disk"`.
+The [adapter](DISK_REPLAY.md) preserves existing execution rules and compares
+against the memory oracle in synthetic tests. It does not supply new market
+evidence, bypass capture qualification or launch collection.

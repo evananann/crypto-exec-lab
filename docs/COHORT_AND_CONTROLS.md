@@ -29,8 +29,8 @@ A recording must overlap its owned date. Missing or mechanically rejected days
 retain all 8,640 ten-second opportunities with unknown outcomes, rather than zero
 profits. Source bindings also record directory presence for restart invalidation.
 
-The adapter supports at most one declared capture per UTC date, 34 contiguous
-dates and two million raw records per capture. It indexes one capture at a time;
+The default memory adapter supports at most one declared capture per UTC date,
+34 contiguous dates and two million raw records per capture. It indexes one capture at a time;
 it does not join monotonic clocks across independent process sessions. Splitting
 a continuous multi-day session, multiple captures within one date and larger
 recordings require a separate adapter. A declared inventory does not prove that
@@ -96,3 +96,11 @@ activity. CI checks bounded fixtures; a substantial real cohort can require a
 longer-running worker than the ten-minute Actions job. Hosting remains separate.
 All generated cohort/control results remain exploratory and cannot authorize
 trading or supply a formal conclusion without qualified prospective evidence.
+
+## Larger qualified captures
+
+The optional [disk-backed adapter](DISK_REPLAY.md) removes the two-million-record
+in-memory restriction without thinning the capture. Use `--storage disk` for
+cohort and secondary CLIs, or `replay_storage: "disk"` in the reviewed lab plan.
+The 20-million-record qualification bound and explicit disk quota still apply;
+missing dates and all scientific gates are unchanged.

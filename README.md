@@ -113,3 +113,8 @@ for what has actually completed. [November 23 workflow incident and repairs](doc
 Daily recording batches can now be reviewed with the [cohort and fixed-controls
 interface](docs/COHORT_AND_CONTROLS.md), preserving missing dates and reporting
 all 18 delay/holding cases without selecting a favorable configuration.
+
+The optional [disk-backed replay](docs/DISK_REPLAY.md) preserves the memory
+oracle’s economics while avoiding all-quote arrays. A [synthetic capacity
+measurement](reports/disk_replay_capacity_20261126/README.md) indexed 2,000,002
+quotes with 25.53 MiB peak worker RSS; it adds no market evidence.

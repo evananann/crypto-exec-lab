@@ -90,3 +90,11 @@ The real managed-environment preflight blocked on `chronyc_not_installed`, with
 no capture process launched. This does not verify live endpoints, sustained
 capture or deployment. Hosting remains parked; no service was installed and no
 clock configuration was changed.
+
+## Replay after a successful attempt
+
+The [disk-backed replay option](DISK_REPLAY.md) can process a capture above the
+in-memory record limit, within its explicit disk and qualification budgets.
+The launcher’s `paired_replay_resource_compatible` field describes the original
+memory path only. Disk compatibility requires actually building and verifying
+the index and grid; it is not inferred from a record count.

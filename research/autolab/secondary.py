@@ -70,7 +70,7 @@ def summarize(value, bounds):
     return result
 
 
-def run(manifest_path):
+def run(manifest_path, *, storage='memory'):
     spec = protocol()
     manifest = cohort.load_manifest(manifest_path)
     before = cohort.source_bindings(manifest_path, manifest)
@@ -79,46 +79,50 @@ def run(manifest_path):
     sums = {key: empty() for key in keys}
     controls = {key: empty() for key in control_keys}
     daily, sources, activity = {}, {}, {}
-    for day, view, source, design in cohort.daily_views(manifest_path, manifest, sources):
-        day_sums = {key: empty() for key in keys}
-        day_controls = {key: empty() for key in control_keys}
-        decisions = []
-        if view is not None:
-            grid, _ = raw.calendar_grid([day], 10**10)
-            for midnight, _ in grid:
-                for utc_ns in range(midnight, midnight+raw.DAY_NS, 10**10):
-                    when = utc_ns-source['utc_minus_monotonic_ns']
-                    features = view.features(when)
-                    if features:
-                        decisions.append((when, utc_ns//10**6, features['feature_quotes'][1]['session'], features['actions']))
-            for delay in DELAYS:
-                for holding in HORIZONS:
-                    key = f'{delay}/{holding}'
-                    variant = deepcopy(design)
-                    variant['execution'].update(decision_delay_ms=delay, holding_after_entry_ms=holding)
-                    replay = engine.Replay(view.books, variant)
-                    for when, _, session, actions in decisions:
-                        rows = [replay.execute(action, when, session) for action in actions]
-                        add(day_sums[key], rows, actions)
-                        add(sums[key], rows, actions)
-                    del replay
-            opportunities = [(str(when), utc_ms) for when, utc_ms, _, _ in decisions]
-            actions = {utc_ms: selected[1] for _, utc_ms, _, selected in decisions}
-            overrides = {kind: placebo_actions(opportunities, actions, kind, seed=spec['placebo_seed'])
-                         for kind in spec['placebos']}
-            for kind in control_keys:
-                for when, utc_ms, session, chosen in decisions:
-                    selected = [chosen[0], chosen[0] if kind == 'zero_leader' else overrides[kind][utc_ms]]
-                    rows = [view.execute(action, when, session) for action in selected]
-                    add(day_controls[kind], rows, selected)
-                    add(controls[kind], rows, selected)
-            activity[day] = {'original_candidate': dict(Counter(actions.values())),
-                'control_candidates': {kind: dict(Counter(values.values())) for kind, values in overrides.items()}}
-            del overrides
-        daily[day] = {'eligible_opportunities': len(decisions), 'unavailable_feature_rows': 8640-len(decisions),
-                      'cells': {key: summarize(value, spec['unknown_eligible_delta_bounds_usdt']) for key, value in day_sums.items()},
-                      'controls': {key: summarize(value, spec['unknown_eligible_delta_bounds_usdt']) for key, value in day_controls.items()}}
-        del view, source, decisions
+    views = cohort.daily_views(manifest_path, manifest, sources, storage=storage)
+    try:
+        for day, view, source, design in views:
+            day_sums = {key: empty() for key in keys}
+            day_controls = {key: empty() for key in control_keys}
+            decisions = []
+            if view is not None:
+                grid, _ = raw.calendar_grid([day], 10**10)
+                for midnight, _ in grid:
+                    for utc_ns in range(midnight, midnight+raw.DAY_NS, 10**10):
+                        when = utc_ns-source['utc_minus_monotonic_ns']
+                        features = view.features(when)
+                        if features:
+                            decisions.append((when, utc_ns//10**6, features['feature_quotes'][1]['session'], features['actions']))
+                for delay in DELAYS:
+                    for holding in HORIZONS:
+                        key = f'{delay}/{holding}'
+                        variant = deepcopy(design)
+                        variant['execution'].update(decision_delay_ms=delay, holding_after_entry_ms=holding)
+                        replay = view.for_design(variant) if hasattr(view, 'for_design') else engine.Replay(view.books, variant)
+                        for when, _, session, actions in decisions:
+                            rows = [replay.execute(action, when, session) for action in actions]
+                            add(day_sums[key], rows, actions)
+                            add(sums[key], rows, actions)
+                        del replay
+                opportunities = [(str(when), utc_ms) for when, utc_ms, _, _ in decisions]
+                actions = {utc_ms: selected[1] for _, utc_ms, _, selected in decisions}
+                overrides = {kind: placebo_actions(opportunities, actions, kind, seed=spec['placebo_seed'])
+                             for kind in spec['placebos']}
+                for kind in control_keys:
+                    for when, utc_ms, session, chosen in decisions:
+                        selected = [chosen[0], chosen[0] if kind == 'zero_leader' else overrides[kind][utc_ms]]
+                        rows = [view.execute(action, when, session) for action in selected]
+                        add(day_controls[kind], rows, selected)
+                        add(controls[kind], rows, selected)
+                activity[day] = {'original_candidate': dict(Counter(actions.values())),
+                    'control_candidates': {kind: dict(Counter(values.values())) for kind, values in overrides.items()}}
+                del overrides
+            daily[day] = {'eligible_opportunities': len(decisions), 'unavailable_feature_rows': 8640-len(decisions),
+                          'cells': {key: summarize(value, spec['unknown_eligible_delta_bounds_usdt']) for key, value in day_sums.items()},
+                          'controls': {key: summarize(value, spec['unknown_eligible_delta_bounds_usdt']) for key, value in day_controls.items()}}
+            del view, source, decisions
+    finally:
+        views.close()
     if before != cohort.source_bindings(manifest_path, manifest):
         raise ValueError('cohort sources changed during secondary review')
     primary = '50/1000'
@@ -128,7 +132,8 @@ def run(manifest_path):
         day_delta = Decimal(daily[day]['cells'][primary]['candidate_net'])-Decimal(daily[day]['cells'][primary]['baseline_net'])
         delta = sums[primary]['candidate_net']-sums[primary]['baseline_net']-day_delta
         leave_out[day] = str(delta/count) if count else None
-    return {'schema_version': 1, 'status': 'EXPLORATORY_SECONDARY_REVIEW', 'protocol_sha256': digest(PROTOCOL),
+    return {'schema_version': 1, 'status': 'EXPLORATORY_SECONDARY_REVIEW', 'protocol_sha256': digest(PROTOCOL), 'storage': storage,
+            'disk_implementation_sha256': digest(Path(__file__).with_name('disk_replay.py')),
             'manifest_sha256': digest(manifest_path), 'primary_cell': primary,
             'cells': {key: summarize(value, spec['unknown_eligible_delta_bounds_usdt']) for key, value in sums.items()},
             'controls': {key: summarize(value, spec['unknown_eligible_delta_bounds_usdt']) for key, value in controls.items()},
@@ -143,9 +148,10 @@ def run(manifest_path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--manifest', type=Path, required=True)
+    parser.add_argument('--storage', choices=('memory', 'disk'), default='memory')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
-    result = run(args.manifest)
+    result = run(args.manifest, storage=args.storage)
     args.out.mkdir(parents=True, exist_ok=False)
     (args.out/'secondary.json').write_text(json.dumps(result, indent=2, allow_nan=False)+'\n')
     print(result['status'])
