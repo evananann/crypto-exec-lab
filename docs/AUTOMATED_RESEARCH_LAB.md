@@ -14,7 +14,7 @@ checks are not time-sensitive market sampling. No hosting purchase is needed.
 The allowlisted task graph in `research/autolab/plan.json` executes:
 
 1. Verify all 184 frozen source bindings and the exact registered source membership.
-2. Verify committed formal-decision, missingness, latency/cost and collector-assessment artifact checksums.
+2. Verify committed formal-decision, missingness, latency/cost, collector-assessment and enrollment-evidence artifact checksums.
 3. Reaggregate every released latency/cost session and recompute the saved trace
    examples across all 24 fixed delay/fee cells. Verify the original replay source
    bindings. This is output-level replication, not another replay of all raw ticks.
@@ -30,6 +30,10 @@ The allowlisted task graph in `research/autolab/plan.json` executes:
    checks. Staged ledgers require successful capture mechanics plus
    [raw reconstruction and full-grid matching](RAW_GRID_VERIFICATION.md), and remain
    exploratory; missing data stays blocked. [Paired review interface](PAIRED_LEDGER_REVIEW.md).
+
+7. Recheck the published retained-source mapping and original clock diagnostics,
+   then prepare a non-activating enrollment draft. The archive comparison is
+   explicitly historical. [Evidence requirements and current blockers](ENROLLMENT_EVIDENCE.md).
 
 Each task writes an immutable attempt receipt. Dependencies prevent downstream
 comparisons after integrity failures. Failed task attempts remain in the journal;

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "public-rehearsal-20261123": {
+      "receipt_file": "reports/formal_decision_20261123/current-preservation.json",
+      "receipt_sha256": "17af6828c8f78fbc4d54492bd3f093886e28f10dea7c7f9a573501dc3b4fa517",
+      "metadata_prefix": "source/long-",
+      "clock_member": "spool/session-af28ec9b0ef048b59b2c5b6294995768.clock.jsonl",
+      "release_url": "https://github.com/evananann/crypto-exec-lab/releases/tag/qualification-cloud-20261123-failed-attempts-v1",
+      "local_member_map_sha256": "b34c12d27f9adbb6b91fbfa8c41f10479bdb791255c5919b46eefb6fcc81b0e4"
+    }
+  }
+}

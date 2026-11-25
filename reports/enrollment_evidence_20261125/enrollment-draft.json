@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "state": "DRAFT_NOT_ENROLLED",
+  "hypothesis_sha256": "16b324010921af7f8873db7fd2bc2dcc892d0e124b8137494427f97c22d5a20a",
+  "design_sha256": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1",
+  "checks": {
+    "retained_archive_member_binding": true,
+    "capture_mechanics": false,
+    "daemon_clock_profile": false,
+    "independent_utc_accuracy": false,
+    "target_host_qualification": false,
+    "independent_origin_attestation": false,
+    "complete_cohort_adapter": false,
+    "prospective_publication_before_collection": false,
+    "source_bound_sensitivity_and_placebo_checks": false,
+    "perpetual_execution_calibration": false
+  },
+  "blockers": [
+    "capture_mechanics",
+    "daemon_clock_profile",
+    "independent_utc_accuracy",
+    "target_host_qualification",
+    "independent_origin_attestation",
+    "complete_cohort_adapter",
+    "prospective_publication_before_collection",
+    "source_bound_sensitivity_and_placebo_checks",
+    "perpetual_execution_calibration"
+  ],
+  "source_sha256": {
+    "research/continuous_capture.py": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb",
+    "research/clock_telemetry.py": "942516bca63e294039fcd70c902e69b98f33a4fca3d38d0b968fbd457fe163d1",
+    "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87",
+    "research/roadmap/feed_activity.py": "c0b323369ded11496c33a2503babd2dd83f16a59eb9a02ef3343f944d562c33c",
+    "research/roadmap/public_instruments.py": "0edbb84279d511ac41c761b9e87fa5eee89aca7c131d169b9d1906d344e5a9cd",
+    "research/roadmap/paired_inference.py": "0fd8229a543e107bcd774b816d795dea76dd055101d787969c1ff1ea2c614cd7",
+    "uv.lock": "0e4d843c3c53685af45dafca003f7d0944ba4fe324b6c44509b74e4024810cf7",
+    "pyproject.toml": "9930503cd148e5b26349ad7e59aa6377fd20b6c16df735e4562788ca0e953fbb",
+    "research/autolab/retained_sources.json": "c0f5845e297e2453277d63120d723acfda5f26994477ecbc2ed90dc8dea2c108",
+    "research/autolab/raw_replay.py": "f232dd660e0ab28242255dc2db8429b5ec28c241a0c9b2df1ff93bb6268a59dc",
+    "research/autolab/__init__.py": "34d442eff305f76a2f0c3c2461e4d6e9093d57f6ef000240b5701cd66279c282",
+    "research/autolab/controller.py": "d5641b6165d8352aec4272136235dc610965d0d004faa533fa8cc2f89c4b0572",
+    "research/autolab/enrollment.py": "531c5bb2188a8abccf3fb5a5f263aa665d76b669d61412a82dfa2d331c553ce9",
+    "research/autolab/paired_review.py": "4ce6c2cfbf9ced470498028831f05b0c19128205bb5270db40e53ae92e186a1a",
+    "research/autolab/qualification.py": "8548a6b030278623faf880a35f8c58b6d3b294279a60c929eacd0e8349217a47"
+  },
+  "calendar": {
+    "fixed_dates": null,
+    "discovery_days": 7,
+    "validation_days": 7,
+    "untouched_test_days": 28,
+    "embargo_days_after_discovery": 1,
+    "embargo_days_after_validation": 1,
+    "minimum_complete_utc_days_after_qualification_and_publication": 2
+  },
+  "scientific_enrollment": false,
+  "deployment_authorized": false,
+  "strategy_outcomes_computed": 0,
+  "scope": "Evidence assessment and source-bound enrollment preparation only. No activation, retrospective enrollment, study dates or publication attestation are issued."
+}

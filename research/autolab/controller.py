@@ -13,14 +13,14 @@ import os
 ROOT = Path(__file__).resolve().parents[2]
 PLAN = Path(__file__).with_name('plan.json')
 REPORTS = ('formal_decision_20261123', 'missingness_frontier_20261123',
-           'latency_cost_20261124', 'collector_gate_20261125')
+           'latency_cost_20261124', 'collector_gate_20261125', 'enrollment_evidence_20261125')
 FROZEN = (('configs/successor/registered_study.json', 'source_files_sha256'),
           ('configs/study_v2_okx.json', 'analysis_files_sha256'),
           ('configs/study_v2_bybit.json', 'analysis_files_sha256'),
           ('research/model_source_lock.json', 'files'))
-TASKS = ('frozen_integrity', 'released_integrity', 'latency_reproduction', 'execution_mechanics', 'collector_readiness', 'paired_evaluation')
+TASKS = ('frozen_integrity', 'released_integrity', 'latency_reproduction', 'execution_mechanics', 'collector_readiness', 'paired_evaluation', 'enrollment_evidence')
 DEPENDENCIES = ([], ['frozen_integrity'], ['released_integrity'], ['frozen_integrity'],
-                ['frozen_integrity'], ['collector_readiness'])
+                ['frozen_integrity'], ['collector_readiness'], ['released_integrity'])
 
 
 def encoded(value):
@@ -149,6 +149,11 @@ def paired_evaluation(plan):
         result['empirical_review'] = review(load_items(ledger), load_calendar(calendar))
         result['empirical_status'] = result['empirical_review']['status']
     return result
+
+
+def enrollment_evidence(plan):
+    from research.autolab.enrollment import published_readiness
+    return published_readiness()
 
 
 def frozen_integrity(plan):
@@ -314,6 +319,13 @@ def execute(store, plan, source_bindings, handlers, current_bindings=None):
                         'Raw replay and complete declared-grid match are required before supplied-ledger analysis.',
                         'Synthetic decision-rule checks: '+str(len(evidence['synthetic_scenario_statuses']))+
                         ' passed. These are simulated mechanics, not observed market results.']
+        if statuses.get('enrollment_evidence') == 'PASSED':
+            item = state['attempts']['enrollment_evidence'][-1]
+            evidence = json.loads((run/item['file']).read_text())['result']
+            summary += ['', '## Enrollment evidence review', '',
+                        f"State: **{evidence['draft']['state']}**; clock diagnostics: **{evidence['clock_review']['status']}**.",
+                        'Archive comparison is a retained historical receipt, not a new scheduled download.',
+                        'No new host is qualified and no evaluation dates are activated.']
         summary += ['', '## Research queue', '']
         for item in plan['research_queue']:
             summary += [f"- **{item['id']} — {item['state']}**: {item['question']}",
@@ -330,7 +342,7 @@ def main():
     parser.add_argument('--summary', type=Path, help='Write the current run Markdown summary here')
     args = parser.parse_args()
     plan = load_plan()
-    handlers = dict(zip(TASKS, (frozen_integrity, released_integrity, latency_reproduction, execution_mechanics, collector_readiness, paired_evaluation)))
+    handlers = dict(zip(TASKS, (frozen_integrity, released_integrity, latency_reproduction, execution_mechanics, collector_readiness, paired_evaluation, enrollment_evidence)))
     run, state = execute(args.store, plan, bindings(), handlers, current_bindings=bindings)
     if args.summary:
         args.summary.parent.mkdir(parents=True, exist_ok=True)
