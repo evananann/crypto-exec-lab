@@ -1,0 +1,153 @@
+{
+  "synthetic": true,
+  "scenarios": {
+    "less_bad": {
+      "schema_version": 1,
+      "hypothesis_sha256": "16b324010921af7f8873db7fd2bc2dcc892d0e124b8137494427f97c22d5a20a",
+      "implementation_sha256": {
+        "research/autolab/paired_review.py": "4ce6c2cfbf9ced470498028831f05b0c19128205bb5270db40e53ae92e186a1a",
+        "research/roadmap/paired_inference.py": "0fd8229a543e107bcd774b816d795dea76dd055101d787969c1ff1ea2c614cd7",
+        "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87"
+      },
+      "design_sha256": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1",
+      "synthetic": true,
+      "status": "POSITIVE_INCREMENTAL_ABSOLUTE_UNSUPPORTED",
+      "audit_passed": true,
+      "audited_opportunities": 112,
+      "analysis": {
+        "status": "POSITIVE_INCREMENTAL_ABSOLUTE_UNSUPPORTED",
+        "unit": "USDT per jointly eligible opportunity",
+        "paired_observations": 112,
+        "unknown_eligible_outcomes": 0,
+        "ineligible_feature_records": 0,
+        "nonzero_paired_contrasts": 112,
+        "nonzero_contrast_dates": 28,
+        "gates": {
+          "all_expected_dates_have_paired_outcomes": true,
+          "enough_test_dates": true,
+          "enough_contrast_dates": true,
+          "enough_contrasts": true,
+          "no_unknown_eligible_outcomes": true,
+          "nondegenerate_observed_day_contrasts": true
+        },
+        "baseline_mean_usdt": "-0.01749016071428571428571428571",
+        "candidate_mean_usdt": "0",
+        "paired_mean_incremental_usdt": "0.01749016071428571428571428571",
+        "paired_percentile_ci95": [
+          0.016990410714285715,
+          0.018061303571428572
+        ],
+        "candidate_absolute_percentile_ci95": [
+          0.0,
+          0.0
+        ],
+        "method": "5000 seeded overlapping two-UTC-date block resamples of paired totals and counts",
+        "deployment_authorized": false,
+        "limitations": "Inference mechanics only. Callers must authenticate original grid/coverage, units, features, raw sources, temporal release and enrollment. Nominal percentile coverage is not guaranteed under long dependence or nonstationarity. No production calibration is inferred."
+      },
+      "empirical_conclusion": "NOT_EVALUATED_PENDING_ENROLLMENT",
+      "confirmatory_inference_valid": false,
+      "deployment_authorized": false,
+      "limits": "Trace consistency audit, not authentication of raw sources, last-available-quote selection or complete grid coverage. No input flag enrolls a cohort. Synthetic intervals test mechanics only; exploratory intervals are suppressed."
+    },
+    "negative": {
+      "schema_version": 1,
+      "hypothesis_sha256": "16b324010921af7f8873db7fd2bc2dcc892d0e124b8137494427f97c22d5a20a",
+      "implementation_sha256": {
+        "research/autolab/paired_review.py": "4ce6c2cfbf9ced470498028831f05b0c19128205bb5270db40e53ae92e186a1a",
+        "research/roadmap/paired_inference.py": "0fd8229a543e107bcd774b816d795dea76dd055101d787969c1ff1ea2c614cd7",
+        "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87"
+      },
+      "design_sha256": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1",
+      "synthetic": true,
+      "status": "NO_POSITIVE_INCREMENTAL_EVIDENCE",
+      "audit_passed": true,
+      "audited_opportunities": 112,
+      "analysis": {
+        "status": "NO_POSITIVE_INCREMENTAL_EVIDENCE",
+        "unit": "USDT per jointly eligible opportunity",
+        "paired_observations": 112,
+        "unknown_eligible_outcomes": 0,
+        "ineligible_feature_records": 0,
+        "nonzero_paired_contrasts": 112,
+        "nonzero_contrast_dates": 28,
+        "gates": {
+          "all_expected_dates_have_paired_outcomes": true,
+          "enough_test_dates": true,
+          "enough_contrast_dates": true,
+          "enough_contrasts": true,
+          "no_unknown_eligible_outcomes": true,
+          "nondegenerate_observed_day_contrasts": true
+        },
+        "baseline_mean_usdt": "0",
+        "candidate_mean_usdt": "-0.01739016071428571428571428571",
+        "paired_mean_incremental_usdt": "-0.01739016071428571428571428571",
+        "paired_percentile_ci95": [
+          -0.017961303571428573,
+          -0.016890410714285715
+        ],
+        "candidate_absolute_percentile_ci95": [
+          -0.017961303571428573,
+          -0.016890410714285715
+        ],
+        "method": "5000 seeded overlapping two-UTC-date block resamples of paired totals and counts",
+        "deployment_authorized": false,
+        "limitations": "Inference mechanics only. Callers must authenticate original grid/coverage, units, features, raw sources, temporal release and enrollment. Nominal percentile coverage is not guaranteed under long dependence or nonstationarity. No production calibration is inferred."
+      },
+      "empirical_conclusion": "NOT_EVALUATED_PENDING_ENROLLMENT",
+      "confirmatory_inference_valid": false,
+      "deployment_authorized": false,
+      "limits": "Trace consistency audit, not authentication of raw sources, last-available-quote selection or complete grid coverage. No input flag enrolls a cohort. Synthetic intervals test mechanics only; exploratory intervals are suppressed."
+    },
+    "promising": {
+      "schema_version": 1,
+      "hypothesis_sha256": "16b324010921af7f8873db7fd2bc2dcc892d0e124b8137494427f97c22d5a20a",
+      "implementation_sha256": {
+        "research/autolab/paired_review.py": "4ce6c2cfbf9ced470498028831f05b0c19128205bb5270db40e53ae92e186a1a",
+        "research/roadmap/paired_inference.py": "0fd8229a543e107bcd774b816d795dea76dd055101d787969c1ff1ea2c614cd7",
+        "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87"
+      },
+      "design_sha256": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1",
+      "synthetic": true,
+      "status": "PROMISING_REQUIRES_EXTERNAL_VALIDATION",
+      "audit_passed": true,
+      "audited_opportunities": 112,
+      "analysis": {
+        "status": "PROMISING_REQUIRES_EXTERNAL_VALIDATION",
+        "unit": "USDT per jointly eligible opportunity",
+        "paired_observations": 112,
+        "unknown_eligible_outcomes": 0,
+        "ineligible_feature_records": 0,
+        "nonzero_paired_contrasts": 112,
+        "nonzero_contrast_dates": 28,
+        "gates": {
+          "all_expected_dates_have_paired_outcomes": true,
+          "enough_test_dates": true,
+          "enough_contrast_dates": true,
+          "enough_contrasts": true,
+          "no_unknown_eligible_outcomes": true,
+          "nondegenerate_observed_day_contrasts": true
+        },
+        "baseline_mean_usdt": "0",
+        "candidate_mean_usdt": "0.03247775",
+        "paired_mean_incremental_usdt": "0.03247775",
+        "paired_percentile_ci95": [
+          0.03162103571428571,
+          0.03329876785714286
+        ],
+        "candidate_absolute_percentile_ci95": [
+          0.03162103571428571,
+          0.03329876785714286
+        ],
+        "method": "5000 seeded overlapping two-UTC-date block resamples of paired totals and counts",
+        "deployment_authorized": false,
+        "limitations": "Inference mechanics only. Callers must authenticate original grid/coverage, units, features, raw sources, temporal release and enrollment. Nominal percentile coverage is not guaranteed under long dependence or nonstationarity. No production calibration is inferred."
+      },
+      "empirical_conclusion": "NOT_EVALUATED_PENDING_ENROLLMENT",
+      "confirmatory_inference_valid": false,
+      "deployment_authorized": false,
+      "limits": "Trace consistency audit, not authentication of raw sources, last-available-quote selection or complete grid coverage. No input flag enrolls a cohort. Synthetic intervals test mechanics only; exploratory intervals are suppressed."
+    }
+  },
+  "deployment_authorized": false
+}

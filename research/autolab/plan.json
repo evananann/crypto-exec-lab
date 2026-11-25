@@ -28,6 +28,12 @@
       "depends_on": [
         "frozen_integrity"
       ]
+    },
+    {
+      "id": "paired_evaluation",
+      "depends_on": [
+        "collector_readiness"
+      ]
     }
   ],
   "synthetic_seed": 42,
@@ -56,5 +62,6 @@
       "next_action": "Specify the counterfactual and missing-fill cost before claiming maker savings."
     }
   ],
-  "collector_evidence": null
+  "collector_evidence": null,
+  "paired_evidence": null
 }

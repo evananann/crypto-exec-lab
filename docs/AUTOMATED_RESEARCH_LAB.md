@@ -26,6 +26,10 @@ The allowlisted task graph in `research/autolab/plan.json` executes:
    capture. Without an attached capture, report DATA_NOT_PROVIDED and keep the
    empirical experiment blocked. [Hypothesis interface and collector gate](HYPOTHESIS_TO_CONCLUSION.md).
 
+6. Audit paired feature/execution ledgers and run three synthetic conclusion-rule
+   checks. Staged ledgers require a successful capture-mechanics review and remain
+   exploratory; missing data stays blocked. [Paired review interface](PAIRED_LEDGER_REVIEW.md).
+
 Each task writes an immutable attempt receipt. Dependencies prevent downstream
 comparisons after integrity failures. Failed task attempts remain in the journal;
 successful receipts are checked before reuse. Summaries distinguish freshly
