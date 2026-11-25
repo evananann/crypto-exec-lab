@@ -19,6 +19,7 @@ Read the [November 23 formal disposition](reports/formal_decision_20261123/READM
 | [Original timestamp diagnosis](reports/formal_decision_20261123/original-order-audit.json) | 19 eligible tapes / 7,978,965 records examined through November 13 AM; three cross-venue 1 ms reversals in that slot | Secondary model unavailable; raw bytes and frozen guards preserved |
 | [Sustained-capture attempt](reports/formal_decision_20261123/long-capture.json) | Intended 30 minutes; stopped after about 297 seconds with a transport error | This host/route has not passed acquisition qualification |
 | [Partial-window activity](reports/formal_decision_20261123/activity.json) | 30 common-feature grid points; zero active decisions or contrasts | Feasibility remains unknown; no execution outcomes computed |
+| [Retained-source audit](reports/retained_decision_20261126/README.md) | 114 archive members verified; five process sessions; zero qualified captures for the new paired study | Incremental policy comparison remains unavailable |
 | [Independent demo execution](reports/spot_validation_20261115/README.md) | Three prescribed spot round trips, reconciled fills and fees | Accounting/execution exercise, separate from perpetual alpha research |
 
 The [public archive receipts](reports/formal_decision_20261123/current-preservation.json) document independently verified Release readback. Transport and clock qualification remain unresolved.
@@ -40,6 +41,11 @@ slots / 21 dates. At 50 ms, the equal-day quote-price mean is **+0.2604 bps befo
 commissions** and **−9.7397 bps with 5 bps per fill**. Even the zero-delay reference
 is negative after those fees. Ex-post quote/depth eligibility and a large rejected
 slot limit this result; it does not establish incremental Binance value.
+
+
+The [retained-evidence decision report](reports/retained_decision_20261126/README.md)
+checks every archived rehearsal session before attempting the paired comparison
+and distinguishes unavailable incremental estimates from reproduced legacy costs.
 
 ## Automated research lab
 

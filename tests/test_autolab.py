@@ -122,7 +122,9 @@ class AutolabTests(unittest.TestCase):
     def test_actual_evidence_is_verified_and_scope_stays_explicit(self):
         config = lab.load_plan()
         self.assertEqual(lab.frozen_integrity(config)['verified_source_bindings'], 184)
-        self.assertEqual(len(lab.released_integrity(config)['verified_files_by_report']), 5)
+        self.assertEqual(set(lab.released_integrity(config)['verified_files_by_report']), {
+            'formal_decision_20261123', 'missingness_frontier_20261123', 'latency_cost_20261124',
+            'collector_gate_20261125', 'enrollment_evidence_20261125', 'retained_decision_20261126'})
         results = lab.latency_reproduction(config)
         self.assertEqual(results['overlapping_signals'], 11441)
         self.assertEqual(results['usable_slots'], 22)
