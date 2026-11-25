@@ -14,7 +14,7 @@ checks are not time-sensitive market sampling. No hosting purchase is needed.
 The allowlisted task graph in `research/autolab/plan.json` executes:
 
 1. Verify all 184 frozen source bindings and the exact registered source membership.
-2. Verify committed formal-decision, missingness, latency/cost, collector-assessment and enrollment-evidence artifact checksums.
+2. Verify committed formal-decision, missingness, latency/cost, collector-assessment enrollment-evidence and retained-decision artifact checksums.
 3. Reaggregate every released latency/cost session and recompute the saved trace
    examples across all 24 fixed delay/fee cells. Verify the original replay source
    bindings. This is output-level replication, not another replay of all raw ticks.
@@ -105,3 +105,11 @@ declared multi-date grid from separate daily originals and report all 18 fixed
 delay/holding cases, five controls and leave-one-date-out coverage. Missing days
 remain unknown. Configure the optional `cohort_manifest` alongside paired
 evidence to use this route; its results remain exploratory.
+
+## Current retained-evidence disposition
+
+The [November 26 retained-source audit](../reports/retained_decision_20261126/README.md)
+restores both acquisition bundles and checks every original process session.
+It explains why no paired-policy estimate can be computed from those sources,
+while separately reproducing the legacy execution-cost aggregates. The scheduled
+lab verifies this report’s checksums; it does not download archives on each run.
