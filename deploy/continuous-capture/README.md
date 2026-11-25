@@ -135,3 +135,11 @@ The first probe failed before connection due to the system interpreter lacking
 the dependency; it remains preserved. Use the installed project environment.
 This template change does not modify source-locked old collectors, retroactively
 normalize old contracts or qualify a new host/cohort.
+
+## Bounded qualification attempts
+
+The [qualification launcher](../../docs/QUALIFICATION_LAUNCHER.md) adds clock/disk
+preflight, source binding, fresh instrument snapshots and a terminal assessment
+around one bounded capture. It uses a new directory for every attempt rather
+than reusing this pilot service’s shared spool. The template above remains raw
+acquisition only; neither path is deployed by adding these files.

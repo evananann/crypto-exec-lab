@@ -118,3 +118,10 @@ absolute net economics as well as the paired difference.
 
 The [paired-ledger reviewer](PAIRED_LEDGER_REVIEW.md) implements the next accounting
 and reporting stage, with separate exploratory and synthetic result scopes.
+
+## Prepare a new capture
+
+Use the [bounded qualification launcher](QUALIFICATION_LAUNCHER.md) to bind
+source/configuration intent, check local clock/disk prerequisites and capture
+fresh before/after instrument responses around one recording. Every restart
+requires a new attempt. This infrastructure check does not enroll a study.
