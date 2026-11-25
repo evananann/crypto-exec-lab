@@ -18,8 +18,9 @@ FROZEN = (('configs/successor/registered_study.json', 'source_files_sha256'),
           ('configs/study_v2_okx.json', 'analysis_files_sha256'),
           ('configs/study_v2_bybit.json', 'analysis_files_sha256'),
           ('research/model_source_lock.json', 'files'))
-TASKS = ('frozen_integrity', 'released_integrity', 'latency_reproduction', 'execution_mechanics', 'collector_readiness')
-DEPENDENCIES = ([], ['frozen_integrity'], ['released_integrity'], ['frozen_integrity'], ['frozen_integrity'])
+TASKS = ('frozen_integrity', 'released_integrity', 'latency_reproduction', 'execution_mechanics', 'collector_readiness', 'paired_evaluation')
+DEPENDENCIES = ([], ['frozen_integrity'], ['released_integrity'], ['frozen_integrity'],
+                ['frozen_integrity'], ['collector_readiness'])
 
 
 def encoded(value):
@@ -48,6 +49,7 @@ def load_plan():
     if tuple(t['depends_on'] for t in plan['tasks']) != DEPENDENCIES:
         raise ValueError('mandatory integrity dependencies changed')
     capture_paths(plan)
+    paired_paths(plan)
     seen = set()
     for task in plan['tasks']:
         if not set(task['depends_on']) <= seen:
@@ -58,7 +60,11 @@ def load_plan():
 
 def bindings():
     paths = {*Path(__file__).parent.glob('*.json'), *Path(__file__).parent.glob('*.py')}
-    source = capture_paths(load_plan())
+    plan = load_plan()
+    paired = paired_paths(plan)
+    if paired:
+        paths.update(paired)
+    source = capture_paths(plan)
     if source:
         from research.autolab.qualification import input_files
         paths.update(input_files(*source).values())
@@ -100,6 +106,42 @@ def collector_readiness(plan):
     from research.autolab.qualification import qualify
     paths = capture_paths(plan)
     return qualify(spool=paths[0], metadata=paths[1]) if paths else qualify()
+
+
+def paired_paths(plan):
+    evidence = plan.get('paired_evidence')
+    if evidence is None:
+        return None
+    if not isinstance(evidence, dict) or set(evidence) != {'ledger', 'calendar'}:
+        raise ValueError('explicit paired ledger and calendar paths required')
+    paths = []
+    for key in ('ledger', 'calendar'):
+        value = evidence[key]
+        if not isinstance(value, str) or not value.startswith('data/raw/'):
+            raise ValueError('paired inputs must be staged under data/raw')
+        path = ROOT/value
+        if path.is_symlink() or not path.resolve().is_relative_to((ROOT/'data/raw').resolve()) or not path.is_file():
+            raise ValueError('original local paired input file required')
+        paths.append(path)
+    return tuple(paths)
+
+
+def paired_evaluation(plan):
+    from research.autolab.paired_review import suite, load_items, load_calendar, review
+    scenarios = suite()
+    result = {'synthetic_scenario_statuses': {name: row['status'] for name, row in scenarios.items()},
+              'empirical_status': 'DATA_NOT_PROVIDED', 'empirical_review': None,
+              'confirmatory_inference_valid': False, 'deployment_authorized': False}
+    paths = paired_paths(plan)
+    if paths:
+        capture = collector_readiness(plan)
+        if capture['mechanical_capture_acceptable'] is not True:
+            result['empirical_status'] = 'BLOCKED_DATA_NOT_QUALIFIED'
+            return result
+        ledger, calendar = paths
+        result['empirical_review'] = review(load_items(ledger), load_calendar(calendar))
+        result['empirical_status'] = result['empirical_review']['status']
+    return result
 
 
 def frozen_integrity(plan):
@@ -257,6 +299,13 @@ def execute(store, plan, source_bindings, handlers, current_bindings=None):
                         f"Data status: **{evidence['status']}**; conclusion: **{evidence['conclusion']}**.",
                         'Capture review never authorizes study enrollment or deployment.',
                         'Reasons: '+', '.join(evidence['reasons'])]
+        if statuses.get('paired_evaluation') == 'PASSED':
+            item = state['attempts']['paired_evaluation'][-1]
+            evidence = json.loads((run/item['file']).read_text())['result']
+            summary += ['', '## Paired-policy review', '',
+                        f"Empirical status: **{evidence['empirical_status']}**. No confirmatory conclusion or deployment clearance.",
+                        'Synthetic decision-rule checks: '+str(len(evidence['synthetic_scenario_statuses']))+
+                        ' passed. These are simulated mechanics, not observed market results.']
         summary += ['', '## Research queue', '']
         for item in plan['research_queue']:
             summary += [f"- **{item['id']} — {item['state']}**: {item['question']}",
@@ -273,7 +322,7 @@ def main():
     parser.add_argument('--summary', type=Path, help='Write the current run Markdown summary here')
     args = parser.parse_args()
     plan = load_plan()
-    handlers = dict(zip(TASKS, (frozen_integrity, released_integrity, latency_reproduction, execution_mechanics, collector_readiness)))
+    handlers = dict(zip(TASKS, (frozen_integrity, released_integrity, latency_reproduction, execution_mechanics, collector_readiness, paired_evaluation)))
     run, state = execute(args.store, plan, bindings(), handlers, current_bindings=bindings)
     if args.summary:
         args.summary.parent.mkdir(parents=True, exist_ok=True)

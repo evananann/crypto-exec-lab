@@ -24,7 +24,8 @@ an arbitrary statistical test or silently reuse an inspected holdout.
 | Collector quality | Measures ordering, quote gaps, common span, connection changes and writer delay |
 | Evidence decision | DATA_NOT_PROVIDED, DATA_NOT_QUALIFIED, or CAPTURE_ACCEPTABLE_FOR_REVIEW |
 | Prospective study | Still requires independent clock qualification, source enrollment and untouched dates |
-| Research conclusion | Planned: paired incremental net value with dependent-sample uncertainty and an economic decision |
+| Paired ledger review | Implemented: feature/fill/cash audit, exploratory estimates and synthetic decision-rule checks |
+| Confirmatory conclusion | Pending qualified, authenticated, prospectively enrolled observations |
 
 ## Collector requirements
 
@@ -114,3 +115,6 @@ policy comparison on untouched data and return one of: evidence of positive
 incremental value, evidence of negative incremental value, or inconclusive.
 Those decisions need coverage/activity checks, valid uncertainty estimates and
 absolute net economics as well as the paired difference.
+
+The [paired-ledger reviewer](PAIRED_LEDGER_REVIEW.md) implements the next accounting
+and reporting stage, with separate exploratory and synthetic result scopes.
