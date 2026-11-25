@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "hypothesis_id": "binance-incremental-okx-v1",
+  "question": "Does adding Binance information improve net OKX execution decisions relative to the identically scaled OKX-only policy?",
+  "hypothesis_sha256": "16b324010921af7f8873db7fd2bc2dcc892d0e124b8137494427f97c22d5a20a",
+  "design_sha256": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1",
+  "implementation_sha256": {
+    "research/autolab/qualification.py": "8548a6b030278623faf880a35f8c58b6d3b294279a60c929eacd0e8349217a47",
+    "research/continuous_capture.py": "42bee409a8120cb2f75e4ffc9dced04ddb24aa916fa3f2453fc900745ffd91fb",
+    "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87",
+    "research/roadmap/feed_activity.py": "c0b323369ded11496c33a2503babd2dd83f16a59eb9a02ef3343f944d562c33c"
+  },
+  "capture_requirements": {
+    "minimum_common_span_seconds": 1800,
+    "maximum_quote_gap_ms": 2000,
+    "maximum_writer_delay_ms": 100,
+    "maximum_records": 20000000
+  },
+  "status": "DATA_NOT_QUALIFIED",
+  "conclusion": "DATA_NOT_QUALIFIED",
+  "mechanical_capture_acceptable": false,
+  "scientifically_eligible": false,
+  "deployment_authorized": false,
+  "strategy_outcomes_computed": 0,
+  "independent_utc_accuracy_verified": false,
+  "reasons": [
+    "SEALED_FAULT_FREE_ORIGINALS_REQUIRED"
+  ],
+  "checks": {},
+  "metrics": {
+    "reported_fault_sessions": 1,
+    "pending_session_statuses": 0
+  },
+  "scope": "Capture mechanics only. Gap limits do not prove message completeness; software clocks do not establish physical venue leadership. No hypothesis test, holdout enrollment or trading clearance.",
+  "source_sha256": {
+    "spool/.capture.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "spool/20261123T151117-1bca3c623b8d4154bb2d0c80eccc5259.jsonl.gz": "826c0a51e7fae4e9555df333b4ea29bdca4aee485032b511494f4b46bfee0472",
+    "spool/20261123T151117-1bca3c623b8d4154bb2d0c80eccc5259.manifest.json": "73c765c455a40ea38d2c0d7e34e4ba0589a0270a1a4cdd55ec863395fa3e7ca9",
+    "spool/20261123T151147-49c0277956f740d3aaf14710bdc4bd57.jsonl.gz": "0b47b0200fac6a1251cbcb7e11a1597a12dd56d1399e2d3b98878e436cc2d272",
+    "spool/20261123T151147-49c0277956f740d3aaf14710bdc4bd57.manifest.json": "cc79a66d322e12fd30e9753311410bcb7cdbfd03cf46e87122e580b14fe3a1eb",
+    "spool/20261123T151217-5439be6c18bc4a0aa1bc7d57099ada8e.jsonl.gz": "73d5356a995f3d103571174c010b1afec1218515a7d4ec0eab6e3314453452a9",
+    "spool/20261123T151217-5439be6c18bc4a0aa1bc7d57099ada8e.manifest.json": "d1308db14976a0fe467bb0ab4d754d647d93ed221ab9cd7b5c2b3df2e1286bec",
+    "spool/20261123T151247-49b41744fda540bb9a390f76dc1833b8.jsonl.gz": "1fc220fc113c940a09ac22be19470dbb4709c1028bb4be0cb12e42733de9f640",
+    "spool/20261123T151247-49b41744fda540bb9a390f76dc1833b8.manifest.json": "01968dd1fb911cdb2d2e0513686b43c1f7d416e87395976501fa325fc56186ae",
+    "spool/20261123T151317-fbb536e1d86a4868a8d2fdc752f59b62.jsonl.gz": "67952c6fb46d4be93dcc47d5479bf180ab0f6d9c168caea17ae43cd3b49e8408",
+    "spool/20261123T151317-fbb536e1d86a4868a8d2fdc752f59b62.manifest.json": "332b1d0207188a4ade2bdc60afddd932ea80631d9b73e805279706f5512d11e2",
+    "spool/20261123T151347-858759456ccd4a0daef6cdd6899c27ea.jsonl.gz": "de28be1f2083db4ac0213adaa9692b8dff92c2b3972e41f910353582545c8ac0",
+    "spool/20261123T151347-858759456ccd4a0daef6cdd6899c27ea.manifest.json": "78e72b379c5b628f0f8ceda50c2b20343527b19cee8374c359b70d912e467cc4",
+    "spool/20261123T151417-0e9415e904d94de7a0659454c16448a5.jsonl.gz": "fb79125e7c04c439aff294bb922944bad625b8d9361cbb5c233da671acd75679",
+    "spool/20261123T151417-0e9415e904d94de7a0659454c16448a5.manifest.json": "91ce6f1e64903bdc78c67796fddaf55ef41f89672857d2da1cb6040d9b8408c8",
+    "spool/20261123T151447-d506a9a44013488492e3a01b1deb74e7.jsonl.gz": "525b31c828f72016bbea9e4021aec072f973a442af1b6fa414e4eb4deeb00efe",
+    "spool/20261123T151447-d506a9a44013488492e3a01b1deb74e7.manifest.json": "d8ea04ee1cba8186771365a0c2124c8cf9eddb96616e7ab1e4d5f3d3751bbac1",
+    "spool/20261123T151517-b446b83f428143adb0b2b98c7c73e256.jsonl.gz": "7010272527d913e57b560973b8502e3ca86e11d15590535e8d37eb99f55640fb",
+    "spool/20261123T151517-b446b83f428143adb0b2b98c7c73e256.manifest.json": "f54caf137299d9fe4007c135591357657d1450ffd644cf9ec5c916d58d905f00",
+    "spool/20261123T151547-942c414465dc46e5a2d47a635e6675f4.jsonl.gz": "b83aeca40be560c5402524acba721b10546f67a4383ce175fd841fee1e8d7fad",
+    "spool/20261123T151547-942c414465dc46e5a2d47a635e6675f4.manifest.json": "b5fb3ec7e503032083e2b26b9ccce85b88f68ed0dddf61e905b417a5bd639c32",
+    "spool/session-af28ec9b0ef048b59b2c5b6294995768.clock.jsonl": "0298cb0e4c88030addbbca9543d851f9ae41057b829f2806f6d0c510ca33d488",
+    "spool/session-af28ec9b0ef048b59b2c5b6294995768.status.json": "a57782ca28c9bb50ad0bbfdac7f7f5552a85e1b07d1a1452e0da03a243b5e54d",
+    "metadata/binance-after.json": "a1d1dfc2f667c8eb8dfb22668403da5d3deb1ca24c0518a09909039fa02940b1",
+    "metadata/binance-before.json": "b52e2fea1369a1d05f49cc5f30abb0ed66a1a23ed58cee3d17c420a5d3d8029d",
+    "metadata/okx-after.json": "6fd02f81580881db7df679ee505cd025d4d857afdda6379c083e488a5c637c77",
+    "metadata/okx-before.json": "5fdaf4b6900b1c688caaac1255cceb854a3540a4d7a3a8b611f235a6921f3973"
+  },
+  "failure_stage": "SOURCE_INTEGRITY"
+}
