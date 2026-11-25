@@ -1,6 +1,6 @@
 """Run an allowlisted research DAG with content-bound, restartable receipts.
 
-Reads committed public evidence only. No fitting, code rewriting, trading,
+Reads committed public evidence and explicitly configured local public-feed captures. No fitting, code rewriting, trading,
 credential access, raw-feed acquisition or promotion of a strategy.
 """
 import argparse
@@ -12,13 +12,14 @@ import os
 
 ROOT = Path(__file__).resolve().parents[2]
 PLAN = Path(__file__).with_name('plan.json')
-REPORTS = ('formal_decision_20261123', 'missingness_frontier_20261123', 'latency_cost_20261124')
+REPORTS = ('formal_decision_20261123', 'missingness_frontier_20261123',
+           'latency_cost_20261124', 'collector_gate_20261125')
 FROZEN = (('configs/successor/registered_study.json', 'source_files_sha256'),
           ('configs/study_v2_okx.json', 'analysis_files_sha256'),
           ('configs/study_v2_bybit.json', 'analysis_files_sha256'),
           ('research/model_source_lock.json', 'files'))
-TASKS = ('frozen_integrity', 'released_integrity', 'latency_reproduction', 'execution_mechanics')
-DEPENDENCIES = ([], ['frozen_integrity'], ['released_integrity'], ['frozen_integrity'])
+TASKS = ('frozen_integrity', 'released_integrity', 'latency_reproduction', 'execution_mechanics', 'collector_readiness')
+DEPENDENCIES = ([], ['frozen_integrity'], ['released_integrity'], ['frozen_integrity'], ['frozen_integrity'])
 
 
 def encoded(value):
@@ -46,6 +47,7 @@ def load_plan():
         raise ValueError('unsupported lab plan')
     if tuple(t['depends_on'] for t in plan['tasks']) != DEPENDENCIES:
         raise ValueError('mandatory integrity dependencies changed')
+    capture_paths(plan)
     seen = set()
     for task in plan['tasks']:
         if not set(task['depends_on']) <= seen:
@@ -55,7 +57,11 @@ def load_plan():
 
 
 def bindings():
-    paths = {PLAN, *Path(__file__).parent.glob('*.py')}
+    paths = {*Path(__file__).parent.glob('*.json'), *Path(__file__).parent.glob('*.py')}
+    source = capture_paths(load_plan())
+    if source:
+        from research.autolab.qualification import input_files
+        paths.update(input_files(*source).values())
     for name, key in FROZEN:
         path = ROOT/name
         paths.add(path)
@@ -70,6 +76,30 @@ def bindings():
     paths.update((ROOT/'cel').rglob('*.py'))
     paths.update((ROOT/'.github/workflows').glob('successor-*.yml'))
     return {str(p.relative_to(ROOT)): sha(p) for p in sorted(paths)}
+
+
+def capture_paths(plan):
+    evidence = plan.get('collector_evidence')
+    if evidence is None:
+        return None
+    if not isinstance(evidence, dict) or set(evidence) != {'spool', 'metadata'}:
+        raise ValueError('explicit spool and metadata paths required')
+    paths = []
+    for key in ('spool', 'metadata'):
+        value = evidence[key]
+        if not isinstance(value, str) or not value.startswith('data/raw/'):
+            raise ValueError('capture must be explicitly staged under data/raw')
+        path = ROOT/value
+        if path.is_symlink() or not path.resolve().is_relative_to((ROOT/'data/raw').resolve()) or not path.is_dir():
+            raise ValueError('original local capture directory required')
+        paths.append(path)
+    return tuple(paths)
+
+
+def collector_readiness(plan):
+    from research.autolab.qualification import qualify
+    paths = capture_paths(plan)
+    return qualify(spool=paths[0], metadata=paths[1]) if paths else qualify()
 
 
 def frozen_integrity(plan):
@@ -220,6 +250,13 @@ def execute(store, plan, source_bindings, handlers, current_bindings=None):
                         f"{evidence['overlapping_signals']:,} overlapping signals across {evidence['dates']} dates; "
                         f"50 ms / 5 bps per fill: {evidence['mean_entry_notional_bps_50ms_5bps_per_fill']:.4f} bps.",
                         'Recorded quote subset only; no new observations or incremental-alpha finding. Do not deploy.']
+        if statuses.get('collector_readiness') == 'PASSED':
+            item = state['attempts']['collector_readiness'][-1]
+            evidence = json.loads((run/item['file']).read_text())['result']
+            summary += ['', '## Hypothesis evidence decision', '', evidence['question'], '',
+                        f"Data status: **{evidence['status']}**; conclusion: **{evidence['conclusion']}**.",
+                        'Capture review never authorizes study enrollment or deployment.',
+                        'Reasons: '+', '.join(evidence['reasons'])]
         summary += ['', '## Research queue', '']
         for item in plan['research_queue']:
             summary += [f"- **{item['id']} — {item['state']}**: {item['question']}",
@@ -236,7 +273,7 @@ def main():
     parser.add_argument('--summary', type=Path, help='Write the current run Markdown summary here')
     args = parser.parse_args()
     plan = load_plan()
-    handlers = dict(zip(TASKS, (frozen_integrity, released_integrity, latency_reproduction, execution_mechanics)))
+    handlers = dict(zip(TASKS, (frozen_integrity, released_integrity, latency_reproduction, execution_mechanics, collector_readiness)))
     run, state = execute(args.store, plan, bindings(), handlers, current_bindings=bindings)
     if args.summary:
         args.summary.parent.mkdir(parents=True, exist_ok=True)
@@ -244,6 +281,10 @@ def main():
     modes = Counter(state['task_modes'].values())
     print(f"::notice title=Automated research lab::{state['status']}; executed={modes['EXECUTED']}; "
           f"verified_reuse={modes['VERIFIED_REUSE']}; research={state['research_status']}; deployment_authorized=false")
+    if 'collector_readiness' in state['attempts']:
+        receipt = state['attempts']['collector_readiness'][-1]
+        evidence = json.loads((run/receipt['file']).read_text()).get('result', {})
+        print(f"::notice title=Hypothesis evidence decision::{evidence.get('status', 'UNAVAILABLE')}; strategy_outcomes_computed=0")
     print(f"Research lab {state['status']}: {run}")
     return 0 if state['status'] == 'COMPLETE' else 1
 

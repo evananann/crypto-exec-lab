@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "hypothesis_id": "binance-incremental-okx-v1",
+  "question": "Does adding Binance information improve net OKX execution decisions relative to the identically scaled OKX-only policy?",
+  "state": "DRAFT_NOT_ENROLLED",
+  "design_file": "research/roadmap/matched_design_v1.json",
+  "design_sha256": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1",
+  "estimand": "paired_mean_net_usdt_per_common_opportunity",
+  "direction": "positive",
+  "capture_requirements": {
+    "minimum_common_span_seconds": 1800,
+    "maximum_quote_gap_ms": 2000,
+    "maximum_writer_delay_ms": 100,
+    "maximum_records": 20000000
+  }
+}

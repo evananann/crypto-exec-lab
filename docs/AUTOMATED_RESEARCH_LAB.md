@@ -14,13 +14,17 @@ checks are not time-sensitive market sampling. No hosting purchase is needed.
 The allowlisted task graph in `research/autolab/plan.json` executes:
 
 1. Verify all 184 frozen source bindings and the exact registered source membership.
-2. Verify committed formal-decision, missingness and latency/cost artifact checksums.
+2. Verify committed formal-decision, missingness, latency/cost and collector-assessment artifact checksums.
 3. Reaggregate every released latency/cost session and recompute the saved trace
    examples across all 24 fixed delay/fee cells. Verify the original replay source
    bindings. This is output-level replication, not another replay of all raw ticks.
 4. Compare 1,000 fixed-seed synthetic execution cases with independent Decimal
    cash arithmetic. This reuses the existing self-review oracle; synthetic examples
    add no market evidence.
+
+5. Validate the structured hypothesis and assess an explicitly staged original
+   capture. Without an attached capture, report DATA_NOT_PROVIDED and keep the
+   empirical experiment blocked. [Hypothesis interface and collector gate](HYPOTHESIS_TO_CONCLUSION.md).
 
 Each task writes an immutable attempt receipt. Dependencies prevent downstream
 comparisons after integrity failures. Failed task attempts remain in the journal;

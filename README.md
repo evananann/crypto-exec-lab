@@ -45,7 +45,10 @@ slot limit this result; it does not establish incremental Binance value.
 
 The [research controller](docs/AUTOMATED_RESEARCH_LAB.md) runs a daily, bounded
 queue: frozen-source checks, released-evidence verification, latency/cost
-reproduction and 1,000 synthetic execution checks. Content-addressed journals
+reproduction and 1,000 synthetic execution checks. The
+[hypothesis interface and collector gate](docs/HYPOTHESIS_TO_CONCLUSION.md) assess
+staged recordings before any new experiment; missing data produces an explicit
+evidence decision. Content-addressed journals
 support checked resume and preserve failures. GitHub run summaries expose findings
 and blocked experiments. This automates research operations; new market evidence
 and the OKX-only versus OKX + Binance experiment still require qualified data.

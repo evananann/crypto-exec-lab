@@ -15,6 +15,8 @@ on:
       - 'uv.lock'
       - 'research/model_source_lock.json'
       - 'tests/test_autolab.py'
+      - 'tests/test_capture_qualification.py'
+      - 'reports/collector_gate_20261125/**'
       - '.github/workflows/automated-research-lab.yml'
   schedule:
     - cron: '7 15 * * *'
@@ -48,7 +50,7 @@ jobs:
           key: autolab-v1-main-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: autolab-v1-main-
       - name: Verify controller recovery and research boundaries
-        run: uv run --frozen python -m unittest tests.test_autolab -v
+        run: uv run --frozen python -m unittest tests.test_autolab tests.test_capture_qualification -v
       - name: Run bounded research queue
         run: >-
           uv run --frozen python -m research.autolab.controller
