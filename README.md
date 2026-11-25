@@ -103,3 +103,7 @@ The [decision workbench](https://evananann.github.io/crypto-exec-lab/workbench.h
 Continuous verification is not automatic strategy tuning or a profitability guarantee.
 Historical memos are retained with their original dates. Current status takes precedence
 for what has actually completed. [November 23 workflow incident and repairs](docs/RELEASE_JOB_INCIDENT_20261123.md).
+
+Daily recording batches can now be reviewed with the [cohort and fixed-controls
+interface](docs/COHORT_AND_CONTROLS.md), preserving missing dates and reporting
+all 18 delay/holding cases without selecting a favorable configuration.

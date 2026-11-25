@@ -100,3 +100,11 @@ The empirical hypothesis remains NOT_EVALUATED_PENDING_ENROLLMENT. A future
 confirmatory adapter must authenticate raw sources and complete grid coverage,
 verify clock qualification, bind the enrolled calendar and release gate, and
 retain untouched observations before publishing a formal hypothesis conclusion.
+
+## Multiple daily captures and fixed controls
+
+The [cohort adapter and control runner](COHORT_AND_CONTROLS.md) reconstruct a
+declared multi-date grid from separate daily originals and report all 18 fixed
+delay/holding cases, five controls and leave-one-date-out coverage. Missing days
+remain unknown. Configure the optional `cohort_manifest` alongside paired
+evidence to use this route; its results remain exploratory.
