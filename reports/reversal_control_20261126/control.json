@@ -4,6 +4,8 @@
   "question": "Does reversing the fixed leader-jump direction rescue the quote-price mean on the preserved opportunity set?",
   "normalization": "Basis points per signal-mid notional, equal slot within date then equal observed date. Never entry-notional bps or portfolio P&L.",
   "identity": "R_reverse_0 = -R_forward_0 - 2*(entry_half_spread + exit_half_spread)",
+  "signal_definition": "Original nominal 2-USDT Binance BTC mid-price jumps",
+  "execution_scope": "Hypothetical 0.001 BTC entry and exit on OKX; no Binance hedge leg",
   "exit_horizon_from_signal_ms": 1000,
   "entry_delays_ms": [
     0,
@@ -3528,7 +3530,7 @@
     "checksums.json": "67f754e903a6ca5cc4833b3edccdd75187df73858de9472185f57d0c4c7b50ca"
   },
   "implementation_sha256": {
-    "research/autolab/reversal_control.py": "1692d5ba08dd0d0796c9afbe0cb62334d99e666f8143f8a734ad9ff585538652",
+    "research/autolab/reversal_control.py": "1a13d0754bf4866cc451e614d3e010d3c95b2c5f2b8b9dc4c75eb23a80aa14d6",
     "research/roadmap/latency_report.py": "df56f112427ef6ee6881736a92a90b75d88188465055fac6f29e7fd1dcee365a"
   },
   "raw_tapes_replayed": false,

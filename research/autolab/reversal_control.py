@@ -151,6 +151,8 @@ def run():
             'question': 'Does reversing the fixed leader-jump direction rescue the quote-price mean on the preserved opportunity set?',
             'normalization': 'Basis points per signal-mid notional, equal slot within date then equal observed date. Never entry-notional bps or portfolio P&L.',
             'identity': 'R_reverse_0 = -R_forward_0 - 2*(entry_half_spread + exit_half_spread)',
+            'signal_definition': 'Original nominal 2-USDT Binance BTC mid-price jumps',
+            'execution_scope': 'Hypothetical 0.001 BTC entry and exit on OKX; no Binance hedge leg',
             'exit_horizon_from_signal_ms': 1000, 'entry_delays_ms': list(DELAYS),
             'opposite_side_full_cohort_depth_verified': False,
             'phases': phases, 'preserved_trace_checks': traces,
@@ -167,7 +169,10 @@ def memo(result):
     lines = ['# Does reversing the trade rescue the economics?', '',
         '**Observed quote-price finding: no, on this fixed retained opportunity set. Trading decision remains DO NOT DEPLOY.**', '',
         'This is a post-release accounting control using saved aggregates, not a new raw-tape replay, '
-        'a trained model comparison or an untouched holdout experiment. Exit stays one second after the signal; '
+        'a trained model comparison or an untouched holdout experiment. It uses the original 2-USDT Binance BTC-price jumps '
+        'and hypothetical 0.001 BTC round trips on OKX, without a Binance hedge leg. It does not evaluate the newer 12-bps paired policies. '
+        'The [source latency/cost supplement](../latency_cost_20261124/README.md) retains the original protocol and exclusions. '
+        'Exit stays one second after the signal; '
         'a longer entry delay shortens the holding period, exactly as in the source supplement.', '',
         f"Coverage: {full['available_slots']}/{full['scheduled_slots']} scheduled slots, {full['observed_dates']} observed dates, "
         f"{full['common_opportunities']:,} overlapping hypothetical opportunities. The control retains the original common set and weights.", '',

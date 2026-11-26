@@ -2,7 +2,7 @@
 
 **Observed quote-price finding: no, on this fixed retained opportunity set. Trading decision remains DO NOT DEPLOY.**
 
-This is a post-release accounting control using saved aggregates, not a new raw-tape replay, a trained model comparison or an untouched holdout experiment. Exit stays one second after the signal; a longer entry delay shortens the holding period, exactly as in the source supplement.
+This is a post-release accounting control using saved aggregates, not a new raw-tape replay, a trained model comparison or an untouched holdout experiment. It uses the original 2-USDT Binance BTC-price jumps and hypothetical 0.001 BTC round trips on OKX, without a Binance hedge leg. It does not evaluate the newer 12-bps paired policies. The [source latency/cost supplement](../latency_cost_20261124/README.md) retains the original protocol and exclusions. Exit stays one second after the signal; a longer entry delay shortens the holding period, exactly as in the source supplement.
 
 Coverage: 22/56 scheduled slots, 21 observed dates, 11,441 overlapping hypothetical opportunities. The control retains the original common set and weights.
 
