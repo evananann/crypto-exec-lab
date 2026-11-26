@@ -127,3 +127,11 @@ For staged larger captures, a reviewed plan can select `replay_storage: "disk"`.
 The [adapter](DISK_REPLAY.md) preserves existing execution rules and compares
 against the memory oracle in synthetic tests. It does not supply new market
 evidence, bypass capture qualification or launch collection.
+
+## Policy activity feasibility
+
+The [outcome-free feasibility audit](../reports/policy_feasibility_20261126/README.md)
+examines the unchanged policy’s score hurdle, observed decision contrasts and
+current-quote break-even arithmetic. It preserves all failed-source statuses and
+computes no execution outcomes. CI validates its synthetic tests and published
+checksums; it does not admit those captures into paired inference.
