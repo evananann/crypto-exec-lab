@@ -47,6 +47,12 @@ The [retained-evidence decision report](reports/retained_decision_20261126/READM
 checks every archived rehearsal session before attempting the paired comparison
 and distinguishes unavailable incremental estimates from reproduced legacy costs.
 
+The [fixed-policy feasibility audit](reports/policy_feasibility_20261126/README.md)
+finds zero decision contrasts in 32 feature points from two failed captures.
+The largest candidate score was 0.825 bps against a 12-bps trigger. This short,
+unqualified sample establishes neither signal frequency nor incremental value;
+qualified activity evidence is needed before a long policy comparison.
+
 ## Automated research lab
 
 The [research controller](docs/AUTOMATED_RESEARCH_LAB.md) runs a daily, bounded
