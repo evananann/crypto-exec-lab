@@ -18,13 +18,13 @@ All five archived acquisition sessions remain in the inventory. The two sessions
 | `af28ec9b0ef048b59b2c5b6294995768` | 30 | 0.6663 | 0.8248 | 0 |
 | `fd0e7fec1b8440dfaa928cd71f17d90b` | Unavailable | — | — | Unavailable |
 
-These are fixed ten-second grid observations within short recorded windows, not continuous monitoring of every possible trigger, independent samples, complete UTC days or a power estimate. The failures can select which market conditions were retained. Zero observed contrasts cannot be extrapolated to a daily arrival rate or taken as evidence that Binance has no predictive information.
+These are fixed ten-second grid observations within short recorded windows, not continuous monitoring of every possible trigger, independent samples, complete UTC days or a power estimate. Grid alignment uses the unqualified archived wall/monotonic mapping; phase shifts can change selected points. No grid-phase search was performed. Failures can select the retained market conditions. Zero observed contrasts cannot be extrapolated to a daily arrival rate or taken as evidence that Binance has no predictive information.
 
 ## What the policy actually requires
 
 The unchanged score threshold is 12 bps, with a 100 ms lookback. The baseline score is L/2, so its trigger requires an absolute local return of at least 24 bps. The candidate score is (L+B)/2, so the absolute sum of local and leader returns must reach 24 bps. This sum is not a forecast of the subsequent follower return. The comparison identifies these two specified policies, not the best possible OKX-only model or the value of every Binance signal.
 
-The frozen administrative requirements include 28 observed test dates, 10 dates with nonzero contrasts and 30 nonzero paired opportunities. A complete test calendar contains 241,920 grid points. Those counts are sufficiency gates, not prospective statistical power. No expected contrast frequency, effect size or variance has been established by this short audit.
+The frozen administrative requirements include 28 observed test dates, 10 dates with nonzero contrasts and 30 nonzero paired opportunities. A complete test calendar contains 241,920 grid points. Those counts are sufficiency gates, not prospective statistical power. No expected contrast frequency, effect size or variance has been established by this short audit. Different actions are an activity diagnostic, not a count of nonzero net-value contrasts: rejected entries or unknown exits can prevent an economic contrast even when actions differ.
 
 ## Observable economic hurdle
 

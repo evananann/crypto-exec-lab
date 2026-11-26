@@ -81,6 +81,7 @@ class FeasibilityTests(unittest.TestCase):
         self.assertIsNone(result['absolute_candidate_net_usdt'])
         self.assertEqual(result['strategy_outcomes_computed'], 0)
         self.assertFalse(result['scientifically_eligible'])
+        self.assertFalse(result['independent_utc_accuracy_verified'])
         self.assertFalse(result['confirmatory_inference_valid'])
         self.assertFalse(result['deployment_authorized'])
         self.assertIn('not zero', (folder/'README.md').read_text())

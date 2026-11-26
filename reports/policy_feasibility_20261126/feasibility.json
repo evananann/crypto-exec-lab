@@ -15,7 +15,7 @@
     "complete_test_grid_opportunities": 241920,
     "minimum_contrasts_per_test_date_on_average": "1.071428571428571428571428571",
     "minimum_contrasts_per_full_grid_opportunity": "0.0001240079365079365079365079365",
-    "scope": "Algebra and administrative minimum counts only. These are not a power calculation or a forecast of signal frequency."
+    "scope": "Algebra and administrative minimum counts only. These are not a power calculation or a forecast of signal frequency. Different actions alone do not satisfy nonzero economic-contrast requirements."
   },
   "sessions": [
     {
@@ -524,7 +524,7 @@
     "reports/formal_decision_20261123/current-preservation.json": "17af6828c8f78fbc4d54492bd3f093886e28f10dea7c7f9a573501dc3b4fa517"
   },
   "implementation_sha256": {
-    "research/autolab/feasibility.py": "c89792e9aa39e7a43e454ff1df9136821141da349dd646296b187da2909fa5b4",
+    "research/autolab/feasibility.py": "9d7ccd9025f11c04af4e280f4c438773fc158edaf55d4f91ba17eb1b16256e22",
     "research/roadmap/empirical_pipeline.py": "00de5fa27129bbe65d23d63a8df2dd67f7621cf61b3f048426d29ea9d5586f87",
     "research/roadmap/feed_activity.py": "c0b323369ded11496c33a2503babd2dd83f16a59eb9a02ef3343f944d562c33c",
     "research/roadmap/matched_design_v1.json": "371dc241971d4fd4c0bcf5ac69d86521d97bbf3dd8103d541265a34f2d73d2e1"
@@ -535,7 +535,8 @@
   "confirmatory_inference_valid": false,
   "scientifically_eligible": false,
   "deployment_authorized": false,
+  "independent_utc_accuracy_verified": false,
   "trading_decision": "DO_NOT_DEPLOY",
   "research_recommendation": "Obtain qualified prospective activity evidence before committing to a long comparison; do not retune on these failed captures.",
-  "limits": "Outcome-free descriptions of short, failed, retrospectively inspected captures. Missing-metadata sessions remain unavailable. No threshold search, P&L, intervals, rate extrapolation, power claim, holdout activation or hypothesis rejection."
+  "limits": "Outcome-free descriptions of short, failed, retrospectively inspected captures. Software UTC mapping and grid phase are unqualified. Missing-metadata sessions remain unavailable. No threshold search, P&L, intervals, rate extrapolation, power claim, holdout activation or hypothesis rejection."
 }

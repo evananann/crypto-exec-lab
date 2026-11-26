@@ -61,7 +61,7 @@ def design_requirements(design):
             'required_nonzero_contrasts': contrasts, 'complete_test_grid_opportunities': opportunities,
             'minimum_contrasts_per_test_date_on_average': str(Decimal(contrasts)/days),
             'minimum_contrasts_per_full_grid_opportunity': str(Decimal(contrasts)/opportunities),
-            'scope': 'Algebra and administrative minimum counts only. These are not a power calculation or a forecast of signal frequency.'}
+            'scope': 'Algebra and administrative minimum counts only. These are not a power calculation or a forecast of signal frequency. Different actions alone do not satisfy nonzero economic-contrast requirements.'}
 
 
 def analyze(books, source, design):
@@ -159,9 +159,10 @@ def run(restored, archives):
             'paired_net_effect_usdt': None, 'absolute_candidate_net_usdt': None,
             'strategy_outcomes_computed': 0, 'confirmatory_inference_valid': False,
             'scientifically_eligible': False, 'deployment_authorized': False,
+            'independent_utc_accuracy_verified': False,
             'trading_decision': 'DO_NOT_DEPLOY',
             'research_recommendation': 'Obtain qualified prospective activity evidence before committing to a long comparison; do not retune on these failed captures.',
-            'limits': 'Outcome-free descriptions of short, failed, retrospectively inspected captures. Missing-metadata sessions remain unavailable. No threshold search, P&L, intervals, rate extrapolation, power claim, holdout activation or hypothesis rejection.'}, observations
+            'limits': 'Outcome-free descriptions of short, failed, retrospectively inspected captures. Software UTC mapping and grid phase are unqualified. Missing-metadata sessions remain unavailable. No threshold search, P&L, intervals, rate extrapolation, power claim, holdout activation or hypothesis rejection.'}, observations
 
 
 
@@ -194,7 +195,8 @@ def memo(result):
                          f"{display(activity['absolute_cross_score_bps']['maximum'])} | "
                          f"{activity['counts']['different_action_points']} |")
     lines += ['', 'These are fixed ten-second grid observations within short recorded windows, not continuous monitoring of every possible trigger, '
-        'independent samples, complete UTC days or a power estimate. The failures can select which market conditions were retained. '
+        'independent samples, complete UTC days or a power estimate. Grid alignment uses the unqualified archived wall/monotonic mapping; '
+        'phase shifts can change selected points. No grid-phase search was performed. Failures can select the retained market conditions. '
         'Zero observed contrasts cannot be extrapolated to a daily arrival rate or taken as evidence that Binance has no predictive information.', '',
         '## What the policy actually requires', '',
         f"The unchanged score threshold is {requirements['threshold_score_bps']} bps, with a {requirements['lookback_ms']} ms lookback. "
@@ -209,7 +211,8 @@ def memo(result):
         f"{requirements['required_nonzero_contrasts']} nonzero paired opportunities. A complete test calendar contains "
         f"{requirements['complete_test_grid_opportunities']:,} grid points. "
         'Those counts are sufficiency gates, not prospective statistical power. No expected contrast frequency, effect size or variance '
-        'has been established by this short audit.', '',
+        'has been established by this short audit. Different actions are an activity diagnostic, not a count of nonzero net-value contrasts: '
+        'rejected entries or unknown exits can prevent an economic contrast even when actions differ.', '',
         '## Observable economic hurdle', '',
         'For current bid b, ask a, entry fee fₑ and exit fee fₓ, the break-even future exit bid of a hypothetical long is '
         '`a × (1+fₑ)/(1−fₓ)`. The break-even exit ask of a short is `b × (1−fₑ)/(1+fₓ)`. '
