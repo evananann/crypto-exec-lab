@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PLAN = Path(__file__).with_name('plan.json')
 REPORTS = ('formal_decision_20261123', 'missingness_frontier_20261123',
            'latency_cost_20261124', 'collector_gate_20261125', 'enrollment_evidence_20261125',
-           'retained_decision_20261126', 'disk_replay_capacity_20261126', 'policy_feasibility_20261126')
+           'retained_decision_20261126', 'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126')
 FROZEN = (('configs/successor/registered_study.json', 'source_files_sha256'),
           ('configs/study_v2_okx.json', 'analysis_files_sha256'),
           ('configs/study_v2_bybit.json', 'analysis_files_sha256'),

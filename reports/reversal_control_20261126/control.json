@@ -1,0 +1,3540 @@
+{
+  "schema_version": 1,
+  "status": "POST_RELEASE_EXPLORATORY_REVERSAL_CONTROL",
+  "question": "Does reversing the fixed leader-jump direction rescue the quote-price mean on the preserved opportunity set?",
+  "normalization": "Basis points per signal-mid notional, equal slot within date then equal observed date. Never entry-notional bps or portfolio P&L.",
+  "identity": "R_reverse_0 = -R_forward_0 - 2*(entry_half_spread + exit_half_spread)",
+  "exit_horizon_from_signal_ms": 1000,
+  "entry_delays_ms": [
+    0,
+    25,
+    50,
+    100,
+    250,
+    500
+  ],
+  "opposite_side_full_cohort_depth_verified": false,
+  "phases": {
+    "development": {
+      "scheduled_slots": 42,
+      "available_slots": 19,
+      "observed_dates": 18,
+      "common_opportunities": 8345,
+      "cells": {
+        "0": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.5690560485909955,
+            "reverse_zero_fee_bps": -0.6014080522538563,
+            "forward_five_bps_per_fill_bps": -9.430959405328272,
+            "roundtrip_half_spread_sum_bps": 0.01617600183143039
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.35349564929953103,
+              "reverse_zero_fee_bps": -0.3783777873367764,
+              "forward_five_bps_per_fill_bps": -9.646439325871206,
+              "roundtrip_half_spread_sum_bps": 0.012441069018622677
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.7138363599884956,
+              "reverse_zero_fee_bps": -0.7390313548096851,
+              "forward_five_bps_per_fill_bps": -9.28610182738499,
+              "roundtrip_half_spread_sum_bps": 0.012597497410594714
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.5948958639882131,
+              "reverse_zero_fee_bps": -0.6227064053563829,
+              "forward_five_bps_per_fill_bps": -9.405183650110889,
+              "roundtrip_half_spread_sum_bps": 0.013905270684084854
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.1644511480889576,
+              "reverse_zero_fee_bps": -0.20574269413659996,
+              "forward_five_bps_per_fill_bps": -9.835524267084521,
+              "roundtrip_half_spread_sum_bps": 0.020645773023821166
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.586422571116297,
+              "reverse_zero_fee_bps": -0.6114753427316263,
+              "forward_five_bps_per_fill_bps": -9.413561076821997,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.7420438553050723,
+              "reverse_zero_fee_bps": -0.7678711926689705,
+              "forward_five_bps_per_fill_bps": -9.258022294571427,
+              "roundtrip_half_spread_sum_bps": 0.012913668681949124
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.5174240475749917,
+              "reverse_zero_fee_bps": -0.5455013884201608,
+              "forward_five_bps_per_fill_bps": -9.482491635882702,
+              "roundtrip_half_spread_sum_bps": 0.014038670422584543
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.3110090122325959,
+              "reverse_zero_fee_bps": -0.34827701687686796,
+              "forward_five_bps_per_fill_bps": -9.68905886963385,
+              "roundtrip_half_spread_sum_bps": 0.018634002322136016
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.7617542745634844,
+              "reverse_zero_fee_bps": -0.7887580137932434,
+              "forward_five_bps_per_fill_bps": -9.238418354896199,
+              "roundtrip_half_spread_sum_bps": 0.013501869614879456
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.7675917811018019,
+              "reverse_zero_fee_bps": -0.7936098150224861,
+              "forward_five_bps_per_fill_bps": -9.232315725869492,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.7029623384908305,
+              "reverse_zero_fee_bps": -0.7297950508082205,
+              "forward_five_bps_per_fill_bps": -9.297067934093453,
+              "roundtrip_half_spread_sum_bps": 0.013416356158695004
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.4387979402955883,
+              "reverse_zero_fee_bps": -0.46423745907622455,
+              "forward_five_bps_per_fill_bps": -9.561175008464865,
+              "roundtrip_half_spread_sum_bps": 0.012719759390318126
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.653666384958933,
+              "reverse_zero_fee_bps": -0.6802400292491333,
+              "forward_five_bps_per_fill_bps": -9.346244484237706,
+              "roundtrip_half_spread_sum_bps": 0.013286822145100128
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.4080127923450775,
+              "reverse_zero_fee_bps": -0.4343797467881949,
+              "forward_five_bps_per_fill_bps": -9.591855069673782,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.6422762983604567,
+              "reverse_zero_fee_bps": -0.6692405786131329,
+              "forward_five_bps_per_fill_bps": -9.357730752382727,
+              "roundtrip_half_spread_sum_bps": 0.013482140126338102
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.6508428102673673,
+              "reverse_zero_fee_bps": -0.6785962666643568,
+              "forward_five_bps_per_fill_bps": -9.349085441533576,
+              "roundtrip_half_spread_sum_bps": 0.013876728198494743
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.7351868972584049,
+              "reverse_zero_fee_bps": -0.763933374251019,
+              "forward_five_bps_per_fill_bps": -9.264991172477236,
+              "roundtrip_half_spread_sum_bps": 0.01437323849630707
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": 0.49833884940182094,
+              "reverse_zero_fee_bps": -0.6035714239663327,
+              "forward_five_bps_per_fill_bps": -9.50200240491826,
+              "roundtrip_half_spread_sum_bps": 0.05261628728225588
+            }
+          },
+          "reverse_zero_fee_negative_dates": 18,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.6145274796019199,
+            "2026-10-26": -0.5933125638682194,
+            "2026-10-27": -0.6001552079537077,
+            "2026-10-28": -0.6246824850842831,
+            "2026-10-29": -0.6008158586963405,
+            "2026-10-30": -0.5916161028176732,
+            "2026-10-31": -0.6046966795381914,
+            "2026-11-01": -0.6162981131583851,
+            "2026-11-02": -0.5903874662809512,
+            "2026-11-03": -0.5901020662086429,
+            "2026-11-04": -0.5938558758683055,
+            "2026-11-05": -0.6094769106760699,
+            "2026-11-07": -0.5967708771364871,
+            "2026-11-08": -0.6112332466930129,
+            "2026-11-09": -0.5974179036444871,
+            "2026-11-11": -0.5968675690532387,
+            "2026-11-12": -0.5918477391951997,
+            "2026-11-14": -0.6012807950942989
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.6014080522538563,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.601439682274956,
+            "upper_bps": -10.601407330071291,
+            "fee_difference_abs_bound_bps": 1.617600183143039e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "25": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.3738562161748378,
+            "reverse_zero_fee_bps": -0.405647992757598,
+            "forward_five_bps_per_fill_bps": -9.62614421505288,
+            "roundtrip_half_spread_sum_bps": 0.015895888291380077
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.2500513382846129,
+              "reverse_zero_fee_bps": -0.2748663752067894,
+              "forward_five_bps_per_fill_bps": -9.749869321438569,
+              "roundtrip_half_spread_sum_bps": 0.01240751846108824
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.6124359767083651,
+              "reverse_zero_fee_bps": -0.6381087771513718,
+              "forward_five_bps_per_fill_bps": -9.38748066535083,
+              "roundtrip_half_spread_sum_bps": 0.012836400221503324
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.3229897148122503,
+              "reverse_zero_fee_bps": -0.3483049309397839,
+              "forward_five_bps_per_fill_bps": -9.677133434823123,
+              "roundtrip_half_spread_sum_bps": 0.012657608063766774
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.09231614119162176,
+              "reverse_zero_fee_bps": -0.11851577840995253,
+              "forward_five_bps_per_fill_bps": -9.907651996577309,
+              "roundtrip_half_spread_sum_bps": 0.013099818609165384
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.47715649712850655,
+              "reverse_zero_fee_bps": -0.5022092687438359,
+              "forward_five_bps_per_fill_bps": -9.52280928157269,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.6540404450920551,
+              "reverse_zero_fee_bps": -0.6799384142997249,
+              "forward_five_bps_per_fill_bps": -9.346041632623265,
+              "roundtrip_half_spread_sum_bps": 0.012948984603834895
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.3446294041661182,
+              "reverse_zero_fee_bps": -0.3704943360699969,
+              "forward_five_bps_per_fill_bps": -9.655241229586133,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.08429793370300868,
+              "reverse_zero_fee_bps": -0.1100296297126887,
+              "forward_five_bps_per_fill_bps": -9.915827848789796,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.5316825908242477,
+              "reverse_zero_fee_bps": -0.5614463215782476,
+              "forward_five_bps_per_fill_bps": -9.468517711008912,
+              "roundtrip_half_spread_sum_bps": 0.014881865376999918
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.4661007393590867,
+              "reverse_zero_fee_bps": -0.4921187732797708,
+              "forward_five_bps_per_fill_bps": -9.533738608994195,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.4934978300657762,
+              "reverse_zero_fee_bps": -0.5210923040779234,
+              "forward_five_bps_per_fill_bps": -9.506524615049624,
+              "roundtrip_half_spread_sum_bps": 0.01379723700607358
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.27972638114406523,
+              "reverse_zero_fee_bps": -0.30451053124216365,
+              "forward_five_bps_per_fill_bps": -9.720236316829796,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.4231927420008073,
+              "reverse_zero_fee_bps": -0.44951799012296556,
+              "forward_five_bps_per_fill_bps": -9.576714657001261,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.06131243835329314,
+              "reverse_zero_fee_bps": -0.08767939279641059,
+              "forward_five_bps_per_fill_bps": -9.938460533642218,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.44119911755125374,
+              "reverse_zero_fee_bps": -0.46789253015193055,
+              "forward_five_bps_per_fill_bps": -9.558804355180474,
+              "roundtrip_half_spread_sum_bps": 0.01334670630033842
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.532370924770817,
+              "reverse_zero_fee_bps": -0.5596634394908685,
+              "forward_five_bps_per_fill_bps": -9.467534655758383,
+              "roundtrip_half_spread_sum_bps": 0.013646257360025733
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.5594171632938558,
+              "reverse_zero_fee_bps": -0.586560332273495,
+              "forward_five_bps_per_fill_bps": -9.440841371175233,
+              "roundtrip_half_spread_sum_bps": 0.013571584489819585
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": 0.10299451269733903,
+              "reverse_zero_fee_bps": -0.22871474408884385,
+              "forward_five_bps_per_fill_bps": -9.897167635550023,
+              "roundtrip_half_spread_sum_bps": 0.06286011569575241
+            }
+          },
+          "reverse_zero_fee_negative_dates": 18,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.41334102908411613,
+            "2026-10-26": -0.39197382896972893,
+            "2026-10-27": -0.4090211140409988,
+            "2026-10-28": -0.4225381230133418,
+            "2026-10-29": -0.39996791769958395,
+            "2026-10-30": -0.38951326207864934,
+            "2026-10-31": -0.4077158549156921,
+            "2026-11-01": -0.4230373082308279,
+            "2026-11-02": -0.3964833851799127,
+            "2026-11-03": -0.4005614762562937,
+            "2026-11-04": -0.3988571509152259,
+            "2026-11-05": -0.4115972551996824,
+            "2026-11-07": -0.40306740467728225,
+            "2026-11-08": -0.4243520280494325,
+            "2026-11-09": -0.4019865493814607,
+            "2026-11-11": -0.39658826059681734,
+            "2026-11-12": -0.39500609043313345,
+            "2026-11-14": -0.41605583091458354
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.405647992757598,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.405664319973607,
+            "upper_bps": -10.405632527997025,
+            "fee_difference_abs_bound_bps": 1.5895888291380078e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "50": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.24654376557691116,
+            "reverse_zero_fee_bps": -0.27690772588654744,
+            "forward_five_bps_per_fill_bps": -9.753451273628514,
+            "roundtrip_half_spread_sum_bps": 0.015181980154818139
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.15627169267017565,
+              "reverse_zero_fee_bps": -0.18103957383722777,
+              "forward_five_bps_per_fill_bps": -9.84361928991913,
+              "roundtrip_half_spread_sum_bps": 0.012383940583526057
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.41165011284771563,
+              "reverse_zero_fee_bps": -0.4367581765702094,
+              "forward_five_bps_per_fill_bps": -9.588261792218903,
+              "roundtrip_half_spread_sum_bps": 0.012554031861246874
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.2849039574111935,
+              "reverse_zero_fee_bps": -0.31009200944412263,
+              "forward_five_bps_per_fill_bps": -9.715227580969863,
+              "roundtrip_half_spread_sum_bps": 0.012594026016464574
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.1066890640884707,
+              "reverse_zero_fee_bps": -0.13223934716196772,
+              "forward_five_bps_per_fill_bps": -9.89326604517064,
+              "roundtrip_half_spread_sum_bps": 0.012775141536748514
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.31352618873832727,
+              "reverse_zero_fee_bps": -0.3386240196546932,
+              "forward_five_bps_per_fill_bps": -9.686439023497881,
+              "roundtrip_half_spread_sum_bps": 0.012548915458182954
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.3331273649470501,
+              "reverse_zero_fee_bps": -0.3597320283725034,
+              "forward_five_bps_per_fill_bps": -9.666978091460235,
+              "roundtrip_half_spread_sum_bps": 0.013302331712726642
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.2968132767459715,
+              "reverse_zero_fee_bps": -0.3226782086498502,
+              "forward_five_bps_per_fill_bps": -9.703052673181475,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.04924909191740629,
+              "reverse_zero_fee_bps": -0.0749807879270863,
+              "forward_five_bps_per_fill_bps": -9.950894214996291,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.44921647449949004,
+              "reverse_zero_fee_bps": -0.47511478382496675,
+              "forward_five_bps_per_fill_bps": -9.551005889743626,
+              "roundtrip_half_spread_sum_bps": 0.012949154662738348
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.40204517659554667,
+              "reverse_zero_fee_bps": -0.42806321051623075,
+              "forward_five_bps_per_fill_bps": -9.59777911085542,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.344929601500516,
+              "reverse_zero_fee_bps": -0.3715610395703126,
+              "forward_five_bps_per_fill_bps": -9.655089596285123,
+              "roundtrip_half_spread_sum_bps": 0.013315719034898298
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.2545860060302293,
+              "reverse_zero_fee_bps": -0.2793701561283277,
+              "forward_five_bps_per_fill_bps": -9.745372492967768,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.2652422460769244,
+              "reverse_zero_fee_bps": -0.2915674941990827,
+              "forward_five_bps_per_fill_bps": -9.734644299657612,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.059994468159189095,
+              "reverse_zero_fee_bps": -0.08636142260230653,
+              "forward_five_bps_per_fill_bps": -9.939777844851225,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.418335871547597,
+              "reverse_zero_fee_bps": -0.44527931284597355,
+              "forward_five_bps_per_fill_bps": -9.581665258386199,
+              "roundtrip_half_spread_sum_bps": 0.01347172064918829
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.3221375434981071,
+              "reverse_zero_fee_bps": -0.34929165784798105,
+              "forward_five_bps_per_fill_bps": -9.677752927343995,
+              "roundtrip_half_spread_sum_bps": 0.013577057174936992
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.21501005084481786,
+              "reverse_zero_fee_bps": -0.24211837464927985,
+              "forward_five_bps_per_fill_bps": -9.785326079883172,
+              "roundtrip_half_spread_sum_bps": 0.01355416190223099
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": -0.24594040773432727,
+              "reverse_zero_fee_bps": 0.14053253784426828,
+              "forward_five_bps_per_fill_bps": -10.245970713924685,
+              "roundtrip_half_spread_sum_bps": 0.052703934945029486
+            }
+          },
+          "reverse_zero_fee_negative_dates": 17,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.2825470289482721,
+            "2026-10-26": -0.2675047581992732,
+            "2026-10-27": -0.27495570920669005,
+            "2026-10-28": -0.28541763051740504,
+            "2026-10-29": -0.2732773556648918,
+            "2026-10-30": -0.2720357080932559,
+            "2026-10-31": -0.2742153445475296,
+            "2026-11-01": -0.28878578106063335,
+            "2026-11-02": -0.2652484871842875,
+            "2026-11-03": -0.2680162267906837,
+            "2026-11-04": -0.2713398839051495,
+            "2026-11-05": -0.27676287704879565,
+            "2026-11-07": -0.27604538657404537,
+            "2026-11-08": -0.288116331962091,
+            "2026-11-09": -0.26700351488893415,
+            "2026-11-11": -0.2726498475358749,
+            "2026-11-12": -0.27895415831226905,
+            "2026-11-14": -0.30146303551777187
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.27690772588654744,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.276917947172127,
+            "upper_bps": -10.276887583011817,
+            "fee_difference_abs_bound_bps": 1.518198015481814e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "100": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.20711642541597944,
+            "reverse_zero_fee_bps": -0.23615427249086152,
+            "forward_five_bps_per_fill_bps": -9.792878704538845,
+            "roundtrip_half_spread_sum_bps": 0.014518923537441044
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.11735945601614187,
+              "reverse_zero_fee_bps": -0.14212733718319398,
+              "forward_five_bps_per_fill_bps": -9.882527587877615,
+              "roundtrip_half_spread_sum_bps": 0.012383940583526057
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.3520843208032701,
+              "reverse_zero_fee_bps": -0.37719238452576387,
+              "forward_five_bps_per_fill_bps": -9.647819723289917,
+              "roundtrip_half_spread_sum_bps": 0.012554031861246874
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.24934977731989763,
+              "reverse_zero_fee_bps": -0.27443608165617045,
+              "forward_five_bps_per_fill_bps": -9.750775451187126,
+              "roundtrip_half_spread_sum_bps": 0.012543152168136418
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.10854168841621535,
+              "reverse_zero_fee_bps": -0.13365928949098071,
+              "forward_five_bps_per_fill_bps": -9.891385376995713,
+              "roundtrip_half_spread_sum_bps": 0.012558800537382689
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.24092874445698192,
+              "reverse_zero_fee_bps": -0.26598151607231124,
+              "forward_five_bps_per_fill_bps": -9.759033479467234,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.2891748187189273,
+              "reverse_zero_fee_bps": -0.3149845369167277,
+              "forward_five_bps_per_fill_bps": -9.710918817970605,
+              "roundtrip_half_spread_sum_bps": 0.012904859098900188
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.2357377627416555,
+              "reverse_zero_fee_bps": -0.2616026946455342,
+              "forward_five_bps_per_fill_bps": -9.764115852018726,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.04924909191740629,
+              "reverse_zero_fee_bps": -0.0749807879270863,
+              "forward_five_bps_per_fill_bps": -9.950894214996291,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.3927436103148873,
+              "reverse_zero_fee_bps": -0.41818622541062767,
+              "forward_five_bps_per_fill_bps": -9.607485255363985,
+              "roundtrip_half_spread_sum_bps": 0.012721307547870181
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.325653850011179,
+              "reverse_zero_fee_bps": -0.3516718839318631,
+              "forward_five_bps_per_fill_bps": -9.674174182933859,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.29167078151874615,
+              "reverse_zero_fee_bps": -0.3179430115991699,
+              "forward_five_bps_per_fill_bps": -9.708363860897261,
+              "roundtrip_half_spread_sum_bps": 0.013136115040211855
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.2279491318776508,
+              "reverse_zero_fee_bps": -0.25273328197574924,
+              "forward_five_bps_per_fill_bps": -9.772007789428129,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.248353457271798,
+              "reverse_zero_fee_bps": -0.2746787053939563,
+              "forward_five_bps_per_fill_bps": -9.751524644068335,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.05537975394514414,
+              "reverse_zero_fee_bps": -0.08174670838826158,
+              "forward_five_bps_per_fill_bps": -9.944390251708162,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.3829048332645833,
+              "reverse_zero_fee_bps": -0.4101194249904075,
+              "forward_five_bps_per_fill_bps": -9.617085190689126,
+              "roundtrip_half_spread_sum_bps": 0.013607295862912093
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.2794884914205998,
+              "reverse_zero_fee_bps": -0.30659647189680944,
+              "forward_five_bps_per_fill_bps": -9.720397537298854,
+              "roundtrip_half_spread_sum_bps": 0.013553990238104826
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.12631503193308455,
+              "reverse_zero_fee_bps": -0.15342335573754654,
+              "forward_five_bps_per_fill_bps": -9.874038234327756,
+              "roundtrip_half_spread_sum_bps": 0.01355416190223099
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": -0.24478894446053934,
+              "reverse_zero_fee_bps": 0.16128679290665235,
+              "forward_five_bps_per_fill_bps": -10.244879231180535,
+              "roundtrip_half_spread_sum_bps": 0.041751075776943494
+            }
+          },
+          "reverse_zero_fee_negative_dates": 17,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.2416852686854302,
+            "2026-10-26": -0.22785791295939667,
+            "2026-10-27": -0.2339024013634904,
+            "2026-10-28": -0.24218338913791335,
+            "2026-10-29": -0.23439972875077622,
+            "2026-10-30": -0.2315171981128694,
+            "2026-10-31": -0.23465730648176314,
+            "2026-11-01": -0.24563506570049534,
+            "2026-11-02": -0.22544651055440468,
+            "2026-11-03": -0.22935911887668495,
+            "2026-11-04": -0.2313431701903728,
+            "2026-11-05": -0.2351790366388093,
+            "2026-11-07": -0.2338881293789148,
+            "2026-11-08": -0.24523707037924972,
+            "2026-11-09": -0.22592102822618235,
+            "2026-11-11": -0.23201061370227635,
+            "2026-11-12": -0.2410207970057624,
+            "2026-11-14": -0.2595331586907153
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.23615427249086152,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.236163921469222,
+            "upper_bps": -10.236134883422148,
+            "fee_difference_abs_bound_bps": 1.4518923537441045e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "250": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.11598453096382826,
+            "reverse_zero_fee_bps": -0.14442928706289584,
+            "forward_five_bps_per_fill_bps": -9.884022020610226,
+            "roundtrip_half_spread_sum_bps": 0.01422237804953379
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.04929996043649075,
+              "reverse_zero_fee_bps": -0.07406784160354285,
+              "forward_five_bps_per_fill_bps": -9.950579682998779,
+              "roundtrip_half_spread_sum_bps": 0.012383940583526057
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.247990308304038,
+              "reverse_zero_fee_bps": -0.27309837202653175,
+              "forward_five_bps_per_fill_bps": -9.751900661721058,
+              "roundtrip_half_spread_sum_bps": 0.012554031861246874
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.14330557972919225,
+              "reverse_zero_fee_bps": -0.1683918840654651,
+              "forward_five_bps_per_fill_bps": -9.856828387317467,
+              "roundtrip_half_spread_sum_bps": 0.012543152168136418
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.06569608370907473,
+              "reverse_zero_fee_bps": -0.09038100278510845,
+              "forward_five_bps_per_fill_bps": -9.934242019558484,
+              "roundtrip_half_spread_sum_bps": 0.012342459538016859
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.1672568799387452,
+              "reverse_zero_fee_bps": -0.19230965155407448,
+              "forward_five_bps_per_fill_bps": -9.832706537685029,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.17249648755079847,
+              "reverse_zero_fee_bps": -0.19830620574859883,
+              "forward_five_bps_per_fill_bps": -9.827619766235546,
+              "roundtrip_half_spread_sum_bps": 0.012904859098900188
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.1297351421767474,
+              "reverse_zero_fee_bps": -0.15560007408062607,
+              "forward_five_bps_per_fill_bps": -9.870116087784826,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.03150295707548586,
+              "reverse_zero_fee_bps": -0.05723465308516587,
+              "forward_five_bps_per_fill_bps": -9.968649222905634,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.18173270257038296,
+              "reverse_zero_fee_bps": -0.20717531766612332,
+              "forward_five_bps_per_fill_bps": -9.818553724128021,
+              "roundtrip_half_spread_sum_bps": 0.012721307547870181
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.10268179374141695,
+              "reverse_zero_fee_bps": -0.12869982766210106,
+              "forward_five_bps_per_fill_bps": -9.897106011490598,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.18036212978942195,
+              "reverse_zero_fee_bps": -0.20701496962589566,
+              "forward_five_bps_per_fill_bps": -9.819686461859002,
+              "roundtrip_half_spread_sum_bps": 0.013326419918236848
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.10391412637763321,
+              "reverse_zero_fee_bps": -0.12869827647573162,
+              "forward_five_bps_per_fill_bps": -9.896032789771137,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.18228613925034323,
+              "reverse_zero_fee_bps": -0.2086113873725015,
+              "forward_five_bps_per_fill_bps": -9.817577558253749,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.05537975394514414,
+              "reverse_zero_fee_bps": -0.08174670838826158,
+              "forward_five_bps_per_fill_bps": -9.944390251708162,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.27890576438088915,
+              "reverse_zero_fee_bps": -0.30557834218979724,
+              "forward_five_bps_per_fill_bps": -9.72109431334421,
+              "roundtrip_half_spread_sum_bps": 0.013336288904454041
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.07454838959509283,
+              "reverse_zero_fee_bps": -0.10165637007130249,
+              "forward_five_bps_per_fill_bps": -9.925301637300109,
+              "roundtrip_half_spread_sum_bps": 0.013553990238104826
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.04350354684289572,
+              "reverse_zero_fee_bps": -0.0706118706473577,
+              "forward_five_bps_per_fill_bps": -9.956861021577913,
+              "roundtrip_half_spread_sum_bps": 0.01355416190223099
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": -0.1228761880648841,
+              "reverse_zero_fee_bps": 0.049455587916060445,
+              "forward_five_bps_per_fill_bps": -10.123150235344358,
+              "roundtrip_half_spread_sum_bps": 0.036710300074411825
+            }
+          },
+          "reverse_zero_fee_negative_dates": 17,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.14856819561932838,
+            "2026-10-26": -0.13686051735915256,
+            "2026-10-27": -0.14301972253333295,
+            "2026-10-28": -0.1476085979027657,
+            "2026-10-29": -0.14161279503400298,
+            "2026-10-30": -0.14126005655197216,
+            "2026-10-31": -0.14377218194420582,
+            "2026-11-01": -0.1495583831792329,
+            "2026-11-02": -0.1407383440862354,
+            "2026-11-03": -0.14535454938058964,
+            "2026-11-04": -0.14074777632389585,
+            "2026-11-05": -0.14535464062684667,
+            "2026-11-07": -0.14065386939762492,
+            "2026-11-08": -0.14811649757316844,
+            "2026-11-09": -0.13494993087896048,
+            "2026-11-11": -0.14694534100357778,
+            "2026-11-12": -0.14877148802851572,
+            "2026-11-14": -0.1558342797087168
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.14442928706289584,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.144450061115002,
+            "upper_bps": -10.144421616158901,
+            "fee_difference_abs_bound_bps": 1.422237804953379e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "500": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.039113867261885954,
+            "reverse_zero_fee_bps": -0.06728164358591335,
+            "forward_five_bps_per_fill_bps": -9.96088728864723,
+            "roundtrip_half_spread_sum_bps": 0.0140838881620137
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.021620793746457413,
+              "reverse_zero_fee_bps": -0.04638867491350952,
+              "forward_five_bps_per_fill_bps": -9.978255485946622,
+              "roundtrip_half_spread_sum_bps": 0.012383940583526057
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.14494633540152907,
+              "reverse_zero_fee_bps": -0.17005439912402281,
+              "forward_five_bps_per_fill_bps": -9.854940858341575,
+              "roundtrip_half_spread_sum_bps": 0.012554031861246874
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.07637190972862212,
+              "reverse_zero_fee_bps": -0.10155996609999067,
+              "forward_five_bps_per_fill_bps": -9.923770992047158,
+              "roundtrip_half_spread_sum_bps": 0.012594028185684274
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.037149381070508726,
+              "reverse_zero_fee_bps": -0.06183430014654244,
+              "forward_five_bps_per_fill_bps": -9.962793465561848,
+              "roundtrip_half_spread_sum_bps": 0.012342459538016859
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.10246578139353274,
+              "reverse_zero_fee_bps": -0.12751855300886206,
+              "forward_five_bps_per_fill_bps": -9.897498218248517,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.056894740761705295,
+              "reverse_zero_fee_bps": -0.08270445895950568,
+              "forward_five_bps_per_fill_bps": -9.943230616270164,
+              "roundtrip_half_spread_sum_bps": 0.012904859098900188
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.02465406316110551,
+              "reverse_zero_fee_bps": -0.050518995064984196,
+              "forward_five_bps_per_fill_bps": -9.975183847498961,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.03150295707548586,
+              "reverse_zero_fee_bps": -0.05723465308516587,
+              "forward_five_bps_per_fill_bps": -9.968649222905634,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.06976731555485173,
+              "reverse_zero_fee_bps": -0.09520993065059209,
+              "forward_five_bps_per_fill_bps": -9.930536089408069,
+              "roundtrip_half_spread_sum_bps": 0.012721307547870181
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.04876642795256686,
+              "reverse_zero_fee_bps": -0.07478446187325097,
+              "forward_five_bps_per_fill_bps": -9.951028728079146,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.050525749465172,
+              "reverse_zero_fee_bps": -0.07679797954559571,
+              "forward_five_bps_per_fill_bps": -9.949521333349747,
+              "roundtrip_half_spread_sum_bps": 0.013136115040211855
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.040641628679422566,
+              "reverse_zero_fee_bps": -0.06542577877752098,
+              "forward_five_bps_per_fill_bps": -9.959317799352569,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.1512445437836109,
+              "reverse_zero_fee_bps": -0.17756979190576916,
+              "forward_five_bps_per_fill_bps": -9.848603632922746,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": -0.01318347722155872,
+              "reverse_zero_fee_bps": -0.01318347722155872,
+              "forward_five_bps_per_fill_bps": -10.012919201259283,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.13699334783104505,
+              "reverse_zero_fee_bps": -0.16366592563995314,
+              "forward_five_bps_per_fill_bps": -9.863017786364004,
+              "roundtrip_half_spread_sum_bps": 0.013336288904454041
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.01771681705627111,
+              "reverse_zero_fee_bps": -0.04482479753248076,
+              "forward_five_bps_per_fill_bps": -9.982126878120914,
+              "roundtrip_half_spread_sum_bps": 0.013553990238104826
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.0039059869155568,
+              "reverse_zero_fee_bps": -0.03101431072001878,
+              "forward_five_bps_per_fill_bps": -9.996461309689847,
+              "roundtrip_half_spread_sum_bps": 0.01355416190223099
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": -0.2979346916419378,
+              "reverse_zero_fee_bps": 0.22922086972288314,
+              "forward_five_bps_per_fill_bps": -10.29811573028333,
+              "roundtrip_half_spread_sum_bps": 0.03435691095952734
+            }
+          },
+          "reverse_zero_fee_negative_dates": 17,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.06851064174311358,
+            "2026-10-26": -0.061236187377789277,
+            "2026-10-27": -0.06526527167332057,
+            "2026-10-28": -0.06760207555293518,
+            "2026-10-29": -0.06373829597279872,
+            "2026-10-30": -0.06637441915217263,
+            "2026-10-31": -0.0682676817342033,
+            "2026-11-01": -0.0678726430271338,
+            "2026-11-02": -0.06563880317034401,
+            "2026-11-03": -0.06684030133371702,
+            "2026-11-04": -0.06672185911769675,
+            "2026-11-05": -0.06739081210405408,
+            "2026-11-07": -0.06079410544945125,
+            "2026-11-08": -0.07046388866616951,
+            "2026-11-09": -0.06161197993567572,
+            "2026-11-11": -0.06860263453023292,
+            "2026-11-12": -0.06941501610743657,
+            "2026-11-14": -0.0847229678981955
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.06728164358591335,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.067296883483191,
+            "upper_bps": -10.067268715506867,
+            "fee_difference_abs_bound_bps": 1.4083888162013699e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        }
+      }
+    },
+    "holdout": {
+      "scheduled_slots": 14,
+      "available_slots": 3,
+      "observed_dates": 3,
+      "common_opportunities": 3096,
+      "cells": {
+        "0": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.7011874100605154,
+            "reverse_zero_fee_bps": -0.7337208526611482,
+            "forward_five_bps_per_fill_bps": -9.298829281613877,
+            "roundtrip_half_spread_sum_bps": 0.016266721300316377
+          },
+          "daily": {
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.9144561244691101,
+              "reverse_zero_fee_bps": -0.9472495033679983,
+              "forward_five_bps_per_fill_bps": -9.085492900214456,
+              "roundtrip_half_spread_sum_bps": 0.016396689449444127
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.5815026794306032,
+              "reverse_zero_fee_bps": -0.6133100819969411,
+              "forward_five_bps_per_fill_bps": -9.418534300422188,
+              "roundtrip_half_spread_sum_bps": 0.015903701283168998
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.6076034262818332,
+              "reverse_zero_fee_bps": -0.6406029726185052,
+              "forward_five_bps_per_fill_bps": -9.392460644204986,
+              "roundtrip_half_spread_sum_bps": 0.016499773168336007
+            }
+          },
+          "reverse_zero_fee_negative_dates": 3,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-11-15": -0.6269565273077231,
+            "2026-11-18": -0.7939262379932517,
+            "2026-11-20": -0.7802797926824697
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.7337208526611482,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.733753811156841,
+            "upper_bps": -10.733721277514242,
+            "fee_difference_abs_bound_bps": 1.6266721300316377e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "25": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.4589134757478188,
+            "reverse_zero_fee_bps": -0.4908619286574773,
+            "forward_five_bps_per_fill_bps": -9.541114231085233,
+            "roundtrip_half_spread_sum_bps": 0.015974226454829224
+          },
+          "daily": {
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.5987066810341314,
+              "reverse_zero_fee_bps": -0.630829366569938,
+              "forward_five_bps_per_fill_bps": -9.401249171579828,
+              "roundtrip_half_spread_sum_bps": 0.016061342767903348
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.334707814830214,
+              "reverse_zero_fee_bps": -0.36620676341613656,
+              "forward_five_bps_per_fill_bps": -9.665352664288122,
+              "roundtrip_half_spread_sum_bps": 0.015749474292961294
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.4433259313791112,
+              "reverse_zero_fee_bps": -0.47554965598635723,
+              "forward_five_bps_per_fill_bps": -9.556740857387753,
+              "roundtrip_half_spread_sum_bps": 0.016111862303623027
+            }
+          },
+          "reverse_zero_fee_negative_dates": 3,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-11-15": -0.4208782097012469,
+            "2026-11-18": -0.5531895112781476,
+            "2026-11-20": -0.4985180649930373
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.4908619286574773,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.490905609816984,
+            "upper_bps": -10.490873661164073,
+            "fee_difference_abs_bound_bps": 1.5974226454829223e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "50": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.34326949738929535,
+            "reverse_zero_fee_bps": -0.37518232019063585,
+            "forward_five_bps_per_fill_bps": -9.65676050366442,
+            "roundtrip_half_spread_sum_bps": 0.01595641140067024
+          },
+          "daily": {
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.3608441406901821,
+              "reverse_zero_fee_bps": -0.39317986576053016,
+              "forward_five_bps_per_fill_bps": -9.639101079282858,
+              "roundtrip_half_spread_sum_bps": 0.01616786253517401
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.26130252467956755,
+              "reverse_zero_fee_bps": -0.29249245343028435,
+              "forward_five_bps_per_fill_bps": -9.73876776989262,
+              "roundtrip_half_spread_sum_bps": 0.01559496437535841
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.40766182679813634,
+              "reverse_zero_fee_bps": -0.43987464138109295,
+              "forward_five_bps_per_fill_bps": -9.592412661817784,
+              "roundtrip_half_spread_sum_bps": 0.016106407291478303
+            }
+          },
+          "reverse_zero_fee_negative_dates": 3,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-11-15": -0.36618354740568865,
+            "2026-11-18": -0.41652725357081155,
+            "2026-11-20": -0.34283615959540725
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.37518232019063585,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.375228277755753,
+            "upper_bps": -10.37519636473295,
+            "fee_difference_abs_bound_bps": 1.595641140067024e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "100": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.2742612232987213,
+            "reverse_zero_fee_bps": -0.30566800547395434,
+            "forward_five_bps_per_fill_bps": -9.725774962099061,
+            "roundtrip_half_spread_sum_bps": 0.01570339108761652
+          },
+          "daily": {
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.2630609299758562,
+              "reverse_zero_fee_bps": -0.29401608017302727,
+              "forward_five_bps_per_fill_bps": -9.736878981900198,
+              "roundtrip_half_spread_sum_bps": 0.015477575098585564
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.22804550436373808,
+              "reverse_zero_fee_bps": -0.25909788610930945,
+              "forward_five_bps_per_fill_bps": -9.772025297873489,
+              "roundtrip_half_spread_sum_bps": 0.015526190872785695
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.3316772355565697,
+              "reverse_zero_fee_bps": -0.3638900501395263,
+              "forward_five_bps_per_fill_bps": -9.668420606523497,
+              "roundtrip_half_spread_sum_bps": 0.016106407291478303
+            }
+          },
+          "reverse_zero_fee_negative_dates": 3,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-11-15": -0.3114939681244179,
+            "2026-11-18": -0.32895306515627676,
+            "2026-11-20": -0.2765569831411684
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.30566800547395434,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.305719894362824,
+            "upper_bps": -10.30568848738065,
+            "fee_difference_abs_bound_bps": 1.570339108761652e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "250": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.15441261264036074,
+            "reverse_zero_fee_bps": -0.18596802319529523,
+            "forward_five_bps_per_fill_bps": -9.845628182285802,
+            "roundtrip_half_spread_sum_bps": 0.01577770527746724
+          },
+          "daily": {
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.1634051325684207,
+              "reverse_zero_fee_bps": -0.19474058940857492,
+              "forward_five_bps_per_fill_bps": -9.836518321649526,
+              "roundtrip_half_spread_sum_bps": 0.015667728420077104
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.12953232460430575,
+              "reverse_zero_fee_bps": -0.16058470634987715,
+              "forward_five_bps_per_fill_bps": -9.870544829540847,
+              "roundtrip_half_spread_sum_bps": 0.015526190872785695
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.17030038074835577,
+              "reverse_zero_fee_bps": -0.2025787738274336,
+              "forward_five_bps_per_fill_bps": -9.829821395667034,
+              "roundtrip_half_spread_sum_bps": 0.016139196539538922
+            }
+          },
+          "reverse_zero_fee_negative_dates": 3,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-11-15": -0.18158174008865538,
+            "2026-11-18": -0.19865968161800426,
+            "2026-11-20": -0.17766264787922603
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.18596802319529523,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.186024595926735,
+            "upper_bps": -10.18599304031618,
+            "fee_difference_abs_bound_bps": 1.577770527746724e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "500": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.08309952274245666,
+            "reverse_zero_fee_bps": -0.1145281968483064,
+            "forward_five_bps_per_fill_bps": -9.916946413719053,
+            "roundtrip_half_spread_sum_bps": 0.01571433705292487
+          },
+          "daily": {
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.10317607076031685,
+              "reverse_zero_fee_bps": -0.13419689674933807,
+              "forward_five_bps_per_fill_bps": -9.896742322451999,
+              "roundtrip_half_spread_sum_bps": 0.015510412994510612
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.05495598740395871,
+              "reverse_zero_fee_bps": -0.0860083691495301,
+              "forward_five_bps_per_fill_bps": -9.94512990398783,
+              "roundtrip_half_spread_sum_bps": 0.015526190872785695
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.09116651006309442,
+              "reverse_zero_fee_bps": -0.12337932464605103,
+              "forward_five_bps_per_fill_bps": -9.908967014717328,
+              "roundtrip_half_spread_sum_bps": 0.016106407291478303
+            }
+          },
+          "reverse_zero_fee_negative_dates": 3,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-11-15": -0.10469384689779057,
+            "2026-11-18": -0.12878811069769455,
+            "2026-11-20": -0.11010263294943409
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.1145281968483064,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.114589847746869,
+            "upper_bps": -10.114558418872763,
+            "fee_difference_abs_bound_bps": 1.571433705292487e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        }
+      }
+    },
+    "full": {
+      "scheduled_slots": 56,
+      "available_slots": 22,
+      "observed_dates": 21,
+      "common_opportunities": 11441,
+      "cells": {
+        "0": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.5879319573723555,
+            "reverse_zero_fee_bps": -0.6203098808834694,
+            "forward_five_bps_per_fill_bps": -9.412083673369072,
+            "roundtrip_half_spread_sum_bps": 0.01618896175555696
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.35349564929953103,
+              "reverse_zero_fee_bps": -0.3783777873367764,
+              "forward_five_bps_per_fill_bps": -9.646439325871206,
+              "roundtrip_half_spread_sum_bps": 0.012441069018622677
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.7138363599884956,
+              "reverse_zero_fee_bps": -0.7390313548096851,
+              "forward_five_bps_per_fill_bps": -9.28610182738499,
+              "roundtrip_half_spread_sum_bps": 0.012597497410594714
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.5948958639882131,
+              "reverse_zero_fee_bps": -0.6227064053563829,
+              "forward_five_bps_per_fill_bps": -9.405183650110889,
+              "roundtrip_half_spread_sum_bps": 0.013905270684084854
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.1644511480889576,
+              "reverse_zero_fee_bps": -0.20574269413659996,
+              "forward_five_bps_per_fill_bps": -9.835524267084521,
+              "roundtrip_half_spread_sum_bps": 0.020645773023821166
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.586422571116297,
+              "reverse_zero_fee_bps": -0.6114753427316263,
+              "forward_five_bps_per_fill_bps": -9.413561076821997,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.7420438553050723,
+              "reverse_zero_fee_bps": -0.7678711926689705,
+              "forward_five_bps_per_fill_bps": -9.258022294571427,
+              "roundtrip_half_spread_sum_bps": 0.012913668681949124
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.5174240475749917,
+              "reverse_zero_fee_bps": -0.5455013884201608,
+              "forward_five_bps_per_fill_bps": -9.482491635882702,
+              "roundtrip_half_spread_sum_bps": 0.014038670422584543
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.3110090122325959,
+              "reverse_zero_fee_bps": -0.34827701687686796,
+              "forward_five_bps_per_fill_bps": -9.68905886963385,
+              "roundtrip_half_spread_sum_bps": 0.018634002322136016
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.7617542745634844,
+              "reverse_zero_fee_bps": -0.7887580137932434,
+              "forward_five_bps_per_fill_bps": -9.238418354896199,
+              "roundtrip_half_spread_sum_bps": 0.013501869614879456
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.7675917811018019,
+              "reverse_zero_fee_bps": -0.7936098150224861,
+              "forward_five_bps_per_fill_bps": -9.232315725869492,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.7029623384908305,
+              "reverse_zero_fee_bps": -0.7297950508082205,
+              "forward_five_bps_per_fill_bps": -9.297067934093453,
+              "roundtrip_half_spread_sum_bps": 0.013416356158695004
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.4387979402955883,
+              "reverse_zero_fee_bps": -0.46423745907622455,
+              "forward_five_bps_per_fill_bps": -9.561175008464865,
+              "roundtrip_half_spread_sum_bps": 0.012719759390318126
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.653666384958933,
+              "reverse_zero_fee_bps": -0.6802400292491333,
+              "forward_five_bps_per_fill_bps": -9.346244484237706,
+              "roundtrip_half_spread_sum_bps": 0.013286822145100128
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.4080127923450775,
+              "reverse_zero_fee_bps": -0.4343797467881949,
+              "forward_five_bps_per_fill_bps": -9.591855069673782,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.6422762983604567,
+              "reverse_zero_fee_bps": -0.6692405786131329,
+              "forward_five_bps_per_fill_bps": -9.357730752382727,
+              "roundtrip_half_spread_sum_bps": 0.013482140126338102
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.6508428102673673,
+              "reverse_zero_fee_bps": -0.6785962666643568,
+              "forward_five_bps_per_fill_bps": -9.349085441533576,
+              "roundtrip_half_spread_sum_bps": 0.013876728198494743
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.7351868972584049,
+              "reverse_zero_fee_bps": -0.763933374251019,
+              "forward_five_bps_per_fill_bps": -9.264991172477236,
+              "roundtrip_half_spread_sum_bps": 0.01437323849630707
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": 0.49833884940182094,
+              "reverse_zero_fee_bps": -0.6035714239663327,
+              "forward_five_bps_per_fill_bps": -9.50200240491826,
+              "roundtrip_half_spread_sum_bps": 0.05261628728225588
+            },
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.9144561244691101,
+              "reverse_zero_fee_bps": -0.9472495033679983,
+              "forward_five_bps_per_fill_bps": -9.085492900214456,
+              "roundtrip_half_spread_sum_bps": 0.016396689449444127
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.5815026794306032,
+              "reverse_zero_fee_bps": -0.6133100819969411,
+              "forward_five_bps_per_fill_bps": -9.418534300422188,
+              "roundtrip_half_spread_sum_bps": 0.015903701283168998
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.6076034262818332,
+              "reverse_zero_fee_bps": -0.6406029726185052,
+              "forward_five_bps_per_fill_bps": -9.392460644204986,
+              "roundtrip_half_spread_sum_bps": 0.016499773168336007
+            }
+          },
+          "reverse_zero_fee_negative_dates": 21,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.6324064855608041,
+            "2026-10-26": -0.6143738071871587,
+            "2026-10-27": -0.6201900546598238,
+            "2026-10-28": -0.6410382402208129,
+            "2026-10-29": -0.6207516077910615,
+            "2026-10-30": -0.6129318152941944,
+            "2026-10-31": -0.6240503055066349,
+            "2026-11-01": -0.6339115240837996,
+            "2026-11-02": -0.6118874742379807,
+            "2026-11-03": -0.6116448841765186,
+            "2026-11-04": -0.614835622387232,
+            "2026-11-05": -0.6281135019738316,
+            "2026-11-07": -0.6173133734651863,
+            "2026-11-08": -0.6296063875882332,
+            "2026-11-09": -0.6178633459969862,
+            "2026-11-11": -0.6173955615944251,
+            "2026-11-12": -0.613128706215092,
+            "2026-11-14": -0.6211468037293263,
+            "2026-11-15": -0.603962899759243,
+            "2026-11-18": -0.6206598708277958,
+            "2026-11-20": -0.6192952262967177
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.6203098808834694,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.620341700686652,
+            "upper_bps": -10.620309322563141,
+            "fee_difference_abs_bound_bps": 1.6188961755556957e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "25": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.3860072532566922,
+            "reverse_zero_fee_bps": -0.4178214121718664,
+            "forward_five_bps_per_fill_bps": -9.613997074486074,
+            "roundtrip_half_spread_sum_bps": 0.015907079457587098
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.2500513382846129,
+              "reverse_zero_fee_bps": -0.2748663752067894,
+              "forward_five_bps_per_fill_bps": -9.749869321438569,
+              "roundtrip_half_spread_sum_bps": 0.01240751846108824
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.6124359767083651,
+              "reverse_zero_fee_bps": -0.6381087771513718,
+              "forward_five_bps_per_fill_bps": -9.38748066535083,
+              "roundtrip_half_spread_sum_bps": 0.012836400221503324
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.3229897148122503,
+              "reverse_zero_fee_bps": -0.3483049309397839,
+              "forward_five_bps_per_fill_bps": -9.677133434823123,
+              "roundtrip_half_spread_sum_bps": 0.012657608063766774
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.09231614119162176,
+              "reverse_zero_fee_bps": -0.11851577840995253,
+              "forward_five_bps_per_fill_bps": -9.907651996577309,
+              "roundtrip_half_spread_sum_bps": 0.013099818609165384
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.47715649712850655,
+              "reverse_zero_fee_bps": -0.5022092687438359,
+              "forward_five_bps_per_fill_bps": -9.52280928157269,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.6540404450920551,
+              "reverse_zero_fee_bps": -0.6799384142997249,
+              "forward_five_bps_per_fill_bps": -9.346041632623265,
+              "roundtrip_half_spread_sum_bps": 0.012948984603834895
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.3446294041661182,
+              "reverse_zero_fee_bps": -0.3704943360699969,
+              "forward_five_bps_per_fill_bps": -9.655241229586133,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.08429793370300868,
+              "reverse_zero_fee_bps": -0.1100296297126887,
+              "forward_five_bps_per_fill_bps": -9.915827848789796,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.5316825908242477,
+              "reverse_zero_fee_bps": -0.5614463215782476,
+              "forward_five_bps_per_fill_bps": -9.468517711008912,
+              "roundtrip_half_spread_sum_bps": 0.014881865376999918
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.4661007393590867,
+              "reverse_zero_fee_bps": -0.4921187732797708,
+              "forward_five_bps_per_fill_bps": -9.533738608994195,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.4934978300657762,
+              "reverse_zero_fee_bps": -0.5210923040779234,
+              "forward_five_bps_per_fill_bps": -9.506524615049624,
+              "roundtrip_half_spread_sum_bps": 0.01379723700607358
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.27972638114406523,
+              "reverse_zero_fee_bps": -0.30451053124216365,
+              "forward_five_bps_per_fill_bps": -9.720236316829796,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.4231927420008073,
+              "reverse_zero_fee_bps": -0.44951799012296556,
+              "forward_five_bps_per_fill_bps": -9.576714657001261,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.06131243835329314,
+              "reverse_zero_fee_bps": -0.08767939279641059,
+              "forward_five_bps_per_fill_bps": -9.938460533642218,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.44119911755125374,
+              "reverse_zero_fee_bps": -0.46789253015193055,
+              "forward_five_bps_per_fill_bps": -9.558804355180474,
+              "roundtrip_half_spread_sum_bps": 0.01334670630033842
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.532370924770817,
+              "reverse_zero_fee_bps": -0.5596634394908685,
+              "forward_five_bps_per_fill_bps": -9.467534655758383,
+              "roundtrip_half_spread_sum_bps": 0.013646257360025733
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.5594171632938558,
+              "reverse_zero_fee_bps": -0.586560332273495,
+              "forward_five_bps_per_fill_bps": -9.440841371175233,
+              "roundtrip_half_spread_sum_bps": 0.013571584489819585
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": 0.10299451269733903,
+              "reverse_zero_fee_bps": -0.22871474408884385,
+              "forward_five_bps_per_fill_bps": -9.897167635550023,
+              "roundtrip_half_spread_sum_bps": 0.06286011569575241
+            },
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.5987066810341314,
+              "reverse_zero_fee_bps": -0.630829366569938,
+              "forward_five_bps_per_fill_bps": -9.401249171579828,
+              "roundtrip_half_spread_sum_bps": 0.016061342767903348
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.334707814830214,
+              "reverse_zero_fee_bps": -0.36620676341613656,
+              "forward_five_bps_per_fill_bps": -9.665352664288122,
+              "roundtrip_half_spread_sum_bps": 0.015749474292961294
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.4433259313791112,
+              "reverse_zero_fee_bps": -0.47554965598635723,
+              "forward_five_bps_per_fill_bps": -9.556740857387753,
+              "roundtrip_half_spread_sum_bps": 0.016111862303623027
+            }
+          },
+          "reverse_zero_fee_negative_dates": 21,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.42496916402012025,
+            "2026-10-26": -0.40680704392289113,
+            "2026-10-27": -0.4212972362334706,
+            "2026-10-28": -0.43278669385996216,
+            "2026-10-29": -0.413602019343268,
+            "2026-10-30": -0.40471556206547354,
+            "2026-10-31": -0.42018776597695995,
+            "2026-11-01": -0.4332110012948253,
+            "2026-11-02": -0.4106401667015474,
+            "2026-11-03": -0.4141065441164712,
+            "2026-11-04": -0.4126578675765636,
+            "2026-11-05": -0.42348695621835153,
+            "2026-11-07": -0.41623658327431146,
+            "2026-11-08": -0.43432851314063925,
+            "2026-11-09": -0.4153178562728632,
+            "2026-11-11": -0.41072931080591635,
+            "2026-11-12": -0.40938446616678503,
+            "2026-11-14": -0.4272767455760175,
+            "2026-11-15": -0.40717101445196285,
+            "2026-11-18": -0.420402144609653,
+            "2026-11-20": -0.4149349999811419
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.4178214121718664,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.41784164709409,
+            "upper_bps": -10.417809832735173,
+            "fee_difference_abs_bound_bps": 1.5907079457587098e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "50": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.2603617272643946,
+            "reverse_zero_fee_bps": -0.2909469536442743,
+            "forward_five_bps_per_fill_bps": -9.739638306490786,
+            "roundtrip_half_spread_sum_bps": 0.015292613189939868
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.15627169267017565,
+              "reverse_zero_fee_bps": -0.18103957383722777,
+              "forward_five_bps_per_fill_bps": -9.84361928991913,
+              "roundtrip_half_spread_sum_bps": 0.012383940583526057
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.41165011284771563,
+              "reverse_zero_fee_bps": -0.4367581765702094,
+              "forward_five_bps_per_fill_bps": -9.588261792218903,
+              "roundtrip_half_spread_sum_bps": 0.012554031861246874
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.2849039574111935,
+              "reverse_zero_fee_bps": -0.31009200944412263,
+              "forward_five_bps_per_fill_bps": -9.715227580969863,
+              "roundtrip_half_spread_sum_bps": 0.012594026016464574
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.1066890640884707,
+              "reverse_zero_fee_bps": -0.13223934716196772,
+              "forward_five_bps_per_fill_bps": -9.89326604517064,
+              "roundtrip_half_spread_sum_bps": 0.012775141536748514
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.31352618873832727,
+              "reverse_zero_fee_bps": -0.3386240196546932,
+              "forward_five_bps_per_fill_bps": -9.686439023497881,
+              "roundtrip_half_spread_sum_bps": 0.012548915458182954
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.3331273649470501,
+              "reverse_zero_fee_bps": -0.3597320283725034,
+              "forward_five_bps_per_fill_bps": -9.666978091460235,
+              "roundtrip_half_spread_sum_bps": 0.013302331712726642
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.2968132767459715,
+              "reverse_zero_fee_bps": -0.3226782086498502,
+              "forward_five_bps_per_fill_bps": -9.703052673181475,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.04924909191740629,
+              "reverse_zero_fee_bps": -0.0749807879270863,
+              "forward_five_bps_per_fill_bps": -9.950894214996291,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.44921647449949004,
+              "reverse_zero_fee_bps": -0.47511478382496675,
+              "forward_five_bps_per_fill_bps": -9.551005889743626,
+              "roundtrip_half_spread_sum_bps": 0.012949154662738348
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.40204517659554667,
+              "reverse_zero_fee_bps": -0.42806321051623075,
+              "forward_five_bps_per_fill_bps": -9.59777911085542,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.344929601500516,
+              "reverse_zero_fee_bps": -0.3715610395703126,
+              "forward_five_bps_per_fill_bps": -9.655089596285123,
+              "roundtrip_half_spread_sum_bps": 0.013315719034898298
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.2545860060302293,
+              "reverse_zero_fee_bps": -0.2793701561283277,
+              "forward_five_bps_per_fill_bps": -9.745372492967768,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.2652422460769244,
+              "reverse_zero_fee_bps": -0.2915674941990827,
+              "forward_five_bps_per_fill_bps": -9.734644299657612,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.059994468159189095,
+              "reverse_zero_fee_bps": -0.08636142260230653,
+              "forward_five_bps_per_fill_bps": -9.939777844851225,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.418335871547597,
+              "reverse_zero_fee_bps": -0.44527931284597355,
+              "forward_five_bps_per_fill_bps": -9.581665258386199,
+              "roundtrip_half_spread_sum_bps": 0.01347172064918829
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.3221375434981071,
+              "reverse_zero_fee_bps": -0.34929165784798105,
+              "forward_five_bps_per_fill_bps": -9.677752927343995,
+              "roundtrip_half_spread_sum_bps": 0.013577057174936992
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.21501005084481786,
+              "reverse_zero_fee_bps": -0.24211837464927985,
+              "forward_five_bps_per_fill_bps": -9.785326079883172,
+              "roundtrip_half_spread_sum_bps": 0.01355416190223099
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": -0.24594040773432727,
+              "reverse_zero_fee_bps": 0.14053253784426828,
+              "forward_five_bps_per_fill_bps": -10.245970713924685,
+              "roundtrip_half_spread_sum_bps": 0.052703934945029486
+            },
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.3608441406901821,
+              "reverse_zero_fee_bps": -0.39317986576053016,
+              "forward_five_bps_per_fill_bps": -9.639101079282858,
+              "roundtrip_half_spread_sum_bps": 0.01616786253517401
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.26130252467956755,
+              "reverse_zero_fee_bps": -0.29249245343028435,
+              "forward_five_bps_per_fill_bps": -9.73876776989262,
+              "roundtrip_half_spread_sum_bps": 0.01559496437535841
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.40766182679813634,
+              "reverse_zero_fee_bps": -0.43987464138109295,
+              "forward_five_bps_per_fill_bps": -9.592412661817784,
+              "roundtrip_half_spread_sum_bps": 0.016106407291478303
+            }
+          },
+          "reverse_zero_fee_negative_dates": 20,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.29644232263462666,
+            "2026-10-26": -0.2836563924979776,
+            "2026-10-27": -0.28998970085428194,
+            "2026-10-28": -0.29888233396838965,
+            "2026-10-29": -0.2885631003437534,
+            "2026-10-30": -0.2875076999078629,
+            "2026-10-31": -0.28936039089399557,
+            "2026-11-01": -0.30174526193013373,
+            "2026-11-02": -0.28173856213523973,
+            "2026-11-03": -0.28409114080067654,
+            "2026-11-04": -0.28691624934797244,
+            "2026-11-05": -0.2915257935200717,
+            "2026-11-07": -0.2909159266165339,
+            "2026-11-08": -0.30117623019637274,
+            "2026-11-09": -0.28323033568418937,
+            "2026-11-11": -0.28802971843408903,
+            "2026-11-12": -0.2933883825940241,
+            "2026-11-14": -0.3125209282187015,
+            "2026-11-15": -0.2858353080384616,
+            "2026-11-18": -0.2908696786549739,
+            "2026-11-20": -0.2835005692574334
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.2909469536442743,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.290962280112645,
+            "upper_bps": -10.290931694686265,
+            "fee_difference_abs_bound_bps": 1.529261318993987e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "100": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.2167085393992283,
+            "reverse_zero_fee_bps": -0.2460848057741605,
+            "forward_five_bps_per_fill_bps": -9.783292455618877,
+            "roundtrip_half_spread_sum_bps": 0.014688133187466111
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.11735945601614187,
+              "reverse_zero_fee_bps": -0.14212733718319398,
+              "forward_five_bps_per_fill_bps": -9.882527587877615,
+              "roundtrip_half_spread_sum_bps": 0.012383940583526057
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.3520843208032701,
+              "reverse_zero_fee_bps": -0.37719238452576387,
+              "forward_five_bps_per_fill_bps": -9.647819723289917,
+              "roundtrip_half_spread_sum_bps": 0.012554031861246874
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.24934977731989763,
+              "reverse_zero_fee_bps": -0.27443608165617045,
+              "forward_five_bps_per_fill_bps": -9.750775451187126,
+              "roundtrip_half_spread_sum_bps": 0.012543152168136418
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.10854168841621535,
+              "reverse_zero_fee_bps": -0.13365928949098071,
+              "forward_five_bps_per_fill_bps": -9.891385376995713,
+              "roundtrip_half_spread_sum_bps": 0.012558800537382689
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.24092874445698192,
+              "reverse_zero_fee_bps": -0.26598151607231124,
+              "forward_five_bps_per_fill_bps": -9.759033479467234,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.2891748187189273,
+              "reverse_zero_fee_bps": -0.3149845369167277,
+              "forward_five_bps_per_fill_bps": -9.710918817970605,
+              "roundtrip_half_spread_sum_bps": 0.012904859098900188
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.2357377627416555,
+              "reverse_zero_fee_bps": -0.2616026946455342,
+              "forward_five_bps_per_fill_bps": -9.764115852018726,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.04924909191740629,
+              "reverse_zero_fee_bps": -0.0749807879270863,
+              "forward_five_bps_per_fill_bps": -9.950894214996291,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.3927436103148873,
+              "reverse_zero_fee_bps": -0.41818622541062767,
+              "forward_five_bps_per_fill_bps": -9.607485255363985,
+              "roundtrip_half_spread_sum_bps": 0.012721307547870181
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.325653850011179,
+              "reverse_zero_fee_bps": -0.3516718839318631,
+              "forward_five_bps_per_fill_bps": -9.674174182933859,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.29167078151874615,
+              "reverse_zero_fee_bps": -0.3179430115991699,
+              "forward_five_bps_per_fill_bps": -9.708363860897261,
+              "roundtrip_half_spread_sum_bps": 0.013136115040211855
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.2279491318776508,
+              "reverse_zero_fee_bps": -0.25273328197574924,
+              "forward_five_bps_per_fill_bps": -9.772007789428129,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.248353457271798,
+              "reverse_zero_fee_bps": -0.2746787053939563,
+              "forward_five_bps_per_fill_bps": -9.751524644068335,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.05537975394514414,
+              "reverse_zero_fee_bps": -0.08174670838826158,
+              "forward_five_bps_per_fill_bps": -9.944390251708162,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.3829048332645833,
+              "reverse_zero_fee_bps": -0.4101194249904075,
+              "forward_five_bps_per_fill_bps": -9.617085190689126,
+              "roundtrip_half_spread_sum_bps": 0.013607295862912093
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.2794884914205998,
+              "reverse_zero_fee_bps": -0.30659647189680944,
+              "forward_five_bps_per_fill_bps": -9.720397537298854,
+              "roundtrip_half_spread_sum_bps": 0.013553990238104826
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.12631503193308455,
+              "reverse_zero_fee_bps": -0.15342335573754654,
+              "forward_five_bps_per_fill_bps": -9.874038234327756,
+              "roundtrip_half_spread_sum_bps": 0.01355416190223099
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": -0.24478894446053934,
+              "reverse_zero_fee_bps": 0.16128679290665235,
+              "forward_five_bps_per_fill_bps": -10.244879231180535,
+              "roundtrip_half_spread_sum_bps": 0.041751075776943494
+            },
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.2630609299758562,
+              "reverse_zero_fee_bps": -0.29401608017302727,
+              "forward_five_bps_per_fill_bps": -9.736878981900198,
+              "roundtrip_half_spread_sum_bps": 0.015477575098585564
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.22804550436373808,
+              "reverse_zero_fee_bps": -0.25909788610930945,
+              "forward_five_bps_per_fill_bps": -9.772025297873489,
+              "roundtrip_half_spread_sum_bps": 0.015526190872785695
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.3316772355565697,
+              "reverse_zero_fee_bps": -0.3638900501395263,
+              "forward_five_bps_per_fill_bps": -9.668420606523497,
+              "roundtrip_half_spread_sum_bps": 0.016106407291478303
+            }
+          },
+          "reverse_zero_fee_negative_dates": 20,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.25128267920370884,
+            "2026-10-26": -0.23952942683658032,
+            "2026-10-27": -0.24466724198006,
+            "2026-10-28": -0.2517060815883195,
+            "2026-10-29": -0.24508997025925297,
+            "2026-10-30": -0.24263981921703212,
+            "2026-10-31": -0.2453089113305918,
+            "2026-11-01": -0.2546400066665142,
+            "2026-11-02": -0.23747973479233714,
+            "2026-11-03": -0.24080545186627536,
+            "2026-11-04": -0.24249189548291,
+            "2026-11-05": -0.24575238196408106,
+            "2026-11-07": -0.2446551107931707,
+            "2026-11-08": -0.2543017106434554,
+            "2026-11-09": -0.23788307481334817,
+            "2026-11-11": -0.24305922246802805,
+            "2026-11-12": -0.2507178782759912,
+            "2026-11-14": -0.2664533857082011,
+            "2026-11-15": -0.24368824205421716,
+            "2026-11-18": -0.24543415175740307,
+            "2026-11-20": -0.24019454355589218
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.2460848057741605,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.246100489025453,
+            "upper_bps": -10.246071112559077,
+            "fee_difference_abs_bound_bps": 1.4688133187466112e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "250": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.12147425691761861,
+            "reverse_zero_fee_bps": -0.1503633922246672,
+            "forward_five_bps_per_fill_bps": -9.87853718656388,
+            "roundtrip_half_spread_sum_bps": 0.014444567653524283
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.04929996043649075,
+              "reverse_zero_fee_bps": -0.07406784160354285,
+              "forward_five_bps_per_fill_bps": -9.950579682998779,
+              "roundtrip_half_spread_sum_bps": 0.012383940583526057
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.247990308304038,
+              "reverse_zero_fee_bps": -0.27309837202653175,
+              "forward_five_bps_per_fill_bps": -9.751900661721058,
+              "roundtrip_half_spread_sum_bps": 0.012554031861246874
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.14330557972919225,
+              "reverse_zero_fee_bps": -0.1683918840654651,
+              "forward_five_bps_per_fill_bps": -9.856828387317467,
+              "roundtrip_half_spread_sum_bps": 0.012543152168136418
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.06569608370907473,
+              "reverse_zero_fee_bps": -0.09038100278510845,
+              "forward_five_bps_per_fill_bps": -9.934242019558484,
+              "roundtrip_half_spread_sum_bps": 0.012342459538016859
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.1672568799387452,
+              "reverse_zero_fee_bps": -0.19230965155407448,
+              "forward_five_bps_per_fill_bps": -9.832706537685029,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.17249648755079847,
+              "reverse_zero_fee_bps": -0.19830620574859883,
+              "forward_five_bps_per_fill_bps": -9.827619766235546,
+              "roundtrip_half_spread_sum_bps": 0.012904859098900188
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.1297351421767474,
+              "reverse_zero_fee_bps": -0.15560007408062607,
+              "forward_five_bps_per_fill_bps": -9.870116087784826,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.03150295707548586,
+              "reverse_zero_fee_bps": -0.05723465308516587,
+              "forward_five_bps_per_fill_bps": -9.968649222905634,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.18173270257038296,
+              "reverse_zero_fee_bps": -0.20717531766612332,
+              "forward_five_bps_per_fill_bps": -9.818553724128021,
+              "roundtrip_half_spread_sum_bps": 0.012721307547870181
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.10268179374141695,
+              "reverse_zero_fee_bps": -0.12869982766210106,
+              "forward_five_bps_per_fill_bps": -9.897106011490598,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.18036212978942195,
+              "reverse_zero_fee_bps": -0.20701496962589566,
+              "forward_five_bps_per_fill_bps": -9.819686461859002,
+              "roundtrip_half_spread_sum_bps": 0.013326419918236848
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.10391412637763321,
+              "reverse_zero_fee_bps": -0.12869827647573162,
+              "forward_five_bps_per_fill_bps": -9.896032789771137,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.18228613925034323,
+              "reverse_zero_fee_bps": -0.2086113873725015,
+              "forward_five_bps_per_fill_bps": -9.817577558253749,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": 0.05537975394514414,
+              "reverse_zero_fee_bps": -0.08174670838826158,
+              "forward_five_bps_per_fill_bps": -9.944390251708162,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.27890576438088915,
+              "reverse_zero_fee_bps": -0.30557834218979724,
+              "forward_five_bps_per_fill_bps": -9.72109431334421,
+              "roundtrip_half_spread_sum_bps": 0.013336288904454041
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.07454838959509283,
+              "reverse_zero_fee_bps": -0.10165637007130249,
+              "forward_five_bps_per_fill_bps": -9.925301637300109,
+              "roundtrip_half_spread_sum_bps": 0.013553990238104826
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.04350354684289572,
+              "reverse_zero_fee_bps": -0.0706118706473577,
+              "forward_five_bps_per_fill_bps": -9.956861021577913,
+              "roundtrip_half_spread_sum_bps": 0.01355416190223099
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": -0.1228761880648841,
+              "reverse_zero_fee_bps": 0.049455587916060445,
+              "forward_five_bps_per_fill_bps": -10.123150235344358,
+              "roundtrip_half_spread_sum_bps": 0.036710300074411825
+            },
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.1634051325684207,
+              "reverse_zero_fee_bps": -0.19474058940857492,
+              "forward_five_bps_per_fill_bps": -9.836518321649526,
+              "roundtrip_half_spread_sum_bps": 0.015667728420077104
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.12953232460430575,
+              "reverse_zero_fee_bps": -0.16058470634987715,
+              "forward_five_bps_per_fill_bps": -9.870544829540847,
+              "roundtrip_half_spread_sum_bps": 0.015526190872785695
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.17030038074835577,
+              "reverse_zero_fee_bps": -0.2025787738274336,
+              "forward_five_bps_per_fill_bps": -9.829821395667034,
+              "roundtrip_half_spread_sum_bps": 0.016139196539538922
+            }
+          },
+          "reverse_zero_fee_negative_dates": 20,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.1541781697557234,
+            "2026-10-26": -0.14422664323457396,
+            "2026-10-27": -0.14946196763262729,
+            "2026-10-28": -0.1533625116966451,
+            "2026-10-29": -0.14826607925819682,
+            "2026-10-30": -0.1479662515484706,
+            "2026-10-31": -0.15010155813186923,
+            "2026-11-01": -0.15501982918164225,
+            "2026-11-02": -0.14752279595259438,
+            "2026-11-03": -0.15144657045279547,
+            "2026-11-04": -0.14753081335460577,
+            "2026-11-05": -0.15144664801211397,
+            "2026-11-07": -0.14745099246727547,
+            "2026-11-08": -0.15379422641648746,
+            "2026-11-09": -0.14260264472641068,
+            "2026-11-11": -0.1527987433323354,
+            "2026-11-12": -0.15435096830353265,
+            "2026-11-14": -0.16035434123170356,
+            "2026-11-15": -0.14814453236547181,
+            "2026-11-18": -0.1498523265184067,
+            "2026-11-20": -0.14775262314452886
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.1503633922246672,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.15038928037382,
+            "upper_bps": -10.150360391038513,
+            "fee_difference_abs_bound_bps": 1.4444567653524285e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        },
+        "500": {
+          "equal_day_means": {
+            "forward_zero_fee_bps": 0.04539753233053891,
+            "reverse_zero_fee_bps": -0.07403115119482664,
+            "forward_five_bps_per_fill_bps": -9.954610020800347,
+            "roundtrip_half_spread_sum_bps": 0.014316809432143867
+          },
+          "daily": {
+            "2026-10-25": {
+              "forward_zero_fee_bps": 0.021620793746457413,
+              "reverse_zero_fee_bps": -0.04638867491350952,
+              "forward_five_bps_per_fill_bps": -9.978255485946622,
+              "roundtrip_half_spread_sum_bps": 0.012383940583526057
+            },
+            "2026-10-26": {
+              "forward_zero_fee_bps": 0.14494633540152907,
+              "reverse_zero_fee_bps": -0.17005439912402281,
+              "forward_five_bps_per_fill_bps": -9.854940858341575,
+              "roundtrip_half_spread_sum_bps": 0.012554031861246874
+            },
+            "2026-10-27": {
+              "forward_zero_fee_bps": 0.07637190972862212,
+              "reverse_zero_fee_bps": -0.10155996609999067,
+              "forward_five_bps_per_fill_bps": -9.923770992047158,
+              "roundtrip_half_spread_sum_bps": 0.012594028185684274
+            },
+            "2026-10-28": {
+              "forward_zero_fee_bps": 0.037149381070508726,
+              "reverse_zero_fee_bps": -0.06183430014654244,
+              "forward_five_bps_per_fill_bps": -9.962793465561848,
+              "roundtrip_half_spread_sum_bps": 0.012342459538016859
+            },
+            "2026-10-29": {
+              "forward_zero_fee_bps": 0.10246578139353274,
+              "reverse_zero_fee_bps": -0.12751855300886206,
+              "forward_five_bps_per_fill_bps": -9.897498218248517,
+              "roundtrip_half_spread_sum_bps": 0.012526385807664651
+            },
+            "2026-10-30": {
+              "forward_zero_fee_bps": 0.056894740761705295,
+              "reverse_zero_fee_bps": -0.08270445895950568,
+              "forward_five_bps_per_fill_bps": -9.943230616270164,
+              "roundtrip_half_spread_sum_bps": 0.012904859098900188
+            },
+            "2026-10-31": {
+              "forward_zero_fee_bps": 0.02465406316110551,
+              "reverse_zero_fee_bps": -0.050518995064984196,
+              "forward_five_bps_per_fill_bps": -9.975183847498961,
+              "roundtrip_half_spread_sum_bps": 0.01293246595193934
+            },
+            "2026-11-01": {
+              "forward_zero_fee_bps": 0.03150295707548586,
+              "reverse_zero_fee_bps": -0.05723465308516587,
+              "forward_five_bps_per_fill_bps": -9.968649222905634,
+              "roundtrip_half_spread_sum_bps": 0.012865848004840006
+            },
+            "2026-11-02": {
+              "forward_zero_fee_bps": 0.06976731555485173,
+              "reverse_zero_fee_bps": -0.09520993065059209,
+              "forward_five_bps_per_fill_bps": -9.930536089408069,
+              "roundtrip_half_spread_sum_bps": 0.012721307547870181
+            },
+            "2026-11-03": {
+              "forward_zero_fee_bps": 0.04876642795256686,
+              "reverse_zero_fee_bps": -0.07478446187325097,
+              "forward_five_bps_per_fill_bps": -9.951028728079146,
+              "roundtrip_half_spread_sum_bps": 0.013009016960342054
+            },
+            "2026-11-04": {
+              "forward_zero_fee_bps": 0.050525749465172,
+              "reverse_zero_fee_bps": -0.07679797954559571,
+              "forward_five_bps_per_fill_bps": -9.949521333349747,
+              "roundtrip_half_spread_sum_bps": 0.013136115040211855
+            },
+            "2026-11-05": {
+              "forward_zero_fee_bps": 0.040641628679422566,
+              "reverse_zero_fee_bps": -0.06542577877752098,
+              "forward_five_bps_per_fill_bps": -9.959317799352569,
+              "roundtrip_half_spread_sum_bps": 0.012392075049049208
+            },
+            "2026-11-07": {
+              "forward_zero_fee_bps": 0.1512445437836109,
+              "reverse_zero_fee_bps": -0.17756979190576916,
+              "forward_five_bps_per_fill_bps": -9.848603632922746,
+              "roundtrip_half_spread_sum_bps": 0.013162624061079133
+            },
+            "2026-11-08": {
+              "forward_zero_fee_bps": -0.01318347722155872,
+              "reverse_zero_fee_bps": -0.01318347722155872,
+              "forward_five_bps_per_fill_bps": -10.012919201259283,
+              "roundtrip_half_spread_sum_bps": 0.01318347722155872
+            },
+            "2026-11-09": {
+              "forward_zero_fee_bps": 0.13699334783104505,
+              "reverse_zero_fee_bps": -0.16366592563995314,
+              "forward_five_bps_per_fill_bps": -9.863017786364004,
+              "roundtrip_half_spread_sum_bps": 0.013336288904454041
+            },
+            "2026-11-11": {
+              "forward_zero_fee_bps": 0.01771681705627111,
+              "reverse_zero_fee_bps": -0.04482479753248076,
+              "forward_five_bps_per_fill_bps": -9.982126878120914,
+              "roundtrip_half_spread_sum_bps": 0.013553990238104826
+            },
+            "2026-11-12": {
+              "forward_zero_fee_bps": 0.0039059869155568,
+              "reverse_zero_fee_bps": -0.03101431072001878,
+              "forward_five_bps_per_fill_bps": -9.996461309689847,
+              "roundtrip_half_spread_sum_bps": 0.01355416190223099
+            },
+            "2026-11-14": {
+              "forward_zero_fee_bps": -0.2979346916419378,
+              "reverse_zero_fee_bps": 0.22922086972288314,
+              "forward_five_bps_per_fill_bps": -10.29811573028333,
+              "roundtrip_half_spread_sum_bps": 0.03435691095952734
+            },
+            "2026-11-15": {
+              "forward_zero_fee_bps": 0.10317607076031685,
+              "reverse_zero_fee_bps": -0.13419689674933807,
+              "forward_five_bps_per_fill_bps": -9.896742322451999,
+              "roundtrip_half_spread_sum_bps": 0.015510412994510612
+            },
+            "2026-11-18": {
+              "forward_zero_fee_bps": 0.05495598740395871,
+              "reverse_zero_fee_bps": -0.0860083691495301,
+              "forward_five_bps_per_fill_bps": -9.94512990398783,
+              "roundtrip_half_spread_sum_bps": 0.015526190872785695
+            },
+            "2026-11-20": {
+              "forward_zero_fee_bps": 0.09116651006309442,
+              "reverse_zero_fee_bps": -0.12337932464605103,
+              "forward_five_bps_per_fill_bps": -9.908967014717328,
+              "roundtrip_half_spread_sum_bps": 0.016106407291478303
+            }
+          },
+          "reverse_zero_fee_negative_dates": 20,
+          "leave_one_observed_date_out_reverse_zero_fee_bps": {
+            "2026-10-25": -0.0754132750088925,
+            "2026-10-26": -0.06922998879836684,
+            "2026-10-27": -0.07265471044956845,
+            "2026-10-28": -0.07464099374724086,
+            "2026-10-29": -0.07135678110412488,
+            "2026-10-30": -0.0735974858065927,
+            "2026-10-31": -0.07520675900131876,
+            "2026-11-01": -0.07487097610030968,
+            "2026-11-02": -0.07297221222203838,
+            "2026-11-03": -0.07399348566090544,
+            "2026-11-04": -0.0738928097772882,
+            "2026-11-05": -0.07446141981569193,
+            "2026-11-07": -0.06885421915927953,
+            "2026-11-08": -0.07707353489349004,
+            "2026-11-09": -0.06954941247257032,
+            "2026-11-11": -0.07549146887794395,
+            "2026-11-12": -0.07618199321856704,
+            "2026-11-14": -0.08919375224071215,
+            "2026-11-15": -0.07102286391710108,
+            "2026-11-18": -0.07343229029709147,
+            "2026-11-20": -0.07156374252226542
+          },
+          "reverse_with_nonnegative_fees_mean_upper_bound_bps": -0.07403115119482664,
+          "reverse_five_bps_per_fill_bounds": {
+            "lower_bps": -10.074053021235144,
+            "upper_bps": -10.07402438741628,
+            "fee_difference_abs_bound_bps": 1.4316809432143868e-05,
+            "numerical_padding_bps": 1e-10,
+            "scope": "Deterministic full-fill quote-price accounting bound, not a confidence interval or an executable-policy performance bound."
+          },
+          "abstain_bps": 0
+        }
+      }
+    }
+  },
+  "preserved_trace_checks": [
+    {
+      "slot_id": "2026-10-25-am",
+      "signal_event_line_1based": 7539,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 0.18523469544637547,
+          "reverse_zero_fee_signal_mid_bps": -0.20993265483922555,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08267915",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 0.18523469544637547,
+          "reverse_zero_fee_signal_mid_bps": -0.20993265483922555,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08267915",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.012348979696425032,
+          "reverse_zero_fee_signal_mid_bps": -0.012348979696425032,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08107995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.012348979696425032,
+          "reverse_zero_fee_signal_mid_bps": -0.012348979696425032,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08107995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.012348979696425032,
+          "reverse_zero_fee_signal_mid_bps": -0.012348979696425032,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08107995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012348979696425032,
+          "reverse_zero_fee_signal_mid_bps": -0.012348979696425032,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08107995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-10-25-pm",
+      "signal_event_line_1based": 4684,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 0.6822259668847516,
+          "reverse_zero_fee_signal_mid_bps": -0.7070341838623789,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08631565",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 0.5209725565301739,
+          "reverse_zero_fee_signal_mid_bps": -0.5457807735078013,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08501500",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 0.5209725565301739,
+          "reverse_zero_fee_signal_mid_bps": -0.5457807735078013,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08501500",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": 0.4341437971084783,
+          "reverse_zero_fee_signal_mid_bps": -0.4589520140861056,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08431465",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.012404108488813665,
+          "reverse_zero_fee_signal_mid_bps": -0.012404108488813665,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08071285",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012404108488813665,
+          "reverse_zero_fee_signal_mid_bps": -0.012404108488813665,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08071285",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-10-26-am",
+      "signal_event_line_1based": 1468,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07979375",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07979375",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07979375",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07979375",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07979375",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_zero_fee_signal_mid_bps": -0.012548035448200141,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07979375",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-10-27-am",
+      "signal_event_line_1based": 820,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07974195",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07974195",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07974195",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07974195",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07974195",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_zero_fee_signal_mid_bps": -0.012556196828430243,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07974195",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-10-28-am",
+      "signal_event_line_1based": 962,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08103485",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08103485",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08103485",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08103485",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08103485",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_zero_fee_signal_mid_bps": -0.012355616894329204,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08103485",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-10-29-am",
+      "signal_event_line_1based": 64,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07996675",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07996675",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07996675",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07996675",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07996675",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_zero_fee_signal_mid_bps": -0.01252085504919131,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07996675",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-10-30-am",
+      "signal_event_line_1based": 507,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 1.849673299836569,
+          "reverse_zero_fee_signal_mid_bps": -1.87554285647764,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09181815",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 1.849673299836569,
+          "reverse_zero_fee_signal_mid_bps": -1.87554285647764,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09181815",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 1.2288039404508675,
+          "reverse_zero_fee_signal_mid_bps": -1.2546734970919384,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08702055",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": 1.2288039404508675,
+          "reverse_zero_fee_signal_mid_bps": -1.2546734970919384,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08702055",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.012934778320535448,
+          "reverse_zero_fee_signal_mid_bps": -0.012934778320535448,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07742535",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012934778320535448,
+          "reverse_zero_fee_signal_mid_bps": -0.012934778320535448,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07742535",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-10-31-am",
+      "signal_event_line_1based": 157,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07739135",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07739135",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07739135",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07739135",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07739135",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_zero_fee_signal_mid_bps": -0.012938058398514193,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07739135",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-01-am",
+      "signal_event_line_1based": 3820,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07780205",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07780205",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07780205",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07780205",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07780205",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_zero_fee_signal_mid_bps": -0.012869673322647214,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07780205",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-02-am",
+      "signal_event_line_1based": 1455,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 1.6821918960405409,
+          "reverse_zero_fee_signal_mid_bps": -1.707679652041155,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09187570",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 1.6821918960405409,
+          "reverse_zero_fee_signal_mid_bps": -1.707679652041155,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09187570",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 0.8156081920196562,
+          "reverse_zero_fee_signal_mid_bps": -0.8410959480202704,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08507910",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": 0.8156081920196562,
+          "reverse_zero_fee_signal_mid_bps": -0.8410959480202704,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08507910",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": 0.8156081920196562,
+          "reverse_zero_fee_signal_mid_bps": -0.8410959480202704,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08507910",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012743878000307128,
+          "reverse_zero_fee_signal_mid_bps": -0.012743878000307128,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07858235",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-03-am",
+      "signal_event_line_1based": 950,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 2.8461721908183004,
+          "reverse_zero_fee_signal_mid_bps": -2.872164630917098,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09903445",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 2.7811910905713075,
+          "reverse_zero_fee_signal_mid_bps": -2.8071835306701045,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09853420",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 1.624527506174829,
+          "reverse_zero_fee_signal_mid_bps": -1.6505199462736264,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08962975",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": 1.624527506174829,
+          "reverse_zero_fee_signal_mid_bps": -1.6505199462736264,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08962975",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": 0.4288752616301549,
+          "reverse_zero_fee_signal_mid_bps": -0.45486770172895213,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08042515",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.012996220049398632,
+          "reverse_zero_fee_signal_mid_bps": -0.012996220049398632,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07702345",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-04-am",
+      "signal_event_line_1based": 113,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 1.2106003854183183,
+          "reverse_zero_fee_signal_mid_bps": -1.2369177851013253,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08539070",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 1.2106003854183183,
+          "reverse_zero_fee_signal_mid_bps": -1.2369177851013253,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08539070",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 0.8421567898562214,
+          "reverse_zero_fee_signal_mid_bps": -0.8684741895392284,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08258930",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": 0.8026806903317111,
+          "reverse_zero_fee_signal_mid_bps": -0.828998090014718,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08228915",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": 0.09211089889052422,
+          "reverse_zero_fee_signal_mid_bps": -0.11842829857353114,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07688645",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": 0.09211089889052422,
+          "reverse_zero_fee_signal_mid_bps": -0.11842829857353114,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07688645",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-05-am",
+      "signal_event_line_1based": 41,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 3.2101077493116548,
+          "reverse_zero_fee_signal_mid_bps": -3.2348962261403162,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.10679565",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 1.5740682786200006,
+          "reverse_zero_fee_signal_mid_bps": -1.5988567554486621,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09360225",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 1.38815470240504,
+          "reverse_zero_fee_signal_mid_bps": -1.4129431792337015,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09210300",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": 1.1898468877757487,
+          "reverse_zero_fee_signal_mid_bps": -1.21463536460441,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09050380",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": 1.1898468877757487,
+          "reverse_zero_fee_signal_mid_bps": -1.21463536460441,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09050380",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": 1.1898468877757487,
+          "reverse_zero_fee_signal_mid_bps": -1.21463536460441,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.09050380",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-07-am",
+      "signal_event_line_1based": 517,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07609365",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07609365",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07609365",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07609365",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07609365",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_zero_fee_signal_mid_bps": -0.013158994205436902,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07609365",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-08-am",
+      "signal_event_line_1based": 6250,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 0.5271470865568927,
+          "reverse_zero_fee_signal_mid_bps": -0.5535044408847373,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08007810",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07597605",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07597605",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07597605",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07597605",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_zero_fee_signal_mid_bps": -0.013178677163922316,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07597605",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-09-am",
+      "signal_event_line_1based": 1445,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07505185",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07505185",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07505185",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07505185",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07505185",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_zero_fee_signal_mid_bps": -0.013341898832383724,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07505185",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-11-am",
+      "signal_event_line_1based": 979,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07394995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07394995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07394995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07394995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07394995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_zero_fee_signal_mid_bps": -0.013540970576147986,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07394995",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-12-am",
+      "signal_event_line_1based": 309,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 0.7598273835004841,
+          "reverse_zero_fee_signal_mid_bps": -0.7869640757683585,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07950380",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 0.7598273835004841,
+          "reverse_zero_fee_signal_mid_bps": -0.7869640757683585,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07950380",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 0.7598273835004841,
+          "reverse_zero_fee_signal_mid_bps": -0.7869640757683585,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07950380",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.013568346133937216,
+          "reverse_zero_fee_signal_mid_bps": -0.013568346133937216,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07380665",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.013568346133937216,
+          "reverse_zero_fee_signal_mid_bps": -0.013568346133937216,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07380665",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.013568346133937216,
+          "reverse_zero_fee_signal_mid_bps": -0.013568346133937216,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07380665",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-14-am",
+      "signal_event_line_1based": 693,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 0.16346558937889763,
+          "reverse_zero_fee_signal_mid_bps": -0.1931866056296063,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06859185",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 0.16346558937889763,
+          "reverse_zero_fee_signal_mid_bps": -0.1931866056296063,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06859185",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.2526286381310236,
+          "reverse_zero_fee_signal_mid_bps": 0.22290762188031496,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06579045",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.2526286381310236,
+          "reverse_zero_fee_signal_mid_bps": 0.22290762188031496,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06579045",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.01486050812535433,
+          "reverse_zero_fee_signal_mid_bps": -0.01486050812535433,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06739125",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.01486050812535433,
+          "reverse_zero_fee_signal_mid_bps": -0.01486050812535433,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06739125",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-15-am",
+      "signal_event_line_1based": 473,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 3.065061289731815,
+          "reverse_zero_fee_signal_mid_bps": -3.095711902629133,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08546160",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 3.065061289731815,
+          "reverse_zero_fee_signal_mid_bps": -3.095711902629133,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08546160",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 3.065061289731815,
+          "reverse_zero_fee_signal_mid_bps": -3.095711902629133,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08546160",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": 3.065061289731815,
+          "reverse_zero_fee_signal_mid_bps": -3.095711902629133,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.08546160",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": 1.7777355480444526,
+          "reverse_zero_fee_signal_mid_bps": -1.8083861609417706,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07706580",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": 1.7624102415957934,
+          "reverse_zero_fee_signal_mid_bps": -1.7930608544931117,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07696585",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-18-am",
+      "signal_event_line_1based": 1303,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": 0.8536468959458757,
+          "reverse_zero_fee_signal_mid_bps": -0.8846886012529984,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07013225",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": 0.8536468959458757,
+          "reverse_zero_fee_signal_mid_bps": -0.8846886012529984,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07013225",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": 0.8536468959458757,
+          "reverse_zero_fee_signal_mid_bps": -0.8846886012529984,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07013225",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": 0.8536468959458757,
+          "reverse_zero_fee_signal_mid_bps": -0.8846886012529984,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.07013225",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.015520852653561377,
+          "reverse_zero_fee_signal_mid_bps": -0.015520852653561377,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06453505",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.015520852653561377,
+          "reverse_zero_fee_signal_mid_bps": -0.015520852653561377,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06453505",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    },
+    {
+      "slot_id": "2026-11-20-am",
+      "signal_event_line_1based": 873,
+      "cells": [
+        {
+          "delay_ms": 0,
+          "forward_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06212345",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 25,
+          "forward_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06212345",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 50,
+          "forward_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06212345",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 100,
+          "forward_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06212345",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 250,
+          "forward_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06212345",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        },
+        {
+          "delay_ms": 500,
+          "forward_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_zero_fee_signal_mid_bps": -0.01612293414829391,
+          "reverse_five_bps_net_usdt_quote_arithmetic": "-0.06212345",
+          "reverse_entry_depth_sufficient": true,
+          "reverse_exit_depth_sufficient": true,
+          "scope": "Arithmetic on one preserved trace only. Prices are not validated inverse fills and trace depth does not establish full-cohort opposite-side depth."
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "session-results.json": "066b3e5625ce5331c47a09f405584424fe9322c68008f9f775d550efcbca927c",
+    "analysis.json": "56b93de2575201c904a8917e5dce7b819e7612e740750263e89b0565858ccd71",
+    "checksums.json": "67f754e903a6ca5cc4833b3edccdd75187df73858de9472185f57d0c4c7b50ca"
+  },
+  "implementation_sha256": {
+    "research/autolab/reversal_control.py": "1692d5ba08dd0d0796c9afbe0cb62334d99e666f8143f8a734ad9ff585538652",
+    "research/roadmap/latency_report.py": "df56f112427ef6ee6881736a92a90b75d88188465055fac6f29e7fd1dcee365a"
+  },
+  "raw_tapes_replayed": false,
+  "models_fitted": 0,
+  "new_market_observations": 0,
+  "confirmatory_inference_valid": false,
+  "deployment_authorized": false,
+  "limits": "Algebraic control on a previously inspected, ex-post quote/depth-selected subset. Opposite-side depth for every opportunity is unavailable; inverse fills are not validated. The nonnegative-fee bound assumes full-size fills at these same BBOs on the unchanged opportunity set, not a policy that skips signals or changes execution. Original holdout labels are historical, not an untouched test for this control. No model-source lock is changed."
+}

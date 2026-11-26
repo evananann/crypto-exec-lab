@@ -47,6 +47,13 @@ The [retained-evidence decision report](reports/retained_decision_20261126/READM
 checks every archived rehearsal session before attempting the paired comparison
 and distinguishes unavailable incremental estimates from reproduced legacy costs.
 
+A separate offline [direction-reversal control](reports/reversal_control_20261126/README.md)
+asks whether inverting the fixed trade rescues the economics. On the same retained
+quote set at 50 ms, the reversed commission-free mean is **−0.2909 bps per signal-mid
+notional**. Nonnegative fees worsen that full-fill quote-price result. Opposite-side
+liquidity is unverified across the full set, so this is an accounting control, not
+a validated reversal strategy.
+
 The [fixed-policy feasibility audit](reports/policy_feasibility_20261126/README.md)
 finds zero decision contrasts in 32 feature points from two failed captures.
 The largest candidate score was 0.825 bps against a 12-bps trigger. This short,

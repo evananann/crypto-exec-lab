@@ -135,3 +135,12 @@ examines the unchanged policy’s score hurdle, observed decision contrasts and
 current-quote break-even arithmetic. It preserves all failed-source statuses and
 computes no execution outcomes. CI validates its synthetic tests and published
 checksums; it does not admit those captures into paired inference.
+
+## Offline direction-reversal control
+
+The [retrospective control](../reports/reversal_control_20261126/README.md) tests a
+separate economic question using committed quote aggregates and saved traces.
+Both directions cross the spread; after-fee returns cannot be sign-flipped.
+The lab verifies the published artifact and tests the accounting identities.
+This requires no collection server and supplies no new market observations or
+confirmed opposite-side fills. The original model comparison remains unchanged.
