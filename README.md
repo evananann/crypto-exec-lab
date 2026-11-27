@@ -50,9 +50,12 @@ and distinguishes unavailable incremental estimates from reproduced legacy costs
 A separate offline [direction-reversal control](reports/reversal_control_20261126/README.md)
 asks whether inverting the fixed trade rescues the economics. On the same retained
 quote set at 50 ms, the reversed commission-free mean is **−0.2909 bps per signal-mid
-notional**. Nonnegative fees worsen that full-fill quote-price result. Opposite-side
-liquidity is unverified across the full set, so this is an accounting control, not
-a validated reversal strategy.
+notional**. Nonnegative fees worsen that full-fill quote-price result. The subsequent
+[full retained-set depth audit](reports/reversal_depth_20261127/README.md) checks
+opposite-side displayed liquidity on every original common opportunity. Unsupported
+exits retain unknown P&L and residual inventory. The daily lab recomputes the
+committed quote ledgers; these remain hypothetical outcomes, with actual fills
+unverified.
 
 The [fixed-policy feasibility audit](reports/policy_feasibility_20261126/README.md)
 finds zero decision contrasts in 32 feature points from two failed captures.

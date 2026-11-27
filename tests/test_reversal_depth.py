@@ -69,6 +69,20 @@ class ReversalDepthTests(unittest.TestCase):
         self.assertEqual(raw, b'')
         depth.verify_reference(result, cost.analyze_books(books))
 
+    def test_reverse_buy_keeps_long_inventory_when_exit_bid_is_too_small(self):
+        books = fixture()
+        books['binance'][1] = replace(books['binance'][1], bid=97, ask=99)
+        books['okx'][-1] = replace(books['okx'][-1], bid_size=.0003)
+        result, raw = self.analyze(books)
+        depth.verify_reference(result, cost.analyze_books(books))
+        item = json.loads(raw)
+        self.assertEqual(item['original_side'], -1)
+        self.assertEqual(item['inverse_status']['50'],
+            {'status': 'UNKNOWN_EXIT_DEPTH', 'residual_btc': '0.001'})
+        self.assertEqual(result['inverse_cells']['50/5']['UNKNOWN_EXIT_DEPTH'], 1)
+        # The original sell closes against the well-sized ask, so remains in its fixed set.
+        self.assertEqual(result['common_opportunities'], 1)
+
     def test_cache_recomputes_accounting_and_rejects_receipt_mutation(self):
         analysis, raw = self.analyze(fixture())
         reference = cost.analyze_books(fixture()) | {
@@ -90,6 +104,53 @@ class ReversalDepthTests(unittest.TestCase):
                 depth.validate_cached(root, reference, 'protocol')
             with self.assertRaisesRegex(ValueError, 'binding differs'):
                 depth.validate_cached(root, reference, 'wrong-protocol')
+
+
+class DepthPublicationTests(unittest.TestCase):
+    @staticmethod
+    def session(slot, delta, n=1, unknown=False, rejected=False):
+        statuses = {'CLOSED_AT_RECORDED_BBO': n if not unknown and not rejected else 0,
+                    'UNKNOWN_EXIT_DEPTH': n if unknown else 0,
+                    'REJECTED_ENTRY_DEPTH': n if rejected else 0}
+        values = statuses | {'all_quote_net_bps_sum': delta*n,
+                            'known_outcomes': 0 if unknown else n,
+                            'known_inverse_bps_sum': 0 if unknown or rejected else delta*n,
+                            'known_forward_bps_sum': 0 if unknown else -delta*n,
+                            'known_paired_difference_bps_sum': 0 if unknown else (delta if rejected else 2*delta)*n}
+        return {'slot_id': slot, 'phase': 'development', 'status': 'AVAILABLE',
+                'replay': {'slot_id': slot, 'analysis': {'common_opportunities': n,
+                    'inverse_cells': {f'{d}/{f}': values for d in cost.DELAYS for f in cost.FEES}}}}
+
+    def test_equal_slot_then_date_weights_differ_from_pooled_signal_mean(self):
+        from research.autolab.depth_publication import aggregate
+        rows = [self.session('2026-01-01-am', 1, 1000),
+                self.session('2026-01-01-pm', 3, 1000), self.session('2026-01-02-am', 8)]
+        full = aggregate(rows)['full']
+        self.assertEqual(full['common_opportunities'], 2001)
+        cell = full['cells']['50/5']
+        self.assertEqual(cell['depth_aware_retained_set_mean_bps'], 5)
+        self.assertEqual(cell['full_fill_quote_arithmetic']['equal_day_mean_bps'], 5)
+
+    def test_unknown_exit_invalidates_full_estimate_and_keeps_paired_mask(self):
+        from research.autolab.depth_publication import aggregate
+        rows = [self.session('2026-01-01-am', 1), self.session('2026-01-02-am', 999, unknown=True),
+                {'slot_id': '2026-01-03-am', 'phase': 'development', 'status': 'ORIGINAL_UNAVAILABLE', 'replay': None}]
+        full = aggregate(rows)['full']
+        self.assertEqual(full['scheduled_slots'], 3)
+        self.assertEqual(full['available_slots'], 2)
+        cell = full['cells']['50/5']
+        self.assertIsNone(cell['depth_aware_retained_set_mean_bps'])
+        self.assertEqual(cell['known_subset_reverse']['included_dates'], 1)
+        self.assertEqual(cell['known_subset_forward']['equal_day_mean_bps'], -1)
+        self.assertEqual(cell['known_subset_paired_reverse_minus_forward']['equal_day_mean_bps'], 2)
+        self.assertEqual(cell['full_fill_quote_arithmetic']['equal_day_mean_bps'], 500)
+
+    def test_entry_rejection_is_observed_zero_not_an_unknown_exit(self):
+        from research.autolab.depth_publication import aggregate
+        cell = aggregate([self.session('2026-01-01-am', -7, rejected=True)])['full']['cells']['50/5']
+        self.assertEqual(cell['depth_aware_retained_set_mean_bps'], 0)
+        self.assertEqual(cell['known_opportunities'], 1)
+        self.assertEqual(cell['counts']['UNKNOWN_EXIT_DEPTH'], 0)
 
 
 if __name__ == '__main__':
