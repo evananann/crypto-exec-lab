@@ -15,7 +15,8 @@ The allowlisted task graph in `research/autolab/plan.json` executes:
 
 1. Verify all 184 frozen source bindings and the exact registered source membership.
 2. Verify all allowlisted committed report checksums. Recompute the opposite-side
-   depth audit from its complete compact quote ledgers across all 24 fixed cases;
+   depth audit and conditional liquidation bounds from its compact quote ledgers
+   across all 24 fixed cases;
    this reuses retained quotes and does not restore raw archives on each run.
 3. Reaggregate every released latency/cost session and recompute the saved trace
    examples across all 24 fixed delay/fee cells. Verify the original replay source
@@ -158,3 +159,16 @@ inventory. The daily released-evidence task recomputes the committed compact
 ledgers and all 24 fixed cases before accepting their published results. It does
 not download the raw tapes or establish actual exchange fills. The original
 missing/excluded schedule and scientific conclusion remain unchanged.
+
+
+## Conditional liquidation decision
+
+The [completion-envelope analysis](../reports/liquidation_bounds_20261127/README.md)
+asks whether optimistic immediate completion of unsupported exits can rescue the
+reversal under declared assumptions. It retains unknown point P&L, computes
+finite long-loss bounds and unbounded short-loss flags, and labels adverse
+residual-price scenarios as assumptions. It preserves the full missing/excluded
+schedule and weights the retained dates identically. The released-evidence task
+recomputes the envelopes after verifying the source depth ledgers; its conditional
+finding appears in the Actions summary. This supplies no actual fill evidence or
+formal conclusion for the original missing-data study.

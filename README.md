@@ -55,7 +55,10 @@ notional**. Nonnegative fees worsen that full-fill quote-price result. The subse
 opposite-side displayed liquidity on every original common opportunity. Unsupported
 exits retain unknown P&L and residual inventory. The daily lab recomputes the
 committed quote ledgers; these remain hypothetical outcomes, with actual fills
-unverified.
+unverified. A [conditional liquidation analysis](reports/liquidation_bounds_20261127/README.md)
+then bounds the unsupported exits under fixed-entry, immediate-liquidation
+assumptions. Its optimistic retained-set mean remains negative at every fixed
+delay even without commissions; exact depth-aware P&L remains unknown.
 
 The [fixed-policy feasibility audit](reports/policy_feasibility_20261126/README.md)
 finds zero decision contrasts in 32 feature points from two failed captures.
