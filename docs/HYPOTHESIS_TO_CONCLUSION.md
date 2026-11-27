@@ -125,3 +125,15 @@ Use the [bounded qualification launcher](QUALIFICATION_LAUNCHER.md) to bind
 source/configuration intent, check local clock/disk prerequisites and capture
 fresh before/after instrument responses around one recording. Every restart
 requires a new attempt. This infrastructure check does not enroll a study.
+
+
+## Separate historical archive route
+
+The [source-discovery runner and dated report](../reports/historical_sources_20261127/README.md)
+probe original Binance/OKX archive candidates without computing strategy returns.
+Exact unsigned official URLs, bounded downloads and publisher checksum checks
+are implemented. Catalog access never promotes data eligibility. Native schemas,
+dated quantity specifications, complete coverage and timestamp domains still need
+qualification. Exchange-time data requires a separate historical design and
+cannot be substituted into the receive-time prospective study. The scheduled lab
+checks the committed discovery evidence offline; it does not perform downloads.

@@ -26,6 +26,8 @@ on:
       - 'tests/test_reversal_control.py'
       - 'tests/test_reversal_depth.py'
       - 'tests/test_liquidation_bounds.py'
+      - 'tests/test_historical_sources.py'
+      - 'reports/historical_sources_20261127/**'
       - 'reports/liquidation_bounds_20261127/**'
       - 'reports/reversal_depth_20261127/**'
       - 'reports/reversal_control_20261126/**'
@@ -68,7 +70,7 @@ jobs:
           key: autolab-v1-main-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: autolab-v1-main-
       - name: Verify controller recovery and research boundaries
-        run: uv run --frozen python -m unittest tests.test_autolab tests.test_capture_qualification tests.test_paired_review tests.test_raw_replay tests.test_enrollment_evidence tests.test_cohort_controls tests.test_retained_audit tests.test_acquisition tests.test_disk_replay tests.test_feasibility tests.test_reversal_control tests.test_reversal_depth tests.test_liquidation_bounds -v
+        run: uv run --frozen python -m unittest tests.test_autolab tests.test_capture_qualification tests.test_paired_review tests.test_raw_replay tests.test_enrollment_evidence tests.test_cohort_controls tests.test_retained_audit tests.test_acquisition tests.test_disk_replay tests.test_feasibility tests.test_reversal_control tests.test_reversal_depth tests.test_liquidation_bounds tests.test_historical_sources -v
       - name: Run bounded research queue
         run: >-
           uv run --frozen python -m research.autolab.controller

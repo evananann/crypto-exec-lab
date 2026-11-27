@@ -126,7 +126,11 @@ class AutolabTests(unittest.TestCase):
         self.assertEqual(set(released['verified_files_by_report']), {
             'formal_decision_20261123', 'missingness_frontier_20261123', 'latency_cost_20261124',
             'collector_gate_20261125', 'enrollment_evidence_20261125', 'retained_decision_20261126',
-            'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126', 'reversal_depth_20261127', 'liquidation_bounds_20261127'})
+            'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126', 'reversal_depth_20261127', 'liquidation_bounds_20261127', 'historical_sources_20261127'})
+        discovery = released['historical_source_discovery']
+        self.assertFalse(discovery['historical_sample_qualified'])
+        self.assertEqual(discovery['official_okx_archive_descriptions'], 2)
+        self.assertEqual(discovery['network_requests_this_check'], 0)
         bounds = released['liquidation_bounds_reproduction']
         self.assertEqual(bounds['retained_opportunities'], 11441)
         self.assertEqual(bounds['delay_fee_cells'], 24)
