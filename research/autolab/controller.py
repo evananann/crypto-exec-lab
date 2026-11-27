@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PLAN = Path(__file__).with_name('plan.json')
 REPORTS = ('formal_decision_20261123', 'missingness_frontier_20261123',
            'latency_cost_20261124', 'collector_gate_20261125', 'enrollment_evidence_20261125',
-           'retained_decision_20261126', 'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126', 'reversal_depth_20261127', 'liquidation_bounds_20261127')
+           'retained_decision_20261126', 'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126', 'reversal_depth_20261127', 'liquidation_bounds_20261127', 'historical_sources_20261127')
 FROZEN = (('configs/successor/registered_study.json', 'source_files_sha256'),
           ('configs/study_v2_okx.json', 'analysis_files_sha256'),
           ('configs/study_v2_bybit.json', 'analysis_files_sha256'),
@@ -230,8 +230,11 @@ def released_integrity(plan):
         counts[report] = len(checksums)
     from research.autolab.liquidation_bounds import verify_published
     reproduction = verify_published()
+    from research.autolab.historical_sources import verify_discovery
+    discovery = verify_discovery(ROOT/'reports/historical_sources_20261127')
     return {'verified_files_by_report': counts, 'reversal_depth_reproduction': reproduction['depth_reproduction'],
             'liquidation_bounds_reproduction': reproduction['bounds_reproduction'],
+            'historical_source_discovery': discovery,
             'scope': 'Local committed evidence integrity and derived quote-ledger accounting, not a new remote restore.'}
 
 

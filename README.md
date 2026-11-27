@@ -66,6 +66,11 @@ The largest candidate score was 0.825 bps against a 12-bps trigger. This short,
 unqualified sample establishes neither signal frequency nor incremental value;
 qualified activity evidence is needed before a long policy comparison.
 
+The [historical-source discovery report](reports/historical_sources_20261127/README.md)
+identifies official OKX depth archives and records the current download-access
+blocker. The proposed Binance counterpart and both files’ contents remain
+unverified; no paired historical dataset or new policy result is claimed.
+
 ## Automated research lab
 
 The [research controller](docs/AUTOMATED_RESEARCH_LAB.md) runs a daily, bounded
