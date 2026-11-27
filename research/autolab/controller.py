@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PLAN = Path(__file__).with_name('plan.json')
 REPORTS = ('formal_decision_20261123', 'missingness_frontier_20261123',
            'latency_cost_20261124', 'collector_gate_20261125', 'enrollment_evidence_20261125',
-           'retained_decision_20261126', 'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126', 'reversal_depth_20261127')
+           'retained_decision_20261126', 'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126', 'reversal_depth_20261127', 'liquidation_bounds_20261127')
 FROZEN = (('configs/successor/registered_study.json', 'source_files_sha256'),
           ('configs/study_v2_okx.json', 'analysis_files_sha256'),
           ('configs/study_v2_bybit.json', 'analysis_files_sha256'),
@@ -228,9 +228,10 @@ def released_integrity(plan):
             if Path(name).name != name or sha(folder/name) != expected:
                 raise ValueError('released evidence checksum mismatch')
         counts[report] = len(checksums)
-    from research.autolab.depth_publication import verify_published
-    depth = verify_published(ROOT/'reports/reversal_depth_20261127')
-    return {'verified_files_by_report': counts, 'reversal_depth_reproduction': depth,
+    from research.autolab.liquidation_bounds import verify_published
+    reproduction = verify_published()
+    return {'verified_files_by_report': counts, 'reversal_depth_reproduction': reproduction['depth_reproduction'],
+            'liquidation_bounds_reproduction': reproduction['bounds_reproduction'],
             'scope': 'Local committed evidence integrity and derived quote-ledger accounting, not a new remote restore.'}
 
 
@@ -349,6 +350,16 @@ def execute(store, plan, source_bindings, handlers, current_bindings=None):
                    'Evidence maintenance and synthetic checks only. Original scientific decision unchanged. No trading deployment.', '',
                    '| Task | Status | Execution |', '| --- | --- | --- |']
         summary += [f'| {task} | {status} | {modes[task]} |' for task, status in statuses.items()]
+        if statuses.get('released_integrity') == 'PASSED':
+            item = state['attempts']['released_integrity'][-1]
+            evidence = json.loads((run/item['file']).read_text())['result']
+            if 'liquidation_bounds_reproduction' in evidence:
+                bounds = evidence['liquidation_bounds_reproduction']
+                summary += ['', '## Conditional liquidation finding', '',
+                    f"Recomputed {bounds['delay_fee_cells']} cases on {bounds['retained_opportunities']:,} retained opportunities. "
+                    f"50 ms / 5 bps per fill optimistic upper mean: {bounds['conditional_50ms_5bps_upper_bps']:.4f} signal-mid bps.",
+                    'Fixed-entry, immediate-liquidation completion model only. Exact P&L remains unknown; '
+                    'no confidence interval, new observation or deployment approval.']
         if statuses.get('latency_reproduction') == 'PASSED':
             item = state['attempts']['latency_reproduction'][-1]
             evidence = json.loads((run/item['file']).read_text())['result']

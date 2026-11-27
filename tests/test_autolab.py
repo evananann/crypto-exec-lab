@@ -122,10 +122,16 @@ class AutolabTests(unittest.TestCase):
     def test_actual_evidence_is_verified_and_scope_stays_explicit(self):
         config = lab.load_plan()
         self.assertEqual(lab.frozen_integrity(config)['verified_source_bindings'], 184)
-        self.assertEqual(set(lab.released_integrity(config)['verified_files_by_report']), {
+        released = lab.released_integrity(config)
+        self.assertEqual(set(released['verified_files_by_report']), {
             'formal_decision_20261123', 'missingness_frontier_20261123', 'latency_cost_20261124',
             'collector_gate_20261125', 'enrollment_evidence_20261125', 'retained_decision_20261126',
-            'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126', 'reversal_depth_20261127'})
+            'disk_replay_capacity_20261126', 'policy_feasibility_20261126', 'reversal_control_20261126', 'reversal_depth_20261127', 'liquidation_bounds_20261127'})
+        bounds = released['liquidation_bounds_reproduction']
+        self.assertEqual(bounds['retained_opportunities'], 11441)
+        self.assertEqual(bounds['delay_fee_cells'], 24)
+        self.assertFalse(bounds['point_pnl_identified'])
+        self.assertLess(bounds['conditional_50ms_5bps_upper_bps'], 0)
         results = lab.latency_reproduction(config)
         self.assertEqual(results['overlapping_signals'], 11441)
         self.assertEqual(results['usable_slots'], 22)
