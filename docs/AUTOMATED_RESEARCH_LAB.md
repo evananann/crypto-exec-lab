@@ -14,7 +14,9 @@ checks are not time-sensitive market sampling. No hosting purchase is needed.
 The allowlisted task graph in `research/autolab/plan.json` executes:
 
 1. Verify all 184 frozen source bindings and the exact registered source membership.
-2. Verify committed formal-decision, missingness, latency/cost, collector-assessment enrollment-evidence and retained-decision artifact checksums.
+2. Verify all allowlisted committed report checksums. Recompute the opposite-side
+   depth audit from its complete compact quote ledgers across all 24 fixed cases;
+   this reuses retained quotes and does not restore raw archives on each run.
 3. Reaggregate every released latency/cost session and recompute the saved trace
    examples across all 24 fixed delay/fee cells. Verify the original replay source
    bindings. This is output-level replication, not another replay of all raw ticks.
@@ -144,3 +146,15 @@ Both directions cross the spread; after-fee returns cannot be sign-flipped.
 The lab verifies the published artifact and tests the accounting identities.
 This requires no collection server and supplies no new market observations or
 confirmed opposite-side fills. The original model comparison remains unchanged.
+
+
+## Full retained-set opposite-side depth audit
+
+The [November 27 follow-up](../reports/reversal_depth_20261127/README.md) restores
+all original usable tapes, reproduces their published forward results and checks
+reverse-side displayed quantity for every retained opportunity. An unsupported
+entry has zero exposure; an unsupported exit keeps unknown net value and residual
+inventory. The daily released-evidence task recomputes the committed compact
+ledgers and all 24 fixed cases before accepting their published results. It does
+not download the raw tapes or establish actual exchange fills. The original
+missing/excluded schedule and scientific conclusion remain unchanged.
